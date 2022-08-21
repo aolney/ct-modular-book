@@ -1,0 +1,12 @@
+name: ct-modular-book-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - r-bookdown
+  - ca-certificates
+  - certifi
+  - openssl
+  - rstudio-desktop
+  - r-downlit

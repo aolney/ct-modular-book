@@ -1,13 +1,11 @@
-Welcome! 
+# Computational Thinking through Modular Sound Synthesis
 
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
+This is the git repository for the book, "Computational Thinking through Modular Sound Synthesis". To read the book, please visit [the book's website](https://olney.ai/ct-modular-book).
 
-This template provides a skeleton file structure that you can edit to create your book. 
+![](images/by-nc-nd.png) 
 
-The contents inside the .Rmd files provide some pointers to help you get started, but feel free to also delete the content in each file and start fresh.
+The book and website are free to use and are licensed under the [Creative Commons Attribution-NonCommercial-NoDerivs 4.0 License](https://creativecommons.org/licenses/by-nc-nd/4.0/). 
 
-Additional resources:
+## Development
 
-The **bookdown** book: https://bookdown.org/yihui/bookdown/
-
-The **bookdown** package reference site: https://pkgs.rstudio.com/bookdown
+This book was authored using [bookdown](https://github.com/rstudio/bookdown). Please see [the documentation](https://bookdown.org/yihui/bookdown/).
