@@ -1,4 +1,8 @@
+fig:kemplen-machine
+introduction
 why-this-book
+computational-thinking
+modular-synthesis
 physics-and-perception
 harmonic-sounds
 inharmonic-sounds
@@ -12,6 +16,3 @@ trigger-1
 create-1
 modify-1
 minimoog-303
-introduction
-computational-thinking
-modular-synthesis

@@ -77,9 +77,10 @@ Even before the complete electrification of instruments (synthesizers are electr
 
 (ref:kemplen-machine) [YouTube video](https://youtu.be/k_YUB_S6Gpo?start=21) of Wolfgang von Kempelen's speaking machine circa 1780.
 
-```{r kemplen-machine, fig.cap="(ref:kemplen-machine)", echo = F}
-embed_youtube("k_YUB_S6Gpo",78)
-```
+<div class="figure">
+<img src="downloadFigs4latex/kemplen-machine.jpg" alt="(ref:kemplen-machine)"  />
+<p class="caption">(\#fig:kemplen-machine)(ref:kemplen-machine)</p>
+</div>
 
 Consider the difference between wind chimes or a player piano and this speaking machine.
 Neither of the former is a model of the sound but rather uses mechanical means to trigger the sound (later we will refer to this as sequencing).

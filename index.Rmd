@@ -13,6 +13,7 @@ description: |
   This book presents computational thinking concepts and strategies in the context of modular sound synthesis.
 biblio-style: apalike
 csl: "chicago-fullnote-bibliography.csl"
+urlcolor: blue
 ---
 
 # Welcome {-}
