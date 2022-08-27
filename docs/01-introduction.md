@@ -3,10 +3,10 @@
 ## Why this book?
 
 Let's start with why I'm writing it -- that may help justify why you might want to read it. 
-I got into electronic music in the 90's when I lived in London but never transitioned from DJing to making music, though several of my friends did. 
+I got into electronic music in the 1990s when I lived in London but never transitioned from DJing to making music, though several of my friends did. 
 A few years ago, they started talking about modular, and in talking to them and trying to find out more about it, I realized a few things:
 
-- The best books (to me) were from the 70's and 80's^[Old books that I like are @Crombie1982 and @Strange1983. Newer books of note are @Bjoern2018, which gives a great overview of module hardware and history, @Eliraz2022, which gives a broader overview of issues related to musical equipment and production, and @Dusha2020, which gives a modern but briefer introduction to modular than the older books. There are also some online courses (paid), but since I haven't taken them, I'm not listing them here.]
+- The best books (to me) were from the 1970s and 1980s^[Old books that I like are @Crombie1982 and @Strange1983. Newer books of note are @Bjoern2018, which gives a great overview of module hardware and history, @Eliraz2022, which gives a broader overview of issues related to musical equipment and production, and @Dusha2020, which gives a modern but briefer introduction to modular than the older books. There are also some online courses (paid), but since I haven't taken them, I'm not listing them here.]
 - Modular synthesis is really well aligned with *computational thinking* 
 
 If you've never heard of computational thinking and don't know much about modular, that last point won't make a lot of sense, so let's break it down.
@@ -37,9 +37,9 @@ When the field of computing was taking off in the 1950s, there was interest and 
 One argument was that computing involved *algorithmic thinking*, which is designing algorithms to solve problems (cf. programming), and this kind of thinking was unique to computing.
 Some even thought that this kind of thinking could improve thinking generally.
 
-*Computational thinking* appears to have been coined in the 1980's by Seymour Papert and popularized in his book *Mindstorms* [@Papert1980].
-Papert was a mathematician by training, and his approach was much broader than the algorithmic thinking folks that came before.
-Instead, his approach was empirical and embraced model building, with an emphasis on simulated microworlds containing robots (LEGO Mindstorms takes its name from this work).
+*Computational thinking* appears to have been coined in the 1980s by Seymour Papert and popularized in his book *Mindstorms* [@Papert1980].
+Papert was a mathematician by training, and his approach was much broader than the algorithmic thinking approach that came before.
+Instead, his approach was empirical and embraced model building, which he implemented using simulated microworlds containing robots (LEGO Mindstorms takes its name from this work).
 
 Unfortunately today it's very hard to get agreement on what computational thinking is, so definitions tend to be squishy.
 Some want to reduce it to computer literacy, others to basic programming, and yet others to discovery learning with computers, etc.
@@ -71,53 +71,104 @@ For any new domain, the big things to learn are the elements, how they interact,
 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/aseMAEctM1s?start=21" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe> -->
 
 While we can pinpoint the invention of modular synthesis with some precision, it is useful to consider it in a broader context.
-It seems man has long been interested in instruments that incorporate automation or somehow play themselves.
-Wind chimes, which play a series of notes when disturbed by wind, can be found in the historical record thousands of years ago. 
+Humans have long been interested in musica instruments that incorporate automation or somehow play themselves.
+Wind chimes, which play a series of notes when disturbed by wind, appeared in the historical record thousands of years ago. 
 Even before the complete electrification of instruments (synthesizers are electric by definition), there were numerous attempts to partially automate or model sounds using mechanical means, such as barrel organs, player pianos, or speech synthesis using bellows [@Dudley1950] as shown in Figure \@ref(fig:kemplen-machine).
 
-(ref:kemplen-machine) [YouTube video](https://youtu.be/k_YUB_S6Gpo?start=21) of Wolfgang von Kempelen's speaking machine circa 1780.
+(ref:kemplen-machine) [YouTube video](https://youtu.be/k_YUB_S6Gpo?start=21) of Wolfgang von Kempelen's speaking machine circa 1780. Image [© Fabian Brackhane](https://www.youtube.com/user/Quintatoen).
 
-<div class="figure">
-<img src="downloadFigs4latex/kemplen-machine.jpg" alt="(ref:kemplen-machine)"  />
-<p class="caption">(\#fig:kemplen-machine)(ref:kemplen-machine)</p>
-</div>
+![(\#fig:kemplen-machine)(ref:kemplen-machine)](downloadFigs4latex/kemplen-machine.jpg) 
 
 Consider the difference between wind chimes or a player piano and this speaking machine.
 Neither of the former is a model of the sound but rather uses mechanical means to trigger the sound (later we will refer to this as sequencing).
 In contrast, the speaking machine is a well-considered model of the human speech mechanism.
 
-Synthesizers using electricity appeared in the late 19th century. 
-Patents were awarded just a few years apart to Elisha Gray, whose synthesizer comprised simple single note oscillators and transmitted over the telegraph, and Thaddeus Cahill (1879), whose larger Telharmonium could sound like an organ or various wood instruments but weighed 210 tons!
+Synthesizers using electricity appeared in the late 19th century.^[There is some difference of opinion on what qualifies as usage of electricity in this context. For a fuller history of synthesizers, see https://120years.net/wordpress/]
+Patents were awarded just a few years apart to Elisha Gray, whose synthesizer comprised simple single note oscillators and transmitted over the telegraph, and Thaddeus Cahill, whose larger Telharmonium could sound like an organ or various wood instruments but weighed 210 tons!
 
-The modular synthesizer was developed by Harald Bode from 1959-1960 [@Bode1984], and this innovation quickly spread to others like Moog and Buchla.
+The modular synthesizer was developed by Harald Bode from 1959-1960 [@Bode1984], and this innovation quickly spread to other electronic music pioneers like Moog and Buchla.
 The key idea of modular is flexibility. 
 This is achieved by refactoring aspects of synthesis (i.e. functions on sound) into a collection of modules.
 These modules may then be combined to create a certain sound by patching them together and adjusting module parameters (e.g. by turning knobs or adjusting sliders).
+An example modular synthesizer is shown in Figure \@ref(fig:serge-modular).
+
+(ref:serge-modular) A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. "Wave Multiplier," and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image [© mikael altemark/CC-BY-2.0](https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg).
+
+<!-- See credit line guidance https://commons.wikimedia.org/wiki/Commons:Credit_line -->
+
+\begin{figure}
+\includegraphics[width=670px]{images/Serge_Modular,_Norbergfestival_2007_cropped} \caption{(ref:serge-modular)}(\#fig:serge-modular)
+\end{figure}
+
+In the 1970s, *semi-modular* synthesizers were developed that did not require patching to make a sound.
+Instead, semi-modulars were pre-set with an invisible default patch, meaning that the default patch wiring was internal and not visible to the user.
+Users could then override this default patch by plugging in patch cables.
+Most semi-modulars from this period also included an integrated keyboard.
+Arguably, theses changes made semi-modulars more approachable to typical musicians.
+An example semi-modular synthesizer is shown in Figure \@ref(fig:semi-modular).
+
+(ref:semi-modular) A Minimoog semi-modular system from the 1970s. Patch points are primarily on the top edge and hidden from view. Image [public domain](https://commons.wikimedia.org/wiki/File:Minimoog.JPG).
+
+\begin{figure}
+\includegraphics[width=670px]{images/800px-Minimoog} \caption{(ref:semi-modular)}(\#fig:semi-modular)
+\end{figure}
+
+Digital technology began replacing the analog technology of synthesizers in the 1980s.
+As a result, synthesizers got smaller and cheaper.
+Since the patches used by modular synthesizers are fundamentally analog, modular synthesizers of this time tended to be all-analog.
+Digital synthesizers made increasing use of preset sounds so that most users never needed to create custom sounds.
+In comparison to digital synthesizers, modular synthesizers were more expensive and harder to use.
+An example digital synthesizer is shown in Figure \@ref(fig:dx7).
+
+(ref:dx7) A Yamaha DX7 from the 1980s. Note the menu-based interface and relative lack of controls compared to modular and semi-modular synthesizers. Image [public domain](https://commons.wikimedia.org/wiki/File:YAMAHA_DX7.jpg).
+
+\begin{figure}
+\includegraphics[width=670px]{images/YAMAHA_DX7} \caption{(ref:dx7)}(\#fig:dx7)
+\end{figure}
+
+By the 1990s the digital transformation was complete, such that computers could be used to create and produce music in software.
+Although computers were still relatively expensive at this time, they provided an all-in-one solution that included editing, mixing, and other production aspects.
+Over the next few decades as personal computers and portable computing devices became common household items, the costs associated with computer-based music making became dominated by the cost of software and associated interfaces like [MIDI](https://en.wikipedia.org/wiki/MIDI) keyboards and controllers.
+Figure \@ref(fig:logic) shows digital audio workstation (DAW) software commonly used in music production.
+
+(ref:logic) The Logic Pro digital audio workstation software. Additional functionality is provided by 3rd-party plugins showing as additional windows on the screen. In the foreground are an audio interface and a MIDI keyboard used for recording/playing audio and entering note information respectively. Image [© Musicianonamission/CC-BY-SA-4.0](https://commons.wikimedia.org/wiki/File:Logic_PRO_X_Tutorial.png).
 
 
-Tcherepnin); modules combined with patch cables to make sounds; a Moog modular then in today’s cost is about $96K.
-1970s –
-Semi-modular synthesizers developed; can be patched like modular but are invisibly pre-patched, which patching overrides; a Minimoog then in today’s cost is about $10K.
+\begin{figure}
+\includegraphics[width=670px]{images/800px-Logic_PRO_X_Tutorial} \caption{(ref:logic)}(\#fig:logic)
+\end{figure}
 
-1980s –
-Digital makes low-cost devices powerful; a Yamaha DX7 then in today’s cost is about $6K.
-1990s – 
-Computers become powerful enough that making/recording music is possible, reducing costs further; a Gateway computer with Cubase then in today’s cost is about $8K.
-2010s –
-Modular synthesizers resurge with lower costs connected to widespread electronics manufacturing, smartphones, and the open-source movement; an ALM System Coupe modular system costs $2.4K and VCVRack (virtual modular) is free.
+The computer-centric approach dominated for a decade or more, but by the 2010s, improved electronics manufacturing, smartphones, and the open-source movement led to lower cost modular synthesizers.
+Additionally, the Eurorack standard [@DoepferMusikelektronik2022;@DoepferMusikelektronik2022a] was widely adopted, making +10,000 modules interoperable.^[https://www.modulargrid.net/]
+As a result, modular synthesis saw a resurgence in popularity.
+Figure \@ref(fig:eurorack) shows a Eurorack modular synthesizer.
 
-**Table here showing cost reductions over time**
+(ref:eurorack) A Eurorack modular synthesizer. The different modules designs and logos reflect the adoption of the Eurorack standard which makes modules from different manufacturers interoperable. Image [© Paul Anthony/CC-BY-SA-4.0](https://commons.wikimedia.org/wiki/File:Eurorack_Modular_Synthesizer.jpg).
 
-link to this somewhere
-https://120years.net/wordpress/
 
-Reducing cost for wider adoption
+\begin{figure}
+\includegraphics[width=670px]{images/Eurorack_Modular_Synthesizer-cropped} \caption{(ref:eurorack)}(\#fig:eurorack)
+\end{figure}
 
-Simplifying use for wider adoption
-Semi-modular
-Special purpose modules vs. general purpose modules
+It is perhaps surprising that some 60 years after its creation, modular synthesis is more popular than ever.
+One possible reason is the reduction in price over time, shown in Table \@ref(tab:price).
+However, other trends seem to be at work.
+While the modular synthesizer was simplified for wider adoption early in its history, first with semi-modular and later with digital synthesizers, the culmination of this trend led to large preset and sample banks that transformed the task of creating a specific sound to searching for a pre-made sound.
+It's plausible that as the search for sounds became more intensive, the time savings of presets diminished, making the modular approach more palatable to novices.
+An intersecting trend is a general dissatisfaction with using computers for all aspects of music making and a corresponding return to hardware instruments, including modular.
 
-Diversification of uses
-A complete composition
-A single voice
-An effects box
+Table: (\#tab:price) The cost of modular, semi-modular, and computer synthesizers over time. Prices are in 2022 dollars.
+
+| Decade | Synthesizer                  | Cost |
+|--------|------------------------------|----------------------|
+| 1960s  | Moog modular synthesiser     | $96,000              |
+| 1970s  | Minimoog semi-modular        | $10,000              |
+| 1980s  | Yamaha DX7                   | $6,000               |
+| 1990s  | Gateway computer with Cubase | $8,000               |
+| 2010s  | ALM System Coupe modular     | $2,400               |
+| ...    | VCVRack virtual modular      | Free                 |
+
+
+
+
+
