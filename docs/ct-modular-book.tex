@@ -82,7 +82,7 @@
 
 \title{Computational Thinking through Modular Sounds Synthesis}
 \author{Andrew M. Olney}
-\date{2022-08-27}
+\date{2022-08-28}
 
 \begin{document}
 \maketitle
@@ -336,11 +336,97 @@ Hopefully this brief history helps explain why: modular represents the building 
 A square wave oscillator in modular is fundamentally the same as that in another hardware synth or DAW software.
 If you understand these building blocks in modular, you should understand them everywhere.
 
+\hypertarget{moving-forward}{%
+\section{Moving forward}\label{moving-forward}}
+
+Our next stop is \emph{Sound} where the focus is to ``understand the problem''.
+Chapter \ref{physics-and-perception} addresses both the physics of sound and our perception of it, which perhaps surprisingly, are not the same.
+From there we move into sounds commonly found in music and their properties, ranging from harmonic sounds in Chapter \ref{harmonic-sounds} to inharmonic sounds like percussion in Chapter \ref{inharmonic-sounds}.
+
+The remainder of the book alternates between learning model elements (modules), how they interact (patches), problem solving (sound design).
+The progressive \emph{Modules} and \emph{Sound Design} sections build up from basic approaches to the more complex.
+By the time we're done, you should have a good foundation to create patches to solve new sound design problems.
+
 \hypertarget{part-sound}{%
 \part{Sound}\label{part-sound}}
 
 \hypertarget{physics-and-perception}{%
 \chapter{Physics and Perception}\label{physics-and-perception}}
+
+From the outset, it's important to understand that the physics of sound and how we perceive it are not the same.
+This is a simple fact of biology.
+Birds can see ultraviolet, and bats can hear ultrasound; humans can't do either.
+Dogs have up to 40 times more olfactory receptors than humans and correspondingly have a much keener sense of smell.
+We can only perceive what our bodies are equipped to perceive.
+
+In addition to the limits of our perception, our bodies also \emph{structure} sensations in ways that don't always align with physics.
+A good example of this is \href{https://en.wikipedia.org/wiki/Equal-loudness_contour}{equal loudness contours}.
+As shown in Figure \ref{fig:elc}, sounds can appear equally loud to humans across frequencies even though the actual sound pressure level (a measure of sound energy) is not constant.
+In other words, our hearing becomes more sensitive depending on the frequency of the sound.
+
+
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/Perceived_Human_Hearing.svg} \caption{An equal loudness contour showing improved sensitivity to frequencies between 500Hz and 4KHz, which approximately matches the range of human speech frequencies. Image \href{https://en.wikipedia.org/wiki/Psychoacoustics\#/media/File:Perceived_Human_Hearing.svg}{public domain}.}\label{fig:elc}
+\end{figure}
+
+Why do we need to understand the physics of sound \emph{and} perception of sound?
+Although ultimately we hear the sounds we're going to make, the process of making the sounds is based in physics.
+So we need to know how both the physics and perception of sound work, at least a bit.
+
+\hypertarget{waves}{%
+\section{Waves}\label{waves}}
+
+Have you ever noticed a dust particle floating in the air, just randomly wandering around?
+That random movement is known as Brownian motion, and it was shown by Einstein to be evidence for the existence of atoms - that you can see with your own eyes!
+The movement is caused by air molecules\footnote{In what follows, we will ignore that air is a mixture of gases because it is irrelevant to the present discussion.} bombarding the dust particle from random directions, as shown in Figure \ref{fig:sim-brownian}.
+
+
+
+\begin{figure}
+\href{https://physics.bu.edu/~duffy/HTML5/brownian_motion.html}{\includegraphics[width=1\linewidth]{02-physics-perception_files/figure-latex/sim-brownian-1} }\caption{\href{https://physics.bu.edu/~duffy/HTML5/brownian_motion.html}{Simulation} of Brownian motion. Press \texttt{Pause} to stop the simulation. © Andrew Duffy/\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC-BY-NC-SA-4.0}.}\label{fig:sim-brownian}
+\end{figure}
+
+Air molecules are always whizzing around like this.
+However, in much of the discussion below, we'll largely ignore this fact and focus instead on the properties of waves passing through air.
+
+Amazingly, it is also possible to see sound waves moving through the air, using a technique called \href{https://en.wikipedia.org/wiki/Schlieren_photography}{Schlieren photography}.
+Schlieren photography captures differences in air pressure, and sound is just a difference in air pressure that travels as a wave.
+Take a look at the video in Figure \ref{fig:firecracker-wave}.
+
+\textbf{TODO} \url{https://www.youtube.com/embed/BspouwCTXRo?start=76\&end=120}
+
+
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/Serge_Modular,_Norbergfestival_2007_cropped} \caption{A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g.~``Wave Multiplier,'' and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image \href{https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg}{© mikael altemark/CC-BY-2.0}.}\label{fig:serge-modular}
+\end{figure}
+
+Here is some garbage text. Figure \ref{fig:sim-wave}.
+
+
+
+\begin{figure}
+\href{https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html}{\includegraphics[width=1\linewidth]{02-physics-perception_files/figure-latex/sim-wave-1} }\caption{\href{https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html}{Simulation} of sound waves. Simulation by \href{https://phet.colorado.edu/}{PhET Interactive Simulations}, University of Colorado Boulder, licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0}.}\label{fig:sim-wave}
+\end{figure}
+
+\hypertarget{frequency-and-pitch}{%
+\section{Frequency and pitch}\label{frequency-and-pitch}}
+
+hz
+
+\hypertarget{amplitude-and-loudness}{%
+\section{Amplitude and loudness}\label{amplitude-and-loudness}}
+
+db
+
+\hypertarget{waveshape-and-timbre}{%
+\section{Waveshape and timbre}\label{waveshape-and-timbre}}
+
+\hypertarget{phase-and-phase}{%
+\section{Phase and \ldots{} phase?}\label{phase-and-phase}}
+
+You might think that we only need to understand how humans perceive sound and not the physics of it\ldots{}
 
 \hypertarget{harmonic-sounds}{%
 \chapter{Harmonic Sounds}\label{harmonic-sounds}}

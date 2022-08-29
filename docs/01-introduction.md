@@ -70,10 +70,9 @@ Over time, these bead adjustments make winning moves more likely and losing move
 
 <!-- See credit line guidance https://commons.wikimedia.org/wiki/Commons:Credit_line -->
 
-<div class="figure">
-<img src="images/800px-Mscroggs-MENACE-cropped.jpg" alt="(ref:menace)" width="100%" />
-<p class="caption">(\#fig:menace)(ref:menace)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/800px-Mscroggs-MENACE-cropped} \caption{(ref:menace)}(\#fig:menace)
+\end{figure}
 
 MENACE is a nice example of computational thinking without computers because algorithmic game playing has a long history in computer science and AI.
 However MENACE is not "an exception to the rule" - teaching computer science without computers has been part of the model curriculum for almost 20 years [@Tucker2003;@Bell2021].
@@ -105,10 +104,7 @@ Even before the complete electrification of instruments (synthesizers are electr
 
 (ref:kemplen-machine) [YouTube video](https://youtu.be/k_YUB_S6Gpo?start=21) of Wolfgang von Kempelen's speaking machine circa 1780. Image [© Fabian Brackhane](https://www.youtube.com/user/Quintatoen).
 
-<div class="figure">
-<img src="downloadFigs4latex/kemplen-machine.jpg" alt="(ref:kemplen-machine)"  />
-<p class="caption">(\#fig:kemplen-machine)(ref:kemplen-machine)</p>
-</div>
+![(\#fig:kemplen-machine)(ref:kemplen-machine)](downloadFigs4latex/kemplen-machine.jpg) 
 
 Consider the difference between wind chimes or a player piano and this speaking machine.
 Neither of the former is a model of the sound but rather uses mechanical means to trigger the sound (later we will refer to this as sequencing).
@@ -127,10 +123,9 @@ An example modular synthesizer is shown in Figure \@ref(fig:serge-modular).
 
 <!-- See credit line guidance https://commons.wikimedia.org/wiki/Commons:Credit_line -->
 
-<div class="figure">
-<img src="images/Serge_Modular,_Norbergfestival_2007_cropped.jpg" alt="(ref:serge-modular)" width="100%" />
-<p class="caption">(\#fig:serge-modular)(ref:serge-modular)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/Serge_Modular,_Norbergfestival_2007_cropped} \caption{(ref:serge-modular)}(\#fig:serge-modular)
+\end{figure}
 
 In the 1970s, *semi-modular* synthesizers were developed that did not require patching to make a sound.
 Instead, semi-modulars were pre-set with an invisible default patch, meaning that the default patch wiring was internal and not visible to the user.
@@ -141,10 +136,9 @@ An example semi-modular synthesizer is shown in Figure \@ref(fig:semi-modular).
 
 (ref:semi-modular) A Minimoog semi-modular system from the 1970s. Patch points are primarily on the top edge and hidden from view. Image [public domain](https://commons.wikimedia.org/wiki/File:Minimoog.JPG).
 
-<div class="figure">
-<img src="images/800px-Minimoog.JPG" alt="(ref:semi-modular)" width="100%" />
-<p class="caption">(\#fig:semi-modular)(ref:semi-modular)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/800px-Minimoog} \caption{(ref:semi-modular)}(\#fig:semi-modular)
+\end{figure}
 
 Digital technology began replacing the analog technology of synthesizers in the 1980s.
 As a result, synthesizers got smaller and cheaper.
@@ -155,10 +149,9 @@ An example digital synthesizer is shown in Figure \@ref(fig:dx7).
 
 (ref:dx7) A Yamaha DX7 from the 1980s. Note the menu-based interface and relative lack of controls compared to modular and semi-modular synthesizers. Image [public domain](https://commons.wikimedia.org/wiki/File:YAMAHA_DX7.jpg).
 
-<div class="figure">
-<img src="images/YAMAHA_DX7.jpg" alt="(ref:dx7)" width="100%" />
-<p class="caption">(\#fig:dx7)(ref:dx7)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/YAMAHA_DX7} \caption{(ref:dx7)}(\#fig:dx7)
+\end{figure}
 
 By the 1990s the digital transformation was complete, such that computers could be used to create and produce music in software.
 Although computers were still relatively expensive at this time, they provided an all-in-one solution that included editing, mixing, and other production aspects.
@@ -168,10 +161,9 @@ Figure \@ref(fig:logic) shows digital audio workstation (DAW) software commonly 
 (ref:logic) Logic Pro digital audio workstation software. Additional functionality is provided by 3rd-party plugins showing as additional windows on the screen. In the foreground are an audio interface and a MIDI keyboard used for recording/playing audio and entering note information respectively. Image [© Musicianonamission/CC-BY-SA-4.0](https://commons.wikimedia.org/wiki/File:Logic_PRO_X_Tutorial.png).
 
 
-<div class="figure">
-<img src="images/800px-Logic_PRO_X_Tutorial.png" alt="(ref:logic)" width="100%" />
-<p class="caption">(\#fig:logic)(ref:logic)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/800px-Logic_PRO_X_Tutorial} \caption{(ref:logic)}(\#fig:logic)
+\end{figure}
 
 The computer-centric approach dominated synthesis for a decade or more, but by the 2010s, improved electronics manufacturing, smartphone technology, and the open-source movement led to lower cost modular synthesizers.
 Additionally, the Eurorack standard [@DoepferMusikelektronik2022;@DoepferMusikelektronik2022a] was widely adopted, leading to +10,000 interoperable modules.^[https://www.modulargrid.net/]
@@ -181,10 +173,9 @@ Figure \@ref(fig:eurorack) shows a Eurorack modular synthesizer.
 (ref:eurorack) A Eurorack modular synthesizer. The different modules designs and logos reflect the adoption of the Eurorack standard which makes modules from different manufacturers interoperable. Image [© Paul Anthony/CC-BY-SA-4.0](https://commons.wikimedia.org/wiki/File:Eurorack_Modular_Synthesizer.jpg).
 
 
-<div class="figure">
-<img src="images/Eurorack_Modular_Synthesizer-cropped.jpg" alt="(ref:eurorack)" width="100%" />
-<p class="caption">(\#fig:eurorack)(ref:eurorack)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/Eurorack_Modular_Synthesizer-cropped} \caption{(ref:eurorack)}(\#fig:eurorack)
+\end{figure}
 
 It is perhaps surprising that some 60 years after its creation, modular synthesis is more popular than ever.
 One possible reason is the reduction in price over time, shown in Table \@ref(tab:price).
@@ -209,5 +200,12 @@ Hopefully this brief history helps explain why: modular represents the building 
 A square wave oscillator in modular is fundamentally the same as that in another hardware synth or DAW software. 
 If you understand these building blocks in modular, you should understand them everywhere.
 
+## Moving forward
 
+Our next stop is *Sound* where the focus is to "understand the problem".
+Chapter \@ref(physics-and-perception) addresses both the physics of sound and our perception of it, which perhaps surprisingly, are not the same.
+From there we move into sounds commonly found in music and their properties, ranging from harmonic sounds in Chapter \@ref(harmonic-sounds) to inharmonic sounds like percussion in Chapter \@ref(inharmonic-sounds).
 
+The remainder of the book alternates between learning model elements (modules), how they interact (patches), problem solving (sound design).
+The progressive *Modules* and *Sound Design* sections build up from basic approaches to the more complex.
+By the time we're done, you should have a good foundation to create patches to solve new sound design problems.

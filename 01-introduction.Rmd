@@ -202,5 +202,12 @@ Hopefully this brief history helps explain why: modular represents the building 
 A square wave oscillator in modular is fundamentally the same as that in another hardware synth or DAW software. 
 If you understand these building blocks in modular, you should understand them everywhere.
 
+## Moving forward
 
+Our next stop is *Sound* where the focus is to "understand the problem".
+Chapter \@ref(physics-and-perception) addresses both the physics of sound and our perception of it, which perhaps surprisingly, are not the same.
+From there we move into sounds commonly found in music and their properties, ranging from harmonic sounds in Chapter \@ref(harmonic-sounds) to inharmonic sounds like percussion in Chapter \@ref(inharmonic-sounds).
 
+The remainder of the book alternates between learning model elements (modules), how they interact (patches), problem solving (sound design).
+The progressive *Modules* and *Sound Design* sections build up from basic approaches to the more complex.
+By the time we're done, you should have a good foundation to create patches to solve new sound design problems.

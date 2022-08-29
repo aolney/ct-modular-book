@@ -8,9 +8,12 @@ knitr::opts_chunk$set(
   )
 
 library(stringr)
-embed_youtube <- function(youtube_id,start_time=0) {
+embed_youtube <- function(youtube_id,start_time=0,end_time=NULL) {
   if (knitr::is_html_output(excludes = "epub")) {
     url <- str_c("https://www.youtube.com/embed/", youtube_id, "?start=",start_time)
+    if( !is.null(end_time)) {
+      url <- str_c(url,"&end=",end_time)
+    }
     return(knitr::include_url(url))
   } else {
     # Download thumbnail and use that
