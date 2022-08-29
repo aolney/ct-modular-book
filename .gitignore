@@ -4,3 +4,4 @@ template-files/
 *.rds
 downloadFigs4latex/
 _bookdown_files/
+*.tex

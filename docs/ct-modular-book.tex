@@ -82,7 +82,7 @@
 
 \title{Computational Thinking through Modular Sounds Synthesis}
 \author{Andrew M. Olney}
-\date{2022-08-28}
+\date{2022-08-29}
 
 \begin{document}
 \maketitle
@@ -392,22 +392,69 @@ However, in much of the discussion below, we'll largely ignore this fact and foc
 
 Amazingly, it is also possible to see sound waves moving through the air, using a technique called \href{https://en.wikipedia.org/wiki/Schlieren_photography}{Schlieren photography}.
 Schlieren photography captures differences in air pressure, and sound is just a difference in air pressure that travels as a wave.
-Take a look at the video in Figure \ref{fig:firecracker-wave}.
-
-\textbf{TODO} \url{https://www.youtube.com/embed/BspouwCTXRo?start=76\&end=120}
 
 
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{images/Serge_Modular,_Norbergfestival_2007_cropped} \caption{A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g.~``Wave Multiplier,'' and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image \href{https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg}{© mikael altemark/CC-BY-2.0}.}\label{fig:serge-modular}
+\includegraphics[width=1\linewidth]{downloadFigs4latex/firecracker-wave} \caption{\href{http://media.npr.org/assets/img/2014/01/21/cracker.gif}{Animation} of a firecracker exploding in slow motion, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with \href{https://www.npr.org/about-npr/179876898/terms-of-use\#LinksNPRServices}{permission from NPR}.}\label{fig:firecracker-wave}
 \end{figure}
 
-Here is some garbage text. Figure \ref{fig:sim-wave}.
+The animation in Figure \ref{fig:firecracker-wave} shows a primary wave of sound corresponding to the explosion of the firecracker in slow motion, and we can see that wave radiate outwards from the explosion.
 
 
 
 \begin{figure}
-\href{https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html}{\includegraphics[width=1\linewidth]{02-physics-perception_files/figure-latex/sim-wave-1} }\caption{\href{https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html}{Simulation} of sound waves. Simulation by \href{https://phet.colorado.edu/}{PhET Interactive Simulations}, University of Colorado Boulder, licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0}.}\label{fig:sim-wave}
+\centering
+\includegraphics{downloadFigs4latex/slow-drum.jpg}
+\caption{\label{fig:slow-drum}\href{https://www.youtube.com/watch?v=tM8WyhB6zYo}{Youtube video} of a slow motion drum hit. Watch how the drum head continues to move inward and outward after the hit. Image \href{https://www.youtube.com/channel/UCRZIyRiTD427A9dw3CBM4Fg}{© Boulder Drum Studio}.}
+\end{figure}
+
+Consider the slow motion drum hit in Figure \ref{fig:slow-drum}.
+After the stick hits the drum head, the head first moves inward and then outward, before repeating the inward/outward cycle.
+When the drum head moves inward, it creates more room for the surrounding air molecules, so the density of the air next to the drum head decreases (i.e.~it becomes less dense, because there is more space for the same amount of air molecules).
+The decrease in density is called rarefaction.
+When the drum head moves outward, it creates less room for the surrounding air molecules, so the density of the air next to the drum head increases (i.e.~it becomes more dense, because there is less space for the same amount of air molecules).
+The increase in density is called compression.
+
+You can see an analogous simulation of to the drum hit in Figure \ref{fig:sim-gas}.
+If you add say 50 particles, grab the handle on the left, and move it to the right, the volume of the chamber decreases, and the pressure in the chamber goes up (compression).
+Likewise, if you move the handle to the left, the volume of the chamber increases, and the pressure goes down (rarefaction).
+In the drum example, when the stick hits the head and causes it to move inward, the volume of air above the head will rush in to fill that space (rarefaction), and when the head moves outward, the volume of air above the head will shrink (compression).
+
+
+
+\begin{figure}
+\href{https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2}{\includegraphics[width=1\linewidth]{02-physics-perception_files/figure-latex/sim-gas-1} }\caption{\href{https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2}{Simulation} of gas in a chamber. Simulation by \href{https://phet.colorado.edu/}{PhET Interactive Simulations}, University of Colorado Boulder, licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0}.}\label{fig:sim-gas}
+\end{figure}
+
+Sound is a difference in air pressure that travels as a wave through compression and rarefaction.
+We could see this with the firecracker example because the explosion rapidly heated and expanded the air, creating a pressure wave on the boundary between the surrounding air and the hot air.
+However, as we've seen with the drum and will discuss in more detail later in this chapter, musical instruments are designed to create more than a single wave.
+The Schlieren photography animation in Figure \ref{fig:schlieren-wave} is more typical of a musical instrument.
+
+
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{downloadFigs4latex/schlieren-wave} \caption{\href{http://media.npr.org/assets/img/2014/01/21/speaker1.gif}{Animation} of a continuous tone from a speaker in slow motion, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with \href{https://www.npr.org/about-npr/179876898/terms-of-use\#LinksNPRServices}{permission from NPR}.}\label{fig:schlieren-wave}
+\end{figure}
+
+The rings in Figure \ref{fig:schlieren-wave} represent compression (dark) and rarefaction (light) stages of the wave.
+It is important to understand that air molecules aren't moving from the speaker to the left side of the image.
+Instead, the wave is moving the entire distance, and the air molecules are only moving a little bit as a result of the wave.\footnote{The air molecules are moving randomly in general, so the simulation shows only the movement attributable to the effect of the wave.}
+
+To see how this works, take a look at the simulation in Figure \ref{fig:sim-wave}.
+Hit the green button to start the sound waves and then select the \texttt{Particles} radio button.
+The red dots are markers to help you see how much the air is moving as a result of the wave.
+As you can see, every red dot is staying in their neighborhood and only moving as a result of compression and rarefaction cycles.
+If you select the \texttt{Both} radio button, you can see the outlines of waves on top of the air molecules.
+Note how each red dot is moving back and forth between a white band and a dark band.
+If you further select the \texttt{Graph} checkbox, you will see that the white bands in this simulation correpond to increases in pressure and the black bands correspond to decreases in pressure.
+This type of graph is commonly used to describe waves, so make sure you feel comfortable with it before moving on.
+
+
+
+\begin{figure}
+\href{https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2}{\includegraphics[width=1\linewidth]{02-physics-perception_files/figure-latex/sim-wave-1} }\caption{\href{https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2}{Simulation} of sound waves. Simulation by \href{https://phet.colorado.edu/}{PhET Interactive Simulations}, University of Colorado Boulder, licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0}.}\label{fig:sim-wave}
 \end{figure}
 
 \hypertarget{frequency-and-pitch}{%

@@ -140,13 +140,13 @@ Schlieren photography captures differences in air pressure, and sound is just a 
 
 <div class="figure">
 <span style="display:block;" id="fig:firecracker-wave"></span>
-<img src="http://media.npr.org/assets/img/2014/01/21/cracker.gif" alt="Animation of a firecracker exploding, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with permission from NPR." width="100%"><p class="caption">
-Figure 2.3: <a href="http://media.npr.org/assets/img/2014/01/21/cracker.gif">Animation</a> of a firecracker exploding, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with <a href="https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices">permission from NPR</a>.
+<img src="http://media.npr.org/assets/img/2014/01/21/cracker.gif" alt="Animation of a firecracker exploding in slow motion, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with permission from NPR." width="100%"><p class="caption">
+Figure 2.3: <a href="http://media.npr.org/assets/img/2014/01/21/cracker.gif">Animation</a> of a firecracker exploding in slow motion, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with <a href="https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices">permission from NPR</a>.
 </p>
 </div>
 <!-- Note: alternative way using YouTube; revert to this if Tumblr fails -->
-<!-- <a href="http://media.npr.org/assets/img/2014/01/21/cracker.gif">Animation</a> of a firecracker exploding, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with <a href="https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices">permission from NPR</a>. [Youtube video](https://www.youtube.com/embed/px3oVGXr4mo?start=125&end=128) of firecracker exploding, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image [© NPR](https://www.youtube.com/nationalpublicradio). -->
-<!-- ```{r firecracker-wave, fig.cap="<a href="http://media.npr.org/assets/img/2014/01/21/cracker.gif">Animation</a> of a firecracker exploding, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with <a href="https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices">permission from NPR</a>.", echo = F} -->
+<!-- <a href="http://media.npr.org/assets/img/2014/01/21/cracker.gif">Animation</a> of a firecracker exploding in slow motion, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with <a href="https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices">permission from NPR</a>. [Youtube video](https://www.youtube.com/embed/px3oVGXr4mo?start=125&end=128) of firecracker exploding, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image [© NPR](https://www.youtube.com/nationalpublicradio). -->
+<!-- ```{r firecracker-wave, fig.cap="<a href="http://media.npr.org/assets/img/2014/01/21/cracker.gif">Animation</a> of a firecracker exploding in slow motion, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with <a href="https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices">permission from NPR</a>.", echo = F} -->
 <!-- embed_youtube("px3oVGXr4mo",125,128) -->
 <!-- ``` -->
 <p>The animation in Figure <a href="physics-and-perception.html#fig:firecracker-wave">2.3</a> shows a primary wave of sound corresponding to the explosion of the firecracker in slow motion, and we can see that wave radiate outwards from the explosion.</p>
@@ -165,29 +165,50 @@ When the drum head moves inward, it creates more room for the surrounding air mo
 The decrease in density is called rarefaction.
 When the drum head moves outward, it creates less room for the surrounding air molecules, so the density of the air next to the drum head increases (i.e. it becomes more dense, because there is less space for the same amount of air molecules).
 The increase in density is called compression.</p>
+<p>You can see an analogous simulation of to the drum hit in Figure <a href="physics-and-perception.html#fig:sim-gas">2.5</a>.
+If you add say 50 particles, grab the handle on the left, and move it to the right, the volume of the chamber decreases, and the pressure in the chamber goes up (compression).
+Likewise, if you move the handle to the left, the volume of the chamber increases, and the pressure goes down (rarefaction).
+In the drum example, when the stick hits the head and causes it to move inward, the volume of air above the head will rush in to fill that space (rarefaction), and when the head moves outward, the volume of air above the head will shrink (compression).</p>
+
+<!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
+<div class="figure">
+<span style="display:block;" id="fig:sim-gas"></span>
+<iframe src="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2" width="100%" height="400px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 2.5: <a href="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2">Simulation</a> of gas in a chamber. Simulation by <a href="https://phet.colorado.edu/">PhET Interactive Simulations</a>, University of Colorado Boulder, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.
+</p>
+</div>
 <p>Sound is a difference in air pressure that travels as a wave through compression and rarefaction.
 We could see this with the firecracker example because the explosion rapidly heated and expanded the air, creating a pressure wave on the boundary between the surrounding air and the hot air.
-However, as we’ve seen with the drum and discuss in more detail later in this chapter, musical instruments are designed to create more than a single wave.
-The Schlieren photography animation in Figure <a href="physics-and-perception.html#fig:schlieren-wave">2.5</a> is more typical of a musical instrument.</p>
+However, as we’ve seen with the drum and will discuss in more detail later in this chapter, musical instruments are designed to create more than a single wave.
+The Schlieren photography animation in Figure <a href="physics-and-perception.html#fig:schlieren-wave">2.6</a> is more typical of a musical instrument.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:schlieren-wave"></span>
 <img src="http://media.npr.org/assets/img/2014/01/21/speaker1.gif" alt="Animation of a continuous tone from a speaker in slow motion, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with permission from NPR." width="100%"><p class="caption">
-Figure 2.5: <a href="http://media.npr.org/assets/img/2014/01/21/speaker1.gif">Animation</a> of a continuous tone from a speaker in slow motion, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with <a href="https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices">permission from NPR</a>.
+Figure 2.6: <a href="http://media.npr.org/assets/img/2014/01/21/speaker1.gif">Animation</a> of a continuous tone from a speaker in slow motion, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image © Mike Hargather. Linked with <a href="https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices">permission from NPR</a>.
 </p>
 </div>
-<p>The rings in Figure <a href="physics-and-perception.html#fig:schlieren-wave">2.5</a> represent compression (dark) and rarefaction (light) stages of the wave.
+<p>The rings in Figure <a href="physics-and-perception.html#fig:schlieren-wave">2.6</a> represent compression (dark) and rarefaction (light) stages of the wave.
 It is important to understand that air molecules aren’t moving from the speaker to the left side of the image.
-Instead, the wave is moving through the air.</p>
-<p>Figure <a href="physics-and-perception.html#fig:sim-wave">2.6</a>.</p>
+Instead, the wave is moving the entire distance, and the air molecules are only moving a little bit as a result of the wave.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The air molecules are moving randomly in general, so the simulation shows only the movement attributable to the effect of the wave.&lt;/p&gt;"><sup>13</sup></a></p>
+<p>To see how this works, take a look at the simulation in Figure <a href="physics-and-perception.html#fig:sim-wave">2.7</a>.
+Hit the green button to start the sound waves and then select the <code>Particles</code> radio button.
+The red dots are markers to help you see how much the air is moving as a result of the wave.
+As you can see, every red dot is staying in their neighborhood and only moving as a result of compression and rarefaction cycles.
+If you select the <code>Both</code> radio button, you can see the outlines of waves on top of the air molecules.
+Note how each red dot is moving back and forth between a white band and a dark band.
+If you further select the <code>Graph</code> checkbox, you will see that the white bands in this simulation correpond to increases in pressure and the black bands correspond to decreases in pressure.
+This type of graph is commonly used to describe waves, so make sure you feel comfortable with it before moving on.</p>
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
 <span style="display:block;" id="fig:sim-wave"></span>
-<iframe src="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html" width="100%" height="400px" data-external="1">
+<iframe src="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2" width="100%" height="400px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 2.6: <a href="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html">Simulation</a> of sound waves. Simulation by <a href="https://phet.colorado.edu/">PhET Interactive Simulations</a>, University of Colorado Boulder, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.
+Figure 2.7: <a href="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2">Simulation</a> of sound waves. Simulation by <a href="https://phet.colorado.edu/">PhET Interactive Simulations</a>, University of Colorado Boulder, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.
 </p>
 </div>
 </div>
@@ -246,7 +267,7 @@ Figure 2.6: <a href="https://phet.colorado.edu/sims/html/waves-intro/latest/wave
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-08-28.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-08-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
