@@ -13,6 +13,9 @@ fig:slow-drum
 fig:sim-gas
 fig:schlieren-wave
 fig:sim-wave
+fig:wavelength-frequency
+fig:freq-pitch
+fig:amplitude
 introduction
 why-this-book
 computational-thinking
