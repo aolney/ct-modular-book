@@ -223,7 +223,7 @@ If you look at the blue wave in Figure <a href="physics-and-perception.html#fig:
 So at 2 seconds, the blue wave has completed 1 full cycle.
 Now look at the yellow wave.
 The end of its first cycle is indicated by the circle marker at .5 seconds.
-After the circle marker, the yellow wave repeats its cycle 4 times by the 2 second mark.
+By the 2 second mark, the yellow wave has repeated its cycle 4 times.
 Because the yellow wave has more cycles than the blue wave in the same amount of time, we say that the yellow wave has a higher frequency, i.e. it repeats its cycle more frequently than the blue wave.
 The standard unit of frequency is Hertz (Hz), which is the number of cycles per second.
 So the blue wave is .5 Hz and the yellow wave is 2 Hz.</p>
@@ -250,12 +250,24 @@ For example, the pitch A above middle C is 440 Hz<a class="footnote-ref" tabinde
 If you wanted to write an equation for this progression, it would look something like <span class="math inline">\(A_n = 440 * 2^n\)</span>, which means the relationship between frequency and pitch is exponential.
 Figure <a href="physics-and-perception.html#fig:freq-pitch">2.9</a> shows the relationship between sound wave frequency and pitch for part of a piano keyboard, together with corresponding white keys and <a href="https://www.youtube.com/watch?v=drnBMAEA3AM">solfège</a>.
 Notice that the difference in frequencies between the two keys on the far left is about 16 Hz but the difference in frequencies between the two keys on the far right is about 111 Hz.
-So for low frequenceis, the pitches we perceive are closer together in frequency, and for high frequencies, the pitches we perceive are more spread out in frequency.</p>
+So for low frequencies, the pitches we perceive are closer together in frequency, and for high frequencies, the pitches we perceive are more spread out in frequency.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:freq-pitch"></span>
 <img src="images/tikz-keyboard-freq.png" alt="Part of an 88 key piano keyboard with frequency of keys in Hz on each key. The corresponding note in musical notation and solfège is arranged above the keys. Zoom in on the image for more detail." width="100%"><p class="caption">
 Figure 2.9: Part of an 88 key piano keyboard with frequency of keys in Hz on each key. The corresponding note in musical notation and solfège is arranged above the keys. Zoom in on the image for more detail.
+</p>
+</div>
+<p>Of course we experience pitch linearly, so the difference in pitch between the two keys in the far left is the same as the difference between the keys on the far right.
+We can make the relationship linear by taking the logarithm of the frequencies.
+On the left side of Figure <a href="physics-and-perception.html#fig:log-freq">2.10</a>, we see the exponential relationship between frequency and pitch: as we go higher on the piano keys and pitch increases, the frequencies increase faster, such that the differences in frequencies between keys gets wider.
+On the right side of Figure <a href="physics-and-perception.html#fig:log-freq">2.10</a>, we see the same piano keys, but we’ve taken the logarithm of the frequencies, and now the relationship is linear.
+It turns out that, in general, our perception is logarithmic in nature (this is sometimes called the <a href="https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law">Weber-Fechner law</a>).
+Our logarithmic perception of pitch is just one example.</p>
+<div class="figure">
+<span style="display:block;" id="fig:log-freq"></span>
+<img src="02-physics-perception_files/figure-html/log-freq-1.png" alt="(ref:log-freq)" width="100%"><p class="caption">
+Figure 2.10: (ref:log-freq)
 </p>
 </div>
 <p>You might be wondering if there’s point at which pitches are low enough that the notes run together!
@@ -276,8 +288,8 @@ We’ll discuss why notes an octave apart feel somehow the same in a later secti
 <span class="header-section-number">2.3</span> Amplitude and loudness<a class="anchor" aria-label="anchor" href="#amplitude-and-loudness"><i class="fas fa-link"></i></a>
 </h2>
 <p>As discussed, sound is a pressure wave with phases of increasing and decreasing pressure.
-Take a look at the yellow and blue waves in Figure <a href="physics-and-perception.html#fig:amplitude">2.10</a>.
-This time the peak compression of each wave cycle has been marked with a dashed line.
+Take a look at the yellow and blue waves in Figure <a href="physics-and-perception.html#fig:amplitude">2.11</a>.
+The peak compression of each wave cycle has been marked with a dashed line.
 For the yellow wave, the peak positive pressure is 2, and for the blue wave, the peak positive pressure is .5.
 This peak deviation of a sound wave from equilibrium pressure is called amplitude.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Note that since the positive and negative pressures are equivalent, amplitude could be measured down from equilibrium to peak negative pressure as well&lt;/p&gt;"><sup>18</sup></a>
 It is perhaps not surprising that we perceive larger deviations (with corresponding large positive and negative pressures) as louder sounds.</p>
@@ -285,11 +297,19 @@ It is perhaps not surprising that we perceive larger deviations (with correspond
 <div class="figure">
 <span style="display:block;" id="fig:amplitude"></span>
 <img src="images/amplitude.PNG" alt="Two waves overlaid on the same graph, with a dashed line marking the amplitude of each wave as the deviation from equilibrium." width="100%"><p class="caption">
-Figure 2.10: Two waves overlaid on the same graph, with a dashed line marking the amplitude of each wave as the deviation from equilibrium.
+Figure 2.11: Two waves overlaid on the same graph, with a dashed line marking the amplitude of each wave as the deviation from equilibrium.
 </p>
 </div>
-<p>The relationship between amplitude and loudness is also nonlinear.
-db</p>
+<p>The relationship between amplitude and loudness is also nonlinear: we hear quiet sounds very well, and sounds must get a lot louder before we perceive them as being louder.
+In fact, the nonlinear relationship between amplitude and our perception of loudness is <em>even more extreme</em> than the relationship for frequency and pitch.
+You might have heard of the unit of loudness before, the <a href="https://en.wikipedia.org/wiki/Decibel">decibel (dB)</a>.
+Unfortunately, the decibel is a bit harder to understand that Hz, and there are many variations of it used for different purposes.
+The most important thing you need to understand with decibels is that they are not an absolute measurement, but rather a relative measurement.
+Therefore, decibels are always based on a reference value.
+For hearing, that reference value is the quietest sound people can detect, which is defined as 0 dB.
+If we call the reference sound <span class="math inline">\(S_0\)</span> and the sound we are measuring <span class="math inline">\(S\)</span>, then the loudness of <span class="math inline">\(S\)</span> is <span class="math inline">\(10 * log_{10} * (S/S_0)\)</span> dB.
+Under this definition of dB, a 3 dB increase in loudness means amplitude has doubled and an increase of 10 dB means that amplitude is 10 times greater.
+Since our hearing is quickly damaged at 120 dB, you can see that our range of hearing goes from the quietest sound we can hear (0 dB) to a sound that is 1,000,000,000,000 times more intense (120 dB).</p>
 </div>
 <div id="waveshape-and-timbre" class="section level2" number="2.4">
 <h2>
@@ -334,7 +354,7 @@ db</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-08-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-08-31.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -124,7 +124,7 @@ If you look at the blue wave in Figure \@ref(fig:wavelength-frequency), you'll n
 So at 2 seconds, the blue wave has completed 1 full cycle.
 Now look at the yellow wave. 
 The end of its first cycle is indicated by the circle marker at .5 seconds.
-After the circle marker, the yellow wave repeats its cycle 4 times by the 2 second mark.
+By the 2 second mark, the yellow wave has repeated its cycle 4 times.
 Because the yellow wave has more cycles than the blue wave in the same amount of time, we say that the yellow wave has a higher frequency, i.e. it repeats its cycle more frequently than the blue wave.
 The standard unit of frequency is Hertz (Hz), which is the number of cycles per second.
 So the blue wave is .5 Hz and the yellow wave is 2 Hz.
@@ -153,12 +153,27 @@ For example, the pitch A above middle C is 440 Hz^[Also called A4.], but the A o
 If you wanted to write an equation for this progression, it would look something like $A_n = 440 * 2^n$, which means the relationship between frequency and pitch is exponential.
 Figure \@ref(fig:freq-pitch) shows the relationship between sound wave frequency and pitch for part of a piano keyboard, together with corresponding white keys and  [solfège](https://www.youtube.com/watch?v=drnBMAEA3AM).
 Notice that the difference in frequencies between the two keys on the far left is about 16 Hz but the difference in frequencies between the two keys on the far right is about 111 Hz.
-So for low frequenceis, the pitches we perceive are closer together in frequency, and for high frequencies, the pitches we perceive are more spread out in frequency.
+So for low frequencies, the pitches we perceive are closer together in frequency, and for high frequencies, the pitches we perceive are more spread out in frequency.
 
 (ref:freq-pitch) Part of an 88 key piano keyboard with frequency of keys in Hz on each key. The corresponding note in musical notation and solfège is arranged above the keys. Zoom in on the image for more detail.
 
 ```{r freq-pitch, echo=F, out.width="100%", fig.cap="(ref:freq-pitch)"}
  knitr::include_graphics("images/tikz-keyboard-freq.png")
+```
+
+Of course we experience pitch linearly, so the difference in pitch between the two keys in the far left is the same as the difference between the keys on the far right.
+We can make the relationship linear by taking the logarithm of the frequencies.
+On the left side of Figure \@ref(fig:log-freq), we see the exponential relationship between frequency and pitch: as we go higher on the piano keys and pitch increases, the frequencies increase faster, such that the differences in frequencies between keys gets wider.
+On the right side of Figure \@ref(fig:log-freq), we see the same piano keys, but we've taken the logarithm of the frequencies, and now the relationship is linear.
+It turns out that, in general, our perception is logarithmic in nature (this is sometimes called the [Weber-Fechner law](https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law)).
+Our logarithmic perception of pitch is just one example.
+
+```{r log-freq, echo=F, message=F, warning=F, out.width="100%", fig.cap="(ref:log-freq)"}
+library(tidyverse)
+library(patchwork)
+p1 <- read_csv("data/piano-key-freq.csv")  %>% filter( `Piano key number` < 89 ) %>% ggplot(aes(x=`Piano key number`,y=`Frequency`)) + geom_point() + theme_bw()
+p2 <- read_csv("data/piano-key-freq.csv") %>% mutate(`Log Frequency`=log(Frequency)) %>% filter( `Piano key number` < 89 ) %>% ggplot(aes(x=`Piano key number`,y=`Log Frequency`)) + geom_point() + theme_bw() 
+p1 + p2
 ```
 
 You might be wondering if there's point at which pitches are low enough that the notes run together!
@@ -179,7 +194,7 @@ We'll discuss why notes an octave apart feel somehow the same in a later section
 
 As discussed, sound is a pressure wave with phases of increasing and decreasing pressure.
 Take a look at the yellow and blue waves in Figure \@ref(fig:amplitude).
-This time the peak compression of each wave cycle has been marked with a dashed line. 
+The peak compression of each wave cycle has been marked with a dashed line. 
 For the yellow wave, the peak positive pressure is 2, and for the blue wave, the peak positive pressure is .5.
 This peak deviation of a sound wave from equilibrium pressure is called amplitude.^[Note that since the positive and negative pressures are equivalent, amplitude could be measured down from equilibrium to peak negative pressure as well]
 It is perhaps not surprising that we perceive larger deviations (with corresponding large positive and negative pressures) as louder sounds.
@@ -190,8 +205,16 @@ It is perhaps not surprising that we perceive larger deviations (with correspond
  knitr::include_graphics("images/amplitude.PNG")
 ```
 
-The relationship between amplitude and loudness is also nonlinear.
-db
+The relationship between amplitude and loudness is also nonlinear: we hear quiet sounds very well, and sounds must get a lot louder before we perceive them as being louder.
+In fact, the nonlinear relationship between amplitude and our perception of loudness is *even more extreme* than the relationship for frequency and pitch.
+You might have heard of the unit of loudness before, the [decibel (dB)](https://en.wikipedia.org/wiki/Decibel).
+Unfortunately, the decibel is a bit harder to understand that Hz, and there are many variations of it used for different purposes.
+The most important thing you need to understand with decibels is that they are not an absolute measurement, but rather a relative measurement.
+Therefore, decibels are always based on a reference value.
+For hearing, that reference value is the quietest sound people can detect, which is defined as 0 dB.
+If we call the reference sound $S_0$ and the sound we are measuring $S$, then the loudness of $S$ is $10 * log_{10} * (S/S_0)$ dB.
+Under this definition of dB, a 3 dB increase in loudness means amplitude has doubled and an increase of 10 dB means that amplitude is 10 times greater.
+Since our hearing is quickly damaged at 120 dB, you can see that our range of hearing goes from the quietest sound we can hear (0 dB) to a sound that is 1,000,000,000,000 times more intense (120 dB).
 
 ## Waveshape and timbre
 

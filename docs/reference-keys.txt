@@ -15,6 +15,7 @@ fig:schlieren-wave
 fig:sim-wave
 fig:wavelength-frequency
 fig:freq-pitch
+fig:log-freq
 fig:amplitude
 introduction
 why-this-book
