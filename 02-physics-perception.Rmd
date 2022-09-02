@@ -207,14 +207,36 @@ It is perhaps not surprising that we perceive larger deviations (with correspond
 
 The relationship between amplitude and loudness is also nonlinear: we hear quiet sounds very well, and sounds must get a lot louder before we perceive them as being louder.
 In fact, the nonlinear relationship between amplitude and our perception of loudness is *even more extreme* than the relationship for frequency and pitch.
+
 You might have heard of the unit of loudness before, the [decibel (dB)](https://en.wikipedia.org/wiki/Decibel).
-Unfortunately, the decibel is a bit harder to understand that Hz, and there are many variations of it used for different purposes.
+Unfortunately, the decibel is a bit harder to understand that Hz, and it use used as a unit of measurement for different ways of expressing the strength of a sound, like sound pressure, sound power, sound intensity, etc.
 The most important thing you need to understand with decibels is that they are not an absolute measurement, but rather a relative measurement.
 Therefore, decibels are always based on a reference value.
 For hearing, that reference value is the quietest sound people can detect, which is defined as 0 dB.
-If we call the reference sound $S_0$ and the sound we are measuring $S$, then the loudness of $S$ is $10 * log_{10} * (S/S_0)$ dB.
-Under this definition of dB, a 3 dB increase in loudness means amplitude has doubled and an increase of 10 dB means that amplitude is 10 times greater.
+Some examples of 0 to 10dB sounds are a mosquito, breathing, a pin drop, or a leaf hitting the ground.^[These are commonly given examples, but see below for how they are misleading when you take frequency into account.]
+
+If we call the reference sound pressure $S_0$ and the sound pressure we are measuring $S$, then we calculate the sound pressure level dB of $S$ as $20 * log_{10}(S/S_0)$ dB.
+Under this definition, a 6 dB increase in sound pressure level means amplitude has doubled: $20 * log_{10}(2) = 6.02$ dB.^[Note that if we'd used sound intensity level, the corresponding value would be 3 dB. Sound pressure level is more useful in our context: it connects directly to sound wave amplitude, it is measured by a microphone and reflected in microphone output voltage, and it has the same formula as dBV, a decibel measurement of voltage common in audio electronics. Sound intensity level is the square of the sound pressure level.]
 Since our hearing is quickly damaged at 120 dB, you can see that our range of hearing goes from the quietest sound we can hear (0 dB) to a sound that is 1,000,000,000,000 times more intense (120 dB).
+
+Remember from Figure \@ref(fig:elc) that frequency affects our perception of loudness.
+As a result, we can't say how loud a person will perceive a random 40 dB sound - not in general.
+One way of approaching this problem is to choose a standard frequency and define loudness for that frequency.
+The [phon/sone](http://hyperphysics.phy-astr.gsu.edu/hbase/Sound/phon.html) system uses a standard frequency of 1 kHz so that a [10 dB increase in sound pressure level is perceived as twice as loud](https://en.wikipedia.org/wiki/Sone).
+This relationship is commonly described as needing 10 violins to sound twice as loud as a single violin.
+There are [alternative ways of weighting dB](https://en.wikipedia.org/wiki/A-weighting) across a range of frequencies rather than just 1 kHz, so the 10 dB figure should be viewed as an oversimplification, though a useful one.
+Table \@ref(tab:db) summarizes the above discussion with useful dB values to remember.
+
+
+Table: (\#tab:db) Useful values for working with dB. All values reflect sound pressure or sound pressure level.
+
+| Value          | Meaning                                        |
+|----------------|------------------------------------------------|
+| 0 db           | Reference level, e.g. quietest possible sound. |
+| 6 db increase  | Twice the amplitude           |
+| 10 db increase | Twice as loud                                  |
+| 20 db increase | Ten times the amplitude                        |
+
 
 ## Waveshape and timbre
 

@@ -17,6 +17,7 @@ fig:wavelength-frequency
 fig:freq-pitch
 fig:log-freq
 fig:amplitude
+tab:db
 introduction
 why-this-book
 computational-thinking
