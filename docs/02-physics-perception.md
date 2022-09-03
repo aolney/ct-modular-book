@@ -34,7 +34,7 @@ The movement is caused by air molecules^[In what follows, we will ignore that ai
 (ref:sim-brownian) [Simulation](https://physics.bu.edu/~duffy/HTML5/brownian_motion.html) of Brownian motion. Press `Pause` to stop the simulation. © Andrew Duffy/[CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 <div class="figure">
-<a href="https://physics.bu.edu/~duffy/HTML5/brownian_motion.html" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-brownian-1.png" alt="(ref:sim-brownian)" width="100%" /></a>
+<iframe src="https://physics.bu.edu/~duffy/HTML5/brownian_motion.html" width="100%" height="575px" data-external="1"></iframe>
 <p class="caption">(\#fig:sim-brownian)(ref:sim-brownian)</p>
 </div>
 
@@ -48,7 +48,7 @@ The animation in Figure \@ref(fig:firecracker-wave) shows a primary wave of soun
 (ref:firecracker-wave) [Animation](http://media.npr.org/assets/img/2014/01/21/cracker.gif) of a firecracker exploding in slow motion, captured by Schlieren photography. Note the pressure wave that radiates outward. Image © Mike Hargather. Linked with [permission from NPR](https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices).
 
 <div class="figure">
-<img src="downloadFigs4latex/firecracker-wave.jpg" alt="(ref:firecracker-wave)" width="100%" />
+<img src="http://media.npr.org/assets/img/2014/01/21/cracker.gif" alt="(ref:firecracker-wave)" width="100%" />
 <p class="caption">(\#fig:firecracker-wave)(ref:firecracker-wave)</p>
 </div>
 
@@ -69,7 +69,7 @@ The increase in density is called compression.
 (ref:slow-drum) [Youtube video](https://www.youtube.com/watch?v=tM8WyhB6zYo) of a slow motion drum hit. Watch how the drum head continues to move inward and outward after the hit. Image [© Boulder Drum Studio](https://www.youtube.com/channel/UCRZIyRiTD427A9dw3CBM4Fg).
 
 <div class="figure">
-<img src="downloadFigs4latex/slow-drum.jpg" alt="(ref:slow-drum)"  />
+<iframe src="https://www.youtube.com/embed/tM8WyhB6zYo?start=2" width="672" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:slow-drum)(ref:slow-drum)</p>
 </div>
 
@@ -83,7 +83,7 @@ In the drum example, when the stick hits the head and causes it to move inward, 
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<a href="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-gas-1.png" alt="(ref:sim-gas)" width="100%" /></a>
+<iframe src="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2" width="100%" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:sim-gas)(ref:sim-gas)</p>
 </div>
 
@@ -95,7 +95,7 @@ The Schlieren photography animation in Figure \@ref(fig:schlieren-wave) is more 
 (ref:schlieren-wave) [Animation](http://media.npr.org/assets/img/2014/01/21/speaker1.gif) of a continuous tone from a speaker in slow motion, captured by Schlieren photography. The resulting sound wave shows as lighter compression and darker rarefaction bands that radiate outward. Image © Mike Hargather. Linked with [permission from NPR](https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices).
 
 <div class="figure">
-<img src="downloadFigs4latex/schlieren-wave.jpg" alt="(ref:schlieren-wave)" width="100%" />
+<img src="http://media.npr.org/assets/img/2014/01/21/speaker1.gif" alt="(ref:schlieren-wave)" width="100%" />
 <p class="caption">(\#fig:schlieren-wave)(ref:schlieren-wave)</p>
 </div>
 
@@ -116,7 +116,7 @@ This type of graph is commonly used to describe waves, so make sure you feel com
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<a href="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-wave-1.png" alt="(ref:sim-wave)" width="100%" /></a>
+<iframe src="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2" width="100%" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:sim-wave)(ref:sim-wave)</p>
 </div>
 
@@ -177,7 +177,7 @@ It turns out that, in general, our perception is logarithmic in nature (this is 
 Our logarithmic perception of pitch is just one example.
 
 <div class="figure">
-<img src="02-physics-perception_files/figure-epub3/log-freq-1.png" alt="(ref:log-freq)" width="100%" />
+<img src="02-physics-perception_files/figure-html/log-freq-1.png" alt="(ref:log-freq)" width="100%" />
 <p class="caption">(\#fig:log-freq)(ref:log-freq)</p>
 </div>
 
@@ -215,8 +215,8 @@ The relationship between amplitude and loudness is also nonlinear: we hear quiet
 In fact, the nonlinear relationship between amplitude and our perception of loudness is *even more extreme* than the relationship for frequency and pitch.
 
 You might have heard of the unit of loudness before, the [decibel (dB)](https://en.wikipedia.org/wiki/Decibel).
-Unfortunately, the decibel is a bit harder to understand that Hz, and it use used as a unit of measurement for different ways of expressing the strength of a sound, like sound pressure, sound power, sound intensity, etc.
-The most important thing you need to understand with decibels is that they are not an absolute measurement, but rather a relative measurement.
+Unfortunately, the decibel is a bit harder to understand than Hz, and it use used as a unit of measurement for different ways of expressing the strength of a sound, like sound pressure, sound power, sound intensity, etc.
+The most important thing you need to understand about decibels is that they are not an absolute measurement, but rather a relative measurement.
 Therefore, decibels are always based on a reference value.
 For hearing, that reference value is the quietest sound people can detect, which is defined as 0 dB.
 Some examples of 0 to 10dB sounds are a mosquito, breathing, a pin drop, or a leaf hitting the ground.^[These are commonly given examples, but see below for how they are misleading when you take frequency into account.]
@@ -230,7 +230,7 @@ As a result, we can't say how loud a person will perceive a random 40 dB sound -
 One way of approaching this problem is to choose a standard frequency and define loudness for that frequency.
 The [phon/sone](http://hyperphysics.phy-astr.gsu.edu/hbase/Sound/phon.html) system uses a standard frequency of 1 kHz so that a [10 dB increase in sound pressure level is perceived as twice as loud](https://en.wikipedia.org/wiki/Sone).
 This relationship is commonly described as needing 10 violins to sound twice as loud as a single violin.
-There are [alternative ways of weighting dB](https://en.wikipedia.org/wiki/A-weighting) across a range of frequencies rather than just 1 kHz, so the 10 dB figure should be viewed as an oversimplification, though a useful one.
+There are alternative ways of [weighting dB across a range of frequencies](https://en.wikipedia.org/wiki/A-weighting) rather than just 1 kHz, so the 10 dB figure should be viewed as an oversimplification, though a useful one.
 Table \@ref(tab:db) summarizes the above discussion with useful dB values to remember.
 
 
@@ -238,13 +238,42 @@ Table: (\#tab:db) Useful values for working with dB. All values reflect sound pr
 
 | Value          | Meaning                                        |
 |----------------|------------------------------------------------|
-| 0 db           | Reference level, e.g. quietest possible sound. |
+| 0 db           | Reference level, e.g. quietest audible sound. |
 | 6 db increase  | Twice the amplitude           |
 | 10 db increase | Twice as loud                                  |
 | 20 db increase | Ten times the amplitude                        |
 
 
 ## Waveshape and timbre
+
+When we talked about frequency and amplitude, we used the same waveshapes in Figures \@ref(fig:wavelength-frequency) and \@ref(fig:amplitude).
+This wave shape is called the sine wave.
+You can hear a pure sine wave in Figure \@ref(fig:basic-wave-table-sounds).
+
+<!-- Best way to do the audio files appears to be as a separate HTML page that contains a table of them. Then use include_url to insert that table. This gives a compact presentation and maintains compatibility with epub and pdf. -->
+
+<!-- ![attached audio](https://upload.wikimedia.org/wikipedia/commons/d/d1/220_Hz_sine_wave.ogg) -->
+
+(ref:basic-wave-table-sounds) Sounds of the four classic waveshapes in electronic music, together with example instruments that make similar sounds.
+
+
+<div class="figure">
+<iframe src="images/basic-wave-sound-table.html" width="100%" height="250px" data-external="1"></iframe>
+<p class="caption">(\#fig:basic-wave-table-sounds)(ref:basic-wave-table-sounds)</p>
+</div>
+
+The sine wave is defined by the trigonometric sine function and found throughout physics.
+There are an unlimited number of waveshapes in principle, but in electronic music you will encounter the sine wave and other waveshapes in Figure \@ref(fig:four-waves) often because they are relatively easy to produce using analogue circuitry.
+
+(ref:four-waves) The four classic waveshapes in analogue electronic music. Image [© Omegatron/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Waveforms.svg).
+
+<div class="figure">
+<img src="images/Waveforms.svg.png" alt="(ref:four-waves)" width="100%" />
+<p class="caption">(\#fig:four-waves)(ref:four-waves)</p>
+</div>
+
+Although sine waves are found throughout physics, there aren't any instruments per se that produce pure sine waves.
+Perhaps the best natural way to create a sine wave is with a tuning fork.
 
 ## Phase and ... phase?
 

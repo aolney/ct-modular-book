@@ -303,8 +303,8 @@ Figure 2.11: Two waves overlaid on the same graph, with a dashed line marking th
 <p>The relationship between amplitude and loudness is also nonlinear: we hear quiet sounds very well, and sounds must get a lot louder before we perceive them as being louder.
 In fact, the nonlinear relationship between amplitude and our perception of loudness is <em>even more extreme</em> than the relationship for frequency and pitch.</p>
 <p>You might have heard of the unit of loudness before, the <a href="https://en.wikipedia.org/wiki/Decibel">decibel (dB)</a>.
-Unfortunately, the decibel is a bit harder to understand that Hz, and it use used as a unit of measurement for different ways of expressing the strength of a sound, like sound pressure, sound power, sound intensity, etc.
-The most important thing you need to understand with decibels is that they are not an absolute measurement, but rather a relative measurement.
+Unfortunately, the decibel is a bit harder to understand than Hz, and it use used as a unit of measurement for different ways of expressing the strength of a sound, like sound pressure, sound power, sound intensity, etc.
+The most important thing you need to understand about decibels is that they are not an absolute measurement, but rather a relative measurement.
 Therefore, decibels are always based on a reference value.
 For hearing, that reference value is the quietest sound people can detect, which is defined as 0 dB.
 Some examples of 0 to 10dB sounds are a mosquito, breathing, a pin drop, or a leaf hitting the ground.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;These are commonly given examples, but see below for how they are misleading when you take frequency into account.&lt;/p&gt;"><sup>19</sup></a></p>
@@ -316,7 +316,7 @@ As a result, we can’t say how loud a person will perceive a random 40 dB sound
 One way of approaching this problem is to choose a standard frequency and define loudness for that frequency.
 The <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/Sound/phon.html">phon/sone</a> system uses a standard frequency of 1 kHz so that a <a href="https://en.wikipedia.org/wiki/Sone">10 dB increase in sound pressure level is perceived as twice as loud</a>.
 This relationship is commonly described as needing 10 violins to sound twice as loud as a single violin.
-There are <a href="https://en.wikipedia.org/wiki/A-weighting">alternative ways of weighting dB</a> across a range of frequencies rather than just 1 kHz, so the 10 dB figure should be viewed as an oversimplification, though a useful one.
+There are alternative ways of <a href="https://en.wikipedia.org/wiki/A-weighting">weighting dB across a range of frequencies</a> rather than just 1 kHz, so the 10 dB figure should be viewed as an oversimplification, though a useful one.
 Table <a href="physics-and-perception.html#tab:db">2.1</a> summarizes the above discussion with useful dB values to remember.</p>
 <div class="inline-table"><table class="table table-sm">
 <caption>
@@ -328,7 +328,7 @@ Table <a href="physics-and-perception.html#tab:db">2.1</a> summarizes the above 
 <tbody>
 <tr class="odd">
 <td>0 db</td>
-<td>Reference level, e.g. quietest possible sound.</td>
+<td>Reference level, e.g. quietest audible sound.</td>
 </tr>
 <tr class="even">
 <td>6 db increase</td>
@@ -349,6 +349,31 @@ Table <a href="physics-and-perception.html#tab:db">2.1</a> summarizes the above 
 <h2>
 <span class="header-section-number">2.4</span> Waveshape and timbre<a class="anchor" aria-label="anchor" href="#waveshape-and-timbre"><i class="fas fa-link"></i></a>
 </h2>
+<p>When we talked about frequency and amplitude, we used the same waveshapes in Figures <a href="physics-and-perception.html#fig:wavelength-frequency">2.8</a> and <a href="physics-and-perception.html#fig:amplitude">2.11</a>.
+This wave shape is called the sine wave.
+You can hear a pure sine wave in Figure <a href="physics-and-perception.html#fig:basic-wave-table-sounds">2.12</a>.</p>
+<!-- Best way to do the audio files appears to be as a separate HTML page that contains a table of them. Then use include_url to insert that table. This gives a compact presentation and maintains compatibility with epub and pdf. -->
+<!-- ![attached audio](https://upload.wikimedia.org/wikipedia/commons/d/d1/220_Hz_sine_wave.ogg) -->
+
+<div class="figure">
+<span style="display:block;" id="fig:basic-wave-table-sounds"></span>
+<iframe src="images/basic-wave-sound-table.html" width="100%" height="250px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 2.12: Sounds of the four classic waveshapes in electronic music, together with example instruments that make similar sounds.
+</p>
+</div>
+<p>The sine wave is defined by the trigonometric sine function and found throughout physics.
+There are an unlimited number of waveshapes in principle, but in electronic music you will encounter the sine wave and other waveshapes in Figure <a href="physics-and-perception.html#fig:four-waves">2.13</a> often because they are relatively easy to produce using analogue circuitry.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:four-waves"></span>
+<img src="images/Waveforms.svg.png" alt="The four classic waveshapes in analogue electronic music. Image © Omegatron/CC-BY-SA-3.0." width="100%"><p class="caption">
+Figure 2.13: The four classic waveshapes in analogue electronic music. Image <a href="https://commons.wikimedia.org/wiki/File:Waveforms.svg">© Omegatron/CC-BY-SA-3.0</a>.
+</p>
+</div>
+<p>Although sine waves are found throughout physics, there aren’t any instruments per se that produce pure sine waves.
+Perhaps the best natural way to create a sine wave is with a tuning fork.</p>
 </div>
 <div id="phase-and-phase" class="section level2" number="2.5">
 <h2>
@@ -388,7 +413,7 @@ Table <a href="physics-and-perception.html#tab:db">2.1</a> summarizes the above 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-01.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

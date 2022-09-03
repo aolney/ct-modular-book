@@ -209,8 +209,8 @@ The relationship between amplitude and loudness is also nonlinear: we hear quiet
 In fact, the nonlinear relationship between amplitude and our perception of loudness is *even more extreme* than the relationship for frequency and pitch.
 
 You might have heard of the unit of loudness before, the [decibel (dB)](https://en.wikipedia.org/wiki/Decibel).
-Unfortunately, the decibel is a bit harder to understand that Hz, and it use used as a unit of measurement for different ways of expressing the strength of a sound, like sound pressure, sound power, sound intensity, etc.
-The most important thing you need to understand with decibels is that they are not an absolute measurement, but rather a relative measurement.
+Unfortunately, the decibel is a bit harder to understand than Hz, and it use used as a unit of measurement for different ways of expressing the strength of a sound, like sound pressure, sound power, sound intensity, etc.
+The most important thing you need to understand about decibels is that they are not an absolute measurement, but rather a relative measurement.
 Therefore, decibels are always based on a reference value.
 For hearing, that reference value is the quietest sound people can detect, which is defined as 0 dB.
 Some examples of 0 to 10dB sounds are a mosquito, breathing, a pin drop, or a leaf hitting the ground.^[These are commonly given examples, but see below for how they are misleading when you take frequency into account.]
@@ -224,7 +224,7 @@ As a result, we can't say how loud a person will perceive a random 40 dB sound -
 One way of approaching this problem is to choose a standard frequency and define loudness for that frequency.
 The [phon/sone](http://hyperphysics.phy-astr.gsu.edu/hbase/Sound/phon.html) system uses a standard frequency of 1 kHz so that a [10 dB increase in sound pressure level is perceived as twice as loud](https://en.wikipedia.org/wiki/Sone).
 This relationship is commonly described as needing 10 violins to sound twice as loud as a single violin.
-There are [alternative ways of weighting dB](https://en.wikipedia.org/wiki/A-weighting) across a range of frequencies rather than just 1 kHz, so the 10 dB figure should be viewed as an oversimplification, though a useful one.
+There are alternative ways of [weighting dB across a range of frequencies](https://en.wikipedia.org/wiki/A-weighting) rather than just 1 kHz, so the 10 dB figure should be viewed as an oversimplification, though a useful one.
 Table \@ref(tab:db) summarizes the above discussion with useful dB values to remember.
 
 
@@ -232,13 +232,40 @@ Table: (\#tab:db) Useful values for working with dB. All values reflect sound pr
 
 | Value          | Meaning                                        |
 |----------------|------------------------------------------------|
-| 0 db           | Reference level, e.g. quietest possible sound. |
+| 0 db           | Reference level, e.g. quietest audible sound. |
 | 6 db increase  | Twice the amplitude           |
 | 10 db increase | Twice as loud                                  |
 | 20 db increase | Ten times the amplitude                        |
 
 
 ## Waveshape and timbre
+
+When we talked about frequency and amplitude, we used the same waveshapes in Figures \@ref(fig:wavelength-frequency) and \@ref(fig:amplitude).
+This wave shape is called the sine wave.
+You can hear a pure sine wave in Figure \@ref(fig:basic-wave-table-sounds).
+
+<!-- Best way to do the audio files appears to be as a separate HTML page that contains a table of them. Then use include_url to insert that table. This gives a compact presentation and maintains compatibility with epub and pdf. -->
+
+<!-- ![attached audio](https://upload.wikimedia.org/wikipedia/commons/d/d1/220_Hz_sine_wave.ogg) -->
+
+(ref:basic-wave-table-sounds) Sounds of the four classic waveshapes in electronic music, together with example instruments that make similar sounds.
+
+
+```{r, basic-wave-table-sounds, out.width='100%', fig.cap="(ref:basic-wave-table-sounds)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+knitr::include_url("images/basic-wave-sound-table.html", height = "250px")
+```
+
+The sine wave is defined by the trigonometric sine function and found throughout physics.
+There are an unlimited number of waveshapes in principle, but in electronic music you will encounter the sine wave and other waveshapes in Figure \@ref(fig:four-waves) often because they are relatively easy to produce using analogue circuitry.
+
+(ref:four-waves) The four classic waveshapes in analogue electronic music. Image [© Omegatron/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Waveforms.svg).
+
+```{r four-waves, echo=F, out.width="100%", fig.cap="(ref:four-waves)"}
+ knitr::include_graphics("images/Waveforms.svg.png")
+```
+
+Although sine waves are found throughout physics, there aren't any instruments per se that produce pure sine waves.
+Perhaps the best natural way to create a sine wave is with a tuning fork.
 
 ## Phase and ... phase?
 

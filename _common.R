@@ -26,6 +26,7 @@ embed_youtube <- function(youtube_id,start_time=0,end_time=NULL) {
   }
 }
 
+#This works for gifs
 embed_linked_media <- function(url) {
   if (knitr::is_html_output(excludes = "epub")) {
     return(knitr::include_graphics(url))
