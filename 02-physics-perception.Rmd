@@ -309,34 +309,26 @@ These two scenarios are illustrated in Figure \@ref(fig:interference) and are ca
 In both cases, the waves combine to create a new wave whose amplitude is the sum of the individual wave amplitudes.
 When the phase-aligned amplitudes are positive, the amplitude of the resulting wave is greater than the individual waves, and when the phase-aligned amplitudes are a mixture of positive and negative, the amplitude of the resulting wave is less than the individual waves.
 
-(ref:interference) Constructive (left) and destructive interference (right). Because the waves are either perfectly in phase or out of phase, the resulting wave amplitude is either double or zero, respectively.  Image [© Haade; Wjh31; Quibik/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Interference_of_two_waves.svg).
+(ref:interference) Constructive (left) and destructive interference (right). For these matched sine waves, being perfectly in phase or out of phase causes the resulting wave amplitude to be either double or zero, respectively.  Image [© Haade; Wjh31; Quibik/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Interference_of_two_waves.svg).
 
 ```{r interference, echo=F, out.width="100%", fig.cap="(ref:interference)"}
  knitr::include_graphics("images/1024px-Interference_of_two_waves.svg.png")
 ```
 
 Destructive interference is the principle behind [noise cancelling headphones](https://en.wikipedia.org/wiki/Active_noise_control), which produce a sound within the headphones to cancel out the background noise outside the headphones.
-Figure \@ref(fig:interference) shows how this can be done with with a perfectly out of phase wave.
+Figure \@ref(fig:interference) shows how this can be done with with a sine wave using an identical, but perfectly out of phase sine wave.
 However, being perfectly out of phase is not enough to guarantee cancellation in all cases. 
 Take a look again at the waveshapes in Figure \@ref(fig:four-waves).
 You should find it relatively easy to imagine how the first three would be cancelled by an out of phase copy of themselves.
-However, the sawtooth wave is 
-
-**insert gif here**
+However, the sawtooth wave just doesn't match up the same way, as shown in Figure \@ref(fig:saw-phase).
 
 
-The basic idea is playing a sound that is exactly out of phase with the background sound you want to get rid of.
-If you can produce the same sound out of phase and with the same amplitude, then the difference between the sounds will be zero, and you'll have perfect cancellation.
-Of course the engineering of it is quite complicated, but the fundamental principle is as simple as that.
-An alternative way of thinking about being exactly out of phase is that the sound wave has been flipped, or inverted: 
+(ref:saw-phase) Interference from a perfectly out of phase saw wave (yellow) combined with the original wave (blue). The resulting wave (green) has non-zero amplitude because the out of phase wave does not have opposite amplitude to the original wave at all locations. Dotted lines indicate the positions of the original waves.
 
-So what is phase exactly?
-If we consider the cycle of a wave to go from 0 to 1, then the phase of a wave is the position of the wave on that interval.
-You've likely seen this concept before in geometry with the sine function, where you can describe one cycle either in degrees (360&deg;) or in radians ($2\pi$).
-The unit is somewhat arbitrary: the important thing to remember is that if two waves are out of sync in their cycles, they will interfere with each other, and we describe this difference in cycle position as a difference in phase.
+```{r saw-phase, echo=F, out.width="100%", fig.cap="(ref:saw-phase)"}
+ knitr::include_graphics("images/saw-phase.gif")
+```
 
-
-This idea is illustrua
 
 <!-- source for making animated gif; each file made separately and combined with -->
 <!-- convert -delay 100 -loop 0 *.png saw-phase.gif -->
@@ -356,6 +348,19 @@ This idea is illustrua
 <!-- dev.off() -->
 
 
-reflection
-cancellation
-amplification
+Figure \@ref(fig:saw-phase) shows how cancellation will only happen if the perfectly out of phase wave is identical to *inverting* the original wave.
+Inverting a wave means reflecting it on the x-axis so we get a mirror image of the wave.^[This can be accomplished by multiplying the y coordinates by -1]
+When we add a wave to its mirror image, we achieve perfect cancellation, even for waves like the sawtooth.
+It just so happens that the first three waves in Figure \@ref(fig:four-waves) are symmetric, which makes their perfect out of phase and and inverted versions identical.
+
+
+So what is phase exactly?
+If we consider the cycle of a wave to go from 0 to 1, then the phase of a wave is the position of the wave on that interval.
+You've likely seen this concept before in geometry with the sine function, where you can describe one cycle either in degrees (360&deg;) or in radians ($2\pi$).
+The unit is somewhat arbitrary: the important thing to remember is that if two waves are out of sync in their cycles, they will interfere with each other, and we describe this difference in cycle position as a difference in phase.
+The interference caused by phase differences can result in a wide range of effects from cancellation, to the creation of a new wave, to an exact copy of the original wave with double amplitude.
+
+There are a few very practical contexts for phase to keep in mind.
+The first is that sounds waves reflect, so you don't need two speakers to get phase effects as in the examples above.
+We'll discuss how phase and reflection are intrinsic to the sounds of many instruments in the next section, but any reflective surface can affect phase, which has implications for acoustics in rooms.
+The second practical context is that you will often want to play multiple notes at the same time, and when you have an electronic instrument, those notes can be triggered very precisely - precisely enough that you have some control over the phase relationships and can use them to shape the sound to your liking.
