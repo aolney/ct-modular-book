@@ -246,24 +246,10 @@ Table: (\#tab:db) Useful values for working with dB. All values reflect sound pr
 
 ## Waveshape and timbre
 
-When we talked about frequency and amplitude, we used the same waveshapes in Figures \@ref(fig:wavelength-frequency) and \@ref(fig:amplitude).
+When we talked about frequency and amplitude, we used the same waveshape in Figures \@ref(fig:wavelength-frequency) and \@ref(fig:amplitude).
 This wave shape is called the sine wave.
-You can hear a pure sine wave in Figure \@ref(fig:basic-wave-table-sounds).
-
-<!-- Best way to do the audio files appears to be as a separate HTML page that contains a table of them. Then use include_url to insert that table. This gives a compact presentation and maintains compatibility with epub and pdf. -->
-
-<!-- ![attached audio](https://upload.wikimedia.org/wikipedia/commons/d/d1/220_Hz_sine_wave.ogg) -->
-
-(ref:basic-wave-table-sounds) Sounds of the four classic waveshapes in electronic music, together with example instruments that make similar sounds.
-
-
-<div class="figure">
-<iframe src="images/basic-wave-sound-table.html" width="100%" height="250px" data-external="1"></iframe>
-<p class="caption">(\#fig:basic-wave-table-sounds)(ref:basic-wave-table-sounds)</p>
-</div>
-
 The sine wave is defined by the trigonometric sine function and found throughout physics.
-There are an unlimited number of waveshapes in principle, but in electronic music you will encounter the sine wave and other waveshapes in Figure \@ref(fig:four-waves) often because they are relatively easy to produce using analogue circuitry.
+There are an unlimited number of waveshapes in principle, but in electronic music you will encounter the sine wave and other waveshapes in Figure \@ref(fig:four-waves) often because they are [relatively easy to produce using analogue circuitry](http://musicfromouterspace.com/index.php?MAINTAB=SYNTHDIY&VPW=1430&VPH=563).
 
 (ref:four-waves) The four classic waveshapes in analogue electronic music. Image [© Omegatron/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Waveforms.svg).
 
@@ -272,11 +258,111 @@ There are an unlimited number of waveshapes in principle, but in electronic musi
 <p class="caption">(\#fig:four-waves)(ref:four-waves)</p>
 </div>
 
-Although sine waves are found throughout physics, there aren't any instruments per se that produce pure sine waves.
-Perhaps the best natural way to create a sine wave is with a tuning fork.
+Perhaps another reason for the widespread use of these waveshapes is that their sounds are rough approximations to real instrument sounds.
+As we discussed in Section \@ref(modular-synthesis), the development of electronic music has been strongly influenced by existing instruments.
+Figure \@ref(fig:basic-wave-table-sounds) presents sounds for each of these waveshapes, together with real instruments that have similar sounds.
 
-## Phase and ... phase?
+As you listen to the waveshape sounds, take a moment to consider their qualities with respect to each other, e.g. how noisy are they and how bright?
+The differences you're hearing are referred to as [timbre](https://en.wikipedia.org/wiki/Timbre) or tone color.
+Each of the waveshape sounds is the same frequency (220 Hz; A3), and the different timbres illustrate how waveforms can have the same frequency but still have their own characteristic sound.
+
+As you listen to the real instrument sounds, consider what about them matches the timbre of the waveshapes and what does not. 
+You may need to listen to some real instruments longer to notice the similarities and differences.
+For example, when an instrument is played quietly, it may have a different timbre than when it is played loudly.
+We'll explore these dynamic differences in an upcoming section.
+
+<!-- Best way to do the audio files appears to be as a separate HTML page that contains a table of them. Then use include_url to insert that table. This gives a compact presentation and maintains compatibility with epub and pdf. -->
+
+<!-- ![attached audio](https://upload.wikimedia.org/wikipedia/commons/d/d1/220_Hz_sine_wave.ogg) -->
+
+(ref:basic-wave-table-sounds) [Sounds](https://olney.ai/ct-modular-book/images/basic-wave-sound-table.html) of the four classic waveshapes in electronic music, together with example instruments that make similar sounds.
 
 
+<div class="figure">
+<iframe src="https://olney.ai/ct-modular-book/images/basic-wave-sound-table.html" width="100%" height="250px" data-external="1"></iframe>
+<p class="caption">(\#fig:basic-wave-table-sounds)(ref:basic-wave-table-sounds)</p>
+</div>
 
-You might think that we only need to understand how humans perceive sound and not the physics of it...
+There is a variation of the square waveform that you will frequently encounter called the pulse wave.^[One could say the square wave is a special case of the pulse wave. Starting from the circuit or the mathematical definition will give you a different perspective on this; both are true from a certain point of view.]
+In a square wave, the wave is high and low 50% of the time.
+In a pulse wave, the amount of time the wave is high is variable: this is called the duty cycle.
+A pulse wave with a duty cycle of 75% is high for 75% of its cycle and low the rest of the time.
+By changing the duty cycle, pulse waves can morph between different real instrument sounds.
+At 50% they sound brassy, but at 90%, they sound more like an oboe.
+Figure \@ref(fig:pulse-wave) shows a pulse wave across a range of duty cycles, including 100% and 0%, where it is no longer a wave.
+
+(ref:pulse-wave) [Animation](https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif) of a pulse wave across a range of duty cycles. Note that 100% and 0% it ceases to be a wave. Image [public domain](https://commons.wikimedia.org/wiki/File:PWM_duty_cycle_with_label.gif).
+
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif" alt="(ref:pulse-wave)" width="40%" />
+<p class="caption">(\#fig:pulse-wave)(ref:pulse-wave)</p>
+</div>
+
+There are multiple ways of creating waveshapes beyond the four discussed so far.
+One way is to combine waveshapes together.
+This is somewhat analogous to mixing paint, e.g. you can mix primary colors red and blue to make purple, and we'll get more precise about how it's done shortly.
+Alternatively, we can focus on what a wave looks like rather than how we can make it with analogue circuitry. 
+Since waves are many repetitions of a single cycle, we could draw an arbitrary shape for a cycle and just keep repeating that to make a wave - this is the essence of [wavetable synthesis](https://en.wikipedia.org/wiki/Wavetable_synthesis) and is only practical with digital circuitry.
+
+## Phase and interference
+
+The last important property of sound waves that we'll discuss is not about the shape of the wave but rather the *timing* of the wave.
+Suppose for a moment that you played the same sine wave out of two speakers.
+It would be louder, right?
+Now suppose that you started the sine wave out of one speaker a half cycle later than the other, so that when the first sine wave was in its negative phase, the second sine wave was in its positive phase.
+What would happen then?
+These two scenarios are illustrated in Figure \@ref(fig:interference) and are called constructive and destructive interference, respectively.
+In both cases, the waves combine to create a new wave whose amplitude is the sum of the individual wave amplitudes.
+When the phase-aligned amplitudes are positive, the amplitude of the resulting wave is greater than the individual waves, and when the phase-aligned amplitudes are a mixture of positive and negative, the amplitude of the resulting wave is less than the individual waves.
+
+(ref:interference) Constructive (left) and destructive interference (right). Because the waves are either perfectly in phase or out of phase, the resulting wave amplitude is either double or zero, respectively.  Image [© Haade; Wjh31; Quibik/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Interference_of_two_waves.svg).
+
+<div class="figure">
+<img src="images/1024px-Interference_of_two_waves.svg.png" alt="(ref:interference)" width="100%" />
+<p class="caption">(\#fig:interference)(ref:interference)</p>
+</div>
+
+Destructive interference is the principle behind [noise cancelling headphones](https://en.wikipedia.org/wiki/Active_noise_control), which produce a sound within the headphones to cancel out the background noise outside the headphones.
+Figure \@ref(fig:interference) shows how this can be done with with a perfectly out of phase wave.
+However, being perfectly out of phase is not enough to guarantee cancellation in all cases. 
+Take a look again at the waveshapes in Figure \@ref(fig:four-waves).
+You should find it relatively easy to imagine how the first three would be cancelled by an out of phase copy of themselves.
+However, the sawtooth wave is 
+
+**insert gif here**
+
+
+The basic idea is playing a sound that is exactly out of phase with the background sound you want to get rid of.
+If you can produce the same sound out of phase and with the same amplitude, then the difference between the sounds will be zero, and you'll have perfect cancellation.
+Of course the engineering of it is quite complicated, but the fundamental principle is as simple as that.
+An alternative way of thinking about being exactly out of phase is that the sound wave has been flipped, or inverted: 
+
+So what is phase exactly?
+If we consider the cycle of a wave to go from 0 to 1, then the phase of a wave is the position of the wave on that interval.
+You've likely seen this concept before in geometry with the sine function, where you can describe one cycle either in degrees (360&deg;) or in radians ($2\pi$).
+The unit is somewhat arbitrary: the important thing to remember is that if two waves are out of sync in their cycles, they will interfere with each other, and we describe this difference in cycle position as a difference in phase.
+
+
+This idea is illustrua
+
+<!-- source for making animated gif; each file made separately and combined with -->
+<!-- convert -delay 100 -loop 0 *.png saw-phase.gif -->
+<!-- graphics.off() -->
+<!-- png("saw3.png", res = 300, width = 6, height = 4,units = 'in') -->
+<!-- library(gsignal) -->
+<!-- T <- 3 * (1 / 1) -->
+<!-- fs <- 1000 -->
+<!-- t <- seq(0, T-1/fs, 1/fs) -->
+<!-- y <- sawtooth(2 * pi * 1 *t) -->
+<!-- plot(t, y, type="l", xlab = "", ylab = "", main = "",col="blue",lwd=1,lty=3) #ylim = c(- 2, 2) -->
+<!-- abline(0,0,col="black") -->
+
+<!-- z <- sawtooth( ( 2 * pi * 1 *t*1) + 1 * pi) -->
+<!-- lines( t, z, col="gold", lwd=1,lty=3) -->
+<!-- lines( t, y + z, col="green",lwd=3) -->
+<!-- dev.off() -->
+
+
+reflection
+cancellation
+amplification

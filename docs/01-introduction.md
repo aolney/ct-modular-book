@@ -123,7 +123,7 @@ This is achieved by refactoring aspects of synthesis (i.e. functions on sound) i
 These modules may then be combined to create a certain sound by patching them together and adjusting module parameters (e.g. by turning knobs or adjusting sliders).
 An example modular synthesizer is shown in Figure \@ref(fig:serge-modular).
 
-(ref:serge-modular) A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. "Wave Multiplier," and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image [© mikael altemark/CC-BY-2.0](https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg).
+(ref:serge-modular) A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. `Wave Multiplier`, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image [© mikael altemark/CC-BY-2.0](https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg).
 
 <!-- See credit line guidance https://commons.wikimedia.org/wiki/Commons:Credit_line -->
 

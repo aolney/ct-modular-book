@@ -1,7 +1,7 @@
 --- 
 title: "Computational Thinking through Modular Sounds Synthesis"
 author: "Andrew M. Olney"
-date: "2022-09-02"
+date: "2022-09-03"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
@@ -22,7 +22,7 @@ This is the official website for "Computational Thinking through Modular Sound S
 
 If you're wondering whether this is a book about computational thinking, or a book about modular, the answer is both: on the surface, most content is about modular, but computational thinking is a style of thinking reflected in the presentation of the material and gives it additional coherence. As you work through the book, you'll become more proficient in computational thinking practices like decomposition, algorithmic design, evaluation of solutions, pattern recognition, and abstraction.
 
-This book is *interactive*, which is why it is an e-book rather than a paper book. Throughout you will encounter examples, simulations, and exercises that run in your browser to demonstrate and reinforce key concepts. Don't skip the interactive activities! 
+This book is *interactive*, which is why it is an e-book rather than a paper book.^[I've also created [PDF](https://olney.ai/ct-modular-book/ct-modular-book.pdf) and [EPUB](https://olney.ai/ct-modular-book/ct-modular-book.epub) versions; these are best used when you don't have internet because they are **not** interactive.] Throughout you will encounter examples, simulations, and exercises that run in your browser to demonstrate and reinforce key concepts. Don't skip the interactive activities! 
 
 ![](images/by-nc-nd.png) 
 
