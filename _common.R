@@ -42,10 +42,12 @@ embed_linked_media <- function(url) {
       if (!file.exists(file_path)) {
         temp_img <- image_read(url)
         image_write(temp_img, path = file_path, format = "jpg")
+        # print(file_path)
       }
     } else {
       file_path <- str_c(dir_path, '/', knitr::opts_current$get()$label, '.', ext)
       if (!file.exists(file_path)) download.file( url, destfile = file_path)
+      # print(file_path)
     }
     return(knitr::include_graphics(file_path))
   }

@@ -65,7 +65,29 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 2</span> Physics and Perception</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li class="book-part">Sound</li>
+<li><a class="active" href="physics-and-perception.html"><span class="header-section-number">2</span> Physics and Perception</a></li>
+<li><a class="" href="harmonic-sounds.html"><span class="header-section-number">3</span> Harmonic Sounds</a></li>
+<li><a class="" href="inharmonic-sounds.html"><span class="header-section-number">4</span> Inharmonic Sounds</a></li>
+<li class="book-part">Fundamental Modules</li>
+<li><a class="" href="basic-concepts.html"><span class="header-section-number">5</span> Basic Concepts</a></li>
+<li><a class="" href="trigger.html"><span class="header-section-number">6</span> Trigger</a></li>
+<li><a class="" href="create.html"><span class="header-section-number">7</span> Create</a></li>
+<li><a class="" href="modify.html"><span class="header-section-number">8</span> Modify</a></li>
+<li class="book-part">Sound Design 1</li>
+<li><a class="" href="kick-cymbal.html"><span class="header-section-number">9</span> Kick &amp; Cymbal</a></li>
+<li><a class="" href="lead-bass.html"><span class="header-section-number">10</span> Lead &amp; Bass</a></li>
+<li class="book-part">Complex Modules</li>
+<li><a class="" href="trigger-1.html"><span class="header-section-number">11</span> Trigger</a></li>
+<li><a class="" href="create-1.html"><span class="header-section-number">12</span> Create</a></li>
+<li><a class="" href="modify-1.html"><span class="header-section-number">13</span> Modify</a></li>
+<li class="book-part">Sound Design 2</li>
+<li><a class="" href="minimoog-303.html"><span class="header-section-number">14</span> Minimoog &amp; 303</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -101,7 +123,7 @@ So we need to know how both the physics and perception of sound work, at least a
 </h2>
 <p>Have you ever noticed a dust particle floating in the air, just randomly wandering around?
 That random movement is known as Brownian motion, and it was shown by Einstein to be evidence for the existence of atoms - that you can see with your own eyes!
-The movement is caused by air molecules<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;In what follows, we will ignore that air is a mixture of gases because it is irrelevant to the present discussion.&lt;/p&gt;"><sup>1</sup></a> bombarding the much larger dust particle from random directions, as shown in Figure <a href="physics-and-perception.html#fig:sim-brownian">2.2</a>.</p>
+The movement is caused by air molecules<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;In what follows, we will ignore that air is a mixture of gases because it is irrelevant to the present discussion.&lt;/p&gt;"><sup>13</sup></a> bombarding the much larger dust particle from random directions, as shown in Figure <a href="physics-and-perception.html#fig:sim-brownian">2.2</a>.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:sim-brownian"></span>
@@ -170,7 +192,7 @@ Figure 2.6: <a href="http://media.npr.org/assets/img/2014/01/21/speaker1.gif">An
 </div>
 <p>The rings in Figure <a href="physics-and-perception.html#fig:schlieren-wave">2.6</a> represent compression (light) and rarefaction (dark) stages of the wave.
 It is important to understand that air molecules aren’t moving from the speaker to the left side of the image.
-Instead, the wave is moving the entire distance, and the air molecules are only moving a little bit as a result of the wave.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The air molecules are moving randomly in general, so the simulation shows only the movement attributable to the effect of the wave.&lt;/p&gt;"><sup>2</sup></a></p>
+Instead, the wave is moving the entire distance, and the air molecules are only moving a little bit as a result of the wave.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The air molecules are moving randomly in general, so the simulation shows only the movement attributable to the effect of the wave.&lt;/p&gt;"><sup>14</sup></a></p>
 <p>To see how this works, take a look at the simulation in Figure <a href="physics-and-perception.html#fig:sim-wave">2.7</a>.
 Hit the green button to start the sound waves and then select the <code>Particles</code> radio button.
 The red dots are markers to help you see how much the air is moving as a result of the wave.
@@ -197,7 +219,7 @@ Most of these properties directly align with the shape of a sound wave.</p>
 <span class="header-section-number">2.2</span> Frequency and pitch<a class="anchor" aria-label="anchor" href="#frequency-and-pitch"><i class="fas fa-link"></i></a>
 </h2>
 <p>Almost all waves we’ll talk about are periodic, meaning they repeat themselves over time.
-If you look at the blue wave in Figure <a href="physics-and-perception.html#fig:wavelength-frequency">2.8</a>, you’ll notice that it starts at equilibrium pressure (marked as zero<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall sound is a pressure wave, and it is the change in air pressure we care about. Subtracting out the equilibrium pressure to get zero here makes the positive/negative changes in air pressure easier to see.&lt;/p&gt;"><sup>3</sup></a>), goes positive, hits zero again, and then goes negative before hitting zero at 2 seconds.
+If you look at the blue wave in Figure <a href="physics-and-perception.html#fig:wavelength-frequency">2.8</a>, you’ll notice that it starts at equilibrium pressure (marked as zero<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall sound is a pressure wave, and it is the change in air pressure we care about. Subtracting out the equilibrium pressure to get zero here makes the positive/negative changes in air pressure easier to see.&lt;/p&gt;"><sup>15</sup></a>), goes positive, hits zero again, and then goes negative before hitting zero at 2 seconds.
 So at 2 seconds, the blue wave has completed 1 full cycle.
 Now look at the yellow wave.
 The end of its first cycle is indicated by the circle marker at .5 seconds.
@@ -224,7 +246,7 @@ Figure 2.8: Two waves overlaid on the same graph. The yellow wave completes its 
 <p>Humans perceive sound wave frequency as pitch.
 As a sound wave cycles faster, we hear the sound’s pitch increase.
 However, the relationship between frequency and pitch is nonlinear.
-For example, the pitch A above middle C is 440 Hz<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Also called A4.&lt;/p&gt;"><sup>4</sup></a>, but the A one octave higher is 880 Hz, and the A two octaves higher is 1760 Hz.
+For example, the pitch A above middle C is 440 Hz<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Also called A4.&lt;/p&gt;"><sup>16</sup></a>, but the A one octave higher is 880 Hz, and the A two octaves higher is 1760 Hz.
 If you wanted to write an equation for this progression, it would look something like <span class="math inline">\(A_n = 440 * 2^n\)</span>, which means the relationship between frequency and pitch is exponential.
 Figure <a href="physics-and-perception.html#fig:freq-pitch">2.9</a> shows the relationship between sound wave frequency and pitch for part of a piano keyboard, together with corresponding white keys and <a href="https://www.youtube.com/watch?v=drnBMAEA3AM">solfège</a>.
 Notice that the difference in frequencies between the two keys on the far left is about 16 Hz but the difference in frequencies between the two keys on the far right is about 111 Hz.
@@ -250,7 +272,7 @@ Figure 2.10: (ref:log-freq)
 </div>
 <p>You might be wondering if there’s point at which pitches are low enough that the notes run together!
 It seems the answer to this is that our ability to hear sound at all gives out before this happens.
-Going back to the 88-key piano keyboard, the two lowest keys (keys 1 &amp; 2; not shown) are about 1.5 Hz appart, but the lowest key<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Also called A0&lt;/p&gt;"><sup>5</sup></a> is 27.5 Hz.
+Going back to the 88-key piano keyboard, the two lowest keys (keys 1 &amp; 2; not shown) are about 1.5 Hz appart, but the lowest key<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Also called A0&lt;/p&gt;"><sup>17</sup></a> is 27.5 Hz.
 Humans generally can only hear frequencies between 20 Hz and 20,000 Hz (20 kHz).
 Below 20 Hz, sounds are felt more than heard (especially if they are loud), and above 20 kHz generally can’t be heard at all, though intense sounds at these frequencies can still cause hearing damage.</p>
 <p>You may also be curious about the fractional frequencies for pitches besides A.
@@ -258,7 +280,7 @@ This appears to be largely based on several historical conventions.
 In brief, western music divides the octave into 12 pitches called semitones based on a system called <a href="https://en.wikipedia.org/wiki/Equal_temperament#Twelve-tone_equal_temperament">twelve-tone equal temperment</a>.
 This is why on a piano, there are 12 white and black keys in an octave - each key represents a semitone.
 It’s possible to divide an octave into more or less than 12 pitches, and some cultures do this.
-In fact, research suggests that our perception of octaves isn’t universal either.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Nori Jacoby et al., &lt;span&gt;“Universal and &lt;span&gt;Non&lt;/span&gt;-Universal &lt;span&gt;Features&lt;/span&gt; of &lt;span&gt;Musical&lt;/span&gt; &lt;span&gt;Pitch&lt;/span&gt; &lt;span&gt;Perception&lt;/span&gt; &lt;span&gt;Revealed&lt;/span&gt; by &lt;span&gt;Singing&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;Current Biology&lt;/em&gt; 29, no. 19 (2019): 3229–3243.e12, &lt;a href="https://doi.org/10.1016/j.cub.2019.08.020" role="doc-biblioref"&gt;https://doi.org/10.1016/j.cub.2019.08.020&lt;/a&gt;.&lt;/p&gt;'><sup>6</sup></a></span>
+In fact, research suggests that our perception of octaves isn’t universal either.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Nori Jacoby et al., &lt;span&gt;“Universal and &lt;span&gt;Non&lt;/span&gt;-Universal &lt;span&gt;Features&lt;/span&gt; of &lt;span&gt;Musical&lt;/span&gt; &lt;span&gt;Pitch&lt;/span&gt; &lt;span&gt;Perception&lt;/span&gt; &lt;span&gt;Revealed&lt;/span&gt; by &lt;span&gt;Singing&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;Current Biology&lt;/em&gt; 29, no. 19 (2019): 3229–3243.e12, &lt;a href="https://doi.org/10.1016/j.cub.2019.08.020" role="doc-biblioref"&gt;https://doi.org/10.1016/j.cub.2019.08.020&lt;/a&gt;.&lt;/p&gt;'><sup>18</sup></a></span>
 We’ll discuss why notes an octave apart feel somehow the same in a later section.</p>
 </div>
 <div id="amplitude-and-loudness" class="section level2" number="2.3">
@@ -269,7 +291,7 @@ We’ll discuss why notes an octave apart feel somehow the same in a later secti
 Take a look at the yellow and blue waves in Figure <a href="physics-and-perception.html#fig:amplitude">2.11</a>.
 The peak compression of each wave cycle has been marked with a dashed line.
 For the yellow wave, the peak positive pressure is 2, and for the blue wave, the peak positive pressure is .5.
-This peak deviation of a sound wave from equilibrium pressure is called amplitude.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Note that since the positive and negative pressures are equivalent, amplitude could be measured down from equilibrium to peak negative pressure as well&lt;/p&gt;"><sup>7</sup></a>
+This peak deviation of a sound wave from equilibrium pressure is called amplitude.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Note that since the positive and negative pressures are equivalent, amplitude could be measured down from equilibrium to peak negative pressure as well&lt;/p&gt;"><sup>19</sup></a>
 It is perhaps not surprising that we perceive larger deviations (with corresponding large positive and negative pressures) as louder sounds.</p>
 
 <div class="figure">
@@ -285,9 +307,9 @@ Unfortunately, the decibel is a bit harder to understand than Hz, and it use use
 The most important thing you need to understand about decibels is that they are not an absolute measurement, but rather a relative measurement.
 Therefore, decibels are always based on a reference value.
 For hearing, that reference value is the quietest sound people can detect, which is defined as 0 dB.
-Some examples of 0 to 10dB sounds are a mosquito, breathing, a pin drop, or a leaf hitting the ground.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;These are commonly given examples, but see below for how they are misleading when you take frequency into account.&lt;/p&gt;"><sup>8</sup></a></p>
+Some examples of 0 to 10dB sounds are a mosquito, breathing, a pin drop, or a leaf hitting the ground.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;These are commonly given examples, but see below for how they are misleading when you take frequency into account.&lt;/p&gt;"><sup>20</sup></a></p>
 <p>If we call the reference sound pressure <span class="math inline">\(S_0\)</span> and the sound pressure we are measuring <span class="math inline">\(S\)</span>, then we calculate the sound pressure level dB of <span class="math inline">\(S\)</span> as <span class="math inline">\(20 * log_{10}(S/S_0)\)</span> dB.
-Under this definition, a 6 dB increase in sound pressure level means amplitude has doubled: <span class="math inline">\(20 * log_{10}(2) = 6.02\)</span> dB.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Note that if we’d used sound intensity level, the corresponding value would be 3 dB. Sound pressure level is more useful in our context: it connects directly to sound wave amplitude, it is measured by a microphone and reflected in microphone output voltage, and it has the same formula as dBV, a decibel measurement of voltage common in audio electronics. Sound intensity level is the square of the sound pressure level.&lt;/p&gt;"><sup>9</sup></a>
+Under this definition, a 6 dB increase in sound pressure level means amplitude has doubled: <span class="math inline">\(20 * log_{10}(2) = 6.02\)</span> dB.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Note that if we’d used sound intensity level, the corresponding value would be 3 dB. Sound pressure level is more useful in our context: it connects directly to sound wave amplitude, it is measured by a microphone and reflected in microphone output voltage, and it has the same formula as dBV, a decibel measurement of voltage common in audio electronics. Sound intensity level is the square of the sound pressure level.&lt;/p&gt;"><sup>21</sup></a>
 Since our hearing is quickly damaged at 120 dB, you can see that our range of hearing goes from the quietest sound we can hear (0 dB) to a sound that is 1,000,000,000,000 times more intense (120 dB).</p>
 <p>Remember from Figure <a href="physics-and-perception.html#fig:elc">2.1</a> that frequency affects our perception of loudness.
 As a result, we can’t say how loud a person will perceive a random 40 dB sound - not in general.
@@ -359,7 +381,7 @@ We’ll explore these dynamic differences in an upcoming section.</p>
 Figure 2.13: <a href="https://olney.ai/ct-modular-book/images/basic-wave-sound-table.html">Sounds</a> of the four classic waveshapes in electronic music, together with example instruments that make similar sounds.
 </p>
 </div>
-<p>There is a variation of the square waveform that you will frequently encounter called the pulse wave.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;One could say the square wave is a special case of the pulse wave. Starting from the circuit or the mathematical definition will give you a different perspective on this; both are true from a certain point of view.&lt;/p&gt;"><sup>10</sup></a>
+<p>There is a variation of the square waveform that you will frequently encounter called the pulse wave.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;One could say the square wave is a special case of the pulse wave. Starting from the circuit or the mathematical definition will give you a different perspective on this; both are true from a certain point of view.&lt;/p&gt;"><sup>22</sup></a>
 In a square wave, the wave is high and low 50% of the time.
 In a pulse wave, the amount of time the wave is high is variable: this is called the duty cycle.
 A pulse wave with a duty cycle of 75% is high for 75% of its cycle and low the rest of the time.
@@ -394,26 +416,23 @@ When the phase-aligned amplitudes are positive, the amplitude of the resulting w
 
 <div class="figure">
 <span style="display:block;" id="fig:interference"></span>
-<img src="images/1024px-Interference_of_two_waves.svg.png" alt="Constructive (left) and destructive interference (right). Because the waves are either perfectly in phase or out of phase, the resulting wave amplitude is either double or zero, respectively. Image © Haade; Wjh31; Quibik/CC-BY-SA-3.0." width="100%"><p class="caption">
-Figure 2.15: Constructive (left) and destructive interference (right). Because the waves are either perfectly in phase or out of phase, the resulting wave amplitude is either double or zero, respectively. Image <a href="https://commons.wikimedia.org/wiki/File:Interference_of_two_waves.svg">© Haade; Wjh31; Quibik/CC-BY-SA-3.0</a>.
+<img src="images/1024px-Interference_of_two_waves.svg.png" alt="Constructive (left) and destructive interference (right). For these matched sine waves, being perfectly in phase or out of phase causes the resulting wave amplitude to be either double or zero, respectively. Image © Haade; Wjh31; Quibik/CC-BY-SA-3.0." width="100%"><p class="caption">
+Figure 2.15: Constructive (left) and destructive interference (right). For these matched sine waves, being perfectly in phase or out of phase causes the resulting wave amplitude to be either double or zero, respectively. Image <a href="https://commons.wikimedia.org/wiki/File:Interference_of_two_waves.svg">© Haade; Wjh31; Quibik/CC-BY-SA-3.0</a>.
 </p>
 </div>
 <p>Destructive interference is the principle behind <a href="https://en.wikipedia.org/wiki/Active_noise_control">noise cancelling headphones</a>, which produce a sound within the headphones to cancel out the background noise outside the headphones.
-Figure <a href="physics-and-perception.html#fig:interference">2.15</a> shows how this can be done with with a perfectly out of phase wave.
+Figure <a href="physics-and-perception.html#fig:interference">2.15</a> shows how this can be done with with a sine wave using an identical, but perfectly out of phase sine wave.
 However, being perfectly out of phase is not enough to guarantee cancellation in all cases.
 Take a look again at the waveshapes in Figure <a href="physics-and-perception.html#fig:four-waves">2.12</a>.
 You should find it relatively easy to imagine how the first three would be cancelled by an out of phase copy of themselves.
-However, the sawtooth wave is</p>
-<p><strong>insert gif here</strong></p>
-<p>The basic idea is playing a sound that is exactly out of phase with the background sound you want to get rid of.
-If you can produce the same sound out of phase and with the same amplitude, then the difference between the sounds will be zero, and you’ll have perfect cancellation.
-Of course the engineering of it is quite complicated, but the fundamental principle is as simple as that.
-An alternative way of thinking about being exactly out of phase is that the sound wave has been flipped, or inverted:</p>
-<p>So what is phase exactly?
-If we consider the cycle of a wave to go from 0 to 1, then the phase of a wave is the position of the wave on that interval.
-You’ve likely seen this concept before in geometry with the sine function, where you can describe one cycle either in degrees (360°) or in radians (<span class="math inline">\(2\pi\)</span>).
-The unit is somewhat arbitrary: the important thing to remember is that if two waves are out of sync in their cycles, they will interfere with each other, and we describe this difference in cycle position as a difference in phase.</p>
-<p>This idea is illustrua</p>
+However, the sawtooth wave just doesn’t match up the same way, as shown in Figure <a href="physics-and-perception.html#fig:saw-phase">2.16</a>.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:saw-phase"></span>
+<img src="images/saw-phase.gif" alt="Animation of interference from a perfectly out of phase saw wave (yellow) combined with the original wave (blue). The resulting wave (green) has non-zero amplitude because the out of phase wave does not have opposite amplitude to the original wave at all locations. Dotted lines indicate the positions of the original waves." width="100%"><p class="caption">
+Figure 2.16: <a href="https://olney.ai/ct-modular-book/images/saw-phase.gif">Animation</a> of interference from a perfectly out of phase saw wave (yellow) combined with the original wave (blue). The resulting wave (green) has non-zero amplitude because the out of phase wave does not have opposite amplitude to the original wave at all locations. Dotted lines indicate the positions of the original waves.
+</p>
+</div>
 <!-- source for making animated gif; each file made separately and combined with -->
 <!-- convert -delay 100 -loop 0 *.png saw-phase.gif -->
 <!-- graphics.off() -->
@@ -429,23 +448,41 @@ The unit is somewhat arbitrary: the important thing to remember is that if two w
 <!-- lines( t, z, col="gold", lwd=1,lty=3) -->
 <!-- lines( t, y + z, col="green",lwd=3) -->
 <!-- dev.off() -->
-<p>reflection
-cancellation
-amplification</p>
+<p>Figure <a href="physics-and-perception.html#fig:saw-phase">2.16</a> shows how cancellation will only happen if the perfectly out of phase wave is identical to <em>inverting</em> the original wave.
+Inverting a wave means reflecting it on the x-axis so we get a mirror image of the wave.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This can be accomplished by multiplying the y coordinates by -1&lt;/p&gt;"><sup>23</sup></a>
+When we add a wave to its mirror image, we achieve perfect cancellation, even for waves like the sawtooth.
+It just so happens that the first three waves in Figure <a href="physics-and-perception.html#fig:four-waves">2.12</a> are symmetric, which makes their perfect out of phase and and inverted versions identical.</p>
+<p>So what is phase exactly?
+If we consider the cycle of a wave to go from 0 to 1, then the phase of a wave is the position of the wave on that interval.
+You’ve likely seen this concept before in geometry with the sine function, where you can describe one cycle either in degrees (360°) or in radians (<span class="math inline">\(2\pi\)</span>).
+The unit is somewhat arbitrary: the important thing to remember is that if two waves are out of sync in their cycles, they will interfere with each other, and we describe this difference in cycle position as a difference in phase.
+The interference caused by phase differences can result in a wide range of effects from cancellation, to the creation of a new wave, to an exact copy of the original wave with double amplitude.</p>
+<p>There are a few very practical contexts for phase to keep in mind.
+The first is that sounds waves reflect, so you don’t need two speakers to get phase effects as in the examples above.
+We’ll discuss how phase and reflection are intrinsic to the sounds of many instruments in the next section, but any reflective surface can affect phase, which has implications for acoustics in rooms.
+The second practical context is that you will often want to play multiple notes at the same time, and when you have an electronic instrument, those notes can be triggered very precisely - precisely enough that you have some control over the phase relationships and can use them to shape the sound to your liking.</p>
 
 </div>
 </div>
 
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="introduction.html"><span class="header-section-number">1</span> Introduction</a></div>
+<div class="next"><a href="harmonic-sounds.html"><span class="header-section-number">3</span> Harmonic Sounds</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#physics-and-perception"><span class="header-section-number">2</span> Physics and Perception</a></li>
+<li><a class="nav-link" href="#waves"><span class="header-section-number">2.1</span> Waves</a></li>
+<li><a class="nav-link" href="#frequency-and-pitch"><span class="header-section-number">2.2</span> Frequency and pitch</a></li>
+<li><a class="nav-link" href="#amplitude-and-loudness"><span class="header-section-number">2.3</span> Amplitude and loudness</a></li>
+<li><a class="nav-link" href="#waveshape-and-timbre"><span class="header-section-number">2.4</span> Waveshape and timbre</a></li>
+<li><a class="nav-link" href="#phase-and-interference"><span class="header-section-number">2.5</span> Phase and interference</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/02-physics-perception.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/02-physics-perception.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -457,7 +494,7 @@ amplification</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-03.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

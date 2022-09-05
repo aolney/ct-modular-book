@@ -323,10 +323,10 @@ You should find it relatively easy to imagine how the first three would be cance
 However, the sawtooth wave just doesn't match up the same way, as shown in Figure \@ref(fig:saw-phase).
 
 
-(ref:saw-phase) Interference from a perfectly out of phase saw wave (yellow) combined with the original wave (blue). The resulting wave (green) has non-zero amplitude because the out of phase wave does not have opposite amplitude to the original wave at all locations. Dotted lines indicate the positions of the original waves.
+(ref:saw-phase) [Animation](https://olney.ai/ct-modular-book/images/saw-phase.gif) of interference from a perfectly out of phase saw wave (yellow) combined with the original wave (blue). The resulting wave (green) has non-zero amplitude because the out of phase wave does not have opposite amplitude to the original wave at all locations. Dotted lines indicate the positions of the original waves.
 
 ```{r saw-phase, echo=F, out.width="100%", fig.cap="(ref:saw-phase)"}
- knitr::include_graphics("images/saw-phase.gif")
+  embed_linked_media("images/saw-phase.gif")
 ```
 
 

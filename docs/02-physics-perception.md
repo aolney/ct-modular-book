@@ -34,7 +34,7 @@ The movement is caused by air molecules^[In what follows, we will ignore that ai
 (ref:sim-brownian) [Simulation](https://physics.bu.edu/~duffy/HTML5/brownian_motion.html) of Brownian motion. Press `Pause` to stop the simulation. © Andrew Duffy/[CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 <div class="figure">
-<iframe src="https://physics.bu.edu/~duffy/HTML5/brownian_motion.html" width="100%" height="575px" data-external="1"></iframe>
+<a href="https://physics.bu.edu/~duffy/HTML5/brownian_motion.html" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-brownian-1.png" alt="(ref:sim-brownian)" width="100%" /></a>
 <p class="caption">(\#fig:sim-brownian)(ref:sim-brownian)</p>
 </div>
 
@@ -48,7 +48,7 @@ The animation in Figure \@ref(fig:firecracker-wave) shows a primary wave of soun
 (ref:firecracker-wave) [Animation](http://media.npr.org/assets/img/2014/01/21/cracker.gif) of a firecracker exploding in slow motion, captured by Schlieren photography. Note the pressure wave that radiates outward. Image © Mike Hargather. Linked with [permission from NPR](https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices).
 
 <div class="figure">
-<img src="http://media.npr.org/assets/img/2014/01/21/cracker.gif" alt="(ref:firecracker-wave)" width="100%" />
+<img src="downloadFigs4latex/firecracker-wave.jpg" alt="(ref:firecracker-wave)" width="100%" />
 <p class="caption">(\#fig:firecracker-wave)(ref:firecracker-wave)</p>
 </div>
 
@@ -69,7 +69,7 @@ The increase in density is called compression.
 (ref:slow-drum) [Youtube video](https://www.youtube.com/watch?v=tM8WyhB6zYo) of a slow motion drum hit. Watch how the drum head continues to move inward and outward after the hit. Image [© Boulder Drum Studio](https://www.youtube.com/channel/UCRZIyRiTD427A9dw3CBM4Fg).
 
 <div class="figure">
-<iframe src="https://www.youtube.com/embed/tM8WyhB6zYo?start=2" width="672" height="400px" data-external="1"></iframe>
+<img src="downloadFigs4latex/slow-drum.jpg" alt="(ref:slow-drum)"  />
 <p class="caption">(\#fig:slow-drum)(ref:slow-drum)</p>
 </div>
 
@@ -83,7 +83,7 @@ In the drum example, when the stick hits the head and causes it to move inward, 
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<iframe src="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2" width="100%" height="400px" data-external="1"></iframe>
+<a href="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-gas-1.png" alt="(ref:sim-gas)" width="100%" /></a>
 <p class="caption">(\#fig:sim-gas)(ref:sim-gas)</p>
 </div>
 
@@ -95,7 +95,7 @@ The Schlieren photography animation in Figure \@ref(fig:schlieren-wave) is more 
 (ref:schlieren-wave) [Animation](http://media.npr.org/assets/img/2014/01/21/speaker1.gif) of a continuous tone from a speaker in slow motion, captured by Schlieren photography. The resulting sound wave shows as lighter compression and darker rarefaction bands that radiate outward. Image © Mike Hargather. Linked with [permission from NPR](https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices).
 
 <div class="figure">
-<img src="http://media.npr.org/assets/img/2014/01/21/speaker1.gif" alt="(ref:schlieren-wave)" width="100%" />
+<img src="downloadFigs4latex/schlieren-wave.jpg" alt="(ref:schlieren-wave)" width="100%" />
 <p class="caption">(\#fig:schlieren-wave)(ref:schlieren-wave)</p>
 </div>
 
@@ -116,7 +116,7 @@ This type of graph is commonly used to describe waves, so make sure you feel com
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<iframe src="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2" width="100%" height="400px" data-external="1"></iframe>
+<a href="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-wave-1.png" alt="(ref:sim-wave)" width="100%" /></a>
 <p class="caption">(\#fig:sim-wave)(ref:sim-wave)</p>
 </div>
 
@@ -177,7 +177,7 @@ It turns out that, in general, our perception is logarithmic in nature (this is 
 Our logarithmic perception of pitch is just one example.
 
 <div class="figure">
-<img src="02-physics-perception_files/figure-html/log-freq-1.png" alt="(ref:log-freq)" width="100%" />
+<img src="02-physics-perception_files/figure-epub3/log-freq-1.png" alt="(ref:log-freq)" width="100%" />
 <p class="caption">(\#fig:log-freq)(ref:log-freq)</p>
 </div>
 
@@ -279,7 +279,7 @@ We'll explore these dynamic differences in an upcoming section.
 
 
 <div class="figure">
-<iframe src="https://olney.ai/ct-modular-book/images/basic-wave-sound-table.html" width="100%" height="250px" data-external="1"></iframe>
+<a href="https://olney.ai/ct-modular-book/images/basic-wave-sound-table.html" target="_blank"><img src="02-physics-perception_files/figure-epub3/basic-wave-table-sounds-1.png" alt="(ref:basic-wave-table-sounds)" width="100%" /></a>
 <p class="caption">(\#fig:basic-wave-table-sounds)(ref:basic-wave-table-sounds)</p>
 </div>
 
@@ -294,7 +294,7 @@ Figure \@ref(fig:pulse-wave) shows a pulse wave across a range of duty cycles, i
 (ref:pulse-wave) [Animation](https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif) of a pulse wave across a range of duty cycles. Note that 100% and 0% it ceases to be a wave. Image [public domain](https://commons.wikimedia.org/wiki/File:PWM_duty_cycle_with_label.gif).
 
 <div class="figure">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif" alt="(ref:pulse-wave)" width="40%" />
+<img src="downloadFigs4latex/pulse-wave.jpg" alt="(ref:pulse-wave)" width="40%" />
 <p class="caption">(\#fig:pulse-wave)(ref:pulse-wave)</p>
 </div>
 
@@ -315,7 +315,7 @@ These two scenarios are illustrated in Figure \@ref(fig:interference) and are ca
 In both cases, the waves combine to create a new wave whose amplitude is the sum of the individual wave amplitudes.
 When the phase-aligned amplitudes are positive, the amplitude of the resulting wave is greater than the individual waves, and when the phase-aligned amplitudes are a mixture of positive and negative, the amplitude of the resulting wave is less than the individual waves.
 
-(ref:interference) Constructive (left) and destructive interference (right). Because the waves are either perfectly in phase or out of phase, the resulting wave amplitude is either double or zero, respectively.  Image [© Haade; Wjh31; Quibik/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Interference_of_two_waves.svg).
+(ref:interference) Constructive (left) and destructive interference (right). For these matched sine waves, being perfectly in phase or out of phase causes the resulting wave amplitude to be either double or zero, respectively.  Image [© Haade; Wjh31; Quibik/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Interference_of_two_waves.svg).
 
 <div class="figure">
 <img src="images/1024px-Interference_of_two_waves.svg.png" alt="(ref:interference)" width="100%" />
@@ -323,27 +323,20 @@ When the phase-aligned amplitudes are positive, the amplitude of the resulting w
 </div>
 
 Destructive interference is the principle behind [noise cancelling headphones](https://en.wikipedia.org/wiki/Active_noise_control), which produce a sound within the headphones to cancel out the background noise outside the headphones.
-Figure \@ref(fig:interference) shows how this can be done with with a perfectly out of phase wave.
+Figure \@ref(fig:interference) shows how this can be done with with a sine wave using an identical, but perfectly out of phase sine wave.
 However, being perfectly out of phase is not enough to guarantee cancellation in all cases. 
 Take a look again at the waveshapes in Figure \@ref(fig:four-waves).
 You should find it relatively easy to imagine how the first three would be cancelled by an out of phase copy of themselves.
-However, the sawtooth wave is 
-
-**insert gif here**
+However, the sawtooth wave just doesn't match up the same way, as shown in Figure \@ref(fig:saw-phase).
 
 
-The basic idea is playing a sound that is exactly out of phase with the background sound you want to get rid of.
-If you can produce the same sound out of phase and with the same amplitude, then the difference between the sounds will be zero, and you'll have perfect cancellation.
-Of course the engineering of it is quite complicated, but the fundamental principle is as simple as that.
-An alternative way of thinking about being exactly out of phase is that the sound wave has been flipped, or inverted: 
+(ref:saw-phase) [Animation](https://olney.ai/ct-modular-book/images/saw-phase.gif) of interference from a perfectly out of phase saw wave (yellow) combined with the original wave (blue). The resulting wave (green) has non-zero amplitude because the out of phase wave does not have opposite amplitude to the original wave at all locations. Dotted lines indicate the positions of the original waves.
 
-So what is phase exactly?
-If we consider the cycle of a wave to go from 0 to 1, then the phase of a wave is the position of the wave on that interval.
-You've likely seen this concept before in geometry with the sine function, where you can describe one cycle either in degrees (360&deg;) or in radians ($2\pi$).
-The unit is somewhat arbitrary: the important thing to remember is that if two waves are out of sync in their cycles, they will interfere with each other, and we describe this difference in cycle position as a difference in phase.
+<div class="figure">
+<img src="downloadFigs4latex/saw-phase.jpg" alt="(ref:saw-phase)" width="100%" />
+<p class="caption">(\#fig:saw-phase)(ref:saw-phase)</p>
+</div>
 
-
-This idea is illustrua
 
 <!-- source for making animated gif; each file made separately and combined with -->
 <!-- convert -delay 100 -loop 0 *.png saw-phase.gif -->
@@ -363,6 +356,19 @@ This idea is illustrua
 <!-- dev.off() -->
 
 
-reflection
-cancellation
-amplification
+Figure \@ref(fig:saw-phase) shows how cancellation will only happen if the perfectly out of phase wave is identical to *inverting* the original wave.
+Inverting a wave means reflecting it on the x-axis so we get a mirror image of the wave.^[This can be accomplished by multiplying the y coordinates by -1]
+When we add a wave to its mirror image, we achieve perfect cancellation, even for waves like the sawtooth.
+It just so happens that the first three waves in Figure \@ref(fig:four-waves) are symmetric, which makes their perfect out of phase and and inverted versions identical.
+
+
+So what is phase exactly?
+If we consider the cycle of a wave to go from 0 to 1, then the phase of a wave is the position of the wave on that interval.
+You've likely seen this concept before in geometry with the sine function, where you can describe one cycle either in degrees (360&deg;) or in radians ($2\pi$).
+The unit is somewhat arbitrary: the important thing to remember is that if two waves are out of sync in their cycles, they will interfere with each other, and we describe this difference in cycle position as a difference in phase.
+The interference caused by phase differences can result in a wide range of effects from cancellation, to the creation of a new wave, to an exact copy of the original wave with double amplitude.
+
+There are a few very practical contexts for phase to keep in mind.
+The first is that sounds waves reflect, so you don't need two speakers to get phase effects as in the examples above.
+We'll discuss how phase and reflection are intrinsic to the sounds of many instruments in the next section, but any reflective surface can affect phase, which has implications for acoustics in rooms.
+The second practical context is that you will often want to play multiple notes at the same time, and when you have an electronic instrument, those notes can be triggered very precisely - precisely enough that you have some control over the phase relationships and can use them to shape the sound to your liking.
