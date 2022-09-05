@@ -362,5 +362,5 @@ The interference caused by phase differences can result in a wide range of effec
 
 There are a few very practical contexts for phase to keep in mind.
 The first is that sounds waves reflect, so you don't need two speakers to get phase effects as in the examples above.
-We'll discuss how phase and reflection are intrinsic to the sounds of many instruments in the next section, but any reflective surface can affect phase, which has implications for acoustics in rooms.
-The second practical context is that you will often want to play multiple notes at the same time, and when you have an electronic instrument, those notes can be triggered very precisely - precisely enough that you have some control over the phase relationships and can use them to shape the sound to your liking.
+We'll discuss how phase and reflection are intrinsic to the sounds of many instruments in the next chapter, but any reflective surface can affect phase, which has implications for acoustics in rooms.
+The second practical context is that you will often want to play multiple notes at the same time, and when you have an electronic instrument, those notes can be triggered very precisely - precisely enough that you have some control over the phase relationships and can use them to shape the sound to your liking.^[Any wave property that lends itself to interference can be used similarly, including frequency and amplitude.]
