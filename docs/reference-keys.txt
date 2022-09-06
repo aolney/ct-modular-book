@@ -25,6 +25,7 @@ fig:interference
 fig:saw-phase
 fig:sim-reflect
 fig:tap-string
+fig:fourier-waves
 introduction
 why-this-book
 computational-thinking
@@ -38,7 +39,6 @@ waveshape-and-timbre
 phase-and-interference
 harmonic-sounds
 phase-reflections-and-standing-waves
-frequency-spectrum-resonators-and-formants
 resonators-formants-and-frequency-spectrum
 inharmonic-sounds
 basic-concepts

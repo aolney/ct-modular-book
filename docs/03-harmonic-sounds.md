@@ -1,6 +1,6 @@
 # Harmonic Sounds
 
-In Section \@ref(waveshape-and-timbre) we reviewed the four most common waveshapes and corresponding instruments with similar timbre.
+In Section \@ref(waveshape-and-timbre) we reviewed the four common waveshapes and corresponding instruments with similar timbre.
 However, we did not explain *why* the waveshapes have their own distinctive timbre.
 The short answer is that the different waveshapes have different harmonics.
 Understanding the relationship between waveshape and harmonics will be extremely useful to you as you design your own sounds.
@@ -14,7 +14,7 @@ Is a stick hitting a sheet of paper a musical instrument?
 What about a stick hitting an empty glass?
 
 A common property of musical instruments is that they make tones rather than noise.^[Inharmonic sounds involving noise will be discussed in the next chapter.]
-Tones are created by waves reflecting in the instrument to create standing waves, and these standing waves act like a filter to get rid of noise.
+Tones are created by waves reflecting in the instrument to create standing waves and get rid of noise.
 Standing waves are fairly similar and straightforward in [strings and pipes](http://www.phys.unsw.edu.au/jw/basics.html) compared to the [complexities in drums and cymbals](http://www.ness.music.ed.ac.uk/archives/systems/3d-embeddings), but since the principle is the same everywhere, we'll limit our discussion to strings, where the waves are easily visible.
 
 Standing waves are created when two waves moving in opposite directions interfere with each other to create a new wave that appears to remain in place (i.e. it "stands" rather than moves).
@@ -74,7 +74,7 @@ In the video, the tap on the string (a reverse of a pluck) creates two pulses th
 <p class="caption">(\#fig:tap-string)(ref:tap-string)</p>
 </div>
 
-Although Figure \@ref(fig:tap-string) looks straightforward and might lead us to believe that the differences between the simulation and plucking an instrument are superficial, the true story is more complicated.
+Although Figure \@ref(fig:tap-string) looks straightforward and might lead us to believe that the differences between the simulation and plucking a string are superficial, the true story is more complicated.
 A real string pluck does not create a single standing wave but rather a [stack of standing waves happening all at once](https://physics.stackexchange.com/a/412746).
 This is because, unlike the simulation in \@ref(fig:sim-reflect), the wave created by plucking a string is not a sine wave but has an initial shape [more like a triangle](https://physics.stackexchange.com/questions/111780/why-do-harmonics-occur-when-you-pluck-a-string).
 In addition, a string pluck is highly likely [not to occur in the middle of the string](https://physics.stackexchange.com/questions/411175/fourier-series-analysis/411177#411177).
@@ -82,7 +82,7 @@ These differences mean that when a string is plucked, waves of all different fre
 Those that correspond to harmonic frequencies are sustained longer and create a tone.
 The remaining frequencies are known as [transients](https://en.wikipedia.org/wiki/Transient_(acoustics)) and quickly cancel out.^[Transients are commonly modeled using noise in electronic music in order to make a simulated sound more realistic.]
 
-## Frequency spectrum, resonators, and formants
+<!-- ## Frequency spectrum, resonators, and formants -->
 
 ## Resonators, formants, and frequency spectrum
 
@@ -94,7 +94,22 @@ Some frequencies are better amplified than others, and this means that the reson
 This is why two guitars with different resonators will sound different even if they have identical strings.
 The effect a resonator has on a frequency's amplitude is called [Q](https://en.wikipedia.org/wiki/Q_factor), and the relative strengths of frequencies emitted by a resonator are called formants.^[You will often see the word "formants" applied to human speech, where the resonator is the vocal tract, but it also applies to instruments with resonators.]
 
-Wouldn't it be nice if...
+Although we've focused on standing waves in strings and their final production of sound through a resonator, you can probably imagine how differences in the construction and operation of other instruments might lead to the differences in the four waveshapes presented in Section \@ref(waveshape-and-timbre): each instrument might have different harmonics that are further amplified or attenuated by the resonator.
+Wouldn't it be nice if we could somehow see all the harmonics involved, and how they align with the waveshape?
+It turns out we can decompose any complex waveshape into components using a technique called [Fourier analysis](https://en.wikipedia.org/wiki/Fourier_analysis).
+Each component extracted by Fourier analysis is a sine wave called a partial, and we can reconstruct the complex wave by adding the sine waves together (potentially an infinite number of them).
+When the waveshape is from a harmonic instrument, the partials are harmonics, so we can use Fourier analysis to see all the harmonics in a waveshape.
+
+Figure \@ref(fig:fourier-waves) shows how Fourier analysis can use sine waves to approximate more complext waves...
+
+(ref:fourier-waves) [Simulation](https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1) showing how Fourier analysis can approximate a complex wave using sine waves. Simulation by [PhET Interactive Simulations](https://phet.colorado.edu/), University of Colorado Boulder, licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+
+<!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
+<div class="figure">
+<a href="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1" target="_blank"><img src="03-harmonic-sounds_files/figure-epub3/fourier-waves-1.png" alt="(ref:fourier-waves)" width="100%" /></a>
+<p class="caption">(\#fig:fourier-waves)(ref:fourier-waves)</p>
+</div>
+
 
 Fourier series, see phet simulation
 Frequency spectra of the 4 waves
