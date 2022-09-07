@@ -53,3 +53,6 @@ trigger-1
 create-1
 modify-1
 minimoog-303
+tab:mode-freq
+dynamics-and-envelopes
+inharmonic-standing-waves-and-noise
