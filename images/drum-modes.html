@@ -1,0 +1,26 @@
+<style>
+  /* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 33.33%;
+  /* padding: 5px; */
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+<div class="row">
+  <div class="column">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Drum_vibration_mode01.gif" alt="Drum vibration mode 0,1" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Drum_vibration_mode11.gif" alt="Drum vibration mode 1,1" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Drum_vibration_mode21.gif" alt="Drum vibration mode 2,1" style="width:100%">
+  </div>
+</div>

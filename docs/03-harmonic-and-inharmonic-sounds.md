@@ -36,7 +36,7 @@ As you can see, when the pulse reaches a fixed end, it reflects both in directio
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<iframe src="https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html" width="100%" height="400px" data-external="1"></iframe>
+<a href="https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/sim-reflect-1.png" alt="(ref:sim-reflect)" width="100%" /></a>
 <p class="caption">(\#fig:sim-reflect)(ref:sim-reflect)</p>
 </div>
 
@@ -76,7 +76,7 @@ In the video, the tap on the string (a reverse of a pluck) creates two pulses th
 (ref:tap-string) [Youtube video](https://www.youtube.com/watch?v=9O3VEXzuOKI) of a slow motion tap on a long string. Watch how the tap creates two pulses that reflect off their respective ends of the string, switching phase, and then constructively interfere to create an apparent standing wave. Image [© Kemp Strings](https://www.youtube.com/c/KempStrings).
 
 <div class="figure">
-<iframe src="https://www.youtube.com/embed/9O3VEXzuOKI?start=0" width="672" height="400px" data-external="1"></iframe>
+<img src="downloadFigs4latex/tap-string.jpg" alt="(ref:tap-string)"  />
 <p class="caption">(\#fig:tap-string)(ref:tap-string)</p>
 </div>
 
@@ -132,7 +132,7 @@ This illustrates a general principle of Fourier analysis: sharp edges in a waves
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<iframe src="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1" width="100%" height="400px" data-external="1"></iframe>
+<a href="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/fourier-waves-1.png" alt="(ref:fourier-waves)" width="100%" /></a>
 <p class="caption">(\#fig:fourier-waves)(ref:fourier-waves)</p>
 </div>
 
@@ -168,7 +168,7 @@ If you go back to Figure \@ref(fig:fourier-waves) and increase the amplitude of 
 (ref:freq-spectrum) Frequency spectrum of four basic waveshapes at 1 Hz. Amplitude is normalized so all harmonics sum to 1. Harmonics are offset for comparison.
 
 <div class="figure">
-<img src="03-harmonic-sounds_files/figure-html/freq-spectrum-1.png" alt="(ref:freq-spectrum)" width="672" />
+<img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/freq-spectrum-1.png" alt="(ref:freq-spectrum)"  />
 <p class="caption">(\#fig:freq-spectrum)(ref:freq-spectrum)</p>
 </div>
 
@@ -183,7 +183,7 @@ Figure \@ref(fig:drum-modes) shows modes with a single nodal circle and 0, 1, or
 (ref:drum-modes) [Animations](https://olney.ai/ct-modular-book/images/drum-modes.html) of drum head vibration modes with a single nodal circle and 0, 1, or 2 nodal lines. Images [public domain](https://en.wikipedia.org/wiki/Vibrations_of_a_circular_membrane#Animations_of_several_vibration_modes).
 
 <div class="figure">
-<iframe src="images/drum-modes.html" width="100%" height="130px" data-external="1"></iframe>
+<a href="https://olney.ai/ct-modular-book/images/drum-modes.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/drum-modes-1.png" alt="(ref:drum-modes)" width="100%" /></a>
 <p class="caption">(\#fig:drum-modes)(ref:drum-modes)</p>
 </div>
 

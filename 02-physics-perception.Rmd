@@ -1,6 +1,6 @@
 # (PART) Sound {-}
 
-# Physics and Perception
+# Physics and Perception of Sound
 
 From the outset, it's important to understand that the physics of sound and how we perceive it are not the same.
 This is a simple fact of biology.

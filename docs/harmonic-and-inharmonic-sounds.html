@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 Harmonic and Inharmonic Sounds | Computational Thinking through Modular Sounds Synthesis</title>
+<meta name="author" content="Andrew M. Olney">
+<meta name="description" content="In Section 2.4 we did not explain why waveshapes have their own distinctive timbre. The short answer is that different waveshapes have different harmonics. Understanding the relationship between...">
+<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta property="og:title" content="Chapter 3 Harmonic and Inharmonic Sounds | Computational Thinking through Modular Sounds Synthesis">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/harmonic-and-inharmonic-sounds.html">
+<meta property="og:description" content="In Section 2.4 we did not explain why waveshapes have their own distinctive timbre. The short answer is that different waveshapes have different harmonics. Understanding the relationship between...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 3 Harmonic and Inharmonic Sounds | Computational Thinking through Modular Sounds Synthesis">
+<meta name="twitter:description" content="In Section 2.4 we did not explain why waveshapes have their own distinctive timbre. The short answer is that different waveshapes have different harmonics. Understanding the relationship between...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Computational Thinking through Modular Sounds Synthesis</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li class="book-part">Sound</li>
+<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
+<li><a class="active" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
+<li class="book-part">Fundamental Modules</li>
+<li><a class="" href="basic-concepts.html"><span class="header-section-number">4</span> Basic Concepts</a></li>
+<li><a class="" href="trigger.html"><span class="header-section-number">5</span> Trigger</a></li>
+<li><a class="" href="create.html"><span class="header-section-number">6</span> Create</a></li>
+<li><a class="" href="modify.html"><span class="header-section-number">7</span> Modify</a></li>
+<li class="book-part">Sound Design 1</li>
+<li><a class="" href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></li>
+<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
+<li class="book-part">Complex Modules</li>
+<li><a class="" href="trigger-1.html"><span class="header-section-number">10</span> Trigger</a></li>
+<li><a class="" href="create-1.html"><span class="header-section-number">11</span> Create</a></li>
+<li><a class="" href="modify-1.html"><span class="header-section-number">12</span> Modify</a></li>
+<li class="book-part">Sound Design 2</li>
+<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="harmonic-and-inharmonic-sounds" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Harmonic and Inharmonic Sounds<a class="anchor" aria-label="anchor" href="#harmonic-and-inharmonic-sounds"><i class="fas fa-link"></i></a>
+</h1>
+<p>In Section <a href="physics-and-perception-of-sound.html#waveshape-and-timbre">2.4</a>
+<!-- we reviewed four common waveshapes and corresponding instruments with similar timbre. -->
+we did not explain <em>why</em> waveshapes have their own distinctive timbre.
+The short answer is that different waveshapes have different harmonics.
+Understanding the relationship between waveshape and harmonics will be extremely useful to you as you design your own sounds.
+In order to explain the harmonics behind the different waveshape timbres, we need to understand what harmonics are and how they are created.
+However, not all sounds are harmonic.
+Most percussion sounds are inharmonic, with drums and cymbals as prominent examples.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;I prefer to think of these sounds as pitched but inharmonic, but this is not a common view.&lt;/p&gt;"><sup>25</sup></a>
+These sounds have a high degree of “noise” associated with them.
+Traditional instruments producing harmonic and inharmonic sounds have distinctly different dynamics that contribute to their timbre.</p>
+<div id="phase-reflections-standing-waves-and-harmonics" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Phase reflections, standing waves, and harmonics<a class="anchor" aria-label="anchor" href="#phase-reflections-standing-waves-and-harmonics"><i class="fas fa-link"></i></a>
+</h2>
+<p>When we discussed wave phase and interference in Section <a href="physics-and-perception-of-sound.html#phase-and-interference">2.5</a>, we mentioned the importance of phase and reflection in musical instruments.
+Before going any further, ask yourself what makes something a musical instrument?
+Is a stick hitting a sheet of paper a musical instrument?
+What about a stick hitting an empty glass?</p>
+<p>A common property of musical instruments is that they make reliable pitches rather than noise.
+These pitches are created by waves reflecting in the instrument to create standing waves and, in harmonic instruments, get rid of noise.
+Standing waves are fairly similar and straightforward in <a href="http://www.phys.unsw.edu.au/jw/basics.html">strings and pipes</a>, so
+we’ll begin our discussion with strings, where the waves are easily visible.</p>
+<p>Standing waves are created when two waves moving in opposite directions interfere with each other to create a new wave that appears to remain in place (i.e. it “stands” rather than moves).
+In a string, the two waves are created by an initial wave that reflects back from the ends of the string, which creates an out of phase wave.
+Figure <a href="harmonic-and-inharmonic-sounds.html#fig:sim-reflect">3.1</a> shows a simulation of a reflected wave.
+Select the checkbox for <code>Pulse</code> and move <code>Damping</code> to <code>None</code>, then press the green button to initiate a pulse.
+As you can see, when the pulse reaches a fixed end, it reflects both in direction and in phase, i.e. if it is above the line going right, it will flip below the line and go left when it hits a fixed end.
+<!-- Once the wave has traversed the string a few times, move `Damping` higher and watch the wave die out. -->
+<!-- Damping is an important property that removes energy from the system. -->
+<!-- In an instrument, damping is what removes noise a bit faster than standing waves, allowing us to hear a tone. --></p>
+
+<!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
+<div class="figure">
+<span style="display:block;" id="fig:sim-reflect"></span>
+<iframe src="https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html" width="100%" height="400px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 3.1: <a href="https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html">Simulation</a> of waves on a string. Simulation by <a href="https://phet.colorado.edu/">PhET Interactive Simulations</a>, University of Colorado Boulder, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.
+</p>
+</div>
+<p>You can use the same simulation to make a standing wave.
+Set <code>Amplitude</code> to .20, <code>Frequency</code> to .17, <code>Damping</code> to <code>None</code>, <code>Tension</code> to <code>Low</code>, and select <code>Oscillate</code>.
+These settings will send a wave from the left to interfere with the reflected wave coming back from the right.
+You will very quickly see a standing wave with three nodes, indicated by the green beads.
+Two of the nodes are at either end of the string, and the third node is exactly in the middle.
+This standing wave is the 2nd harmonic.
+You can make the first harmonic (commonly called the fundamental frequency) by reducing <code>Frequency</code> to half, <span class="math inline">\(.17 / 2 = .085 \approx .09\)</span> and hitting restart.
+Observe that the only nodes are the two ends of the string.
+Finally, you can create additional harmonics by multiplying the frequency of the fundamental by integers greater than 1.
+Try <span class="math inline">\(.085 * 3 = .255 \approx .26\)</span>, <span class="math inline">\(.085 * 4 = 34\)</span>, <span class="math inline">\(.085 * 5 = .425 \approx .43\)</span>, etc.
+Note the green beads don’t always mark nodes, which by definition don’t move; instead the green beads sometimes mark antinodes, or places of greatest motion.</p>
+<p>For the odd harmonics, the simulation requires us to do some rounding that results in an imperfect standing wave.
+Eventually these imperfect standing waves will cancel out because they are not true standing waves.
+True standing waves on our string model have frequencies that are perfectly aligned with the length of our string.
+When this happens, the two waves that create the standing wave constructively interfere with each other, i.e. they are self-reinforcing.
+We can see this in the simulation when we don’t round the frequencies because the amplitude of the waves keeps increasing over time as we add more energy into the system through the oscillator on the left hand side.
+Any wave whose frequency does not create a standing wave will eventually cancel itself out even if damping is zero.</p>
+<p>Standing waves on a string explain why harmonics are integer multiples of the fundamental frequency.
+In the simulation for the first harmonic, the oscillator started its second pulse at the moment the first reflected pulse returned to the oscillator, so the first pulse had to travel twice the length of the string.
+For the second harmonic, the oscillator started its second pulse at the moment the first pulse reached the fixed end, or the full length of the string.
+In each case, the combined speed of the waves must evenly divide the length of the string (giving an integer) in order for the out of phase passing waves to align and create a standing wave.
+The integer relationship of harmonics is very important to how we perceive musical instruments and may even be the reason for our perception of fundamental musical relationships like octaves and <a href="https://en.wikipedia.org/wiki/Perfect_fifth">fifths</a>.
+For example, recall from Section <a href="physics-and-perception-of-sound.html#frequency-and-pitch">2.2</a> than one octave above a pitch is double the frequency of that pitch.
+Since the second harmonic is double the frequency of the fundamental, the second harmonic is one octave above the fundamental frequency.
+Similarly, the third harmonic is one fifth above the second harmonic.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;One might speculate that we created instruments in order to consistently create pitches based on the fundamental, but the instruments instilled in us a music theory as a side effect of their harmonics.&lt;/p&gt;"><sup>26</sup></a></p>
+<p>Before moving on, it’s important to note that the oscillator simulation in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:sim-reflect">3.1</a> does not accurately represent what happens in a plucked string because the simulation doesn’t fix both sides of the string.
+Instead, the simulation uses an oscillator on one side to generate sine waves.
+We can, however, observe a very similar behavior to the simulation when a string is plucked, as shown the slow motion video in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:tap-string">3.2</a>.
+In the video, the tap on the string (a reverse of a pluck) creates two pulses that move in opposite directions, reflect off their respective ends of the string and switch phase, and then constructively interfere in the center to create an apparent standing wave.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:tap-string"></span>
+<iframe src="https://www.youtube.com/embed/9O3VEXzuOKI?start=0" width="672" height="400px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 3.2: <a href="https://www.youtube.com/watch?v=9O3VEXzuOKI">Youtube video</a> of a slow motion tap on a long string. Watch how the tap creates two pulses that reflect off their respective ends of the string, switching phase, and then constructively interfere to create an apparent standing wave. Image <a href="https://www.youtube.com/c/KempStrings">© Kemp Strings</a>.
+</p>
+</div>
+<p>Although Figure <a href="harmonic-and-inharmonic-sounds.html#fig:tap-string">3.2</a> looks straightforward and might lead us to believe that the differences between the simulation and plucking a string are superficial, the true story is more complicated.
+A real string pluck does not create a single standing wave but rather a <a href="https://physics.stackexchange.com/a/412746">stack of standing waves happening all at once</a>.
+This is because, unlike the simulation in <a href="harmonic-and-inharmonic-sounds.html#fig:sim-reflect">3.1</a>, the wave created by plucking a string is not a sine wave but has an initial shape <a href="https://physics.stackexchange.com/questions/111780/why-do-harmonics-occur-when-you-pluck-a-string">more like a triangle</a>.
+In addition, a string pluck is highly likely <a href="https://physics.stackexchange.com/questions/411175/fourier-series-analysis/411177#411177">not to occur in the middle of the string</a>.
+These differences mean that when a string is plucked, waves of all different frequencies are created and begin racing back and forth on the string.
+Those that correspond to harmonic frequencies are sustained longer and create a tone.
+The remaining frequencies are known as <a href="https://en.wikipedia.org/wiki/Transient_(acoustics)">transients</a> and quickly cancel out.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Transients are commonly modeled using noise in electronic music in order to make a simulated sound more realistic.&lt;/p&gt;"><sup>27</sup></a></p>
+<!-- ## Frequency spectrum, resonators, and formants -->
+</div>
+<div id="resonators-formants-and-frequency-spectrum" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Resonators, formants, and frequency spectrum<a class="anchor" aria-label="anchor" href="#resonators-formants-and-frequency-spectrum"><i class="fas fa-link"></i></a>
+</h2>
+<p>In a real string instrument, the vibrations of the strings are transmitted to the rest of the instrument, which includes a <a href="https://en.wikipedia.org/wiki/Helmholtz_resonance">resonator</a> that is typically shaped like a box with an opening.
+The resonator vibrates at the same frequencies as the string (primarily the harmonic frequencies as discussed) but pushes against a larger volume of air than the string, which has a small surface area by comparison.
+Therefore the resonator creates a larger change in air pressure for a higher amplitude (and louder) sound wave.
+The resonator does not amplify the string frequencies perfectly, however.
+Some frequencies are better amplified than others, and this means that the resonator affects the timbre of the instrument.
+This is why two guitars with different resonators will sound different even if they have identical strings.
+The effect a resonator has on a frequency’s amplitude is called <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a>, and the relative strengths of frequencies emitted by a resonator are called formants.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;You will often see the word “formants” applied to human speech, where the resonator is the vocal tract, but it also applies to instruments with resonators.&lt;/p&gt;"><sup>28</sup></a></p>
+<p>You can probably imagine how differences in the construction and operation of other instruments might lead to the differences in their characteristic sounds.
+Their mode of operation (string, wind, etc.) and their resonators (wood, metal, etc.) affect both what harmonics are produced and the relative strengths of these frequencies (the formants).
+For example, <a href="https://newt.phys.unsw.edu.au/jw/flutes.v.clarinets.html">closed end pipes produce only odd harmonics</a>!
+In each case, the instrument is producing multiple harmonic frequencies at once, with some instruments producing more harmonics than others.
+These differences in characteristic sounds are reflected in the four waveshapes presented in Section <a href="physics-and-perception-of-sound.html#waveshape-and-timbre">2.4</a>.</p>
+<p>Unfortunately, when we look at a waveshape, we see the sum of all the harmonic frequencies - we can’t see the individual harmonics just by looking at a waveshape.
+Wouldn’t it be nice if we could somehow see all the harmonics that make up a waveshape?
+It turns out we can decompose any complex waveshape into components using a technique called <a href="https://en.wikipedia.org/wiki/Fourier_analysis">Fourier analysis</a>.
+Each component extracted by Fourier analysis is a sine wave called a partial, and we can reconstruct a complex waveshape by adding the sine wave partials together (potentially an infinite number of them).
+When the waveshape is from a harmonic instrument, the partials are harmonics, so we can use Fourier analysis to see all the harmonics in a waveshape.</p>
+<p>Figure <a href="harmonic-and-inharmonic-sounds.html#fig:fourier-waves">3.3</a> is a simulation showing how Fourier analysis can use sine waves to approximate more complex waveshapes.
+The first waveshape is a sine, which is quite trivially approximated by a single sine wave.
+Take a moment to look at the amplitude of the red line (the first harmonic) and how it corresponds to the red bar in the upper bar plot.
+You can grab the top of that bar and move it up and down to change the amplitude of the first harmonic.
+As you move the bar, note how the bottom graph showing the sum of harmonics changes exactly the same way - this is because it is the sum of harmonics, and we only have one harmonic, so the sum is equal to that harmonic.</p>
+<p>Use the dropdown on the right to select a triangle waveshape.
+Note that all the harmonics are odd for the triangle, and that the sum is clearly different from the sine wave of the first harmonic.
+It turns out you can’t get any closer to a triangle waveshape with only 11 harmonics, but feel free to try by moving the sliders around.
+What you will find is that as you try to change the shape at one part of the waveshape, you end up making changes everywhere.
+This is because the sine waves that are being summed up keep going up and down everywhere.
+The only way to get closer to a triangle shape is to use more and smaller sine waves.
+You can see what this looks like by using the <code>Infinite Harmonics</code> checkbox on the bottom.
+This illustrates a general principle of Fourier analysis: sharp edges in a waveshape mean high frequency partials.</p>
+
+<!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
+<div class="figure">
+<span style="display:block;" id="fig:fourier-waves"></span>
+<iframe src="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1" width="100%" height="400px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 3.3: <a href="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1">Simulation</a> showing how Fourier analysis can approximate a complex wave using sine waves. Simulation by <a href="https://phet.colorado.edu/">PhET Interactive Simulations</a>, University of Colorado Boulder, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.
+</p>
+</div>
+<p>The square and sawtooth waveshapes give more impressive examples of this.
+If you select square, you’ll see that again only odd harmonics are used, but you’ll also see that the sum of harmonics is pretty far from the square waveshape we looked at before.
+The sawtooth waveshape, which uses both even and odd harmonics (with opposite signs), also looks pretty different from the sawtooth waveshape we saw before.
+Both of these waveshapes have sharp edges that need more harmonics to approximate.
+They also have straight regions that don’t line up well with the straight-ish part of the first harmonic, and these straight regions also need more high frequency components to straighten out.
+In both cases, you can check infinite harmonics to see how additional harmonics would help.</p>
+<p>It may have already occurred to you that you could create any sound by adding together the sine waves in the right combinations.
+This is exactly what <a href="https://en.wikipedia.org/wiki/Additive_synthesis">additive synthesis</a> does!
+Running a Fourier analysis to get sine wave partials of a sound and then recombine them to reproduce the sound is very appealing.
+However, even though the idea of additive synthesis has been around a long time, it was not practical with analogue technology because of the many oscillators and precise timings involved.
+<!-- As digital technology improved, sampling and [wavetable synthsis](https://en.wikipedia.org/wiki/Wavetable_synthesis) became more popular than additive synthesis in achieving similar goals. -->
+Conceptually, the alternative to additive synthesis is <a href="https://en.wikipedia.org/wiki/Subtractive_synthesis">subtractive synthesis</a>, which has been a very popular approach in analogue synthesis to the present day.
+Subtractive synthesis starts with complex waveforms and then removes harmonics to create the desired sound.
+Harmonics can be removed with relatively simple analogue electronics as we’ll discuss in a later chapter.</p>
+<p>While the simulation in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:fourier-waves">3.3</a> is useful for understanding how Fourier analysis works, it’s difficult to see all of the frequenecy components because they are stacked on top of each other.
+An alternative way of visualizing a Fourier analysis is a frequency spectrogram.
+A frequency spectrogram shows each sine wave based on its frequency and amplitude.
+Figure <a href="harmonic-and-inharmonic-sounds.html#fig:freq-spectrum">3.4</a> shows a frequency spectrogram of the same four waveshapes at 1 Hz with harmonics side by side and amplitudes normalized so all harmonics sum to 1.
+The order of harmonics at 1 Hz shows how much energy each waveshape has in the first harmonic, the order of harmonics at 2 Hz shows the energy at the second harmonic, etc.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;1 Hz is a convenient fundamental frequency to get 10 harmonics on a compact plot, but we’d see the same pattern regardless of the fundamental frequency.&lt;/p&gt;"><sup>29</sup></a></p>
+<p>Figure <a href="harmonic-and-inharmonic-sounds.html#fig:freq-spectrum">3.4</a> clearly shows what we noted before: only sawtooth has even harmonics, and only sawtooth and square have easily visible harmonics above the third harmonic.
+It’s quite amazing that these waves have such small visible differences in their frequency spectrums and yet have such distinctive sounds.
+For all waveshapes, the fundamental has the most energy (highest amplitude).
+This is crucial to our perception of the overall pitch of the sound.
+If you go back to Figure <a href="harmonic-and-inharmonic-sounds.html#fig:fourier-waves">3.3</a> and increase the amplitude of a harmonic above the amplitude of the harmonic (and click the checkbox to hear the sound), your perception of the pitch will shift to the louder harmonic.
+<!-- ^[[Subharmonics](https://en.wikipedia.org/wiki/Undertone_series)] --></p>
+
+<div class="figure">
+<span style="display:block;" id="fig:freq-spectrum"></span>
+<img src="03-harmonic-and-inharmonic-sounds_files/figure-html/freq-spectrum-1.png" alt="Frequency spectrum of four basic waveshapes at 1 Hz. Amplitude is normalized so all harmonics sum to 1. Harmonics are offset for comparison." width="672"><p class="caption">
+Figure 3.4: Frequency spectrum of four basic waveshapes at 1 Hz. Amplitude is normalized so all harmonics sum to 1. Harmonics are offset for comparison.
+</p>
+</div>
+</div>
+<div id="inharmonic-standing-waves" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Inharmonic standing waves<a class="anchor" aria-label="anchor" href="#inharmonic-standing-waves"><i class="fas fa-link"></i></a>
+</h2>
+<p>While standing waves in one dimension, like a string, are necessarily harmonic, standing waves in two dimensions are typically not harmonic.
+Inharmonic, two-dimensional standing waves are common in drums, cymbals, and related percussion instruments, where they are called modes, and the physics behind the acoustics of these instruments <a href="http://www.ness.music.ed.ac.uk/archives/systems/3d-embeddings">can get very complex</a>.
+Recall that standing waves in a string had nodes which were points of no movement.
+In a circular membrane (a drum) or a circular plate (a cymbal) the nodes are lines and even circles, because the waves can now travel in two dimensions and reflect off the respective edges.
+Figure <a href="harmonic-and-inharmonic-sounds.html#fig:drum-modes">3.5</a> shows modes with a single nodal circle and 0, 1, or 2 nodal lines.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:drum-modes"></span>
+<iframe src="https://olney.ai/ct-modular-book/images/drum-modes.html" width="100%" height="130px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 3.5: <a href="https://olney.ai/ct-modular-book/images/drum-modes.html">Animations</a> of drum head vibration modes with a single nodal circle and 0, 1, or 2 nodal lines. Images <a href="https://en.wikipedia.org/wiki/Vibrations_of_a_circular_membrane#Animations_of_several_vibration_modes">public domain</a>.
+</p>
+</div>
+<p>Infinite number excited, partials not harmonic and squeezed together</p>
+<p>Inharmonic
+drums/cymbal modes
+partials fractional,not harmonic
+partials squeezed together
+fundamental relatively weak compared to other partials</p>
+<p>Use of noise for percussion synthesis
+sine is fundamental
+Noise: white/pink/brown</p>
+<p>Envelopes</p>
+<!-- Tonal sounds    -->
+<!--    Common waves, harmonics, spectrum -->
+<!--    Fourier series -->
+<!--    Envelopes -->
+<!--    Music concepts: semitones, scales, notes, timbre, polyphony -->
+<!-- Rhythmic sounds     -->
+<!--    Noise: white/pink/brown -->
+<!--    Envelopes -->
+<!--    Music concepts: beats, timbre, polyrhythm -->
+
+</div>
+</div>
+
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></div>
+<div class="next"><a href="basic-concepts.html"><span class="header-section-number">4</span> Basic Concepts</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#harmonic-and-inharmonic-sounds"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
+<li><a class="nav-link" href="#phase-reflections-standing-waves-and-harmonics"><span class="header-section-number">3.1</span> Phase reflections, standing waves, and harmonics</a></li>
+<li><a class="nav-link" href="#resonators-formants-and-frequency-spectrum"><span class="header-section-number">3.2</span> Resonators, formants, and frequency spectrum</a></li>
+<li><a class="nav-link" href="#inharmonic-standing-waves"><span class="header-section-number">3.3</span> Inharmonic standing waves</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/03-harmonic-and-inharmonic-sounds.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/03-harmonic-and-inharmonic-sounds.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

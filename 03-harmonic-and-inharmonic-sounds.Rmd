@@ -35,10 +35,9 @@ As you can see, when the pulse reaches a fixed end, it reflects both in directio
 (ref:sim-reflect) [Simulation](https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html) of waves on a string. Simulation by [PhET Interactive Simulations](https://phet.colorado.edu/), University of Colorado Boulder, licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
-<div class="figure">
-<iframe src="https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html" width="100%" height="400px" data-external="1"></iframe>
-<p class="caption">(\#fig:sim-reflect)(ref:sim-reflect)</p>
-</div>
+```{r, sim-reflect, out.width='100%', fig.cap="(ref:sim-reflect)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+knitr::include_url("https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html")
+```
 
 You can use the same simulation to make a standing wave.
 Set `Amplitude` to .20, `Frequency` to .17, `Damping` to `None`, `Tension` to `Low`, and select `Oscillate`.
@@ -75,10 +74,9 @@ In the video, the tap on the string (a reverse of a pluck) creates two pulses th
 
 (ref:tap-string) [Youtube video](https://www.youtube.com/watch?v=9O3VEXzuOKI) of a slow motion tap on a long string. Watch how the tap creates two pulses that reflect off their respective ends of the string, switching phase, and then constructively interfere to create an apparent standing wave. Image [© Kemp Strings](https://www.youtube.com/c/KempStrings).
 
-<div class="figure">
-<iframe src="https://www.youtube.com/embed/9O3VEXzuOKI?start=0" width="672" height="400px" data-external="1"></iframe>
-<p class="caption">(\#fig:tap-string)(ref:tap-string)</p>
-</div>
+```{r tap-string, fig.cap="(ref:tap-string)", echo = F}
+embed_youtube("9O3VEXzuOKI",0)
+```
 
 Although Figure \@ref(fig:tap-string) looks straightforward and might lead us to believe that the differences between the simulation and plucking a string are superficial, the true story is more complicated.
 A real string pluck does not create a single standing wave but rather a [stack of standing waves happening all at once](https://physics.stackexchange.com/a/412746).
@@ -131,10 +129,9 @@ This illustrates a general principle of Fourier analysis: sharp edges in a waves
 (ref:fourier-waves) [Simulation](https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1) showing how Fourier analysis can approximate a complex wave using sine waves. Simulation by [PhET Interactive Simulations](https://phet.colorado.edu/), University of Colorado Boulder, licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
-<div class="figure">
-<iframe src="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1" width="100%" height="400px" data-external="1"></iframe>
-<p class="caption">(\#fig:fourier-waves)(ref:fourier-waves)</p>
-</div>
+```{r, fourier-waves, out.width='100%', fig.cap="(ref:fourier-waves)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+knitr::include_url("https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1")
+```
 
 The square and sawtooth waveshapes give more impressive examples of this.
 If you select square, you'll see that again only odd harmonics are used, but you'll also see that the sum of harmonics is pretty far from the square waveshape we looked at before.
@@ -167,10 +164,53 @@ If you go back to Figure \@ref(fig:fourier-waves) and increase the amplitude of 
 
 (ref:freq-spectrum) Frequency spectrum of four basic waveshapes at 1 Hz. Amplitude is normalized so all harmonics sum to 1. Harmonics are offset for comparison.
 
-<div class="figure">
-<img src="03-harmonic-sounds_files/figure-html/freq-spectrum-1.png" alt="(ref:freq-spectrum)" width="672" />
-<p class="caption">(\#fig:freq-spectrum)(ref:freq-spectrum)</p>
-</div>
+```{r freq-spectrum, fig.cap="(ref:freq-spectrum)", echo = F, message=F, warning=F,dev='png'}
+# I prefer the spectral package because it gives tighter lines
+library(spectral)
+library(gsignal)
+x <- seq(0, 1, length.out = 1e3)
+#1hz sinewave
+sine_y <- sinewave(1000, 1000)
+sine_FT <- spec.fft(sine_y, x,center = F)
+plot(
+    sine_FT,
+    ylab = "Amplitude (Normalized)",
+    xlab = "Frequency (Hz)",
+    type = "h",
+    xlim = c(1, 10),
+    #main = "Spectrum",
+    col="blue",
+    lwd=3,
+)
+#1hz triangle
+triangle_y <- sawtooth(2 * pi * 1 *x, .5)
+triangle_FT <- spec.fft(triangle_y, x,center = F)
+#offset for visibility
+triangle_x <- triangle_FT$fx + .1
+lines(triangle_x,base::Mod(triangle_FT$PSD), type = "h", col="green3",lwd=3)
+
+#1hz square
+square_y <- square(2 * pi * 1 *x, duty = 50)
+square_FT <- spec.fft(square_y, x,center = F)
+#offset for visibility
+square_x <- square_FT$fx + .2
+lines(square_x,base::Mod(square_FT$PSD), type = "h", col="red",lwd=3)
+
+#1hz sawtooth
+saw_y <- sawtooth(2 * pi * 1 *x)
+saw_FT <- spec.fft(saw_y, x,center = F)
+#offset for visibility
+saw_x <- saw_FT$fx + .3
+lines(saw_x,base::Mod(saw_FT$PSD), type = "h", col="orange",lwd=3)
+
+legend(7.8, 1, legend=c("Sine", "Triangle", "Square", "Sawtooth"),
+       col=c("blue", "green3","red","orange"), lwd=3)
+
+#if we want the signal plot...
+# y = square_y
+# x = square_x
+# plot(x, y, type = "l", main = "Signal")
+```
 
 ## Inharmonic standing waves
 
@@ -182,10 +222,12 @@ Figure \@ref(fig:drum-modes) shows modes with a single nodal circle and 0, 1, or
 
 (ref:drum-modes) [Animations](https://olney.ai/ct-modular-book/images/drum-modes.html) of drum head vibration modes with a single nodal circle and 0, 1, or 2 nodal lines. Images [public domain](https://en.wikipedia.org/wiki/Vibrations_of_a_circular_membrane#Animations_of_several_vibration_modes).
 
-<div class="figure">
-<iframe src="images/drum-modes.html" width="100%" height="130px" data-external="1"></iframe>
-<p class="caption">(\#fig:drum-modes)(ref:drum-modes)</p>
-</div>
+```{r, drum-modes, out.width='100%', fig.cap="(ref:drum-modes)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+# first pass, use local file, build html, and deploy html
+# knitr::include_url("images/drum-modes.html", height = "130px")
+# second pass, use deployed url so pdf will also build
+knitr::include_url("https://olney.ai/ct-modular-book/images/drum-modes.html", height = "130px")
+```
 
 Infinite number excited, partials not harmonic and squeezed together
 
