@@ -56,3 +56,4 @@ minimoog-303
 tab:mode-freq
 dynamics-and-envelopes
 inharmonic-standing-waves-and-noise
+fig:noise-types
