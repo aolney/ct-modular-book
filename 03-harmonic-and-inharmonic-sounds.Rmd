@@ -282,9 +282,9 @@ All other colors of noise are based on white noise but change the distribution o
 
 ```{r, noise-types, out.width='100%', fig.cap="(ref:noise-types)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
 # first pass, use local file, build html, and deploy html
-knitr::include_url("images/noise-table.html", height = "510px")
+# knitr::include_url("images/noise-table.html", height = "510px")
 # second pass, use deployed url so pdf will also build
-# knitr::include_url("https://olney.ai/ct-modular-book/images/noise-table.html", height = "510px")
+knitr::include_url("https://olney.ai/ct-modular-book/images/noise-table.html", height = "510px")
 ```
 
 Pink noise balances energy across each octave to *roughly* approximate human perception by reducing energy (i.e., amplitude) as frequency increases.

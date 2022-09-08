@@ -28,6 +28,8 @@ fig:tap-string
 fig:fourier-waves
 fig:freq-spectrum
 fig:drum-modes
+tab:mode-freq
+fig:noise-types
 introduction
 why-this-book
 computational-thinking
@@ -42,7 +44,8 @@ phase-and-interference
 harmonic-and-inharmonic-sounds
 phase-reflections-standing-waves-and-harmonics
 resonators-formants-and-frequency-spectrum
-inharmonic-standing-waves
+inharmonic-standing-waves-and-noise
+dynamics-and-envelopes
 basic-concepts
 trigger
 create
@@ -53,7 +56,3 @@ trigger-1
 create-1
 modify-1
 minimoog-303
-tab:mode-freq
-dynamics-and-envelopes
-inharmonic-standing-waves-and-noise
-fig:noise-types
