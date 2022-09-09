@@ -16,4 +16,35 @@ Figure \@ref(fig:serge-modular-2) shows an example patch on a real modular synth
 
 It's impractical to assume that you, the reader, will have access to the exact same physical modules we will discuss.
 For that reason, we will use open source modular software called Patchcab [@Spectrome2021] that has been integrated into the book.
-Patchcab is relatively simple and runs in the browser, which for our needs makes it preferable to the popular open source modular software, VCVRack [@VCVRack2022], which is desktop based.[^VCVRack is otherwise recommended. Both @Bjoern2018 and @Dusha2020 have distributed VCVRack patch files with their books.]
+Patchcab is relatively simple and runs in the browser, which for our needs makes it preferable to the popular open source modular software, VCVRack [@VCVRack2022], which is desktop based.^[VCVRack is otherwise recommended. Both @Bjoern2018 and @Dusha2020 have distributed VCVRack patch files with their books.]
+
+## Modules as model elements
+
+The universe of modules is rather vast, which can make learning about modules overwhelming.
+For example, [ModularGrid](https://www.modulargrid.net/) lists over 10,000 modules and classifies them according to 56 categories based on their function.
+While those 56 categories are certainly real and useful, you can get the main idea with only three function categories: controllers, generators, and modifiers.
+You might think of these as "categories of categories."
+
+**Controllers** initiate musical events.
+An example controller is a module that waits for key presses and, on receiving them, sends a signal to initiate a musical event.
+Another example is a sequencer, which you can think of as recording key presses previously and then playing them back to initiate musical events.
+
+**Generators** ...
+
+
+
+
+<!-- Fundamental Modules and Composition		 -->
+<!-- 	Basic concepts	 -->
+<!-- 		 I/O, controls, representation, trigger, create, modify -->
+<!-- 	Trigger	 -->
+<!-- 		Controllers -->
+<!-- 		Trigger/gate, phase, sync -->
+<!-- 	Create	 -->
+<!-- 		Oscillators (VCO) -->
+<!-- 		Samplers -->
+<!-- 	Modify	 -->
+<!-- 		Filters (VCF): poles, slopes, cutoff frequency, resonance -->
+<!-- 		Envelopes, velocity sensitivity, aftertouch -->
+<!-- 		Amplifiers -->
+<!-- 		Effects: delay/reverb/panning -->

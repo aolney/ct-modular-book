@@ -50,6 +50,7 @@ resonators-formants-and-frequency-spectrum
 inharmonic-standing-waves-and-noise
 dynamics-and-envelopes
 basic-modeling-concepts
+modules-as-model-elements
 trigger
 create
 modify
