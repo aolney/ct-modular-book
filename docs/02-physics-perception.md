@@ -34,7 +34,7 @@ The movement is caused by air molecules^[In what follows, we will ignore that ai
 (ref:sim-brownian) [Simulation](https://physics.bu.edu/~duffy/HTML5/brownian_motion.html) of Brownian motion. Press `Pause` to stop the simulation. © Andrew Duffy/[CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 <div class="figure">
-<iframe src="https://physics.bu.edu/~duffy/HTML5/brownian_motion.html" width="100%" height="575px" data-external="1"></iframe>
+<a href="https://physics.bu.edu/~duffy/HTML5/brownian_motion.html" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-brownian-1.png" alt="(ref:sim-brownian)" width="100%" /></a>
 <p class="caption">(\#fig:sim-brownian)(ref:sim-brownian)</p>
 </div>
 
@@ -48,7 +48,7 @@ The animation in Figure \@ref(fig:firecracker-wave) shows a primary wave of soun
 (ref:firecracker-wave) [Animation](http://media.npr.org/assets/img/2014/01/21/cracker.gif) of a firecracker exploding in slow motion, captured by Schlieren photography. Note the pressure wave that radiates outward. Image © Mike Hargather. Linked with [permission from NPR](https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices).
 
 <div class="figure">
-<img src="http://media.npr.org/assets/img/2014/01/21/cracker.gif" alt="(ref:firecracker-wave)" width="100%" />
+<img src="downloadFigs4latex/firecracker-wave.jpg" alt="(ref:firecracker-wave)" width="100%" />
 <p class="caption">(\#fig:firecracker-wave)(ref:firecracker-wave)</p>
 </div>
 
@@ -69,7 +69,7 @@ The increase in density is called compression.
 (ref:slow-drum) [Youtube video](https://www.youtube.com/watch?v=tM8WyhB6zYo) of a slow motion drum hit. Watch how the drum head continues to move inward and outward after the hit. Image [© Boulder Drum Studio](https://www.youtube.com/channel/UCRZIyRiTD427A9dw3CBM4Fg).
 
 <div class="figure">
-<iframe src="https://www.youtube.com/embed/tM8WyhB6zYo?start=2" width="672" height="400px" data-external="1"></iframe>
+<img src="downloadFigs4latex/slow-drum.jpg" alt="(ref:slow-drum)"  />
 <p class="caption">(\#fig:slow-drum)(ref:slow-drum)</p>
 </div>
 
@@ -83,7 +83,7 @@ In the drum example, when the stick hits the head and causes it to move inward, 
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<iframe src="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2" width="100%" height="400px" data-external="1"></iframe>
+<a href="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-gas-1.png" alt="(ref:sim-gas)" width="100%" /></a>
 <p class="caption">(\#fig:sim-gas)(ref:sim-gas)</p>
 </div>
 
@@ -95,7 +95,7 @@ The Schlieren photography animation in Figure \@ref(fig:schlieren-wave) is more 
 (ref:schlieren-wave) [Animation](http://media.npr.org/assets/img/2014/01/21/speaker1.gif) of a continuous tone from a speaker in slow motion, captured by Schlieren photography. The resulting sound wave shows as lighter compression and darker rarefaction bands that radiate outward. Image © Mike Hargather. Linked with [permission from NPR](https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices).
 
 <div class="figure">
-<img src="http://media.npr.org/assets/img/2014/01/21/speaker1.gif" alt="(ref:schlieren-wave)" width="100%" />
+<img src="downloadFigs4latex/schlieren-wave.jpg" alt="(ref:schlieren-wave)" width="100%" />
 <p class="caption">(\#fig:schlieren-wave)(ref:schlieren-wave)</p>
 </div>
 
@@ -116,7 +116,7 @@ This type of graph is commonly used to describe waves, so make sure you feel com
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<iframe src="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2" width="100%" height="400px" data-external="1"></iframe>
+<a href="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-wave-1.png" alt="(ref:sim-wave)" width="100%" /></a>
 <p class="caption">(\#fig:sim-wave)(ref:sim-wave)</p>
 </div>
 
@@ -177,7 +177,7 @@ It turns out that, in general, our perception is logarithmic in nature (this is 
 Our logarithmic perception of pitch is just one example.
 
 <div class="figure">
-<img src="02-physics-perception_files/figure-html/log-freq-1.png" alt="(ref:log-freq)" width="100%" />
+<img src="02-physics-perception_files/figure-epub3/log-freq-1.png" alt="(ref:log-freq)" width="100%" />
 <p class="caption">(\#fig:log-freq)(ref:log-freq)</p>
 </div>
 
@@ -279,7 +279,7 @@ We'll explore these dynamic differences in an upcoming section.
 
 
 <div class="figure">
-<iframe src="https://olney.ai/ct-modular-book/images/basic-wave-sound-table.html" width="100%" height="250px" data-external="1"></iframe>
+<a href="https://olney.ai/ct-modular-book/images/basic-wave-sound-table.html" target="_blank"><img src="02-physics-perception_files/figure-epub3/basic-wave-table-sounds-1.png" alt="(ref:basic-wave-table-sounds)" width="100%" /></a>
 <p class="caption">(\#fig:basic-wave-table-sounds)(ref:basic-wave-table-sounds)</p>
 </div>
 
@@ -294,7 +294,7 @@ Figure \@ref(fig:pulse-wave) shows a pulse wave across a range of duty cycles, i
 (ref:pulse-wave) [Animation](https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif) of a pulse wave across a range of duty cycles. Note that 100% and 0% it ceases to be a wave. Image [public domain](https://commons.wikimedia.org/wiki/File:PWM_duty_cycle_with_label.gif).
 
 <div class="figure">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif" alt="(ref:pulse-wave)" width="40%" />
+<img src="downloadFigs4latex/pulse-wave.jpg" alt="(ref:pulse-wave)" width="40%" />
 <p class="caption">(\#fig:pulse-wave)(ref:pulse-wave)</p>
 </div>
 
@@ -333,7 +333,7 @@ However, the sawtooth wave just doesn't match up the same way, as shown in Figur
 (ref:saw-phase) [Animation](https://olney.ai/ct-modular-book/images/saw-phase.gif) of interference from a perfectly out of phase saw wave (yellow) combined with the original wave (blue). The resulting wave (green) has non-zero amplitude because the out of phase wave does not have opposite amplitude to the original wave at all locations. Dotted lines indicate the positions of the original waves.
 
 <div class="figure">
-<img src="images/saw-phase.gif" alt="(ref:saw-phase)" width="100%" />
+<img src="downloadFigs4latex/saw-phase.jpg" alt="(ref:saw-phase)" width="100%" />
 <p class="caption">(\#fig:saw-phase)(ref:saw-phase)</p>
 </div>
 
