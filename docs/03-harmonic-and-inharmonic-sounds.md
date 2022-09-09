@@ -37,7 +37,7 @@ As you can see, when the pulse reaches a fixed end, it reflects both in directio
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<a href="https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/sim-reflect-1.png" alt="(ref:sim-reflect)" width="100%" /></a>
+<iframe src="https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html" width="100%" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:sim-reflect)(ref:sim-reflect)</p>
 </div>
 
@@ -77,7 +77,7 @@ In the video, the tap on the string (a reverse of a pluck) creates two pulses th
 (ref:tap-string) [Youtube video](https://www.youtube.com/watch?v=9O3VEXzuOKI) of a slow motion tap on a long string. Watch how the tap creates two pulses that reflect off their respective ends of the string, switching phase, and then constructively interfere to create an apparent standing wave. Image [© Kemp Strings](https://www.youtube.com/c/KempStrings).
 
 <div class="figure">
-<img src="downloadFigs4latex/tap-string.jpg" alt="(ref:tap-string)"  />
+<iframe src="https://www.youtube.com/embed/9O3VEXzuOKI?start=0" width="672" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:tap-string)(ref:tap-string)</p>
 </div>
 
@@ -133,7 +133,7 @@ This illustrates a general principle of Fourier analysis: sharp edges in a waves
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<a href="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/fourier-waves-1.png" alt="(ref:fourier-waves)" width="100%" /></a>
+<iframe src="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1" width="100%" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:fourier-waves)(ref:fourier-waves)</p>
 </div>
 
@@ -169,7 +169,7 @@ If you go back to Figure \@ref(fig:fourier-waves) and increase the amplitude of 
 (ref:freq-spectrum) Frequency spectrum of four basic waveshapes at 1 Hz. Amplitude is normalized so all harmonics sum to 1. Harmonics are offset for comparison.
 
 <div class="figure">
-<img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/freq-spectrum-1.png" alt="(ref:freq-spectrum)"  />
+<img src="03-harmonic-and-inharmonic-sounds_files/figure-html/freq-spectrum-1.png" alt="(ref:freq-spectrum)" width="672" />
 <p class="caption">(\#fig:freq-spectrum)(ref:freq-spectrum)</p>
 </div>
 
@@ -193,7 +193,7 @@ Modes are usually denoted in pairs $(d,c)$ where $d$ is the number of nodal line
 (ref:drum-modes) [Animations](https://olney.ai/ct-modular-book/images/drum-modes.html) of drum head vibration modes with a single nodal circle and 0, 1, or 2 nodal lines. Images [public domain](https://en.wikipedia.org/wiki/Vibrations_of_a_circular_membrane#Animations_of_several_vibration_modes).
 
 <div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/drum-modes.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/drum-modes-1.png" alt="(ref:drum-modes)" width="100%" /></a>
+<iframe src="https://olney.ai/ct-modular-book/images/drum-modes.html" width="100%" height="140px" data-external="1"></iframe>
 <p class="caption">(\#fig:drum-modes)(ref:drum-modes)</p>
 </div>
 
@@ -238,8 +238,9 @@ All other colors of noise are based on white noise but change the distribution o
 
 (ref:noise-types) Frequency spectrum and [sound](https://olney.ai/ct-modular-book/images/noise-table.html) of various "colors" of noise.
 
+<!-- NOTE: must manually copy constituent images to docs/images -->
 <div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/noise-table.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/noise-types-1.png" alt="(ref:noise-types)" width="100%" /></a>
+<iframe src="https://olney.ai/ct-modular-book/images/noise-table.html" width="100%" height="510px" data-external="1"></iframe>
 <p class="caption">(\#fig:noise-types)(ref:noise-types)</p>
 </div>
 
@@ -265,23 +266,33 @@ The basic concept of an envelope is that the amplitude of a sound changes over t
 Ideally we'd model this change in sound with a complex curve that goes from zero, up for a time, and then back down to zero for each instrument.
 Such curves would be fairly complicated for different instruments and would clearly vary with how hard the instrument was played, e.g. how hard a string was plucked or a drum hit.
 To simplify matters, early developers of electronic music settled on envelopes with discrete stages: attack, decay, sustain, release (ADSR).
-All of the stages except sustain are based on time.
+All of the stages except sustain are based on time, as shown in Figure \@ref(fig:adsr-envelope).
 Attack is the time it takes for an instrument's sound to reach peak amplitude, decay is the time it takes to decrease from peak amplitude to the next stage or zero, and release is the time it takes to decrease from sustain to zero.
-Sustain, on the other hand, is the amplitude held as long as the stage is held, e.g. a finger on a key.
+None of these set amplitude levels - they only determine how fast amplitude levels are reached (max, sustain, and zero, respectively).
+Sustain, on the other hand, is an amplitude level rather than a time.
+The duration of sustain is as long as the stage is held, e.g. a finger on a key.
 In this way, and ADSR envelope is a simple, yet fairly flexible model of a physical envelope.
 
-**TODO** Diagram of ADSR envelope, maybe AR as well
+(ref:adsr-envelope) An example Attack-Decay-Sustain-Release (ADSR) envelope. Sustain ends with manual control and is the only parameter that sets amplitude level. All other stage lengths are controlled by time parameters as indicated. Note that
+
+<div class="figure">
+<img src="images/adsr-envelope.PNG" alt="(ref:adsr-envelope)" width="100%" />
+<p class="caption">(\#fig:adsr-envelope)(ref:adsr-envelope)</p>
+</div>
 
 The full ADSR envelope makes the most sense on a keyboard instrument where pressing a key begins the attack for its duration, which then gives way to decay for its duration.
 Sustain is then held as long as the key is held, and release begins as soon as the finger leaves the key and lasts for its duration before the amplitude returns to zero.
 Clearly the full ADSR envelope does not make sense for other instruments.
 For example, a drum only needs AD, as does a plucked string.
+Examples of sounds shaped by envelopes are given in Figure \@ref(fig:adsr-sound-table).
 
-In addition to the envelope stages, the *lengths* of those stages play a significant role in shaping a sound.^[One could think of an AD envelope as ADSR but with some stages set to zero.]
+(ref:adsr-sound-table) [Sounds](https://olney.ai/ct-modular-book/images/adsr-sound-table.html) of basic sound waves shaped by envelopes. The kick has fast attack and decay, and the violin has relatively slow attack, decay, and release.
 
-
-**TODO** Table of envelopes for different instruments, with different durations for their stages.
-
+<!-- NOTE: must manually copy constituent images to docs/images -->
+<div class="figure">
+<iframe src="images/adsr-sound-table.html" width="100%" height="150px" data-external="1"></iframe>
+<p class="caption">(\#fig:adsr-sound-table)(ref:adsr-sound-table)</p>
+</div>
 
 <!-- Tonal sounds	 -->
 <!-- 	Common waves, harmonics, spectrum -->

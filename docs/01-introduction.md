@@ -106,7 +106,7 @@ Even before the complete electrification of instruments (synthesizers are electr
 (ref:kemplen-machine) [YouTube video](https://youtu.be/k_YUB_S6Gpo?start=21) of Wolfgang von Kempelen's speaking machine circa 1780. Image [© Fabian Brackhane](https://www.youtube.com/user/Quintatoen).
 
 <div class="figure">
-<img src="downloadFigs4latex/kemplen-machine.jpg" alt="(ref:kemplen-machine)"  />
+<iframe src="https://www.youtube.com/embed/k_YUB_S6Gpo?start=78" width="672" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:kemplen-machine)(ref:kemplen-machine)</p>
 </div>
 

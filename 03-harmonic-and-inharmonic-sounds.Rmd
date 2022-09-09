@@ -280,6 +280,7 @@ All other colors of noise are based on white noise but change the distribution o
 
 (ref:noise-types) Frequency spectrum and [sound](https://olney.ai/ct-modular-book/images/noise-table.html) of various "colors" of noise.
 
+<!-- NOTE: must manually copy constituent images to docs/images -->
 ```{r, noise-types, out.width='100%', fig.cap="(ref:noise-types)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
 # first pass, use local file, build html, and deploy html
 # knitr::include_url("images/noise-table.html", height = "510px")
@@ -309,23 +310,34 @@ The basic concept of an envelope is that the amplitude of a sound changes over t
 Ideally we'd model this change in sound with a complex curve that goes from zero, up for a time, and then back down to zero for each instrument.
 Such curves would be fairly complicated for different instruments and would clearly vary with how hard the instrument was played, e.g. how hard a string was plucked or a drum hit.
 To simplify matters, early developers of electronic music settled on envelopes with discrete stages: attack, decay, sustain, release (ADSR).
-All of the stages except sustain are based on time.
+All of the stages except sustain are based on time, as shown in Figure \@ref(fig:adsr-envelope).
 Attack is the time it takes for an instrument's sound to reach peak amplitude, decay is the time it takes to decrease from peak amplitude to the next stage or zero, and release is the time it takes to decrease from sustain to zero.
-Sustain, on the other hand, is the amplitude held as long as the stage is held, e.g. a finger on a key.
+None of these set amplitude levels - they only determine how fast amplitude levels are reached (max, sustain, and zero, respectively).
+Sustain, on the other hand, is an amplitude level rather than a time.
+The duration of sustain is as long as the stage is held, e.g. a finger on a key.
 In this way, and ADSR envelope is a simple, yet fairly flexible model of a physical envelope.
 
-**TODO** Diagram of ADSR envelope, maybe AR as well
+(ref:adsr-envelope) An example Attack-Decay-Sustain-Release (ADSR) envelope. Sustain ends with manual control and is the only parameter that sets amplitude level. All other stage lengths are controlled by time parameters as indicated. Note that
+
+```{r adsr-envelope, echo=F, out.width="100%", fig.cap="(ref:adsr-envelope)"}
+ knitr::include_graphics("images/adsr-envelope.PNG")
+```
 
 The full ADSR envelope makes the most sense on a keyboard instrument where pressing a key begins the attack for its duration, which then gives way to decay for its duration.
 Sustain is then held as long as the key is held, and release begins as soon as the finger leaves the key and lasts for its duration before the amplitude returns to zero.
 Clearly the full ADSR envelope does not make sense for other instruments.
 For example, a drum only needs AD, as does a plucked string.
+Examples of sounds shaped by envelopes are given in Figure \@ref(fig:adsr-sound-table).
 
-In addition to the envelope stages, the *lengths* of those stages play a significant role in shaping a sound.^[One could think of an AD envelope as ADSR but with some stages set to zero.]
+(ref:adsr-sound-table) [Sounds](https://olney.ai/ct-modular-book/images/adsr-sound-table.html) of basic sound waves shaped by envelopes. The kick has fast attack and decay, and the violin has relatively slow attack, decay, and release.
 
-
-**TODO** Table of envelopes for different instruments, with different durations for their stages.
-
+<!-- NOTE: must manually copy constituent images to docs/images -->
+```{r, adsr-sound-table, out.width='100%', fig.cap="(ref:adsr-sound-table)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+# first pass, use local file, build html, and deploy html
+knitr::include_url("images/adsr-sound-table.html", height = "150px")
+# second pass, use deployed url so pdf will also build
+# knitr::include_url("https://olney.ai/ct-modular-book/images/adsr-sound-table.html", height = "150px")
+```
 
 <!-- Tonal sounds	 -->
 <!-- 	Common waves, harmonics, spectrum -->

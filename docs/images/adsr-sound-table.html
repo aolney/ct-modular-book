@@ -1,0 +1,64 @@
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-bottom-width:1px;border-color:black;border-style:solid;border-top-width:1px;border-width:0px;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-bottom-width:1px;border-color:black;border-style:solid;border-top-width:1px;border-width:0px;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:center}
+.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:center}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<style>
+/* Specifies the size of the audio container */
+audio {
+  width: 115px;
+  height: 25px;
+}
+
+audio::-webkit-media-controls-panel {
+  -webkit-justify-content: center;
+  height: 25px;
+}
+
+/* Removes the timeline */
+audio::-webkit-media-controls-timeline {
+  display: none !important;
+}
+
+/* Removes the time stamp */
+audio::-webkit-media-controls-current-time-display {
+  display: none;
+}
+audio::-webkit-media-controls-time-remaining-display {
+  display: none;
+}
+/* Removes mute-button */
+audio::-webkit-media-controls-mute-button {
+  display: none;
+}
+a {text-decoration: none; padding:10px 5px; vertical-align:top }
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-1wig">Wave</th>
+    <th class="tg-amwm">Wave sound</th>
+    <th class="tg-1wig">Instrument</th>
+    <th class="tg-amwm">Instrument sound (ADSR)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">Sine</td>
+    <td class="tg-0pky"><audio controls controlsList="nodownload"> <source src="images/kick.ogg" type="audio/ogg"></audio></td>
+    <td class="tg-0pky">Kick</td>
+    <td class="tg-0pky"><audio controls controlsList="nodownload"> <source src="images/kick-adsr.ogg" type="audio/ogg"></audio></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Saw</td>
+    <td class="tg-0pky"><audio controls controlsList="nodownload"> <source src="images/violin.ogg" type="audio/ogg"></audio></td>
+    <td class="tg-0pky">Violin</td>
+    <td class="tg-0pky"><audio controls controlsList="nodownload"> <source src="images/violin-adsr.ogg" type="audio/ogg"></audio></td>
+  </tr>
+</tbody>
+</table>
