@@ -32,6 +32,7 @@ tab:mode-freq
 fig:noise-types
 fig:adsr-envelope
 fig:adsr-sound-table
+fig:serge-modular-2
 introduction
 why-this-book
 computational-thinking
@@ -48,7 +49,7 @@ phase-reflections-standing-waves-and-harmonics
 resonators-formants-and-frequency-spectrum
 inharmonic-standing-waves-and-noise
 dynamics-and-envelopes
-basic-concepts
+basic-modeling-concepts
 trigger
 create
 modify

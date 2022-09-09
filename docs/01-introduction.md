@@ -211,10 +211,12 @@ If you understand these building blocks in modular, you should understand them e
 
 ## Moving forward
 
-Our next stop is *Sound* where the focus is to "understand the problem".
-Chapter \@ref(physics-and-perception) addresses both the physics of sound and our perception of it, which perhaps surprisingly, are not the same.
-From there we move into sounds commonly found in music and their properties, ranging from harmonic sounds in Chapter \@ref(harmonic-sounds) to inharmonic sounds like percussion in Chapter \@ref(inharmonic-sounds).
+The next two chapters will focus on "understanding the problem."
+Chapter \@ref(physics-and-perception-of-sound) reviews both the physics of sound and our perception of it, which perhaps surprisingly, are not the same.
+From there we move into sounds commonly found in music and their properties, ranging from harmonic sounds to inharmonic sounds like percussion in Chapter \@ref(harmonic-and-inharmonic-sounds).
 
+Modular synthesis is properly introduced in Chapter \@ref(basic-modeling-concepts) with an overview of modules and how they connect together.
+This is the foundation of the "make a plan" stage of problem solving.
 The remainder of the book alternates between learning model elements (modules), how they interact (patches), problem solving (sound design).
 The progressive *Modules* and *Sound Design* sections build up from basic approaches to the more complex.
 By the time we're done, you should have a good foundation to create patches to solve new sound design problems.

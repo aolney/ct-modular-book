@@ -1,3 +1,19 @@
 # (PART) Fundamental Modules {-}
 
-# Basic Concepts
+# Basic Modeling Concepts
+
+Chapters \@ref(physics-and-perception-of-sound) and \@ref(harmonic-and-inharmonic-sounds) focused on the "understand the problem" stage of problem solving, introducing the basic concepts and terminology of sounds we want to model.
+The present chapter pivots to the "make a plan" stage of problem solving by introducing the model elements and how they interact.
+Since we are building models using modular synthesis, the model elements are the modules, and their interactions are driven by how they are connected together in a patch.
+Figure \@ref(fig:serge-modular-2) shows an example patch on a real modular synthesizer from Chapter \@ref(introduction).
+
+(ref:serge-modular-2) A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. `Wave Multiplier`, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image [© mikael altemark/CC-BY-2.0](https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg).
+
+<div class="figure">
+<img src="images/Serge_Modular,_Norbergfestival_2007_cropped.jpg" alt="(ref:serge-modular-2)" width="100%" />
+<p class="caption">(\#fig:serge-modular-2)(ref:serge-modular-2)</p>
+</div>
+
+It's impractical to assume that you, the reader, will have access to the exact same physical modules we will discuss.
+For that reason, we will use open source modular software called Patchcab [@Spectrome2021] that has been integrated into the book.
+Patchcab is relatively simple and runs in the browser, which for our needs makes it preferable to the popular open source modular software, VCVRack [@VCVRack2022], which is desktop based.[^VCVRack is otherwise recommended. Both @Bjoern2018 and @Dusha2020 have distributed VCVRack patch files with their books.]
