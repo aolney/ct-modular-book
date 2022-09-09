@@ -328,15 +328,18 @@ Sustain is then held as long as the key is held, and release begins as soon as t
 Clearly the full ADSR envelope does not make sense for other instruments.
 For example, a drum only needs AD, as does a plucked string.
 Examples of sounds shaped by envelopes are given in Figure \@ref(fig:adsr-sound-table).
+While the examples in Figure \@ref(fig:adsr-sound-table) only use envelopes for amplitude, envelopes are commonly used to control other properties that change over time.
+One example is the brightness of a string when it is first plucked, followed by a mellowing of the tone as the higher frequencies disappear.
+This effect can be created by using an envelope on a filter, a technique we will cover in a future chapter.
 
 (ref:adsr-sound-table) [Sounds](https://olney.ai/ct-modular-book/images/adsr-sound-table.html) of basic sound waves shaped by envelopes. The kick has fast attack and decay, and the violin has relatively slow attack, decay, and release.
 
 <!-- NOTE: must manually copy constituent images to docs/images -->
 ```{r, adsr-sound-table, out.width='100%', fig.cap="(ref:adsr-sound-table)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
 # first pass, use local file, build html, and deploy html
-knitr::include_url("images/adsr-sound-table.html", height = "150px")
+# knitr::include_url("images/adsr-sound-table.html", height = "150px")
 # second pass, use deployed url so pdf will also build
-# knitr::include_url("https://olney.ai/ct-modular-book/images/adsr-sound-table.html", height = "150px")
+knitr::include_url("https://olney.ai/ct-modular-book/images/adsr-sound-table.html", height = "150px")
 ```
 
 <!-- Tonal sounds	 -->

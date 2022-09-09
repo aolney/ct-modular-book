@@ -285,12 +285,15 @@ Sustain is then held as long as the key is held, and release begins as soon as t
 Clearly the full ADSR envelope does not make sense for other instruments.
 For example, a drum only needs AD, as does a plucked string.
 Examples of sounds shaped by envelopes are given in Figure \@ref(fig:adsr-sound-table).
+While the examples in Figure \@ref(fig:adsr-sound-table) only use envelopes for amplitude, envelopes are commonly used to control other properties that change over time.
+One example is the brightness of a string when it is first plucked, followed by a mellowing of the tone as the higher frequencies disappear.
+This effect can be created by using an envelope on a filter, a technique we will cover in a future chapter.
 
 (ref:adsr-sound-table) [Sounds](https://olney.ai/ct-modular-book/images/adsr-sound-table.html) of basic sound waves shaped by envelopes. The kick has fast attack and decay, and the violin has relatively slow attack, decay, and release.
 
 <!-- NOTE: must manually copy constituent images to docs/images -->
 <div class="figure">
-<iframe src="images/adsr-sound-table.html" width="100%" height="150px" data-external="1"></iframe>
+<iframe src="https://olney.ai/ct-modular-book/images/adsr-sound-table.html" width="100%" height="150px" data-external="1"></iframe>
 <p class="caption">(\#fig:adsr-sound-table)(ref:adsr-sound-table)</p>
 </div>
 
