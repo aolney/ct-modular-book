@@ -33,6 +33,12 @@ fig:noise-types
 fig:adsr-envelope
 fig:adsr-sound-table
 fig:serge-modular-2
+fig:light-switches
+fig:trigger-gate
+fig:voltage-adsr
+tab:voltage
+fig:ts-trs
+fig:oscilloscope
 introduction
 why-this-book
 computational-thinking
@@ -50,7 +56,9 @@ resonators-formants-and-frequency-spectrum
 inharmonic-standing-waves-and-noise
 dynamics-and-envelopes
 basic-modeling-concepts
-modules-as-model-elements
+modules-are-the-model-elements
+signals-are-how-the-model-elements-interact
+signals-are-interpreted-by-modules
 trigger
 create
 modify
@@ -60,12 +68,3 @@ trigger-1
 create-1
 modify-1
 minimoog-303
-fig:ts-trs
-signals-as-how-model-elements-interact
-modules-are-the-model-elements
-signals-are-how-the-model-elements-interact
-fig:light-switches
-fig:trigger-gate
-fig:voltage-adsr
-signals-are-interpreted-by-modules
-tab:voltage

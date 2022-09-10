@@ -78,7 +78,7 @@ As a result, we can use a trigger to model a drum hit, but we need a gate to mod
 Envelopes are a great example of a continuous control voltage.
 As discussed in Section \@ref(dynamics-and-envelopes), envelopes can be used to control the amplitude of a sound wave and thus its loudness.
 We can represent an envelope in control voltage as shown in Figure \@ref(fig:voltage-adsr).
-This envelope example illustrates how flexible control voltage can be - an level or shape over time is possible.
+This envelope example illustrates how flexible control voltage can be - any voltage level or shape over time is possible.
 
 (ref:voltage-adsr) An example Attack-Decay-Sustain-Release (ADSR) envelope represented as control voltage.
 
@@ -96,12 +96,12 @@ Table: (\#tab:voltage) The voltage ranges for Eurorack modular signals compared 
 | Modular signals           | Voltage range | Common audio signals |  Voltage range |
 |---------------------------|:-------------:|----------------------|:--------------:|
 | Audio signal              |    -5 to +5   | Pro audio level      |  -1.7 to +1.7  |
-| Continuous control signal |    0 to 10    | Line audio level     |  -.45 to +.45  |
+| Continuous control signal^[Can be inverted] |    0 to 10    | Line audio level     |  -.45 to +.45  |
 | On/off control signal     |     0 to 5    | Instrument level     |  -.02 to +.02  |
 |                           |               | Microphone level     | -.005 to +.005 |
 
 Modular signals are transmitted by patch cables.^[The Eurorack standard does allow for signals to be [transmitted using a bus on the in-case ribbon cable](https://doepfer.de/a100_man/a100t_e.htm), but few modules support this. Likewise there are other bus conventions that are not widely followed like [i2c](https://en.wikipedia.org/wiki/I%C2%B2C). Often if two modules are connected behind the panel, one is an expansion module that adds additional connections or capabilities to the other.]
-Patch cables are primarily mono but sometimes stereo if a module jack supports it.
+Patch cables are primarily mono but sometimes stereo if a jack supports it.
 These two patch cable types look identical, except at their connectors, as shown in Figure \@ref(fig:ts-trs).
 Stereo patch cables are TRS (tip-ring-sleeve), whereas mono patch cables are TS (tip-sleeve).
 
@@ -114,8 +114,39 @@ Stereo patch cables are TRS (tip-ring-sleeve), whereas mono patch cables are TS 
 
 ## Signals are interpreted by modules
 
+One of the most powerful aspects of modular synthesis is the variety of ways that modules can be connected together.
+You can often send an unusual signal to a module, and that module will still respond.
+However, its also possible to send a signal to a module and for nothing to happen.
+The reason for this is that modules expect certain signal types at their input jacks, and they will interpret the signals they receive according to these expectations.
 
+Take gates and triggers for example.
+What makes a gate a gate and a trigger a trigger?
+As we said above, gates have a variable duration, but that doesn't prevent them from being used as triggers.
+Modules that receive triggers listen for the leading edge of the rectangular pulse and then stop listening.
+So a module expecting a trigger will be satisfied with a gate.
+If the trigger is wide enough, it might also satisfy a module expecting a gate, because that module will listen for the trailing edge of the rectangular pulse to mark the end of a gate.
+We probably wouldn't want to do this in practice because we wouldn't be able to change the length of the musical event, but you get the idea.
 
+Modular signals are also somewhat interchangeable between audio signals and control signals.
+Recall that human hearing is sensitive to frequencies between 20 Hz and 20 kHz.
+So if we generated a train of rectangular gate pulses in this frequency range, we are generating the same shape as audio, and we can listen to our gates as a pulse wave.
+Similarly, if we generate envelopes repeatedly at an audible frequency, our envelope becomes a waveshape, and we will hear a sound based on the shape of the envelope.
+However, in other cases you might hear nothing!
+This is because jacks that expect audio are [AC-coupled](https://en.wikipedia.org/wiki/Capacitive_coupling#Use_in_analog_circuits), which removes low frequency noise and offset bias that would interfere with sound quality. 
+
+When signals don't work as expected, it can be hard to  figure out why.
+One of the best tools you can use to diagnose problems is an oscilloscope.
+Oscilloscopes display voltages over time, so they are great for displaying modular signals, including rapidly changing signals like audio.
+An bench oscilloscope is shown in Figure \@ref(fig:oscilloscope), but several modular manufacturers create compact oscilloscopes that fit into a case, and you can also use computer software if you have a DC coupled audio interface.
+The second best tool for diagnosing problems is the manual for the module in question. 
+If the signal in the oscilloscope looks correct, then its likely you have a misconception about the type of signal the module is expecting.
+
+(ref:oscilloscope) A bench oscilloscope showing a sine wave and offset square wave simultaneously. Image [© Wild Pancake/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:My_friend_oscilloscope.jpg).
+
+<div class="figure">
+<img src="images/1024px-My_friend_oscilloscope.jpg" alt="(ref:oscilloscope)" width="100%" />
+<p class="caption">(\#fig:oscilloscope)(ref:oscilloscope)</p>
+</div>
 
 
 <!-- Fundamental Modules and Composition		 -->
