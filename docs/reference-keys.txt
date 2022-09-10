@@ -60,3 +60,12 @@ trigger-1
 create-1
 modify-1
 minimoog-303
+fig:ts-trs
+signals-as-how-model-elements-interact
+modules-are-the-model-elements
+signals-are-how-the-model-elements-interact
+fig:light-switches
+fig:trigger-gate
+fig:voltage-adsr
+signals-are-interpreted-by-modules
+tab:voltage

@@ -22,28 +22,6 @@
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-<style type="text/css">
-    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-        }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style>
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -65,28 +43,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
-<li class="book-part">Sound</li>
-<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
-<li><a class="active" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
-<li class="book-part">Fundamental Modules</li>
-<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
-<li><a class="" href="trigger.html"><span class="header-section-number">5</span> Trigger</a></li>
-<li><a class="" href="create.html"><span class="header-section-number">6</span> Create</a></li>
-<li><a class="" href="modify.html"><span class="header-section-number">7</span> Modify</a></li>
-<li class="book-part">Sound Design 1</li>
-<li><a class="" href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></li>
-<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
-<li class="book-part">Complex Modules</li>
-<li><a class="" href="trigger-1.html"><span class="header-section-number">10</span> Trigger</a></li>
-<li><a class="" href="create-1.html"><span class="header-section-number">11</span> Create</a></li>
-<li><a class="" href="modify-1.html"><span class="header-section-number">12</span> Modify</a></li>
-<li class="book-part">Sound Design 2</li>
-<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 3</span> Harmonic and Inharmonic Sounds</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -104,7 +61,7 @@ The short answer is that the waveshapes have different harmonics.
 Understanding the relationship between waveshape and harmonics will be extremely useful to you as you design your own sounds.
 In order to explain the harmonics behind the different waveshape timbres, we need to understand what harmonics are and how they are created.
 Not all sounds are harmonic, however.
-Most percussion sounds are inharmonic, with drums and cymbals as prominent examples.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;I prefer to think of these sounds as pitched but inharmonic, but this is not a common view.&lt;/p&gt;"><sup>25</sup></a>
+Most percussion sounds are inharmonic, with drums and cymbals as prominent examples.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;I prefer to think of these sounds as pitched but inharmonic, but this is not a common view.&lt;/p&gt;"><sup>1</sup></a>
 These sounds have a high degree of “noise” associated with them.
 Finally, traditional instruments producing harmonic and inharmonic sounds have distinctly different dynamics that contribute to their timbre.
 Harmonic, inharmonic, and dynamic elements all play an important role in shaping sounds.</p>
@@ -162,7 +119,7 @@ In each case, the combined speed of the waves must evenly divide the length of t
 The integer relationship of harmonics is very important to how we perceive musical instruments and may even be the reason for our perception of fundamental musical relationships like octaves and <a href="https://en.wikipedia.org/wiki/Perfect_fifth">fifths</a>.
 For example, recall from Section <a href="physics-and-perception-of-sound.html#frequency-and-pitch">2.2</a> than one octave above a pitch is double the frequency of that pitch.
 Since the second harmonic is double the frequency of the fundamental, the second harmonic is one octave above the fundamental frequency.
-Similarly, the third harmonic is one fifth above the second harmonic.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;One might speculate that we created instruments in order to consistently create pitches based on the fundamental, but the instruments instilled in us a music theory as a side effect of their harmonics.&lt;/p&gt;"><sup>26</sup></a></p>
+Similarly, the third harmonic is one fifth above the second harmonic.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;One might speculate that we created instruments in order to consistently create pitches based on the fundamental, but the instruments instilled in us a music theory as a side effect of their harmonics.&lt;/p&gt;"><sup>2</sup></a></p>
 <p>Before moving on, it’s important to note that the oscillator simulation in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:sim-reflect">3.1</a> does not accurately represent what happens in a plucked string because the simulation doesn’t fix both sides of the string.
 Instead, the simulation uses an oscillator on one side to generate sine waves.
 We can, however, observe a very similar behavior to the simulation when a string is plucked, as shown the slow motion video in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:tap-string">3.2</a>.
@@ -182,7 +139,7 @@ This is because, unlike the simulation in <a href="harmonic-and-inharmonic-sound
 In addition, a string pluck is highly likely <a href="https://physics.stackexchange.com/questions/411175/fourier-series-analysis/411177#411177">not to occur in the middle of the string</a>.
 These differences mean that when a string is plucked, waves of all different frequencies are created and begin racing back and forth on the string.
 Those that correspond to harmonic frequencies are sustained longer and create a tone.
-The remaining frequencies are known as <a href="https://en.wikipedia.org/wiki/Transient_(acoustics)">transients</a> and quickly cancel out.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Transients are commonly modeled using noise in electronic music in order to make a simulated sound more realistic.&lt;/p&gt;"><sup>27</sup></a></p>
+The remaining frequencies are known as <a href="https://en.wikipedia.org/wiki/Transient_(acoustics)">transients</a> and quickly cancel out.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Transients are commonly modeled using noise in electronic music in order to make a simulated sound more realistic.&lt;/p&gt;"><sup>3</sup></a></p>
 <!-- ## Frequency spectrum, resonators, and formants -->
 </div>
 <div id="resonators-formants-and-frequency-spectrum" class="section level2" number="3.2">
@@ -195,7 +152,7 @@ Therefore the resonator creates a larger change in air pressure for a higher amp
 The resonator does not amplify the string frequencies perfectly, however.
 Some frequencies are better amplified than others, and this means that the resonator affects the timbre of the instrument.
 This is why two guitars with different resonators will sound different even if they have identical strings.
-The effect a resonator has on a frequency’s amplitude is called <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a>, and the relative strengths of frequencies emitted by a resonator are called formants.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;You will often see the word “formants” applied to human speech, where the resonator is the vocal tract, but it also applies to instruments with resonators.&lt;/p&gt;"><sup>28</sup></a></p>
+The effect a resonator has on a frequency’s amplitude is called <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a>, and the relative strengths of frequencies emitted by a resonator are called formants.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;You will often see the word “formants” applied to human speech, where the resonator is the vocal tract, but it also applies to instruments with resonators.&lt;/p&gt;"><sup>4</sup></a></p>
 <p>You can probably imagine how differences in the construction and operation of other instruments might lead to the differences in their characteristic sounds.
 Their mode of operation (string, wind, etc.) and their resonators (wood, metal, etc.) affect both what harmonics are produced and the relative strengths of these frequencies (the formants).
 For example, <a href="https://newt.phys.unsw.edu.au/jw/flutes.v.clarinets.html">closed end pipes produce only odd harmonics</a>!
@@ -247,7 +204,7 @@ Harmonics can be removed with relatively simple analogue electronics as we’ll 
 An alternative way of visualizing a Fourier analysis is a frequency spectrogram.
 A frequency spectrogram shows each sine wave based on its frequency and amplitude.
 Figure <a href="harmonic-and-inharmonic-sounds.html#fig:freq-spectrum">3.4</a> shows a frequency spectrogram of the same four waveshapes at 1 Hz with harmonics side by side and amplitudes normalized so all harmonics sum to 1.
-The order of harmonics at 1 Hz shows how much energy each waveshape has in the first harmonic, the order of harmonics at 2 Hz shows the energy at the second harmonic, etc.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;1 Hz is a convenient fundamental frequency to get 10 harmonics on a compact plot, but we’d see the same pattern regardless of the fundamental frequency.&lt;/p&gt;"><sup>29</sup></a></p>
+The order of harmonics at 1 Hz shows how much energy each waveshape has in the first harmonic, the order of harmonics at 2 Hz shows the energy at the second harmonic, etc.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;1 Hz is a convenient fundamental frequency to get 10 harmonics on a compact plot, but we’d see the same pattern regardless of the fundamental frequency.&lt;/p&gt;"><sup>5</sup></a></p>
 <p>Figure <a href="harmonic-and-inharmonic-sounds.html#fig:freq-spectrum">3.4</a> clearly shows what we noted before: only sawtooth has even harmonics, and only sawtooth and square have easily visible harmonics above the third harmonic.
 It’s quite amazing that these waves have such small visible differences in their frequency spectrums and yet have such distinctive sounds.
 For all waveshapes, the fundamental has the most energy (highest amplitude).
@@ -346,7 +303,7 @@ Cymbals similarly have inharmonic frequency relationships but <a href="http://ac
 </table></div>
 <p>Harmonics are defined as integer multiples of the fundamental frequency, and the frequency relationships in Table <a href="harmonic-and-inharmonic-sounds.html#tab:mode-freq">3.1</a> are clearly not integers.
 Note also that they are much more closely packed together than integers: there are 10 modes with a frequency ratio below 4, whereas in a harmonic series we’d only expect four standing waves in that space.
-Because the frequency relationships are inharmonic, we can only call the standing wave frequencies of such instruments partials - they are not harmonics.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;They are not overtones either. An overtone is a harmonic above the fundamental.&lt;/p&gt;"><sup>30</sup></a></p>
+Because the frequency relationships are inharmonic, we can only call the standing wave frequencies of such instruments partials - they are not harmonics.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;They are not overtones either. An overtone is a harmonic above the fundamental.&lt;/p&gt;"><sup>6</sup></a></p>
 <p>Because the partials of percussion instruments are dense, their relationships inharmonic, and the fundamental weak, percussion instruments are commonly approximated in electronic music using some form of noise.
 Noise is a random mixture of frequencies, so by definition it does not have harmonic relationships or a fundamental, and the respective frequencies are very close together.
 For percussion instruments that have more pitch to them, one can add a simple wave, like a sine wave, to convey the sense of a fundamental.</p>
@@ -371,7 +328,7 @@ Figure 3.6: Frequency spectrum and <a href="https://olney.ai/ct-modular-book/ima
 Brown noise (also called red noise) is like pink noise but reduces energy more quickly as frequency increases, which puts more energy in lower octaves.
 Blue noise is the opposite of pink noise: it increases energy as frequency increases by the same amount that pink noise reduced energy.
 Similarly, violet noise (also called purple noise) is the opposite of brown noise, and increases energy with frequency by the same amount.
-Finally, grey noise is based on psychoacoustics and places energy on a curve that might seem familiar - compare it to the equal loudness contour in Figure <a href="physics-and-perception-of-sound.html#fig:elc">2.1</a>.
+Finally, grey noise is based on psychoacoustics and places energy on a curve that might seem familiar - compare it to the equal loudness contour in Figure <a href="#fig:elc"><strong>??</strong></a>.
 Grey noise thus takes into account that humans hear some frequencies better than others, and allocates energy so that all frequencies sound equally loud.
 One might consider grey noise the the evolution of pink noise.
 Both take human perception into account, but grey noise does so in a more nuanced way than pink noise.</p>
@@ -399,8 +356,8 @@ In this way, and ADSR envelope is a simple, yet fairly flexible model of a physi
 
 <div class="figure">
 <span style="display:block;" id="fig:adsr-envelope"></span>
-<img src="images/adsr-envelope.PNG" alt="An example Attack-Decay-Sustain-Release (ADSR) envelope. Sustain ends with manual control and is the only parameter that sets amplitude level. All other stage lengths are controlled by time parameters as indicated. Note that" width="100%"><p class="caption">
-Figure 3.7: An example Attack-Decay-Sustain-Release (ADSR) envelope. Sustain ends with manual control and is the only parameter that sets amplitude level. All other stage lengths are controlled by time parameters as indicated. Note that
+<img src="images/adsr-envelope.PNG" alt="An example Attack-Decay-Sustain-Release (ADSR) envelope. Sustain ends with manual control and is the only parameter that sets amplitude level. All other stage lengths are controlled by time parameters as indicated." width="100%"><p class="caption">
+Figure 3.7: An example Attack-Decay-Sustain-Release (ADSR) envelope. Sustain ends with manual control and is the only parameter that sets amplitude level. All other stage lengths are controlled by time parameters as indicated.
 </p>
 </div>
 <p>The full ADSR envelope makes the most sense on a keyboard instrument where pressing a key begins the attack for its duration, which then gives way to decay for its duration.
@@ -438,22 +395,15 @@ Figure 3.8: <a href="https://olney.ai/ct-modular-book/images/adsr-sound-table.ht
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></div>
-<div class="next"><a href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#harmonic-and-inharmonic-sounds"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
-<li><a class="nav-link" href="#phase-reflections-standing-waves-and-harmonics"><span class="header-section-number">3.1</span> Phase reflections, standing waves, and harmonics</a></li>
-<li><a class="nav-link" href="#resonators-formants-and-frequency-spectrum"><span class="header-section-number">3.2</span> Resonators, formants, and frequency spectrum</a></li>
-<li><a class="nav-link" href="#inharmonic-standing-waves-and-noise"><span class="header-section-number">3.3</span> Inharmonic standing waves and noise</a></li>
-<li><a class="nav-link" href="#dynamics-and-envelopes"><span class="header-section-number">3.4</span> Dynamics and Envelopes</a></li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/03-harmonic-and-inharmonic-sounds.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/03-harmonic-and-inharmonic-sounds.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>

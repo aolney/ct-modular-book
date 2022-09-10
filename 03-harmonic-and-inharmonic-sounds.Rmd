@@ -317,7 +317,7 @@ Sustain, on the other hand, is an amplitude level rather than a time.
 The duration of sustain is as long as the stage is held, e.g. a finger on a key.
 In this way, and ADSR envelope is a simple, yet fairly flexible model of a physical envelope.
 
-(ref:adsr-envelope) An example Attack-Decay-Sustain-Release (ADSR) envelope. Sustain ends with manual control and is the only parameter that sets amplitude level. All other stage lengths are controlled by time parameters as indicated. Note that
+(ref:adsr-envelope) An example Attack-Decay-Sustain-Release (ADSR) envelope. Sustain ends with manual control and is the only parameter that sets amplitude level. All other stage lengths are controlled by time parameters as indicated.
 
 ```{r adsr-envelope, echo=F, out.width="100%", fig.cap="(ref:adsr-envelope)"}
  knitr::include_graphics("images/adsr-envelope.PNG")
