@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 4 Basic Modeling Concepts | Computational Thinking through Modular Sounds Synthesis</title>
 <meta name="author" content="Andrew M. Olney">
-<meta name="description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, introducing the basic concepts and terminology of sounds we want to model. The present chapter pivots to the...">
+<meta name="description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, and they introduced the basic concepts and terminology of sounds we want to model. The present chapter pivots to...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Chapter 4 Basic Modeling Concepts | Computational Thinking through Modular Sounds Synthesis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/basic-modeling-concepts.html">
-<meta property="og:description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, introducing the basic concepts and terminology of sounds we want to model. The present chapter pivots to the...">
+<meta property="og:description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, and they introduced the basic concepts and terminology of sounds we want to model. The present chapter pivots to...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 4 Basic Modeling Concepts | Computational Thinking through Modular Sounds Synthesis">
-<meta name="twitter:description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, introducing the basic concepts and terminology of sounds we want to model. The present chapter pivots to the...">
+<meta name="twitter:description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, and they introduced the basic concepts and terminology of sounds we want to model. The present chapter pivots to...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -97,9 +97,9 @@
 <h1>
 <span class="header-section-number">4</span> Basic Modeling Concepts<a class="anchor" aria-label="anchor" href="#basic-modeling-concepts"><i class="fas fa-link"></i></a>
 </h1>
-<p>Chapters <a href="physics-and-perception-of-sound.html#physics-and-perception-of-sound">2</a> and <a href="harmonic-and-inharmonic-sounds.html#harmonic-and-inharmonic-sounds">3</a> focused on the “understand the problem” stage of problem solving, introducing the basic concepts and terminology of sounds we want to model.
+<p>Chapters <a href="physics-and-perception-of-sound.html#physics-and-perception-of-sound">2</a> and <a href="harmonic-and-inharmonic-sounds.html#harmonic-and-inharmonic-sounds">3</a> focused on the “understand the problem” stage of problem solving, and they introduced the basic concepts and terminology of sounds we want to model.
 The present chapter pivots to the “make a plan” stage of problem solving by introducing the model elements and how they interact.
-Since we are building models using modular synthesis, the model elements are the modules, and their interactions are driven by how they are connected together in a patch.
+Since we are building models for modular synthesis, the model elements are the modules, and their interactions are driven by how they are connected together in a patch.
 Figure <a href="basic-modeling-concepts.html#fig:serge-modular-2">4.1</a> shows an example patch on a real modular synthesizer from Chapter <a href="introduction.html#introduction">1</a>.</p>
 
 <div class="figure">
@@ -108,8 +108,8 @@ Figure <a href="basic-modeling-concepts.html#fig:serge-modular-2">4.1</a> shows 
 Figure 4.1: A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. <code>Wave Multiplier</code>, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image <a href="https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg">© mikael altemark/CC-BY-2.0</a>.
 </p>
 </div>
-<p>It’s impractical to assume that you, the reader, will have access to the exact same physical modules we will discuss.
-For that reason, we will use open source modular software called Patchcab<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Spectrome, &lt;span&gt;“Patchcab”&lt;/span&gt; (GitHub, September 2021), &lt;a href="https://github.com/spectrome/patchcab" role="doc-biblioref"&gt;https://github.com/spectrome/patchcab&lt;/a&gt;.&lt;/p&gt;'><sup>31</sup></a></span> that has been integrated into the book.
+<p>Here and throughout the book, we will mostly avoid discussing real life modules, because it’s impractical to assume that you, the reader, will have access to those modules.
+Instead, we will use open source modular software called Patchcab<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Spectrome, &lt;span&gt;“Patchcab”&lt;/span&gt; (GitHub, September 2021), &lt;a href="https://github.com/spectrome/patchcab" role="doc-biblioref"&gt;https://github.com/spectrome/patchcab&lt;/a&gt;.&lt;/p&gt;'><sup>31</sup></a></span> that has been integrated into the web version of the book.
 Patchcab is relatively simple and runs in the browser, which for our needs makes it preferable to the popular open source modular software, VCVRack,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“&lt;span&gt;VCV&lt;/span&gt; &lt;span&gt;Rack&lt;/span&gt; - &lt;span&gt;The&lt;/span&gt; &lt;span&gt;Eurorack&lt;/span&gt; Simulator for &lt;span&gt;Windows&lt;/span&gt;/&lt;span&gt;Mac&lt;/span&gt;/&lt;span&gt;Linux&lt;/span&gt;,”&lt;/span&gt; 2022, &lt;a href="https://vcvrack.com/" role="doc-biblioref"&gt;https://vcvrack.com/&lt;/a&gt;.&lt;/p&gt;'><sup>32</sup></a></span> which is desktop based.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;VCVRack is otherwise recommended. Both &lt;span class="citation"&gt;Bjørn and Meyer, &lt;em&gt;Patch &amp;amp; &lt;span&gt;Tweak&lt;/span&gt;&lt;/em&gt;&lt;/span&gt; and &lt;span class="citation"&gt;Dusha, Martonova, and Johnston, &lt;em&gt;Modular &lt;span&gt;Sound&lt;/span&gt; &lt;span&gt;Synthesis&lt;/span&gt; &lt;span&gt;On&lt;/span&gt; the &lt;span&gt;Moon&lt;/span&gt;&lt;/em&gt;&lt;/span&gt; have distributed VCVRack patch files with their books.&lt;/p&gt;'><sup>33</sup></a></p>
 <div id="modules-are-the-model-elements" class="section level2" number="4.1">
 <h2>
@@ -117,14 +117,14 @@ Patchcab is relatively simple and runs in the browser, which for our needs makes
 </h2>
 <p>The universe of modules is rather vast, which can make learning about modules overwhelming.
 For example, <a href="https://www.modulargrid.net/">ModularGrid</a> lists over 10,000 modules and classifies them according to 56 categories based on their function.
-While those 56 categories are certainly real and useful, you can get the main idea with only three function categories: controllers, generators, and modifiers.
+While those 56 categories are certainly real and useful, you can get the main idea with only three categories: controllers, generators, and modifiers.
 You might think of these as “categories of categories.”</p>
 <p><strong>Controllers</strong> initiate musical events.
 An example controller is a module that waits for key presses and, on receiving them, sends a signal to initiate a musical event.
 Another example is a sequencer, which you can think of as way of recording key presses and then playing them back to initiate musical events.</p>
 <p><strong>Generators</strong> create audible sound.
-An example generator is an oscillator that generates one or more of the four basic waveshapes discussed in previous chapters.
-Another example is a noise generator that generates one or more colors of noise described in <a href="harmonic-and-inharmonic-sounds.html#inharmonic-standing-waves-and-noise">3.3</a>.</p>
+An example generator is an oscillator that generates one or more of the four basic waveshapes discussed in Section <a href="physics-and-perception-of-sound.html#waveshape-and-timbre">2.4</a>.
+Another example is a noise generator that generates one or more colors of noise described in Section <a href="harmonic-and-inharmonic-sounds.html#inharmonic-standing-waves-and-noise">3.3</a>.</p>
 <p><strong>Modifiers</strong> modify incoming signals that may be either audio or some kind of control signal.
 An example audio modifier is a reverb, which adds diffuse echoes to sound, giving it the feel of being played in a room.
 An example control signal modifier is an envelope, which we can use to control the amplitude of a sound over time, as discussed in Section <a href="harmonic-and-inharmonic-sounds.html#dynamics-and-envelopes">3.4</a>.</p>
@@ -256,12 +256,19 @@ So if we generated a train of rectangular gate pulses in this frequency range, w
 Similarly, if we generate envelopes repeatedly at an audible frequency, our envelope becomes a waveshape, and we will hear a sound based on the shape of the envelope.
 However, in other cases you might hear nothing!
 This is because jacks that expect audio are <a href="https://en.wikipedia.org/wiki/Capacitive_coupling#Use_in_analog_circuits">AC-coupled</a>, which removes low frequency noise and offset bias that would interfere with sound quality.</p>
+<p>One signal that deserves special mention is volt per octave (V/Oct).
+This signal used to tell oscillators and other generators what pitch they should play.
+The V/Oct standard was <a href="https://en.wikipedia.org/wiki/CV/gate#CV">pioneered by Moog</a> and is widely used in the Eurorack format.
+Note that V/Oct goes straight from the voltage representation to pitch perception, with no mention of frequency.
+This makes it easy for musicians: since each volt represents an octave, it is easy to play a note one octave above the current note by adding one volt to the current signal.
+Similarly, one semitone above a note corresponds to 1/12 of a volt above the current voltage.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Western music divides the octave into 12 pitches called semitones based on a system called &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament#Twelve-tone_equal_temperament"&gt;twelve-tone equal temperment&lt;/a&gt;.&lt;/p&gt;'><sup>37</sup></a>
+While just about any signal could be used,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Typically unipolar signals are used for V/Oct.&lt;/p&gt;"><sup>38</sup></a> continuous control signals are commonly used in order to access a range of pitches.</p>
 <p>When signals don’t work as expected, it can be hard to figure out why.
 One of the best tools you can use to diagnose problems is an oscilloscope.
 Oscilloscopes display voltages over time, so they are great for displaying modular signals, including rapidly changing signals like audio.
-An bench oscilloscope is shown in Figure <a href="basic-modeling-concepts.html#fig:oscilloscope">4.6</a>, but several modular manufacturers create compact oscilloscopes that fit into a case, and you can also use computer software if you have a DC coupled audio interface.
-The second best tool for diagnosing problems is the manual for the module in question.
-If the signal in the oscilloscope looks correct, then its likely you have a misconception about the type of signal the module is expecting.</p>
+A bench oscilloscope is shown in Figure <a href="basic-modeling-concepts.html#fig:oscilloscope">4.6</a>, but several modular manufacturers have created compact oscilloscopes that fit into a case, and you can also use computer software if you have a DC coupled audio interface.
+Another great tool for diagnosing problems is the manual for the module in question.
+If the signal in the oscilloscope looks correct, then it’s likely you have a misconception about the type of signal the module is expecting.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:oscilloscope"></span>
@@ -269,6 +276,11 @@ If the signal in the oscilloscope looks correct, then its likely you have a misc
 Figure 4.6: A bench oscilloscope showing a sine wave and offset square wave simultaneously. Image <a href="https://commons.wikimedia.org/wiki/File:My_friend_oscilloscope.jpg">© Wild Pancake/CC-BY-4.0</a>.
 </p>
 </div>
+<!-- Basic concept patches -->
+<!-- - Drone: (patchcab: OSC+OUT) try each wave; manually sweep frequency; manually sweep volume;  -->
+<!-- - Drone with scope: (patchcab: OSC+OUT+scope) repeat with scope set up, observe different frequencies/waves as they play; -->
+<!-- - Gated Osc: (patchcab: MIDI(broken)+OSC+OUT) gate by key press, pitch by different keys; try to play as an instrument -->
+<!-- - Envelope Osc: (patchcab: MIDI(broken)+OSC+envelope+OUT) repeat with envelope accepting gates to control volume. -->
 <!-- Fundamental Modules and Composition         -->
 <!--    Basic concepts   -->
 <!--         I/O, controls, representation, trigger, create, modify -->
@@ -283,6 +295,26 @@ Figure 4.6: A bench oscilloscope showing a sine wave and offset square wave simu
 <!--        Envelopes, velocity sensitivity, aftertouch -->
 <!--        Amplifiers -->
 <!--        Effects: delay/reverb/panning -->
+<!-- Complex modules and Compositions        -->
+<!--    Trigger  -->
+<!--        Clock, sequencing, arpggiators -->
+<!--        Euclidean rhythms -->
+<!--        Probability -->
+<!--    Create   -->
+<!--        PWM -->
+<!--        FM/AM -->
+<!--        Ring modulation -->
+<!--        Vocoders -->
+<!--        Random sampling -->
+<!--    Modify   -->
+<!--        LFO -->
+<!--        Sample and hold -->
+<!--        Slew -->
+<!--        Wave-folding -->
+<!--        Attenuators, inverters, and attenuverters -->
+<!--        Quantizers -->
+<!--        Switches -->
+<!--        Logic -->
 
 </div>
 </div>
@@ -314,7 +346,7 @@ Figure 4.6: A bench oscilloscope showing a sine wave and offset square wave simu
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-10.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

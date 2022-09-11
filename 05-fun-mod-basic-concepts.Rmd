@@ -2,9 +2,9 @@
 
 # Basic Modeling Concepts
 
-Chapters \@ref(physics-and-perception-of-sound) and \@ref(harmonic-and-inharmonic-sounds) focused on the "understand the problem" stage of problem solving, introducing the basic concepts and terminology of sounds we want to model.
+Chapters \@ref(physics-and-perception-of-sound) and \@ref(harmonic-and-inharmonic-sounds) focused on the "understand the problem" stage of problem solving, and they introduced the basic concepts and terminology of sounds we want to model.
 The present chapter pivots to the "make a plan" stage of problem solving by introducing the model elements and how they interact.
-Since we are building models using modular synthesis, the model elements are the modules, and their interactions are driven by how they are connected together in a patch.
+Since we are building models for modular synthesis, the model elements are the modules, and their interactions are driven by how they are connected together in a patch.
 Figure \@ref(fig:serge-modular-2) shows an example patch on a real modular synthesizer from Chapter \@ref(introduction).
 
 (ref:serge-modular-2) A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. `Wave Multiplier`, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image [© mikael altemark/CC-BY-2.0](https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg).
@@ -13,15 +13,15 @@ Figure \@ref(fig:serge-modular-2) shows an example patch on a real modular synth
  knitr::include_graphics("images/Serge_Modular,_Norbergfestival_2007_cropped.jpg")
 ```
 
-It's impractical to assume that you, the reader, will have access to the exact same physical modules we will discuss.
-For that reason, we will use open source modular software called Patchcab [@Spectrome2021] that has been integrated into the book.
+Here and throughout the book, we will mostly avoid discussing real life modules, because it's impractical to assume that you, the reader, will have access to those modules.
+Instead, we will use open source modular software called Patchcab [@Spectrome2021] that has been integrated into the web version of the book.
 Patchcab is relatively simple and runs in the browser, which for our needs makes it preferable to the popular open source modular software, VCVRack [@VCVRack2022], which is desktop based.^[VCVRack is otherwise recommended. Both @Bjoern2018 and @Dusha2020 have distributed VCVRack patch files with their books.]
 
 ## Modules are the model elements
 
 The universe of modules is rather vast, which can make learning about modules overwhelming.
 For example, [ModularGrid](https://www.modulargrid.net/) lists over 10,000 modules and classifies them according to 56 categories based on their function.
-While those 56 categories are certainly real and useful, you can get the main idea with only three function categories: controllers, generators, and modifiers.
+While those 56 categories are certainly real and useful, you can get the main idea with only three categories: controllers, generators, and modifiers.
 You might think of these as "categories of categories."
 
 **Controllers** initiate musical events.
@@ -29,8 +29,8 @@ An example controller is a module that waits for key presses and, on receiving t
 Another example is a sequencer, which you can think of as way of recording key presses and then playing them back to initiate musical events.
 
 **Generators** create audible sound.
-An example generator is an oscillator that generates one or more of the four basic waveshapes discussed in previous chapters.
-Another example is a noise generator that generates one or more colors of noise described in \@ref(inharmonic-standing-waves-and-noise).
+An example generator is an oscillator that generates one or more of the four basic waveshapes discussed in Section \@ref(waveshape-and-timbre).
+Another example is a noise generator that generates one or more colors of noise described in Section \@ref(inharmonic-standing-waves-and-noise).
 
 **Modifiers** modify incoming signals that may be either audio or some kind of control signal.
 An example audio modifier is a reverb, which adds diffuse echoes to sound, giving it the feel of being played in a room.
@@ -127,14 +127,22 @@ Recall that human hearing is sensitive to frequencies between 20 Hz and 20 kHz.
 So if we generated a train of rectangular gate pulses in this frequency range, we are generating the same shape as audio, and we can listen to our gates as a pulse wave.
 Similarly, if we generate envelopes repeatedly at an audible frequency, our envelope becomes a waveshape, and we will hear a sound based on the shape of the envelope.
 However, in other cases you might hear nothing!
-This is because jacks that expect audio are [AC-coupled](https://en.wikipedia.org/wiki/Capacitive_coupling#Use_in_analog_circuits), which removes low frequency noise and offset bias that would interfere with sound quality. 
+This is because jacks that expect audio are [AC-coupled](https://en.wikipedia.org/wiki/Capacitive_coupling#Use_in_analog_circuits), which removes low frequency noise and offset bias that would interfere with sound quality.
+
+One signal that deserves special mention is volt per octave (V/Oct).
+This signal used to tell oscillators and other generators what pitch they should play.
+The V/Oct standard was [pioneered by Moog](https://en.wikipedia.org/wiki/CV/gate#CV) and is widely used in the Eurorack format.
+Note that V/Oct goes straight from the voltage representation to pitch perception, with no mention of frequency.
+This makes it easy for musicians: since each volt represents an octave, it is easy to play a note one octave above the current note by adding one volt to the current signal.
+Similarly, one semitone above a note corresponds to 1/12 of a volt above the current voltage.^[Western music divides the octave into 12 pitches called semitones based on a system called [twelve-tone equal temperment](https://en.wikipedia.org/wiki/Equal_temperament#Twelve-tone_equal_temperament).]
+While just about any signal could be used,^[Typically unipolar signals are used for V/Oct.] continuous control signals are commonly used in order to access a range of pitches.
 
 When signals don't work as expected, it can be hard to  figure out why.
 One of the best tools you can use to diagnose problems is an oscilloscope.
 Oscilloscopes display voltages over time, so they are great for displaying modular signals, including rapidly changing signals like audio.
-An bench oscilloscope is shown in Figure \@ref(fig:oscilloscope), but several modular manufacturers create compact oscilloscopes that fit into a case, and you can also use computer software if you have a DC coupled audio interface.
-The second best tool for diagnosing problems is the manual for the module in question. 
-If the signal in the oscilloscope looks correct, then its likely you have a misconception about the type of signal the module is expecting.
+A bench oscilloscope is shown in Figure \@ref(fig:oscilloscope), but several modular manufacturers have created compact oscilloscopes that fit into a case, and you can also use computer software if you have a DC coupled audio interface.
+Another great tool for diagnosing problems is the manual for the module in question. 
+If the signal in the oscilloscope looks correct, then it's likely you have a misconception about the type of signal the module is expecting.
 
 (ref:oscilloscope) A bench oscilloscope showing a sine wave and offset square wave simultaneously. Image [© Wild Pancake/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:My_friend_oscilloscope.jpg).
 
@@ -142,6 +150,12 @@ If the signal in the oscilloscope looks correct, then its likely you have a misc
  knitr::include_graphics("images/1024px-My_friend_oscilloscope.jpg")
 ```
 
+<!-- Basic concept patches -->
+
+<!-- - Drone: (patchcab: OSC+OUT) try each wave; manually sweep frequency; manually sweep volume;  -->
+<!-- - Drone with scope: (patchcab: OSC+OUT+scope) repeat with scope set up, observe different frequencies/waves as they play; -->
+<!-- - Gated Osc: (patchcab: MIDI(broken)+OSC+OUT) gate by key press, pitch by different keys; try to play as an instrument -->
+<!-- - Envelope Osc: (patchcab: MIDI(broken)+OSC+envelope+OUT) repeat with envelope accepting gates to control volume. -->
 
 <!-- Fundamental Modules and Composition		 -->
 <!-- 	Basic concepts	 -->
@@ -157,3 +171,25 @@ If the signal in the oscilloscope looks correct, then its likely you have a misc
 <!-- 		Envelopes, velocity sensitivity, aftertouch -->
 <!-- 		Amplifiers -->
 <!-- 		Effects: delay/reverb/panning -->
+
+<!-- Complex modules and Compositions		 -->
+<!-- 	Trigger	 -->
+<!-- 		Clock, sequencing, arpggiators -->
+<!-- 		Euclidean rhythms -->
+<!-- 		Probability -->
+<!-- 	Create	 -->
+<!-- 		PWM -->
+<!-- 		FM/AM -->
+<!-- 		Ring modulation -->
+<!-- 		Vocoders -->
+<!-- 		Random sampling -->
+<!-- 	Modify	 -->
+<!-- 		LFO -->
+<!-- 		Sample and hold -->
+<!-- 		Slew -->
+<!-- 		Wave-folding -->
+<!-- 		Attenuators, inverters, and attenuverters -->
+<!-- 		Quantizers -->
+<!-- 		Switches -->
+<!-- 		Logic -->
+
