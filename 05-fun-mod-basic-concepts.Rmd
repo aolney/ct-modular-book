@@ -10,7 +10,10 @@ Figure \@ref(fig:serge-modular-2) shows an example patch on a real modular synth
 (ref:serge-modular-2) A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. `Wave Multiplier`, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image [© mikael altemark/CC-BY-2.0](https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg).
 
 ```{r serge-modular-2, echo=F, out.width="100%", fig.cap="(ref:serge-modular-2)"}
- knitr::include_graphics("images/Serge_Modular,_Norbergfestival_2007_cropped.jpg")
+# current <- knitr::opts_current$get()
+# options = knitr::opts_chunk$get()
+# browser()
+knitr::include_graphics("images/Serge_Modular,_Norbergfestival_2007_cropped.jpg")
 ```
 
 Here and throughout the book, we will mostly avoid discussing real life modules, because it's impractical to assume that you, the reader, will have access to those modules.
@@ -151,11 +154,24 @@ If the signal in the oscilloscope looks correct, then it's likely you have a mis
 ```
 
 <!-- Basic concept patches -->
+<!-- - Drone: (OSC+OUT) two connections; try each wave; manually sweep frequency; manually sweep volume;  -->
+<!-- - Drone with scope: (OSC+scope+OUT) repeat with scope set up, observe different frequencies/waves as they play; -->
+<!-- - Pitched Osc: (12key+OSC+scope+OUT) pitch by different keys; try to play as an instrument -->
+<!-- - Pitched gated Osc: (12key+OSC+scope+OUT) repeat with envelope accepting gates to control volume. -->
 
-<!-- - Drone: (patchcab: OSC+OUT) try each wave; manually sweep frequency; manually sweep volume;  -->
-<!-- - Drone with scope: (patchcab: OSC+OUT+scope) repeat with scope set up, observe different frequencies/waves as they play; -->
-<!-- - Gated Osc: (patchcab: MIDI(broken)+OSC+OUT) gate by key press, pitch by different keys; try to play as an instrument -->
-<!-- - Envelope Osc: (patchcab: MIDI(broken)+OSC+envelope+OUT) repeat with envelope accepting gates to control volume. -->
+Test of cardinal as figure \@ref(fig:cardinal).
+
+(ref:cardinal) [Simulation](https://cardinal.olney.ai) of Eurorack.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal(instructions_html="",solution_html="")
+```
+
+<!-- CAPTION BLOCK -->
+```{r cardinal, echo=F, out.width="100%", fig.cap="(ref:cardinal)"}
+modular_caption()
+```
 
 <!-- Fundamental Modules and Composition		 -->
 <!-- 	Basic concepts	 -->

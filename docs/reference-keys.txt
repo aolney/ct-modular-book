@@ -39,6 +39,7 @@ fig:voltage-adsr
 tab:voltage
 fig:ts-trs
 fig:oscilloscope
+fig:cardinal
 introduction
 why-this-book
 computational-thinking

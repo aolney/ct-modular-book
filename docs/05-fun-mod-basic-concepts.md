@@ -157,11 +157,23 @@ If the signal in the oscilloscope looks correct, then it's likely you have a mis
 </div>
 
 <!-- Basic concept patches -->
+<!-- - Drone: (OSC+OUT) two connections; try each wave; manually sweep frequency; manually sweep volume;  -->
+<!-- - Drone with scope: (OSC+scope+OUT) repeat with scope set up, observe different frequencies/waves as they play; -->
+<!-- - Pitched Osc: (12key+OSC+scope+OUT) pitch by different keys; try to play as an instrument -->
+<!-- - Pitched gated Osc: (12key+OSC+scope+OUT) repeat with envelope accepting gates to control volume. -->
 
-<!-- - Drone: (patchcab: OSC+OUT) try each wave; manually sweep frequency; manually sweep volume;  -->
-<!-- - Drone with scope: (patchcab: OSC+OUT+scope) repeat with scope set up, observe different frequencies/waves as they play; -->
-<!-- - Gated Osc: (patchcab: MIDI(broken)+OSC+OUT) gate by key press, pitch by different keys; try to play as an instrument -->
-<!-- - Envelope Osc: (patchcab: MIDI(broken)+OSC+envelope+OUT) repeat with envelope accepting gates to control volume. -->
+Test of cardinal as figure \@ref(fig:cardinal).
+
+(ref:cardinal) [Simulation](https://cardinal.olney.ai) of Eurorack.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:cardinal)" width="100%" />
+<p class="caption">(\#fig:cardinal)(ref:cardinal)</p>
+</div>
 
 <!-- Fundamental Modules and Composition		 -->
 <!-- 	Basic concepts	 -->

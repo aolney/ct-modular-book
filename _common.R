@@ -26,7 +26,42 @@ embed_youtube <- function(youtube_id,start_time=0,end_time=NULL) {
   }
 }
 
-#This works for gifs
+
+# In HTML, creates a bootstrap modal with embedded iframe to a modular environment, e.g. DISTRHO/Cardinal
+# Creates NOTHING in other formats. See modular_caption for providing a caption/crossref and placeholder for other formats
+modular_modal <- function(instructions_html="",solution_html="",iframe_url = "https://cardinal.olney.ai") {
+  if (knitr::is_html_output(excludes = "epub")) {
+    # populate template
+    html = htmltools::htmlTemplate("images/modular-iframe-template.html",instructions_html=instructions_html,solution_html=solution_html,iframe_url=iframe_url)
+    return(html)
+  }
+}
+
+# Creates captions appropriately for different formats
+# Note for pdf/epub, will also include static image in the figure
+modular_caption <- function(default_img="images/launch-virtual-modular-button.png") {
+  if (knitr::is_html_output(excludes = "epub")) {
+    current <- knitr::opts_current$get()
+    options <- current #fig.cap is non-null in current, needed by .img.cap
+    options$fig.num <- 1 #fig.num appears to be the number of figures in the chunk, needed by .img.cap
+    options$fig.cur = knitr:::plot_counter()
+    reduced = knitr:::reduce_plot_opts(options)
+    cap = knitr:::.img.cap(reduced)
+    
+    # bare caption, empty figure with minimal space above
+    figure_div <- sprintf( '<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">%s</p></div>',cap )
+    html <- htmltools::HTML( figure_div )
+    
+    #asis_output needed to remove html fencing in md, which is needed for cross referencing to work
+    html <- knitr::asis_output(html)
+    
+    return(html)
+  } else {
+    return(knitr::include_graphics(default_img))
+  }
+}
+
+#This works for gifs at least; may work for others with some mods
 embed_linked_media <- function(url) {
   if (knitr::is_html_output(excludes = "epub")) {
     return(knitr::include_graphics(url))

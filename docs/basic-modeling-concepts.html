@@ -277,10 +277,69 @@ Figure 4.6: A bench oscilloscope showing a sine wave and offset square wave simu
 </p>
 </div>
 <!-- Basic concept patches -->
-<!-- - Drone: (patchcab: OSC+OUT) try each wave; manually sweep frequency; manually sweep volume;  -->
-<!-- - Drone with scope: (patchcab: OSC+OUT+scope) repeat with scope set up, observe different frequencies/waves as they play; -->
-<!-- - Gated Osc: (patchcab: MIDI(broken)+OSC+OUT) gate by key press, pitch by different keys; try to play as an instrument -->
-<!-- - Envelope Osc: (patchcab: MIDI(broken)+OSC+envelope+OUT) repeat with envelope accepting gates to control volume. -->
+<!-- - Drone: (OSC+OUT) two connections; try each wave; manually sweep frequency; manually sweep volume;  -->
+<!-- - Drone with scope: (OSC+scope+OUT) repeat with scope set up, observe different frequencies/waves as they play; -->
+<!-- - Pitched Osc: (12key+OSC+scope+OUT) pitch by different keys; try to play as an instrument -->
+<!-- - Pitched gated Osc: (12key+OSC+scope+OUT) repeat with envelope accepting gates to control volume. -->
+<p>Test of cardinal as figure <a href="basic-modeling-concepts.html#fig:cardinal">4.7</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" onclick="setIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#modularModal">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modularModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modularModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="modularModalLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="">Solution</button>
+        <button type="button" onclick="setIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="cardinal-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setIframe(url){
+  var cardinalIframe = document.getElementById("cardinal-iframe");
+  cardinalIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:cardinal"></span>
+<p class="caption">
+Figure 4.7: <a href="https://cardinal.olney.ai">Simulation</a> of Eurorack.
+</p>
+</div>
 <!-- Fundamental Modules and Composition         -->
 <!--    Basic concepts   -->
 <!--         I/O, controls, representation, trigger, create, modify -->
@@ -346,7 +405,7 @@ Figure 4.6: A bench oscilloscope showing a sine wave and offset square wave simu
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-11.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
