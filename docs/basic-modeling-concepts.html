@@ -281,7 +281,7 @@ Figure 4.6: A bench oscilloscope showing a sine wave and offset square wave simu
 <h2>
 <span class="header-section-number">4.4</span> Pulling it all together<a class="anchor" aria-label="anchor" href="#pulling-it-all-together"><i class="fas fa-link"></i></a>
 </h2>
-<p>Time to put these ideas into practice with some basic patches!
+<p>Let’s put these ideas into practice with some basic patches!
 As stated, we’ll be using a web-ported version of VCVRack, which you can launch using buttons below.
 The port currently has some quirks:</p>
 <ul>
@@ -296,8 +296,8 @@ The port currently has some quirks:</p>
 <span class="header-section-number">4.4.1</span> Drone<a class="anchor" aria-label="anchor" href="#drone"><i class="fas fa-link"></i></a>
 </h3>
 <p>The most basic patch that makes a sound is a <em>drone</em> patch.
-It’s the most basic because it only has one real module, which is a generator to make the sound.
-We’ll use an oscillator and one extra module, an audio interface module, to connect the oscillator output to our speakers.
+It’s the most basic because it only has one real module, which is a <em>generator</em> to make the sound.
+We’ll use an oscillator for the generator and one extra module, an audio interface module, to connect the oscillator output to our speakers.
 For this patch only, I’m going to demonstrate using the video in Figure <a href="basic-modeling-concepts.html#fig:drone-demo">4.7</a> to explain the user interface of the modular software.</p>
 
 <div class="figure">
@@ -308,24 +308,26 @@ For this patch only, I’m going to demonstrate using the video in Figure <a hre
 Figure 4.7: <a href="https://www.youtube.com/watch?v=EfIWUOgHmhM">Youtube video</a> describing the VCVRack/Cardinal interface and builing a drone patch.
 </p>
 </div>
-<p>After you watch the demonstration, try to make the patch yourself using the button in Figure <a href="basic-modeling-concepts.html#fig:drone-vco-out">4.8</a>.</p>
+<p>After you watch the demonstration, try to make the patch yourself using the button in Figure <a href="basic-modeling-concepts.html#fig:drone-vco-out">4.8</a>.
+When you press the button, you’ll see an interface that also includes <code>Instructions</code>, <code>Solution</code>, and <code>Close</code> buttons.
+These are self-explanatory, but in particular the <code>Close</code> button will return you to the book.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#modularModal">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdrone_vco_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#drone_vco_out">
     Launch Virtual Modular
   </button>
 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="modularModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modularModalLabel" aria-hidden="true">
+<div class="modal fade" id="drone_vco_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="drone_vco_outLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="modularModalLabel">Modal title</h5> -->
+        <!-- <h5 class="modal-title" id="drone_vco_outLabel">Modal title</h5> -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Use the video demonstration as a guide (open video in separate tab as needed)&lt;/li&gt;
 &lt;li&gt;For each wave output&lt;ul&gt;
@@ -337,12 +339,12 @@ Figure 4.7: <a href="https://www.youtube.com/watch?v=EfIWUOgHmhM">Youtube video<
 &lt;/ul&gt;
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="See the video demonstration in the book (open video in separate tab as needed">Solution</button>
-        <button type="button" onclick="setIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" onclick="setdrone_vco_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
       </div>
       <div class="modal-body">
-        <iframe id="cardinal-iframe" src="" height="100%" width="100%"></iframe>
+        <iframe id="drone_vco_out-iframe" src="" height="100%" width="100%"></iframe>
       </div>      
       <!-- <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
@@ -362,9 +364,9 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 });
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setIframe(url){
-  var cardinalIframe = document.getElementById("cardinal-iframe");
-  cardinalIframe.src = url;
+function setdrone_vco_outIframe(url){
+  var drone_vco_outIframe = document.getElementById("drone_vco_out-iframe");
+  drone_vco_outIframe.src = url;
 };
 
 $('.popover-dismiss').popover({
@@ -376,11 +378,350 @@ $('.popover-dismiss').popover({
 Figure 4.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a drone patch.
 </p>
 </div>
-<!-- Basic concept patches -->
-<!-- - Drone: (OSC+OUT) two connections; try each wave; manually sweep frequency; manually sweep volume;  -->
-<!-- - Drone with scope: (OSC+scope+OUT) repeat with scope set up, observe different frequencies/waves as they play; -->
-<!-- - Pitched Osc: (12key+OSC+scope+OUT) pitch by different keys; try to play as an instrument -->
-<!-- - Pitched gated Osc: (12key+OSC+scope+OUT) repeat with envelope accepting gates to control volume. -->
+</div>
+<div id="using-an-oscilloscope" class="section level3" number="4.4.2">
+<h3>
+<span class="header-section-number">4.4.2</span> Using an oscilloscope<a class="anchor" aria-label="anchor" href="#using-an-oscilloscope"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can use an oscilloscope to see the wave produced by the oscillator.
+The most important controls on an oscilloscope are the time and the gain.
+You can think of the time as slowing the wave down enough so it just about stays still.
+If you don’t do this, most waves will just look like a blur because their frequencies are so high.
+Gain, on the other hand, is useful if the wave has a low amplitude.
+If you’re expecting a wave and only see a line, you should try increasing the gain.
+You can think of gain as zooming in on the wave.
+Finally, oscilloscopes (scopes) don’t change the signal at all.
+So whatever you patch into them is copied exactly on their output jacks.
+This makes it easy to put a scope in between other modules without changing the resulting sound.
+Try adding a scope between the modules in the previous patch using the button in Figure <a href="basic-modeling-concepts.html#fig:drone-vco-scope-out">4.9</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdrone_vco_scope_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#drone_vco_scope_out">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="drone_vco_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="drone_vco_scope_outLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="drone_vco_scope_outLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add “Scope” between VCO and Host Audio&lt;/li&gt;
+&lt;li&gt;Connect VCO wave out to Scope In&lt;/li&gt;
+&lt;li&gt;Connect Scope out to Host Audio&lt;/li&gt;
+&lt;li&gt;For each waveshape try&lt;ul&gt;
+&lt;li&gt;Adjusting time&lt;/li&gt;
+&lt;li&gt;Adjusting frequency&lt;/li&gt;
+&lt;li&gt;Adjusting gain&lt;/li&gt;
+&lt;li&gt;Changing the waveshape&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src='images/solo-modules/scope-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/drone-scope_vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setdrone_vco_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="drone_vco_scope_out-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setdrone_vco_scope_outIframe(url){
+  var drone_vco_scope_outIframe = document.getElementById("drone_vco_scope_out-iframe");
+  drone_vco_scope_outIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:drone-vco-scope-out"></span>
+<p class="caption">
+Figure 4.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a drone patch with a scope.
+</p>
+</div>
+</div>
+<div id="controlling-pitch" class="section level3" number="4.4.3">
+<h3>
+<span class="header-section-number">4.4.3</span> Controlling pitch<a class="anchor" aria-label="anchor" href="#controlling-pitch"><i class="fas fa-link"></i></a>
+</h3>
+<p>You’re probably realized why the drone patch has its name - it just produces a constant pitch at a constant volume.
+To make things more interesting, let’s control the pitch that goes into the oscillator.
+You’ll need a <em>controller</em> for this.
+Let’s use the “Twelve-Key” (12 key), which has a miniture keyboard built into the module.
+The output of the 12 key that we are interested in is the control voltage (CV) that outputs V/Oct.
+If you connect that output to the V/Oct input of the VCO, the VCO will change its frequency every time a key is pressed.
+This is analogous to precisely and instantly moving the frequency knob on the VCO.
+Try adding the 12 key to the left of the VCO in the previous patch using the button in Figure <a href="basic-modeling-concepts.html#fig:drone-12key-vco-scope-out">4.10</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdrone_12key_vco_scope_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#drone_12key_vco_scope_out">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="drone_12key_vco_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="drone_12key_vco_scope_outLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="drone_12key_vco_scope_outLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add “Twelve-key” to the left of the VCO&lt;/li&gt;
+&lt;li&gt;Connect 12 key CV output to VCO V/OCT input&lt;/li&gt;
+&lt;li&gt;Observe what happens when you click different keys on 12 key&lt;ul&gt;
+&lt;li&gt;In terms of sound&lt;/li&gt;
+&lt;li&gt;In terms of wave on scope&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Change OCTAVE on 12 key and repeat&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;If you don&amp;#39;t hear sound, check if your frequency is below 20 kHz; your computer speakers may not produce sound below 100 kHz&lt;/em&gt;&lt;/p&gt;
+&lt;img src='images/solo-modules/12key-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/key-drone_12key-vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setdrone_12key_vco_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="drone_12key_vco_scope_out-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setdrone_12key_vco_scope_outIframe(url){
+  var drone_12key_vco_scope_outIframe = document.getElementById("drone_12key_vco_scope_out-iframe");
+  drone_12key_vco_scope_outIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:drone-12key-vco-scope-out"></span>
+<p class="caption">
+Figure 4.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a single voice patch with a scope and keyboard control of pitch.
+</p>
+</div>
+</div>
+<div id="controlling-note-duration-onoff-volume" class="section level3" number="4.4.4">
+<h3>
+<span class="header-section-number">4.4.4</span> Controlling note duration (on/off volume)<a class="anchor" aria-label="anchor" href="#controlling-note-duration-onoff-volume"><i class="fas fa-link"></i></a>
+</h3>
+<p>In the last patch, pressing a key changed the pitch, but the note continued until the next key was pressed.
+You can control note duration independently of pitch using a voltage controlled amplifier (VCA).
+Just like you can control the frequency of the VCO by sending it control voltage, you can change the amplitude of a VCA by sending it control voltage.
+The control voltage we’ll use is the gate output of the 12 key.
+That way, each time a key is pressed, two control voltages will be sent out at the same time: a V/Oct to control pitch and a gate to control note duration.
+The VCA will “open” and let the full amplitude of the wave through when the gate voltage is high, and the VCA will “close” and let nothing through when the gate voltage is zero.
+Try adding a VCA between the VCO and Scope modules using the button in Figure <a href="basic-modeling-concepts.html#fig:drone-12key-vco-vca-scope-out">4.11</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdrone_12key_vco_vca_scope_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#drone_12key_vco_vca_scope_out">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="drone_12key_vco_vca_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="drone_12key_vco_vca_scope_outLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="drone_12key_vco_vca_scope_outLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add VCA between VCO and Scope modules&lt;/li&gt;
+&lt;li&gt;Connect VCO wave to VCA In&lt;/li&gt;
+&lt;li&gt;Connect 12 key GATE output to VCA CV IN&lt;/li&gt;
+&lt;li&gt;Connect VCA OUT to Scope IN&lt;/li&gt;
+&lt;li&gt;What happens when you click different keys on 12 key&lt;ul&gt;
+&lt;li&gt;In terms of sound&lt;/li&gt;
+&lt;li&gt;In terms of wave on scope&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Try holding down key instead of short pressing it and repeat&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src='images/solo-modules/vca-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/key-note_12key-vco-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setdrone_12key_vco_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="drone_12key_vco_vca_scope_out-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setdrone_12key_vco_vca_scope_outIframe(url){
+  var drone_12key_vco_vca_scope_outIframe = document.getElementById("drone_12key_vco_vca_scope_out-iframe");
+  drone_12key_vco_vca_scope_outIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:drone-12key-vco-vca-scope-out"></span>
+<p class="caption">
+Figure 4.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a single voice patch with a scope and keyboard control of pitch and note duration.
+</p>
+</div>
+</div>
+<div id="controlling-note-dynamics-volume-during-note" class="section level3" number="4.4.5">
+<h3>
+<span class="header-section-number">4.4.5</span> Controlling note dynamics (volume during note)<a class="anchor" aria-label="anchor" href="#controlling-note-dynamics-volume-during-note"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can make the sound even more interesting by making the volume of the note change while the gate is active.
+To do this, we’ll use an envelope generator, specifically the ADSR module.
+The ASDR module will detect the leading edge of the gate and proceed through its (A)ttack and (D)ecay stages.
+As long as the gate is held, the ASDR module will hold at the (S)ustain level.
+Finally, when the trailing edge of the gate is detected (meaning the key has been released), the ASDR module will proceed through the (R)elease stage.
+Remember that an envelope generator doesn’t do anything by itself; if we want to control the volume of the signal with the ADSR, we must connect the ADSR to the VCA.
+Try adding an ADSR module between the VCO and VCA modules using the button in Figure <a href="basic-modeling-concepts.html#fig:drone-12key-vco-env-vca-scope-out">4.12</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdrone_12key_vco_env_vca_scope_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#drone_12key_vco_env_vca_scope_out">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="drone_12key_vco_env_vca_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="drone_12key_vco_env_vca_scope_outLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="drone_12key_vco_env_vca_scope_outLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add ADSR module between VCO and VCA modules&lt;/li&gt;
+&lt;li&gt;Connect 12 key GATE output to ADSR GATE input&lt;/li&gt;
+&lt;li&gt;Connect ADSR OUT to VCA IN&lt;/li&gt;
+&lt;li&gt;What happens when you click different keys on 12 key&lt;ul&gt;
+&lt;li&gt;In terms of sound&lt;/li&gt;
+&lt;li&gt;In terms of wave on scope&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Change the attack, decay, sustain, release knobs and repeat&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src='images/solo-modules/adsr-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/key-envelope_12key-vco-env-vca-scope-out.png' style='height: 300px; width: 718px'&gt;">Solution</button>
+        <button type="button" onclick="setdrone_12key_vco_env_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="drone_12key_vco_env_vca_scope_out-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setdrone_12key_vco_env_vca_scope_outIframe(url){
+  var drone_12key_vco_env_vca_scope_outIframe = document.getElementById("drone_12key_vco_env_vca_scope_out-iframe");
+  drone_12key_vco_env_vca_scope_outIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:drone-12key-vco-env-vca-scope-out"></span>
+<p class="caption">
+Figure 4.12: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a single voice patch with a scope and keyboard control of pitch and note duration, and an envelope to control dynamics during the note.
+</p>
+</div>
+</div>
+</div>
+<div id="moving-forward-1" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Moving forward<a class="anchor" aria-label="anchor" href="#moving-forward-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>The basic modeling concepts and patches in this chapter provide a high level overview of what’s to come.
+The following chapters will go into the three module categories (controllers, generators, and modifiers) in more detail but similarly provide concrete examples along the way.
+From there we will continue to spiral outward into increasingly complex modules and applications.</p>
 <!-- Fundamental Modules and Composition         -->
 <!--    Basic concepts   -->
 <!--         I/O, controls, representation, trigger, create, modify -->
@@ -418,7 +759,6 @@ Figure 4.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a
 
 </div>
 </div>
-</div>
 
   <div class="chapter-nav">
 <div class="prev"><a href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></div>
@@ -431,8 +771,15 @@ Figure 4.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a
 <li><a class="nav-link" href="#signals-are-how-the-model-elements-interact"><span class="header-section-number">4.2</span> Signals are how the model elements interact</a></li>
 <li><a class="nav-link" href="#signals-are-interpreted-by-modules"><span class="header-section-number">4.3</span> Signals are interpreted by modules</a></li>
 <li>
-<a class="nav-link" href="#pulling-it-all-together"><span class="header-section-number">4.4</span> Pulling it all together</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#drone"><span class="header-section-number">4.4.1</span> Drone</a></li></ul>
+<a class="nav-link" href="#pulling-it-all-together"><span class="header-section-number">4.4</span> Pulling it all together</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#drone"><span class="header-section-number">4.4.1</span> Drone</a></li>
+<li><a class="nav-link" href="#using-an-oscilloscope"><span class="header-section-number">4.4.2</span> Using an oscilloscope</a></li>
+<li><a class="nav-link" href="#controlling-pitch"><span class="header-section-number">4.4.3</span> Controlling pitch</a></li>
+<li><a class="nav-link" href="#controlling-note-duration-onoff-volume"><span class="header-section-number">4.4.4</span> Controlling note duration (on/off volume)</a></li>
+<li><a class="nav-link" href="#controlling-note-dynamics-volume-during-note"><span class="header-section-number">4.4.5</span> Controlling note dynamics (volume during note)</a></li>
+</ul>
 </li>
+<li><a class="nav-link" href="#moving-forward-1"><span class="header-section-number">4.5</span> Moving forward</a></li>
 </ul>
 
       <div class="book-extra">

@@ -155,7 +155,7 @@ If the signal in the oscilloscope looks correct, then it's likely you have a mis
 
 ## Pulling it all together
 
-Time to put these ideas into practice with some basic patches!
+Let's put these ideas into practice with some basic patches!
 As stated, we'll be using a web-ported version of VCVRack, which you can launch using buttons below.
 The port currently has some quirks:
 
@@ -167,8 +167,8 @@ In the following sections, we'll start with a patch and incrementally expand it 
 ### Drone
 
 The most basic patch that makes a sound is a *drone* patch.
-It's the most basic because it only has one real module, which is a generator to make the sound.
-We'll use an oscillator and one extra module, an audio interface module, to connect the oscillator output to our speakers.
+It's the most basic because it only has one real module, which is a *generator* to make the sound.
+We'll use an oscillator for the generator and one extra module, an audio interface module, to connect the oscillator output to our speakers.
 For this patch only, I'm going to demonstrate using the video in Figure \@ref(fig:drone-demo) to explain the user interface of the modular software.
 
 (ref:drone-demo) [Youtube video](https://www.youtube.com/watch?v=EfIWUOgHmhM) describing the VCVRack/Cardinal interface and builing a drone patch.
@@ -178,12 +178,14 @@ embed_youtube("EfIWUOgHmhM",2)
 ```
 
 After you watch the demonstration, try to make the patch yourself using the button in Figure \@ref(fig:drone-vco-out).
+When you press the button, you'll see an interface that also includes `Instructions`, `Solution`, and `Close` buttons.
+These are self-explanatory, but in particular the `Close` button will return you to the book.
 
 (ref:drone-vco-out) [Virtual modular](https://cardinal.olney.ai) for making a drone patch.
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
-modular_modal(instructions_html="<ul>
+modular_modal("drone-vco-out",instructions_html="<ul>
 <li>Use the video demonstration as a guide (open video in separate tab as needed)</li>
 <li>For each wave output<ul>
 <li>Connect just it to the audio inputs</li>
@@ -200,11 +202,156 @@ modular_modal(instructions_html="<ul>
 modular_caption()
 ```
 
-<!-- Basic concept patches -->
-<!-- - Drone: (OSC+OUT) two connections; try each wave; manually sweep frequency; manually sweep volume;  -->
-<!-- - Drone with scope: (OSC+scope+OUT) repeat with scope set up, observe different frequencies/waves as they play; -->
-<!-- - Pitched Osc: (12key+OSC+scope+OUT) pitch by different keys; try to play as an instrument -->
-<!-- - Pitched gated Osc: (12key+OSC+scope+OUT) repeat with envelope accepting gates to control volume. -->
+
+### Using an oscilloscope
+
+You can use an oscilloscope to see the wave produced by the oscillator.
+The most important controls on an oscilloscope are the time and the gain.
+You can think of the time as slowing the wave down enough so it just about stays still.
+If you don't do this, most waves will just look like a blur because their frequencies are so high.
+Gain, on the other hand, is useful if the wave has a low amplitude.
+If you're expecting a wave and only see a line, you should try increasing the gain.
+You can think of gain as zooming in on the wave.
+Finally, oscilloscopes (scopes) don't change the signal at all.
+So whatever you patch into them is copied exactly on their output jacks.
+This makes it easy to put a scope in between other modules without changing the resulting sound.
+Try adding a scope between the modules in the previous patch using the button in Figure \@ref(fig:drone-vco-scope-out).
+
+(ref:drone-vco-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a drone patch with a scope.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("drone-vco-scope-out", instructions_html="<ul>
+<li>Add “Scope” between VCO and Host Audio</li>
+<li>Connect VCO wave out to Scope In</li>
+<li>Connect Scope out to Host Audio</li>
+<li>For each waveshape try<ul>
+<li>Adjusting time</li>
+<li>Adjusting frequency</li>
+<li>Adjusting gain</li>
+<li>Changing the waveshape</li>
+</ul>
+</li>
+</ul>
+<img src='images/solo-modules/scope-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img src='images/patch-solutions/drone-scope_vco-scope-out.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r drone-vco-scope-out, echo=F, out.width="100%", fig.cap="(ref:drone-vco-scope-out)"}
+modular_caption()
+```
+
+
+### Controlling pitch
+
+You're probably realized why the drone patch has its name - it just produces a constant pitch at a constant volume.
+To make things more interesting, let's control the pitch that goes into the oscillator.
+You'll need a *controller* for this.
+Let's use the "Twelve-Key" (12 key), which has a miniture keyboard built into the module.
+The output of the 12 key that we are interested in is the control voltage (CV) that outputs V/Oct.
+If you connect that output to the V/Oct input of the VCO, the VCO will change its frequency every time a key is pressed.
+This is analogous to precisely and instantly moving the frequency knob on the VCO.
+Try adding the 12 key to the left of the VCO in the previous patch using the button in Figure \@ref(fig:drone-12key-vco-scope-out).
+
+(ref:drone-12key-vco-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a single voice patch with a scope and keyboard control of pitch.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("drone-12key-vco-scope-out", instructions_html="<ul>
+<li>Add “Twelve-key” to the left of the VCO</li>
+<li>Connect 12 key CV output to VCO V/OCT input</li>
+<li>Observe what happens when you click different keys on 12 key<ul>
+<li>In terms of sound</li>
+<li>In terms of wave on scope</li>
+</ul>
+</li>
+<li>Change OCTAVE on 12 key and repeat</li>
+</ul>
+<p><em>If you don&#39;t hear sound, check if your frequency is below 20 kHz; your computer speakers may not produce sound below 100 kHz</em></p>
+<img src='images/solo-modules/12key-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img src='images/patch-solutions/key-drone_12key-vco-scope-out.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r drone-12key-vco-scope-out, echo=F, out.width="100%", fig.cap="(ref:drone-12key-vco-scope-out)"}
+modular_caption()
+```
+
+### Controlling note duration (on/off volume)
+
+In the last patch, pressing a key changed the pitch, but the note continued until the next key was pressed.
+You can control note duration independently of pitch using a voltage controlled amplifier (VCA).
+Just like you can control the frequency of the VCO by sending it control voltage, you can change the amplitude of a VCA by sending it control voltage.
+The control voltage we'll use is the gate output of the 12 key.
+That way, each time a key is pressed, two control voltages will be sent out at the same time: a V/Oct to control pitch and a gate to control note duration.
+The VCA will "open" and let the full amplitude of the wave through when the gate voltage is high, and the VCA will "close" and let nothing through when the gate voltage is zero.
+Try adding a VCA between the VCO and Scope modules using the button in Figure \@ref(fig:drone-12key-vco-vca-scope-out).
+
+(ref:drone-12key-vco-vca-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a single voice patch with a scope and keyboard control of pitch and note duration.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("drone-12key-vco-vca-scope-out", instructions_html="<ul>
+<li>Add VCA between VCO and Scope modules</li>
+<li>Connect VCO wave to VCA In</li>
+<li>Connect 12 key GATE output to VCA CV IN</li>
+<li>Connect VCA OUT to Scope IN</li>
+<li>What happens when you click different keys on 12 key<ul>
+<li>In terms of sound</li>
+<li>In terms of wave on scope</li>
+</ul>
+</li>
+<li>Try holding down key instead of short pressing it and repeat</li>
+</ul>
+<img src='images/solo-modules/vca-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img src='images/patch-solutions/key-note_12key-vco-vca-scope-out.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r drone-12key-vco-vca-scope-out, echo=F, out.width="100%", fig.cap="(ref:drone-12key-vco-vca-scope-out)"}
+modular_caption()
+```
+
+### Controlling note dynamics (volume during note)
+
+We can make the sound even more interesting by making the volume of the note change while the gate is active.
+To do this, we'll use an envelope generator, specifically the ADSR module.
+The ASDR module will detect the leading edge of the gate and proceed through its (A)ttack and (D)ecay stages.
+As long as the gate is held, the ASDR module will hold at the (S)ustain level.
+Finally, when the trailing edge of the gate is detected (meaning the key has been released), the ASDR module will proceed through the (R)elease stage.
+Remember that an envelope generator doesn't do anything by itself; if we want to control the volume of the signal with the ADSR, we must connect the ADSR to the VCA.
+Try adding an ADSR module between the VCO and VCA modules using the button in Figure \@ref(fig:drone-12key-vco-env-vca-scope-out).
+
+(ref:drone-12key-vco-env-vca-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a single voice patch with a scope and keyboard control of pitch and note duration, and an envelope to control dynamics during the note.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("drone-12key-vco-env-vca-scope-out", instructions_html="<ul>
+<li>Add ADSR module between VCO and VCA modules</li>
+<li>Connect 12 key GATE output to ADSR GATE input</li>
+<li>Connect ADSR OUT to VCA IN</li>
+<li>What happens when you click different keys on 12 key<ul>
+<li>In terms of sound</li>
+<li>In terms of wave on scope</li>
+</ul>
+</li>
+<li>Change the attack, decay, sustain, release knobs and repeat</li>
+</ul>
+<img src='images/solo-modules/adsr-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img src='images/patch-solutions/key-envelope_12key-vco-env-vca-scope-out.png' style='height: 300px; width: 718px'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r drone-12key-vco-env-vca-scope-out, echo=F, out.width="100%", fig.cap="(ref:drone-12key-vco-env-vca-scope-out)"}
+modular_caption()
+```
+
+## Moving forward
+
+The basic modeling concepts and patches in this chapter provide a high level overview of what's to come.
+The following chapters will go into the three module categories (controllers, generators, and modifiers) in more detail but similarly provide concrete examples along the way.
+From there we will continue to spiral outward into increasingly complex modules and applications.
 
 <!-- Fundamental Modules and Composition		 -->
 <!-- 	Basic concepts	 -->

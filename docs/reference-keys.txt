@@ -41,6 +41,10 @@ fig:ts-trs
 fig:oscilloscope
 fig:drone-demo
 fig:drone-vco-out
+fig:drone-vco-scope-out
+fig:drone-12key-vco-scope-out
+fig:drone-12key-vco-vca-scope-out
+fig:drone-12key-vco-env-vca-scope-out
 introduction
 why-this-book
 computational-thinking
@@ -63,6 +67,11 @@ signals-are-how-the-model-elements-interact
 signals-are-interpreted-by-modules
 pulling-it-all-together
 drone
+using-an-oscilloscope
+controlling-pitch
+controlling-note-duration-onoff-volume
+controlling-note-dynamics-volume-during-note
+moving-forward-1
 trigger
 create
 modify

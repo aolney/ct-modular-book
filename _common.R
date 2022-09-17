@@ -29,10 +29,11 @@ embed_youtube <- function(youtube_id,start_time=0,end_time=NULL) {
 
 # In HTML, creates a bootstrap modal with embedded iframe to a modular environment, e.g. DISTRHO/Cardinal
 # Creates NOTHING in other formats. See modular_caption for providing a caption/crossref and placeholder for other formats
-modular_modal <- function(instructions_html="",solution_html="",iframe_url = "https://cardinal.olney.ai") {
+modular_modal <- function(id, instructions_html="",solution_html="",iframe_url = "https://cardinal.olney.ai") {
   if (knitr::is_html_output(excludes = "epub")) {
     # populate template
-    html = htmltools::htmlTemplate("images/modular-iframe-template.html",instructions_html=instructions_html,solution_html=solution_html,iframe_url=iframe_url)
+    id = stringr::str_replace_all(id,"-","_") #bookdown references like -, javascript likes _ for variable names
+    html = htmltools::htmlTemplate("images/modular-iframe-template.html",id=id,instructions_html=instructions_html,solution_html=solution_html,iframe_url=iframe_url)
     return(html)
   }
 }
