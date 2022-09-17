@@ -39,7 +39,8 @@ fig:voltage-adsr
 tab:voltage
 fig:ts-trs
 fig:oscilloscope
-fig:cardinal
+fig:drone-demo
+fig:drone-vco-out
 introduction
 why-this-book
 computational-thinking
@@ -60,6 +61,8 @@ basic-modeling-concepts
 modules-are-the-model-elements
 signals-are-how-the-model-elements-interact
 signals-are-interpreted-by-modules
+pulling-it-all-together
+drone
 trigger
 create
 modify
@@ -69,8 +72,3 @@ trigger-1
 create-1
 modify-1
 minimoog-303
-basic-patching
-pulling-it-all-together
-drone
-fig:drone-demo
-fig:drone-vco-out

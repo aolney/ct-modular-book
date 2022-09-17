@@ -177,7 +177,7 @@ For this patch only, I'm going to demonstrate using the video in Figure \@ref(fi
 (ref:drone-demo) [Youtube video](https://www.youtube.com/watch?v=EfIWUOgHmhM) describing the VCVRack/Cardinal interface and builing a drone patch.
 
 <div class="figure">
-<iframe src="https://www.youtube.com/embed/EfIWUOgHmhM?start=2" width="672" height="400px" data-external="1"></iframe>
+<img src="downloadFigs4latex/drone-demo.jpg" alt="(ref:drone-demo)"  />
 <p class="caption">(\#fig:drone-demo)(ref:drone-demo)</p>
 </div>
 
@@ -187,72 +187,12 @@ After you watch the demonstration, try to make the patch yourself using the butt
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#modularModal">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="modularModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modularModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="modularModalLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Use the video demonstration as a guide (open video in separate tab as needed)&lt;/li&gt;
-&lt;li&gt;For each wave output&lt;ul&gt;
-&lt;li&gt;Connect just it to the audio inputs&lt;/li&gt;
-&lt;li&gt;Sweep the frequency knob&lt;/li&gt;
-&lt;li&gt;Sweep the volume knob&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="See the video demonstration in the book (open video in separate tab as needed">Solution</button>
-        <button type="button" onclick="setIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="cardinal-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setIframe(url){
-  var cardinalIframe = document.getElementById("cardinal-iframe");
-  cardinalIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:drone-vco-out)(ref:drone-vco-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:drone-vco-out)" width="100%" />
+<p class="caption">(\#fig:drone-vco-out)(ref:drone-vco-out)</p>
+</div>
 
 <!-- Basic concept patches -->
 <!-- - Drone: (OSC+OUT) two connections; try each wave; manually sweep frequency; manually sweep volume;  -->
