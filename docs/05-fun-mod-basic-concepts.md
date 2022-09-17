@@ -2,7 +2,7 @@
 
 # Basic Modeling Concepts
 
-Chapters \@ref(physics-and-perception-of-sound) and \@ref(harmonic-and-inharmonic-sounds) focused on the "understand the problem" stage of problem solving, and they introduced the basic concepts and terminology of sounds we want to model.
+Chapters \@ref(physics-and-perception-of-sound) and \@ref(harmonic-and-inharmonic-sounds) focused on the "understand the problem" stage of problem solving, and they introduced both the basic concepts and terminology of modeling sound.
 The present chapter pivots to the "make a plan" stage of problem solving by introducing the model elements and how they interact.
 Since we are building models for modular synthesis, the model elements are the modules, and their interactions are driven by how they are connected together in a patch.
 Figure \@ref(fig:serge-modular-2) shows an example patch on a real modular synthesizer from Chapter \@ref(introduction).
@@ -14,9 +14,9 @@ Figure \@ref(fig:serge-modular-2) shows an example patch on a real modular synth
 <p class="caption">(\#fig:serge-modular-2)(ref:serge-modular-2)</p>
 </div>
 
-Here and throughout the book, we will mostly avoid discussing real life modules, because it's impractical to assume that you, the reader, will have access to those modules.
-Instead, we will use open source modular software called Patchcab [@Spectrome2021] that has been integrated into the web version of the book.
-Patchcab is relatively simple and runs in the browser, which for our needs makes it preferable to the popular open source modular software, VCVRack [@VCVRack2022], which is desktop based.^[VCVRack is otherwise recommended. Both @Bjoern2018 and @Dusha2020 have distributed VCVRack patch files with their books.]
+Here and throughout the book, we will use open source modular software called VCVRack [@VCVRack2022] that has been ported to the web [@Cardinal2022].
+This version is integrated with the the web version of the book so you can read about modular and solve sound design problems within the same environment.
+Moreover, VCVRack is widely used in practice and has emulations of many hardware modules, so any details you learn about specific modules here could be useful down the road. 
 
 ## Modules are the model elements
 
@@ -77,7 +77,7 @@ As a result, we can use a trigger to model a drum hit, but we need a gate to mod
 
 Envelopes are a great example of a continuous control voltage.
 As discussed in Section \@ref(dynamics-and-envelopes), envelopes can be used to control the amplitude of a sound wave and thus its loudness.
-We can represent an envelope in control voltage as shown in Figure \@ref(fig:voltage-adsr).
+We can represent an envelope in control voltage (y-axis) as shown in Figure \@ref(fig:voltage-adsr).
 This envelope example illustrates how flexible control voltage can be - any voltage level or shape over time is possible.
 
 (ref:voltage-adsr) An example Attack-Decay-Sustain-Release (ADSR) envelope represented as control voltage.
@@ -87,7 +87,7 @@ This envelope example illustrates how flexible control voltage can be - any volt
 <p class="caption">(\#fig:voltage-adsr)(ref:voltage-adsr)</p>
 </div>
 
-In Eurorack, signal voltages typically span 10 volts.
+In the Eurorack modular format, signal voltages typically span 10 volts.
 This is much move voltage than common audio devices, so connecting modular gear to standard audio equipment requires some care.
 Table \@ref(tab:voltage) presents the voltage levels for modular signals in Eurorack, together with common audio signals for reference.
 
@@ -117,7 +117,7 @@ Stereo patch cables are TRS (tip-ring-sleeve), whereas mono patch cables are TS 
 One of the most powerful aspects of modular synthesis is the variety of ways that modules can be connected together.
 You can often send an unusual signal to a module, and that module will still respond.
 However, its also possible to send a signal to a module and for nothing to happen.
-The reason for this is that modules expect certain signal types at their input jacks, and they will interpret the signals they receive according to these expectations.
+The reason for this is that modules expect a certain type of signal at each input jack, and they will interpret signals they receive according to these expectations.
 
 Take gates and triggers for example.
 What makes a gate a gate and a trigger a trigger?
@@ -132,7 +132,7 @@ Recall that human hearing is sensitive to frequencies between 20 Hz and 20 kHz.
 So if we generated a train of rectangular gate pulses in this frequency range, we are generating the same shape as audio, and we can listen to our gates as a pulse wave.
 Similarly, if we generate envelopes repeatedly at an audible frequency, our envelope becomes a waveshape, and we will hear a sound based on the shape of the envelope.
 However, in other cases you might hear nothing!
-This is because jacks that expect audio are [AC-coupled](https://en.wikipedia.org/wiki/Capacitive_coupling#Use_in_analog_circuits), which removes low frequency noise and offset bias that would interfere with sound quality.
+This is because jacks that expect audio are [AC-coupled](https://en.wikipedia.org/wiki/Capacitive_coupling#Use_in_analog_circuits), which removes low frequency signals, noise, and offset bias that would interfere with sound quality.
 
 One signal that deserves special mention is volt per octave (V/Oct).
 This signal used to tell oscillators and other generators what pitch they should play.
@@ -145,7 +145,7 @@ While just about any signal could be used,^[Typically unipolar signals are used 
 When signals don't work as expected, it can be hard to  figure out why.
 One of the best tools you can use to diagnose problems is an oscilloscope.
 Oscilloscopes display voltages over time, so they are great for displaying modular signals, including rapidly changing signals like audio.
-A bench oscilloscope is shown in Figure \@ref(fig:oscilloscope), but several modular manufacturers have created compact oscilloscopes that fit into a case, and you can also use computer software if you have a DC coupled audio interface.
+A bench oscilloscope is shown in Figure \@ref(fig:oscilloscope), but several modular manufacturers have created compact oscilloscopes that fit into a case, and you can also use a software oscilloscope if you have a DC coupled audio interface.
 Another great tool for diagnosing problems is the manual for the module in question. 
 If the signal in the oscilloscope looks correct, then it's likely you have a misconception about the type of signal the module is expecting.
 
@@ -156,24 +156,109 @@ If the signal in the oscilloscope looks correct, then it's likely you have a mis
 <p class="caption">(\#fig:oscilloscope)(ref:oscilloscope)</p>
 </div>
 
+## Pulling it all together
+
+Time to put these ideas into practice with some basic patches!
+As stated, we'll be using a web-ported version of VCVRack, which you can launch using buttons below.
+The port currently has some quirks:
+
+- It will not run on Safari because Safari does not support fixed-width SIMD.^[https://webassembly.org/roadmap/] That means it will not run on iOS at all per app store rules.^[https://developer.apple.com/app-store/review/guidelines/#2.5.6] ^[https://en.wikipedia.org/wiki/WebKit]
+- It has a large download because it bundles modules. For best performance, you should use Firefox, which currently caches the files better than Chrome.^[https://github.com/DISTRHO/Cardinal/issues/287#issuecomment-1245929349]
+
+In the following sections, we'll start with a patch and incrementally expand it to add more functionality.
+
+### Drone
+
+The most basic patch that makes a sound is a *drone* patch.
+It's the most basic because it only has one real module, which is a generator to make the sound.
+We'll use an oscillator and one extra module, an audio interface module, to connect the oscillator output to our speakers.
+For this patch only, I'm going to demonstrate using the video in Figure \@ref(fig:drone-demo) to explain the user interface of the modular software.
+
+(ref:drone-demo) [Youtube video](https://www.youtube.com/watch?v=EfIWUOgHmhM) describing the VCVRack/Cardinal interface and builing a drone patch.
+
+<div class="figure">
+<iframe src="https://www.youtube.com/embed/EfIWUOgHmhM?start=2" width="672" height="400px" data-external="1"></iframe>
+<p class="caption">(\#fig:drone-demo)(ref:drone-demo)</p>
+</div>
+
+After you watch the demonstration, try to make the patch yourself using the button in Figure \@ref(fig:drone-vco-out).
+
+(ref:drone-vco-out) [Virtual modular](https://cardinal.olney.ai) for making a drone patch.
+
+<!-- MODAL HTML BLOCK -->
+
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#modularModal">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modularModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modularModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="modularModalLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Use the video demonstration as a guide (open video in separate tab as needed)&lt;/li&gt;
+&lt;li&gt;For each wave output&lt;ul&gt;
+&lt;li&gt;Connect just it to the audio inputs&lt;/li&gt;
+&lt;li&gt;Sweep the frequency knob&lt;/li&gt;
+&lt;li&gt;Sweep the volume knob&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="See the video demonstration in the book (open video in separate tab as needed">Solution</button>
+        <button type="button" onclick="setIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="cardinal-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setIframe(url){
+  var cardinalIframe = document.getElementById("cardinal-iframe");
+  cardinalIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script>
+
+```
+
+<!-- CAPTION BLOCK -->
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:drone-vco-out)(ref:drone-vco-out)</p></div>
+
 <!-- Basic concept patches -->
 <!-- - Drone: (OSC+OUT) two connections; try each wave; manually sweep frequency; manually sweep volume;  -->
 <!-- - Drone with scope: (OSC+scope+OUT) repeat with scope set up, observe different frequencies/waves as they play; -->
 <!-- - Pitched Osc: (12key+OSC+scope+OUT) pitch by different keys; try to play as an instrument -->
 <!-- - Pitched gated Osc: (12key+OSC+scope+OUT) repeat with envelope accepting gates to control volume. -->
-
-Test of cardinal as figure \@ref(fig:cardinal).
-
-(ref:cardinal) [Simulation](https://cardinal.olney.ai) of Eurorack.
-
-<!-- MODAL HTML BLOCK -->
-
-
-<!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:cardinal)" width="100%" />
-<p class="caption">(\#fig:cardinal)(ref:cardinal)</p>
-</div>
 
 <!-- Fundamental Modules and Composition		 -->
 <!-- 	Basic concepts	 -->

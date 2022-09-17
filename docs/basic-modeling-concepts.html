@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 4 Basic Modeling Concepts | Computational Thinking through Modular Sounds Synthesis</title>
 <meta name="author" content="Andrew M. Olney">
-<meta name="description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, and they introduced the basic concepts and terminology of sounds we want to model. The present chapter pivots to...">
+<meta name="description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, and they introduced both the basic concepts and terminology of modeling sound. The present chapter pivots to the...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Chapter 4 Basic Modeling Concepts | Computational Thinking through Modular Sounds Synthesis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/basic-modeling-concepts.html">
-<meta property="og:description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, and they introduced the basic concepts and terminology of sounds we want to model. The present chapter pivots to...">
+<meta property="og:description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, and they introduced both the basic concepts and terminology of modeling sound. The present chapter pivots to the...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 4 Basic Modeling Concepts | Computational Thinking through Modular Sounds Synthesis">
-<meta name="twitter:description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, and they introduced the basic concepts and terminology of sounds we want to model. The present chapter pivots to...">
+<meta name="twitter:description" content="Chapters 2 and 3 focused on the “understand the problem” stage of problem solving, and they introduced both the basic concepts and terminology of modeling sound. The present chapter pivots to the...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -65,28 +65,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
-<li class="book-part">Sound</li>
-<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
-<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
-<li class="book-part">Fundamental Modules</li>
-<li><a class="active" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
-<li><a class="" href="trigger.html"><span class="header-section-number">5</span> Trigger</a></li>
-<li><a class="" href="create.html"><span class="header-section-number">6</span> Create</a></li>
-<li><a class="" href="modify.html"><span class="header-section-number">7</span> Modify</a></li>
-<li class="book-part">Sound Design 1</li>
-<li><a class="" href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></li>
-<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
-<li class="book-part">Complex Modules</li>
-<li><a class="" href="trigger-1.html"><span class="header-section-number">10</span> Trigger</a></li>
-<li><a class="" href="create-1.html"><span class="header-section-number">11</span> Create</a></li>
-<li><a class="" href="modify-1.html"><span class="header-section-number">12</span> Modify</a></li>
-<li class="book-part">Sound Design 2</li>
-<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 4</span> Basic Modeling Concepts</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -97,7 +76,7 @@
 <h1>
 <span class="header-section-number">4</span> Basic Modeling Concepts<a class="anchor" aria-label="anchor" href="#basic-modeling-concepts"><i class="fas fa-link"></i></a>
 </h1>
-<p>Chapters <a href="physics-and-perception-of-sound.html#physics-and-perception-of-sound">2</a> and <a href="harmonic-and-inharmonic-sounds.html#harmonic-and-inharmonic-sounds">3</a> focused on the “understand the problem” stage of problem solving, and they introduced the basic concepts and terminology of sounds we want to model.
+<p>Chapters <a href="physics-and-perception-of-sound.html#physics-and-perception-of-sound">2</a> and <a href="harmonic-and-inharmonic-sounds.html#harmonic-and-inharmonic-sounds">3</a> focused on the “understand the problem” stage of problem solving, and they introduced both the basic concepts and terminology of modeling sound.
 The present chapter pivots to the “make a plan” stage of problem solving by introducing the model elements and how they interact.
 Since we are building models for modular synthesis, the model elements are the modules, and their interactions are driven by how they are connected together in a patch.
 Figure <a href="basic-modeling-concepts.html#fig:serge-modular-2">4.1</a> shows an example patch on a real modular synthesizer from Chapter <a href="introduction.html#introduction">1</a>.</p>
@@ -108,9 +87,9 @@ Figure <a href="basic-modeling-concepts.html#fig:serge-modular-2">4.1</a> shows 
 Figure 4.1: A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. <code>Wave Multiplier</code>, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image <a href="https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg">© mikael altemark/CC-BY-2.0</a>.
 </p>
 </div>
-<p>Here and throughout the book, we will mostly avoid discussing real life modules, because it’s impractical to assume that you, the reader, will have access to those modules.
-Instead, we will use open source modular software called Patchcab<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Spectrome, &lt;span&gt;“Patchcab”&lt;/span&gt; (GitHub, September 2021), &lt;a href="https://github.com/spectrome/patchcab" role="doc-biblioref"&gt;https://github.com/spectrome/patchcab&lt;/a&gt;.&lt;/p&gt;'><sup>31</sup></a></span> that has been integrated into the web version of the book.
-Patchcab is relatively simple and runs in the browser, which for our needs makes it preferable to the popular open source modular software, VCVRack,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“&lt;span&gt;VCV&lt;/span&gt; &lt;span&gt;Rack&lt;/span&gt; - &lt;span&gt;The&lt;/span&gt; &lt;span&gt;Eurorack&lt;/span&gt; Simulator for &lt;span&gt;Windows&lt;/span&gt;/&lt;span&gt;Mac&lt;/span&gt;/&lt;span&gt;Linux&lt;/span&gt;,”&lt;/span&gt; 2022, &lt;a href="https://vcvrack.com/" role="doc-biblioref"&gt;https://vcvrack.com/&lt;/a&gt;.&lt;/p&gt;'><sup>32</sup></a></span> which is desktop based.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;VCVRack is otherwise recommended. Both &lt;span class="citation"&gt;Bjørn and Meyer, &lt;em&gt;Patch &amp;amp; &lt;span&gt;Tweak&lt;/span&gt;&lt;/em&gt;&lt;/span&gt; and &lt;span class="citation"&gt;Dusha, Martonova, and Johnston, &lt;em&gt;Modular &lt;span&gt;Sound&lt;/span&gt; &lt;span&gt;Synthesis&lt;/span&gt; &lt;span&gt;On&lt;/span&gt; the &lt;span&gt;Moon&lt;/span&gt;&lt;/em&gt;&lt;/span&gt; have distributed VCVRack patch files with their books.&lt;/p&gt;'><sup>33</sup></a></p>
+<p>Here and throughout the book, we will use open source modular software called VCVRack<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“&lt;span&gt;VCV&lt;/span&gt; &lt;span&gt;Rack&lt;/span&gt; - &lt;span&gt;The&lt;/span&gt; &lt;span&gt;Eurorack&lt;/span&gt; Simulator for &lt;span&gt;Windows&lt;/span&gt;/&lt;span&gt;Mac&lt;/span&gt;/&lt;span&gt;Linux&lt;/span&gt;,”&lt;/span&gt; 2022, &lt;a href="https://vcvrack.com/" role="doc-biblioref"&gt;https://vcvrack.com/&lt;/a&gt;.&lt;/p&gt;'><sup>1</sup></a></span> that has been ported to the web.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“&lt;span&gt;DISTRHO&lt;/span&gt; &lt;span&gt;Cardinal&lt;/span&gt;”&lt;/span&gt; (DISTRHO, September 2022), &lt;a href="https://github.com/DISTRHO/Cardinal" role="doc-biblioref"&gt;https://github.com/DISTRHO/Cardinal&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a></span>
+This version is integrated with the the web version of the book so you can read about modular and solve sound design problems within the same environment.
+Moreover, VCVRack is widely used in practice and has emulations of many hardware modules, so any details you learn about specific modules here could be useful down the road.</p>
 <div id="modules-are-the-model-elements" class="section level2" number="4.1">
 <h2>
 <span class="header-section-number">4.1</span> Modules are the model elements<a class="anchor" aria-label="anchor" href="#modules-are-the-model-elements"><i class="fas fa-link"></i></a>
@@ -141,7 +120,7 @@ It’s perhaps not surprising that audio signals use corresponding positive and 
 This kind of voltage is <a href="https://en.wikipedia.org/wiki/Alternating_current#Mathematics_of_AC_voltages">AC voltage</a>.
 Anytime a signal is bipoloar, i.e. it crosses zero, you can assume the voltage is AC.</p>
 <p>Control signals represent everything besides audio.
-Unlike audio signals, control signals are unipolar voltage representations, i.e. they don’t cross zero, and thus use <a href="https://en.wikipedia.org/wiki/Direct_current#Various_definitions">DC voltage</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Under this definition, low frequency oscillators are audio signals, not control signals.&lt;/p&gt;"><sup>34</sup></a>
+Unlike audio signals, control signals are unipolar voltage representations, i.e. they don’t cross zero, and thus use <a href="https://en.wikipedia.org/wiki/Direct_current#Various_definitions">DC voltage</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Under this definition, low frequency oscillators are audio signals, not control signals.&lt;/p&gt;"><sup>3</sup></a>
 There are two main types of control signals in modular synthesis.
 Both of these can be understood in terms of light switches as shown in Figure <a href="basic-modeling-concepts.html#fig:light-switches">4.2</a>.
 Regular light switches are either on or off.
@@ -168,7 +147,7 @@ Figure 4.3: Triggers and gates shown over time. Both are on/off unipolar voltage
 </div>
 <p>Envelopes are a great example of a continuous control voltage.
 As discussed in Section <a href="harmonic-and-inharmonic-sounds.html#dynamics-and-envelopes">3.4</a>, envelopes can be used to control the amplitude of a sound wave and thus its loudness.
-We can represent an envelope in control voltage as shown in Figure <a href="basic-modeling-concepts.html#fig:voltage-adsr">4.4</a>.
+We can represent an envelope in control voltage (y-axis) as shown in Figure <a href="basic-modeling-concepts.html#fig:voltage-adsr">4.4</a>.
 This envelope example illustrates how flexible control voltage can be - any voltage level or shape over time is possible.</p>
 
 <div class="figure">
@@ -177,7 +156,7 @@ This envelope example illustrates how flexible control voltage can be - any volt
 Figure 4.4: An example Attack-Decay-Sustain-Release (ADSR) envelope represented as control voltage.
 </p>
 </div>
-<p>In Eurorack, signal voltages typically span 10 volts.
+<p>In the Eurorack modular format, signal voltages typically span 10 volts.
 This is much move voltage than common audio devices, so connecting modular gear to standard audio equipment requires some care.
 Table <a href="basic-modeling-concepts.html#tab:voltage">4.1</a> presents the voltage levels for modular signals in Eurorack, together with common audio signals for reference.</p>
 <div class="inline-table"><table class="table table-sm">
@@ -203,7 +182,7 @@ Table <a href="basic-modeling-concepts.html#tab:voltage">4.1</a> presents the vo
 <td align="center">-1.7 to +1.7</td>
 </tr>
 <tr class="even">
-<td>Continuous control signal<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Can be inverted&lt;/p&gt;"><sup>35</sup></a>
+<td>Continuous control signal<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Can be inverted&lt;/p&gt;"><sup>4</sup></a>
 </td>
 <td align="center">0 to 10</td>
 <td>Line audio level</td>
@@ -223,7 +202,7 @@ Table <a href="basic-modeling-concepts.html#tab:voltage">4.1</a> presents the vo
 </tr>
 </tbody>
 </table></div>
-<p>Modular signals are transmitted by patch cables.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The Eurorack standard does allow for signals to be &lt;a href="https://doepfer.de/a100_man/a100t_e.htm"&gt;transmitted using a bus on the in-case ribbon cable&lt;/a&gt;, but few modules support this. Likewise there are other bus conventions that are not widely followed like &lt;a href="https://en.wikipedia.org/wiki/I%C2%B2C"&gt;i2c&lt;/a&gt;. Often if two modules are connected behind the panel, one is an expansion module that adds additional connections or capabilities to the other.&lt;/p&gt;'><sup>36</sup></a>
+<p>Modular signals are transmitted by patch cables.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The Eurorack standard does allow for signals to be &lt;a href="https://doepfer.de/a100_man/a100t_e.htm"&gt;transmitted using a bus on the in-case ribbon cable&lt;/a&gt;, but few modules support this. Likewise there are other bus conventions that are not widely followed like &lt;a href="https://en.wikipedia.org/wiki/I%C2%B2C"&gt;i2c&lt;/a&gt;. Often if two modules are connected behind the panel, one is an expansion module that adds additional connections or capabilities to the other.&lt;/p&gt;'><sup>5</sup></a>
 Patch cables are primarily mono but sometimes stereo if a jack supports it.
 These two patch cable types look identical, except at their connectors, as shown in Figure <a href="basic-modeling-concepts.html#fig:ts-trs">4.5</a>.
 Stereo patch cables are TRS (tip-ring-sleeve), whereas mono patch cables are TS (tip-sleeve).</p>
@@ -242,7 +221,7 @@ Figure 4.5: Stereo (top) and mono (bottom) patch cable connectors. Both have a t
 <p>One of the most powerful aspects of modular synthesis is the variety of ways that modules can be connected together.
 You can often send an unusual signal to a module, and that module will still respond.
 However, its also possible to send a signal to a module and for nothing to happen.
-The reason for this is that modules expect certain signal types at their input jacks, and they will interpret the signals they receive according to these expectations.</p>
+The reason for this is that modules expect a certain type of signal at each input jack, and they will interpret signals they receive according to these expectations.</p>
 <p>Take gates and triggers for example.
 What makes a gate a gate and a trigger a trigger?
 As we said above, gates have a variable duration, but that doesn’t prevent them from being used as triggers.
@@ -255,18 +234,18 @@ Recall that human hearing is sensitive to frequencies between 20 Hz and 20 kHz.
 So if we generated a train of rectangular gate pulses in this frequency range, we are generating the same shape as audio, and we can listen to our gates as a pulse wave.
 Similarly, if we generate envelopes repeatedly at an audible frequency, our envelope becomes a waveshape, and we will hear a sound based on the shape of the envelope.
 However, in other cases you might hear nothing!
-This is because jacks that expect audio are <a href="https://en.wikipedia.org/wiki/Capacitive_coupling#Use_in_analog_circuits">AC-coupled</a>, which removes low frequency noise and offset bias that would interfere with sound quality.</p>
+This is because jacks that expect audio are <a href="https://en.wikipedia.org/wiki/Capacitive_coupling#Use_in_analog_circuits">AC-coupled</a>, which removes low frequency signals, noise, and offset bias that would interfere with sound quality.</p>
 <p>One signal that deserves special mention is volt per octave (V/Oct).
 This signal used to tell oscillators and other generators what pitch they should play.
 The V/Oct standard was <a href="https://en.wikipedia.org/wiki/CV/gate#CV">pioneered by Moog</a> and is widely used in the Eurorack format.
 Note that V/Oct goes straight from the voltage representation to pitch perception, with no mention of frequency.
 This makes it easy for musicians: since each volt represents an octave, it is easy to play a note one octave above the current note by adding one volt to the current signal.
-Similarly, one semitone above a note corresponds to 1/12 of a volt above the current voltage.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Western music divides the octave into 12 pitches called semitones based on a system called &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament#Twelve-tone_equal_temperament"&gt;twelve-tone equal temperment&lt;/a&gt;.&lt;/p&gt;'><sup>37</sup></a>
-While just about any signal could be used,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Typically unipolar signals are used for V/Oct.&lt;/p&gt;"><sup>38</sup></a> continuous control signals are commonly used in order to access a range of pitches.</p>
+Similarly, one semitone above a note corresponds to 1/12 of a volt above the current voltage.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Western music divides the octave into 12 pitches called semitones based on a system called &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament#Twelve-tone_equal_temperament"&gt;twelve-tone equal temperment&lt;/a&gt;.&lt;/p&gt;'><sup>6</sup></a>
+While just about any signal could be used,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Typically unipolar signals are used for V/Oct.&lt;/p&gt;"><sup>7</sup></a> continuous control signals are commonly used in order to access a range of pitches.</p>
 <p>When signals don’t work as expected, it can be hard to figure out why.
 One of the best tools you can use to diagnose problems is an oscilloscope.
 Oscilloscopes display voltages over time, so they are great for displaying modular signals, including rapidly changing signals like audio.
-A bench oscilloscope is shown in Figure <a href="basic-modeling-concepts.html#fig:oscilloscope">4.6</a>, but several modular manufacturers have created compact oscilloscopes that fit into a case, and you can also use computer software if you have a DC coupled audio interface.
+A bench oscilloscope is shown in Figure <a href="basic-modeling-concepts.html#fig:oscilloscope">4.6</a>, but several modular manufacturers have created compact oscilloscopes that fit into a case, and you can also use a software oscilloscope if you have a DC coupled audio interface.
 Another great tool for diagnosing problems is the manual for the module in question.
 If the signal in the oscilloscope looks correct, then it’s likely you have a misconception about the type of signal the module is expecting.</p>
 
@@ -276,18 +255,45 @@ If the signal in the oscilloscope looks correct, then it’s likely you have a m
 Figure 4.6: A bench oscilloscope showing a sine wave and offset square wave simultaneously. Image <a href="https://commons.wikimedia.org/wiki/File:My_friend_oscilloscope.jpg">© Wild Pancake/CC-BY-4.0</a>.
 </p>
 </div>
-<!-- Basic concept patches -->
-<!-- - Drone: (OSC+OUT) two connections; try each wave; manually sweep frequency; manually sweep volume;  -->
-<!-- - Drone with scope: (OSC+scope+OUT) repeat with scope set up, observe different frequencies/waves as they play; -->
-<!-- - Pitched Osc: (12key+OSC+scope+OUT) pitch by different keys; try to play as an instrument -->
-<!-- - Pitched gated Osc: (12key+OSC+scope+OUT) repeat with envelope accepting gates to control volume. -->
-<p>Test of cardinal as figure <a href="basic-modeling-concepts.html#fig:cardinal">4.7</a>.</p>
+</div>
+<div id="pulling-it-all-together" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Pulling it all together<a class="anchor" aria-label="anchor" href="#pulling-it-all-together"><i class="fas fa-link"></i></a>
+</h2>
+<p>Time to put these ideas into practice with some basic patches!
+As stated, we’ll be using a web-ported version of VCVRack, which you can launch using buttons below.
+The port currently has some quirks:</p>
+<ul>
+<li>It will not run on Safari because Safari does not support fixed-width SIMD.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://webassembly.org/roadmap/" class="uri"&gt;https://webassembly.org/roadmap/&lt;/a&gt;&lt;/p&gt;'><sup>8</sup></a> That means it will not run on iOS at all per app store rules.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://developer.apple.com/app-store/review/guidelines/#2.5.6" class="uri"&gt;https://developer.apple.com/app-store/review/guidelines/#2.5.6&lt;/a&gt;&lt;/p&gt;'><sup>9</sup></a> <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/WebKit" class="uri"&gt;https://en.wikipedia.org/wiki/WebKit&lt;/a&gt;&lt;/p&gt;'><sup>10</sup></a>
+</li>
+<li>It has a large download because it bundles modules. For best performance, you should use Firefox, which currently caches the files better than Chrome.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://github.com/DISTRHO/Cardinal/issues/287#issuecomment-1245929349" class="uri"&gt;https://github.com/DISTRHO/Cardinal/issues/287#issuecomment-1245929349&lt;/a&gt;&lt;/p&gt;'><sup>11</sup></a>
+</li>
+</ul>
+<p>In the following sections, we’ll start with a patch and incrementally expand it to add more functionality.</p>
+<div id="drone" class="section level3" number="4.4.1">
+<h3>
+<span class="header-section-number">4.4.1</span> Drone<a class="anchor" aria-label="anchor" href="#drone"><i class="fas fa-link"></i></a>
+</h3>
+<p>The most basic patch that makes a sound is a <em>drone</em> patch.
+It’s the most basic because it only has one real module, which is a generator to make the sound.
+We’ll use an oscillator and one extra module, an audio interface module, to connect the oscillator output to our speakers.
+For this patch only, I’m going to demonstrate using the video in Figure <a href="basic-modeling-concepts.html#fig:drone-demo">4.7</a> to explain the user interface of the modular software.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:drone-demo"></span>
+<iframe src="https://www.youtube.com/embed/EfIWUOgHmhM?start=2" width="672" height="400px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 4.7: <a href="https://www.youtube.com/watch?v=EfIWUOgHmhM">Youtube video</a> describing the VCVRack/Cardinal interface and builing a drone patch.
+</p>
+</div>
+<p>After you watch the demonstration, try to make the patch yourself using the button in Figure <a href="basic-modeling-concepts.html#fig:drone-vco-out">4.8</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" onclick="setIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#modularModal">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#modularModal">
     Launch Virtual Modular
   </button>
 </div>
@@ -299,8 +305,17 @@ Figure 4.6: A bench oscilloscope showing a sine wave and offset square wave simu
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="modularModalLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Use the video demonstration as a guide (open video in separate tab as needed)&lt;/li&gt;
+&lt;li&gt;For each wave output&lt;ul&gt;
+&lt;li&gt;Connect just it to the audio inputs&lt;/li&gt;
+&lt;li&gt;Sweep the frequency knob&lt;/li&gt;
+&lt;li&gt;Sweep the volume knob&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="See the video demonstration in the book (open video in separate tab as needed">Solution</button>
         <button type="button" onclick="setIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -335,11 +350,16 @@ $('.popover-dismiss').popover({
   trigger: 'focus'
 })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
-<span style="display:block;" id="fig:cardinal"></span>
+<span style="display:block;" id="fig:drone-vco-out"></span>
 <p class="caption">
-Figure 4.7: <a href="https://cardinal.olney.ai">Simulation</a> of Eurorack.
+Figure 4.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a drone patch.
 </p>
 </div>
+<!-- Basic concept patches -->
+<!-- - Drone: (OSC+OUT) two connections; try each wave; manually sweep frequency; manually sweep volume;  -->
+<!-- - Drone with scope: (OSC+scope+OUT) repeat with scope set up, observe different frequencies/waves as they play; -->
+<!-- - Pitched Osc: (12key+OSC+scope+OUT) pitch by different keys; try to play as an instrument -->
+<!-- - Pitched gated Osc: (12key+OSC+scope+OUT) repeat with envelope accepting gates to control volume. -->
 <!-- Fundamental Modules and Composition         -->
 <!--    Basic concepts   -->
 <!--         I/O, controls, representation, trigger, create, modify -->
@@ -377,23 +397,18 @@ Figure 4.7: <a href="https://cardinal.olney.ai">Simulation</a> of Eurorack.
 
 </div>
 </div>
+</div>
 
   <div class="chapter-nav">
-<div class="prev"><a href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></div>
-<div class="next"><a href="trigger.html"><span class="header-section-number">5</span> Trigger</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#basic-modeling-concepts"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
-<li><a class="nav-link" href="#modules-are-the-model-elements"><span class="header-section-number">4.1</span> Modules are the model elements</a></li>
-<li><a class="nav-link" href="#signals-are-how-the-model-elements-interact"><span class="header-section-number">4.2</span> Signals are how the model elements interact</a></li>
-<li><a class="nav-link" href="#signals-are-interpreted-by-modules"><span class="header-section-number">4.3</span> Signals are interpreted by modules</a></li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/05-fun-mod-basic-concepts.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/05-fun-mod-basic-concepts.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
@@ -413,34 +428,6 @@ Figure 4.7: <a href="https://cardinal.olney.ai">Simulation</a> of Eurorack.
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
+</footer>
 </body>
 </html>

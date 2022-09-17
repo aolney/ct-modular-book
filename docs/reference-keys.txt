@@ -69,3 +69,8 @@ trigger-1
 create-1
 modify-1
 minimoog-303
+basic-patching
+pulling-it-all-together
+drone
+fig:drone-demo
+fig:drone-vco-out
