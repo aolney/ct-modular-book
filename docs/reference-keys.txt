@@ -45,6 +45,7 @@ fig:drone-vco-scope-out
 fig:drone-12key-vco-scope-out
 fig:drone-12key-vco-vca-scope-out
 fig:drone-12key-vco-env-vca-scope-out
+fig:metronome
 introduction
 why-this-book
 computational-thinking
@@ -72,12 +73,13 @@ controlling-pitch
 controlling-note-duration-onoff-volume
 controlling-note-dynamics-volume-during-note
 moving-forward-1
-trigger
+controllers
+clocks
 create
 modify
 kick-cymbal
 lead-bass
-trigger-1
+trigger
 create-1
 modify-1
 minimoog-303

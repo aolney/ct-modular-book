@@ -3,7 +3,7 @@
 # Basic Modeling Concepts
 
 Chapters \@ref(physics-and-perception-of-sound) and \@ref(harmonic-and-inharmonic-sounds) focused on the "understand the problem" stage of problem solving, and they introduced both the basic concepts and terminology of modeling sound.
-The present chapter pivots to the "make a plan" stage of problem solving by introducing the model elements and how they interact.
+The present chapter pivots to the make/implement a plan stages of problem solving by introducing the model elements and how they interact.
 Since we are building models for modular synthesis, the model elements are the modules, and their interactions are driven by how they are connected together in a patch.
 Figure \@ref(fig:serge-modular-2) shows an example patch on a real modular synthesizer from Chapter \@ref(introduction).
 
@@ -18,7 +18,7 @@ knitr::include_graphics("images/Serge_Modular,_Norbergfestival_2007_cropped.jpg"
 
 Here and throughout the book, we will use open source modular software called VCVRack [@VCVRack2022] that has been ported to the web [@Cardinal2022].
 This version is integrated with the the web version of the book so you can read about modular and solve sound design problems within the same environment.
-Moreover, VCVRack is widely used in practice and has emulations of many hardware modules, so any details you learn about specific modules here could be useful down the road. 
+VCVRack is widely used in practice and has emulations of many hardware modules, so any details you learn about specific modules here could be useful down the road. 
 
 ## Modules are the model elements
 
@@ -29,7 +29,7 @@ You might think of these as "categories of categories."
 
 **Controllers** initiate musical events.
 An example controller is a module that waits for key presses and, on receiving them, sends a signal to initiate a musical event.
-Another example is a sequencer, which you can think of as way of recording key presses and then playing them back to initiate musical events.
+Another example is a sequencer, which you can think of as way of emulating timed key presses to initiate musical events.
 
 **Generators** create audible sound.
 An example generator is an oscillator that generates one or more of the four basic waveshapes discussed in Section \@ref(waveshape-and-timbre).
@@ -350,42 +350,6 @@ modular_caption()
 ## Moving forward
 
 The basic modeling concepts and patches in this chapter provide a high level overview of what's to come.
-The following chapters will go into the three module categories (controllers, generators, and modifiers) in more detail but similarly provide concrete examples along the way.
+The following chapters will go into the three module categories (controllers, generators, and modifiers) in more detail and similarly provide concrete examples along the way.
 From there we will continue to spiral outward into increasingly complex modules and applications.
-
-<!-- Fundamental Modules and Composition		 -->
-<!-- 	Basic concepts	 -->
-<!-- 		 I/O, controls, representation, trigger, create, modify -->
-<!-- 	Trigger	 -->
-<!-- 		Controllers -->
-<!-- 		Trigger/gate, phase, sync -->
-<!-- 	Create	 -->
-<!-- 		Oscillators (VCO) -->
-<!-- 		Samplers -->
-<!-- 	Modify	 -->
-<!-- 		Filters (VCF): poles, slopes, cutoff frequency, resonance -->
-<!-- 		Envelopes, velocity sensitivity, aftertouch -->
-<!-- 		Amplifiers -->
-<!-- 		Effects: delay/reverb/panning -->
-
-<!-- Complex modules and Compositions		 -->
-<!-- 	Trigger	 -->
-<!-- 		Clock, sequencing, arpggiators -->
-<!-- 		Euclidean rhythms -->
-<!-- 		Probability -->
-<!-- 	Create	 -->
-<!-- 		PWM -->
-<!-- 		FM/AM -->
-<!-- 		Ring modulation -->
-<!-- 		Vocoders -->
-<!-- 		Random sampling -->
-<!-- 	Modify	 -->
-<!-- 		LFO -->
-<!-- 		Sample and hold -->
-<!-- 		Slew -->
-<!-- 		Wave-folding -->
-<!-- 		Attenuators, inverters, and attenuverters -->
-<!-- 		Quantizers -->
-<!-- 		Switches -->
-<!-- 		Logic -->
 
