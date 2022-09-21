@@ -40,7 +40,7 @@ A reset signal is analogous to a rewind in the sense that all receiving modules 
 Resets are a useful tool in both composition and recording.
 Each of the transport controls is likely to have its own button for manual control, plus an output jack to send the control signal to downstream modules.
 
-As with all things modular, it's important to realize that although there are specialized clock modules, anything that produces a trigger/gate pulse can be used as a clock.
+As with all things modular, it's important to realize that although there are specialized clock modules, anything that produces a trigger/gate pulse can be used as a clock.^[Some modules will accept non-rectangular signals as a clock signal as long as the voltage exceeds some internal threshold.]
 Since clocks are sources of triggers, clocks can also be used for non-clock purposes.
 
 ### Clock under a scope
@@ -54,10 +54,10 @@ You should see regular pulses off the main output and a different color bar outp
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
 modular_modal("bar-beat-bpm-scope", instructions_html="<ul>
-<li>Add “Clock” and Host Audio</li>
+<li>Add “Clock” and Scope</li>
 <li>Connect Clock BEAT to Scope In 1</li>
 <li>Connect Clock BAR to Scope In 2</li>
-<li>Set Scope time and gain so you can see occasional bar pulses by color</li>
+<li>Set Scope time and gain so you can see bar pulses by color; at 4/4 time these should be every 4 pulses</li>
 </ul>
 <img src='images/solo-modules/clock-solo.png' style='height: 300px; width: auto'>
 ",solution_html="<img src='images/patch-solutions/bar-beat-bpm-scope.png' style='height: 300px; width: auto'>")
@@ -70,12 +70,12 @@ modular_caption()
 
 ### Clock as a generator
 
-Since clocks produce a regular stream of pulses, we can hear them at audio rates.
+Since clock modules produce a regular stream of pulses, we can hear them if they pulse at audio rates.
 Recall the bottom threshold of human hearing is approximately 20 Hz (20 cycles per second).
 Since 1200 BPM corresponds to 20 Hz, we should be able to hear clock signals above this BPM.
-The clock module from the last patch only goes up to 300 BPM, but if we use the 16ths output^[This particular clock does not use division notation.], we can achieve four times that, or just about the threshold.
-Starting with the last patch, try adding an audio out module after the scope using the button in 
-Figure \@ref(fig:clock-sound-bpm-scope-out).
+The clock module from the last patch only goes up to 300 BPM, but if we use the 16ths output^[This particular clock does not use division notation.], we can achieve four times that, or 1200 BPM.
+Try adding an audio out module after the scope using the button in 
+Figure \@ref(fig:clock-sound-bpm-scope-out) to extend the last patch.
 The sixteenth note pulses should show as approximately a square wave, and by moving the BPM up and down, you should hear a change in pitch.
 
 (ref:clock-sound-bpm-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a clock-based drone patch with a scope.
@@ -87,6 +87,7 @@ modular_modal("clock-sound-bpm-scope-out", instructions_html="<ul>
 <li>Remove all patch cables</li>
 <li>Connect Clock 16th to Scope In 1</li>
 <li>Connect Scope Out 1 to Host Audio L In</li>
+<li>Set BPM to 300</li>
 <li>Try adjusting<ul>
 <li>Time on the scope so you see a square wave (50% duty cycle)</li>
 <li>BPM on the clock to create different pitches (you may need good headphones)</li>
@@ -100,16 +101,265 @@ modular_modal("clock-sound-bpm-scope-out", instructions_html="<ul>
 modular_caption()
 ```
 
------------------------
+## Sequencers
+
+The basic idea of a sequencer is very simple: a sequencer replays a control signal at a particular moment in time.
+To represent time, sequencers use the idea of a *step*.
+Each pulse of the clock will advance the sequencer by one step.
+Any given step will have one or more control signals pre-stored.
+On each step, these control signals will be sent to the corresponding output jacks.
+When a sequencer reaches the last available step, it will loop back to the first step.
+Sequencers typically have a switch to lower the number of available steps from the hardware maximum, e.g. from eight steps to seven.
+The steps for a given control signal are respectively referred to as a *channel*.
+
+<!-- Sequencers are more general than clocks in both the variety of control signals they support as well as the timings of those signals. -->
+In analogue hardware, sequencers supporting only one control signal tend to be very compact and require external clock inputs.
+Sequencers supporting multiple control signals tend to have their own clock and transport controls.
+When a sequencer has only one control signal, it can be anything, but is most frequently either a trigger or a control voltage.
+When a sequencer has multiple control signals, they are frequently a combination of triggers and control voltages arranged in different channels.
+As previously discussed, these control signals naturally correspond to initiating musical events and pitches for notes, but any musical parameter that can be controlled by voltage can be stored in an analogue sequencer.^[Some digital sequencers can replay voltage-based control signals, but not all.]
+
+### Clocks as sequencers
+
+You could consider a clock as a kind of sequencer that produces triggers on a single channel.
+Let's look at this by making a bass drum patch driven by a clock, which will form the basis of other patches in this section.
+You like to refer back to Section \@ref(controlling-note-dynamics-volume-during-note) if you don't recall some of the modules involved.
+This *very* basic kick patch uses a sine wave from the VCO and controls the amplitude of the sine wave with a fast attack, medium decay envelope.
+Try making as much of the patch as possible using the button in 
+Figure \@ref(fig:clock-kick-bpm-vco-adsr-vca-scope-out) before referring to the instructions there.
+
+(ref:clock-kick-bpm-vco-adsr-vca-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a clock-driven kick patch.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("clock-kick-bpm-vco-adsr-vca-scope-out", instructions_html="<ul>
+<li>Add BPM Clock</li>
+<li>Add VCO</li>
+<li>Add ADSR</li>
+<li>Add VCA</li>
+<li>Connect VCO sine to VCA in</li>
+<li>Connect ADSR out to VCA CV in</li>
+<li>Connect Clock Beat to ADSR gate</li>
+<li>Add Scope and Host audio</li>
+<li>Connect VCA out to Scope In 1</li>
+<li>Connect Scope Out 1 to Host audio L</li>
+<li>To get a kick sound<ul>
+<li>Change VCO frequency to around 40 Hz</li>
+<li>Set ADSR attack to about 1ms, Decay to about 50ms, and the rest to 1.</li>
+</ul>
+</li>
+</ul>
+",solution_html="<img src='images/patch-solutions/clock-kick-bpm-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r clock-kick-bpm-vco-adsr-vca-scope-out, echo=F, out.width="100%", fig.cap="(ref:clock-kick-bpm-vco-adsr-vca-scope-out)"}
+modular_caption()
+```
+
+Keep this example in mind as your continue through this chapter. 
+Ultimately any module that produces the signals we want can be used as a sequencer, regardless of whether the module is called a sequencer.
+
+### Trigger sequencers
+
+The main difference between a clock and a trigger sequencer is the precise control over the timing of the triggers.
+Let's look at a simple trigger-based sequencer to extend the previous kick patch.
+Try adding the TRG module between the Clock and VCO using the button in 
+Figure \@ref(fig:trg-kick-bpm-trg-vco-adsr-vca-scope-out).
+Once you have it set up, activate a pattern of steps that isn't strictly regular, e.g. some beats immediately after each other and some spaced apart.
+Each activated step will issue a gate.
+Control of irregular timings is where trigger sequencers really shine compared to sequencing off a clock.
+
+(ref:trg-kick-bpm-trg-vco-adsr-vca-scope-out) [Virtual modular](https://cardinal.olney.ai) for a trigger-sequenced kick patch.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("trg-kick-bpm-trg-vco-adsr-vca-scope-out", instructions_html="<ul>
+<li>Add TRG between Clock and VCO</li>
+<li>Connect Clock Beat to TRG CLK</li>
+<li>Connect TRG Gate to ADSR Gate</li>
+<li>Adjust TRG<ul>
+<li>Activate steps by clicking on the squares; solid yellow is active</li>
+<li>Change length to 8 using LEN knob</li>
+</ul>
+</li>
+</ul>
+<img src='images/solo-modules/trg-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img src='images/patch-solutions/trg-kick-bpm-trg-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r trg-kick-bpm-trg-vco-adsr-vca-scope-out, echo=F, out.width="100%", fig.cap="(ref:trg-kick-bpm-trg-vco-adsr-vca-scope-out)"}
+modular_caption()
+```
+
+### Control voltage sequencers
+
+Control voltage sequencers replay voltage for each step.
+Typically the voltage is constant for the duration of the step, which is useful for sending V/Oct signals to play notes.
+<!-- When sequencing multiple instruments, you have a choice between using a single sequencer that can handle everything or multiple separate sequencers. -->
+To keep things simple and to build on the previous patch, let's create a saw-based synth voice whose pitch is controlled by a separate control voltage sequencer.
+Try duplicating the VCO, ADSR, and VCA modules from the last patch and controlling the VCO with the ADDR-SEQ module by using the button in 
+Figure \@ref(fig:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out).
+Each sequencer step has a voltage controlled by a knob, so turning these knobs sets the note pitch for each step.
+Because the volumes of these two instruments, or voices, is so different, you'll need to run each into a mixer module rather than directly into the host audio.
+
+(ref:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) [Virtual modular](https://cardinal.olney.ai) for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out", instructions_html="<ul>
+<li>Add ADDR-SEQ to the row below the other modules</li>
+<li>Drag select VCO, ADSR, and VCA</li>
+<li>Right click on one and select Duplicate</li>
+<li>Drag the duplicated modules down to the same row as ADDR-SEQ</li>
+<li>Connect Clock Beat to ADDR-SEQ Clock</li>
+<li>Connect ADDR-SEQ Out to VCO V/Oct</li>
+<li>Connect VCO Saw to VCA in</li>
+<li>Connect Clock Beat to ADSR Gate</li>
+<li>Connect ADSR Out to VCA CV In</li>
+<li>Change each of the ADSR settings to 9-12 o&#39;clock</li>
+<li>Add QuadVCA/Mixer</li>
+<li>Connect each of the VCA outs to QuadVCA inputs</li>
+<li>Connect QuadVCA Out Mix to Host Audio L</li>
+<li>Try starting/stopping the Clock. Notice how everything starts mid-sequence?</li>
+<li>Connect Clock RST (reset) out to TRG RST and ADDR-SEQ Reset in. Now you can reset both sequencers by pressing the RST button.</li>
+</ul>
+<img src='images/solo-modules/addr-seq-solo.png' style='height: 300px; width: auto'>
+<img src='images/solo-modules/quadvca-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img src='images/patch-solutions/trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out, echo=F, out.width="100%", fig.cap="(ref:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)"}
+modular_caption()
+```
+
+#### Sequencing rests
+
+<!-- You've likely noticed a limitation with the ADDR-SEQ module, specifically that it always plays a note and the notes are of equal duration. -->
+<!-- Let's consider each of these in turn. -->
+A limitation with the ADDR-SEQ module is that it always plays a note and never pauses, or [rests](https://en.wikipedia.org/wiki/Rest_(music)).
+One option would be to adjust the pitch on a step so it is outside the range of human hearing.
+While this option is simple and effective, it's possible that the sound will interact with other sounds in ways that become audible.
+Another option is to change the clock signal into the ADDR-SEQ module to the output of the trigger sequencer.
+Since the trigger sequencer has steps with no trigger, this means that no clock would be sent to ADDR-SEQ on these steps.
+The effect of using the trigger sequencer as a clock also depends on how the saw envelope is gated
+Try this using the button in 
+Figure \@ref(fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) to explore the different combinations.
+
+(ref:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) [Virtual modular](https://cardinal.olney.ai) for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave, using the trigger sequence as a clock on the voltage-controlled sequencer.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("rests-trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out", instructions_html="<ul>
+<li>Trigger Clock, Trigger Gate<ul>
+<li>Connect TRG Gate to ADDR-SEQ Clock</li>
+<li>Connect TRG Gate to ADSR Gate (for the saw voice)</li>
+<li>Listen to the resulting sound<ul>
+<li>Is every note in your saw voice played?</li>
+<li>If you increase sustain/release on the saw voice, how does it change the sound of notes that are not back to back?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Trigger Clock, Clock Gate<ul>
+<li>Connect TRG Gate to ADDR-SEQ Clock</li>
+<li>Connect Clock Beat to ADSR Gate (for the saw voice)</li>
+<li>Listen to the resulting sound<ul>
+<li>Is every note in your saw voice played?</li>
+<li>When are notes hit twice?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Clock Clock, Trigger Gate<ul>
+<li>Connect Clock Beat to ADDR-SEQ Clock</li>
+<li>Connect TRG Gate to ADSR Gate (for the saw voice)</li>
+<li>Listen to the resulting sound<ul>
+<li>Is every note in your saw voice played?</li>
+<li>If you increase sustain/release on the saw voice, how does it change the sound of notes that are not back to back?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+",solution_html="<h4>Solution for Trigger Clock and Trigger Gate only</h4><img src='images/patch-solutions/rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out, echo=F, out.width="100%", fig.cap="(ref:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)"}
+modular_caption()
+```
+
+The patch in Figure \@ref(fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) illustrates that how the sequencers are connected to each other and the clock plays a big difference on the resulting sound.
+If the gate and the clock are from the same source, and therefore match, every sequenced note will be heard.
+If the gate source is the trigger sequencer, rests will be produced. 
+These effects are summarized in Table \@ref(tab:trigger-clock-effects).
+The second row is comparable to a multichannel sequencer that allows steps to be silenced, thus reducing the overall pithced steps available by replacing them with silence.
+In contrast, the third row *inserts* silence between pitched steps, creating a longer sequence where no pitched steps are discarded.
+
+Table: (\#tab:trigger-clock-effects) Effects of gate and clock mismatching when combining trigger and control voltage sequencers to produce rests.
+
+| Clock source      |    Gate source    | Effect                        |
+|-------------------|-----------------|-------------------------------|
+| Clock             |       Clock       | Every note played, no rests          |
+| Clock             | Trigger sequencer | Notes skipped, with rests           |
+| Trigger sequencer | Trigger sequencer | Every note played, with rests |
+| Trigger sequencer |       Clock       | Notes repeated, no rests       |
 
 
-<!-- An example controller is a module that waits for key presses and, on receiving them, sends a signal to initiate a musical event. -->
-<!-- Another example is a sequencer, which you can think of as way of recording key presses and then playing them back to initiate musical events. -->
+#### Sequencing note duration
 
-<!-- Chapters \@ref(physics-and-perception-of-sound) and \@ref(harmonic-and-inharmonic-sounds) focused on the "understand the problem" stage of problem solving, and they introduced both the basic concepts and terminology of modeling sound. -->
-<!-- The present chapter pivots to the make/implement a plan stages of problem solving by introducing the model elements and how they interact. -->
-<!-- Since we are building models for modular synthesis, the model elements are the modules, and their interactions are driven by how they are connected together in a patch. -->
-<!-- Figure \@ref(fig:serge-modular-2) shows an example patch on a real modular synthesizer from Chapter \@ref(introduction). -->
+A second limitation of the ADDR-SEQ is that all the notes are the same duration.
+This limitation can be partially addressed by using variable length release, but ultimately the gate into the ADSR is a fixed width which results in a fixed length note.
+What is needed is to change the clock signal into a gate where the length of the gate matches the length of the desired note.
+Ideally we'd use a separate control voltage sequencer to set the gate lengths for us, but in the interest of keeping things relatively simple, let's control gate length manually.
+Try to add a trigger to gate module that takes the clock and sends out a gate to the saw envelope using the button in Figure \@ref(fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out).
+As you move the gate length knob, you'll hear that the note lengths change correspondingly.
+
+(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) [Virtual modular](https://cardinal.olney.ai) for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave, using the trigger sequence as a clock on the voltage-controlled sequencer and a trigger to gate module to control note length.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("rests-note-lengths-trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out", instructions_html="<ul>
+<li>Add DGATE trigger to gate module</li>
+<li>Connect Clock Beat to DGATE Trig in</li>
+<li>Connect DGATE Gate to saw ADSR Gate</li>
+<li>Manually change DGATE Gate length knob as the sound plays<ul>
+<li>How does the saw voice sound on notes followed by rests?</li>
+<li>You may need reduce your ASDR release to hear the gate clearly</li>
+</ul>
+</li>
+</ul>
+<img src='images/solo-modules/dgate-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img src='images/patch-solutions/rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out, echo=F, out.width="100%", fig.cap="(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)"}
+modular_caption()
+```
+
+## Summing up
+
+Clocks and sequencers are canonical modules for creating control signals in a modular system. 
+Unlike manual controller like a keyboard, both clocks and sequencers are semi-automated: once they are set up, they will continue to generate control signals without additional human intervention.
+<!-- Sequencing can get complex rather quickly, and there has been a tremendous amount of innovation around the problem of sequencing, leading to a variety of different approaches. -->
+The patches in this chapter explored more traditional analogue sequencing using separate modules.
+Larger analogue sequencer modules that integrate multiple channels and features can often be viewed as composites of these smaller modules, as shown in Figure \@ref(fig:seq3-annotated).
+Additional controllers and control techniques will be covered in future chapters.
+
+
+(ref:seq3-annotated) The SEQ3 sequencer module from VCVRack. The trigger sequence channel is highlighted in red and the control voltage channels are highlighted in blue.
+
+```{r seq3-annotated, echo=F, out.width="50%", fig.cap="(ref:seq3-annotated)"}
+knitr::include_graphics("images/seq3-annotated.png")
+```
+
+
+
+
 
 <!-- Options -->
 <!-- Chaining keyboards -->

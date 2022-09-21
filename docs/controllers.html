@@ -22,28 +22,6 @@
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-<style type="text/css">
-    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-        }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style>
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -65,28 +43,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
-<li class="book-part">Sound</li>
-<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
-<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
-<li class="book-part">Fundamental Modules</li>
-<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
-<li><a class="active" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
-<li><a class="" href="create.html"><span class="header-section-number">6</span> Create</a></li>
-<li><a class="" href="modify.html"><span class="header-section-number">7</span> Modify</a></li>
-<li class="book-part">Sound Design 1</li>
-<li><a class="" href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></li>
-<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
-<li class="book-part">Complex Modules</li>
-<li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
-<li><a class="" href="create-1.html"><span class="header-section-number">11</span> Create</a></li>
-<li><a class="" href="modify-1.html"><span class="header-section-number">12</span> Modify</a></li>
-<li class="book-part">Sound Design 2</li>
-<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 5</span> Controllers</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -108,10 +65,10 @@ In this chapter, we will focus on clocks and sequencers, which are canonical exa
 <p>Clocks in modular synthesis typically perform two functions.
 The first function is synchronization.
 Just like group of musicians may use a common reference to stay on the beat, e.g. drums, different modules can use a common clock to stay in time with each other.
-A modular clock is similar in several respects to a metronome, which is a musical aid rather than a musical instrument for keeping time.
+A modular clock is similar in several respects to a metronome, which is a musical aid for keeping time.
 Metronomes like the one shown in Figure <a href="controllers.html#fig:metronome">5.1</a> create a regular click or pulse that is adjustable to a given beats per minute (BPM).
-For reference, most current music ranges from 80-160 BPM.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://blog.musiio.com/2021/08/19/which-musical-tempos-are-people-streaming-the-most/" class="uri"&gt;https://blog.musiio.com/2021/08/19/which-musical-tempos-are-people-streaming-the-most/&lt;/a&gt;&lt;/p&gt;'><sup>42</sup></a>
-Likewise, a modular clock creates a trigger pulse (and occasionally, a gate) at a given BPM and makes this signal available on an output jack.</p>
+For reference, most current music ranges from 80-160 BPM.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://blog.musiio.com/2021/08/19/which-musical-tempos-are-people-streaming-the-most/" class="uri"&gt;https://blog.musiio.com/2021/08/19/which-musical-tempos-are-people-streaming-the-most/&lt;/a&gt;&lt;/p&gt;'><sup>1</sup></a>
+Likewise, a modular clock creates a trigger pulse<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Occasionally clocks will produce gates.&lt;/p&gt;"><sup>2</sup></a> at a given BPM and makes this signal available on an output jack.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:metronome"></span>
@@ -119,42 +76,768 @@ Likewise, a modular clock creates a trigger pulse (and occasionally, a gate) at 
 Figure 5.1: A metronome produces a periodic sound to help musicians keep rhythm. The mechanism is an inverted pendulum with a weight on the end; moving the weight up/down changes the speed of the metronome accordingly. Image <a href="https://commons.wikimedia.org/wiki/File:Metronome_Nikko.jpg">© Vincent Quach/CC-BY-3.0</a>.
 </p>
 </div>
-<p>Many clocks also support ways or marking time off the main clock.
+<p>Many clock modules also support ways of marking time off the main clock signal.
 Most often these are clock divisions.
 A clock division divides the clock frequency by an integer to get a new, lower frequency.
 For example, if our clock is 120 BPM, then it is producing triggers at 2 Hz.
 A clock division of 2 would therefore produce triggers at 1 Hz, or 60 BPM.
-Clock divisions of 2, 4, and 16 are relatively common.
+Clock divisions of 2, 4, and 8 are relatively common.
 Each of these specialized signals requires its own jack, so typically only a few such divisions are available on a clock module.</p>
 <p>Clock divisions can be used to implement <a href="https://en.wikipedia.org/wiki/Time_signature">time signatures</a> that track how many beats occur in a measure (also known as a bar).
 A common time signature in popular music is <span class="math inline">\({}^{4}_{4}\)</span>, which indicates there are four quarter notes per measure, in contrast to <span class="math inline">\({}^{3}_{4}\)</span>, which indicates there are three quarter notes per measure.
-As long as each pulse implements a quarter note, an end of measure signal can be generated by using a clock division matching the top of the time signature.
-Because a clock pulse represents the lowest resolution control signal and thus the shortest note, the using more pulses per quarter note allows more resolution and shorter notes.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Not all modules receiving clock will interpret a pulse as a quarter note. Some have higher resolutions and so require multiple pulses to advance. Twenty-four &lt;a href="https://en.wikipedia.org/wiki/Pulses_per_quarter_note"&gt;pulses per quarter note&lt;/a&gt; is one such standard.&lt;/p&gt;'><sup>43</sup></a></p>
+Assuming each pulse indicates a quarter note, an end of measure signal can be generated by using a clock division matching the top of the time signature.
+Because a clock pulse represents the lowest resolution control signal and thus the shortest note, using more pulses per quarter note allows more resolution and shorter notes.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Not all modules receiving clock will interpret a pulse as a quarter note. Some have higher resolutions and so require multiple pulses to advance. Twenty-four &lt;a href="https://en.wikipedia.org/wiki/Pulses_per_quarter_note"&gt;pulses per quarter note&lt;/a&gt; is one such standard.&lt;/p&gt;'><sup>3</sup></a></p>
 <p>The second function of a modular clock is <a href="https://en.wikipedia.org/wiki/Transport_(recording)">transport</a> control, which is recording terminology for controls like play, pause, stop, rewind, etc.
 Since clocks are not involved in recording per se, they typically have start, stop, and reset controls.
 A reset signal is analogous to a rewind in the sense that all receiving modules will start at their initial states rather than where they left off.
 Resets are a useful tool in both composition and recording.
 Each of the transport controls is likely to have its own button for manual control, plus an output jack to send the control signal to downstream modules.</p>
-<p>As with all things modular, its important to realize that while there are specialized clock modules, anything that produces a trigger/gate pulse can be used as a clock</p>
-<hr>
-<!-- An example controller is a module that waits for key presses and, on receiving them, sends a signal to initiate a musical event. --><!-- Another example is a sequencer, which you can think of as way of recording key presses and then playing them back to initiate musical events. --><!-- Chapters \@ref(physics-and-perception-of-sound) and \@ref(harmonic-and-inharmonic-sounds) focused on the "understand the problem" stage of problem solving, and they introduced both the basic concepts and terminology of modeling sound. --><!-- The present chapter pivots to the make/implement a plan stages of problem solving by introducing the model elements and how they interact. --><!-- Since we are building models for modular synthesis, the model elements are the modules, and their interactions are driven by how they are connected together in a patch. --><!-- Figure \@ref(fig:serge-modular-2) shows an example patch on a real modular synthesizer from Chapter \@ref(introduction). --><!-- Options --><!-- Chaining keyboards --><!-- Touch controllers (has exponential) --><!-- Clocks --><!-- Sequencer 1 channel/3 channel --><!-- trigger sequencer --><!-- Clocks, transport/tempo, divisions, time signatures,  --><!-- patches  --><!-- - into scope with signature as 2nd signal --><!-- - into audio out changing bpm, now 16ths to make tone --><!-- - gating low sine osc envelope for beats --><!-- Sequencing --><!-- signals over time; on/off vs continuous --><!-- patches --><!-- - beat patters by putting trg in between clock and adsr; introduce resets --><!-- - pitch sequencer: sequence a new osc with notes; duplicate modules and also have reset --><!-- - add variable length notes/rests by using TRG gate as a clock signal for adr3 and gate for saw adsr --><!-- Tremelo/vibrato? --><!-- Fundamental Modules and Composition         --><!--    Basic concepts   --><!--         Module categories, signals, signal interpretation, 5 patchs from drone to key controller for pitch/gate with amplitude envelope --><!--    Controllers  --><!--        Controllers --><!--        Trigger/gate, phase, sync --><!--    Generators   --><!--        Oscillators (VCO) /LFO ; morphing between waveshapes/ PWM /sync--><!-- noise --><!--        Samplers --><!--    Modifiers    --><!--        Filters (VCF): poles, slopes, cutoff frequency, resonance --><!--        Envelopes, velocity sensitivity, aftertouch --><!--        Amplifiers --><!--        Effects: delay/reverb/panning --><!-- Complex modules and Compositions        --><!--    Controllers  --><!--        Clock, sequencing, arpggiators --><!--        Euclidean rhythms --><!--        Probability --><!--    Generators   --><!--        PWM --><!--        FM/AM --><!--        Ring modulation --><!--        Vocoders --><!--        Random sampling --><!--    Modifiers    --><!--        LFO --><!--        Sample and hold --><!--        Slew --><!--        Wave-folding --><!--        Attenuators, inverters, and attenuverters --><!--        Quantizers --><!--        Switches --><!--        Logic -->
+<p>As with all things modular, it’s important to realize that although there are specialized clock modules, anything that produces a trigger/gate pulse can be used as a clock.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Some modules will accept non-rectangular signals as a clock signal as long as the voltage exceeds some internal threshold.&lt;/p&gt;"><sup>4</sup></a>
+Since clocks are sources of triggers, clocks can also be used for non-clock purposes.</p>
+<div id="clock-under-a-scope" class="section level3" number="5.1.1">
+<h3>
+<span class="header-section-number">5.1.1</span> Clock under a scope<a class="anchor" aria-label="anchor" href="#clock-under-a-scope"><i class="fas fa-link"></i></a>
+</h3>
+<p>To get a better sense of what’s going on, let’s take a look at clock output on a scope.
+Try connecting a scope to a clock’s main output and bar output using the button in Figure <a href="controllers.html#fig:bar-beat-bpm-scope">5.2</a>.
+You should see regular pulses off the main output and a different color bar output overlaid every 4th beat using the default time signature.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setbar_beat_bpm_scopeIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#bar_beat_bpm_scope">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="bar_beat_bpm_scope" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bar_beat_bpm_scopeLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="bar_beat_bpm_scopeLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add “Clock” and Scope&lt;/li&gt;
+&lt;li&gt;Connect Clock BEAT to Scope In 1&lt;/li&gt;
+&lt;li&gt;Connect Clock BAR to Scope In 2&lt;/li&gt;
+&lt;li&gt;Set Scope time and gain so you can see bar pulses by color; at 4/4 time these should be every 4 pulses&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src='images/solo-modules/clock-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/bar-beat-bpm-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setbar_beat_bpm_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="bar_beat_bpm_scope-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setbar_beat_bpm_scopeIframe(url){
+  var bar_beat_bpm_scopeIframe = document.getElementById("bar_beat_bpm_scope-iframe");
+  bar_beat_bpm_scopeIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:bar-beat-bpm-scope"></span>
+<p class="caption">
+Figure 5.2: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a clock patch with a scope.
+</p>
+</div>
+</div>
+<div id="clock-as-a-generator" class="section level3" number="5.1.2">
+<h3>
+<span class="header-section-number">5.1.2</span> Clock as a generator<a class="anchor" aria-label="anchor" href="#clock-as-a-generator"><i class="fas fa-link"></i></a>
+</h3>
+<p>Since clock modules produce a regular stream of pulses, we can hear them if they pulse at audio rates.
+Recall the bottom threshold of human hearing is approximately 20 Hz (20 cycles per second).
+Since 1200 BPM corresponds to 20 Hz, we should be able to hear clock signals above this BPM.
+The clock module from the last patch only goes up to 300 BPM, but if we use the 16ths output<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This particular clock does not use division notation.&lt;/p&gt;"><sup>5</sup></a>, we can achieve four times that, or 1200 BPM.
+Try adding an audio out module after the scope using the button in
+Figure <a href="controllers.html#fig:clock-sound-bpm-scope-out">5.3</a> to extend the last patch.
+The sixteenth note pulses should show as approximately a square wave, and by moving the BPM up and down, you should hear a change in pitch.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_sound_bpm_scope_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#clock_sound_bpm_scope_out">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="clock_sound_bpm_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_sound_bpm_scope_outLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="clock_sound_bpm_scope_outLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Host Audio&lt;/li&gt;
+&lt;li&gt;Remove all patch cables&lt;/li&gt;
+&lt;li&gt;Connect Clock 16th to Scope In 1&lt;/li&gt;
+&lt;li&gt;Connect Scope Out 1 to Host Audio L In&lt;/li&gt;
+&lt;li&gt;Set BPM to 300&lt;/li&gt;
+&lt;li&gt;Try adjusting&lt;ul&gt;
+&lt;li&gt;Time on the scope so you see a square wave (50% duty cycle)&lt;/li&gt;
+&lt;li&gt;BPM on the clock to create different pitches (you may need good headphones)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/clock-sound-bpm-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setclock_sound_bpm_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="clock_sound_bpm_scope_out-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setclock_sound_bpm_scope_outIframe(url){
+  var clock_sound_bpm_scope_outIframe = document.getElementById("clock_sound_bpm_scope_out-iframe");
+  clock_sound_bpm_scope_outIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:clock-sound-bpm-scope-out"></span>
+<p class="caption">
+Figure 5.3: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a clock-based drone patch with a scope.
+</p>
+</div>
+</div>
+</div>
+<div id="sequencers" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Sequencers<a class="anchor" aria-label="anchor" href="#sequencers"><i class="fas fa-link"></i></a>
+</h2>
+<p>The basic idea of a sequencer is very simple: a sequencer replays a control signal at a particular moment in time.
+To represent time, sequencers use the idea of a <em>step</em>.
+Each pulse of the clock will advance the sequencer by one step.
+Any given step will have one or more control signals pre-stored.
+On each step, these control signals will be sent to the corresponding output jacks.
+When a sequencer reaches the last available step, it will loop back to the first step.
+Sequencers typically have a switch to lower the number of available steps from the hardware maximum, e.g. from eight steps to seven.
+The steps for a given control signal are respectively referred to as a <em>channel</em>.</p>
+<!-- Sequencers are more general than clocks in both the variety of control signals they support as well as the timings of those signals. -->
+<p>In analogue hardware, sequencers supporting only one control signal tend to be very compact and require external clock inputs.
+Sequencers supporting multiple control signals tend to have their own clock and transport controls.
+When a sequencer has only one control signal, it can be anything, but is most frequently either a trigger or a control voltage.
+When a sequencer has multiple control signals, they are frequently a combination of triggers and control voltages arranged in different channels.
+As previously discussed, these control signals naturally correspond to initiating musical events and pitches for notes, but any musical parameter that can be controlled by voltage can be stored in an analogue sequencer.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Some digital sequencers can replay voltage-based control signals, but not all.&lt;/p&gt;"><sup>6</sup></a></p>
+<div id="clocks-as-sequencers" class="section level3" number="5.2.1">
+<h3>
+<span class="header-section-number">5.2.1</span> Clocks as sequencers<a class="anchor" aria-label="anchor" href="#clocks-as-sequencers"><i class="fas fa-link"></i></a>
+</h3>
+<p>You could consider a clock as a kind of sequencer that produces triggers on a single channel.
+Let’s look at this by making a bass drum patch driven by a clock, which will form the basis of other patches in this section.
+You like to refer back to Section <a href="basic-modeling-concepts.html#controlling-note-dynamics-volume-during-note">4.4.5</a> if you don’t recall some of the modules involved.
+This <em>very</em> basic kick patch uses a sine wave from the VCO and controls the amplitude of the sine wave with a fast attack, medium decay envelope.
+Try making as much of the patch as possible using the button in
+Figure <a href="controllers.html#fig:clock-kick-bpm-vco-adsr-vca-scope-out">5.4</a> before referring to the instructions there.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_kick_bpm_vco_adsr_vca_scope_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#clock_kick_bpm_vco_adsr_vca_scope_out">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="clock_kick_bpm_vco_adsr_vca_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_kick_bpm_vco_adsr_vca_scope_outLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="clock_kick_bpm_vco_adsr_vca_scope_outLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add BPM Clock&lt;/li&gt;
+&lt;li&gt;Add VCO&lt;/li&gt;
+&lt;li&gt;Add ADSR&lt;/li&gt;
+&lt;li&gt;Add VCA&lt;/li&gt;
+&lt;li&gt;Connect VCO sine to VCA in&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to VCA CV in&lt;/li&gt;
+&lt;li&gt;Connect Clock Beat to ADSR gate&lt;/li&gt;
+&lt;li&gt;Add Scope and Host audio&lt;/li&gt;
+&lt;li&gt;Connect VCA out to Scope In 1&lt;/li&gt;
+&lt;li&gt;Connect Scope Out 1 to Host audio L&lt;/li&gt;
+&lt;li&gt;To get a kick sound&lt;ul&gt;
+&lt;li&gt;Change VCO frequency to around 40 Hz&lt;/li&gt;
+&lt;li&gt;Set ADSR attack to about 1ms, Decay to about 50ms, and the rest to 1.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/clock-kick-bpm-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setclock_kick_bpm_vco_adsr_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="clock_kick_bpm_vco_adsr_vca_scope_out-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setclock_kick_bpm_vco_adsr_vca_scope_outIframe(url){
+  var clock_kick_bpm_vco_adsr_vca_scope_outIframe = document.getElementById("clock_kick_bpm_vco_adsr_vca_scope_out-iframe");
+  clock_kick_bpm_vco_adsr_vca_scope_outIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:clock-kick-bpm-vco-adsr-vca-scope-out"></span>
+<p class="caption">
+Figure 5.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a clock-driven kick patch.
+</p>
+</div>
+<p>Keep this example in mind as your continue through this chapter.
+Ultimately any module that produces the signals we want can be used as a sequencer, regardless of whether the module is called a sequencer.</p>
+</div>
+<div id="trigger-sequencers" class="section level3" number="5.2.2">
+<h3>
+<span class="header-section-number">5.2.2</span> Trigger sequencers<a class="anchor" aria-label="anchor" href="#trigger-sequencers"><i class="fas fa-link"></i></a>
+</h3>
+<p>The main difference between a clock and a trigger sequencer is the precise control over the timing of the triggers.
+Let’s look at a simple trigger-based sequencer to extend the previous kick patch.
+Try adding the TRG module between the Clock and VCO using the button in
+Figure <a href="controllers.html#fig:trg-kick-bpm-trg-vco-adsr-vca-scope-out">5.5</a>.
+Once you have it set up, activate a pattern of steps that isn’t strictly regular, e.g. some beats immediately after each other and some spaced apart.
+Each activated step will issue a gate.
+Control of irregular timings is where trigger sequencers really shine compared to sequencing off a clock.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settrg_kick_bpm_trg_vco_adsr_vca_scope_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#trg_kick_bpm_trg_vco_adsr_vca_scope_out">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="trg_kick_bpm_trg_vco_adsr_vca_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="trg_kick_bpm_trg_vco_adsr_vca_scope_outLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="trg_kick_bpm_trg_vco_adsr_vca_scope_outLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add TRG between Clock and VCO&lt;/li&gt;
+&lt;li&gt;Connect Clock Beat to TRG CLK&lt;/li&gt;
+&lt;li&gt;Connect TRG Gate to ADSR Gate&lt;/li&gt;
+&lt;li&gt;Adjust TRG&lt;ul&gt;
+&lt;li&gt;Activate steps by clicking on the squares; solid yellow is active&lt;/li&gt;
+&lt;li&gt;Change length to 8 using LEN knob&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src='images/solo-modules/trg-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/trg-kick-bpm-trg-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="settrg_kick_bpm_trg_vco_adsr_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="trg_kick_bpm_trg_vco_adsr_vca_scope_out-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function settrg_kick_bpm_trg_vco_adsr_vca_scope_outIframe(url){
+  var trg_kick_bpm_trg_vco_adsr_vca_scope_outIframe = document.getElementById("trg_kick_bpm_trg_vco_adsr_vca_scope_out-iframe");
+  trg_kick_bpm_trg_vco_adsr_vca_scope_outIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:trg-kick-bpm-trg-vco-adsr-vca-scope-out"></span>
+<p class="caption">
+Figure 5.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for a trigger-sequenced kick patch.
+</p>
+</div>
+</div>
+<div id="control-voltage-sequencers" class="section level3" number="5.2.3">
+<h3>
+<span class="header-section-number">5.2.3</span> Control voltage sequencers<a class="anchor" aria-label="anchor" href="#control-voltage-sequencers"><i class="fas fa-link"></i></a>
+</h3>
+<p>Control voltage sequencers replay voltage for each step.
+Typically the voltage is constant for the duration of the step, which is useful for sending V/Oct signals to play notes.
+<!-- When sequencing multiple instruments, you have a choice between using a single sequencer that can handle everything or multiple separate sequencers. -->
+To keep things simple and to build on the previous patch, let’s create a saw-based synth voice whose pitch is controlled by a separate control voltage sequencer.
+Try duplicating the VCO, ADSR, and VCA modules from the last patch and controlling the VCO with the ADDR-SEQ module by using the button in
+Figure <a href="controllers.html#fig:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out">5.6</a>.
+Each sequencer step has a voltage controlled by a knob, so turning these knobs sets the note pitch for each step.
+Because the volumes of these two instruments, or voices, is so different, you’ll need to run each into a mixer module rather than directly into the host audio.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settrg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add ADDR-SEQ to the row below the other modules&lt;/li&gt;
+&lt;li&gt;Drag select VCO, ADSR, and VCA&lt;/li&gt;
+&lt;li&gt;Right click on one and select Duplicate&lt;/li&gt;
+&lt;li&gt;Drag the duplicated modules down to the same row as ADDR-SEQ&lt;/li&gt;
+&lt;li&gt;Connect Clock Beat to ADDR-SEQ Clock&lt;/li&gt;
+&lt;li&gt;Connect ADDR-SEQ Out to VCO V/Oct&lt;/li&gt;
+&lt;li&gt;Connect VCO Saw to VCA in&lt;/li&gt;
+&lt;li&gt;Connect Clock Beat to ADSR Gate&lt;/li&gt;
+&lt;li&gt;Connect ADSR Out to VCA CV In&lt;/li&gt;
+&lt;li&gt;Change each of the ADSR settings to 9-12 o&amp;#39;clock&lt;/li&gt;
+&lt;li&gt;Add QuadVCA/Mixer&lt;/li&gt;
+&lt;li&gt;Connect each of the VCA outs to QuadVCA inputs&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA Out Mix to Host Audio L&lt;/li&gt;
+&lt;li&gt;Try starting/stopping the Clock. Notice how everything starts mid-sequence?&lt;/li&gt;
+&lt;li&gt;Connect Clock RST (reset) out to TRG RST and ADDR-SEQ Reset in. Now you can reset both sequencers by pressing the RST button.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src='images/solo-modules/addr-seq-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img src='images/solo-modules/quadvca-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="settrg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function settrg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe(url){
+  var trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe = document.getElementById("trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe");
+  trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out"></span>
+<p class="caption">
+Figure 5.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave.
+</p>
+</div>
+<div id="sequencing-rests" class="section level4" number="5.2.3.1">
+<h4>
+<span class="header-section-number">5.2.3.1</span> Sequencing rests<a class="anchor" aria-label="anchor" href="#sequencing-rests"><i class="fas fa-link"></i></a>
+</h4>
+<!-- You've likely noticed a limitation with the ADDR-SEQ module, specifically that it always plays a note and the notes are of equal duration. -->
+<!-- Let's consider each of these in turn. -->
+<p>A limitation with the ADDR-SEQ module is that it always plays a note and never pauses, or <a href="https://en.wikipedia.org/wiki/Rest_(music)">rests</a>.
+One option would be to adjust the pitch on a step so it is outside the range of human hearing.
+While this option is simple and effective, it’s possible that the sound will interact with other sounds in ways that become audible.
+Another option is to change the clock signal into the ADDR-SEQ module to the output of the trigger sequencer.
+Since the trigger sequencer has steps with no trigger, this means that no clock would be sent to ADDR-SEQ on these steps.
+The effect of using the trigger sequencer as a clock also depends on how the saw envelope is gated
+Try this using the button in
+Figure <a href="controllers.html#fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out">5.7</a> to explore the different combinations.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Trigger Clock, Trigger Gate&lt;ul&gt;
+&lt;li&gt;Connect TRG Gate to ADDR-SEQ Clock&lt;/li&gt;
+&lt;li&gt;Connect TRG Gate to ADSR Gate (for the saw voice)&lt;/li&gt;
+&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
+&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
+&lt;li&gt;If you increase sustain/release on the saw voice, how does it change the sound of notes that are not back to back?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Trigger Clock, Clock Gate&lt;ul&gt;
+&lt;li&gt;Connect TRG Gate to ADDR-SEQ Clock&lt;/li&gt;
+&lt;li&gt;Connect Clock Beat to ADSR Gate (for the saw voice)&lt;/li&gt;
+&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
+&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
+&lt;li&gt;When are notes hit twice?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Clock Clock, Trigger Gate&lt;ul&gt;
+&lt;li&gt;Connect Clock Beat to ADDR-SEQ Clock&lt;/li&gt;
+&lt;li&gt;Connect TRG Gate to ADSR Gate (for the saw voice)&lt;/li&gt;
+&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
+&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
+&lt;li&gt;If you increase sustain/release on the saw voice, how does it change the sound of notes that are not back to back?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for Trigger Clock and Trigger Gate only&lt;/h4&gt;&lt;img src='images/patch-solutions/rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setrests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setrests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe(url){
+  var rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe = document.getElementById("rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe");
+  rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out"></span>
+<p class="caption">
+Figure 5.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave, using the trigger sequence as a clock on the voltage-controlled sequencer.
+</p>
+</div>
+<p>The patch in Figure <a href="controllers.html#fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out">5.7</a> illustrates that how the sequencers are connected to each other and the clock plays a big difference on the resulting sound.
+If the gate and the clock are from the same source, and therefore match, every sequenced note will be heard.
+If the gate source is the trigger sequencer, rests will be produced.
+These effects are summarized in Table <a href="controllers.html#tab:trigger-clock-effects">5.1</a>.
+The second row is comparable to a multichannel sequencer that allows steps to be silenced, thus reducing the overall pithced steps available by replacing them with silence.
+In contrast, the third row <em>inserts</em> silence between pitched steps, creating a longer sequence where no pitched steps are discarded.</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:trigger-clock-effects">Table 5.1: </span> Effects of gate and clock mismatching when combining trigger and control voltage sequencers to produce rests.</caption>
+<colgroup>
+<col width="28%">
+<col width="25%">
+<col width="46%">
+</colgroup>
+<thead><tr class="header">
+<th>Clock source</th>
+<th>Gate source</th>
+<th>Effect</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Clock</td>
+<td>Clock</td>
+<td>Every note played, no rests</td>
+</tr>
+<tr class="even">
+<td>Clock</td>
+<td>Trigger sequencer</td>
+<td>Notes skipped, with rests</td>
+</tr>
+<tr class="odd">
+<td>Trigger sequencer</td>
+<td>Trigger sequencer</td>
+<td>Every note played, with rests</td>
+</tr>
+<tr class="even">
+<td>Trigger sequencer</td>
+<td>Clock</td>
+<td>Notes repeated, no rests</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="sequencing-note-duration" class="section level4" number="5.2.3.2">
+<h4>
+<span class="header-section-number">5.2.3.2</span> Sequencing note duration<a class="anchor" aria-label="anchor" href="#sequencing-note-duration"><i class="fas fa-link"></i></a>
+</h4>
+<p>A second limitation of the ADDR-SEQ is that all the notes are the same duration.
+This limitation can be partially addressed by using variable length release, but ultimately the gate into the ADSR is a fixed width which results in a fixed length note.
+What is needed is to change the clock signal into a gate where the length of the gate matches the length of the desired note.
+Ideally we’d use a separate control voltage sequencer to set the gate lengths for us, but in the interest of keeping things relatively simple, let’s control gate length manually.
+Try to add a trigger to gate module that takes the clock and sends out a gate to the saw envelope using the button in Figure <a href="controllers.html#fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out">5.8</a>.
+As you move the gate length knob, you’ll hear that the note lengths change correspondingly.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add DGATE trigger to gate module&lt;/li&gt;
+&lt;li&gt;Connect Clock Beat to DGATE Trig in&lt;/li&gt;
+&lt;li&gt;Connect DGATE Gate to saw ADSR Gate&lt;/li&gt;
+&lt;li&gt;Manually change DGATE Gate length knob as the sound plays&lt;ul&gt;
+&lt;li&gt;How does the saw voice sound on notes followed by rests?&lt;/li&gt;
+&lt;li&gt;You may need reduce your ASDR release to hear the gate clearly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src='images/solo-modules/dgate-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setrests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setrests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe(url){
+  var rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe = document.getElementById("rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe");
+  rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out"></span>
+<p class="caption">
+Figure 5.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave, using the trigger sequence as a clock on the voltage-controlled sequencer and a trigger to gate module to control note length.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="summing-up" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Summing up<a class="anchor" aria-label="anchor" href="#summing-up"><i class="fas fa-link"></i></a>
+</h2>
+<p>Clocks and sequencers are canonical modules for creating control signals in a modular system.
+Unlike manual controller like a keyboard, both clocks and sequencers are semi-automated: once they are set up, they will continue to generate control signals without additional human intervention.
+<!-- Sequencing can get complex rather quickly, and there has been a tremendous amount of innovation around the problem of sequencing, leading to a variety of different approaches. -->
+The patches in this chapter explored more traditional analogue sequencing using separate modules.
+Larger analogue sequencer modules that integrate multiple channels and features can often be viewed as composites of these smaller modules, as shown in Figure <a href="controllers.html#fig:seq3-annotated">5.9</a>.
+Additional controllers and control techniques will be covered in future chapters.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:seq3-annotated"></span>
+<img src="images/seq3-annotated.png" alt="The SEQ3 sequencer module from VCVRack. The trigger sequence channel is highlighted in red and the control voltage channels are highlighted in blue." width="50%"><p class="caption">
+Figure 5.9: The SEQ3 sequencer module from VCVRack. The trigger sequence channel is highlighted in red and the control voltage channels are highlighted in blue.
+</p>
+</div>
+<!-- Options -->
+<!-- Chaining keyboards -->
+<!-- Touch controllers (has exponential) -->
+<!-- Clocks -->
+<!-- Sequencer 1 channel/3 channel -->
+<!-- trigger sequencer -->
+<!-- Clocks, transport/tempo, divisions, time signatures,  -->
+<!-- patches  -->
+<!-- - into scope with signature as 2nd signal -->
+<!-- - into audio out changing bpm, now 16ths to make tone -->
+<!-- - gating low sine osc envelope for beats -->
+<!-- Sequencing -->
+<!-- signals over time; on/off vs continuous -->
+<!-- patches -->
+<!-- - beat patters by putting trg in between clock and adsr; introduce resets -->
+<!-- - pitch sequencer: sequence a new osc with notes; duplicate modules and also have reset -->
+<!-- - add variable length notes/rests by using TRG gate as a clock signal for adr3 and gate for saw adsr -->
+<!-- Tremelo/vibrato? -->
+<!-- Fundamental Modules and Composition         -->
+<!--    Basic concepts   -->
+<!--         Module categories, signals, signal interpretation, 5 patchs from drone to key controller for pitch/gate with amplitude envelope -->
+<!--    Controllers  -->
+<!--        Controllers -->
+<!--        Trigger/gate, phase, sync -->
+<!--    Generators   -->
+<!--        Oscillators (VCO) /LFO ; morphing between waveshapes/ PWM /sync-->
+<!-- noise -->
+<!--        Samplers -->
+<!--    Modifiers    -->
+<!--        Filters (VCF): poles, slopes, cutoff frequency, resonance -->
+<!--        Envelopes, velocity sensitivity, aftertouch -->
+<!--        Amplifiers -->
+<!--        Effects: delay/reverb/panning -->
+<!-- Complex modules and Compositions        -->
+<!--    Controllers  -->
+<!--        Clock, sequencing, arpggiators -->
+<!--        Euclidean rhythms -->
+<!--        Probability -->
+<!--    Generators   -->
+<!--        PWM -->
+<!--        FM/AM -->
+<!--        Ring modulation -->
+<!--        Vocoders -->
+<!--        Random sampling -->
+<!--    Modifiers    -->
+<!--        LFO -->
+<!--        Sample and hold -->
+<!--        Slew -->
+<!--        Wave-folding -->
+<!--        Attenuators, inverters, and attenuverters -->
+<!--        Quantizers -->
+<!--        Switches -->
+<!--        Logic -->
+
 </div>
 </div>
 
   <div class="chapter-nav">
-<div class="prev"><a href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></div>
-<div class="next"><a href="create.html"><span class="header-section-number">6</span> Create</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#controllers"><span class="header-section-number">5</span> Controllers</a></li>
-<li><a class="nav-link" href="#clocks"><span class="header-section-number">5.1</span> Clocks</a></li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/06-fun-mod-trigger.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/06-fun-mod-trigger.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
