@@ -1,9 +1,11 @@
 # Controllers 
 
 Controllers initiate musical events, and in some cases, also define when musical events end.
-In chapter \@ref(basic-modeling-concepts) we only looked at the keyboard controller, which is perhaps the most intuitive because it mirrors a traditional instrument.
+Chapter \@ref(basic-modeling-concepts) introduced the keyboard controller, which is perhaps the most intuitive controller because it mirrors a traditional instrument.
 Not all controllers are as obvious or as intuitive, however.
-In this chapter, we will focus on clocks and sequencers, which are canonical examples of modular controllers.
+This chapter focuses on clocks and sequencers, which are canonical examples of modular controllers.
+Unlike keyboards, clocks and sequencers are partially automated.
+This means that, once started, they continue to produce control signals without additional manual control.
 
 ## Clocks
 
@@ -13,7 +15,7 @@ Just like group of musicians may use a common reference to stay on the beat, e.g
 A modular clock is similar in several respects to a metronome, which is a musical aid for keeping time.
 Metronomes like the one shown in Figure \@ref(fig:metronome) create a regular click or pulse that is adjustable to a given beats per minute (BPM).
 For reference, most current music ranges from 80-160 BPM.^[https://blog.musiio.com/2021/08/19/which-musical-tempos-are-people-streaming-the-most/]
-Likewise, a modular clock creates a trigger pulse^[Occasionally clocks will produce gates.] at a given BPM and makes this signal available on an output jack.
+Likewise, a modular clock creates a trigger pulse^[Some clocks will produce gates.] at a given BPM and makes this signal available on an output jack.
 
 (ref:metronome) A metronome produces a periodic sound to help musicians keep rhythm. The mechanism is an inverted pendulum with a weight on the end; moving the weight up/down changes the speed of the metronome accordingly. Image [© Vincent Quach/CC-BY-3.0](https://commons.wikimedia.org/wiki/File:Metronome_Nikko.jpg).
 
@@ -241,10 +243,10 @@ modular_caption()
 <!-- Let's consider each of these in turn. -->
 A limitation with the ADDR-SEQ module is that it always plays a note and never pauses, or [rests](https://en.wikipedia.org/wiki/Rest_(music)).
 One option would be to adjust the pitch on a step so it is outside the range of human hearing.
-While this option is simple and effective, it's possible that the sound will interact with other sounds in ways that become audible.
-Another option is to change the clock signal into the ADDR-SEQ module to the output of the trigger sequencer.
+While this option is simple and effective, it's possible that the sound will interfere with other sound waves in ways that become audible.
+Another option is to replace the clock signal into the ADDR-SEQ module with the output of the trigger sequencer.
 Since the trigger sequencer has steps with no trigger, this means that no clock would be sent to ADDR-SEQ on these steps.
-The effect of using the trigger sequencer as a clock also depends on how the saw envelope is gated
+The effect of using the trigger sequencer as a clock depends, however, on how the saw envelope is gated
 Try this using the button in 
 Figure \@ref(fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) to explore the different combinations.
 
@@ -292,11 +294,11 @@ modular_modal("rests-trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out", instruct
 modular_caption()
 ```
 
-The patch in Figure \@ref(fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) illustrates that how the sequencers are connected to each other and the clock plays a big difference on the resulting sound.
+The patch in Figure \@ref(fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) illustrates that the way the sequencers are connected to each other and the clock plays a big difference on the resulting sound.
 If the gate and the clock are from the same source, and therefore match, every sequenced note will be heard.
 If the gate source is the trigger sequencer, rests will be produced. 
 These effects are summarized in Table \@ref(tab:trigger-clock-effects).
-The second row is comparable to a multichannel sequencer that allows steps to be silenced, thus reducing the overall pithced steps available by replacing them with silence.
+The second row is comparable to a multichannel sequencer that allows steps to be silenced, thus reducing the overall pitched steps available by replacing them with silence.
 In contrast, the third row *inserts* silence between pitched steps, creating a longer sequence where no pitched steps are discarded.
 
 Table: (\#tab:trigger-clock-effects) Effects of gate and clock mismatching when combining trigger and control voltage sequencers to produce rests.
@@ -312,7 +314,9 @@ Table: (\#tab:trigger-clock-effects) Effects of gate and clock mismatching when 
 #### Sequencing note duration
 
 A second limitation of the ADDR-SEQ is that all the notes are the same duration.
-This limitation can be partially addressed by using variable length release, but ultimately the gate into the ADSR is a fixed width which results in a fixed length note.
+This limitation can be somewhat addressed by using variable length release on the envelope.
+A longer release would lengthen the duration of the sound, but for any instrument that has a sustain, the volume would not be correct using this method.
+The fundamental problem is that the gate into the ADSR is a fixed width which results in a fixed length note.
 What is needed is to change the clock signal into a gate where the length of the gate matches the length of the desired note.
 Ideally we'd use a separate control voltage sequencer to set the gate lengths for us, but in the interest of keeping things relatively simple, let's control gate length manually.
 Try to add a trigger to gate module that takes the clock and sends out a gate to the saw envelope using the button in Figure \@ref(fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out).
@@ -347,8 +351,10 @@ Clocks and sequencers are canonical modules for creating control signals in a mo
 Unlike manual controller like a keyboard, both clocks and sequencers are semi-automated: once they are set up, they will continue to generate control signals without additional human intervention.
 <!-- Sequencing can get complex rather quickly, and there has been a tremendous amount of innovation around the problem of sequencing, leading to a variety of different approaches. -->
 The patches in this chapter explored more traditional analogue sequencing using separate modules.
-Larger analogue sequencer modules that integrate multiple channels and features can often be viewed as composites of these smaller modules, as shown in Figure \@ref(fig:seq3-annotated).
-Additional controllers and control techniques will be covered in future chapters.
+Larger analogue sequencer modules with multiple channels and features can often be viewed as composites of these smaller modules, as shown in Figure \@ref(fig:seq3-annotated).
+Perhaps the most powerful aspect of modular controllers is that anything generating a control signal can be used as a controller.
+Thus one can build a custom sequencer out of basic components to solve a particular musical problem.
+Future chapters will explore additional controllers and control techniques.
 
 
 (ref:seq3-annotated) The SEQ3 sequencer module from VCVRack. The trigger sequence channel is highlighted in red and the control voltage channels are highlighted in blue.
