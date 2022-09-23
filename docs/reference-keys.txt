@@ -101,3 +101,4 @@ trigger
 create-1
 modify-1
 minimoog-303
+generators
