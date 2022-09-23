@@ -107,6 +107,9 @@ This means that, once started, they continue to produce control signals without 
 <h2>
 <span class="header-section-number">5.1</span> Clocks<a class="anchor" aria-label="anchor" href="#clocks"><i class="fas fa-link"></i></a>
 </h2>
+<!-- Things I skipped b/c they seem to advanced for this stage:  -->
+<!-- - sequencing drums off a clock using gate delays -->
+<!-- - sequencing drums off a clock using clock divisions -->
 <p>Clocks in modular synthesis typically perform two functions.
 The first function is synchronization.
 Just like group of musicians may use a common reference to stay on the beat, e.g. drums, different modules can use a common clock to stay in time with each other.
@@ -151,7 +154,7 @@ You should see regular pulses off the main output and a different color bar outp
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setbar_beat_bpm_scopeIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#bar_beat_bpm_scope">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setbar_beat_bpm_scopeIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#bar_beat_bpm_scope">
     Launch Virtual Modular
   </button>
 </div>
@@ -228,7 +231,7 @@ The sixteenth note pulses should show as approximately a square wave, and by mov
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_sound_bpm_scope_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#clock_sound_bpm_scope_out">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_sound_bpm_scope_outIframe('https://cardinal.olney.ai?patchurl=bar-beat-bpm-scope.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_sound_bpm_scope_out">
     Launch Virtual Modular
   </button>
 </div>
@@ -318,16 +321,16 @@ As previously discussed, these control signals naturally correspond to initiatin
 </h3>
 <p>You could consider a clock as a kind of sequencer that produces triggers on a single channel.
 Let’s look at this by making a bass drum patch driven by a clock, which will form the basis of other patches in this section.
-You like to refer back to Section <a href="basic-modeling-concepts.html#controlling-note-dynamics-volume-during-note">4.4.5</a> if you don’t recall some of the modules involved.
+You should refer back to Section <a href="basic-modeling-concepts.html#controlling-note-dynamics-volume-during-note">4.4.5</a> if you don’t recall some of the modules involved.
 This <em>very</em> basic kick patch uses a sine wave from the VCO and controls the amplitude of the sine wave with a fast attack, medium decay envelope.
 Try making as much of the patch as possible using the button in
-Figure <a href="controllers.html#fig:clock-kick-bpm-vco-adsr-vca-scope-out">5.4</a> before referring to the instructions there.</p>
+Figure <a href="controllers.html#fig:clock-kick-bpm-vco-adsr-vca-scope-out">5.4</a> before referring to the instructions</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_kick_bpm_vco_adsr_vca_scope_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#clock_kick_bpm_vco_adsr_vca_scope_out">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_kick_bpm_vco_adsr_vca_scope_outIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_kick_bpm_vco_adsr_vca_scope_out">
     Launch Virtual Modular
   </button>
 </div>
@@ -416,7 +419,7 @@ Control of irregular timings is where trigger sequencers really shine compared t
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settrg_kick_bpm_trg_vco_adsr_vca_scope_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#trg_kick_bpm_trg_vco_adsr_vca_scope_out">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settrg_kick_bpm_trg_vco_adsr_vca_scope_outIframe('https://cardinal.olney.ai?patchurl=clock-kick-bpm-vco-adsr-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#trg_kick_bpm_trg_vco_adsr_vca_scope_out">
     Launch Virtual Modular
   </button>
 </div>
@@ -498,7 +501,7 @@ Because the volumes of these two instruments, or voices, is so different, you’
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settrg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settrg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai?patchurl=trg-kick-bpm-trg-vco-adsr-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
     Launch Virtual Modular
   </button>
 </div>
@@ -589,7 +592,7 @@ Figure <a href="controllers.html#fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai?patchurl=trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
     Launch Virtual Modular
   </button>
 </div>
@@ -602,6 +605,15 @@ Figure <a href="controllers.html#fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel">Modal title</h5> -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Clock Clock, Clock Gate&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Already playing from the last patch&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
+&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
+&lt;li&gt;If you increase sustain/release on the saw voice, how does it change the sound of notes?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Trigger Clock, Trigger Gate&lt;ul&gt;
 &lt;li&gt;Connect TRG Gate to ADDR-SEQ Clock&lt;/li&gt;
 &lt;li&gt;Connect TRG Gate to ADSR Gate (for the saw voice)&lt;/li&gt;
@@ -734,7 +746,7 @@ As you move the gate length knob, you’ll hear that the note lengths change cor
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai?patchurl=rests-trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
     Launch Virtual Modular
   </button>
 </div>
@@ -748,7 +760,7 @@ As you move the gate length knob, you’ll hear that the note lengths change cor
         <!-- <h5 class="modal-title" id="rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel">Modal title</h5> -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add DGATE trigger to gate module&lt;/li&gt;
-&lt;li&gt;Connect Clock Beat to DGATE Trig in&lt;/li&gt;
+&lt;li&gt;Connect TRG Gate to DGATE Trig in&lt;/li&gt;
 &lt;li&gt;Connect DGATE Gate to saw ADSR Gate&lt;/li&gt;
 &lt;li&gt;Manually change DGATE Gate length knob as the sound plays&lt;ul&gt;
 &lt;li&gt;How does the saw voice sound on notes followed by rests?&lt;/li&gt;
@@ -820,9 +832,6 @@ Future chapters will explore additional controllers and control techniques.</p>
 Figure 5.9: The SEQ3 sequencer module from VCVRack. The trigger sequence channel is highlighted in red and the control voltage channels are highlighted in blue.
 </p>
 </div>
-<!-- Options -->
-<!-- Chaining keyboards -->
-<!-- Touch controllers (has exponential) -->
 <!-- Clocks -->
 <!-- Sequencer 1 channel/3 channel -->
 <!-- trigger sequencer -->
@@ -915,7 +924,7 @@ Figure 5.9: The SEQ3 sequencer module from VCVRack. The trigger sequence channel
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-21.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

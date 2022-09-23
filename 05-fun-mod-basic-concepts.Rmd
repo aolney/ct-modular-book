@@ -221,7 +221,7 @@ Try adding a scope between the modules in the previous patch using the button in
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
-modular_modal("drone-vco-scope-out", instructions_html="<ul>
+modular_modal("drone-vco-scope-out", starter_file="drone_vco-out.vcv", instructions_html="<ul>
 <li>Add “Scope” between VCO and Host Audio</li>
 <li>Connect VCO wave out to Scope In</li>
 <li>Connect Scope out to Host Audio</li>
@@ -258,7 +258,7 @@ Try adding the 12 key to the left of the VCO in the previous patch using the but
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
-modular_modal("drone-12key-vco-scope-out", instructions_html="<ul>
+modular_modal("drone-12key-vco-scope-out", starter_file="drone-scope_vco-scope-out.vcv", instructions_html="<ul>
 <li>Add “Twelve-key” to the left of the VCO</li>
 <li>Connect 12 key CV output to VCO V/OCT input</li>
 <li>Observe what happens when you click different keys on 12 key<ul>
@@ -292,7 +292,7 @@ Try adding a VCA between the VCO and Scope modules using the button in Figure \@
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
-modular_modal("drone-12key-vco-vca-scope-out", instructions_html="<ul>
+modular_modal("drone-12key-vco-vca-scope-out", starter_file="key-drone_12key-vco-scope-out.vcv", instructions_html="<ul>
 <li>Add VCA between VCO and Scope modules</li>
 <li>Connect VCO wave to VCA In</li>
 <li>Connect 12 key GATE output to VCA CV IN</li>
@@ -327,7 +327,7 @@ Try adding an ADSR module between the VCO and VCA modules using the button in Fi
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
-modular_modal("drone-12key-vco-env-vca-scope-out", instructions_html="<ul>
+modular_modal("drone-12key-vco-env-vca-scope-out", starter_file="key-note_12key-vco-vca-scope-out.vcv", instructions_html="<ul>
 <li>Add ADSR module between VCO and VCA modules</li>
 <li>Connect 12 key GATE output to ADSR GATE input</li>
 <li>Connect ADSR OUT to VCA IN</li>

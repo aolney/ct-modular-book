@@ -9,6 +9,10 @@ This means that, once started, they continue to produce control signals without 
 
 ## Clocks
 
+<!-- Things I skipped b/c they seem to advanced for this stage:  -->
+<!-- - sequencing drums off a clock using gate delays -->
+<!-- - sequencing drums off a clock using clock divisions -->
+
 Clocks in modular synthesis typically perform two functions.
 The first function is synchronization.
 Just like group of musicians may use a common reference to stay on the beat, e.g. drums, different modules can use a common clock to stay in time with each other.
@@ -106,10 +110,10 @@ As previously discussed, these control signals naturally correspond to initiatin
 
 You could consider a clock as a kind of sequencer that produces triggers on a single channel.
 Let's look at this by making a bass drum patch driven by a clock, which will form the basis of other patches in this section.
-You like to refer back to Section \@ref(controlling-note-dynamics-volume-during-note) if you don't recall some of the modules involved.
+You should refer back to Section \@ref(controlling-note-dynamics-volume-during-note) if you don't recall some of the modules involved.
 This *very* basic kick patch uses a sine wave from the VCO and controls the amplitude of the sine wave with a fast attack, medium decay envelope.
 Try making as much of the patch as possible using the button in 
-Figure \@ref(fig:clock-kick-bpm-vco-adsr-vca-scope-out) before referring to the instructions there.
+Figure \@ref(fig:clock-kick-bpm-vco-adsr-vca-scope-out) before referring to the instructions
 
 (ref:clock-kick-bpm-vco-adsr-vca-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a clock-driven kick patch.
 
@@ -253,10 +257,6 @@ Future chapters will explore additional controllers and control techniques.
 
 
 
-
-<!-- Options -->
-<!-- Chaining keyboards -->
-<!-- Touch controllers (has exponential) -->
 
 <!-- Clocks -->
 <!-- Sequencer 1 channel/3 channel -->
