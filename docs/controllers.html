@@ -22,6 +22,28 @@
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -43,7 +65,28 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 5</span> Controllers</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li class="book-part">Sound</li>
+<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
+<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
+<li class="book-part">Fundamental Modules</li>
+<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
+<li><a class="active" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
+<li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
+<li><a class="" href="modify.html"><span class="header-section-number">7</span> Modify</a></li>
+<li class="book-part">Sound Design 1</li>
+<li><a class="" href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></li>
+<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
+<li class="book-part">Complex Modules</li>
+<li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
+<li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
+<li><a class="" href="modify-1.html"><span class="header-section-number">12</span> Modify</a></li>
+<li class="book-part">Sound Design 2</li>
+<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -72,8 +115,8 @@ The first function is synchronization.
 Just like group of musicians may use a common reference to stay on the beat, e.g. drums, different modules can use a common clock to stay in time with each other.
 A modular clock is similar in several respects to a metronome, which is a musical aid for keeping time.
 Metronomes like the one shown in Figure <a href="controllers.html#fig:metronome">5.1</a> create a regular click or pulse that is adjustable to a given beats per minute (BPM).
-For reference, most current music ranges from 80-160 BPM.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://blog.musiio.com/2021/08/19/which-musical-tempos-are-people-streaming-the-most/" class="uri"&gt;https://blog.musiio.com/2021/08/19/which-musical-tempos-are-people-streaming-the-most/&lt;/a&gt;&lt;/p&gt;'><sup>1</sup></a>
-Likewise, a modular clock creates a trigger pulse<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Some clocks will produce gates.&lt;/p&gt;"><sup>2</sup></a> at a given BPM and makes this signal available on an output jack.</p>
+For reference, most current music ranges from 80-160 BPM.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://blog.musiio.com/2021/08/19/which-musical-tempos-are-people-streaming-the-most/" class="uri"&gt;https://blog.musiio.com/2021/08/19/which-musical-tempos-are-people-streaming-the-most/&lt;/a&gt;&lt;/p&gt;'><sup>42</sup></a>
+Likewise, a modular clock creates a trigger pulse<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Some clocks will produce gates.&lt;/p&gt;"><sup>43</sup></a> at a given BPM and makes this signal available on an output jack.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:metronome"></span>
@@ -91,13 +134,13 @@ Each of these specialized signals requires its own jack, so typically only a few
 <p>Clock divisions can be used to implement <a href="https://en.wikipedia.org/wiki/Time_signature">time signatures</a> that track how many beats occur in a measure (also known as a bar).
 A common time signature in popular music is <span class="math inline">\({}^{4}_{4}\)</span>, which indicates there are four quarter notes per measure, in contrast to <span class="math inline">\({}^{3}_{4}\)</span>, which indicates there are three quarter notes per measure.
 Assuming each pulse indicates a quarter note, an end of measure signal can be generated by using a clock division matching the top of the time signature.
-Because a clock pulse represents the lowest resolution control signal and thus the shortest note, using more pulses per quarter note allows more resolution and shorter notes.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Not all modules receiving clock will interpret a pulse as a quarter note. Some have higher resolutions and so require multiple pulses to advance. Twenty-four &lt;a href="https://en.wikipedia.org/wiki/Pulses_per_quarter_note"&gt;pulses per quarter note&lt;/a&gt; is one such standard.&lt;/p&gt;'><sup>3</sup></a></p>
+Because a clock pulse represents the lowest resolution control signal and thus the shortest note, using more pulses per quarter note allows more resolution and shorter notes.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Not all modules receiving clock will interpret a pulse as a quarter note. Some have higher resolutions and so require multiple pulses to advance. Twenty-four &lt;a href="https://en.wikipedia.org/wiki/Pulses_per_quarter_note"&gt;pulses per quarter note&lt;/a&gt; is one such standard.&lt;/p&gt;'><sup>44</sup></a></p>
 <p>The second function of a modular clock is <a href="https://en.wikipedia.org/wiki/Transport_(recording)">transport</a> control, which is recording terminology for controls like play, pause, stop, rewind, etc.
 Since clocks are not involved in recording per se, they typically have start, stop, and reset controls.
 A reset signal is analogous to a rewind in the sense that all receiving modules will start at their initial states rather than where they left off.
 Resets are a useful tool in both composition and recording.
 Each of the transport controls is likely to have its own button for manual control, plus an output jack to send the control signal to downstream modules.</p>
-<p>As with all things modular, it’s important to realize that although there are specialized clock modules, anything that produces a trigger/gate pulse can be used as a clock.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Some modules will accept non-rectangular signals as a clock signal as long as the voltage exceeds some internal threshold.&lt;/p&gt;"><sup>4</sup></a>
+<p>As with all things modular, it’s important to realize that although there are specialized clock modules, anything that produces a trigger/gate pulse can be used as a clock.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Some modules will accept non-rectangular signals as a clock signal as long as the voltage exceeds some internal threshold.&lt;/p&gt;"><sup>45</sup></a>
 Since clocks are sources of triggers, clocks can also be used for non-clock purposes.</p>
 <div id="clock-under-a-scope" class="section level3" number="5.1.1">
 <h3>
@@ -179,7 +222,7 @@ Figure 5.2: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a
 <p>Since clock modules produce a regular stream of pulses, we can hear them if they pulse at audio rates.
 Recall the bottom threshold of human hearing is approximately 20 Hz (20 cycles per second).
 Since 1200 BPM corresponds to 20 Hz, we should be able to hear clock signals above this BPM.
-The clock module from the last patch only goes up to 300 BPM, but if we use the 16ths output<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This particular clock does not use division notation.&lt;/p&gt;"><sup>5</sup></a>, we can achieve four times that, or 1200 BPM.
+The clock module from the last patch only goes up to 300 BPM, but if we use the 16ths output<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This particular clock does not use division notation.&lt;/p&gt;"><sup>46</sup></a>, we can achieve four times that, or 1200 BPM.
 Try adding an audio out module after the scope using the button in
 Figure <a href="controllers.html#fig:clock-sound-bpm-scope-out">5.3</a> to extend the last patch.
 The sixteenth note pulses should show as approximately a square wave, and by moving the BPM up and down, you should hear a change in pitch.</p>
@@ -271,7 +314,7 @@ The steps for a given control signal are respectively referred to as a <em>chann
 Sequencers supporting multiple control signals tend to have their own clock and transport controls.
 When a sequencer has only one control signal, it can be anything, but is most frequently either a trigger or a control voltage.
 When a sequencer has multiple control signals, they are frequently a combination of triggers and control voltages arranged in different channels.
-As previously discussed, these control signals naturally correspond to initiating musical events and pitches for notes, but any musical parameter that can be controlled by voltage can be stored in an analogue sequencer.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Some digital sequencers can replay voltage-based control signals, but not all.&lt;/p&gt;"><sup>6</sup></a></p>
+As previously discussed, these control signals naturally correspond to initiating musical events and pitches for notes, but any musical parameter that can be controlled by voltage can be stored in an analogue sequencer.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Some digital sequencers can replay voltage-based control signals, but not all.&lt;/p&gt;"><sup>47</sup></a></p>
 <div id="clocks-as-sequencers" class="section level3" number="5.2.1">
 <h3>
 <span class="header-section-number">5.2.1</span> Clocks as sequencers<a class="anchor" aria-label="anchor" href="#clocks-as-sequencers"><i class="fas fa-link"></i></a>
@@ -794,15 +837,32 @@ Figure 5.9: The SEQ3 sequencer module from VCVRack. The trigger sequence channel
 </div>
 
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></div>
+<div class="next"><a href="generators.html"><span class="header-section-number">6</span> Generators</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#controllers"><span class="header-section-number">5</span> Controllers</a></li>
+<li>
+<a class="nav-link" href="#clocks"><span class="header-section-number">5.1</span> Clocks</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#clock-under-a-scope"><span class="header-section-number">5.1.1</span> Clock under a scope</a></li>
+<li><a class="nav-link" href="#clock-as-a-generator"><span class="header-section-number">5.1.2</span> Clock as a generator</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#sequencers"><span class="header-section-number">5.2</span> Sequencers</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#clocks-as-sequencers"><span class="header-section-number">5.2.1</span> Clocks as sequencers</a></li>
+<li><a class="nav-link" href="#trigger-sequencers"><span class="header-section-number">5.2.2</span> Trigger sequencers</a></li>
+<li><a class="nav-link" href="#control-voltage-sequencers"><span class="header-section-number">5.2.3</span> Control voltage sequencers</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#summing-up"><span class="header-section-number">5.3</span> Summing up</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/06-fun-mod-trigger.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/06-fun-mod-trigger.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -814,7 +874,7 @@ Figure 5.9: The SEQ3 sequencer module from VCVRack. The trigger sequence channel
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-23.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-24.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

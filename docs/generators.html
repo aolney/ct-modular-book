@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 10 Trigger | Computational Thinking through Modular Sounds Synthesis</title>
+<title>Chapter 6 Generators | Computational Thinking through Modular Sounds Synthesis</title>
 <meta name="author" content="Andrew M. Olney">
-<meta name="description" content="This book presents computational thinking concepts and strategies in the context of modular sound synthesis.">
+<meta name="description" content="Generators create audible sound. Chapter 4 introduced oscillators, which are the most widely used generator. This chapter expands upon oscillators and how they can be combined together to produce...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="Chapter 10 Trigger | Computational Thinking through Modular Sounds Synthesis">
+<meta property="og:title" content="Chapter 6 Generators | Computational Thinking through Modular Sounds Synthesis">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/trigger.html">
-<meta property="og:description" content="This book presents computational thinking concepts and strategies in the context of modular sound synthesis.">
+<meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/generators.html">
+<meta property="og:description" content="Generators create audible sound. Chapter 4 introduced oscillators, which are the most widely used generator. This chapter expands upon oscillators and how they can be combined together to produce...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 10 Trigger | Computational Thinking through Modular Sounds Synthesis">
-<meta name="twitter:description" content="This book presents computational thinking concepts and strategies in the context of modular sound synthesis.">
+<meta name="twitter:title" content="Chapter 6 Generators | Computational Thinking through Modular Sounds Synthesis">
+<meta name="twitter:description" content="Generators create audible sound. Chapter 4 introduced oscillators, which are the most widely used generator. This chapter expands upon oscillators and how they can be combined together to produce...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -74,13 +74,13 @@
 <li class="book-part">Fundamental Modules</li>
 <li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
 <li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
-<li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
+<li><a class="active" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
 <li><a class="" href="modify.html"><span class="header-section-number">7</span> Modify</a></li>
 <li class="book-part">Sound Design 1</li>
 <li><a class="" href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></li>
 <li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
 <li class="book-part">Complex Modules</li>
-<li><a class="active" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
+<li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
 <li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
 <li><a class="" href="modify-1.html"><span class="header-section-number">12</span> Modify</a></li>
 <li class="book-part">Sound Design 2</li>
@@ -93,23 +93,122 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="trigger" class="section level1" number="10">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="generators" class="section level1" number="6">
 <h1>
-<span class="header-section-number">10</span> Trigger<a class="anchor" aria-label="anchor" href="#trigger"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6</span> Generators<a class="anchor" aria-label="anchor" href="#generators"><i class="fas fa-link"></i></a>
 </h1>
+<p>Generators create audible sound.
+Chapter <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a> introduced oscillators, which are the most widely used generator.
+This chapter expands upon oscillators and how they can be combined together to produce fuller and more interesting sounds.
+Two new generators are also introduced, noise and samplers.
+Noise can likewise be combined with oscillators and other generators to create richer and more realistic sound.
+Samplers represent the extreme of realism in generators, at least as far as their digital representation allows.</p>
+<!-- https://docs.google.com/document/d/19EkU7Ypa6J5FYPeDNzVzeNc1qc1sGrxfDMu7Nw2PAgU/edit -->
+<div id="chords" class="section level2" number="6.1">
+<h2>
+<span class="header-section-number">6.1</span> Chords<a class="anchor" aria-label="anchor" href="#chords"><i class="fas fa-link"></i></a>
+</h2>
+<p>chords
+- chords from clock division; suboctaves from clock divider
+- chords from voltage division</p>
+</div>
+<div id="sync" class="section level2" number="6.2">
+<h2>
+<span class="header-section-number">6.2</span> Sync<a class="anchor" aria-label="anchor" href="#sync"><i class="fas fa-link"></i></a>
+</h2>
+<p>sync
+- hard/soft</p>
+</div>
+<div id="low-frequency-oscillators" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> Low-frequency oscillators<a class="anchor" aria-label="anchor" href="#low-frequency-oscillators"><i class="fas fa-link"></i></a>
+</h2>
+<p>lfo
+- vibrato
+- tremolo</p>
+</div>
+<div id="pulse-width-modulation" class="section level2" number="6.4">
+<h2>
+<span class="header-section-number">6.4</span> Pulse width modulation<a class="anchor" aria-label="anchor" href="#pulse-width-modulation"><i class="fas fa-link"></i></a>
+</h2>
+<p>pwm
+- briefly recap interference?</p>
+</div>
+<div id="noise" class="section level2" number="6.5">
+<h2>
+<span class="header-section-number">6.5</span> Noise<a class="anchor" aria-label="anchor" href="#noise"><i class="fas fa-link"></i></a>
+</h2>
+<p>noise
+- blue snare/red kick</p>
+</div>
+<div id="samplers" class="section level2" number="6.6">
+<h2>
+<span class="header-section-number">6.6</span> Samplers<a class="anchor" aria-label="anchor" href="#samplers"><i class="fas fa-link"></i></a>
+</h2>
+<p>samplers
+- sample rate/bit depth
+- 12key/lfo</p>
+<!--        Oscillators (VCO) /LFO ; morphing between waveshapes/ PWM /sync-->
+<!-- noise -->
+<!--        Samplers -->
+<!-- Tremelo/vibrato? -->
+<!-- Fundamental Modules and Composition         -->
+<!--    Basic concepts   -->
+<!--         Module categories, signals, signal interpretation, 5 patchs from drone to key controller for pitch/gate with amplitude envelope -->
+<!--    Controllers  -->
+<!--        Controllers -->
+<!--        Trigger/gate, phase, sync -->
+<!--    Generators   -->
+<!--        Oscillators (VCO) /LFO ; morphing between waveshapes/ PWM /sync-->
+<!-- noise -->
+<!--        Samplers -->
+<!--    Modifiers    -->
+<!--        Filters (VCF): poles, slopes, cutoff frequency, resonance -->
+<!--        Envelopes, velocity sensitivity, aftertouch -->
+<!--        Amplifiers -->
+<!--        Effects: delay/reverb/panning -->
+<!-- Complex modules and Compositions        -->
+<!--    Controllers  -->
+<!--        Clock, sequencing, arpggiators -->
+<!--        Euclidean rhythms -->
+<!--        Probability -->
+<!--    Generators   -->
+<!--        PWM -->
+<!--        FM/AM -->
+<!--        Ring modulation -->
+<!--        Vocoders -->
+<!--        Random sampling -->
+<!--    Modifiers    -->
+<!--        LFO -->
+<!--        Sample and hold -->
+<!--        Slew -->
+<!--        Wave-folding -->
+<!--        Attenuators, inverters, and attenuverters -->
+<!--        Quantizers -->
+<!--        Switches -->
+<!--        Logic -->
 
 </div>
+</div>
   <div class="chapter-nav">
-<div class="prev"><a href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></div>
-<div class="next"><a href="create.html"><span class="header-section-number">11</span> Create</a></div>
+<div class="prev"><a href="controllers.html"><span class="header-section-number">5</span> Controllers</a></div>
+<div class="next"><a href="modify.html"><span class="header-section-number">7</span> Modify</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#trigger"><span class="header-section-number">10</span> Trigger</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#generators"><span class="header-section-number">6</span> Generators</a></li>
+<li><a class="nav-link" href="#chords"><span class="header-section-number">6.1</span> Chords</a></li>
+<li><a class="nav-link" href="#sync"><span class="header-section-number">6.2</span> Sync</a></li>
+<li><a class="nav-link" href="#low-frequency-oscillators"><span class="header-section-number">6.3</span> Low-frequency oscillators</a></li>
+<li><a class="nav-link" href="#pulse-width-modulation"><span class="header-section-number">6.4</span> Pulse width modulation</a></li>
+<li><a class="nav-link" href="#noise"><span class="header-section-number">6.5</span> Noise</a></li>
+<li><a class="nav-link" href="#samplers"><span class="header-section-number">6.6</span> Samplers</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/11-com-mod-trigger.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/11-com-mod-trigger.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/07-fun-mod-create.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/07-fun-mod-create.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
