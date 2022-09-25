@@ -16,6 +16,10 @@ div.figure {
   border-top-width: 0;
   border-bottom-width: 0;
 }
+div.inline-figure  {
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
 //modals in bs4
 .modal {
   padding: 0 !important; // override inline padding-right added from js
@@ -33,4 +37,8 @@ div.figure {
 }
 .modal .modal-body {
   overflow-y: auto;
+}
+
+.popover{
+    max-width: 100%;
 }

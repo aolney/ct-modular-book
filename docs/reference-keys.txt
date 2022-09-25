@@ -55,6 +55,9 @@ fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out
 tab:trigger-clock-effects
 fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out
 fig:seq3-annotated
+fig:deep-note
+fig:voltage-division-chords
+fig:clock-division-chords
 introduction
 why-this-book
 computational-thinking
@@ -95,7 +98,7 @@ sequencing-note-duration
 summing-up
 generators
 chords
-sync
+chorus-and-sync
 low-frequency-oscillators
 pulse-width-modulation
 noise

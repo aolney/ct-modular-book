@@ -66,7 +66,7 @@ In each case, the combined speed of the waves must evenly divide the length of t
 The integer relationship of harmonics is very important to how we perceive musical instruments and may even be the reason for our perception of fundamental musical relationships like octaves and [fifths](https://en.wikipedia.org/wiki/Perfect_fifth).
 For example, recall from Section \@ref(frequency-and-pitch) than one octave above a pitch is double the frequency of that pitch.
 Since the second harmonic is double the frequency of the fundamental, the second harmonic is one octave above the fundamental frequency.
-Similarly, the third harmonic is one fifth above the second harmonic.^[One might speculate that we created instruments in order to consistently create pitches based on the fundamental, but the instruments instilled in us a music theory as a side effect of their harmonics.]
+Similarly, the third harmonic is one fifth above the second harmonic, and the fifth harmonic is a major third over the fourth harmonic.^[One might speculate that we created instruments in order to consistently create pitches based on the fundamental, but the instruments instilled in us a music theory as a side effect of their harmonics.]
 
 Before moving on, it's important to note that the oscillator simulation in Figure \@ref(fig:sim-reflect) does not accurately represent what happens in a plucked string because the simulation doesn't fix both sides of the string.
 Instead, the simulation uses an oscillator on one side to generate sine waves.

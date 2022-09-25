@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 6 Generators | Computational Thinking through Modular Sounds Synthesis</title>
 <meta name="author" content="Andrew M. Olney">
-<meta name="description" content="Generators create audible sound. Chapter 4 introduced oscillators, which are the most widely used generator. This chapter expands upon oscillators and how they can be combined together to produce...">
+<meta name="description" content="Generators create audible sound. Chapter 4 introduced oscillators, which are the prototypical generator. This chapter expands upon oscillators and how they can be combined together to produce...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Chapter 6 Generators | Computational Thinking through Modular Sounds Synthesis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/generators.html">
-<meta property="og:description" content="Generators create audible sound. Chapter 4 introduced oscillators, which are the most widely used generator. This chapter expands upon oscillators and how they can be combined together to produce...">
+<meta property="og:description" content="Generators create audible sound. Chapter 4 introduced oscillators, which are the prototypical generator. This chapter expands upon oscillators and how they can be combined together to produce...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 6 Generators | Computational Thinking through Modular Sounds Synthesis">
-<meta name="twitter:description" content="Generators create audible sound. Chapter 4 introduced oscillators, which are the most widely used generator. This chapter expands upon oscillators and how they can be combined together to produce...">
+<meta name="twitter:description" content="Generators create audible sound. Chapter 4 introduced oscillators, which are the prototypical generator. This chapter expands upon oscillators and how they can be combined together to produce...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -98,24 +98,223 @@
 <span class="header-section-number">6</span> Generators<a class="anchor" aria-label="anchor" href="#generators"><i class="fas fa-link"></i></a>
 </h1>
 <p>Generators create audible sound.
-Chapter <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a> introduced oscillators, which are the most widely used generator.
+Chapter <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a> introduced oscillators, which are the prototypical generator.
 This chapter expands upon oscillators and how they can be combined together to produce fuller and more interesting sounds.
-Two new generators are also introduced, noise and samplers.
-Noise can likewise be combined with oscillators and other generators to create richer and more realistic sound.
+Additionally, two new generators are introduced, noise and samplers.
+Noise can also be combined with oscillators and other generators to create richer and more realistic sound.
 Samplers represent the extreme of realism in generators, at least as far as their digital representation allows.</p>
 <!-- https://docs.google.com/document/d/19EkU7Ypa6J5FYPeDNzVzeNc1qc1sGrxfDMu7Nw2PAgU/edit -->
 <div id="chords" class="section level2" number="6.1">
 <h2>
 <span class="header-section-number">6.1</span> Chords<a class="anchor" aria-label="anchor" href="#chords"><i class="fas fa-link"></i></a>
 </h2>
-<p>chords
-- chords from clock division; suboctaves from clock divider
-- chords from voltage division</p>
+<!-- chords -->
+<!-- - chords from clock division; suboctaves from clock divider -->
+<!-- - chords from voltage division -->
+<p>Section <a href="harmonic-and-inharmonic-sounds.html#phase-reflections-standing-waves-and-harmonics">3.1</a> briefly mentioned the relationship between harmonics and fundamental relationships like octaves and fifths.
+To recap, the second harmonic has double the frequency of the first and so is one octave above the first harmonic.
+We can express this relationship as 2:1, i.e. an octave is twice the frequency of the the fundamental.
+Similarly the third harmonic is a fifth above the second harmonic, so we can express a fifth as 3:2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Whole number ratios require &lt;a href="https://en.wikipedia.org/wiki/Just_intonation"&gt;just intonation&lt;/a&gt;. The twelve tone &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament"&gt;equal temperment&lt;/a&gt; used in Western music is a close approximation, e.g. 3:2 is 1.498 in twelve tone equal temperment.&lt;/p&gt;'><sup>48</sup></a></p>
+<p>Now consider what happens if two notes an octave apart or a fifth apart are played at the same time.
+Clearly some of their harmonics will be the same.
+Thus playing two or more notes this way will add and enhance harmonics beyond that of a single note, creating a richer and fuller sound.
+Of course, notes may be played that are not harmonically related, to a different effect.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The reader may be interested in &lt;a href="https://en.wikipedia.org/wiki/Consonance_and_dissonance"&gt;consonance/dissonance&lt;/a&gt; as discussed in music theory.&lt;/p&gt;'><sup>49</sup></a>
+When two notes are played simultaneously, it is called an <a href="https://en.wikipedia.org/wiki/Interval_(music)">interval</a>, with three notes, a <a href="https://en.wikipedia.org/wiki/Trichord">trichord</a>, with four notes, a <a href="https://en.wikipedia.org/wiki/Tetrachord">tetrachord</a>, etc.
+Many harmonically related notes can be played simultaneously to good effect.
+For example, the <a href="https://en.wikipedia.org/wiki/Deep_Note">THX Deep Note</a> in Figure <a href="generators.html#fig:deep-note">6.1</a> resolves to 11 notes, mostly harmonically related by 3, 4, and 7 semitones (minor/major thirds and fifths).</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:deep-note"></span>
+<iframe src="https://www.youtube.com/embed/sPY3Y2qhyXk?start=5" width="672" height="400px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 6.1: <a href="https://www.youtube.com/watch?v=sPY3Y2qhyXk">Youtube video</a> of the THX Deep Note, which resolves to 11 harmonically related notes. Image <a href="https://www.youtube.com/c/THXLtd">© THX Ltd</a>.
+</p>
 </div>
-<div id="sync" class="section level2" number="6.2">
+<p>In modular synthesis, there are at least two ways to create chords, which correspond to stages of the process to create a single note.
+At the first stage, we have a V/Oct control signal, so we can create chords by making new control signals harmonically related to the original signal.
+At the final stage, we have an audio signal, so we can create chords by making new audio signals harmonically related to the original signal.
+Let’s look at both.</p>
+<p>To create harmonically related control voltage signals, we can use a voltage offset module to create new signals offset from the original signal, i.e. the original voltage plus/minus a harmonically-related voltage.
+It can take a little math to do this if the offset module is labeled in volts<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall 1 V/Oct means a semitone is 1/12 of a volt.&lt;/p&gt;"><sup>50</sup></a>, but if the offset module is labeled in semitones, it is <a href="https://en.wikipedia.org/wiki/Interval_(music)#Main_intervals">fairly straightforward</a>, e.g. a fifth is seven semitones.
+Additionally we will need multiple oscillators to play a note for each offset voltage.
+We could reasonably do this with separate oscillators, but some chord-oriented modules contain multiple oscillators and take separate V/Oct for each.
+Try making a trichord using a fifth and an octave using the button in Figure <a href="generators.html#fig:voltage-division-chords">6.2</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setvoltage_division_chordsIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#voltage_division_chords">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="voltage_division_chords" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="voltage_division_chordsLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="voltage_division_chordsLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add 12-Key and Host audio&lt;/li&gt;
+&lt;li&gt;Add BST (voltage offset) and D'Acchord (multiple oscillator) &lt;/li&gt;
+&lt;li&gt;Connect 12-Key CV out to BST bias 1 input&lt;/li&gt;
+&lt;li&gt;Make sure the Volts/Semi switch is set to semi&lt;/li&gt;
+&lt;li&gt;Set BST bias 1 output to +0st (root note) and connect to D'Acchord P1&lt;/li&gt;
+&lt;li&gt;Set BST bias 2 output to +7st (fifth) and connect to D'Acchord P2&lt;/li&gt;
+&lt;li&gt;Set BST bias 3 output to +12st (octave) and connect to D'Acchord P3&lt;/li&gt;
+&lt;li&gt;Connect D'Accord Left/Right to Host audio Left/Right&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Use the ATTN row of knobs in D&amp;#39;Accord to remove all but the root note&lt;/li&gt;
+&lt;li&gt;Add each the others back in slowly, noting the change in the sound&lt;/li&gt;
+&lt;li&gt;Play the keyboard and note the stability of the chord across keys &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/bst-voltage-divider-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img src='images/solo-modules/dacchord-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/voltage-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setvoltage_division_chordsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="voltage_division_chords-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setvoltage_division_chordsIframe(url){
+  var voltage_division_chordsIframe = document.getElementById("voltage_division_chords-iframe");
+  voltage_division_chordsIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:voltage-division-chords"></span>
+<p class="caption">
+Figure 6.2: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a chord using signal offsets.
+</p>
+</div>
+<p>To create harmonically related audio signals, we can use a clock divider as long as the original signal can be interpreted as clock and the clock divider in question can accept audio rates.
+This approach is related to a classic technique for creating a fatter sound, the sub-octave square wave.
+A sub-octave square wave is exactly that: a square wave one octave below the fundamental.
+Since a clock division of <span class="math inline">\(/2\)</span> cuts the source clock frequency in half, we can easily generate a sub-octave square wave using a clock divider, albeit with the same assumptions.
+Perhaps more interestingly, if our clock divider supports both even and odd divisions we can create subharmonic chords, or perhaps more appropriately, an <a href="https://en.wikipedia.org/wiki/Inversion_(music)">inverted chord</a>.
+All that is required is knowing the harmonic ratios mentioned above, e.g. 3:2 means that the divisions <span class="math inline">\(/3\)</span> and <span class="math inline">\(/2\)</span> are a fifth apart.
+Try making a trichord using a fifth and an octave using the button in Figure <a href="generators.html#fig:clock-division-chords">6.3</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_division_chordsIframe('https://cardinal.olney.ai?patchurl=voltage-division-chords.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_division_chords">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="clock_division_chords" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_division_chordsLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="clock_division_chordsLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Remove modules except for 12-Key and Host audio&lt;/li&gt;
+&lt;li&gt;Add VCO, dividah (even clock divider), D1v1de (adjustable clock divider), Scope, and QuadVCA/Mixer &lt;/li&gt;
+&lt;li&gt;Connect 12-Key CV out to VCO V/Oct&lt;/li&gt;
+&lt;li&gt;Connect VCO Sqr out to dividah Clock in, D1v1de in, Scope in 1, and QuadVCA in 1&lt;/li&gt;
+&lt;li&gt;Connect dividah by 2 out to Scope in 2 and QuadVCA in 2&lt;/li&gt;
+&lt;li&gt;Connect D1v1de out to QuadVCA in 3 and set D1v1de clock division to 3&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA mix out to Host audio L&lt;/li&gt;
+&lt;li&gt;Use the scope to confirm the divided signals are correctly aligned to the VCO&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Use the QuadVCA sliders to mute all but the root note&lt;/li&gt;
+&lt;li&gt;Add each the others back in slowly, noting the change in the sound&lt;/li&gt;
+&lt;li&gt;Play the keyboard and note the stability of the chord across keys &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/dividah-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img src='images/solo-modules/d1v1de-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/clock-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setclock_division_chordsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="clock_division_chords-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setclock_division_chordsIframe(url){
+  var clock_division_chordsIframe = document.getElementById("clock_division_chords-iframe");
+  clock_division_chordsIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:clock-division-chords"></span>
+<p class="caption">
+Figure 6.3: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a chord using clock divisions.
+</p>
+</div>
+</div>
+<div id="chorus-and-sync" class="section level2" number="6.2">
 <h2>
-<span class="header-section-number">6.2</span> Sync<a class="anchor" aria-label="anchor" href="#sync"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.2</span> Chorus and Sync<a class="anchor" aria-label="anchor" href="#chorus-and-sync"><i class="fas fa-link"></i></a>
 </h2>
+<p>We can also combine different oscillators using the same, or almost the same pitch.
+As discussed in Section <a href="harmonic-and-inharmonic-sounds.html#phase-reflections-standing-waves-and-harmonics">3.1</a>, two identical waves will constructively interfere with each other and produce a new wave with twice the amplitude.
+However, if the waves are slightly out of phase or have slightly different frequencies, a subtle interference pattern will be produced that slowly changes the amplitude and timbre of the sound over time.
+This effect is used in pianos, which have more than one string for most notes, as well as 12-string guitars that have six pairs of identical strings.
+In fact, this effect is so general is used as an audio processing effect called <a href="https://en.wikipedia.org/wiki/Chorus_(audio_effect)">chorus</a>.</p>
+<p>To achieve this effect in modular, one only needs to slightly detune one of the VCOs with respect to the other or change the phase relationship between oscillators.
+Typically two independent oscillators will already be out of phase, but in modules that contain multiple oscillators there is sometimes a control to adjust the phase of one oscillator with respect to the others.</p>
 <p>sync
 - hard/soft</p>
 </div>
@@ -190,6 +389,7 @@ Samplers represent the extreme of realism in generators, at least as far as thei
 
 </div>
 </div>
+
   <div class="chapter-nav">
 <div class="prev"><a href="controllers.html"><span class="header-section-number">5</span> Controllers</a></div>
 <div class="next"><a href="modify.html"><span class="header-section-number">7</span> Modify</a></div>
@@ -198,7 +398,7 @@ Samplers represent the extreme of realism in generators, at least as far as thei
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#generators"><span class="header-section-number">6</span> Generators</a></li>
 <li><a class="nav-link" href="#chords"><span class="header-section-number">6.1</span> Chords</a></li>
-<li><a class="nav-link" href="#sync"><span class="header-section-number">6.2</span> Sync</a></li>
+<li><a class="nav-link" href="#chorus-and-sync"><span class="header-section-number">6.2</span> Chorus and Sync</a></li>
 <li><a class="nav-link" href="#low-frequency-oscillators"><span class="header-section-number">6.3</span> Low-frequency oscillators</a></li>
 <li><a class="nav-link" href="#pulse-width-modulation"><span class="header-section-number">6.4</span> Pulse width modulation</a></li>
 <li><a class="nav-link" href="#noise"><span class="header-section-number">6.5</span> Noise</a></li>
@@ -220,7 +420,7 @@ Samplers represent the extreme of realism in generators, at least as far as thei
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-24.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
