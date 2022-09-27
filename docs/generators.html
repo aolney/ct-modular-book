@@ -304,9 +304,9 @@ Figure 6.3: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a
 </p>
 </div>
 </div>
-<div id="chorus-and-sync" class="section level2" number="6.2">
+<div id="chorus" class="section level2" number="6.2">
 <h2>
-<span class="header-section-number">6.2</span> Chorus and Sync<a class="anchor" aria-label="anchor" href="#chorus-and-sync"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.2</span> Chorus<a class="anchor" aria-label="anchor" href="#chorus"><i class="fas fa-link"></i></a>
 </h2>
 <p>We can also combine different oscillators using the same, or almost the same pitch.
 As discussed in Section <a href="harmonic-and-inharmonic-sounds.html#phase-reflections-standing-waves-and-harmonics">3.1</a>, two identical waves will constructively interfere with each other and produce a new wave with twice the amplitude.
@@ -314,24 +314,395 @@ However, if the waves are slightly out of phase or have slightly different frequ
 This effect is used in pianos, which have more than one string for most notes, as well as 12-string guitars that have six pairs of identical strings.
 In fact, this effect is so general is used as an audio processing effect called <a href="https://en.wikipedia.org/wiki/Chorus_(audio_effect)">chorus</a>.</p>
 <p>To achieve this effect in modular, one only needs to slightly detune one of the VCOs with respect to the other or change the phase relationship between oscillators.
-Typically two independent oscillators will already be out of phase, but in modules that contain multiple oscillators there is sometimes a control to adjust the phase of one oscillator with respect to the others.</p>
+Typically two independent oscillators will already be out of phase, but in modules that contain multiple oscillators there is sometimes a control to adjust the phase of one oscillator with respect to the others.
+Both detuning and phase changes must be subtle in order to increase the richness of the sound.
+If the detuning is too great, two different pitches will be perceived as out of tune rather than a richer single sound.
+Similarly, as phase is increased there is greater destructive interference and potentially cancellation when completely out of phase.
+Remember that most interference will create spans of sound with greater loudness and quietness, as shown as shown in Figure <a href="generators.html#fig:beat-freq">6.4</a>.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:beat-freq"></span>
+<img src="images/beat-freq.gif" alt="Animation of interfering sine waves as one increases in frequency. Note how multiple beats appear in this short span as the frequency increases. Image © Adjwilley/CC-BY-SA-3.0." width="70%"><p class="caption">
+Figure 6.4: <a href="https://olney.ai/ct-modular-book/images/beat-freq.gif">Animation</a> of interfering sine waves as one increases in frequency. Note how multiple beats appear in this short span as the frequency increases. Image <a href="https://commons.wikimedia.org/wiki/File:WaveInterference.gif">© Adjwilley/CC-BY-SA-3.0</a>.
+</p>
+</div>
+<p>These changes in volume can be perceived as <a href="https://en.wikipedia.org/wiki/Beat_(acoustics)">beats</a> if they are strong enough and occur within a certain range of frequencies.
+Typically such beats are unwanted, so the interference between the sound waves should either be too slow/fast to be perceive as beats or the beats themselves are so soft that they are not perceived as beats.
+Returning to the first patch, try to detuning the oscillator a fifth above the root while silencing the oscillator an octave above, using the button in Figure <a href="generators.html#fig:clock-division-chords">6.3</a>.
+You should hear a beat whose beat increases as you increase detuning.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdetune_beatIframe('https://cardinal.olney.ai?patchurl=voltage-division-chords.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#detune_beat">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="detune_beat" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="detune_beatLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="detune_beatLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Silence P3 using the ATTN knob &lt;/li&gt;
+&lt;li&gt;Detune P2 using the Detune knob&lt;/li&gt;
+&lt;li&gt;Note the beat whose frequency increases with detuning&lt;/li&gt;
+&lt;li&gt;At what point of detuning do you think it sounds best?&lt;/li&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/detune-beat.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setdetune_beatIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="detune_beat-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setdetune_beatIframe(url){
+  var detune_beatIframe = document.getElementById("detune_beat-iframe");
+  detune_beatIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:detune-beat"></span>
+<p class="caption">
+Figure 6.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for detuning a second oscillator.
+</p>
+</div>
+</div>
+<div id="low-frequency-oscillators-uses" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> Low frequency oscillators &amp; uses<a class="anchor" aria-label="anchor" href="#low-frequency-oscillators-uses"><i class="fas fa-link"></i></a>
+</h2>
+<p>Low frequency oscillators (LFOs) are modules that produce waves at frequencies below audio rates.
+It may seem strange to introduce LFOs in a chapter on generators, which by our definition create audible sound.
+The reason is that LFOs are essentially identical to regular oscillators (VCOs) except that LFOs operate at lower frequencies.
+In fact, it’s common to find LFOs that can operate at audio rates and VCOs that operate below audio rates.
+One other common difference is that LFOs often have a unipolar switch.
+The switch changes the output of the LFO, which are by default bipolar and range from -5 to +5 V, to unipolar output of 0 to 10 V.
+We’ve already met a unipolar LFO by another name - a clock is a unipolar LFO that uses a pulse wave!</p>
+<p>LFOs have many potential uses, but perhaps the most prominent is to add movement to a sound.
+For example, it’s generally thought that chorus adds to sound through movement, specifically movement caused by interference and changing harmonics.
+LFOs can create similar movement in other contexts as described below.
+What all these contexts share is two properties: the speed of the movement (frequency) and the depth of the movement (amplitude).</p>
+<div id="pulse-width-modulation" class="section level3" number="6.3.1">
+<h3>
+<span class="header-section-number">6.3.1</span> Pulse width modulation<a class="anchor" aria-label="anchor" href="#pulse-width-modulation"><i class="fas fa-link"></i></a>
+</h3>
+<p>LFOs can create the effect of two interfering oscillators with only one VCO.
+This is an interesting effect in its own right, but is particularly valuable when only one VCO is present.
+The prototypical case for this effect is with pulse waves, where it is called pulse width modulation (PWM).
+As a motivating example, consider Figure <a href="generators.html#fig:pwm">6.6</a>, which shows the interference of two pulse waves at 25% and 50% duty cycles, respectively.
+The resulting wave looks like the 25% wave where the wave is positive and like the 50% wave where the wave is negative.
+This occurs because the two component waves, which have the same amplitude, combine to either exactly double the amplitude or sum to zero at all points of the wave.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:pwm"></span>
+<img src="07-fun-mod-create_files/figure-html/pwm-1.png" alt="Interference of a pulse wave with 25% duty cycle (gold) with a pulse wave with a 50% duty cycle (blue). Note the resulting wave (green) has a positive signal matching the 25% wave and a negative signal matching the 50% wave. Waves are offset for comparison." width="672"><p class="caption">
+Figure 6.6: Interference of a pulse wave with 25% duty cycle (gold) with a pulse wave with a 50% duty cycle (blue). Note the resulting wave (green) has a positive signal matching the 25% wave and a negative signal matching the 50% wave. Waves are offset for comparison.
+</p>
+</div>
+<p>Because this is such a useful and interesting effect, many oscillators that produce pulse waves have a PWM input that allows the duty cycle of the wave to be controlled by another module.
+Try to implement PWM with an LFO using the button in Figure <a href="generators.html#fig:pwm-lfo-vco-scope">6.7</a>.
+If you hook up the VCO square wave to a scope, you can see the resulting waveshape.
+The LFO frequency and the PWM depth knobs give control over the speed of the PWM and the depth (i.e. the range of duty cycles covered), respectively.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setpwm_lfo_vco_scopeIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#pwm_lfo_vco_scope">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="pwm_lfo_vco_scope" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="pwm_lfo_vco_scopeLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="pwm_lfo_vco_scopeLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add LFO, VCO, Scope, and Host audio &lt;/li&gt;
+&lt;li&gt;Connect LFO triangle out to VCO PWM&lt;/li&gt;
+&lt;li&gt;Connect VCO square out to  Scope in 1&lt;/li&gt;
+&lt;li&gt;Connect LFO triangle out to  Scope in 2&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Host audio L&lt;/li&gt;
+&lt;li&gt;Adjust the scope to visualize the wave&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound (richness/beats)&lt;ul&gt;
+&lt;li&gt;Increase the depth of the PWM by adjusting the PWM knob on the VCO (the knob adjusts an internal VCA)&lt;/li&gt;
+&lt;li&gt;Turn the LFO frequency to zero to hear the raw wave, then increase frequency&lt;/li&gt;
+&lt;li&gt;Try different LFO waves&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/lfo-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/pwm-lfo-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setpwm_lfo_vco_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="pwm_lfo_vco_scope-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setpwm_lfo_vco_scopeIframe(url){
+  var pwm_lfo_vco_scopeIframe = document.getElementById("pwm_lfo_vco_scope-iframe");
+  pwm_lfo_vco_scopeIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:pwm-lfo-vco-scope"></span>
+<p class="caption">
+Figure 6.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for implementing pulse width modulation (PWM) using a low frequency oscillator (LFO).
+</p>
+</div>
+</div>
+<div id="vibrato" class="section level3" number="6.3.2">
+<h3>
+<span class="header-section-number">6.3.2</span> Vibrato<a class="anchor" aria-label="anchor" href="#vibrato"><i class="fas fa-link"></i></a>
+</h3>
+<p>Vibrato is movement around pitch that can be defined in terms of speed of movement around a center pitch and depth of movement, or distance from, that same center pitch.
+Vibrato is widely used in music, but is perhaps most strongly associated with opera as shown in Figure <a href="generators.html#fig:opera-vibrato">6.8</a>.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:opera-vibrato"></span>
+<iframe src="https://www.youtube.com/embed/CPPOrQHiP40?start=0" width="672" height="400px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 6.8: <a href="https://www.youtube.com/watch?v=CPPOrQHiP40">Youtube video</a> of an opera singer’s vibrato, or frequency variation around a central note. Image <a href="https://www.youtube.com/channel/UC9FSr2uoO_OqymmeNSE5AyQ">© jiggle throat</a>.
+</p>
+</div>
+<p>LFOs can create vibrato on a VCO by controlling V/Oct.
+Unlike PWM, an additional VCA is needed to control the depth of the vibrato.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically you can use the FM input and attenuator, but there are pedagogical reasons for not using the FM input at the moment, namely that we have not discused FM yet. &lt;/p&gt;"><sup>51</sup></a>
+Try to create vibrato with an LFO using the button in Figure <a href="generators.html#fig:vibrato-lfo-vca-vco-scope">6.9</a>.
+With a little adjustment of the parameters, it’s possible to match the vibrato of the opera singer just discussed.
+Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato effect on and off by setting LFO frequency, e.g. through a sequencer.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setvibrato_lfo_vca_vco_scopeIframe('https://cardinal.olney.ai?patchurl=pwm-lfo-vco-scope.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#vibrato_lfo_vca_vco_scope">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="vibrato_lfo_vca_vco_scope" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="vibrato_lfo_vca_vco_scopeLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="vibrato_lfo_vca_vco_scopeLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add a QuadVCA/Mixer between the LFO and VCO &lt;/li&gt;
+&lt;li&gt;Connect LFO triangle out to QuadVCA input 1&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA mix out to VCO V/Oct&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Host audio L&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Decrease the depth of the vibrato by adjusting the QuadVCA gain down towards zero&lt;/li&gt;
+&lt;li&gt;Turn the LFO frequency to zero to hear the raw wave, then increase frequency&lt;/li&gt;
+&lt;li&gt;Try different LFO waves&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/vibrato-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setvibrato_lfo_vca_vco_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="vibrato_lfo_vca_vco_scope-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setvibrato_lfo_vca_vco_scopeIframe(url){
+  var vibrato_lfo_vca_vco_scopeIframe = document.getElementById("vibrato_lfo_vca_vco_scope-iframe");
+  vibrato_lfo_vca_vco_scopeIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:vibrato-lfo-vca-vco-scope"></span>
+<p class="caption">
+Figure 6.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for implementing vibrato using a low frequency oscillator (LFO).
+</p>
+</div>
+</div>
+<div id="tremolo" class="section level3" number="6.3.3">
+<h3>
+<span class="header-section-number">6.3.3</span> Tremolo<a class="anchor" aria-label="anchor" href="#tremolo"><i class="fas fa-link"></i></a>
+</h3>
+<p>In electronic music, tremolo is movement around loudness that can be defined in terms of speed of movement around a center volume and depth of movement, or distance from, that same center volume.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The mnemonic “tremolo&lt;strong&gt;ud&lt;/strong&gt;” might help prevent confusion with vibrato.&lt;/p&gt;"><sup>52</sup></a>
+Note that in other forms of music, there are <a href="https://en.wikipedia.org/wiki/Tremolo">different definitions of tremolo</a>.
+Tremolo has been widely used in popular guitar music since the 1960’s, and guitar pedals producing tremolo effects as shown in Figure <a href="generators.html#fig:guitar-tremolo">6.10</a> are quite common today.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:guitar-tremolo"></span>
+<iframe src="https://www.youtube.com/embed/ZHDV3yBm33A?start=12" width="672" height="400px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 6.10: <a href="https://youtu.be/ZHDV3yBm33A?t=12">Youtube video</a> of a tremolo guitar pedal. The flashing light corresponds to the speed of loudness changes around a center volume. Image <a href="https://www.youtube.com/c/Cheaperpedals">© CheaperPedals.com</a>.
+</p>
+</div>
+<p>LFOs can create tremolo by controlling the amplitude of VCO output.
+A VCA is is used to the depth of the tremelo.
+However, there are two differences with respect to previous patches.
+First, a VCA accepts unipolar control CV, so the LFO must be set to unipolar.
+Second, when the LFO goes to zero, it will completely close the VCA just like an envelope does.
+In order to keep some base line of loudness, you must mix a copy of the signal with the signal coming out of the VCA.
+Try to create tremolo with an LFO using the button in Figure <a href="generators.html#fig:tremelo-lfo-vca-vco-scope">6.11</a> and adjust the parameters to match the tremolo of the guitar pedal in Figure <a href="generators.html#fig:guitar-tremolo">6.10</a>.
+As before, no tremolo occurs when the LFO frequency is zero, so on can turn the tremolo effect on and off by setting LFO frequency using a sequencer or other means.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settremelo_lfo_vca_vco_scopeIframe('https://cardinal.olney.ai?patchurl=vibrato-lfo-vca-vco-scope.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#tremelo_lfo_vca_vco_scope">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="tremelo_lfo_vca_vco_scope" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="tremelo_lfo_vca_vco_scopeLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="tremelo_lfo_vca_vco_scopeLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Disconnect all cables but Scope out 1 to Host audio L and LFO triangle out to Scope in 1&lt;/li&gt;
+&lt;li&gt;Connect VCO square out to QuadVCA input 1&lt;/li&gt;
+&lt;li&gt;Connect LFO triangle out 1 to QuadVCA CH 1 gain CV&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA mix out to Scope in 1&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Decrease the depth of the tremelo by adjusting the QuadVCA gain down towards zero&lt;/li&gt;
+&lt;li&gt;Turn the LFO frequency to zero to hear the raw wave, then increase frequency&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Notice the LFO wave on the scope goes below zero but there is no effect on the sound&lt;/li&gt;
+&lt;li&gt;Fix this by changing the LFO OFST to unipolar&lt;/li&gt;
+&lt;li&gt;Notice the volume goes to zero when the LFO goes to zero&lt;/li&gt;
+&lt;li&gt;Fix this by connecting VCO square out to QuadVCA input 2&lt;/li&gt;
+&lt;li&gt;Adjust the mix to get the right baseline volume and depth of modulation&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/tremelo-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="settremelo_lfo_vca_vco_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="tremelo_lfo_vca_vco_scope-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function settremelo_lfo_vca_vco_scopeIframe(url){
+  var tremelo_lfo_vca_vco_scopeIframe = document.getElementById("tremelo_lfo_vca_vco_scope-iframe");
+  tremelo_lfo_vca_vco_scopeIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:tremelo-lfo-vca-vco-scope"></span>
+<p class="caption">
+Figure 6.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for implementing tremolo using a low frequency oscillator (LFO).
+</p>
+</div>
+</div>
+</div>
+<div id="sync" class="section level2" number="6.4">
+<h2>
+<span class="header-section-number">6.4</span> Sync<a class="anchor" aria-label="anchor" href="#sync"><i class="fas fa-link"></i></a>
+</h2>
 <p>sync
 - hard/soft</p>
-</div>
-<div id="low-frequency-oscillators" class="section level2" number="6.3">
-<h2>
-<span class="header-section-number">6.3</span> Low-frequency oscillators<a class="anchor" aria-label="anchor" href="#low-frequency-oscillators"><i class="fas fa-link"></i></a>
-</h2>
-<p>lfo
-- vibrato
-- tremolo</p>
-</div>
-<div id="pulse-width-modulation" class="section level2" number="6.4">
-<h2>
-<span class="header-section-number">6.4</span> Pulse width modulation<a class="anchor" aria-label="anchor" href="#pulse-width-modulation"><i class="fas fa-link"></i></a>
-</h2>
-<p>pwm
-- briefly recap interference?</p>
 </div>
 <div id="noise" class="section level2" number="6.5">
 <h2>
@@ -398,9 +769,15 @@ Typically two independent oscillators will already be out of phase, but in modul
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#generators"><span class="header-section-number">6</span> Generators</a></li>
 <li><a class="nav-link" href="#chords"><span class="header-section-number">6.1</span> Chords</a></li>
-<li><a class="nav-link" href="#chorus-and-sync"><span class="header-section-number">6.2</span> Chorus and Sync</a></li>
-<li><a class="nav-link" href="#low-frequency-oscillators"><span class="header-section-number">6.3</span> Low-frequency oscillators</a></li>
-<li><a class="nav-link" href="#pulse-width-modulation"><span class="header-section-number">6.4</span> Pulse width modulation</a></li>
+<li><a class="nav-link" href="#chorus"><span class="header-section-number">6.2</span> Chorus</a></li>
+<li>
+<a class="nav-link" href="#low-frequency-oscillators-uses"><span class="header-section-number">6.3</span> Low frequency oscillators &amp; uses</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pulse-width-modulation"><span class="header-section-number">6.3.1</span> Pulse width modulation</a></li>
+<li><a class="nav-link" href="#vibrato"><span class="header-section-number">6.3.2</span> Vibrato</a></li>
+<li><a class="nav-link" href="#tremolo"><span class="header-section-number">6.3.3</span> Tremolo</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#sync"><span class="header-section-number">6.4</span> Sync</a></li>
 <li><a class="nav-link" href="#noise"><span class="header-section-number">6.5</span> Noise</a></li>
 <li><a class="nav-link" href="#samplers"><span class="header-section-number">6.6</span> Samplers</a></li>
 </ul>
@@ -420,7 +797,7 @@ Typically two independent oscillators will already be out of phase, but in modul
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-25.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

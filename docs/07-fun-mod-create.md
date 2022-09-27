@@ -76,7 +76,7 @@ Try making a trichord using a fifth and an octave using the button in Figure \@r
 <p class="caption">(\#fig:clock-division-chords)(ref:clock-division-chords)</p>
 </div>
 
-## Chorus and Sync
+## Chorus
 
 We can also combine different oscillators using the same, or almost the same pitch.
 As discussed in Section \@ref(phase-reflections-standing-waves-and-harmonics), two identical waves will constructively interfere with each other and produce a new wave with twice the amplitude.
@@ -86,22 +86,152 @@ In fact, this effect is so general is used as an audio processing effect called 
 
 To achieve this effect in modular, one only needs to slightly detune one of the VCOs with respect to the other or change the phase relationship between oscillators.
 Typically two independent oscillators will already be out of phase, but in modules that contain multiple oscillators there is sometimes a control to adjust the phase of one oscillator with respect to the others.
+Both detuning and phase changes must be subtle in order to increase the richness of the sound.
+If the detuning is too great, two different pitches will be perceived as out of tune rather than a richer single sound.
+Similarly, as phase is increased there is greater destructive interference and potentially cancellation when completely out of phase.
+Remember that most interference will create spans of sound with greater loudness and quietness, as shown as shown in Figure \@ref(fig:beat-freq).
+
+(ref:beat-freq) [Animation](https://olney.ai/ct-modular-book/images/beat-freq.gif) of interfering sine waves as one increases in frequency. Note how multiple beats appear in this short span as the frequency increases. Image [© Adjwilley/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:WaveInterference.gif).
+
+<div class="figure">
+<img src="downloadFigs4latex/beat-freq.jpg" alt="(ref:beat-freq)" width="70%" />
+<p class="caption">(\#fig:beat-freq)(ref:beat-freq)</p>
+</div>
+
+These changes in volume can be perceived as [beats](https://en.wikipedia.org/wiki/Beat_(acoustics)) if they are strong enough and occur within a certain range of frequencies.
+Typically such beats are unwanted, so the interference between the sound waves should either be too slow/fast to be perceive as beats or the beats themselves are so soft that they are not perceived as beats.
+Returning to the first patch, try to detuning the oscillator a fifth above the root while silencing the oscillator an octave above, using the button in Figure \@ref(fig:clock-division-chords).
+You should hear a beat whose beat increases as you increase detuning.
+
+(ref:detune-beat) [Virtual modular](https://cardinal.olney.ai) for detuning a second oscillator.
+
+<!-- MODAL HTML BLOCK -->
 
 
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:detune-beat)" width="100%" />
+<p class="caption">(\#fig:detune-beat)(ref:detune-beat)</p>
+</div>
+
+## Low frequency oscillators & uses
+
+Low frequency oscillators (LFOs) are modules that produce waves at frequencies below audio rates.
+It may seem strange to introduce LFOs in a chapter on generators, which by our definition create audible sound.
+The reason is that LFOs are essentially identical to regular oscillators (VCOs) except that LFOs operate at lower frequencies.
+In fact, it's common to find LFOs that can operate at audio rates and VCOs that operate below audio rates.
+One other common difference is that LFOs often have a unipolar switch.
+The switch changes the output of the LFO, which are by default bipolar and range from -5 to +5 V, to unipolar output of 0 to 10 V.
+We've already met a unipolar LFO by another name - a clock is a unipolar LFO that uses a pulse wave!
+
+LFOs have many potential uses, but perhaps the most prominent is to add movement to a sound.
+For example, it's generally thought that chorus adds to sound through movement, specifically movement caused by interference and changing harmonics.
+LFOs can create similar movement in other contexts as described below.
+What all these contexts share is two properties: the speed of the movement (frequency) and the depth of the movement (amplitude).
+
+### Pulse width modulation
+
+LFOs can create the effect of two interfering oscillators with only one VCO.
+This is an interesting effect in its own right, but is particularly valuable when only one VCO is present.
+The prototypical case for this effect is with pulse waves, where it is called pulse width modulation (PWM).
+As a motivating example, consider Figure \@ref(fig:pwm), which shows the interference  of two pulse waves at 25% and 50% duty cycles, respectively.
+The resulting wave looks like the 25% wave where the wave is positive and like the 50% wave where the wave is negative.
+This occurs because the two component waves, which have the same amplitude, combine to either exactly double the amplitude or sum to zero at all points of the wave. 
+
+(ref:pwm) Interference of a pulse wave with 25% duty cycle (gold) with a pulse wave with a 50% duty cycle (blue). Note the resulting wave (green) has a positive signal matching the 25% wave and a negative signal matching the 50% wave. Waves are offset for comparison.
+
+<div class="figure">
+<img src="07-fun-mod-create_files/figure-epub3/pwm-1.png" alt="(ref:pwm)"  />
+<p class="caption">(\#fig:pwm)(ref:pwm)</p>
+</div>
+
+Because this is such a useful and interesting effect, many oscillators that produce pulse waves have a PWM input that allows the duty cycle of the wave to be controlled by another module.
+Try to implement PWM with an LFO using the button in Figure \@ref(fig:pwm-lfo-vco-scope).
+If you hook up the VCO square wave to a scope, you can see the resulting waveshape.
+The LFO frequency and the PWM depth knobs give control over the speed of the PWM and the depth (i.e. the range of duty cycles covered), respectively.
+
+
+(ref:pwm-lfo-vco-scope) [Virtual modular](https://cardinal.olney.ai) for implementing pulse width modulation (PWM) using a low frequency oscillator (LFO).
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:pwm-lfo-vco-scope)" width="100%" />
+<p class="caption">(\#fig:pwm-lfo-vco-scope)(ref:pwm-lfo-vco-scope)</p>
+</div>
+
+### Vibrato
+
+Vibrato is movement around pitch that can be defined in terms of speed of movement around a center pitch and depth of movement, or distance from, that same center pitch.
+Vibrato is widely used in music, but is perhaps most strongly associated with opera as shown in Figure \@ref(fig:opera-vibrato).
+
+(ref:opera-vibrato) [Youtube video](https://www.youtube.com/watch?v=CPPOrQHiP40) of an opera singer's vibrato, or frequency variation around a central note. Image [© jiggle throat](https://www.youtube.com/channel/UC9FSr2uoO_OqymmeNSE5AyQ).
+
+<div class="figure">
+<img src="downloadFigs4latex/opera-vibrato.jpg" alt="(ref:opera-vibrato)"  />
+<p class="caption">(\#fig:opera-vibrato)(ref:opera-vibrato)</p>
+</div>
+
+LFOs can create vibrato on a VCO by controlling V/Oct.
+Unlike PWM, an additional VCA is needed to control the depth of the vibrato.^[Technically you can use the FM input and attenuator, but there are pedagogical reasons for not using the FM input at the moment, namely that we have not discused FM yet. ]
+Try to create vibrato with an LFO using the button in Figure \@ref(fig:vibrato-lfo-vca-vco-scope).
+With a little adjustment of the parameters, it's possible to match the vibrato of the opera singer just discussed.
+Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato effect on and off by setting LFO frequency, e.g. through a sequencer.
+
+
+(ref:vibrato-lfo-vca-vco-scope) [Virtual modular](https://cardinal.olney.ai) for implementing vibrato using a low frequency oscillator (LFO).
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:vibrato-lfo-vca-vco-scope)" width="100%" />
+<p class="caption">(\#fig:vibrato-lfo-vca-vco-scope)(ref:vibrato-lfo-vca-vco-scope)</p>
+</div>
+
+### Tremolo
+
+In electronic music, tremolo is movement around loudness that can be defined in terms of speed of movement around a center volume and depth of movement, or distance from, that same center volume.^[The mnemonic "tremolo**ud**" might help prevent confusion with vibrato.]
+Note that in other forms of music, there are [different definitions of tremolo](https://en.wikipedia.org/wiki/Tremolo).
+Tremolo has been widely used in popular guitar music since the 1960's, and guitar pedals producing tremolo effects as shown in Figure \@ref(fig:guitar-tremolo) are quite common today. 
+
+(ref:guitar-tremolo) [Youtube video](https://youtu.be/ZHDV3yBm33A?t=12) of a tremolo guitar pedal. The flashing light corresponds to the speed of loudness changes around a center volume. Image [© CheaperPedals.com](https://www.youtube.com/c/Cheaperpedals).
+
+<div class="figure">
+<img src="downloadFigs4latex/guitar-tremolo.jpg" alt="(ref:guitar-tremolo)"  />
+<p class="caption">(\#fig:guitar-tremolo)(ref:guitar-tremolo)</p>
+</div>
+
+LFOs can create tremolo by controlling the amplitude of VCO output.
+A VCA is is used to the depth of the tremelo.
+However, there are two differences with respect to previous patches.
+First, a VCA accepts unipolar control CV, so the LFO must be set to unipolar.
+Second, when the LFO goes to zero, it will completely close the VCA just like an envelope does.
+In order to keep some base line of loudness, you must mix a copy of the signal with the signal coming out of the VCA.
+Try to create tremolo with an LFO using the button in Figure \@ref(fig:tremelo-lfo-vca-vco-scope) and adjust the parameters to match the tremolo of the guitar pedal in Figure \@ref(fig:guitar-tremolo).
+As before, no tremolo occurs when the LFO frequency is zero, so on can turn the tremolo effect on and off by setting LFO frequency using a sequencer or other means.
+
+
+(ref:tremelo-lfo-vca-vco-scope) [Virtual modular](https://cardinal.olney.ai) for implementing tremolo using a low frequency oscillator (LFO).
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:tremelo-lfo-vca-vco-scope)" width="100%" />
+<p class="caption">(\#fig:tremelo-lfo-vca-vco-scope)(ref:tremelo-lfo-vca-vco-scope)</p>
+</div>
+
+## Sync
 
 sync
 - hard/soft
 
-## Low-frequency oscillators
 
-lfo
-- vibrato
-- tremolo
-
-## Pulse width modulation
-
-pwm
-- briefly recap interference?
 
 ## Noise
 

@@ -66,8 +66,10 @@ modular_caption <- function(default_img="images/launch-virtual-modular-button.pn
 
 #This works for gifs at least; may work for others with some mods
 embed_linked_media <- function(url) {
+  # If web
   if (knitr::is_html_output(excludes = "epub")) {
     return(knitr::include_graphics(url))
+  # If everything else
   } else {
     # Download thumbnail and use that
     dir_path <- 'downloadFigs4latex'
