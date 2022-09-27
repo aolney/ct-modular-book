@@ -113,7 +113,7 @@ Let's look at this by making a bass drum patch driven by a clock, which will for
 You should refer back to Section \@ref(controlling-note-dynamics-volume-during-note) if you don't recall some of the modules involved.
 This *very* basic kick patch uses a sine wave from the VCO and controls the amplitude of the sine wave with a fast attack, medium decay envelope.
 Try making as much of the patch as possible using the button in 
-Figure \@ref(fig:clock-kick-bpm-vco-adsr-vca-scope-out) before referring to the instructions
+Figure \@ref(fig:clock-kick-bpm-vco-adsr-vca-scope-out) before referring to the instructions.
 
 (ref:clock-kick-bpm-vco-adsr-vca-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a clock-driven kick patch.
 
@@ -126,7 +126,9 @@ Figure \@ref(fig:clock-kick-bpm-vco-adsr-vca-scope-out) before referring to the 
 <p class="caption">(\#fig:clock-kick-bpm-vco-adsr-vca-scope-out)(ref:clock-kick-bpm-vco-adsr-vca-scope-out)</p>
 </div>
 
-Keep this example in mind as your continue through this chapter. 
+We could expand this example by using clock divisions to add multiple percussion parts.
+For example, a closed hi-hat on the clock, a kick drum on $/2$, and an open hi-hat on $/4$.
+Keep the clock sequencer example in mind as your continue through this chapter. 
 Ultimately any module that produces the signals we want can be used as a sequencer, regardless of whether the module is called a sequencer.
 
 ### Trigger sequencers
@@ -234,6 +236,8 @@ As you move the gate length knob, you'll hear that the note lengths change corre
 <img src="images/launch-virtual-modular-button.png" alt="(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)" width="100%" />
 <p class="caption">(\#fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)</p>
 </div>
+
+<!-- TODO: add envelopes on sequence steps example? -->
 
 ## Summing up
 

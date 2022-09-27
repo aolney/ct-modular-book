@@ -42,7 +42,7 @@ modular_modal <- function(id, instructions_html="",solution_html="",iframe_url =
 
 # Creates captions appropriately for different formats
 # Note for pdf/epub, will also include static image in the figure
-modular_caption <- function(default_img="images/launch-virtual-modular-button.png") {
+modular_caption <- function(id="", instructions_html="",solution_html="",iframe_url = "https://cardinal.olney.ai", starter_file="",default_img="images/launch-virtual-modular-button.png") {
   if (knitr::is_html_output(excludes = "epub")) {
     current <- knitr::opts_current$get()
     options <- current #fig.cap is non-null in current, needed by .img.cap

@@ -324,7 +324,7 @@ Let’s look at this by making a bass drum patch driven by a clock, which will f
 You should refer back to Section <a href="basic-modeling-concepts.html#controlling-note-dynamics-volume-during-note">4.4.5</a> if you don’t recall some of the modules involved.
 This <em>very</em> basic kick patch uses a sine wave from the VCO and controls the amplitude of the sine wave with a fast attack, medium decay envelope.
 Try making as much of the patch as possible using the button in
-Figure <a href="controllers.html#fig:clock-kick-bpm-vco-adsr-vca-scope-out">5.4</a> before referring to the instructions</p>
+Figure <a href="controllers.html#fig:clock-kick-bpm-vco-adsr-vca-scope-out">5.4</a> before referring to the instructions.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -400,7 +400,9 @@ $('.popover-dismiss').popover({
 Figure 5.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a clock-driven kick patch.
 </p>
 </div>
-<p>Keep this example in mind as your continue through this chapter.
+<p>We could expand this example by using clock divisions to add multiple percussion parts.
+For example, a closed hi-hat on the clock, a kick drum on <span class="math inline">\(/2\)</span>, and an open hi-hat on <span class="math inline">\(/4\)</span>.
+Keep the clock sequencer example in mind as your continue through this chapter.
 Ultimately any module that produces the signals we want can be used as a sequencer, regardless of whether the module is called a sequencer.</p>
 </div>
 <div id="trigger-sequencers" class="section level3" number="5.2.2">
@@ -810,6 +812,7 @@ $('.popover-dismiss').popover({
 Figure 5.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave, using the trigger sequence as a clock on the voltage-controlled sequencer and a trigger to gate module to control note length.
 </p>
 </div>
+<!-- TODO: add envelopes on sequence steps example? -->
 </div>
 </div>
 </div>
@@ -874,7 +877,7 @@ Figure 5.9: The SEQ3 sequencer module from VCVRack. The trigger sequence channel
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-26.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -210,7 +210,7 @@ A VCA is is used to the depth of the tremelo.
 However, there are two differences with respect to previous patches.
 First, a VCA accepts unipolar control CV, so the LFO must be set to unipolar.
 Second, when the LFO goes to zero, it will completely close the VCA just like an envelope does.
-In order to keep some base line of loudness, you must mix a copy of the signal with the signal coming out of the VCA.
+In order to keep some base line of loudness, you must mix a copy of the VCO output with the tremolo-modified VCO output.
 Try to create tremolo with an LFO using the button in Figure \@ref(fig:tremelo-lfo-vca-vco-scope) and adjust the parameters to match the tremolo of the guitar pedal in Figure \@ref(fig:guitar-tremolo).
 As before, no tremolo occurs when the LFO frequency is zero, so on can turn the tremolo effect on and off by setting LFO frequency using a sequencer or other means.
 
@@ -226,23 +226,143 @@ As before, no tremolo occurs when the LFO frequency is zero, so on can turn the 
 <p class="caption">(\#fig:tremelo-lfo-vca-vco-scope)(ref:tremelo-lfo-vca-vco-scope)</p>
 </div>
 
-## Sync
+## Synchronization
 
-sync
-- hard/soft
+Techniques that allow you to remove/reduce phase relationships between oscillators are called synchronization (sync).
+Despite seeming contradictory to the preceding discussion, sync can create interesting effects exactly because phase relationships have been removed/reduced.
+The basic idea of sync is quite simple.
+Every oscillator has an internal reset trigger that tells it when to start drawing its waveshape again.
+A sync signal overrides this internal trigger, so we can control when the reset happens.
+
+The most common form of sync is known as hard sync.
+In hard sync, the sync signal removes phase by forcing an immediate reset.
+Typically the sync signal is the wave output of one oscillator (the leader), which is connecte to the sync input of another oscillator (the follower).
+If the two waves were identical in frequency, hard sync would simply align them in phase; however this is rarely the case.
+When the two waves are different in frequency, one wave is reset and therefore has a sharp edges in its waveshape.
+As discussed in Section \@ref(resonators-formants-and-frequency-spectrum), sharp edges contribute higher partials
+Sync therefore changes the harmonic content of a wave in a different way than chorus type effects.
+Notably, the closer the follower's frequency is to an integer multiple of the leader's frequency, the more the sync will emphasize the harmonics of the leader, but in general the new partials will not be harmonically related to the leader.
+An example of hard sync is shown in Figure \@ref(fig:sine-sync), where the two sine waves on the left are hard synchronized on the right.
+
+(ref:sine-sync) An example of hard sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader's sine output is connected to the follower's sync input. As soon as the leader's sine wave (blue) increases above zero, the follower's sine wave (red) resets and begins its cycle again, creating a sharp edge in its waveshape.
+
+<div class="figure">
+<img src="images/sine-sync.png" alt="(ref:sine-sync)" width="100%" />
+<p class="caption">(\#fig:sine-sync)(ref:sine-sync)</p>
+</div>
+
+There are [several variations](https://en.wikipedia.org/wiki/Oscillator_sync#Soft_Sync) of sync known as soft sync, but they all attempt to align the two oscillators in phase without creating the sharp edge found in hard sync.
+One notable form of soft sync is reverse soft sync (or flip soft sync).
+Reverse soft sync reverses the direction of the wave at the moment of reset.
+This causes the follower to match the direction of the leader without exactly matching the leader's phase.
+An example of reverse soft sync is shown in Figure \@ref(fig:sine-sync-soft), where the two sine waves on the left are soft synchronized on the right.
+
+(ref:sine-sync-soft) An example of reverse soft sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader's sine output is connected to the follower's sync input. As soon as the leader's sine wave (blue) increases above zero, the follower's sine wave (red) reverses, i.e. runs in the opposite direction, and begins its cycle again, creating a less sharp edge in its waveshape than hard sync.
+
+<div class="figure">
+<img src="images/sine-sync-soft.png" alt="(ref:sine-sync-soft)" width="100%" />
+<p class="caption">(\#fig:sine-sync-soft)(ref:sine-sync-soft)</p>
+</div>
 
 
+Try to create hard and soft sync using the button in Figure \@ref(fig:hard-soft-sync) and that matches Figures \@ref(fig:sine-sync) and \@ref(fig:sine-sync-soft), respectively.
+Each type of sync produces a characteristic sound that depends on the waveshapes involved and their relative frequencies.
+
+(ref:hard-soft-sync) [Virtual modular](https://cardinal.olney.ai) for implementing hard and soft sync.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:hard-soft-sync)" width="100%" />
+<p class="caption">(\#fig:hard-soft-sync)(ref:hard-soft-sync)</p>
+</div>
 
 ## Noise
 
-noise
-- blue snare/red kick
+Noise is commonly used in synthesis to complement other sounds.
+As discussed in Section \@ref(inharmonic-standing-waves-and-noise), there are many different kinds of noise that can be distinguished by the frequencies they emphasize.
+In modular, noise is typically provided by specialized modules, with separate jacks for different colors of noise.
+
+Noise blended with other generators can create transients and complementary sounds that produce more realistic percussion.
+For example, a kick drum has an initial noise transient that quickly dies out, and a snare has a long-lasting noise component that comes from the metal snares below the bottom membrane.
+However, the kick drum noise is tilted towards lower frequencies (e.g. red noise) and the snare is tilted towards higher frequencies (e.g. blue noise).
+Try to create kick and snare drums with noise using the button in Figure \@ref(fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope).
+The patches are identical except for different noise sources and knob settings.
+
+
+(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope) [Virtual modular](https://cardinal.olney.ai) for adding noise to kick and snare drums.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope)" width="100%" />
+<p class="caption">(\#fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope)(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope)</p>
+</div>
 
 ## Samplers
 
-samplers
-- sample rate/bit depth
-- 12key/lfo
+Samplers are popular type of generator that can be used to produce very realistic sounds but simply playing back prerecorded sounds.
+Samplers are thus very useful for performing with sounds that are difficult to synthesize (e.g. speech) or when it is impractical to use modules to synthesize multiple instruments due to cost/space constraints (as is often the case with percussion).
+
+Samplers do not perform synthesis per se, though there are crossovers like wavetable synthesis, as discussed in Section \@ref(waveshape-and-timbre).
+Instead, samplers represent audio data, typically digital audio data, without representing the process that generated the data.
+Digital audio data is represented according to two parameters that each can be considered a kind of resolution, as shown in Figure \@ref(fig:sampling-rate-depth).
+
+Sampling rate measures how close together each sample is taken.
+If the distance between the samples is small, a straight line is a good approximation of the curve of the wave, and the digital representation has good fidelity to the original sound.
+However, if frequency of the wave is high or the wave otherwise changes suddenly, those changes may be *between* samples and not show up in the digital representation at all.
+Common sample rates are 8 kHz (phone quality), 16 kHz (speech recognition quality), and 44.1 (CD quality). 
+
+Bit depth measures the accuracy at which the sample points are measured from 0.
+Imagine you had a ruler with only inches marked - you could only measure inches, right?
+Digital representations are similar in that we can only divide a space into as many pieces as we have bits.
+A byte, which is 8 bits, has $2^8=256$ possible partitions, so if we represent a 10 V peak-to-peak signal with 8 bits, we have a resolution of $10/256\approx.04$.
+This means is that if two different points of the wave are within this resolution, they will be digitized to the same value. 
+This is why higher bit depths have better fidelity to the original signal.
+Common bit depths are 16 and 24 bits per sample.
+
+(ref:sampling-rate-depth) A wave digitized by sampling. The sampling rate corresponds to the distance between sample times on the horizontal $t$ axis. The bit depth corresponds to the accuracy of distance between the axis and sampled points on the wave. The straight red segments are the digital reconstruction of the original wave based on the samples. Image [public domain](https://commons.wikimedia.org/wiki/File:Signal_Sampling.svg).
+
+<div class="figure">
+<img src="images/sampling-rate-depth.png" alt="(ref:sampling-rate-depth)" width="80%" />
+<p class="caption">(\#fig:sampling-rate-depth)(ref:sampling-rate-depth)</p>
+</div>
+
+While samplers offer less control over their representations than other forms of synthesis, they typically have many options for control, including playback within a sample, playing a sample at a faster/slower speed than the original, playing a sample in reverse, etc.
+These performance parameters are typically under voltage control and so can be controlled by a keyboard, sequencer, or other controller.
+Let's take a look at keyboard control of a sampler that changes the playback position of a sample based on the keyboard's output voltage.
+Try this patch using the button in Figure \@ref(fig:sample-12key-ouaive).
+You will need to [download the sample file](images/moonshot.wav) to load it into the sampler.
+
+(ref:sample-12key-ouaive) [Virtual modular](https://cardinal.olney.ai) for keyboard control of a sampler's playback position.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:sample-12key-ouaive)" width="100%" />
+<p class="caption">(\#fig:sample-12key-ouaive)(ref:sample-12key-ouaive)</p>
+</div>
+
+We can play, reverse play, and change the playback speed the sample by using an LFO and a gate-style controller.
+Try to construct this patch using the button in Figure \@ref(fig:sample-lfo-trigger-ouaive).
+Because the LFO produces continuous changes in voltage, the playback is continuous, unlike the keyboard-controlled playback where each key stepped the voltage by 1/12 of a volt.
+
+(ref:sample-lfo-trigger-ouaive) [Virtual modular](https://cardinal.olney.ai) for LFO control of a sampler's playback: forward, reverse, and speed.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:sample-lfo-trigger-ouaive)" width="100%" />
+<p class="caption">(\#fig:sample-lfo-trigger-ouaive)(ref:sample-lfo-trigger-ouaive)</p>
+</div>
 
 <!-- 		Oscillators (VCO) /LFO ; morphing between waveshapes/ PWM /sync-->
 <!-- noise -->

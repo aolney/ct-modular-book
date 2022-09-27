@@ -66,6 +66,13 @@ fig:opera-vibrato
 fig:vibrato-lfo-vca-vco-scope
 fig:guitar-tremolo
 fig:tremelo-lfo-vca-vco-scope
+fig:sine-sync
+fig:sine-sync-soft
+fig:hard-soft-sync
+fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope
+fig:sampling-rate-depth
+fig:sample-12key-ouaive
+fig:sample-lfo-trigger-ouaive
 introduction
 why-this-book
 computational-thinking
@@ -111,7 +118,7 @@ low-frequency-oscillators-uses
 pulse-width-modulation
 vibrato
 tremolo
-sync
+synchronization
 noise
 samplers
 modify

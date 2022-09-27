@@ -618,7 +618,7 @@ A VCA is is used to the depth of the tremelo.
 However, there are two differences with respect to previous patches.
 First, a VCA accepts unipolar control CV, so the LFO must be set to unipolar.
 Second, when the LFO goes to zero, it will completely close the VCA just like an envelope does.
-In order to keep some base line of loudness, you must mix a copy of the signal with the signal coming out of the VCA.
+In order to keep some base line of loudness, you must mix a copy of the VCO output with the tremolo-modified VCO output.
 Try to create tremolo with an LFO using the button in Figure <a href="generators.html#fig:tremelo-lfo-vca-vco-scope">6.11</a> and adjust the parameters to match the tremolo of the guitar pedal in Figure <a href="generators.html#fig:guitar-tremolo">6.10</a>.
 As before, no tremolo occurs when the LFO frequency is zero, so on can turn the tremolo effect on and off by setting LFO frequency using a sequencer or other means.</p>
 
@@ -697,27 +697,397 @@ Figure 6.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for impleme
 </div>
 </div>
 </div>
-<div id="sync" class="section level2" number="6.4">
+<div id="synchronization" class="section level2" number="6.4">
 <h2>
-<span class="header-section-number">6.4</span> Sync<a class="anchor" aria-label="anchor" href="#sync"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.4</span> Synchronization<a class="anchor" aria-label="anchor" href="#synchronization"><i class="fas fa-link"></i></a>
 </h2>
-<p>sync
-- hard/soft</p>
+<p>Techniques that allow you to remove/reduce phase relationships between oscillators are called synchronization (sync).
+Despite seeming contradictory to the preceding discussion, sync can create interesting effects exactly because phase relationships have been removed/reduced.
+The basic idea of sync is quite simple.
+Every oscillator has an internal reset trigger that tells it when to start drawing its waveshape again.
+A sync signal overrides this internal trigger, so we can control when the reset happens.</p>
+<p>The most common form of sync is known as hard sync.
+In hard sync, the sync signal removes phase by forcing an immediate reset.
+Typically the sync signal is the wave output of one oscillator (the leader), which is connecte to the sync input of another oscillator (the follower).
+If the two waves were identical in frequency, hard sync would simply align them in phase; however this is rarely the case.
+When the two waves are different in frequency, one wave is reset and therefore has a sharp edges in its waveshape.
+As discussed in Section <a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum">3.2</a>, sharp edges contribute higher partials
+Sync therefore changes the harmonic content of a wave in a different way than chorus type effects.
+Notably, the closer the follower’s frequency is to an integer multiple of the leader’s frequency, the more the sync will emphasize the harmonics of the leader, but in general the new partials will not be harmonically related to the leader.
+An example of hard sync is shown in Figure <a href="generators.html#fig:sine-sync">6.12</a>, where the two sine waves on the left are hard synchronized on the right.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:sine-sync"></span>
+<img src="images/sine-sync.png" alt="An example of hard sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader’s sine output is connected to the follower’s sync input. As soon as the leader’s sine wave (blue) increases above zero, the follower’s sine wave (red) resets and begins its cycle again, creating a sharp edge in its waveshape." width="100%"><p class="caption">
+Figure 6.12: An example of hard sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader’s sine output is connected to the follower’s sync input. As soon as the leader’s sine wave (blue) increases above zero, the follower’s sine wave (red) resets and begins its cycle again, creating a sharp edge in its waveshape.
+</p>
+</div>
+<p>There are <a href="https://en.wikipedia.org/wiki/Oscillator_sync#Soft_Sync">several variations</a> of sync known as soft sync, but they all attempt to align the two oscillators in phase without creating the sharp edge found in hard sync.
+One notable form of soft sync is reverse soft sync (or flip soft sync).
+Reverse soft sync reverses the direction of the wave at the moment of reset.
+This causes the follower to match the direction of the leader without exactly matching the leader’s phase.
+An example of reverse soft sync is shown in Figure <a href="generators.html#fig:sine-sync-soft">6.13</a>, where the two sine waves on the left are soft synchronized on the right.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:sine-sync-soft"></span>
+<img src="images/sine-sync-soft.png" alt="An example of reverse soft sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader’s sine output is connected to the follower’s sync input. As soon as the leader’s sine wave (blue) increases above zero, the follower’s sine wave (red) reverses, i.e. runs in the opposite direction, and begins its cycle again, creating a less sharp edge in its waveshape than hard sync." width="100%"><p class="caption">
+Figure 6.13: An example of reverse soft sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader’s sine output is connected to the follower’s sync input. As soon as the leader’s sine wave (blue) increases above zero, the follower’s sine wave (red) reverses, i.e. runs in the opposite direction, and begins its cycle again, creating a less sharp edge in its waveshape than hard sync.
+</p>
+</div>
+<p>Try to create hard and soft sync using the button in Figure <a href="generators.html#fig:hard-soft-sync">6.14</a> and that matches Figures <a href="generators.html#fig:sine-sync">6.12</a> and <a href="generators.html#fig:sine-sync-soft">6.13</a>, respectively.
+Each type of sync produces a characteristic sound that depends on the waveshapes involved and their relative frequencies.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="sethard_soft_syncIframe('https://cardinal.olney.ai?patchurl=tremelo-lfo-vca-vco-scope.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#hard_soft_sync">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="hard_soft_sync" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="hard_soft_syncLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="hard_soft_syncLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Disconnect all cables and move the QuadVCA between the Scope and Host Audio&lt;/li&gt;
+&lt;li&gt;Replace the VCO with an LFO. We'll call this the lead VCO&lt;/li&gt;
+&lt;li&gt;Connect lead VCO sine out to follower VCO sync in and Scope in 1&lt;/li&gt;
+&lt;li&gt;Connect follower VCO sine out to Scope in 2&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 and 2 to QuadVCA in 1 and 2&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA mix out to Host audio L&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Adjust the QuadVCA gain to hear only the follower, then a mix of both&lt;/li&gt;
+&lt;li&gt;Turn the leader frequency up and down&lt;/li&gt;
+&lt;li&gt;Turn the follower frequency up and down&lt;/li&gt;
+&lt;li&gt;Set the follower frequency at an integer multiple of the leader&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Turn on soft sync using the button next to the input jack&lt;/li&gt;
+&lt;li&gt;Try the same changes above with soft sync active&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/hard-soft-sync.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="sethard_soft_syncIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="hard_soft_sync-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function sethard_soft_syncIframe(url){
+  var hard_soft_syncIframe = document.getElementById("hard_soft_sync-iframe");
+  hard_soft_syncIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:hard-soft-sync"></span>
+<p class="caption">
+Figure 6.14: <a href="https://cardinal.olney.ai">Virtual modular</a> for implementing hard and soft sync.
+</p>
+</div>
 </div>
 <div id="noise" class="section level2" number="6.5">
 <h2>
 <span class="header-section-number">6.5</span> Noise<a class="anchor" aria-label="anchor" href="#noise"><i class="fas fa-link"></i></a>
 </h2>
-<p>noise
-- blue snare/red kick</p>
+<p>Noise is commonly used in synthesis to complement other sounds.
+As discussed in Section <a href="harmonic-and-inharmonic-sounds.html#inharmonic-standing-waves-and-noise">3.3</a>, there are many different kinds of noise that can be distinguished by the frequencies they emphasize.
+In modular, noise is typically provided by specialized modules, with separate jacks for different colors of noise.</p>
+<p>Noise blended with other generators can create transients and complementary sounds that produce more realistic percussion.
+For example, a kick drum has an initial noise transient that quickly dies out, and a snare has a long-lasting noise component that comes from the metal snares below the bottom membrane.
+However, the kick drum noise is tilted towards lower frequencies (e.g. red noise) and the snare is tilted towards higher frequencies (e.g. blue noise).
+Try to create kick and snare drums with noise using the button in Figure <a href="generators.html#fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope">6.15</a>.
+The patches are identical except for different noise sources and knob settings.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe('https://cardinal.olney.ai?patchurl=clock-kick-bpm-vco-adsr-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#kick_bpm_noiz_adsr_vco_adsr_vca_scope">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="kick_bpm_noiz_adsr_vco_adsr_vca_scope" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="kick_bpm_noiz_adsr_vco_adsr_vca_scopeLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="kick_bpm_noiz_adsr_vco_adsr_vca_scopeLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Replace the VCA with QuadVCA/Mixer&lt;/li&gt;
+&lt;li&gt;Connect VCO sine out to QuadVCA in 1&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to QuadVCA CH 1 gain in&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA mix out to Scope in 1&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Host audio L&lt;/li&gt;
+&lt;li&gt;Add Noiz module below VCO and put new ADSR next to Noiz&lt;/li&gt;
+&lt;li&gt;Connect Noiz Red out to QuadVCA in 2&lt;/li&gt;
+&lt;li&gt;Connect Clock out to noise ADSR gate in&lt;/li&gt;
+&lt;li&gt;Connect noise ADSR out to QuadVCA CH 2 gain in&lt;/li&gt;
+&lt;li&gt;Adjust noise ADSR knobs to 1 (lowest setting)&lt;/li&gt;
+&lt;li&gt;Adjust QuadVCA ch 1 gain to max and ch2 gain to 20%&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Adjust the QuadVCA gain to make the sine kick quiter and noise louder&lt;/li&gt;
+&lt;li&gt;Adjust the noise ADSR to make the noise slower/longer&lt;/li&gt;
+&lt;li&gt;To make a snare, change the noise source to blue&lt;/li&gt;
+&lt;li&gt;Increase the noise ADSR decay to 25ms&lt;/li&gt;
+&lt;li&gt;Increase the VCO frequency to 180 Hz&lt;/li&gt;
+&lt;li&gt;Adjust the QuadVCA gain so drum and noise are equal&lt;/li&gt;
+&lt;li&gt;Try the adjustments suggested for the kick and note changes in sound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/noiz-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Only kick drum shown&lt;/h4&gt;&lt;img src='images/patch-solutions/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png' style='height: 500px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setkick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="kick_bpm_noiz_adsr_vco_adsr_vca_scope-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setkick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe(url){
+  var kick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe = document.getElementById("kick_bpm_noiz_adsr_vco_adsr_vca_scope-iframe");
+  kick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope"></span>
+<p class="caption">
+Figure 6.15: <a href="https://cardinal.olney.ai">Virtual modular</a> for adding noise to kick and snare drums.
+</p>
+</div>
 </div>
 <div id="samplers" class="section level2" number="6.6">
 <h2>
 <span class="header-section-number">6.6</span> Samplers<a class="anchor" aria-label="anchor" href="#samplers"><i class="fas fa-link"></i></a>
 </h2>
-<p>samplers
-- sample rate/bit depth
-- 12key/lfo</p>
+<p>Samplers are popular type of generator that can be used to produce very realistic sounds but simply playing back prerecorded sounds.
+Samplers are thus very useful for performing with sounds that are difficult to synthesize (e.g. speech) or when it is impractical to use modules to synthesize multiple instruments due to cost/space constraints (as is often the case with percussion).</p>
+<p>Samplers do not perform synthesis per se, though there are crossovers like wavetable synthesis, as discussed in Section <a href="physics-and-perception-of-sound.html#waveshape-and-timbre">2.4</a>.
+Instead, samplers represent audio data, typically digital audio data, without representing the process that generated the data.
+Digital audio data is represented according to two parameters that each can be considered a kind of resolution, as shown in Figure <a href="generators.html#fig:sampling-rate-depth">6.16</a>.</p>
+<p>Sampling rate measures how close together each sample is taken.
+If the distance between the samples is small, a straight line is a good approximation of the curve of the wave, and the digital representation has good fidelity to the original sound.
+However, if frequency of the wave is high or the wave otherwise changes suddenly, those changes may be <em>between</em> samples and not show up in the digital representation at all.
+Common sample rates are 8 kHz (phone quality), 16 kHz (speech recognition quality), and 44.1 (CD quality).</p>
+<p>Bit depth measures the accuracy at which the sample points are measured from 0.
+Imagine you had a ruler with only inches marked - you could only measure inches, right?
+Digital representations are similar in that we can only divide a space into as many pieces as we have bits.
+A byte, which is 8 bits, has <span class="math inline">\(2^8=256\)</span> possible partitions, so if we represent a 10 V peak-to-peak signal with 8 bits, we have a resolution of <span class="math inline">\(10/256\approx.04\)</span>.
+This means is that if two different points of the wave are within this resolution, they will be digitized to the same value.
+This is why higher bit depths have better fidelity to the original signal.
+Common bit depths are 16 and 24 bits per sample.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:sampling-rate-depth"></span>
+<img src="images/sampling-rate-depth.png" alt="A wave digitized by sampling. The sampling rate corresponds to the distance between sample times on the horizontal \(t\) axis. The bit depth corresponds to the accuracy of distance between the axis and sampled points on the wave. The straight red segments are the digital reconstruction of the original wave based on the samples. Image public domain." width="80%"><p class="caption">
+Figure 6.16: A wave digitized by sampling. The sampling rate corresponds to the distance between sample times on the horizontal <span class="math inline">\(t\)</span> axis. The bit depth corresponds to the accuracy of distance between the axis and sampled points on the wave. The straight red segments are the digital reconstruction of the original wave based on the samples. Image <a href="https://commons.wikimedia.org/wiki/File:Signal_Sampling.svg">public domain</a>.
+</p>
+</div>
+<p>While samplers offer less control over their representations than other forms of synthesis, they typically have many options for control, including playback within a sample, playing a sample at a faster/slower speed than the original, playing a sample in reverse, etc.
+These performance parameters are typically under voltage control and so can be controlled by a keyboard, sequencer, or other controller.
+Let’s take a look at keyboard control of a sampler that changes the playback position of a sample based on the keyboard’s output voltage.
+Try this patch using the button in Figure <a href="generators.html#fig:sample-12key-ouaive">6.17</a>.
+You will need to <a href="images/moonshot.wav">download the sample file</a> to load it into the sampler.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setsample_12key_ouaiveIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#sample_12key_ouaive">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="sample_12key_ouaive" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="sample_12key_ouaiveLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="sample_12key_ouaiveLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add 12 key, OUAIve sampler, and Host audio&lt;/li&gt;
+&lt;li&gt;Right click sampler, choose 'Load sample', and load the sample file&lt;/li&gt;
+&lt;li&gt;Connect 12 key CV out to OUAIve POS in&lt;/li&gt;
+&lt;li&gt;Connect 12 key Gate out to OUAIve Trig in&lt;/li&gt;
+&lt;li&gt;Press OUAIve Type button until Trig is shown&lt;/li&gt;
+&lt;li&gt;Press OUAIve Play button until a single play icon appears&lt;/li&gt;
+&lt;li&gt;Connect OUAIve outs to Host audio ins&lt;/li&gt;
+&lt;li&gt;Try playing different notes on the keyboard to play the sample at different locations&lt;/li&gt;
+&lt;li&gt;You can interrupt the playback by pressing another key before the sample finishes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/ouaive-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/sample-12key-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setsample_12key_ouaiveIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="sample_12key_ouaive-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setsample_12key_ouaiveIframe(url){
+  var sample_12key_ouaiveIframe = document.getElementById("sample_12key_ouaive-iframe");
+  sample_12key_ouaiveIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:sample-12key-ouaive"></span>
+<p class="caption">
+Figure 6.17: <a href="https://cardinal.olney.ai">Virtual modular</a> for keyboard control of a sampler’s playback position.
+</p>
+</div>
+<p>We can play, reverse play, and change the playback speed the sample by using an LFO and a gate-style controller.
+Try to construct this patch using the button in Figure <a href="generators.html#fig:sample-lfo-trigger-ouaive">6.18</a>.
+Because the LFO produces continuous changes in voltage, the playback is continuous, unlike the keyboard-controlled playback where each key stepped the voltage by 1/12 of a volt.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setsample_lfo_trigger_ouaiveIframe('https://cardinal.olney.ai?patchurl=sample-12key-ouaive.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#sample_lfo_trigger_ouaive">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="sample_lfo_trigger_ouaive" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="sample_lfo_trigger_ouaiveLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="sample_lfo_trigger_ouaiveLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Delete 12 key; add LFO and Triggers MK1&lt;/li&gt;
+&lt;li&gt;Right click sampler, choose 'Load sample', and load the sample file&lt;/li&gt;
+&lt;li&gt;Connect LFO triangle out to OUAIve POS in&lt;/li&gt;
+&lt;li&gt;Set LFO OFST to unipolar&lt;/li&gt;
+&lt;li&gt;Connect Triggers MK1 out to OUAIve Trig in&lt;/li&gt;
+&lt;li&gt;Press OUAIve Type button until Gate is shown&lt;/li&gt;
+&lt;li&gt;Press OUAIve Play button until a single play icon appears&lt;/li&gt;
+&lt;li&gt;Press the Triggers MK1 Latch button to start playback&lt;/li&gt;
+&lt;li&gt;Try adjusting the LFO frequency to change the playback speed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/triggers-mk1-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/sample-lfo-trigger-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setsample_lfo_trigger_ouaiveIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="sample_lfo_trigger_ouaive-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setsample_lfo_trigger_ouaiveIframe(url){
+  var sample_lfo_trigger_ouaiveIframe = document.getElementById("sample_lfo_trigger_ouaive-iframe");
+  sample_lfo_trigger_ouaiveIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:sample-lfo-trigger-ouaive"></span>
+<p class="caption">
+Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO control of a sampler’s playback: forward, reverse, and speed.
+</p>
+</div>
 <!--        Oscillators (VCO) /LFO ; morphing between waveshapes/ PWM /sync-->
 <!-- noise -->
 <!--        Samplers -->
@@ -777,7 +1147,7 @@ Figure 6.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for impleme
 <li><a class="nav-link" href="#tremolo"><span class="header-section-number">6.3.3</span> Tremolo</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#sync"><span class="header-section-number">6.4</span> Sync</a></li>
+<li><a class="nav-link" href="#synchronization"><span class="header-section-number">6.4</span> Synchronization</a></li>
 <li><a class="nav-link" href="#noise"><span class="header-section-number">6.5</span> Noise</a></li>
 <li><a class="nav-link" href="#samplers"><span class="header-section-number">6.6</span> Samplers</a></li>
 </ul>
@@ -797,7 +1167,7 @@ Figure 6.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for impleme
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-26.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
