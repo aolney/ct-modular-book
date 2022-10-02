@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 7 Modifiers | Computational Thinking through Modular Sounds Synthesis</title>
+<meta name="author" content="Andrew M. Olney">
+<meta name="description" content="Modifiers modify incoming signals that may be either audio or some kind of control signal. Generators create audible sound. Chapter 4 introduced voltage controlled amplifiers (VCAs) that modify...">
+<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta property="og:title" content="Chapter 7 Modifiers | Computational Thinking through Modular Sounds Synthesis">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/modifiers.html">
+<meta property="og:description" content="Modifiers modify incoming signals that may be either audio or some kind of control signal. Generators create audible sound. Chapter 4 introduced voltage controlled amplifiers (VCAs) that modify...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 7 Modifiers | Computational Thinking through Modular Sounds Synthesis">
+<meta name="twitter:description" content="Modifiers modify incoming signals that may be either audio or some kind of control signal. Generators create audible sound. Chapter 4 introduced voltage controlled amplifiers (VCAs) that modify...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Computational Thinking through Modular Sounds Synthesis</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li class="book-part">Sound</li>
+<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
+<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
+<li class="book-part">Fundamental Modules</li>
+<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
+<li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
+<li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
+<li><a class="active" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
+<li class="book-part">Sound Design 1</li>
+<li><a class="" href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></li>
+<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
+<li class="book-part">Complex Modules</li>
+<li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
+<li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
+<li><a class="" href="modify.html"><span class="header-section-number">12</span> Modify</a></li>
+<li class="book-part">Sound Design 2</li>
+<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="modifiers" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> Modifiers<a class="anchor" aria-label="anchor" href="#modifiers"><i class="fas fa-link"></i></a>
+</h1>
+<p>Modifiers modify incoming signals that may be either audio or some kind of control signal.
+Generators create audible sound.
+Chapter <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a> introduced voltage controlled amplifiers (VCAs) that modify the amplitude of incoming signals, which can be either audio or control voltage.
+That chapter also introduced envelopes that modify control voltage, and we have routinely used envelopes to control VCAs in order to model the dynamics of various instruments.</p>
+<p>This chapter expands upon audio modifiers specifically and focuses on two foundational categories of modifiers, effects and voltage controlled filters.
+Effects can substantially enrich the sounds you create both in terms of thickness of sound and sense of acoustic space, and voltage controlled filters create some of the most defining sounds in electronic music.</p>
+<div id="todo-insert-effects-here." class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> TODO insert effects here.<a class="anchor" aria-label="anchor" href="#todo-insert-effects-here."><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="voltage-controlled-filters" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Voltage controlled filters<a class="anchor" aria-label="anchor" href="#voltage-controlled-filters"><i class="fas fa-link"></i></a>
+</h2>
+<p>Voltage controlled filters (VCFs) are an essential component of subtractive synthesis.
+Subtractive synthesis, as you recall, is characterized by taking harmonically complex waveshapes and then removing harmonic content to create the desired sounds.
+The opposite approach, additive synthesis, takes harmonically simple waveshapes and adds them together to create desired sounds; however, this becomes complex in analogue circuitry and is better suited to digital computers, which is why subtractive synthesis has historically been the dominant approach to synthesis.
+Filters, if you haven’t already guessed, are a primary method for removing harmonic content, which is why VCFs are an essential component of subtractive synthesis.</p>
+<p>As discussed in Chapter <a href="harmonic-and-inharmonic-sounds.html#harmonic-and-inharmonic-sounds">3</a>, timbre is intimately connected to waveshape, and removing harmonic content affects both the shape of the wave and its timbre.
+You may assume from our discussion of Fourier analysis that a filter will remove selected harmonics completely.
+If that were the case, we might expect a square wave with all but the first two harmonics filtered to look like Figure <a href="modifiers.html#fig:square-fourier-2-harmonics-2">7.1</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;This figure was created using the simulator in Section &lt;a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum"&gt;3.2&lt;/a&gt; which you can use to further explore these concepts.&lt;/p&gt;'><sup>53</sup></a></p>
+
+<div class="figure">
+<span style="display:block;" id="fig:square-fourier-2-harmonics-2"></span>
+<img src="images/square-fourier-2-harmonics-2.png" alt="Fourier approximation of the first 11 harmonics of a square wave." width="100%"><p class="caption">
+Figure 7.1: Fourier approximation of the first 11 harmonics of a square wave.
+</p>
+</div>
+<p>Using Fourier decomposition to understand VCFs is misleading in many respects, as will become clear by the end of this section.
+It is also not practical to build a filter based on Fourier decomposition for two at least two reasons.
+First, we want our filter to happen in real time, i.e. before a wave has even completed its cycle, which Fourier can’t do.
+Second, Fourier introduces <a href="https://en.wikipedia.org/wiki/Gibbs_phenomenon">Gibbs error</a> that you can see in Figure <a href="modifiers.html#fig:square-fourier-2-harmonics-2">7.1</a> as peaks where there should be 90 degree angles in the square wave.
+If we were to use Fourier as the basis of a filter, those peaks would introduce ringing artifacts.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:vcf-square-out"></span>
+<img src="images/vcf-square-out.png" alt="VCF output on a square wave. The figure has been aligned and scaled for comparison to Figure 7.1. Note the relatively flat low and high regions of the wave, which imply the presence of higher harmonics." width="100%"><p class="caption">
+Figure 7.2: VCF output on a square wave. The figure has been aligned and scaled for comparison to Figure <a href="modifiers.html#fig:square-fourier-2-harmonics-2">7.1</a>. Note the relatively flat low and high regions of the wave, which imply the presence of higher harmonics.
+</p>
+</div>
+<p>The output of a real VCF filtering out all but the first 11 harmonics is shown in Figure <a href="modifiers.html#fig:vcf-square-out">7.2</a>.
+The VCF output has two striking differences with the Fourier example.
+First, the transition from maximum positive to maximum negative (and vice versa) is substantially smoother for the VCF, creating rounder edges.
+Second, the VCF has relatively flat maximum regions of the wave, which imply higher harmonics.
+By comparing the Fourier and VCF outputs, we can see that the VCF is removing more low frequency content than we would expect (rounder edges) but that the VCF is removing less high frequency content than we would expect (flatter maximum regions of the wave).
+So a VCF is not like a net that either lets harmonics through or not.
+Instead, a VCF affects a range of harmonics, but within that range, it affects some harmonics more than others.</p>
+<p>Let’s take a look at this in some patches that filter white noise.
+The advantage of filtering white noise is that white noise contains all frequencies, so it is easy to see the shape of the filter’s effect.
+The patches will use two common filters: low-pass filters and high-pass filters.
+Low-pass filters (LPF) let low frequencies pass through relatively unaffected, and high-pass filters (HPF) let high frequencies pass through relatively unaffected.
+The effect of each filter is controlled using the cutoff frequency.
+Try patching up the two filters using the button in Figure <a href="modifiers.html#fig:noiz-lfp-out-fft">7.3</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setnoiz_lfp_out_fftIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#noiz_lfp_out_fft">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="noiz_lfp_out_fft" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="noiz_lfp_out_fftLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="noiz_lfp_out_fftLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Noiz, VCF, Host audio out, and Sassy Scope&lt;/li&gt;
+&lt;li&gt;Connect Noiz white out to VCF in and Sassy input 1&lt;/li&gt;
+&lt;li&gt;Connect LPF out to Host audio L and Sassy input 2&lt;/li&gt;
+&lt;li&gt;Right click the Sassy cable inputs to change the colors of inputs 1/2 if needed&lt;/li&gt;
+&lt;li&gt;Set Sassy to Freq mode using button, raise nearby slider to 100ms &lt;/li&gt;
+&lt;li&gt;Sassy shows the frequency spectrum of both the white noise and filtered noise&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
+&lt;li&gt;Change the cutoff from zero to far right&lt;/li&gt;
+&lt;li&gt;Mouse over the cutoff knob to get the cutoff freq, then mouse over spectrum to find that freq&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/sassy-scope-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/noiz-lfp-out-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setnoiz_lfp_out_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="noiz_lfp_out_fft-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setnoiz_lfp_out_fftIframe(url){
+  var noiz_lfp_out_fftIframe = document.getElementById("noiz_lfp_out_fft-iframe");
+  noiz_lfp_out_fftIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:noiz-lfp-out-fft"></span>
+<p class="caption">
+Figure 7.3: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying low- and high-pass filtering on white noise.
+</p>
+</div>
+<!-- Remaining plan -->
+<!--    Modifiers    -->
+<!--        Filters (VCF): poles, slopes, cutoff frequency, resonance -->
+<!--        Envelopes, velocity sensitivity, aftertouch -->
+<!--        Amplifiers -->
+<!--        Effects: delay/reverb/panning -->
+<!-- Complex modules and Compositions        -->
+<!--    Controllers  -->
+<!--        Clock, sequencing, arpggiators -->
+<!--        Euclidean rhythms -->
+<!--        Probability -->
+<!--    Generators   -->
+<!--        PWM -->
+<!--        FM/AM -->
+<!--        Ring modulation -->
+<!-- audio rate modulation into resonant filter? -->
+<!--        Vocoders -->
+<!--        Random sampling -->
+<!--    Modifiers    -->
+<!--        ~~LFO~~ -->
+<!--        Sample and hold -->
+<!--        Slew -->
+<!--        Wave-folding -->
+<!--        Attenuators, inverters, and attenuverters -->
+<!--        Quantizers -->
+<!--        Switches -->
+<!--        Logic -->
+<!-- Actual -->
+<!--     4 Basic Modeling Concepts -->
+<!--     4.1 Modules are the model elements -->
+<!--     4.2 Signals are how the model elements interact -->
+<!--     4.3 Signals are interpreted by modules -->
+<!--     4.4 Pulling it all together -->
+<!--         4.4.1 Drone -->
+<!--         4.4.2 Using an oscilloscope -->
+<!--         4.4.3 Controlling pitch -->
+<!--         4.4.4 Controlling note duration (on/off volume) -->
+<!--         4.4.5 Controlling note dynamics (volume during note) -->
+<!--     4.5 Moving forward -->
+<!-- 5 Controllers -->
+<!-- 5.1 Clocks -->
+<!--     5.1.1 Clock under a scope -->
+<!--     5.1.2 Clock as a generator -->
+<!-- 5.2 Sequencers -->
+<!--     5.2.1 Clocks as sequencers -->
+<!--     5.2.2 Trigger sequencers -->
+<!--     5.2.3 Control voltage sequencers -->
+<!--     6 Generators -->
+<!--     6.1 Chords -->
+<!--     6.2 Chorus -->
+<!--     6.3 Low frequency oscillators & uses -->
+<!--         6.3.1 Pulse width modulation -->
+<!--         6.3.2 Vibrato -->
+<!--         6.3.3 Tremolo -->
+<!--     6.4 Synchronization -->
+<!--     6.5 Noise -->
+<!--     6.6 Samplers -->
+
+</div>
+</div>
+
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="generators.html"><span class="header-section-number">6</span> Generators</a></div>
+<div class="next"><a href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#modifiers"><span class="header-section-number">7</span> Modifiers</a></li>
+<li><a class="nav-link" href="#todo-insert-effects-here."><span class="header-section-number">7.1</span> TODO insert effects here.</a></li>
+<li><a class="nav-link" href="#voltage-controlled-filters"><span class="header-section-number">7.2</span> Voltage controlled filters</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/07-fun-mod-modifiers.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/07-fun-mod-modifiers.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-02.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

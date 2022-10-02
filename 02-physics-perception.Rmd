@@ -317,7 +317,7 @@ When the phase-aligned amplitudes are positive, the amplitude of the resulting w
 
 Destructive interference is the principle behind [noise cancelling headphones](https://en.wikipedia.org/wiki/Active_noise_control), which produce a sound within the headphones to cancel out the background noise outside the headphones.
 Figure \@ref(fig:interference) shows how this can be done with with a sine wave using an identical, but perfectly out of phase sine wave.
-However, being perfectly out of phase is not enough to guarantee cancellation in all cases. 
+However, being perfectly out of phase is not enough to guarantee cancellation in general. 
 Take a look again at the waveshapes in Figure \@ref(fig:four-waves).
 You should find it relatively easy to imagine how the first three would be cancelled by an out of phase copy of themselves.
 However, the sawtooth wave just doesn't match up the same way, as shown in Figure \@ref(fig:saw-phase).

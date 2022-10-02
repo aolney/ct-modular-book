@@ -30,10 +30,9 @@ For example, the [THX Deep Note](https://en.wikipedia.org/wiki/Deep_Note) in Fig
 
 (ref:deep-note) [Youtube video](https://www.youtube.com/watch?v=sPY3Y2qhyXk) of the THX Deep Note, which resolves to 11 harmonically related notes. Image [© THX Ltd](https://www.youtube.com/c/THXLtd).
 
-<div class="figure">
-<img src="downloadFigs4latex/deep-note.jpg" alt="(ref:deep-note)"  />
-<p class="caption">(\#fig:deep-note)(ref:deep-note)</p>
-</div>
+```{r deep-note, fig.cap="(ref:deep-note)", echo = F}
+embed_youtube("sPY3Y2qhyXk",5)
+```
 
 In modular synthesis, there are at least two ways to create chords, which correspond to stages of the process to create a single note.
 At the first stage, we have a V/Oct control signal, so we can create chords by making new control signals harmonically related to the original signal.
@@ -49,13 +48,34 @@ Try making a trichord using a fifth and an octave using the button in Figure \@r
 (ref:voltage-division-chords) [Virtual modular](https://cardinal.olney.ai) for making a chord using signal offsets.
 
 <!-- MODAL HTML BLOCK -->
-
+```{r echo=F, out.width="100%"}
+modular_modal("voltage-division-chords", starter_file="empty.vcv", instructions_html="<ul>
+<li>Add 12-Key and Host audio</li>
+<li>Add BST (voltage offset) and D'Acchord (multiple oscillator) </li>
+<li>Connect 12-Key CV out to BST bias 1 input</li>
+<li>Make sure the Volts/Semi switch is set to semi</li>
+<li>Set BST bias 1 output to +0st (root note) and connect to D'Acchord P1</li>
+<li>Set BST bias 2 output to +7st (fifth) and connect to D'Acchord P2</li>
+<li>Set BST bias 3 output to +12st (octave) and connect to D'Acchord P3</li>
+<li>Connect D'Accord Left/Right to Host audio Left/Right</li>
+<li>Try the following and note the differences in the sound<ul>
+<li>Use the ATTN row of knobs in D&#39;Accord to remove all but the root note</li>
+<li>Add each the others back in slowly, noting the change in the sound</li>
+<li>Play the keyboard and note the stability of the chord across keys </li>
+</ul>
+</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img src='images/solo-modules/bst-voltage-divider-solo.png' style='height: 300px; width: auto'>
+<img src='images/solo-modules/dacchord-solo.png' style='height: 300px; width: auto'>
+</div>
+",solution_html="<img src='images/patch-solutions/voltage-division-chords.png' style='height: 300px; width: auto'>")
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:voltage-division-chords)" width="100%" />
-<p class="caption">(\#fig:voltage-division-chords)(ref:voltage-division-chords)</p>
-</div>
+```{r voltage-division-chords, echo=F, out.width="100%", fig.cap="(ref:voltage-division-chords)"}
+modular_caption()
+```
 
 To create harmonically related audio signals, we can use a clock divider as long as the original signal can be interpreted as clock and the clock divider in question can accept audio rates.
 This approach is related to a classic technique for creating a fatter sound, the sub-octave square wave.
@@ -68,13 +88,34 @@ Try making a trichord using a fifth and an octave using the button in Figure \@r
 (ref:clock-division-chords) [Virtual modular](https://cardinal.olney.ai) for making a chord using clock divisions.
 
 <!-- MODAL HTML BLOCK -->
-
+```{r echo=F, out.width="100%"}
+modular_modal("clock-division-chords", starter_file="voltage-division-chords.vcv", instructions_html="<ul>
+<li>Remove modules except for 12-Key and Host audio</li>
+<li>Add VCO, dividah (even clock divider), D1v1de (adjustable clock divider), Scope, and QuadVCA/Mixer </li>
+<li>Connect 12-Key CV out to VCO V/Oct</li>
+<li>Connect VCO Sqr out to dividah Clock in, D1v1de in, Scope in 1, and QuadVCA in 1</li>
+<li>Connect dividah by 2 out to Scope in 2 and QuadVCA in 2</li>
+<li>Connect D1v1de out to QuadVCA in 3 and set D1v1de clock division to 3</li>
+<li>Connect QuadVCA mix out to Host audio L</li>
+<li>Use the scope to confirm the divided signals are correctly aligned to the VCO</li>
+<li>Try the following and note the differences in the sound<ul>
+<li>Use the QuadVCA sliders to mute all but the root note</li>
+<li>Add each the others back in slowly, noting the change in the sound</li>
+<li>Play the keyboard and note the stability of the chord across keys </li>
+</ul>
+</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img src='images/solo-modules/dividah-solo.png' style='height: 300px; width: auto'>
+<img src='images/solo-modules/d1v1de-solo.png' style='height: 300px; width: auto'>
+</div>
+",solution_html="<img src='images/patch-solutions/clock-division-chords.png' style='height: 300px; width: auto'>")
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-chords)" width="100%" />
-<p class="caption">(\#fig:clock-division-chords)(ref:clock-division-chords)</p>
-</div>
+```{r clock-division-chords, echo=F, out.width="100%", fig.cap="(ref:clock-division-chords)"}
+modular_caption()
+```
 
 ## Chorus
 
@@ -93,10 +134,9 @@ Remember that most interference will create spans of sound with greater loudness
 
 (ref:beat-freq) [Animation](https://olney.ai/ct-modular-book/images/beat-freq.gif) of interfering sine waves as one increases in frequency. Note how multiple beats appear in this short span as the frequency increases. Image [© Adjwilley/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:WaveInterference.gif).
 
-<div class="figure">
-<img src="downloadFigs4latex/beat-freq.jpg" alt="(ref:beat-freq)" width="70%" />
-<p class="caption">(\#fig:beat-freq)(ref:beat-freq)</p>
-</div>
+```{r beat-freq, echo=F, out.width="70%", fig.cap="(ref:beat-freq)"}
+  embed_linked_media("images/beat-freq.gif")
+```
 
 These changes in volume can be perceived as [beats](https://en.wikipedia.org/wiki/Beat_(acoustics)) if they are strong enough and occur within a certain range of frequencies.
 Typically such beats are unwanted, so the interference between the sound waves should either be too slow/fast to be perceive as beats or the beats themselves are so soft that they are not perceived as beats.
@@ -106,13 +146,19 @@ You should hear a beat whose beat increases as you increase detuning.
 (ref:detune-beat) [Virtual modular](https://cardinal.olney.ai) for detuning a second oscillator.
 
 <!-- MODAL HTML BLOCK -->
-
+```{r echo=F, out.width="100%"}
+modular_modal("detune-beat", starter_file="voltage-division-chords.vcv", instructions_html="<ul>
+<li>Silence P3 using the ATTN knob </li>
+<li>Detune P2 using the Detune knob</li>
+<li>Note the beat whose frequency increases with detuning</li>
+<li>At what point of detuning do you think it sounds best?</li>
+",solution_html="<img src='images/patch-solutions/detune-beat.png' style='height: 300px; width: auto'>")
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:detune-beat)" width="100%" />
-<p class="caption">(\#fig:detune-beat)(ref:detune-beat)</p>
-</div>
+```{r detune-beat, echo=F, out.width="100%", fig.cap="(ref:detune-beat)"}
+modular_caption()
+```
 
 ## Low frequency oscillators & uses
 
@@ -140,10 +186,18 @@ This occurs because the two component waves, which have the same amplitude, comb
 
 (ref:pwm) Interference of a pulse wave with 25% duty cycle (gold) with a pulse wave with a 50% duty cycle (blue). Note the resulting wave (green) has a positive signal matching the 25% wave and a negative signal matching the 50% wave. Waves are offset for comparison.
 
-<div class="figure">
-<img src="07-fun-mod-create_files/figure-epub3/pwm-1.png" alt="(ref:pwm)"  />
-<p class="caption">(\#fig:pwm)(ref:pwm)</p>
-</div>
+```{r pwm, fig.cap="(ref:pwm)", echo = F, message=F, warning=F,dev='png'}
+library(gsignal)
+x <- seq(0, 5, length.out = 1e3)
+square_50 <- square(2 * pi * 1 *x, duty = 50)
+plot(x, square_50, type="l", xlab = "", ylab = "", main = "",col="blue",lwd=2,lty=3, ylim = c(- 2, 2))
+abline(0,0,col="black")
+
+square_25 <- square(2 * pi * 1 *x, duty = 25)
+lines( x + .04, square_25, col="gold", lwd=2,lty=3)
+
+lines( x + .08, square_25 + square_50, col="green",lwd=3)
+```
 
 Because this is such a useful and interesting effect, many oscillators that produce pulse waves have a PWM input that allows the duty cycle of the wave to be controlled by another module.
 Try to implement PWM with an LFO using the button in Figure \@ref(fig:pwm-lfo-vco-scope).
@@ -154,13 +208,31 @@ The LFO frequency and the PWM depth knobs give control over the speed of the PWM
 (ref:pwm-lfo-vco-scope) [Virtual modular](https://cardinal.olney.ai) for implementing pulse width modulation (PWM) using a low frequency oscillator (LFO).
 
 <!-- MODAL HTML BLOCK -->
-
+```{r echo=F, out.width="100%"}
+modular_modal("pwm-lfo-vco-scope", starter_file="empty.vcv", instructions_html="<ul>
+<li>Add LFO, VCO, Scope, and Host audio </li>
+<li>Connect LFO triangle out to VCO PWM</li>
+<li>Connect VCO square out to  Scope in 1</li>
+<li>Connect LFO triangle out to  Scope in 2</li>
+<li>Connect Scope out 1 to Host audio L</li>
+<li>Adjust the scope to visualize the wave</li>
+<li>Try the following and note the differences in the sound (richness/beats)<ul>
+<li>Increase the depth of the PWM by adjusting the PWM knob on the VCO (the knob adjusts an internal VCA)</li>
+<li>Turn the LFO frequency to zero to hear the raw wave, then increase frequency</li>
+<li>Try different LFO waves</li>
+</ul>
+</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img src='images/solo-modules/lfo-solo.png' style='height: 300px; width: auto'>
+</div>
+",solution_html="<img src='images/patch-solutions/pwm-lfo-vco-scope.png' style='height: 300px; width: auto'>")
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:pwm-lfo-vco-scope)" width="100%" />
-<p class="caption">(\#fig:pwm-lfo-vco-scope)(ref:pwm-lfo-vco-scope)</p>
-</div>
+```{r pwm-lfo-vco-scope, echo=F, out.width="100%", fig.cap="(ref:pwm-lfo-vco-scope)"}
+modular_caption()
+```
 
 ### Vibrato
 
@@ -169,10 +241,9 @@ Vibrato is widely used in music, but is perhaps most strongly associated with op
 
 (ref:opera-vibrato) [Youtube video](https://www.youtube.com/watch?v=CPPOrQHiP40) of an opera singer's vibrato, or frequency variation around a central note. Image [© jiggle throat](https://www.youtube.com/channel/UC9FSr2uoO_OqymmeNSE5AyQ).
 
-<div class="figure">
-<img src="downloadFigs4latex/opera-vibrato.jpg" alt="(ref:opera-vibrato)"  />
-<p class="caption">(\#fig:opera-vibrato)(ref:opera-vibrato)</p>
-</div>
+```{r opera-vibrato, fig.cap="(ref:opera-vibrato)", echo = F}
+embed_youtube("CPPOrQHiP40",0)
+```
 
 LFOs can create vibrato on a VCO by controlling V/Oct.
 Unlike PWM, an additional VCA is needed to control the depth of the vibrato.^[Technically you can use the FM input and attenuator, but there are pedagogical reasons for not using the FM input at the moment, namely that we have not discused FM yet. ]
@@ -184,13 +255,26 @@ Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato
 (ref:vibrato-lfo-vca-vco-scope) [Virtual modular](https://cardinal.olney.ai) for implementing vibrato using a low frequency oscillator (LFO).
 
 <!-- MODAL HTML BLOCK -->
-
+```{r echo=F, out.width="100%"}
+modular_modal("vibrato-lfo-vca-vco-scope", starter_file="pwm-lfo-vco-scope.vcv", instructions_html="<ul>
+<li>Add a QuadVCA/Mixer between the LFO and VCO </li>
+<li>Connect LFO triangle out to QuadVCA input 1</li>
+<li>Connect QuadVCA mix out to VCO V/Oct</li>
+<li>Connect Scope out 1 to Host audio L</li>
+<li>Try the following and note the differences in the sound<ul>
+<li>Decrease the depth of the vibrato by adjusting the QuadVCA gain down towards zero</li>
+<li>Turn the LFO frequency to zero to hear the raw wave, then increase frequency</li>
+<li>Try different LFO waves</li>
+</ul>
+</li>
+</ul>
+",solution_html="<img src='images/patch-solutions/vibrato-lfo-vca-vco-scope.png' style='height: 300px; width: auto'>")
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:vibrato-lfo-vca-vco-scope)" width="100%" />
-<p class="caption">(\#fig:vibrato-lfo-vca-vco-scope)(ref:vibrato-lfo-vca-vco-scope)</p>
-</div>
+```{r vibrato-lfo-vca-vco-scope, echo=F, out.width="100%", fig.cap="(ref:vibrato-lfo-vca-vco-scope)"}
+modular_caption()
+```
 
 ### Tremolo
 
@@ -200,10 +284,9 @@ Tremolo has been widely used in popular guitar music since the 1960's, and guita
 
 (ref:guitar-tremolo) [Youtube video](https://youtu.be/ZHDV3yBm33A?t=12) of a tremolo guitar pedal. The flashing light corresponds to the speed of loudness changes around a center volume. Image [© CheaperPedals.com](https://www.youtube.com/c/Cheaperpedals).
 
-<div class="figure">
-<img src="downloadFigs4latex/guitar-tremolo.jpg" alt="(ref:guitar-tremolo)"  />
-<p class="caption">(\#fig:guitar-tremolo)(ref:guitar-tremolo)</p>
-</div>
+```{r guitar-tremolo, fig.cap="(ref:guitar-tremolo)", echo = F}
+embed_youtube("ZHDV3yBm33A",12)
+```
 
 LFOs can create tremolo by controlling the amplitude of VCO output.
 A VCA is is used to the depth of the tremelo.
@@ -218,13 +301,30 @@ As before, no tremolo occurs when the LFO frequency is zero, so on can turn the 
 (ref:tremelo-lfo-vca-vco-scope) [Virtual modular](https://cardinal.olney.ai) for implementing tremolo using a low frequency oscillator (LFO).
 
 <!-- MODAL HTML BLOCK -->
-
+```{r echo=F, out.width="100%"}
+modular_modal("tremelo-lfo-vca-vco-scope", starter_file="vibrato-lfo-vca-vco-scope.vcv", instructions_html="<ul>
+<li>Disconnect all cables but Scope out 1 to Host audio L and LFO triangle out to Scope in 1</li>
+<li>Connect VCO square out to QuadVCA input 1</li>
+<li>Connect LFO triangle out 1 to QuadVCA CH 1 gain CV</li>
+<li>Connect QuadVCA mix out to Scope in 1</li>
+<li>Try the following and note the differences in the sound<ul>
+<li>Decrease the depth of the tremelo by adjusting the QuadVCA gain down towards zero</li>
+<li>Turn the LFO frequency to zero to hear the raw wave, then increase frequency</li>
+</ul>
+</li>
+<li>Notice the LFO wave on the scope goes below zero but there is no effect on the sound</li>
+<li>Fix this by changing the LFO OFST to unipolar</li>
+<li>Notice the volume goes to zero when the LFO goes to zero</li>
+<li>Fix this by connecting VCO square out to QuadVCA input 2</li>
+<li>Adjust the mix to get the right baseline volume and depth of modulation</li>
+</ul>
+",solution_html="<img src='images/patch-solutions/tremelo-lfo-vca-vco-scope.png' style='height: 300px; width: auto'>")
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:tremelo-lfo-vca-vco-scope)" width="100%" />
-<p class="caption">(\#fig:tremelo-lfo-vca-vco-scope)(ref:tremelo-lfo-vca-vco-scope)</p>
-</div>
+```{r tremelo-lfo-vca-vco-scope, echo=F, out.width="100%", fig.cap="(ref:tremelo-lfo-vca-vco-scope)"}
+modular_caption()
+```
 
 ## Synchronization
 
@@ -246,10 +346,9 @@ An example of hard sync is shown in Figure \@ref(fig:sine-sync), where the two s
 
 (ref:sine-sync) An example of hard sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader's sine output is connected to the follower's sync input. As soon as the leader's sine wave (blue) increases above zero, the follower's sine wave (red) resets and begins its cycle again, creating a sharp edge in its waveshape.
 
-<div class="figure">
-<img src="images/sine-sync.png" alt="(ref:sine-sync)" width="100%" />
-<p class="caption">(\#fig:sine-sync)(ref:sine-sync)</p>
-</div>
+```{r sine-sync, echo=F, out.width="100%", fig.cap="(ref:sine-sync)"}
+ knitr::include_graphics("images/sine-sync.png")
+```
 
 There are [several variations](https://en.wikipedia.org/wiki/Oscillator_sync#Soft_Sync) of sync known as soft sync, but they all attempt to align the two oscillators in phase without creating the sharp edge found in hard sync.
 One notable form of soft sync is reverse soft sync (or flip soft sync).
@@ -259,10 +358,9 @@ An example of reverse soft sync is shown in Figure \@ref(fig:sine-sync-soft), wh
 
 (ref:sine-sync-soft) An example of reverse soft sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader's sine output is connected to the follower's sync input. As soon as the leader's sine wave (blue) increases above zero, the follower's sine wave (red) reverses, i.e. runs in the opposite direction, and begins its cycle again, creating a less sharp edge in its waveshape than hard sync.
 
-<div class="figure">
-<img src="images/sine-sync-soft.png" alt="(ref:sine-sync-soft)" width="100%" />
-<p class="caption">(\#fig:sine-sync-soft)(ref:sine-sync-soft)</p>
-</div>
+```{r sine-sync-soft, echo=F, out.width="100%", fig.cap="(ref:sine-sync-soft)"}
+ knitr::include_graphics("images/sine-sync-soft.png")
+```
 
 
 Try to create hard and soft sync using the button in Figure \@ref(fig:hard-soft-sync) and that matches Figures \@ref(fig:sine-sync) and \@ref(fig:sine-sync-soft), respectively.
@@ -271,13 +369,36 @@ Each type of sync produces a characteristic sound that depends on the waveshapes
 (ref:hard-soft-sync) [Virtual modular](https://cardinal.olney.ai) for implementing hard and soft sync.
 
 <!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+id = "hard-soft-sync"
+starter_file="tremelo-lfo-vca-vco-scope.vcv"
+instructions_html="<ul>
+<li>Disconnect all cables and move the QuadVCA between the Scope and Host Audio</li>
+<li>Replace the VCO with an LFO. We'll call this the lead VCO</li>
+<li>Connect lead VCO sine out to follower VCO sync in and Scope in 1</li>
+<li>Connect follower VCO sine out to Scope in 2</li>
+<li>Connect Scope out 1 and 2 to QuadVCA in 1 and 2</li>
+<li>Connect QuadVCA mix out to Host audio L</li>
+<li>Try the following and note the differences in the sound<ul>
+<li>Adjust the QuadVCA gain to hear only the follower, then a mix of both</li>
+<li>Turn the leader frequency up and down</li>
+<li>Turn the follower frequency up and down</li>
+<li>Set the follower frequency at an integer multiple of the leader</li>
+</ul>
+</li>
+<li>Turn on soft sync using the button next to the input jack</li>
+<li>Try the same changes above with soft sync active</li>
+</ul>
+"
+solution_html="<img src='images/patch-solutions/hard-soft-sync.png' style='height: 300px; width: auto'>"
 
+modular_modal(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:hard-soft-sync)" width="100%" />
-<p class="caption">(\#fig:hard-soft-sync)(ref:hard-soft-sync)</p>
-</div>
+```{r hard-soft-sync, echo=F, out.width="100%", fig.cap="(ref:hard-soft-sync)"}
+modular_caption(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
+```
 
 ## Noise
 
@@ -295,13 +416,45 @@ The patches are identical except for different noise sources and knob settings.
 (ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope) [Virtual modular](https://cardinal.olney.ai) for adding noise to kick and snare drums.
 
 <!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+id = "kick-bpm-noiz-adsr-vco-adsr-vca-scope"
+starter_file="clock-kick-bpm-vco-adsr-vca-scope-out.vcv"
+instructions_html="<ul>
+<li>Replace the VCA with QuadVCA/Mixer</li>
+<li>Connect VCO sine out to QuadVCA in 1</li>
+<li>Connect ADSR out to QuadVCA CH 1 gain in</li>
+<li>Connect QuadVCA mix out to Scope in 1</li>
+<li>Connect Scope out 1 to Host audio L</li>
+<li>Add Noiz module below VCO and put new ADSR next to Noiz</li>
+<li>Connect Noiz Red out to QuadVCA in 2</li>
+<li>Connect Clock out to noise ADSR gate in</li>
+<li>Connect noise ADSR out to QuadVCA CH 2 gain in</li>
+<li>Adjust noise ADSR knobs to 1 (lowest setting)</li>
+<li>Adjust QuadVCA ch 1 gain to max and ch2 gain to 20%</li>
+<li>Try the following and note the differences in the sound<ul>
+<li>Adjust the QuadVCA gain to make the sine kick quiter and noise louder</li>
+<li>Adjust the noise ADSR to make the noise slower/longer</li>
+<li>To make a snare, change the noise source to blue</li>
+<li>Increase the noise ADSR decay to 25ms</li>
+<li>Increase the VCO frequency to 180 Hz</li>
+<li>Adjust the QuadVCA gain so drum and noise are equal</li>
+<li>Try the adjustments suggested for the kick and note changes in sound</li>
+</ul>
+</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img src='images/solo-modules/noiz-solo.png' style='height: 300px; width: auto'>
+</div>
+"
+solution_html="<h4>Only kick drum shown</h4><img src='images/patch-solutions/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png' style='height: 500px; width: auto'>"
 
+modular_modal(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope)" width="100%" />
-<p class="caption">(\#fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope)(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope)</p>
-</div>
+```{r kick-bpm-noiz-adsr-vco-adsr-vca-scope, echo=F, out.width="100%", fig.cap="(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope)"}
+modular_caption(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
+```
 
 ## Samplers
 
@@ -311,6 +464,13 @@ Samplers are thus very useful for performing with sounds that are difficult to s
 Samplers do not perform synthesis per se, though there are crossovers like wavetable synthesis, as discussed in Section \@ref(waveshape-and-timbre).
 Instead, samplers represent audio data, typically digital audio data, without representing the process that generated the data.
 Digital audio data is represented according to two parameters that each can be considered a kind of resolution, as shown in Figure \@ref(fig:sampling-rate-depth).
+
+
+(ref:sampling-rate-depth) A wave digitized by sampling. The sampling rate corresponds to the distance between sample times on the horizontal $t$ axis. The bit depth corresponds to the accuracy of distance between the axis and sampled points on the wave. The straight red segments are the digital reconstruction of the original wave based on the samples. Image [public domain](https://commons.wikimedia.org/wiki/File:Signal_Sampling.svg).
+
+```{r sampling-rate-depth, echo=F, out.width="80%", fig.cap="(ref:sampling-rate-depth)"}
+ knitr::include_graphics("images/sampling-rate-depth.png")
+```
 
 Sampling rate measures how close together each sample is taken.
 If the distance between the samples is small, a straight line is a good approximation of the curve of the wave, and the digital representation has good fidelity to the original sound.
@@ -325,13 +485,6 @@ This means is that if two different points of the wave are within this resolutio
 This is why higher bit depths have better fidelity to the original signal.
 Common bit depths are 16 and 24 bits per sample.
 
-(ref:sampling-rate-depth) A wave digitized by sampling. The sampling rate corresponds to the distance between sample times on the horizontal $t$ axis. The bit depth corresponds to the accuracy of distance between the axis and sampled points on the wave. The straight red segments are the digital reconstruction of the original wave based on the samples. Image [public domain](https://commons.wikimedia.org/wiki/File:Signal_Sampling.svg).
-
-<div class="figure">
-<img src="images/sampling-rate-depth.png" alt="(ref:sampling-rate-depth)" width="80%" />
-<p class="caption">(\#fig:sampling-rate-depth)(ref:sampling-rate-depth)</p>
-</div>
-
 While samplers offer less control over their representations than other forms of synthesis, they typically have many options for control, including playback within a sample, playing a sample at a faster/slower speed than the original, playing a sample in reverse, etc.
 These performance parameters are typically under voltage control and so can be controlled by a keyboard, sequencer, or other controller.
 Let's take a look at keyboard control of a sampler that changes the playback position of a sample based on the keyboard's output voltage.
@@ -341,13 +494,33 @@ You will need to [download the sample file](images/moonshot.wav) to load it into
 (ref:sample-12key-ouaive) [Virtual modular](https://cardinal.olney.ai) for keyboard control of a sampler's playback position.
 
 <!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+id = "sample-12key-ouaive"
+starter_file="empty.vcv"
+instructions_html="<ul>
+<li>Add 12 key, OUAIve sampler, and Host audio</li>
+<li>Right click sampler, choose 'Load sample', and load the sample file</li>
+<li>Connect 12 key CV out to OUAIve POS in</li>
+<li>Connect 12 key Gate out to OUAIve Trig in</li>
+<li>Press OUAIve Type button until Trig is shown</li>
+<li>Press OUAIve Play button until a single play icon appears</li>
+<li>Connect OUAIve outs to Host audio ins</li>
+<li>Try playing different notes on the keyboard to play the sample at different locations</li>
+<li>You can interrupt the playback by pressing another key before the sample finishes</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img src='images/solo-modules/ouaive-solo.png' style='height: 300px; width: auto'>
+</div>
+"
+solution_html="<img src='images/patch-solutions/sample-12key-ouaive.png' style='height: 300px; width: auto'>"
 
+modular_modal(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:sample-12key-ouaive)" width="100%" />
-<p class="caption">(\#fig:sample-12key-ouaive)(ref:sample-12key-ouaive)</p>
-</div>
+```{r sample-12key-ouaive, echo=F, out.width="100%", fig.cap="(ref:sample-12key-ouaive)"}
+modular_caption(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
+```
 
 We can play, reverse play, and change the playback speed the sample by using an LFO and a gate-style controller.
 Try to construct this patch using the button in Figure \@ref(fig:sample-lfo-trigger-ouaive).
@@ -356,55 +529,30 @@ Because the LFO produces continuous changes in voltage, the playback is continuo
 (ref:sample-lfo-trigger-ouaive) [Virtual modular](https://cardinal.olney.ai) for LFO control of a sampler's playback: forward, reverse, and speed.
 
 <!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+id = "sample-lfo-trigger-ouaive"
+starter_file="sample-12key-ouaive.vcv"
+instructions_html="<ul>
+<li>Delete 12 key; add LFO and Triggers MK1</li>
+<li>Right click sampler, choose 'Load sample', and load the sample file</li>
+<li>Connect LFO triangle out to OUAIve POS in</li>
+<li>Set LFO OFST to unipolar</li>
+<li>Connect Triggers MK1 out to OUAIve Trig in</li>
+<li>Press OUAIve Type button until Gate is shown</li>
+<li>Press OUAIve Play button until a single play icon appears</li>
+<li>Press the Triggers MK1 Latch button to start playback</li>
+<li>Try adjusting the LFO frequency to change the playback speed</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img src='images/solo-modules/triggers-mk1-solo.png' style='height: 300px; width: auto'>
+</div>
+"
+solution_html="<img src='images/patch-solutions/sample-lfo-trigger-ouaive.png' style='height: 300px; width: auto'>"
 
+modular_modal(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:sample-lfo-trigger-ouaive)" width="100%" />
-<p class="caption">(\#fig:sample-lfo-trigger-ouaive)(ref:sample-lfo-trigger-ouaive)</p>
-</div>
-
-<!-- 		Oscillators (VCO) /LFO ; morphing between waveshapes/ PWM /sync-->
-<!-- noise -->
-<!-- 		Samplers -->
-
-
-<!-- Tremelo/vibrato? -->
-<!-- Fundamental Modules and Composition		 -->
-<!-- 	Basic concepts	 -->
-<!-- 		 Module categories, signals, signal interpretation, 5 patchs from drone to key controller for pitch/gate with amplitude envelope -->
-<!-- 	Controllers	 -->
-<!-- 		Controllers -->
-<!-- 		Trigger/gate, phase, sync -->
-<!-- 	Generators	 -->
-<!-- 		Oscillators (VCO) /LFO ; morphing between waveshapes/ PWM /sync-->
-<!-- noise -->
-<!-- 		Samplers -->
-<!-- 	Modifiers	 -->
-<!-- 		Filters (VCF): poles, slopes, cutoff frequency, resonance -->
-<!-- 		Envelopes, velocity sensitivity, aftertouch -->
-<!-- 		Amplifiers -->
-<!-- 		Effects: delay/reverb/panning -->
-
-<!-- Complex modules and Compositions		 -->
-<!-- 	Controllers	 -->
-<!-- 		Clock, sequencing, arpggiators -->
-<!-- 		Euclidean rhythms -->
-<!-- 		Probability -->
-<!-- 	Generators	 -->
-<!-- 		PWM -->
-<!-- 		FM/AM -->
-<!-- 		Ring modulation -->
-<!-- 		Vocoders -->
-<!-- 		Random sampling -->
-<!-- 	Modifiers	 -->
-<!-- 		LFO -->
-<!-- 		Sample and hold -->
-<!-- 		Slew -->
-<!-- 		Wave-folding -->
-<!-- 		Attenuators, inverters, and attenuverters -->
-<!-- 		Quantizers -->
-<!-- 		Switches -->
-<!-- 		Logic -->
-
-
+```{r sample-lfo-trigger-ouaive, echo=F, out.width="100%", fig.cap="(ref:sample-lfo-trigger-ouaive)"}
+modular_caption(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
+```

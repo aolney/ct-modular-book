@@ -75,14 +75,14 @@
 <li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
 <li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
 <li><a class="active" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
-<li><a class="" href="modify.html"><span class="header-section-number">7</span> Modify</a></li>
+<li><a class="" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
 <li class="book-part">Sound Design 1</li>
 <li><a class="" href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></li>
 <li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
 <li class="book-part">Complex Modules</li>
 <li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
 <li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
-<li><a class="" href="modify-1.html"><span class="header-section-number">12</span> Modify</a></li>
+<li><a class="" href="modify.html"><span class="header-section-number">12</span> Modify</a></li>
 <li class="book-part">Sound Design 2</li>
 <li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
 <li><a class="" href="references.html">References</a></li>
@@ -422,7 +422,7 @@ This occurs because the two component waves, which have the same amplitude, comb
 
 <div class="figure">
 <span style="display:block;" id="fig:pwm"></span>
-<img src="07-fun-mod-create_files/figure-html/pwm-1.png" alt="Interference of a pulse wave with 25% duty cycle (gold) with a pulse wave with a 50% duty cycle (blue). Note the resulting wave (green) has a positive signal matching the 25% wave and a negative signal matching the 50% wave. Waves are offset for comparison." width="672"><p class="caption">
+<img src="06-fun-mod-generators_files/figure-html/pwm-1.png" alt="Interference of a pulse wave with 25% duty cycle (gold) with a pulse wave with a 50% duty cycle (blue). Note the resulting wave (green) has a positive signal matching the 25% wave and a negative signal matching the 50% wave. Waves are offset for comparison." width="672"><p class="caption">
 Figure 6.6: Interference of a pulse wave with 25% duty cycle (gold) with a pulse wave with a 50% duty cycle (blue). Note the resulting wave (green) has a positive signal matching the 25% wave and a negative signal matching the 50% wave. Waves are offset for comparison.
 </p>
 </div>
@@ -918,6 +918,13 @@ Samplers are thus very useful for performing with sounds that are difficult to s
 <p>Samplers do not perform synthesis per se, though there are crossovers like wavetable synthesis, as discussed in Section <a href="physics-and-perception-of-sound.html#waveshape-and-timbre">2.4</a>.
 Instead, samplers represent audio data, typically digital audio data, without representing the process that generated the data.
 Digital audio data is represented according to two parameters that each can be considered a kind of resolution, as shown in Figure <a href="generators.html#fig:sampling-rate-depth">6.16</a>.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:sampling-rate-depth"></span>
+<img src="images/sampling-rate-depth.png" alt="A wave digitized by sampling. The sampling rate corresponds to the distance between sample times on the horizontal \(t\) axis. The bit depth corresponds to the accuracy of distance between the axis and sampled points on the wave. The straight red segments are the digital reconstruction of the original wave based on the samples. Image public domain." width="80%"><p class="caption">
+Figure 6.16: A wave digitized by sampling. The sampling rate corresponds to the distance between sample times on the horizontal <span class="math inline">\(t\)</span> axis. The bit depth corresponds to the accuracy of distance between the axis and sampled points on the wave. The straight red segments are the digital reconstruction of the original wave based on the samples. Image <a href="https://commons.wikimedia.org/wiki/File:Signal_Sampling.svg">public domain</a>.
+</p>
+</div>
 <p>Sampling rate measures how close together each sample is taken.
 If the distance between the samples is small, a straight line is a good approximation of the curve of the wave, and the digital representation has good fidelity to the original sound.
 However, if frequency of the wave is high or the wave otherwise changes suddenly, those changes may be <em>between</em> samples and not show up in the digital representation at all.
@@ -929,13 +936,6 @@ A byte, which is 8 bits, has <span class="math inline">\(2^8=256\)</span> possib
 This means is that if two different points of the wave are within this resolution, they will be digitized to the same value.
 This is why higher bit depths have better fidelity to the original signal.
 Common bit depths are 16 and 24 bits per sample.</p>
-
-<div class="figure">
-<span style="display:block;" id="fig:sampling-rate-depth"></span>
-<img src="images/sampling-rate-depth.png" alt="A wave digitized by sampling. The sampling rate corresponds to the distance between sample times on the horizontal \(t\) axis. The bit depth corresponds to the accuracy of distance between the axis and sampled points on the wave. The straight red segments are the digital reconstruction of the original wave based on the samples. Image public domain." width="80%"><p class="caption">
-Figure 6.16: A wave digitized by sampling. The sampling rate corresponds to the distance between sample times on the horizontal <span class="math inline">\(t\)</span> axis. The bit depth corresponds to the accuracy of distance between the axis and sampled points on the wave. The straight red segments are the digital reconstruction of the original wave based on the samples. Image <a href="https://commons.wikimedia.org/wiki/File:Signal_Sampling.svg">public domain</a>.
-</p>
-</div>
 <p>While samplers offer less control over their representations than other forms of synthesis, they typically have many options for control, including playback within a sample, playing a sample at a faster/slower speed than the original, playing a sample in reverse, etc.
 These performance parameters are typically under voltage control and so can be controlled by a keyboard, sequencer, or other controller.
 Let’s take a look at keyboard control of a sampler that changes the playback position of a sample based on the keyboard’s output voltage.
@@ -1088,52 +1088,13 @@ $('.popover-dismiss').popover({
 Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO control of a sampler’s playback: forward, reverse, and speed.
 </p>
 </div>
-<!--        Oscillators (VCO) /LFO ; morphing between waveshapes/ PWM /sync-->
-<!-- noise -->
-<!--        Samplers -->
-<!-- Tremelo/vibrato? -->
-<!-- Fundamental Modules and Composition         -->
-<!--    Basic concepts   -->
-<!--         Module categories, signals, signal interpretation, 5 patchs from drone to key controller for pitch/gate with amplitude envelope -->
-<!--    Controllers  -->
-<!--        Controllers -->
-<!--        Trigger/gate, phase, sync -->
-<!--    Generators   -->
-<!--        Oscillators (VCO) /LFO ; morphing between waveshapes/ PWM /sync-->
-<!-- noise -->
-<!--        Samplers -->
-<!--    Modifiers    -->
-<!--        Filters (VCF): poles, slopes, cutoff frequency, resonance -->
-<!--        Envelopes, velocity sensitivity, aftertouch -->
-<!--        Amplifiers -->
-<!--        Effects: delay/reverb/panning -->
-<!-- Complex modules and Compositions        -->
-<!--    Controllers  -->
-<!--        Clock, sequencing, arpggiators -->
-<!--        Euclidean rhythms -->
-<!--        Probability -->
-<!--    Generators   -->
-<!--        PWM -->
-<!--        FM/AM -->
-<!--        Ring modulation -->
-<!--        Vocoders -->
-<!--        Random sampling -->
-<!--    Modifiers    -->
-<!--        LFO -->
-<!--        Sample and hold -->
-<!--        Slew -->
-<!--        Wave-folding -->
-<!--        Attenuators, inverters, and attenuverters -->
-<!--        Quantizers -->
-<!--        Switches -->
-<!--        Logic -->
 
 </div>
 </div>
 
   <div class="chapter-nav">
 <div class="prev"><a href="controllers.html"><span class="header-section-number">5</span> Controllers</a></div>
-<div class="next"><a href="modify.html"><span class="header-section-number">7</span> Modify</a></div>
+<div class="next"><a href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -1154,8 +1115,8 @@ Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO con
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/07-fun-mod-create.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/07-fun-mod-create.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/06-fun-mod-generators.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/06-fun-mod-generators.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -1167,7 +1128,7 @@ Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO con
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-27.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

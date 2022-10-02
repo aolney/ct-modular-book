@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 8 TODO insert effects here. | Computational Thinking through Modular Sounds Synthesis</title>
+
+    <meta name="author" content="Andrew M. Olney" />
+  
+   <meta name="description" content="This book presents computational thinking concepts and strategies in the context of modular sound synthesis." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 8 TODO insert effects here. | Computational Thinking through Modular Sounds Synthesis" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://olney.ai/ct-modular-book/index.html" />
+  
+  <meta property="og:description" content="This book presents computational thinking concepts and strategies in the context of modular sound synthesis." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 TODO insert effects here. | Computational Thinking through Modular Sounds Synthesis" />
+  
+  <meta name="twitter:description" content="This book presents computational thinking concepts and strategies in the context of modular sound synthesis." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.3.1/transition.js"></script>
+    <script src="libs/bs3compat-0.3.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.3.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Computational Thinking through Modular Sounds Synthesis</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="todo-insert-effects-here." class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> TODO insert effects here.</h1>
+<div id="voltage-controlled-filters" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Voltage controlled filters</h2>
+<p>Voltage controlled filters (VCFs) are an essential component of subtractive synthesis.
+Subtractive synthesis, as you recall, is characterized by taking harmonically complex waveshapes and then removing harmonic content to create the desired sounds.
+The opposite approach, additive synthesis, takes harmonically simple waveshapes and adds them together to create desired sounds; however, this becomes complex in analogue circuitry and is better suited to digital computers, which is why subtractive synthesis has historically been the dominant approach to synthesis.
+Filters, if you haven’t already guessed, are a primary method for removing harmonic content, which is why VCFs are an essential component of subtractive synthesis.</p>
+<p>As discussed in Chapter <a href="harmonic-and-inharmonic-sounds.html#harmonic-and-inharmonic-sounds">3</a>, timbre is intimately connected to waveshape, and removing harmonic content affects both the shape of the wave and its timbre.
+You may assume from our discussion of Fourier analysis that a filter will remove selected harmonics completely.
+If that were the case, we might expect a square wave with all but the first two harmonics filtered to look like Figure <a href="todo-insert-effects-here..html#fig:square-fourier-2-harmonics-2">8.1</a>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+
+<div class="figure"><span style="display:block;" id="fig:square-fourier-2-harmonics-2"></span>
+<img src="images/square-fourier-2-harmonics-2.png" alt="Fourier approximation of the first two harmonics of a square wave." width="100%" />
+<p class="caption">
+Figure 8.1: Fourier approximation of the first two harmonics of a square wave.
+</p>
+</div>
+<!-- Remaining plan -->
+<!--    Modifiers    -->
+<!--        Filters (VCF): poles, slopes, cutoff frequency, resonance -->
+<!--        Envelopes, velocity sensitivity, aftertouch -->
+<!--        Amplifiers -->
+<!--        Effects: delay/reverb/panning -->
+<!-- Complex modules and Compositions        -->
+<!--    Controllers  -->
+<!--        Clock, sequencing, arpggiators -->
+<!--        Euclidean rhythms -->
+<!--        Probability -->
+<!--    Generators   -->
+<!--        PWM -->
+<!--        FM/AM -->
+<!--        Ring modulation -->
+<pre><code>    &lt;!-- audio rate modulation into resonant filter? --&gt;</code></pre>
+<!--        Vocoders -->
+<!--        Random sampling -->
+<!--    Modifiers    -->
+<!--        ~~LFO~~ -->
+<!--        Sample and hold -->
+<!--        Slew -->
+<!--        Wave-folding -->
+<!--        Attenuators, inverters, and attenuverters -->
+<!--        Quantizers -->
+<!--        Switches -->
+<!--        Logic -->
+<!-- Actual -->
+<!--     4 Basic Modeling Concepts -->
+<!--     4.1 Modules are the model elements -->
+<!--     4.2 Signals are how the model elements interact -->
+<!--     4.3 Signals are interpreted by modules -->
+<!--     4.4 Pulling it all together -->
+<!--         4.4.1 Drone -->
+<!--         4.4.2 Using an oscilloscope -->
+<!--         4.4.3 Controlling pitch -->
+<!--         4.4.4 Controlling note duration (on/off volume) -->
+<!--         4.4.5 Controlling note dynamics (volume during note) -->
+<!--     4.5 Moving forward -->
+<!-- 5 Controllers -->
+<!-- 5.1 Clocks -->
+<!--     5.1.1 Clock under a scope -->
+<!--     5.1.2 Clock as a generator -->
+<!-- 5.2 Sequencers -->
+<!--     5.2.1 Clocks as sequencers -->
+<!--     5.2.2 Trigger sequencers -->
+<!--     5.2.3 Control voltage sequencers -->
+<!--     6 Generators -->
+<!--     6.1 Chords -->
+<!--     6.2 Chorus -->
+<!--     6.3 Low frequency oscillators & uses -->
+<!--         6.3.1 Pulse width modulation -->
+<!--         6.3.2 Vibrato -->
+<!--         6.3.3 Tremolo -->
+<!--     6.4 Synchronization -->
+<!--     6.5 Noise -->
+<!--     6.6 Samplers -->
+
+</div>
+</div>
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>This figure was created using the simulator in Section <a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum">3.2</a> which you can use to further explore these concepts.<a href="todo-insert-effects-here..html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-09-30.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+</body>
+
+</html>

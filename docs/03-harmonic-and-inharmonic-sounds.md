@@ -177,7 +177,7 @@ Are all sounds actually made out of sine waves, or is Fourier analysis only an a
 When we talk about sounds produced using standing waves, [harmonic motion](https://en.wikipedia.org/wiki/Harmonic_oscillator) tells us the sound waves are sine waves.
 Therefore when Fourier analysis is applied to these types of sounds, its solution closely corresponds to how the sounds were generated.
 However, when the sounds are produced by other means, Fourier analysis no longer corresponds to how the sounds were generated, even though it may approximate them arbitrarily.
-These distinctions perhaps matter when we are concerned with listening to sound, since our auditory system [decomposes complex sounds into frequency bands](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5819010#S8title) analogous to Fourier analysis, regardless of how the sound was produced.
+These distinctions perhaps don't matter when we are concerned with listening to sound, since our auditory system [decomposes complex sounds into frequency bands](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5819010#S8title) analogous to Fourier analysis, regardless of how the sound was produced.
 
 ## Inharmonic standing waves and noise
 

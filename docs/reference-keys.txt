@@ -73,6 +73,9 @@ fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope
 fig:sampling-rate-depth
 fig:sample-12key-ouaive
 fig:sample-lfo-trigger-ouaive
+fig:square-fourier-2-harmonics-2
+fig:vcf-square-out
+fig:noiz-lfp-out-fft
 introduction
 why-this-book
 computational-thinking
@@ -121,10 +124,12 @@ tremolo
 synchronization
 noise
 samplers
-modify
+modifiers
+todo-insert-effects-here.
+voltage-controlled-filters
 kick-cymbal
 lead-bass
 trigger
 create
-modify-1
+modify
 minimoog-303
