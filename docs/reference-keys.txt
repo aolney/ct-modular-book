@@ -76,6 +76,11 @@ fig:sample-lfo-trigger-ouaive
 fig:square-fourier-2-harmonics-2
 fig:vcf-square-out
 fig:noiz-lfp-out-fft
+fig:lfo-lfp-out-scope-fft
+fig:square-lpf-hpf
+fig:bode-low-pass
+fig:bode-high-pass
+fig:noiz-lpf-out-scope-fft
 introduction
 why-this-book
 computational-thinking
@@ -127,6 +132,9 @@ samplers
 modifiers
 todo-insert-effects-here.
 voltage-controlled-filters
+filters-are-imperfect
+filters-change-frequency-and-phase
+resonance-and-combining-filters
 kick-cymbal
 lead-bass
 trigger
