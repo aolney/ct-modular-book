@@ -370,17 +370,187 @@ As before the range of frequencies affected by the filter extends on both sides 
 The main difference is in the sign of the phase shift in the lower subplot.
 Instead of being negative because the frequencies have been slowed down, the phase shift is now positive because the affected frequencies have been sped up.</p>
 </div>
-<div id="resonance-and-combining-filters" class="section level3" number="7.2.3">
+<div id="combining-filters" class="section level3" number="7.2.3">
 <h3>
-<span class="header-section-number">7.2.3</span> Resonance and combining filters<a class="anchor" aria-label="anchor" href="#resonance-and-combining-filters"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.2.3</span> Combining filters<a class="anchor" aria-label="anchor" href="#combining-filters"><i class="fas fa-link"></i></a>
 </h3>
-<p>Resonant filters have been an important sound in electronic music even before modular synthesizers<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/" class="uri"&gt;https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/&lt;/a&gt;&lt;/p&gt;'><sup>57</sup></a>.
+<p>In the previous Bode plots, the cutoff frequency marked the location past which the amplitude reduced by 6 dB/Oct.
+This bend in the frequency response of the filter is called a pole, and the RC circuit is therefore an example of a 1-pole filter element.
+To get greater reductions than 6 dB/Oct, multiple 1-pole filter elements can be combined.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;RC circuits cannot be combined this way, but they remain useful for understanding the additive effect of each element.&lt;/p&gt;"><sup>57</sup></a>
+Each filter element has a distinct pole, so the overall shape of the drop off has bends corresponding to these poles.
+This means that a 4-pole filter would have four distinct regions of drop off rather than the single region we looked at before.
+Each region would contribute both to amplitude attenuation and phase shift at a given frequency.
+Common VCFs range from 1-4 poles and therefore implement 6, 12, 18, or 24 dB/Oct reductions in amplitude.
+It should now be clear why filters have such characteristic sounds: the many different design choices in a filter, ranging from the selection of components to the arrangement of filter elements, each contributes to a specific effect on both amplitude attenuation and phase for each frequency filtered.</p>
+<p>In addition to combining filters of the same type, we can also combine filters of different types.
+As you might expect, multiple filters working in different frequency directions create complex phase relationships as each independently contributes to amplitude attenuation and phase for each frequency filtered.
+A band-pass filter can be created by combining an LPF and HPF in series.
+A band-pass filter mostly lets through frequencies within a range but more strongly attenuates frequencies outside that range.
+Try making a band-pass filter using two VCFs using the button in Figure <a href="modifiers.html#fig:lfo-lpf-hpf-out-scope-fft">7.8</a>.
+Since there are now two cutoffs to control to hear the combined filter sweep, hook up an LFO to each VCF cutoff frequency.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setlfo_lpf_hpf_out_scope_fftIframe('https://cardinal.olney.ai?patchurl=lfo-lfp-out-scope-fft.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#lfo_lpf_hpf_out_scope_fft">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="lfo_lpf_hpf_out_scope_fft" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="lfo_lpf_hpf_out_scope_fftLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="lfo_lpf_hpf_out_scope_fftLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add another VCF to the right of the existing VCF. The left will be LPF and the right HPF.&lt;/li&gt;
+&lt;li&gt;Connect LPF out to HPF in and remove all other connections from LPF out&lt;/li&gt;
+&lt;li&gt;Connect HPF out to Host audio L, Scope input 2, and Sassy input 2&lt;/li&gt;
+&lt;li&gt;You may wish to use a square wave as Scope EXT TRG&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
+&lt;li&gt;Your two VCFs should have the same cutoff freq now&lt;/li&gt;
+&lt;li&gt;Try to change the two cutoffs to make the peak higher without making it wider&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Add an LFO to control the cutoff frequencies of both VCFs&lt;/li&gt;
+&lt;li&gt;Connect that LFO triangle out to both VCF cutoffs&lt;/li&gt;
+&lt;li&gt;Change the VCF cutoffs attenuators to 100% to allow the full LFO signal&lt;/li&gt;
+&lt;li&gt;Set a low LFO frequency (&lt; .5) and note the changes in sound and the spectrum&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/lfo-lpf-hpf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setlfo_lpf_hpf_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="lfo_lpf_hpf_out_scope_fft-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setlfo_lpf_hpf_out_scope_fftIframe(url){
+  var lfo_lpf_hpf_out_scope_fftIframe = document.getElementById("lfo_lpf_hpf_out_scope_fft-iframe");
+  lfo_lpf_hpf_out_scope_fftIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:lfo-lpf-hpf-out-scope-fft"></span>
+<p class="caption">
+Figure 7.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for combining LPF and HPF filters to make a band-pass filter and animating it with an LFO.
+</p>
+</div>
+<p>A notch filter<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A notch filter is sometimes called a band-reject filter.&lt;/p&gt;"><sup>58</sup></a> can be created by combining an LPF and HPF in parallel.
+A notch filter mostly lets through every thing but frequencies within a range.
+Try making a notch filter using two VCFs and a mixer using the button in Figure <a href="modifiers.html#fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft">7.9</a>.
+As before, there are two cutoffs to control to hear the combined filter sweep, so an LFO can be used to control each VCF cutoff frequency.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setlfo_lfo_lpf_hpf_mixer_out_scope_fftIframe('https://cardinal.olney.ai?patchurl=lfo-lpf-hpf-out-scope-fft.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#lfo_lfo_lpf_hpf_mixer_out_scope_fft">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="lfo_lfo_lpf_hpf_mixer_out_scope_fft" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="lfo_lfo_lpf_hpf_mixer_out_scope_fftLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="lfo_lfo_lpf_hpf_mixer_out_scope_fftLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Change the VCF cutoffs attenuators to 0% to temporarily disable the LFO signal changing those cutoffs&lt;/li&gt;
+&lt;li&gt;Add a QuadVCA/Mixer between the last VCF and Host audio out&lt;/li&gt;
+&lt;li&gt;Connect audio rate LFO square out to VCF 1 in and VCF 2 in&lt;/li&gt;
+&lt;li&gt;Connect VCF 1 LPF out to QuadVCA input 1 and remove all other connections from LPF out&lt;/li&gt;
+&lt;li&gt;Connect VCF 2 HPF out to  QuadVCA input 2&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA mix out to Scope input 2, and Sassy input 2, and Host audio L&lt;/li&gt;
+&lt;li&gt;Adjust the top left sliders for Sassy to 1x; this will make it easier to see the notch&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
+&lt;li&gt;Your two VCFs should have the same cutoff freq now&lt;/li&gt;
+&lt;li&gt;Try to change the two cutoffs to make the notch low without making it wide&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Change the VCF cutoffs attenuators to 100% to allow the full LFO signal&lt;/li&gt;
+&lt;li&gt;Set a low LFO frequency (&lt; .5) and note the changes in sound and the spectrum&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/lfo-lfo-lpf-hpf-mixer-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setlfo_lfo_lpf_hpf_mixer_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="lfo_lfo_lpf_hpf_mixer_out_scope_fft-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setlfo_lfo_lpf_hpf_mixer_out_scope_fftIframe(url){
+  var lfo_lfo_lpf_hpf_mixer_out_scope_fftIframe = document.getElementById("lfo_lfo_lpf_hpf_mixer_out_scope_fft-iframe");
+  lfo_lfo_lpf_hpf_mixer_out_scope_fftIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft"></span>
+<p class="caption">
+Figure 7.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for combining LPF and HPF filters to make a notch filter and animating it with an LFO.
+</p>
+</div>
+</div>
+<div id="resonance" class="section level3" number="7.2.4">
+<h3>
+<span class="header-section-number">7.2.4</span> Resonance<a class="anchor" aria-label="anchor" href="#resonance"><i class="fas fa-link"></i></a>
+</h3>
+<p>Resonant filters have been an important sound in electronic music even before modular synthesizers<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/" class="uri"&gt;https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/&lt;/a&gt;&lt;/p&gt;'><sup>59</sup></a>.
 We previously discussed resonance in Section <a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum">3.2</a>, but in terms of real instruments.
 <a href="https://en.wikipedia.org/wiki/Electrical_resonance">Electrical resonance</a> is similar and can be understood analogously to waves reflecting off the fixed end of a string to create a standing wave.
 In the case of the filter, feedback from the frequency at the filter cutoff point “reflects” back into the circuit and interferes with the original signal.
 As long as the two signals are aligned in phase, they will constructively interfere and amplify the frequencies at the cutoff point.
 If the feedback increases beyond a certain point, the filter will begin to oscillate and effectively turn into a sine wave VCO.
-Try patching up a resonant filter using white noise using the button in Figure <a href="modifiers.html#fig:noiz-lpf-out-scope-fft">7.8</a>.
+Try patching up a resonant filter using white noise using the button in Figure <a href="modifiers.html#fig:noiz-lpf-out-scope-fft">7.10</a>.
 If you crank up the resonance on the filter, you will get a sine wave even though the input is just noise.
 This illustrates that resonance is a property of the filter itself, not of the input.
 Try also extending the patch using square wave input to see what resonant filter sweeps sound and look like on a wave.
@@ -416,9 +586,6 @@ You should see that the cutoff frequency and resonance interact in interesting w
 &lt;/li&gt;
 &lt;li&gt;Repeat with the HPF out to observe high-pass filtering&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/sassy-scope-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/noiz-lpf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setnoiz_lpf_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -457,7 +624,7 @@ $('.popover-dismiss').popover({
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:noiz-lpf-out-scope-fft"></span>
 <p class="caption">
-Figure 7.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying resonant filtering on white noise and a square wave.
+Figure 7.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying resonant filtering on white noise and a square wave.
 </p>
 </div>
 <!-- Remaining plan -->
@@ -537,7 +704,8 @@ Figure 7.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying
 <a class="nav-link" href="#voltage-controlled-filters"><span class="header-section-number">7.2</span> Voltage controlled filters</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#filters-are-imperfect"><span class="header-section-number">7.2.1</span> Filters are imperfect</a></li>
 <li><a class="nav-link" href="#filters-change-frequency-and-phase"><span class="header-section-number">7.2.2</span> Filters change frequency and phase</a></li>
-<li><a class="nav-link" href="#resonance-and-combining-filters"><span class="header-section-number">7.2.3</span> Resonance and combining filters</a></li>
+<li><a class="nav-link" href="#combining-filters"><span class="header-section-number">7.2.3</span> Combining filters</a></li>
+<li><a class="nav-link" href="#resonance"><span class="header-section-number">7.2.4</span> Resonance</a></li>
 </ul>
 </li>
 </ul>

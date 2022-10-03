@@ -80,6 +80,8 @@ fig:lfo-lfp-out-scope-fft
 fig:square-lpf-hpf
 fig:bode-low-pass
 fig:bode-high-pass
+fig:lfo-lpf-hpf-out-scope-fft
+fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft
 fig:noiz-lpf-out-scope-fft
 introduction
 why-this-book
@@ -134,7 +136,8 @@ todo-insert-effects-here.
 voltage-controlled-filters
 filters-are-imperfect
 filters-change-frequency-and-phase
-resonance-and-combining-filters
+combining-filters
+resonance
 kick-cymbal
 lead-bass
 trigger

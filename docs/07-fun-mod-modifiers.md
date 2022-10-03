@@ -150,7 +150,52 @@ As before the range of frequencies affected by the filter extends on both sides 
 The main difference is in the sign of the phase shift in the lower subplot.
 Instead of being negative because the frequencies have been slowed down, the phase shift is now positive because the affected frequencies have been sped up.
 
-### Resonance and combining filters 
+### Combining filters 
+
+In the previous Bode plots, the cutoff frequency marked the location past which the amplitude reduced by 6 dB/Oct.
+This bend in the frequency response of the filter is called a pole, and the RC circuit is therefore an example of a 1-pole filter element.
+To get greater reductions than 6 dB/Oct, multiple 1-pole filter elements can be combined.^[RC circuits cannot be combined this way, but they remain useful for understanding the additive effect of each element.]
+Each filter element has a distinct pole, so the overall shape of the drop off has bends corresponding to these poles.
+This means that a 4-pole filter would have four distinct regions of drop off rather than the single region we looked at before.
+Each region would contribute both to amplitude attenuation and phase shift at a given frequency.
+Common VCFs range from 1-4 poles and therefore implement 6, 12, 18, or 24 dB/Oct reductions in amplitude.
+It should now be clear why filters have such characteristic sounds: the many different design choices in a filter, ranging from the selection of components to the arrangement of filter elements, each contributes to a specific effect on both amplitude attenuation and phase for each frequency filtered.
+
+In addition to combining filters of the same type, we can also combine filters of different types.
+As you might expect, multiple filters working in different frequency directions create complex phase relationships as each independently contributes to  amplitude attenuation and phase for each frequency filtered.
+A band-pass filter can be created by combining an LPF and HPF in series.
+A band-pass filter mostly lets through frequencies within a range but more strongly attenuates frequencies outside that range.
+Try making a band-pass filter using two VCFs using the button in Figure \@ref(fig:lfo-lpf-hpf-out-scope-fft).
+Since there are now two cutoffs to control to hear the combined filter sweep, hook up an LFO to each VCF cutoff frequency.
+
+(ref:lfo-lpf-hpf-out-scope-fft) [Virtual modular](https://cardinal.olney.ai) for combining LPF and HPF filters to make a band-pass filter and animating it with an LFO.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-lpf-hpf-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:lfo-lpf-hpf-out-scope-fft)(ref:lfo-lpf-hpf-out-scope-fft)</p>
+</div>
+
+A notch filter^[A notch filter is sometimes called a band-reject filter.] can be created by combining an LPF and HPF in parallel.
+A notch filter mostly lets through every thing but frequencies within a range.
+Try making a notch filter using two VCFs and a mixer using the button in Figure \@ref(fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft).
+As before, there are two cutoffs to control to hear the combined filter sweep, so an LFO can be used to control each VCF cutoff frequency.
+
+(ref:lfo-lfo-lpf-hpf-mixer-out-scope-fft) [Virtual modular](https://cardinal.olney.ai) for combining LPF and HPF filters to make a notch filter and animating it with an LFO.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-lfo-lpf-hpf-mixer-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft)(ref:lfo-lfo-lpf-hpf-mixer-out-scope-fft)</p>
+</div>
+
+### Resonance
 
 Resonant filters have been an important sound in electronic music even before modular synthesizers^[https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/].
 We previously discussed resonance in Section \@ref(resonators-formants-and-frequency-spectrum), but in terms of real instruments.
