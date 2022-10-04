@@ -8,7 +8,316 @@ That chapter also introduced envelopes that modify control voltage, and we have 
 This chapter expands upon audio modifiers specifically and focuses on two foundational categories of modifiers, effects and voltage controlled filters.
 Effects can substantially enrich the sounds you create both in terms of thickness of sound and sense of acoustic space, and voltage controlled filters create some of the most defining sounds in electronic music.
 
-## TODO insert effects here.
+## Effects
+
+There are perhaps an infinite number of possible audio effects.
+This section focuses on time-based effects, as the ideas behind these are complementary to the following discussion of voltage controlled filters.
+Time and phase are closely related when we're talking about a repeating waveshape.
+Imagine you put a red dot on the outside of a car tire  and start driving.
+At any moment, you can stop the car and the red dot will be in a certain position, which you can describe as an angle relative to the ground.
+If the car has been moving at the same speed the entire time, you can exactly predict where the red dot will be.
+Figure \@ref(fig:wheel-sine) shows an abstract rendering of this example, highlighting the relationship between the rotation of the wheel (in radians) and the shape of a sine wave.
+
+(ref:wheel-sine) Relation between a unit circle and a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
+
+```{r wheel-sine, echo=F, out.width="80%", fig.cap="(ref:wheel-sine)"}
+embed_linked_media("images/wheel-sine.gif")
+```
+
+The discussion of simultaneously-sounding oscillators in Chapter \@ref(generators) emphasized phase relationships between the oscillators as well as slight tuning differences between the oscillators, both of which can give a fuller sound.
+Phase captures everything about the relationship between continuous tones because the amount one signal has been offset relative to another can always be reduced to between 0 and 360 degrees (or $2pi$).^[If the offset is more than 360 degrees, it simply wraps around to a value equivalent to a value between 0 and 360 degrees, e.g. 370 degrees is the same as 10 degrees.]
+However, music does not consist of continuous tones.
+
+When we begin to consider music more broadly, it makes sense to think of phase and offset distance being decoupled depending on how much time has passed.
+In real music, simultaneous sounds don't repeat forever but rather change over fairly short timescales, e.g. the envelope of a kick drum.
+For brief moments of time, phase relationships capture most everything, but for longer offset distances, the amount of time that has passed is more relevant than phase relationships.
+For this reason, time-based effects for short periods of time are often described in terms of phase, and longer-period effects are described in terms to time.
+Figure \@ref(fig:moon-phase-time) illustrates this idea with 6 seconds of natural sound (top) compared to .03 seconds of that same sound (bottom).
+While the longer stretch is clearly not repeating, the shorter stretch is approximately repeating and could be usefully characterized in terms of phase.
+
+(ref:moon-phase-time) Six seconds of natural sound (upper) with no clear repeating structure and .03 seconds of that same sound (lower) with approximate repeating structure.
+
+```{r moon-phase-time, echo=F, out.width="88%", fig.cap="(ref:moon-phase-time)"}
+ knitr::include_graphics("images/moon-phase-time.png")
+```
+
+Unlike the topics we've previously covered, time-based effects tend to be implemented by single modules rather than by collections of modules working together.
+Therefore our discussion will focus on the concepts behind these effects and modules that implement them.
+We'll begin with effects operating on the longest time scales and move progressively downward until the effects are based in phase.
+
+### Delays
+
+A [delay effect](https://en.wikipedia.org/wiki/Delay_(audio_effect)) copies some portion of of the signal and then replays it, typically mixed in with the original signal.
+The ratio of original signal to processed signal is commonly referred to as dry/wet, where dry is the original signal and wet is the processed signal.
+Common parameters of delays include the length of the delayed and the number of times it repeats.
+Often a decay parameter is applied so that the delayed copy gets attenuated with each repetition.
+Some delays can play back multiple copies at once, which blurs the boundary between a delay effect and reverb.
+An example delay effect is shown in Figure \@ref(fig:moonshot-delay2s). 
+The original signal ([JFK's famous moon speech](https://en.wikipedia.org/wiki/We_choose_to_go_to_the_Moon)), is copied and then a delay effect applied to the copy, with decay.
+Note that the delay effect extends well beyond the length of the original audio.
+Delay is the longest time-based effect we will discuss, typically ranging from a hundred milliseconds to multiple seconds.
+
+(ref:moonshot-delay2s) [Delay](https://olney.ai/ct-modular-book/images/moonshot-delay2s.png-moonshot-delay2s.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The decaying echos of the delay make the lower track significantly longer than the original.
+
+
+```{r, moonshot-delay2s, out.width='100%', fig.cap="(ref:moonshot-delay2s)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+  image_ogg_figure("moonshot-delay2s.png","moonshot-delay2s.ogg",height="370px")
+```
+
+Let's take a look at a delay module.
+The main controls are the time (length of the delay offset), the feedback (amount of decay), and the wet/dry mix.
+These parameters can be set using knobs for a consistent sound but also modulated to create very unusual sounds.
+Try patching up a reverb into a single voice keyboard patch using the button in Figure \@ref(fig:twelvekey-env-delay).
+
+(ref:twelvekey-env-delay) [Virtual modular](https://cardinal.olney.ai) for a delay effect.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("twelvekey-env-delay", starter_file="key-envelope_12key-vco-env-vca-scope-out.vcv", instructions_html="<ul>
+<li>Add Delay between Scope and Host audio</li>
+<li>Connect Scope out 1 to Delay in</li>
+<li>Connect Delay wet to Host Audio L</li>
+<li>Try the following and note the differences in the sound<ul>
+<li>Periodically pressing the 12 key, change the time setting on the delay</li>
+<li>Periodically pressing the 12 key, change the feedback setting on the delay</li>
+</ul>
+</li>
+<li>Change Delay wet out to mix out and then use the mix knob to mix the dry/wet sound</li>
+<li>Connect ADSR out to Delay Time in and FDBK in, make their attenuator knobs slightly positive, and press a key</li>
+<li>You could similarly control the effect using an LFO or other modulator</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img src='images/solo-modules/delay-solo.png' style='height: 300px; width: auto'>
+</div>
+",solution_html="<img src='images/patch-solutions/twelvekey-env-delay.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r twelvekey-env-delay, echo=F, out.width="100%", fig.cap="(ref:twelvekey-env-delay)"}
+modular_caption()
+```
+
+### Reverb
+
+A [reverb effect](https://en.wikipedia.org/wiki/Reverb_effect) is a delay-time effect with multiple overlapping copies and relatively fast decays.
+Reverb conveys a sense of space, or room that the sound is occuring in, because it emulates the reflections of sound off various surfaces at different distances.
+Sound travels at about 1100 feet per second, or a 1.1 feet per millisecond, so each foot of different distance in the reflection should cause an offset of about 1 millisecond relative to other reflections and the original sound.
+One of the earliest ways of creating reverb was to take a recording and play it back in a particular space while simultaneously re-recording it with a microphone in that space.
+The approach effectively "bakes in" the natural reverb of the room onto the recording.
+Various electronic methods have been used to create a reverb effect using physical media.
+Notably among these is the spring reverb, which passes the signal through a spring and uses the reflections created in the spring to model the reflections of sound.
+
+Reverb has been added to the speech example in in Figure \@ref(fig:moonshot-reverb75), and like delay extends beyond the length of the original audio.
+However, the duration it extends is much shorter (about 300 milliseconds), reflecting a faster decay time.
+Note that this recording was taken in a stadium that already had significant natural reverb.
+
+(ref:moonshot-reverb75) [Reverb](https://olney.ai/ct-modular-book/images/moonshot-reverb75.png-moonshot-reverb75.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The added reverb slightly extends the length of the original track and is most noticeable at that point due to the natural reverb in the original recording.
+
+
+```{r, moonshot-reverb75, out.width='100%', fig.cap="(ref:moonshot-reverb75)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+  image_ogg_figure("moonshot-reverb75.png","moonshot-reverb75.ogg",height="370px")
+```
+
+Let's take a look at a reverb module.
+The main controls are the input level, high-pass filtering^[High-pass filtering will be explained in detail later in the chapter.], and the wet/dry mix.
+This reverb module uses a combinations of sliders and knobs for parameter settings, but these can again be both manually set and modulated to create interesting sounds.
+Try patching up a reverb into a single voice keyboard patch using the button in Figure \@ref(fig:twelvekey-env-reverb).
+
+(ref:twelvekey-env-reverb) [Virtual modular](https://cardinal.olney.ai) for a reverb effect.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("twelvekey-env-reverb", starter_file="key-envelope_12key-vco-env-vca-scope-out.vcv", instructions_html="<ul>
+<li>Add Spring reverb between Scope and Host audio</li>
+<li>Connect Scope out 1 to Spring reverb in 1</li>
+<li>Connect Spring reverb wet to Host Audio L and Scope in 2</li>
+<li>Move the left slider on Spring reverb up to set the level of the effect</li>
+<li>Try the following and note the differences in the sound<ul>
+<li>Periodically pressing the 12 key, change the level setting on the reverb</li>
+<li>Periodically pressing the 12 key, change the HPF (high pass filter) setting on the reverb</li>
+</ul>
+</li>
+<li>Change Spring reverb wet out to mix out and then use the mix knob to mix the dry/wet sound</li>
+<li>Connect ADSR out to Spring reverb CV in 1 and press a key (the change is subtle; see the level difference on the scope</li>
+<li>Change the ADSR to the Gate from the 12 key; this will produce a knocking sound</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img src='images/solo-modules/befaco-spring-reverb-solo.png' style='height: 300px; width: auto'>
+</div>
+",solution_html="<img src='images/patch-solutions/twelvekey-env-reverb.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r twelvekey-env-reverb, echo=F, out.width="100%", fig.cap="(ref:twelvekey-env-reverb)"}
+modular_caption()
+```
+
+### Chorus {#chorus-effect}
+
+A [chorus effect](https://en.wikipedia.org/wiki/Chorus_(audio_effect)) creates copies of the original signal with slight frequency and phase changes relative to the original.
+We previously discussed chorus in Section \@ref(chorus-oscillators) in the context of multiple oscillators playing together.
+The chorus effect is similar except that it applies to the overall audio signal, and it typically has an internal LFO that controls the phase offsets between copies of the signal. 
+
+Chorus has been added to the speech example in in Figure \@ref(fig:moonshot-chorus), and unlike the previous effects, does not noticeably extend beyond the length of the original audio.
+Instead you can see an effect on the shape of the wave as the copies interfere with each other.
+In this example, the chorus delay is 20 milliseconds, which is in the middle of the typical chorus range of 10-30 milliseconds.
+
+(ref:moonshot-chorus) [Chorus](https://olney.ai/ct-modular-book/images/moonshot-chorus.png-moonshot-chorus.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of copies of the original signal delayed by 20 milliseconds.
+
+
+```{r, moonshot-chorus, out.width='100%', fig.cap="(ref:moonshot-chorus)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+  image_ogg_figure("moonshot-chorus.png","moonshot-chorus.ogg",height="372px")
+```
+
+Let's take a look at a chorus module.
+The main controls are the rate and depth of the internal LFO and the wet/dry mix.
+As before, the controls can be manually set or voltage-controlled. 
+Try patching up a chorus into a single voice keyboard patch using the button in Figure \@ref(fig:twelvekey-env-chorus).
+
+(ref:twelvekey-env-chorus) [Virtual modular](https://cardinal.olney.ai) for a chorus effect.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("twelvekey-env-chorus", starter_file="key-envelope_12key-vco-env-vca-scope-out.vcv", instructions_html="<ul>
+<li>Add Chorus between Scope and Host audio</li>
+<li>Connect Scope out 1 to Chours in L</li>
+<li>Connect Chorus out L to Host Audio L and Scope in 2</li>
+<li>Try the following and note the differences in the sound<ul>
+<li>Periodically pressing the 12 key, change the range setting on the chorus</li>
+<li>Periodically pressing the 12 key, change the speed setting on the chorus</li>
+<li>Periodically pressing the 12 key, change the the dry/wet mix on the chorus</li>
+</ul>
+</li>
+<li>Connect ADSR out to speed and range to get some bird-like sounds</li>
+<li>You could similarly control the effect using an LFO or other modulator</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img src='images/solo-modules/rackwindows-chorus-solo.png' style='height: 300px; width: auto'>
+</div>
+",solution_html="<img src='images/patch-solutions/twelvekey-env-chorus.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r twelvekey-env-chorus, echo=F, out.width="100%", fig.cap="(ref:twelvekey-env-chorus)"}
+modular_caption()
+```
+
+### Flanger
+
+A [flanger, or flanging effect](https://en.wikipedia.org/wiki/Flanging#Comparison_with_phase_shifting) is created by creating one copy of the signal and delaying it very briefly, typically 1-5 milliseconds.
+This slight shift causes harmonically-related frequencies in the signal to be amplified.
+For example, 1 millisecond shift means that every 1000 Hz, the original signal will be doubled in amplitude through constructive interference.
+This doubling will occur for all integer multiples of 1000 Hz, and so produces a harmonic series with 1000 Hz as the fundamental.
+Thus a stable offset can create a harmonic sound even out of noise, as shown in Figure \@ref(fig:noise-comb).
+Flangers typically use an LFO to vary the offset to create a sweep across such sounds.
+
+(ref:noise-comb) [Youtube video](https://www.youtube.com/watch?v=k5ewou_8Abc) of pink noise with increasing 1 millisecond offsets. Note the harmonic noise that emerges as well as the comb shape of the frequency spectrum. Image [© Sweetwater](https://www.youtube.com/c/sweetwater).
+
+```{r noise-comb, fig.cap="(ref:noise-comb)", echo = F}
+embed_youtube("k5ewou_8Abc",0)
+```
+
+A flanger has been added to the speech example in in Figure \@ref(fig:moonshot-flanger5ms), and like chorus does not noticeably extend beyond the length of the original audio.
+Additionally, and like chorus, you can see an effect on the shape of the wave as the delayed copy of the signal interferes with the original.
+In this example, the flanger delay is 1 millisecond and so produces a sweeping tone around 1000 Hz.
+
+(ref:moonshot-flanger5ms) [Flanger](https://olney.ai/ct-modular-book/images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of a copy of the original signal delayed by 1 millisecond.
+
+
+```{r, moonshot-flanger5ms, out.width='100%', fig.cap="(ref:moonshot-flanger5ms)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+  image_ogg_figure("moonshot-flanger5ms.png","moonshot-flanger5ms.ogg",height="370px")
+```
+
+
+Let's take a look at a flanger module.
+The main controls are the rate and depth of the internal LFO and the flanging offset.
+As before, the controls can be manually set or voltage-controlled. 
+Try patching up a flanger into a single voice keyboard patch using the button in Figure \@ref(fig:twelvekey-env-flanger).
+
+(ref:twelvekey-env-flanger) [Virtual modular](https://cardinal.olney.ai) for a flanger effect.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("twelvekey-env-flanger", starter_file="key-envelope_12key-vco-env-vca-scope-out.vcv", instructions_html="<ul>
+<li>Add Vibrato between Scope and Host audio</li>
+<li>Connect Scope out 1 to Vibrato in</li>
+<li>Connect Vibrato out to Host Audio L and Scope in 2</li>
+<li>Try the following and note the differences in the sound<ul>
+<li>Periodically pressing the 12 key, change the flange setting</li>
+<li>Periodically pressing the 12 key, change the frequency setting</li>
+<li>Periodically pressing the 12 key, change the width setting</li>
+</ul>
+</li>
+<li>Connect ADSR out to freq, width, and flange to get some bird-like sounds</li>
+<li>Use the attenuator knobs below these jacks to change the depth of the modulation </li>
+<li>You could similarly control the effect using an LFO or other modulator</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img src='images/solo-modules/autinn-vibrato-solo.png' style='height: 300px; width: auto'>
+</div>
+",solution_html="<img src='images/patch-solutions/twelvekey-env-flanger.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r twelvekey-env-flanger, echo=F, out.width="100%", fig.cap="(ref:twelvekey-env-flanger)"}
+modular_caption()
+```
+
+### Phaser
+
+A [phaser effect](https://en.wikipedia.org/wiki/Phaser_(effect)) does not apply a delay.
+Instead, a phaser shifts the phase of frequencies based on the values of those frequencies.
+As a result, some frequencies are phase shifted behind the original signal while others are phase shifted ahead of the original signal.
+Typically phasers have multiple stages of phase shifting to magnify the effect.
+The variation in phase shifting means that while a phaser produces peaks in frequency spectrum like a flanger, those peaks are not harmonically related.
+A rough analogy would be that a flanger is to a phaser like a single delay is to a reverb: the former cases use a single copy whereas the latter cases use multiple diffuse copies.
+
+A phaser has been added to the speech example in in Figure \@ref(fig:moonshot-phaser), and like chorus and flanger does not noticeably extend beyond the length of the original audio.
+The effect on the shape of the wave is quite subtle compared to the flanger, reflecting the constructive and destructive interference resulting from the phaser.
+
+
+(ref:moonshot-phaser) [Phaser](https://olney.ai/ct-modular-book/images/moonshot-phaser.png-moonshot-phaser.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The effect on the shape of the wave is subtle and reflects both constructive and destructive interference.
+
+
+```{r, moonshot-phaser, out.width='100%', fig.cap="(ref:moonshot-phaser)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+  image_ogg_figure("moonshot-phaser.png","moonshot-phaser.ogg",height="372px")
+```
+
+
+Let's take a look at a phaser module.
+The main controls are the rate and depth of the internal LFO and feedback.
+As before, the controls can be manually set or voltage-controlled. 
+Try patching up a phaser into a single voice keyboard patch using the button in Figure \@ref(fig:twelvekey-env-phaser).
+
+(ref:twelvekey-env-phaser) [Virtual modular](https://cardinal.olney.ai) for a phaser effect.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("twelvekey-env-phaser", starter_file="key-envelope_12key-vco-env-vca-scope-out.vcv", instructions_html="<ul>
+<li>Add Phaser FX between Scope and Host audio</li>
+<li>Connect Scope out 1 to Phaser in</li>
+<li>Connect Phaser out to Host Audio L and Scope in 2</li>
+<li>Try the following and note the differences in the sound<ul>
+<li>Periodically pressing the 12 key, change the rate setting</li>
+<li>Periodically pressing the 12 key, change the feedback setting (try holding down the key)</li>
+<li>Periodically pressing the 12 key, change the depth setting</li>
+</ul>
+</li>
+<li>Connect ADSR out to the CV inputs for these knobs</li>
+<li>Once connected, these knobs act like attenuators and control the depth of the modulation </li>
+<li>You could similarly control the effect using an LFO or other modulator</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img src='images/solo-modules/phaserfx-solo.png' style='height: 300px; width: auto'>
+</div>
+",solution_html="<img src='images/patch-solutions/twelvekey-env-phaser.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r twelvekey-env-phaser, echo=F, out.width="100%", fig.cap="(ref:twelvekey-env-phaser)"}
+modular_caption()
+```
+
 
 ## Voltage controlled filters
 
@@ -119,11 +428,12 @@ modular_caption()
 
 ### Filters change frequency and phase
 
-VCFs change more than just frequency spectrum - they also change the phase of those frequencies.
+To understand why VCFs are behaving this way, we need to understand how they work.
 The best way to understand VCFs, which are complex, is in terms of the passive [RC circuit](https://en.wikipedia.org/wiki/RC_circuit).
 When a signal runs through an RC circuit, the circuit leeches out energy from certain parts of the waveshape and returns that energy at other parts, as shown in Figure \@ref(fig:square-lpf-hpf).
 While a full explanation of how the RC circuit works is out of scope,^[For a good basic explanation of an RC circuit, see [this video](https://youtu.be/3tMGNI--ofU).] we can nevertheless describe what it does to explain what a VCF does.
 The overarching idea is that when an RC circuit leeches energy out of a signal, it slows down or speeds up frequency components of the signal and so phase shifts those components.
+Again, VCFs change more than just frequency spectrum - they also change phase across the frequency spectrum.
 
 (ref:square-lpf-hpf) Square wave through a low-pass (left) and high-pass (right) filter. Note the symmetry of the difference between the square wave and the filtered signal: the shape of the filtered signal below the square wave in the positive region is the same as the filtered signal above the square wave in the negative region, but flipped. 
 
@@ -149,7 +459,7 @@ Using the wind and car analogy, imagine you're driving on the freeway and a wind
 The wind is opposing your ability to maintain constant speed.
 The RC circuit likewise is opposing the signal's constant voltage.
 
-(ref:bode-low-pass) A Bode plot for a low-pass filter with a cutoff frequency of 100 Hz. Note the lines marked Bode pole represent idealized behavior of the filter and the Low Pass markers indicate actual behavior. The cutoff point is exactly aligned with a -45 degree phase shift. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Bode_Low-Pass.PNG).
+(ref:bode-low-pass) A Bode plot for a low-pass filter with a cutoff frequency of 100 Hz. Note the lines marked Bode pole represent idealized behavior of the filter and the Low Pass markers indicate actual behavior. The cutoff point is exactly aligned with a -45 degree phase shift. Image [public domain](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
 
 ```{r bode-low-pass, echo=F, out.width="70%", fig.cap="(ref:bode-low-pass)"}
 knitr::include_graphics("images/bode-low-pass.png")
@@ -296,6 +606,43 @@ modular_modal("noiz-lpf-out-scope-fft", starter_file="lfo-lfp-out-scope-fft.vcv"
 modular_caption()
 ```
 
+Although filter resonance has clear regions where the filter is self-oscillating or not, there is also an intermediate region where the filter begins to oscillate but the oscillation quickly dies out.
+This is analogous to plucking a string or pushing on a pendulum.
+Because energy is not continuously being introduced into the system, the dampening in the system brings it to rest.
+The filter resonance region that acts as a dampened oscillator is used for an effect called pinging.
+Pinging sends a gate or trigger to a filter in the dampened oscillator region of resonance.
+That signal excites the filter enough to create a short oscillation that quickly decays.
+So instead of using a VCO, VCA, and envelop to get a brief oscillation, one can simply ping a resonant filter.
+This is particularly useful for percussive sounds.
+Try to ping a filter using the button in Figure \@ref(fig:lfo-vcf-out-scope-fft).
+Once the resonance is adjusted to be on the edge of oscillation, you can ping it by sending a pulse from a square LFO.
+The pitch of the pinged response can be adjusted by the filter's cutoff.
+Because the shape of the pulse used to ping a filter represents energy over time, the shape of the pulse will affect how the filter rings in response to the ping. 
+Any kind of pulse can be used to ping a filter, including envelopes.
+
+(ref:lfo-vcf-out-scope-fft) [Virtual modular](https://cardinal.olney.ai) for applying resonant filtering on white noise and a square wave.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("lfo-vcf-out-scope-fft", starter_file="lfo-lfp-out-scope-fft.vcv", instructions_html="<ul>
+<li>Set LFO freq to .2 Hz</li>
+<li>Set VCF cutoff to 280 Hz</li>
+<li>Set VCF resonance to 60% </li>
+<li>Set Scope time to 9 o'clock</li>
+<li>Try the following and note the differences in the sound and spectrum<ul>
+<li>Slowly move resonance between 40% and 63%; more resonance gives longer decay </li>
+<li>With a good resonance, move the cutoff between 90 Hz and 1000 Hz</li>
+</ul>
+</li>
+<li>Repeat with the HPF out; you will get an initial click and a brighter sound</li>
+</ul>
+",solution_html="<img src='images/patch-solutions/lfo-vcf-out-scope-fft.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r lfo-vcf-out-scope-fft, echo=F, out.width="100%", fig.cap="(ref:lfo-vcf-out-scope-fft)"}
+modular_caption()
+```
 
 <!-- Remaining plan -->
 

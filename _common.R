@@ -9,6 +9,7 @@ knitr::opts_chunk$set(
 
 library(stringr)
 library(magick)
+library(RCurl)
 embed_youtube <- function(youtube_id,start_time=0,end_time=NULL) {
   if (knitr::is_html_output(excludes = "epub")) {
     url <- str_c("https://www.youtube.com/embed/", youtube_id, "?start=",start_time)
@@ -63,6 +64,32 @@ modular_caption <- function(id="", instructions_html="",solution_html="",iframe_
     return(knitr::include_graphics(default_img))
   }
 }
+
+image_ogg_figure <- function(image_file,ogg_file, height = "380px") {
+  # check if html container is deployed
+  filename <- str_c(image_file,"-",ogg_file)
+  url = str_c("https://olney.ai/ct-modular-book/images/", filename, ".html")
+  is_deployed = url.exists( url)
+  # if deployed, use the standard process
+  if(is_deployed) {
+    knitr::include_url(url, height = height)
+  # if not deployed, use a template to generate an html file of the appropriate name
+  # and use local file for knitr (won't work for pdf!!!)
+  } else {
+    #make a file for deployment
+    html = htmltools::htmlTemplate("images/image-ogg-template.html",img=image_file,ogg=ogg_file)
+    path = str_c("images/",filename,".html")
+    htmltools::save_html(html,path)
+    
+    #make a local file and knit it
+    path <- str_c("images/",filename,"-local.html")
+    html <- htmltools::htmlTemplate("images/image-ogg-template.html",img=image_file,ogg=ogg_file)
+    htmltools::save_html(html,path)
+    
+    knitr::include_url(path, height = height)
+  }
+}
+
 
 #This works for gifs at least; may work for others with some mods
 embed_linked_media <- function(url) {

@@ -22,28 +22,6 @@
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-<style type="text/css">
-    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-        }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style>
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -65,28 +43,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
-<li class="book-part">Sound</li>
-<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
-<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
-<li class="book-part">Fundamental Modules</li>
-<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
-<li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
-<li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
-<li><a class="active" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
-<li class="book-part">Sound Design 1</li>
-<li><a class="" href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></li>
-<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
-<li class="book-part">Complex Modules</li>
-<li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
-<li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
-<li><a class="" href="modify.html"><span class="header-section-number">12</span> Modify</a></li>
-<li class="book-part">Sound Design 2</li>
-<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 7</span> Modifiers</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -103,10 +60,557 @@ Chapter <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a> int
 That chapter also introduced envelopes that modify control voltage, and we have routinely used envelopes to control VCAs in order to model the dynamics of various instruments.</p>
 <p>This chapter expands upon audio modifiers specifically and focuses on two foundational categories of modifiers, effects and voltage controlled filters.
 Effects can substantially enrich the sounds you create both in terms of thickness of sound and sense of acoustic space, and voltage controlled filters create some of the most defining sounds in electronic music.</p>
-<div id="todo-insert-effects-here." class="section level2" number="7.1">
+<div id="effects" class="section level2" number="7.1">
 <h2>
-<span class="header-section-number">7.1</span> TODO insert effects here.<a class="anchor" aria-label="anchor" href="#todo-insert-effects-here."><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.1</span> Effects<a class="anchor" aria-label="anchor" href="#effects"><i class="fas fa-link"></i></a>
 </h2>
+<p>There are perhaps an infinite number of possible audio effects.
+This section focuses on time-based effects, as the ideas behind these are complementary to the following discussion of voltage controlled filters.
+Time and phase are closely related when we’re talking about a repeating waveshape.
+Imagine you put a red dot on the outside of a car tire and start driving.
+At any moment, you can stop the car and the red dot will be in a certain position, which you can describe as an angle relative to the ground.
+If the car has been moving at the same speed the entire time, you can exactly predict where the red dot will be.
+Figure <a href="modifiers.html#fig:wheel-sine">7.1</a> shows an abstract rendering of this example, highlighting the relationship between the rotation of the wheel (in radians) and the shape of a sine wave.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:wheel-sine"></span>
+<img src="images/wheel-sine.gif" alt="Relation between a unit circle and a sine wave. Image © Brews ohare/CC-BY-4.0." width="80%"><p class="caption">
+Figure 7.1: Relation between a unit circle and a sine wave. Image <a href="https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif">© Brews ohare/CC-BY-4.0</a>.
+</p>
+</div>
+<p>The discussion of simultaneously-sounding oscillators in Chapter <a href="generators.html#generators">6</a> emphasized phase relationships between the oscillators as well as slight tuning differences between the oscillators, both of which can give a fuller sound.
+Phase captures everything about the relationship between continuous tones because the amount one signal has been offset relative to another can always be reduced to between 0 and 360 degrees (or <span class="math inline">\(2pi\)</span>).<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;If the offset is more than 360 degrees, it simply wraps around to a value equivalent to a value between 0 and 360 degrees, e.g. 370 degrees is the same as 10 degrees.&lt;/p&gt;"><sup>1</sup></a>
+However, music does not consist of continuous tones.</p>
+<p>When we begin to consider music more broadly, it makes sense to think of phase and offset distance being decoupled depending on how much time has passed.
+In real music, simultaneous sounds don’t repeat forever but rather change over fairly short timescales, e.g. the envelope of a kick drum.
+For brief moments of time, phase relationships capture most everything, but for longer offset distances, the amount of time that has passed is more relevant than phase relationships.
+For this reason, time-based effects for short periods of time are often described in terms of phase, and longer-period effects are described in terms to time.
+Figure <a href="modifiers.html#fig:moon-phase-time">7.2</a> illustrates this idea with 6 seconds of natural sound (top) compared to .03 seconds of that same sound (bottom).
+While the longer stretch is clearly not repeating, the shorter stretch is approximately repeating and could be usefully characterized in terms of phase.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:moon-phase-time"></span>
+<img src="images/moon-phase-time.png" alt="Six seconds of natural sound (upper) with no clear repeating structure and .03 seconds of that same sound (lower) with approximate repeating structure." width="88%"><p class="caption">
+Figure 7.2: Six seconds of natural sound (upper) with no clear repeating structure and .03 seconds of that same sound (lower) with approximate repeating structure.
+</p>
+</div>
+<p>Unlike the topics we’ve previously covered, time-based effects tend to be implemented by single modules rather than by collections of modules working together.
+Therefore our discussion will focus on the concepts behind these effects and modules that implement them.
+We’ll begin with effects operating on the longest time scales and move progressively downward until the effects are based in phase.</p>
+<div id="delays" class="section level3" number="7.1.1">
+<h3>
+<span class="header-section-number">7.1.1</span> Delays<a class="anchor" aria-label="anchor" href="#delays"><i class="fas fa-link"></i></a>
+</h3>
+<p>A <a href="https://en.wikipedia.org/wiki/Delay_(audio_effect)">delay effect</a> copies some portion of of the signal and then replays it, typically mixed in with the original signal.
+The ratio of original signal to processed signal is commonly referred to as dry/wet, where dry is the original signal and wet is the processed signal.
+Common parameters of delays include the length of the delayed and the number of times it repeats.
+Often a decay parameter is applied so that the delayed copy gets attenuated with each repetition.
+Some delays can play back multiple copies at once, which blurs the boundary between a delay effect and reverb.
+An example delay effect is shown in Figure <a href="modifiers.html#fig:moonshot-delay2s">7.3</a>.
+The original signal (<a href="https://en.wikipedia.org/wiki/We_choose_to_go_to_the_Moon">JFK’s famous moon speech</a>), is copied and then a delay effect applied to the copy, with decay.
+Note that the delay effect extends well beyond the length of the original audio.
+Delay is the longest time-based effect we will discuss, typically ranging from a hundred milliseconds to multiple seconds.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:moonshot-delay2s"></span>
+<iframe src="images/moonshot-delay2s.png-moonshot-delay2s.ogg-local.html" width="100%" height="370px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 7.3: <a href="https://olney.ai/ct-modular-book/images/moonshot-delay2s.png-moonshot-delay2s.ogg.html">Delay</a> applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The decaying echos of the delay make the lower track significantly longer than the original.
+</p>
+</div>
+<p>Let’s take a look at a delay module.
+The main controls are the time (length of the delay offset), the feedback (amount of decay), and the wet/dry mix.
+These parameters can be set using knobs for a consistent sound but also modulated to create very unusual sounds.
+Try patching up a reverb into a single voice keyboard patch using the button in Figure <a href="modifiers.html#fig:twelvekey-env-delay">7.4</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settwelvekey_env_delayIframe('https://cardinal.olney.ai?patchurl=key-envelope_12key-vco-env-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#twelvekey_env_delay">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="twelvekey_env_delay" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="twelvekey_env_delayLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="twelvekey_env_delayLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Delay between Scope and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Delay in&lt;/li&gt;
+&lt;li&gt;Connect Delay wet to Host Audio L&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the time setting on the delay&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the feedback setting on the delay&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Change Delay wet out to mix out and then use the mix knob to mix the dry/wet sound&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to Delay Time in and FDBK in, make their attenuator knobs slightly positive, and press a key&lt;/li&gt;
+&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/delay-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-delay.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="settwelvekey_env_delayIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="twelvekey_env_delay-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function settwelvekey_env_delayIframe(url){
+  var twelvekey_env_delayIframe = document.getElementById("twelvekey_env_delay-iframe");
+  twelvekey_env_delayIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:twelvekey-env-delay"></span>
+<p class="caption">
+Figure 7.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for a delay effect.
+</p>
+</div>
+</div>
+<div id="reverb" class="section level3" number="7.1.2">
+<h3>
+<span class="header-section-number">7.1.2</span> Reverb<a class="anchor" aria-label="anchor" href="#reverb"><i class="fas fa-link"></i></a>
+</h3>
+<p>A <a href="https://en.wikipedia.org/wiki/Reverb_effect">reverb effect</a> is a delay-time effect with multiple overlapping copies and relatively fast decays.
+Reverb conveys a sense of space, or room that the sound is occuring in, because it emulates the reflections of sound off various surfaces at different distances.
+Sound travels at about 1100 feet per second, or a 1.1 feet per millisecond, so each foot of different distance in the reflection should cause an offset of about 1 millisecond relative to other reflections and the original sound.
+One of the earliest ways of creating reverb was to take a recording and play it back in a particular space while simultaneously re-recording it with a microphone in that space.
+The approach effectively “bakes in” the natural reverb of the room onto the recording.
+Various electronic methods have been used to create a reverb effect using physical media.
+Notably among these is the spring reverb, which passes the signal through a spring and uses the reflections created in the spring to model the reflections of sound.</p>
+<p>Reverb has been added to the speech example in in Figure <a href="modifiers.html#fig:moonshot-reverb75">7.5</a>, and like delay extends beyond the length of the original audio.
+However, the duration it extends is much shorter (about 300 milliseconds), reflecting a faster decay time.
+Note that this recording was taken in a stadium that already had significant natural reverb.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:moonshot-reverb75"></span>
+<iframe src="images/moonshot-reverb75.png-moonshot-reverb75.ogg-local.html" width="100%" height="370px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 7.5: <a href="https://olney.ai/ct-modular-book/images/moonshot-reverb75.png-moonshot-reverb75.ogg.html">Reverb</a> applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The added reverb slightly extends the length of the original track and is most noticeable at that point due to the natural reverb in the original recording.
+</p>
+</div>
+<p>Let’s take a look at a reverb module.
+The main controls are the input level, high-pass filtering<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;High-pass filtering will be explained in detail later in the chapter.&lt;/p&gt;"><sup>2</sup></a>, and the wet/dry mix.
+This reverb module uses a combinations of sliders and knobs for parameter settings, but these can again be both manually set and modulated to create interesting sounds.
+Try patching up a reverb into a single voice keyboard patch using the button in Figure <a href="modifiers.html#fig:twelvekey-env-reverb">7.6</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settwelvekey_env_reverbIframe('https://cardinal.olney.ai?patchurl=key-envelope_12key-vco-env-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#twelvekey_env_reverb">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="twelvekey_env_reverb" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="twelvekey_env_reverbLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="twelvekey_env_reverbLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Spring reverb between Scope and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Spring reverb in 1&lt;/li&gt;
+&lt;li&gt;Connect Spring reverb wet to Host Audio L and Scope in 2&lt;/li&gt;
+&lt;li&gt;Move the left slider on Spring reverb up to set the level of the effect&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the level setting on the reverb&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the HPF (high pass filter) setting on the reverb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Change Spring reverb wet out to mix out and then use the mix knob to mix the dry/wet sound&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to Spring reverb CV in 1 and press a key (the change is subtle; see the level difference on the scope&lt;/li&gt;
+&lt;li&gt;Change the ADSR to the Gate from the 12 key; this will produce a knocking sound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/befaco-spring-reverb-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-reverb.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="settwelvekey_env_reverbIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="twelvekey_env_reverb-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function settwelvekey_env_reverbIframe(url){
+  var twelvekey_env_reverbIframe = document.getElementById("twelvekey_env_reverb-iframe");
+  twelvekey_env_reverbIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:twelvekey-env-reverb"></span>
+<p class="caption">
+Figure 7.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for a reverb effect.
+</p>
+</div>
+</div>
+<div id="chorus-effect" class="section level3" number="7.1.3">
+<h3>
+<span class="header-section-number">7.1.3</span> Chorus<a class="anchor" aria-label="anchor" href="#chorus-effect"><i class="fas fa-link"></i></a>
+</h3>
+<p>A <a href="https://en.wikipedia.org/wiki/Chorus_(audio_effect)">chorus effect</a> creates copies of the original signal with slight frequency and phase changes relative to the original.
+We previously discussed chorus in Section <a href="generators.html#chorus-oscillators">6.2</a> in the context of multiple oscillators playing together.
+The chorus effect is similar except that it applies to the overall audio signal, and it typically has an internal LFO that controls the phase offsets between copies of the signal.</p>
+<p>Chorus has been added to the speech example in in Figure <a href="modifiers.html#fig:moonshot-chorus">7.7</a>, and unlike the previous effects, does not noticeably extend beyond the length of the original audio.
+Instead you can see an effect on the shape of the wave as the copies interfere with each other.
+In this example, the chorus delay is 20 milliseconds, which is in the middle of the typical chorus range of 10-30 milliseconds.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:moonshot-chorus"></span>
+<iframe src="images/moonshot-chorus.png-moonshot-chorus.ogg-local.html" width="100%" height="372px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 7.7: <a href="https://olney.ai/ct-modular-book/images/moonshot-chorus.png-moonshot-chorus.ogg.html">Chorus</a> applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of copies of the original signal delayed by 20 milliseconds.
+</p>
+</div>
+<p>Let’s take a look at a chorus module.
+The main controls are the rate and depth of the internal LFO and the wet/dry mix.
+As before, the controls can be manually set or voltage-controlled.
+Try patching up a chorus into a single voice keyboard patch using the button in Figure <a href="modifiers.html#fig:twelvekey-env-chorus">7.8</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settwelvekey_env_chorusIframe('https://cardinal.olney.ai?patchurl=key-envelope_12key-vco-env-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#twelvekey_env_chorus">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="twelvekey_env_chorus" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="twelvekey_env_chorusLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="twelvekey_env_chorusLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Chorus between Scope and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Chours in L&lt;/li&gt;
+&lt;li&gt;Connect Chorus out L to Host Audio L and Scope in 2&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the range setting on the chorus&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the speed setting on the chorus&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the the dry/wet mix on the chorus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to speed and range to get some bird-like sounds&lt;/li&gt;
+&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/rackwindows-chorus-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-chorus.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="settwelvekey_env_chorusIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="twelvekey_env_chorus-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function settwelvekey_env_chorusIframe(url){
+  var twelvekey_env_chorusIframe = document.getElementById("twelvekey_env_chorus-iframe");
+  twelvekey_env_chorusIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:twelvekey-env-chorus"></span>
+<p class="caption">
+Figure 7.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for a chorus effect.
+</p>
+</div>
+</div>
+<div id="flanger" class="section level3" number="7.1.4">
+<h3>
+<span class="header-section-number">7.1.4</span> Flanger<a class="anchor" aria-label="anchor" href="#flanger"><i class="fas fa-link"></i></a>
+</h3>
+<p>A <a href="https://en.wikipedia.org/wiki/Flanging#Comparison_with_phase_shifting">flanger, or flanging effect</a> is created by creating one copy of the signal and delaying it very briefly, typically 1-5 milliseconds.
+This slight shift causes harmonically-related frequencies in the signal to be amplified.
+For example, 1 millisecond shift means that every 1000 Hz, the original signal will be doubled in amplitude through constructive interference.
+This doubling will occur for all integer multiples of 1000 Hz, and so produces a harmonic series with 1000 Hz as the fundamental.
+Thus a stable offset can create a harmonic sound even out of noise, as shown in Figure <a href="modifiers.html#fig:noise-comb">7.9</a>.
+Flangers typically use an LFO to vary the offset to create a sweep across such sounds.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:noise-comb"></span>
+<iframe src="https://www.youtube.com/embed/k5ewou_8Abc?start=0" width="672" height="400px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 7.9: <a href="https://www.youtube.com/watch?v=k5ewou_8Abc">Youtube video</a> of pink noise with increasing 1 millisecond offsets. Note the harmonic noise that emerges as well as the comb shape of the frequency spectrum. Image <a href="https://www.youtube.com/c/sweetwater">© Sweetwater</a>.
+</p>
+</div>
+<p>A flanger has been added to the speech example in in Figure <a href="modifiers.html#fig:moonshot-flanger5ms">7.10</a>, and like chorus does not noticeably extend beyond the length of the original audio.
+Additionally, and like chorus, you can see an effect on the shape of the wave as the delayed copy of the signal interferes with the original.
+In this example, the flanger delay is 1 millisecond and so produces a sweeping tone around 1000 Hz.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:moonshot-flanger5ms"></span>
+<iframe src="images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg-local.html" width="100%" height="370px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 7.10: <a href="https://olney.ai/ct-modular-book/images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg.html">Flanger</a> applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of a copy of the original signal delayed by 1 millisecond.
+</p>
+</div>
+<p>Let’s take a look at a flanger module.
+The main controls are the rate and depth of the internal LFO and the flanging offset.
+As before, the controls can be manually set or voltage-controlled.
+Try patching up a flanger into a single voice keyboard patch using the button in Figure <a href="modifiers.html#fig:twelvekey-env-flanger">7.11</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settwelvekey_env_flangerIframe('https://cardinal.olney.ai?patchurl=key-envelope_12key-vco-env-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#twelvekey_env_flanger">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="twelvekey_env_flanger" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="twelvekey_env_flangerLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="twelvekey_env_flangerLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Vibrato between Scope and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Vibrato in&lt;/li&gt;
+&lt;li&gt;Connect Vibrato out to Host Audio L and Scope in 2&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the flange setting&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the frequency setting&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the width setting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to freq, width, and flange to get some bird-like sounds&lt;/li&gt;
+&lt;li&gt;Use the attenuator knobs below these jacks to change the depth of the modulation &lt;/li&gt;
+&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/autinn-vibrato-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-flanger.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="settwelvekey_env_flangerIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="twelvekey_env_flanger-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function settwelvekey_env_flangerIframe(url){
+  var twelvekey_env_flangerIframe = document.getElementById("twelvekey_env_flanger-iframe");
+  twelvekey_env_flangerIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:twelvekey-env-flanger"></span>
+<p class="caption">
+Figure 7.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for a flanger effect.
+</p>
+</div>
+</div>
+<div id="phaser" class="section level3" number="7.1.5">
+<h3>
+<span class="header-section-number">7.1.5</span> Phaser<a class="anchor" aria-label="anchor" href="#phaser"><i class="fas fa-link"></i></a>
+</h3>
+<p>A <a href="https://en.wikipedia.org/wiki/Phaser_(effect)">phaser effect</a> does not apply a delay.
+Instead, a phaser shifts the phase of frequencies based on the values of those frequencies.
+As a result, some frequencies are phase shifted behind the original signal while others are phase shifted ahead of the original signal.
+Typically phasers have multiple stages of phase shifting to magnify the effect.
+The variation in phase shifting means that while a phaser produces peaks in frequency spectrum like a flanger, those peaks are not harmonically related.
+A rough analogy would be that a flanger is to a phaser like a single delay is to a reverb: the former cases use a single copy whereas the latter cases use multiple diffuse copies.</p>
+<p>A phaser has been added to the speech example in in Figure <a href="modifiers.html#fig:moonshot-phaser">7.12</a>, and like chorus and flanger does not noticeably extend beyond the length of the original audio.
+The effect on the shape of the wave is quite subtle compared to the flanger, reflecting the constructive and destructive interference resulting from the phaser.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:moonshot-phaser"></span>
+<iframe src="images/moonshot-phaser.png-moonshot-phaser.ogg-local.html" width="100%" height="372px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 7.12: <a href="https://olney.ai/ct-modular-book/images/moonshot-phaser.png-moonshot-phaser.ogg.html">Phaser</a> applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The effect on the shape of the wave is subtle and reflects both constructive and destructive interference.
+</p>
+</div>
+<p>Let’s take a look at a phaser module.
+The main controls are the rate and depth of the internal LFO and feedback.
+As before, the controls can be manually set or voltage-controlled.
+Try patching up a phaser into a single voice keyboard patch using the button in Figure <a href="modifiers.html#fig:twelvekey-env-phaser">7.13</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settwelvekey_env_phaserIframe('https://cardinal.olney.ai?patchurl=key-envelope_12key-vco-env-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#twelvekey_env_phaser">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="twelvekey_env_phaser" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="twelvekey_env_phaserLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="twelvekey_env_phaserLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Phaser FX between Scope and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Phaser in&lt;/li&gt;
+&lt;li&gt;Connect Phaser out to Host Audio L and Scope in 2&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the rate setting&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the feedback setting (try holding down the key)&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the depth setting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to the CV inputs for these knobs&lt;/li&gt;
+&lt;li&gt;Once connected, these knobs act like attenuators and control the depth of the modulation &lt;/li&gt;
+&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img src='images/solo-modules/phaserfx-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-phaser.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="settwelvekey_env_phaserIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="twelvekey_env_phaser-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function settwelvekey_env_phaserIframe(url){
+  var twelvekey_env_phaserIframe = document.getElementById("twelvekey_env_phaser-iframe");
+  twelvekey_env_phaserIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:twelvekey-env-phaser"></span>
+<p class="caption">
+Figure 7.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for a phaser effect.
+</p>
+</div>
+</div>
 </div>
 <div id="voltage-controlled-filters" class="section level2" number="7.2">
 <h2>
@@ -122,27 +626,27 @@ Filters, if you haven’t already guessed, are a primary method for removing har
 </h3>
 <p>As discussed in Chapter <a href="harmonic-and-inharmonic-sounds.html#harmonic-and-inharmonic-sounds">3</a>, timbre is intimately connected to waveshape, and removing harmonic content affects both the shape of the wave and its timbre.
 You may assume from our discussion of Fourier analysis that a filter will remove selected harmonics completely.
-If that were the case, we might expect a square wave with all but the first two harmonics filtered to look like Figure <a href="modifiers.html#fig:square-fourier-2-harmonics-2">7.1</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;This figure was created using the simulator in Section &lt;a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum"&gt;3.2&lt;/a&gt; which you can use to further explore these concepts.&lt;/p&gt;'><sup>53</sup></a></p>
+If that were the case, we might expect a square wave with all but the first two harmonics filtered to look like Figure <a href="modifiers.html#fig:square-fourier-2-harmonics-2">7.14</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;This figure was created using the simulator in Section &lt;a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum"&gt;3.2&lt;/a&gt; which you can use to further explore these concepts.&lt;/p&gt;'><sup>3</sup></a></p>
 
 <div class="figure">
 <span style="display:block;" id="fig:square-fourier-2-harmonics-2"></span>
 <img src="images/square-fourier-2-harmonics-2.png" alt="Fourier approximation of the first 11 harmonics of a square wave." width="100%"><p class="caption">
-Figure 7.1: Fourier approximation of the first 11 harmonics of a square wave.
+Figure 7.14: Fourier approximation of the first 11 harmonics of a square wave.
 </p>
 </div>
 <p>Using Fourier decomposition to understand VCFs is misleading in many respects, as will become clear by the end of this section.
 It is also not practical to build a filter based on Fourier decomposition for two at least two reasons.
 First, we want our filter to happen in real time, i.e. before a wave has even completed its cycle, which Fourier can’t do.
-Second, Fourier introduces <a href="https://en.wikipedia.org/wiki/Gibbs_phenomenon">Gibbs error</a> that you can see in Figure <a href="modifiers.html#fig:square-fourier-2-harmonics-2">7.1</a> as peaks where there should be 90 degree angles in the square wave.
+Second, Fourier introduces <a href="https://en.wikipedia.org/wiki/Gibbs_phenomenon">Gibbs error</a> that you can see in Figure <a href="modifiers.html#fig:square-fourier-2-harmonics-2">7.14</a> as peaks where there should be 90 degree angles in the square wave.
 If we were to use Fourier as the basis of a filter, those peaks would introduce ringing artifacts.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:vcf-square-out"></span>
-<img src="images/vcf-square-out.png" alt="VCF output on a square wave that has been aligned and scaled for comparison to Figure 7.1. Note the relatively flat low and high regions of the wave, which imply the presence of higher harmonics." width="100%"><p class="caption">
-Figure 7.2: VCF output on a square wave that has been aligned and scaled for comparison to Figure <a href="modifiers.html#fig:square-fourier-2-harmonics-2">7.1</a>. Note the relatively flat low and high regions of the wave, which imply the presence of higher harmonics.
+<img src="images/vcf-square-out.png" alt="VCF output on a square wave that has been aligned and scaled for comparison to Figure 7.14. Note the relatively flat low and high regions of the wave, which imply the presence of higher harmonics." width="100%"><p class="caption">
+Figure 7.15: VCF output on a square wave that has been aligned and scaled for comparison to Figure <a href="modifiers.html#fig:square-fourier-2-harmonics-2">7.14</a>. Note the relatively flat low and high regions of the wave, which imply the presence of higher harmonics.
 </p>
 </div>
-<p>The output of a real VCF filtering out all but the first 11 harmonics is shown in Figure <a href="modifiers.html#fig:vcf-square-out">7.2</a>.
+<p>The output of a real VCF filtering out all but the first 11 harmonics is shown in Figure <a href="modifiers.html#fig:vcf-square-out">7.15</a>.
 The VCF output has two striking differences with the Fourier example.
 First, the transition from maximum positive to maximum negative (and vice versa) is substantially smoother for the VCF, creating rounder edges.
 Second, the VCF has relatively flat maximum regions of the wave, which imply higher harmonics.
@@ -154,7 +658,7 @@ The advantage of filtering white noise is that white noise contains all frequenc
 The patches will use two common filters: low-pass filters and high-pass filters.
 Low-pass filters (LPF) let low frequencies pass through relatively unaffected, and high-pass filters (HPF) let high frequencies pass through relatively unaffected.
 The effect of each filter is controlled using the cutoff frequency, which defines a range of affected frequencies.
-Try patching up the two filters using the button in Figure <a href="modifiers.html#fig:noiz-lfp-out-fft">7.3</a>.</p>
+Try patching up the two filters using the button in Figure <a href="modifiers.html#fig:noiz-lfp-out-fft">7.16</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -227,12 +731,12 @@ $('.popover-dismiss').popover({
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:noiz-lfp-out-fft"></span>
 <p class="caption">
-Figure 7.3: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying low- and high-pass filtering on white noise.
+Figure 7.16: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying low- and high-pass filtering on white noise.
 </p>
 </div>
 <p>Let’s take another look, this time with a square wave and an oscilloscope, which will let us look at the effect on the wave rather than the frequency spectrum.
 Of course the disadvantage of white noise is that you can’t usefully look at the effect
-Try modifying your patch to use an audio rate LFO and an oscilloscope using the button in Figure <a href="modifiers.html#fig:lfo-lfp-out-scope-fft">7.4</a>.
+Try modifying your patch to use an audio rate LFO and an oscilloscope using the button in Figure <a href="modifiers.html#fig:lfo-lfp-out-scope-fft">7.17</a>.
 As you can see, LPF creates curious shapes that occasionally approximate shapes we recognize, like triangle and sine waves (though with reduced amplitude).
 HPF creates perhaps even more curious shapes that quickly turn into increasingly sharp pulses.</p>
 
@@ -304,7 +808,7 @@ $('.popover-dismiss').popover({
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-lfp-out-scope-fft"></span>
 <p class="caption">
-Figure 7.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying low- and high-pass filtering on a square wave.
+Figure 7.17: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying low- and high-pass filtering on a square wave.
 </p>
 </div>
 </div>
@@ -312,19 +816,20 @@ Figure 7.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying
 <h3>
 <span class="header-section-number">7.2.2</span> Filters change frequency and phase<a class="anchor" aria-label="anchor" href="#filters-change-frequency-and-phase"><i class="fas fa-link"></i></a>
 </h3>
-<p>VCFs change more than just frequency spectrum - they also change the phase of those frequencies.
+<p>To understand why VCFs are behaving this way, we need to understand how they work.
 The best way to understand VCFs, which are complex, is in terms of the passive <a href="https://en.wikipedia.org/wiki/RC_circuit">RC circuit</a>.
-When a signal runs through an RC circuit, the circuit leeches out energy from certain parts of the waveshape and returns that energy at other parts, as shown in Figure <a href="modifiers.html#fig:square-lpf-hpf">7.5</a>.
-While a full explanation of how the RC circuit works is out of scope,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;For a good basic explanation of an RC circuit, see &lt;a href="https://youtu.be/3tMGNI--ofU"&gt;this video&lt;/a&gt;.&lt;/p&gt;'><sup>54</sup></a> we can nevertheless describe what it does to explain what a VCF does.
-The overarching idea is that when an RC circuit leeches energy out of a signal, it slows down or speeds up frequency components of the signal and so phase shifts those components.</p>
+When a signal runs through an RC circuit, the circuit leeches out energy from certain parts of the waveshape and returns that energy at other parts, as shown in Figure <a href="modifiers.html#fig:square-lpf-hpf">7.18</a>.
+While a full explanation of how the RC circuit works is out of scope,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;For a good basic explanation of an RC circuit, see &lt;a href="https://youtu.be/3tMGNI--ofU"&gt;this video&lt;/a&gt;.&lt;/p&gt;'><sup>4</sup></a> we can nevertheless describe what it does to explain what a VCF does.
+The overarching idea is that when an RC circuit leeches energy out of a signal, it slows down or speeds up frequency components of the signal and so phase shifts those components.
+Again, VCFs change more than just frequency spectrum - they also change phase across the frequency spectrum.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:square-lpf-hpf"></span>
 <img src="images/square-lpf-hpf.png" alt="Square wave through a low-pass (left) and high-pass (right) filter. Note the symmetry of the difference between the square wave and the filtered signal: the shape of the filtered signal below the square wave in the positive region is the same as the filtered signal above the square wave in the negative region, but flipped." width="100%"><p class="caption">
-Figure 7.5: Square wave through a low-pass (left) and high-pass (right) filter. Note the symmetry of the difference between the square wave and the filtered signal: the shape of the filtered signal below the square wave in the positive region is the same as the filtered signal above the square wave in the negative region, but flipped.
+Figure 7.18: Square wave through a low-pass (left) and high-pass (right) filter. Note the symmetry of the difference between the square wave and the filtered signal: the shape of the filtered signal below the square wave in the positive region is the same as the filtered signal above the square wave in the negative region, but flipped.
 </p>
 </div>
-<p>Let’s look first at the LPF case, using the left side of Figure <a href="modifiers.html#fig:square-lpf-hpf">7.5</a> as a reference.
+<p>Let’s look first at the LPF case, using the left side of Figure <a href="modifiers.html#fig:square-lpf-hpf">7.18</a> as a reference.
 As the signal increases, the RC circuit leeches out energy until it fills up, at which point it has no effect on the signal.
 Once the signal starts decreasing, the RC circuit releases energy until it runs out.
 Sharp signal increases are slowed down, meaning they are phase shifted negatively. Slowing them means removing high frequencies.
@@ -332,27 +837,27 @@ Here’s an analogy that might help.
 Imagine you’re driving on the freeway and a wind blows from ahead whenever you try to accelerate and blows from behind whenever you decelerate.
 The wind is opposing your ability to change speed.
 The RC circuit likewise is opposing the signal’s voltage changes.</p>
-<p>The HPF case on the right side of Figure <a href="modifiers.html#fig:square-lpf-hpf">7.5</a> is different.
+<p>The HPF case on the right side of Figure <a href="modifiers.html#fig:square-lpf-hpf">7.18</a> is different.
 As the signal increases and stops changing, the RC circuit leeches out energy until the capacitor fills up, at which point it has no effect on the signal.
 Once the signal starts decreasing and stops changing, the capacitor releases energy until it runs out.
 Flat signals are speeded up, meaning they are phase shifted positively.
 Speeding them up means removing lower frequencies.
-Using the wind and car analogy, imagine you’re driving on the freeway and a wind blows whenever you try to keep a constant speed.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;More precisely, the wind blows from ahead when you start cruising after increasing speed, and the wind blows from behind when you start cruising after reducing speed.&lt;/p&gt;"><sup>55</sup></a>
+Using the wind and car analogy, imagine you’re driving on the freeway and a wind blows whenever you try to keep a constant speed.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;More precisely, the wind blows from ahead when you start cruising after increasing speed, and the wind blows from behind when you start cruising after reducing speed.&lt;/p&gt;"><sup>5</sup></a>
 The wind is opposing your ability to maintain constant speed.
 The RC circuit likewise is opposing the signal’s constant voltage.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:bode-low-pass"></span>
-<img src="images/bode-low-pass.png" alt="A Bode plot for a low-pass filter with a cutoff frequency of 100 Hz. Note the lines marked Bode pole represent idealized behavior of the filter and the Low Pass markers indicate actual behavior. The cutoff point is exactly aligned with a -45 degree phase shift. Image © Brews ohare/CC-BY-4.0." width="70%"><p class="caption">
-Figure 7.6: A Bode plot for a low-pass filter with a cutoff frequency of 100 Hz. Note the lines marked Bode pole represent idealized behavior of the filter and the Low Pass markers indicate actual behavior. The cutoff point is exactly aligned with a -45 degree phase shift. Image <a href="https://commons.wikimedia.org/wiki/File:Bode_Low-Pass.PNG">© Brews ohare/CC-BY-4.0</a>.
+<img src="images/bode-low-pass.png" alt="A Bode plot for a low-pass filter with a cutoff frequency of 100 Hz. Note the lines marked Bode pole represent idealized behavior of the filter and the Low Pass markers indicate actual behavior. The cutoff point is exactly aligned with a -45 degree phase shift. Image public domain." width="70%"><p class="caption">
+Figure 7.19: A Bode plot for a low-pass filter with a cutoff frequency of 100 Hz. Note the lines marked Bode pole represent idealized behavior of the filter and the Low Pass markers indicate actual behavior. The cutoff point is exactly aligned with a -45 degree phase shift. Image <a href="https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif">public domain</a>.
 </p>
 </div>
-<p>The effect of the RC circuit on frequency and phase spectrum can be summarized by a <a href="https://en.wikipedia.org/wiki/Bode_plot">Bode plot</a>, as shown for an LPF in Figure <a href="modifiers.html#fig:bode-low-pass">7.6</a>.
+<p>The effect of the RC circuit on frequency and phase spectrum can be summarized by a <a href="https://en.wikipedia.org/wiki/Bode_plot">Bode plot</a>, as shown for an LPF in Figure <a href="modifiers.html#fig:bode-low-pass">7.19</a>.
 The lines labeled “Bode pole” are idealized and the actual behavior of the LPF is indicated by the markers.
 Let’s start with the upper subplot, which shows how the filter reduces the amplitude of the signal across frequencies.
 The cutoff frequency occurs where the line changes from 0 dB to a downward angle.
 As you can see, the actual behavior of the LPF is to reduce frequencies even before this point as shown by the markers below the line to the left of the cutoff point.
-The decrease in amplitude at the cutoff frequency is 3 dB.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall a 6 dB decrease means amplitude is cut in half.&lt;/p&gt;"><sup>56</sup></a>
+The decrease in amplitude at the cutoff frequency is 3 dB.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall a 6 dB decrease means amplitude is cut in half.&lt;/p&gt;"><sup>6</sup></a>
 The decrease to the right of the cutoff point is 6 dB for each doubling of frequency, or 6 dB/Oct.
 That means the amplitude of the signal will decrease by half for each additional octave above the cutoff frequency.
 Let’s look at the lower subplot, which shows phase shift how the filter changes phase across frequencies.
@@ -362,10 +867,10 @@ At the cutoff, the phase shift is already -45 degrees.</p>
 <div class="figure">
 <span style="display:block;" id="fig:bode-high-pass"></span>
 <img src="images/bode-high-pass.png" alt="A Bode plot for a high-pass filter with a cutoff frequency of 100 Hz. Note the lines marked Bode pole represent idealized behavior of the filter and the High Pass markers indicate actual behavior. The cutoff point is exactly aligned with a 45 degree phase shift. Image © Brews ohare/CC-BY-4.0." width="70%"><p class="caption">
-Figure 7.7: A Bode plot for a high-pass filter with a cutoff frequency of 100 Hz. Note the lines marked Bode pole represent idealized behavior of the filter and the High Pass markers indicate actual behavior. The cutoff point is exactly aligned with a 45 degree phase shift. Image <a href="https://commons.wikimedia.org/wiki/File:Bode_High-Pass.PNG">© Brews ohare/CC-BY-4.0</a>.
+Figure 7.20: A Bode plot for a high-pass filter with a cutoff frequency of 100 Hz. Note the lines marked Bode pole represent idealized behavior of the filter and the High Pass markers indicate actual behavior. The cutoff point is exactly aligned with a 45 degree phase shift. Image <a href="https://commons.wikimedia.org/wiki/File:Bode_High-Pass.PNG">© Brews ohare/CC-BY-4.0</a>.
 </p>
 </div>
-<p>The Bode plot for an HPF looks very similar to that of an LPF, but reversed as shown in Figure <a href="modifiers.html#fig:bode-high-pass">7.7</a>.
+<p>The Bode plot for an HPF looks very similar to that of an LPF, but reversed as shown in Figure <a href="modifiers.html#fig:bode-high-pass">7.20</a>.
 As before the range of frequencies affected by the filter extends on both sides of the cutoff point, the signal is already attenuated by 3 dB at the cutoff point, and the decrease in amplitude (this time to the left of the cutoff) is 6 dB/Oct.
 The main difference is in the sign of the phase shift in the lower subplot.
 Instead of being negative because the frequencies have been slowed down, the phase shift is now positive because the affected frequencies have been sped up.</p>
@@ -376,7 +881,7 @@ Instead of being negative because the frequencies have been slowed down, the pha
 </h3>
 <p>In the previous Bode plots, the cutoff frequency marked the location past which the amplitude reduced by 6 dB/Oct.
 This bend in the frequency response of the filter is called a pole, and the RC circuit is therefore an example of a 1-pole filter element.
-To get greater reductions than 6 dB/Oct, multiple 1-pole filter elements can be combined.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;RC circuits cannot be combined this way, but they remain useful for understanding the additive effect of each element.&lt;/p&gt;"><sup>57</sup></a>
+To get greater reductions than 6 dB/Oct, multiple 1-pole filter elements can be combined.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;RC circuits cannot be combined this way, but they remain useful for understanding the additive effect of each element.&lt;/p&gt;"><sup>7</sup></a>
 Each filter element has a distinct pole, so the overall shape of the drop off has bends corresponding to these poles.
 This means that a 4-pole filter would have four distinct regions of drop off rather than the single region we looked at before.
 Each region would contribute both to amplitude attenuation and phase shift at a given frequency.
@@ -386,7 +891,7 @@ It should now be clear why filters have such characteristic sounds: the many dif
 As you might expect, multiple filters working in different frequency directions create complex phase relationships as each independently contributes to amplitude attenuation and phase for each frequency filtered.
 A band-pass filter can be created by combining an LPF and HPF in series.
 A band-pass filter mostly lets through frequencies within a range but more strongly attenuates frequencies outside that range.
-Try making a band-pass filter using two VCFs using the button in Figure <a href="modifiers.html#fig:lfo-lpf-hpf-out-scope-fft">7.8</a>.
+Try making a band-pass filter using two VCFs using the button in Figure <a href="modifiers.html#fig:lfo-lpf-hpf-out-scope-fft">7.21</a>.
 Since there are now two cutoffs to control to hear the combined filter sweep, hook up an LFO to each VCF cutoff frequency.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -406,7 +911,7 @@ Since there are now two cutoffs to control to hear the combined filter sweep, ho
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="lfo_lpf_hpf_out_scope_fftLabel">Modal title</h5> -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add another VCF to the right of the existing VCF. The left will be LPF and the right HPF.&lt;/li&gt;
+&lt;li&gt;Add another VCF to the right of the existing VCF. The left will be LPF and the right HPF&lt;/li&gt;
 &lt;li&gt;Connect LPF out to HPF in and remove all other connections from LPF out&lt;/li&gt;
 &lt;li&gt;Connect HPF out to Host audio L, Scope input 2, and Sassy input 2&lt;/li&gt;
 &lt;li&gt;You may wish to use a square wave as Scope EXT TRG&lt;/li&gt;
@@ -458,12 +963,12 @@ $('.popover-dismiss').popover({
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-lpf-hpf-out-scope-fft"></span>
 <p class="caption">
-Figure 7.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for combining LPF and HPF filters to make a band-pass filter and animating it with an LFO.
+Figure 7.21: <a href="https://cardinal.olney.ai">Virtual modular</a> for combining LPF and HPF filters to make a band-pass filter and animating it with an LFO.
 </p>
 </div>
-<p>A notch filter<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A notch filter is sometimes called a band-reject filter.&lt;/p&gt;"><sup>58</sup></a> can be created by combining an LPF and HPF in parallel.
+<p>A notch filter<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A notch filter is sometimes called a band-reject filter.&lt;/p&gt;"><sup>8</sup></a> can be created by combining an LPF and HPF in parallel.
 A notch filter mostly lets through every thing but frequencies within a range.
-Try making a notch filter using two VCFs and a mixer using the button in Figure <a href="modifiers.html#fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft">7.9</a>.
+Try making a notch filter using two VCFs and a mixer using the button in Figure <a href="modifiers.html#fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft">7.22</a>.
 As before, there are two cutoffs to control to hear the combined filter sweep, so an LFO can be used to control each VCF cutoff frequency.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -536,7 +1041,7 @@ $('.popover-dismiss').popover({
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft"></span>
 <p class="caption">
-Figure 7.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for combining LPF and HPF filters to make a notch filter and animating it with an LFO.
+Figure 7.22: <a href="https://cardinal.olney.ai">Virtual modular</a> for combining LPF and HPF filters to make a notch filter and animating it with an LFO.
 </p>
 </div>
 </div>
@@ -544,13 +1049,13 @@ Figure 7.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for combinin
 <h3>
 <span class="header-section-number">7.2.4</span> Resonance<a class="anchor" aria-label="anchor" href="#resonance"><i class="fas fa-link"></i></a>
 </h3>
-<p>Resonant filters have been an important sound in electronic music even before modular synthesizers<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/" class="uri"&gt;https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/&lt;/a&gt;&lt;/p&gt;'><sup>59</sup></a>.
+<p>Resonant filters have been an important sound in electronic music even before modular synthesizers<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/" class="uri"&gt;https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/&lt;/a&gt;&lt;/p&gt;'><sup>9</sup></a>.
 We previously discussed resonance in Section <a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum">3.2</a>, but in terms of real instruments.
 <a href="https://en.wikipedia.org/wiki/Electrical_resonance">Electrical resonance</a> is similar and can be understood analogously to waves reflecting off the fixed end of a string to create a standing wave.
 In the case of the filter, feedback from the frequency at the filter cutoff point “reflects” back into the circuit and interferes with the original signal.
 As long as the two signals are aligned in phase, they will constructively interfere and amplify the frequencies at the cutoff point.
 If the feedback increases beyond a certain point, the filter will begin to oscillate and effectively turn into a sine wave VCO.
-Try patching up a resonant filter using white noise using the button in Figure <a href="modifiers.html#fig:noiz-lpf-out-scope-fft">7.10</a>.
+Try patching up a resonant filter using white noise using the button in Figure <a href="modifiers.html#fig:noiz-lpf-out-scope-fft">7.23</a>.
 If you crank up the resonance on the filter, you will get a sine wave even though the input is just noise.
 This illustrates that resonance is a property of the filter itself, not of the input.
 Try also extending the patch using square wave input to see what resonant filter sweeps sound and look like on a wave.
@@ -624,7 +1129,90 @@ $('.popover-dismiss').popover({
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:noiz-lpf-out-scope-fft"></span>
 <p class="caption">
-Figure 7.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying resonant filtering on white noise and a square wave.
+Figure 7.23: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying resonant filtering on white noise and a square wave.
+</p>
+</div>
+<p>Although filter resonance has clear regions where the filter is self-oscillating or not, there is also an intermediate region where the filter begins to oscillate but the oscillation quickly dies out.
+This is analogous to plucking a string or pushing on a pendulum.
+Because energy is not continuously being introduced into the system, the dampening in the system brings it to rest.
+The filter resonance region that acts as a dampened oscillator is used for an effect called pinging.
+Pinging sends a gate or trigger to a filter in the dampened oscillator region of resonance.
+That signal excites the filter enough to create a short oscillation that quickly decays.
+So instead of using a VCO, VCA, and envelop to get a brief oscillation, one can simply ping a resonant filter.
+This is particularly useful for percussive sounds.
+Try to ping a filter using the button in Figure <a href="modifiers.html#fig:lfo-vcf-out-scope-fft">7.24</a>.
+Once the resonance is adjusted to be on the edge of oscillation, you can ping it by sending a pulse from a square LFO.
+The pitch of the pinged response can be adjusted by the filter’s cutoff.
+Because the shape of the pulse used to ping a filter represents energy over time, the shape of the pulse will affect how the filter rings in response to the ping.
+Any kind of pulse can be used to ping a filter, including envelopes.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setlfo_vcf_out_scope_fftIframe('https://cardinal.olney.ai?patchurl=lfo-lfp-out-scope-fft.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#lfo_vcf_out_scope_fft">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="lfo_vcf_out_scope_fft" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="lfo_vcf_out_scope_fftLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="lfo_vcf_out_scope_fftLabel">Modal title</h5> -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Set LFO freq to .2 Hz&lt;/li&gt;
+&lt;li&gt;Set VCF cutoff to 280 Hz&lt;/li&gt;
+&lt;li&gt;Set VCF resonance to 60% &lt;/li&gt;
+&lt;li&gt;Set Scope time to 9 o'clock&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
+&lt;li&gt;Slowly move resonance between 40% and 63%; more resonance gives longer decay &lt;/li&gt;
+&lt;li&gt;With a good resonance, move the cutoff between 90 Hz and 1000 Hz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Repeat with the HPF out; you will get an initial click and a brighter sound&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/lfo-vcf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setlfo_vcf_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="lfo_vcf_out_scope_fft-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+});
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setlfo_vcf_out_scope_fftIframe(url){
+  var lfo_vcf_out_scope_fftIframe = document.getElementById("lfo_vcf_out_scope_fft-iframe");
+  lfo_vcf_out_scope_fftIframe.src = url;
+};
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:lfo-vcf-out-scope-fft"></span>
+<p class="caption">
+Figure 7.24: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying resonant filtering on white noise and a square wave.
 </p>
 </div>
 <!-- Remaining plan -->
@@ -693,27 +1281,15 @@ Figure 7.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for applyin
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="generators.html"><span class="header-section-number">6</span> Generators</a></div>
-<div class="next"><a href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#modifiers"><span class="header-section-number">7</span> Modifiers</a></li>
-<li><a class="nav-link" href="#todo-insert-effects-here."><span class="header-section-number">7.1</span> TODO insert effects here.</a></li>
-<li>
-<a class="nav-link" href="#voltage-controlled-filters"><span class="header-section-number">7.2</span> Voltage controlled filters</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#filters-are-imperfect"><span class="header-section-number">7.2.1</span> Filters are imperfect</a></li>
-<li><a class="nav-link" href="#filters-change-frequency-and-phase"><span class="header-section-number">7.2.2</span> Filters change frequency and phase</a></li>
-<li><a class="nav-link" href="#combining-filters"><span class="header-section-number">7.2.3</span> Combining filters</a></li>
-<li><a class="nav-link" href="#resonance"><span class="header-section-number">7.2.4</span> Resonance</a></li>
-</ul>
-</li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/07-fun-mod-modifiers.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/07-fun-mod-modifiers.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
@@ -725,7 +1301,7 @@ Figure 7.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for applyin
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-02.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-03.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

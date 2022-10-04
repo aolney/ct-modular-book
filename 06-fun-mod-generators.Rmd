@@ -117,7 +117,7 @@ modular_modal("clock-division-chords", starter_file="voltage-division-chords.vcv
 modular_caption()
 ```
 
-## Chorus
+## Chorus {#chorus-oscillators}
 
 We can also combine different oscillators using the same, or almost the same pitch.
 As discussed in Section \@ref(phase-reflections-standing-waves-and-harmonics), two identical waves will constructively interfere with each other and produce a new wave with twice the amplitude.
