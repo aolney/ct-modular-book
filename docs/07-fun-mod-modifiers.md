@@ -18,10 +18,10 @@ At any moment, you can stop the car and the red dot will be in a certain positio
 If the car has been moving at the same speed the entire time, you can exactly predict where the red dot will be.
 Figure \@ref(fig:wheel-sine) shows an abstract rendering of this example, highlighting the relationship between the rotation of the wheel (in radians) and the shape of a sine wave.
 
-(ref:wheel-sine) Relation between a unit circle and a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
+(ref:wheel-sine) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between a unit circle and a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
 
 <div class="figure">
-<img src="images/wheel-sine.gif" alt="(ref:wheel-sine)" width="80%" />
+<img src="downloadFigs4latex/wheel-sine.jpg" alt="(ref:wheel-sine)" width="80%" />
 <p class="caption">(\#fig:wheel-sine)(ref:wheel-sine)</p>
 </div>
 
@@ -59,11 +59,11 @@ The original signal ([JFK's famous moon speech](https://en.wikipedia.org/wiki/We
 Note that the delay effect extends well beyond the length of the original audio.
 Delay is the longest time-based effect we will discuss, typically ranging from a hundred milliseconds to multiple seconds.
 
-(ref:moonshot-delay2s) [Delay](https://olney.ai/ct-modular-book/images/moonshot-delay2s.png-moonshot-delay2s.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The decaying echos of the delay make the lower track significantly longer than the original.
+(ref:moonshot-delay2s) [Delay](https://olney.ai/ct-modular-book/images/moonshot-delay2s.png-moonshot-delay2s.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The decaying echos of the delay make the lower track significantly longer than the original.
 
 
 <div class="figure">
-<iframe src="images/moonshot-delay2s.png-moonshot-delay2s.ogg-local.html" width="100%" height="370px" data-external="1"></iframe>
+<a href="https://olney.ai/ct-modular-book/images/moonshot-delay2s.png-moonshot-delay2s.ogg-local.html" target="_blank"><img src="07-fun-mod-modifiers_files/figure-epub3/moonshot-delay2s-1.png" alt="(ref:moonshot-delay2s)" width="100%" /></a>
 <p class="caption">(\#fig:moonshot-delay2s)(ref:moonshot-delay2s)</p>
 </div>
 
@@ -76,79 +76,12 @@ Try patching up a reverb into a single voice keyboard patch using the button in 
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settwelvekey_env_delayIframe('https://cardinal.olney.ai?patchurl=key-envelope_12key-vco-env-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#twelvekey_env_delay">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="twelvekey_env_delay" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="twelvekey_env_delayLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="twelvekey_env_delayLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Delay between Scope and Host audio&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 to Delay in&lt;/li&gt;
-&lt;li&gt;Connect Delay wet to Host Audio L&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the time setting on the delay&lt;/li&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the feedback setting on the delay&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Change Delay wet out to mix out and then use the mix knob to mix the dry/wet sound&lt;/li&gt;
-&lt;li&gt;Connect ADSR out to Delay Time in and FDBK in, make their attenuator knobs slightly positive, and press a key&lt;/li&gt;
-&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/delay-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-delay.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="settwelvekey_env_delayIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="twelvekey_env_delay-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function settwelvekey_env_delayIframe(url){
-  var twelvekey_env_delayIframe = document.getElementById("twelvekey_env_delay-iframe");
-  twelvekey_env_delayIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:twelvekey-env-delay)(ref:twelvekey-env-delay)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:twelvekey-env-delay)" width="100%" />
+<p class="caption">(\#fig:twelvekey-env-delay)(ref:twelvekey-env-delay)</p>
+</div>
 
 ### Reverb
 
@@ -164,11 +97,11 @@ Reverb has been added to the speech example in in Figure \@ref(fig:moonshot-reve
 However, the duration it extends is much shorter (about 300 milliseconds), reflecting a faster decay time.
 Note that this recording was taken in a stadium that already had significant natural reverb.
 
-(ref:moonshot-reverb75) [Reverb](https://olney.ai/ct-modular-book/images/moonshot-reverb75.png-moonshot-reverb75.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The added reverb slightly extends the length of the original track and is most noticeable at that point due to the natural reverb in the original recording.
+(ref:moonshot-reverb75) [Reverb](https://olney.ai/ct-modular-book/images/moonshot-reverb75.png-moonshot-reverb75.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The added reverb slightly extends the length of the original track and is most noticeable at that point due to the natural reverb in the original recording.
 
 
 <div class="figure">
-<iframe src="images/moonshot-reverb75.png-moonshot-reverb75.ogg-local.html" width="100%" height="370px" data-external="1"></iframe>
+<a href="https://olney.ai/ct-modular-book/images/moonshot-reverb75.png-moonshot-reverb75.ogg-local.html" target="_blank"><img src="07-fun-mod-modifiers_files/figure-epub3/moonshot-reverb75-1.png" alt="(ref:moonshot-reverb75)" width="100%" /></a>
 <p class="caption">(\#fig:moonshot-reverb75)(ref:moonshot-reverb75)</p>
 </div>
 
@@ -181,80 +114,12 @@ Try patching up a reverb into a single voice keyboard patch using the button in 
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settwelvekey_env_reverbIframe('https://cardinal.olney.ai?patchurl=key-envelope_12key-vco-env-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#twelvekey_env_reverb">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="twelvekey_env_reverb" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="twelvekey_env_reverbLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="twelvekey_env_reverbLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Spring reverb between Scope and Host audio&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 to Spring reverb in 1&lt;/li&gt;
-&lt;li&gt;Connect Spring reverb wet to Host Audio L and Scope in 2&lt;/li&gt;
-&lt;li&gt;Move the left slider on Spring reverb up to set the level of the effect&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the level setting on the reverb&lt;/li&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the HPF (high pass filter) setting on the reverb&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Change Spring reverb wet out to mix out and then use the mix knob to mix the dry/wet sound&lt;/li&gt;
-&lt;li&gt;Connect ADSR out to Spring reverb CV in 1 and press a key (the change is subtle; see the level difference on the scope&lt;/li&gt;
-&lt;li&gt;Change the ADSR to the Gate from the 12 key; this will produce a knocking sound&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/befaco-spring-reverb-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-reverb.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="settwelvekey_env_reverbIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="twelvekey_env_reverb-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function settwelvekey_env_reverbIframe(url){
-  var twelvekey_env_reverbIframe = document.getElementById("twelvekey_env_reverb-iframe");
-  twelvekey_env_reverbIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:twelvekey-env-reverb)(ref:twelvekey-env-reverb)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:twelvekey-env-reverb)" width="100%" />
+<p class="caption">(\#fig:twelvekey-env-reverb)(ref:twelvekey-env-reverb)</p>
+</div>
 
 ### Chorus {#chorus-effect}
 
@@ -266,11 +131,11 @@ Chorus has been added to the speech example in in Figure \@ref(fig:moonshot-chor
 Instead you can see an effect on the shape of the wave as the copies interfere with each other.
 In this example, the chorus delay is 20 milliseconds, which is in the middle of the typical chorus range of 10-30 milliseconds.
 
-(ref:moonshot-chorus) [Chorus](https://olney.ai/ct-modular-book/images/moonshot-chorus.png-moonshot-chorus.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of copies of the original signal delayed by 20 milliseconds.
+(ref:moonshot-chorus) [Chorus](https://olney.ai/ct-modular-book/images/moonshot-chorus.png-moonshot-chorus.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of copies of the original signal delayed by 20 milliseconds.
 
 
 <div class="figure">
-<iframe src="images/moonshot-chorus.png-moonshot-chorus.ogg-local.html" width="100%" height="372px" data-external="1"></iframe>
+<a href="https://olney.ai/ct-modular-book/images/moonshot-chorus.png-moonshot-chorus.ogg-local.html" target="_blank"><img src="07-fun-mod-modifiers_files/figure-epub3/moonshot-chorus-1.png" alt="(ref:moonshot-chorus)" width="100%" /></a>
 <p class="caption">(\#fig:moonshot-chorus)(ref:moonshot-chorus)</p>
 </div>
 
@@ -283,79 +148,12 @@ Try patching up a chorus into a single voice keyboard patch using the button in 
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settwelvekey_env_chorusIframe('https://cardinal.olney.ai?patchurl=key-envelope_12key-vco-env-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#twelvekey_env_chorus">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="twelvekey_env_chorus" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="twelvekey_env_chorusLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="twelvekey_env_chorusLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Chorus between Scope and Host audio&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 to Chours in L&lt;/li&gt;
-&lt;li&gt;Connect Chorus out L to Host Audio L and Scope in 2&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the range setting on the chorus&lt;/li&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the speed setting on the chorus&lt;/li&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the the dry/wet mix on the chorus&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Connect ADSR out to speed and range to get some bird-like sounds&lt;/li&gt;
-&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/rackwindows-chorus-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-chorus.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="settwelvekey_env_chorusIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="twelvekey_env_chorus-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function settwelvekey_env_chorusIframe(url){
-  var twelvekey_env_chorusIframe = document.getElementById("twelvekey_env_chorus-iframe");
-  twelvekey_env_chorusIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:twelvekey-env-chorus)(ref:twelvekey-env-chorus)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:twelvekey-env-chorus)" width="100%" />
+<p class="caption">(\#fig:twelvekey-env-chorus)(ref:twelvekey-env-chorus)</p>
+</div>
 
 ### Flanger
 
@@ -369,7 +167,7 @@ Flangers typically use an LFO to vary the offset to create a sweep across such s
 (ref:noise-comb) [Youtube video](https://www.youtube.com/watch?v=k5ewou_8Abc) of pink noise with increasing 1 millisecond offsets. Note the harmonic noise that emerges as well as the comb shape of the frequency spectrum. Image [© Sweetwater](https://www.youtube.com/c/sweetwater).
 
 <div class="figure">
-<iframe src="https://www.youtube.com/embed/k5ewou_8Abc?start=0" width="672" height="400px" data-external="1"></iframe>
+<img src="downloadFigs4latex/noise-comb.jpg" alt="(ref:noise-comb)"  />
 <p class="caption">(\#fig:noise-comb)(ref:noise-comb)</p>
 </div>
 
@@ -377,11 +175,11 @@ A flanger has been added to the speech example in in Figure \@ref(fig:moonshot-f
 Additionally, and like chorus, you can see an effect on the shape of the wave as the delayed copy of the signal interferes with the original.
 In this example, the flanger delay is 1 millisecond and so produces a sweeping tone around 1000 Hz.
 
-(ref:moonshot-flanger5ms) [Flanger](https://olney.ai/ct-modular-book/images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of a copy of the original signal delayed by 1 millisecond.
+(ref:moonshot-flanger5ms) [Flanger](https://olney.ai/ct-modular-book/images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of a copy of the original signal delayed by 1 millisecond.
 
 
 <div class="figure">
-<iframe src="images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg-local.html" width="100%" height="370px" data-external="1"></iframe>
+<a href="https://olney.ai/ct-modular-book/images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg-local.html" target="_blank"><img src="07-fun-mod-modifiers_files/figure-epub3/moonshot-flanger5ms-1.png" alt="(ref:moonshot-flanger5ms)" width="100%" /></a>
 <p class="caption">(\#fig:moonshot-flanger5ms)(ref:moonshot-flanger5ms)</p>
 </div>
 
@@ -395,80 +193,12 @@ Try patching up a flanger into a single voice keyboard patch using the button in
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settwelvekey_env_flangerIframe('https://cardinal.olney.ai?patchurl=key-envelope_12key-vco-env-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#twelvekey_env_flanger">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="twelvekey_env_flanger" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="twelvekey_env_flangerLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="twelvekey_env_flangerLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Vibrato between Scope and Host audio&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 to Vibrato in&lt;/li&gt;
-&lt;li&gt;Connect Vibrato out to Host Audio L and Scope in 2&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the flange setting&lt;/li&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the frequency setting&lt;/li&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the width setting&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Connect ADSR out to freq, width, and flange to get some bird-like sounds&lt;/li&gt;
-&lt;li&gt;Use the attenuator knobs below these jacks to change the depth of the modulation &lt;/li&gt;
-&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/autinn-vibrato-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-flanger.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="settwelvekey_env_flangerIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="twelvekey_env_flanger-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function settwelvekey_env_flangerIframe(url){
-  var twelvekey_env_flangerIframe = document.getElementById("twelvekey_env_flanger-iframe");
-  twelvekey_env_flangerIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:twelvekey-env-flanger)(ref:twelvekey-env-flanger)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:twelvekey-env-flanger)" width="100%" />
+<p class="caption">(\#fig:twelvekey-env-flanger)(ref:twelvekey-env-flanger)</p>
+</div>
 
 ### Phaser
 
@@ -483,11 +213,11 @@ A phaser has been added to the speech example in in Figure \@ref(fig:moonshot-ph
 The effect on the shape of the wave is quite subtle compared to the flanger, reflecting the constructive and destructive interference resulting from the phaser.
 
 
-(ref:moonshot-phaser) [Phaser](https://olney.ai/ct-modular-book/images/moonshot-phaser.png-moonshot-phaser.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The effect on the shape of the wave is subtle and reflects both constructive and destructive interference.
+(ref:moonshot-phaser) [Phaser](https://olney.ai/ct-modular-book/images/moonshot-phaser.png-moonshot-phaser.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The effect on the shape of the wave is subtle and reflects both constructive and destructive interference.
 
 
 <div class="figure">
-<iframe src="images/moonshot-phaser.png-moonshot-phaser.ogg-local.html" width="100%" height="372px" data-external="1"></iframe>
+<a href="https://olney.ai/ct-modular-book/images/moonshot-phaser.png-moonshot-phaser.ogg-local.html" target="_blank"><img src="07-fun-mod-modifiers_files/figure-epub3/moonshot-phaser-1.png" alt="(ref:moonshot-phaser)" width="100%" /></a>
 <p class="caption">(\#fig:moonshot-phaser)(ref:moonshot-phaser)</p>
 </div>
 
@@ -501,80 +231,12 @@ Try patching up a phaser into a single voice keyboard patch using the button in 
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settwelvekey_env_phaserIframe('https://cardinal.olney.ai?patchurl=key-envelope_12key-vco-env-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#twelvekey_env_phaser">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="twelvekey_env_phaser" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="twelvekey_env_phaserLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="twelvekey_env_phaserLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Phaser FX between Scope and Host audio&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 to Phaser in&lt;/li&gt;
-&lt;li&gt;Connect Phaser out to Host Audio L and Scope in 2&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the rate setting&lt;/li&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the feedback setting (try holding down the key)&lt;/li&gt;
-&lt;li&gt;Periodically pressing the 12 key, change the depth setting&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Connect ADSR out to the CV inputs for these knobs&lt;/li&gt;
-&lt;li&gt;Once connected, these knobs act like attenuators and control the depth of the modulation &lt;/li&gt;
-&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/phaserfx-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-phaser.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="settwelvekey_env_phaserIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="twelvekey_env_phaser-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function settwelvekey_env_phaserIframe(url){
-  var twelvekey_env_phaserIframe = document.getElementById("twelvekey_env_phaser-iframe");
-  twelvekey_env_phaserIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:twelvekey-env-phaser)(ref:twelvekey-env-phaser)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:twelvekey-env-phaser)" width="100%" />
+<p class="caption">(\#fig:twelvekey-env-phaser)(ref:twelvekey-env-phaser)</p>
+</div>
 
 
 ## Voltage controlled filters
@@ -629,80 +291,12 @@ Try patching up the two filters using the button in Figure \@ref(fig:noiz-lfp-ou
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setnoiz_lfp_out_fftIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#noiz_lfp_out_fft">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="noiz_lfp_out_fft" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="noiz_lfp_out_fftLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="noiz_lfp_out_fftLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Noiz, VCF, Host audio out, and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Connect Noiz white out to VCF in and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Connect VCF LPF out to Host audio L and Sassy input 2&lt;/li&gt;
-&lt;li&gt;Right click the Sassy cable inputs to change the colors of inputs 1/2 if needed&lt;/li&gt;
-&lt;li&gt;Set Sassy to Freq mode using button, raise nearby slider to 100ms &lt;/li&gt;
-&lt;li&gt;Sassy shows the frequency spectrum of both the white noise and filtered noise&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
-&lt;li&gt;Change the cutoff frequency from zero to far right&lt;/li&gt;
-&lt;li&gt;Mouse over the cutoff knob to get the cutoff freq, then mouse over spectrum to find that freq&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Repeat with the HPF out to observe high-pass filtering&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/sassy-scope-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/noiz-lfp-out-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setnoiz_lfp_out_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="noiz_lfp_out_fft-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setnoiz_lfp_out_fftIframe(url){
-  var noiz_lfp_out_fftIframe = document.getElementById("noiz_lfp_out_fft-iframe");
-  noiz_lfp_out_fftIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:noiz-lfp-out-fft)(ref:noiz-lfp-out-fft)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noiz-lfp-out-fft)" width="100%" />
+<p class="caption">(\#fig:noiz-lfp-out-fft)(ref:noiz-lfp-out-fft)</p>
+</div>
 
 Let's take another look, this time with a square wave and an oscilloscope, which will let us look at the effect on the wave rather than the frequency spectrum.
 Of course the disadvantage of white noise is that you can't usefully look at the effect 
@@ -714,77 +308,12 @@ HPF creates perhaps even more curious shapes that quickly turn into increasingly
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setlfo_lfp_out_scope_fftIframe('https://cardinal.olney.ai?patchurl=noiz-lfp-out-fft.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#lfo_lfp_out_scope_fft">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="lfo_lfp_out_scope_fft" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="lfo_lfp_out_scope_fftLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="lfo_lfp_out_scope_fftLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add an LFO to the left of Noiz and Scope between Host Audio and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Connect LFO square to VCF in, Scope in 1, and to Sassy input 1&lt;/li&gt;
-&lt;li&gt;Connect VCF LPF out to Host audio L, Scope i n2, and Sassy input 2&lt;/li&gt;
-&lt;li&gt;Right click the Sassy cable inputs to change the colors of inputs 1/2 if needed&lt;/li&gt;
-&lt;li&gt;Set LFO freq to around 100 Hz, VCF cutoff to around 400 Hz, Scope time to around 12 ms, and enable Scope TRG &lt;/li&gt;
-&lt;li&gt;The Scope shows the square wave and filtered square wave&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
-&lt;li&gt;Change the cutoff frequency from zero to far right&lt;/li&gt;
-&lt;li&gt;At various points, the wave should looke more like a triangle wave and then a sine wave&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Repeat with the HPF out to observe high-pass filtering&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/lfo-lfp-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setlfo_lfp_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="lfo_lfp_out_scope_fft-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setlfo_lfp_out_scope_fftIframe(url){
-  var lfo_lfp_out_scope_fftIframe = document.getElementById("lfo_lfp_out_scope_fft-iframe");
-  lfo_lfp_out_scope_fftIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:lfo-lfp-out-scope-fft)(ref:lfo-lfp-out-scope-fft)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-lfp-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:lfo-lfp-out-scope-fft)(ref:lfo-lfp-out-scope-fft)</p>
+</div>
 
 ### Filters change frequency and phase
 
@@ -855,7 +384,7 @@ Instead of being negative because the frequencies have been slowed down, the pha
 
 In the previous Bode plots, the cutoff frequency marked the location past which the amplitude reduced by 6 dB/Oct.
 This bend in the frequency response of the filter is called a pole, and the RC circuit is therefore an example of a 1-pole filter element.
-To get greater reductions than 6 dB/Oct, multiple 1-pole filter elements can be combined.^[RC circuits cannot be combined this way, but they remain useful for understanding the additive effect of each element.]
+To get greater reductions than 6 dB/Oct, multiple 1-pole filter elements can be combined.^[RC circuits cannot be simply combined, but they remain useful for understanding the additive effect of each element.]
 Each filter element has a distinct pole, so the overall shape of the drop off has bends corresponding to these poles.
 This means that a 4-pole filter would have four distinct regions of drop off rather than the single region we looked at before.
 Each region would contribute both to amplitude attenuation and phase shift at a given frequency.
@@ -873,78 +402,12 @@ Since there are now two cutoffs to control to hear the combined filter sweep, ho
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setlfo_lpf_hpf_out_scope_fftIframe('https://cardinal.olney.ai?patchurl=lfo-lfp-out-scope-fft.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#lfo_lpf_hpf_out_scope_fft">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="lfo_lpf_hpf_out_scope_fft" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="lfo_lpf_hpf_out_scope_fftLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="lfo_lpf_hpf_out_scope_fftLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add another VCF to the right of the existing VCF. The left will be LPF and the right HPF&lt;/li&gt;
-&lt;li&gt;Connect LPF out to HPF in and remove all other connections from LPF out&lt;/li&gt;
-&lt;li&gt;Connect HPF out to Host audio L, Scope input 2, and Sassy input 2&lt;/li&gt;
-&lt;li&gt;You may wish to use a square wave as Scope EXT TRG&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
-&lt;li&gt;Your two VCFs should have the same cutoff freq now&lt;/li&gt;
-&lt;li&gt;Try to change the two cutoffs to make the peak higher without making it wider&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Add an LFO to control the cutoff frequencies of both VCFs&lt;/li&gt;
-&lt;li&gt;Connect that LFO triangle out to both VCF cutoffs&lt;/li&gt;
-&lt;li&gt;Change the VCF cutoffs attenuators to 100% to allow the full LFO signal&lt;/li&gt;
-&lt;li&gt;Set a low LFO frequency (&lt; .5) and note the changes in sound and the spectrum&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/lfo-lpf-hpf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setlfo_lpf_hpf_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="lfo_lpf_hpf_out_scope_fft-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setlfo_lpf_hpf_out_scope_fftIframe(url){
-  var lfo_lpf_hpf_out_scope_fftIframe = document.getElementById("lfo_lpf_hpf_out_scope_fft-iframe");
-  lfo_lpf_hpf_out_scope_fftIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:lfo-lpf-hpf-out-scope-fft)(ref:lfo-lpf-hpf-out-scope-fft)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-lpf-hpf-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:lfo-lpf-hpf-out-scope-fft)(ref:lfo-lpf-hpf-out-scope-fft)</p>
+</div>
 
 A notch filter^[A notch filter is sometimes called a band-reject filter.] can be created by combining an LPF and HPF in parallel.
 A notch filter mostly lets through every thing but frequencies within a range.
@@ -955,79 +418,12 @@ As before, there are two cutoffs to control to hear the combined filter sweep, s
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setlfo_lfo_lpf_hpf_mixer_out_scope_fftIframe('https://cardinal.olney.ai?patchurl=lfo-lpf-hpf-out-scope-fft.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#lfo_lfo_lpf_hpf_mixer_out_scope_fft">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="lfo_lfo_lpf_hpf_mixer_out_scope_fft" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="lfo_lfo_lpf_hpf_mixer_out_scope_fftLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="lfo_lfo_lpf_hpf_mixer_out_scope_fftLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Change the VCF cutoffs attenuators to 0% to temporarily disable the LFO signal changing those cutoffs&lt;/li&gt;
-&lt;li&gt;Add a QuadVCA/Mixer between the last VCF and Host audio out&lt;/li&gt;
-&lt;li&gt;Connect audio rate LFO square out to VCF 1 in and VCF 2 in&lt;/li&gt;
-&lt;li&gt;Connect VCF 1 LPF out to QuadVCA input 1 and remove all other connections from LPF out&lt;/li&gt;
-&lt;li&gt;Connect VCF 2 HPF out to  QuadVCA input 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA mix out to Scope input 2, and Sassy input 2, and Host audio L&lt;/li&gt;
-&lt;li&gt;Adjust the top left sliders for Sassy to 1x; this will make it easier to see the notch&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
-&lt;li&gt;Your two VCFs should have the same cutoff freq now&lt;/li&gt;
-&lt;li&gt;Try to change the two cutoffs to make the notch low without making it wide&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Change the VCF cutoffs attenuators to 100% to allow the full LFO signal&lt;/li&gt;
-&lt;li&gt;Set a low LFO frequency (&lt; .5) and note the changes in sound and the spectrum&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/lfo-lfo-lpf-hpf-mixer-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setlfo_lfo_lpf_hpf_mixer_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="lfo_lfo_lpf_hpf_mixer_out_scope_fft-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setlfo_lfo_lpf_hpf_mixer_out_scope_fftIframe(url){
-  var lfo_lfo_lpf_hpf_mixer_out_scope_fftIframe = document.getElementById("lfo_lfo_lpf_hpf_mixer_out_scope_fft-iframe");
-  lfo_lfo_lpf_hpf_mixer_out_scope_fftIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft)(ref:lfo-lfo-lpf-hpf-mixer-out-scope-fft)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-lfo-lpf-hpf-mixer-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft)(ref:lfo-lfo-lpf-hpf-mixer-out-scope-fft)</p>
+</div>
 
 ### Resonance
 
@@ -1047,77 +443,12 @@ You should see that the cutoff frequency and resonance interact in interesting w
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setnoiz_lpf_out_scope_fftIframe('https://cardinal.olney.ai?patchurl=lfo-lfp-out-scope-fft.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#noiz_lpf_out_scope_fft">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="noiz_lpf_out_scope_fft" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="noiz_lpf_out_scope_fftLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="noiz_lpf_out_scope_fftLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Connect Noiz white out to VCF in, Scope input 1, and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Connect VCF LPF out to Host audio L, Scope input 2, and Sassy input 2&lt;/li&gt;
-&lt;li&gt;Connect VCF LPF out to Scope EXT TRG (external trigger)  &lt;/li&gt;
-&lt;li&gt;Turn the VCF resonance up until you see a sine wave on the scope and a distinct peak on Sassy&lt;/li&gt;
-&lt;li&gt;Now reconnect everything using a square wave as your VCF input and EXT TRG&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
-&lt;li&gt;Set the resonance at 20% &lt;/li&gt;
-&lt;li&gt;Change the cutoff frequency from zero to far right&lt;/li&gt;
-&lt;li&gt;Repeat with the resonace at 50% and 80%&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Repeat with the HPF out to observe high-pass filtering&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/noiz-lpf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setnoiz_lpf_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="noiz_lpf_out_scope_fft-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setnoiz_lpf_out_scope_fftIframe(url){
-  var noiz_lpf_out_scope_fftIframe = document.getElementById("noiz_lpf_out_scope_fft-iframe");
-  noiz_lpf_out_scope_fftIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:noiz-lpf-out-scope-fft)(ref:noiz-lpf-out-scope-fft)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noiz-lpf-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:noiz-lpf-out-scope-fft)(ref:noiz-lpf-out-scope-fft)</p>
+</div>
 
 Although filter resonance has clear regions where the filter is self-oscillating or not, there is also an intermediate region where the filter begins to oscillate but the oscillation quickly dies out.
 This is analogous to plucking a string or pushing on a pendulum.
@@ -1137,75 +468,12 @@ Any kind of pulse can be used to ping a filter, including envelopes.
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setlfo_vcf_out_scope_fftIframe('https://cardinal.olney.ai?patchurl=lfo-lfp-out-scope-fft.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#lfo_vcf_out_scope_fft">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="lfo_vcf_out_scope_fft" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="lfo_vcf_out_scope_fftLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="lfo_vcf_out_scope_fftLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Set LFO freq to .2 Hz&lt;/li&gt;
-&lt;li&gt;Set VCF cutoff to 280 Hz&lt;/li&gt;
-&lt;li&gt;Set VCF resonance to 60% &lt;/li&gt;
-&lt;li&gt;Set Scope time to 9 o'clock&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
-&lt;li&gt;Slowly move resonance between 40% and 63%; more resonance gives longer decay &lt;/li&gt;
-&lt;li&gt;With a good resonance, move the cutoff between 90 Hz and 1000 Hz&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Repeat with the HPF out; you will get an initial click and a brighter sound&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/lfo-vcf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setlfo_vcf_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="lfo_vcf_out_scope_fft-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setlfo_vcf_out_scope_fftIframe(url){
-  var lfo_vcf_out_scope_fftIframe = document.getElementById("lfo_vcf_out_scope_fft-iframe");
-  lfo_vcf_out_scope_fftIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:lfo-vcf-out-scope-fft)(ref:lfo-vcf-out-scope-fft)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-vcf-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:lfo-vcf-out-scope-fft)(ref:lfo-vcf-out-scope-fft)</p>
+</div>
 
 <!-- Remaining plan -->
 

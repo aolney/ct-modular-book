@@ -18,7 +18,7 @@ At any moment, you can stop the car and the red dot will be in a certain positio
 If the car has been moving at the same speed the entire time, you can exactly predict where the red dot will be.
 Figure \@ref(fig:wheel-sine) shows an abstract rendering of this example, highlighting the relationship between the rotation of the wheel (in radians) and the shape of a sine wave.
 
-(ref:wheel-sine) Relation between a unit circle and a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
+(ref:wheel-sine) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between a unit circle and a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
 
 ```{r wheel-sine, echo=F, out.width="80%", fig.cap="(ref:wheel-sine)"}
 embed_linked_media("images/wheel-sine.gif")
@@ -57,7 +57,7 @@ The original signal ([JFK's famous moon speech](https://en.wikipedia.org/wiki/We
 Note that the delay effect extends well beyond the length of the original audio.
 Delay is the longest time-based effect we will discuss, typically ranging from a hundred milliseconds to multiple seconds.
 
-(ref:moonshot-delay2s) [Delay](https://olney.ai/ct-modular-book/images/moonshot-delay2s.png-moonshot-delay2s.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The decaying echos of the delay make the lower track significantly longer than the original.
+(ref:moonshot-delay2s) [Delay](https://olney.ai/ct-modular-book/images/moonshot-delay2s.png-moonshot-delay2s.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The decaying echos of the delay make the lower track significantly longer than the original.
 
 
 ```{r, moonshot-delay2s, out.width='100%', fig.cap="(ref:moonshot-delay2s)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
@@ -111,7 +111,7 @@ Reverb has been added to the speech example in in Figure \@ref(fig:moonshot-reve
 However, the duration it extends is much shorter (about 300 milliseconds), reflecting a faster decay time.
 Note that this recording was taken in a stadium that already had significant natural reverb.
 
-(ref:moonshot-reverb75) [Reverb](https://olney.ai/ct-modular-book/images/moonshot-reverb75.png-moonshot-reverb75.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The added reverb slightly extends the length of the original track and is most noticeable at that point due to the natural reverb in the original recording.
+(ref:moonshot-reverb75) [Reverb](https://olney.ai/ct-modular-book/images/moonshot-reverb75.png-moonshot-reverb75.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The added reverb slightly extends the length of the original track and is most noticeable at that point due to the natural reverb in the original recording.
 
 
 ```{r, moonshot-reverb75, out.width='100%', fig.cap="(ref:moonshot-reverb75)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
@@ -162,7 +162,7 @@ Chorus has been added to the speech example in in Figure \@ref(fig:moonshot-chor
 Instead you can see an effect on the shape of the wave as the copies interfere with each other.
 In this example, the chorus delay is 20 milliseconds, which is in the middle of the typical chorus range of 10-30 milliseconds.
 
-(ref:moonshot-chorus) [Chorus](https://olney.ai/ct-modular-book/images/moonshot-chorus.png-moonshot-chorus.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of copies of the original signal delayed by 20 milliseconds.
+(ref:moonshot-chorus) [Chorus](https://olney.ai/ct-modular-book/images/moonshot-chorus.png-moonshot-chorus.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of copies of the original signal delayed by 20 milliseconds.
 
 
 ```{r, moonshot-chorus, out.width='100%', fig.cap="(ref:moonshot-chorus)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
@@ -221,7 +221,7 @@ A flanger has been added to the speech example in in Figure \@ref(fig:moonshot-f
 Additionally, and like chorus, you can see an effect on the shape of the wave as the delayed copy of the signal interferes with the original.
 In this example, the flanger delay is 1 millisecond and so produces a sweeping tone around 1000 Hz.
 
-(ref:moonshot-flanger5ms) [Flanger](https://olney.ai/ct-modular-book/images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of a copy of the original signal delayed by 1 millisecond.
+(ref:moonshot-flanger5ms) [Flanger](https://olney.ai/ct-modular-book/images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of a copy of the original signal delayed by 1 millisecond.
 
 
 ```{r, moonshot-flanger5ms, out.width='100%', fig.cap="(ref:moonshot-flanger5ms)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
@@ -276,7 +276,7 @@ A phaser has been added to the speech example in in Figure \@ref(fig:moonshot-ph
 The effect on the shape of the wave is quite subtle compared to the flanger, reflecting the constructive and destructive interference resulting from the phaser.
 
 
-(ref:moonshot-phaser) [Phaser](https://olney.ai/ct-modular-book/images/moonshot-phaser.png-moonshot-phaser.ogg.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The effect on the shape of the wave is subtle and reflects both constructive and destructive interference.
+(ref:moonshot-phaser) [Phaser](https://olney.ai/ct-modular-book/images/moonshot-phaser.png-moonshot-phaser.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The effect on the shape of the wave is subtle and reflects both constructive and destructive interference.
 
 
 ```{r, moonshot-phaser, out.width='100%', fig.cap="(ref:moonshot-phaser)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
@@ -492,7 +492,7 @@ Instead of being negative because the frequencies have been slowed down, the pha
 
 In the previous Bode plots, the cutoff frequency marked the location past which the amplitude reduced by 6 dB/Oct.
 This bend in the frequency response of the filter is called a pole, and the RC circuit is therefore an example of a 1-pole filter element.
-To get greater reductions than 6 dB/Oct, multiple 1-pole filter elements can be combined.^[RC circuits cannot be combined this way, but they remain useful for understanding the additive effect of each element.]
+To get greater reductions than 6 dB/Oct, multiple 1-pole filter elements can be combined.^[RC circuits cannot be simply combined, but they remain useful for understanding the additive effect of each element.]
 Each filter element has a distinct pole, so the overall shape of the drop off has bends corresponding to these poles.
 This means that a 4-pole filter would have four distinct regions of drop off rather than the single region we looked at before.
 Each region would contribute both to amplitude attenuation and phase shift at a given frequency.

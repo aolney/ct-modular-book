@@ -65,10 +65,11 @@ modular_caption <- function(id="", instructions_html="",solution_html="",iframe_
   }
 }
 
+# this was originally meant to be general but ended up being customized for the effects chapter
 image_ogg_figure <- function(image_file,ogg_file, height = "380px") {
   # check if html container is deployed
   filename <- str_c(image_file,"-",ogg_file)
-  url = str_c("https://olney.ai/ct-modular-book/images/", filename, ".html")
+  url = str_c("https://olney.ai/ct-modular-book/images/", filename, "-local.html")
   is_deployed = url.exists( url)
   # if deployed, use the standard process
   if(is_deployed) {
@@ -76,10 +77,10 @@ image_ogg_figure <- function(image_file,ogg_file, height = "380px") {
   # if not deployed, use a template to generate an html file of the appropriate name
   # and use local file for knitr (won't work for pdf!!!)
   } else {
-    #make a file for deployment
-    html = htmltools::htmlTemplate("images/image-ogg-template.html",img=image_file,ogg=ogg_file)
-    path = str_c("images/",filename,".html")
-    htmltools::save_html(html,path)
+    #make a file for deployment (actually this isn't needed; we just deploy the copy below to make the PDF)
+    # html = htmltools::htmlTemplate("images/image-ogg-template.html",img=image_file,ogg=ogg_file)
+    # path = str_c("images/",filename,".html")
+    # htmltools::save_html(html,path)
     
     #make a local file and knit it
     path <- str_c("images/",filename,"-local.html")

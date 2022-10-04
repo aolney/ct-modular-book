@@ -22,6 +22,28 @@
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -43,7 +65,28 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 6</span> Generators</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li class="book-part">Sound</li>
+<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
+<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
+<li class="book-part">Fundamental Modules</li>
+<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
+<li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
+<li><a class="active" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
+<li><a class="" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
+<li class="book-part">Sound Design 1</li>
+<li><a class="" href="kick-cymbal.html"><span class="header-section-number">8</span> Kick &amp; Cymbal</a></li>
+<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
+<li class="book-part">Complex Modules</li>
+<li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
+<li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
+<li><a class="" href="modify.html"><span class="header-section-number">12</span> Modify</a></li>
+<li class="book-part">Sound Design 2</li>
+<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -71,11 +114,11 @@ Samplers represent the extreme of realism in generators, at least as far as thei
 <p>Section <a href="harmonic-and-inharmonic-sounds.html#phase-reflections-standing-waves-and-harmonics">3.1</a> briefly mentioned the relationship between harmonics and fundamental relationships like octaves and fifths.
 To recap, the second harmonic has double the frequency of the first and so is one octave above the first harmonic.
 We can express this relationship as 2:1, i.e. an octave is twice the frequency of the the fundamental.
-Similarly the third harmonic is a fifth above the second harmonic, so we can express a fifth as 3:2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Whole number ratios require &lt;a href="https://en.wikipedia.org/wiki/Just_intonation"&gt;just intonation&lt;/a&gt;. The twelve tone &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament"&gt;equal temperment&lt;/a&gt; used in Western music is a close approximation, e.g. 3:2 is 1.498 in twelve tone equal temperment.&lt;/p&gt;'><sup>1</sup></a></p>
+Similarly the third harmonic is a fifth above the second harmonic, so we can express a fifth as 3:2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Whole number ratios require &lt;a href="https://en.wikipedia.org/wiki/Just_intonation"&gt;just intonation&lt;/a&gt;. The twelve tone &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament"&gt;equal temperment&lt;/a&gt; used in Western music is a close approximation, e.g. 3:2 is 1.498 in twelve tone equal temperment.&lt;/p&gt;'><sup>48</sup></a></p>
 <p>Now consider what happens if two notes an octave apart or a fifth apart are played at the same time.
 Clearly some of their harmonics will be the same.
 Thus playing two or more notes this way will add and enhance harmonics beyond that of a single note, creating a richer and fuller sound.
-Of course, notes may be played that are not harmonically related, to a different effect.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The reader may be interested in &lt;a href="https://en.wikipedia.org/wiki/Consonance_and_dissonance"&gt;consonance/dissonance&lt;/a&gt; as discussed in music theory.&lt;/p&gt;'><sup>2</sup></a>
+Of course, notes may be played that are not harmonically related, to a different effect.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The reader may be interested in &lt;a href="https://en.wikipedia.org/wiki/Consonance_and_dissonance"&gt;consonance/dissonance&lt;/a&gt; as discussed in music theory.&lt;/p&gt;'><sup>49</sup></a>
 When two notes are played simultaneously, it is called an <a href="https://en.wikipedia.org/wiki/Interval_(music)">interval</a>, with three notes, a <a href="https://en.wikipedia.org/wiki/Trichord">trichord</a>, with four notes, a <a href="https://en.wikipedia.org/wiki/Tetrachord">tetrachord</a>, etc.
 Many harmonically related notes can be played simultaneously to good effect.
 For example, the <a href="https://en.wikipedia.org/wiki/Deep_Note">THX Deep Note</a> in Figure <a href="generators.html#fig:deep-note">6.1</a> resolves to 11 notes, mostly harmonically related by 3, 4, and 7 semitones (minor/major thirds and fifths).</p>
@@ -93,7 +136,7 @@ At the first stage, we have a V/Oct control signal, so we can create chords by m
 At the final stage, we have an audio signal, so we can create chords by making new audio signals harmonically related to the original signal.
 Let’s look at both.</p>
 <p>To create harmonically related control voltage signals, we can use a voltage offset module to create new signals offset from the original signal, i.e. the original voltage plus/minus a harmonically-related voltage.
-It can take a little math to do this if the offset module is labeled in volts<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall 1 V/Oct means a semitone is 1/12 of a volt.&lt;/p&gt;"><sup>3</sup></a>, but if the offset module is labeled in semitones, it is <a href="https://en.wikipedia.org/wiki/Interval_(music)#Main_intervals">fairly straightforward</a>, e.g. a fifth is seven semitones.
+It can take a little math to do this if the offset module is labeled in volts<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall 1 V/Oct means a semitone is 1/12 of a volt.&lt;/p&gt;"><sup>50</sup></a>, but if the offset module is labeled in semitones, it is <a href="https://en.wikipedia.org/wiki/Interval_(music)#Main_intervals">fairly straightforward</a>, e.g. a fifth is seven semitones.
 Additionally we will need multiple oscillators to play a note for each offset voltage.
 We could reasonably do this with separate oscillators, but some chord-oriented modules contain multiple oscillators and take separate V/Oct for each.
 Try making a trichord using a fifth and an octave using the button in Figure <a href="generators.html#fig:voltage-division-chords">6.2</a>.</p>
@@ -479,7 +522,7 @@ Figure 6.8: <a href="https://www.youtube.com/watch?v=CPPOrQHiP40">Youtube video<
 </p>
 </div>
 <p>LFOs can create vibrato on a VCO by controlling V/Oct.
-Unlike PWM, an additional VCA is needed to control the depth of the vibrato.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically you can use the FM input and attenuator, but there are pedagogical reasons for not using the FM input at the moment, namely that we have not discused FM yet. &lt;/p&gt;"><sup>4</sup></a>
+Unlike PWM, an additional VCA is needed to control the depth of the vibrato.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically you can use the FM input and attenuator, but there are pedagogical reasons for not using the FM input at the moment, namely that we have not discused FM yet. &lt;/p&gt;"><sup>51</sup></a>
 Try to create vibrato with an LFO using the button in Figure <a href="generators.html#fig:vibrato-lfo-vca-vco-scope">6.9</a>.
 With a little adjustment of the parameters, it’s possible to match the vibrato of the opera singer just discussed.
 Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato effect on and off by setting LFO frequency, e.g. through a sequencer.</p>
@@ -558,7 +601,7 @@ Figure 6.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for implemen
 <h3>
 <span class="header-section-number">6.3.3</span> Tremolo<a class="anchor" aria-label="anchor" href="#tremolo"><i class="fas fa-link"></i></a>
 </h3>
-<p>In electronic music, tremolo is movement around loudness that can be defined in terms of speed of movement around a center volume and depth of movement, or distance from, that same center volume.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The mnemonic “tremolo&lt;strong&gt;ud&lt;/strong&gt;” might help prevent confusion with vibrato.&lt;/p&gt;"><sup>5</sup></a>
+<p>In electronic music, tremolo is movement around loudness that can be defined in terms of speed of movement around a center volume and depth of movement, or distance from, that same center volume.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The mnemonic “tremolo&lt;strong&gt;ud&lt;/strong&gt;” might help prevent confusion with vibrato.&lt;/p&gt;"><sup>52</sup></a>
 Note that in other forms of music, there are <a href="https://en.wikipedia.org/wiki/Tremolo">different definitions of tremolo</a>.
 Tremolo has been widely used in popular guitar music since the 1960’s, and guitar pedals producing tremolo effects as shown in Figure <a href="generators.html#fig:guitar-tremolo">6.10</a> are quite common today.</p>
 
@@ -1050,15 +1093,30 @@ Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO con
 </div>
 
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="controllers.html"><span class="header-section-number">5</span> Controllers</a></div>
+<div class="next"><a href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#generators"><span class="header-section-number">6</span> Generators</a></li>
+<li><a class="nav-link" href="#chords"><span class="header-section-number">6.1</span> Chords</a></li>
+<li><a class="nav-link" href="#chorus-oscillators"><span class="header-section-number">6.2</span> Chorus</a></li>
+<li>
+<a class="nav-link" href="#low-frequency-oscillators-uses"><span class="header-section-number">6.3</span> Low frequency oscillators &amp; uses</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pulse-width-modulation"><span class="header-section-number">6.3.1</span> Pulse width modulation</a></li>
+<li><a class="nav-link" href="#vibrato"><span class="header-section-number">6.3.2</span> Vibrato</a></li>
+<li><a class="nav-link" href="#tremolo"><span class="header-section-number">6.3.3</span> Tremolo</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#synchronization"><span class="header-section-number">6.4</span> Synchronization</a></li>
+<li><a class="nav-link" href="#noise"><span class="header-section-number">6.5</span> Noise</a></li>
+<li><a class="nav-link" href="#samplers"><span class="header-section-number">6.6</span> Samplers</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/06-fun-mod-generators.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/06-fun-mod-generators.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -1070,7 +1128,7 @@ Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO con
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-03.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

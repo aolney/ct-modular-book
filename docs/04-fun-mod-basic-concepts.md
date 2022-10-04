@@ -177,7 +177,7 @@ For this patch only, I'm going to demonstrate using the video in Figure \@ref(fi
 (ref:drone-demo) [Youtube video](https://www.youtube.com/watch?v=EfIWUOgHmhM) describing the VCVRack/Cardinal interface and builing a drone patch.
 
 <div class="figure">
-<iframe src="https://www.youtube.com/embed/EfIWUOgHmhM?start=2" width="672" height="400px" data-external="1"></iframe>
+<img src="downloadFigs4latex/drone-demo.jpg" alt="(ref:drone-demo)"  />
 <p class="caption">(\#fig:drone-demo)(ref:drone-demo)</p>
 </div>
 
@@ -189,72 +189,12 @@ These are self-explanatory, but in particular the `Close` button will return you
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdrone_vco_outIframe('https://cardinal.olney.ai')" class="btn btn-primary" data-toggle="modal" data-target="#drone_vco_out">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="drone_vco_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="drone_vco_outLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="drone_vco_outLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Use the video demonstration as a guide (open video in separate tab as needed)&lt;/li&gt;
-&lt;li&gt;For each wave output&lt;ul&gt;
-&lt;li&gt;Connect just it to the audio inputs&lt;/li&gt;
-&lt;li&gt;Sweep the frequency knob&lt;/li&gt;
-&lt;li&gt;Sweep the volume knob&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="See the video demonstration in the book (open video in separate tab as needed">Solution</button>
-        <button type="button" onclick="setdrone_vco_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="drone_vco_out-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setdrone_vco_outIframe(url){
-  var drone_vco_outIframe = document.getElementById("drone_vco_out-iframe");
-  drone_vco_outIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:drone-vco-out)(ref:drone-vco-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:drone-vco-out)" width="100%" />
+<p class="caption">(\#fig:drone-vco-out)(ref:drone-vco-out)</p>
+</div>
 
 
 ### Using an oscilloscope
@@ -275,76 +215,12 @@ Try adding a scope between the modules in the previous patch using the button in
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdrone_vco_scope_outIframe('https://cardinal.olney.ai?patchurl=drone_vco-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#drone_vco_scope_out">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="drone_vco_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="drone_vco_scope_outLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="drone_vco_scope_outLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add “Scope” between VCO and Host Audio&lt;/li&gt;
-&lt;li&gt;Connect VCO wave out to Scope In&lt;/li&gt;
-&lt;li&gt;Connect Scope out to Host Audio&lt;/li&gt;
-&lt;li&gt;For each waveshape try&lt;ul&gt;
-&lt;li&gt;Adjusting time&lt;/li&gt;
-&lt;li&gt;Adjusting frequency&lt;/li&gt;
-&lt;li&gt;Adjusting gain&lt;/li&gt;
-&lt;li&gt;Changing the waveshape&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img src='images/solo-modules/scope-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/drone-scope_vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setdrone_vco_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="drone_vco_scope_out-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setdrone_vco_scope_outIframe(url){
-  var drone_vco_scope_outIframe = document.getElementById("drone_vco_scope_out-iframe");
-  drone_vco_scope_outIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:drone-vco-scope-out)(ref:drone-vco-scope-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:drone-vco-scope-out)" width="100%" />
+<p class="caption">(\#fig:drone-vco-scope-out)(ref:drone-vco-scope-out)</p>
+</div>
 
 
 ### Controlling pitch
@@ -362,75 +238,12 @@ Try adding the 12 key to the left of the VCO in the previous patch using the but
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdrone_12key_vco_scope_outIframe('https://cardinal.olney.ai?patchurl=drone-scope_vco-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#drone_12key_vco_scope_out">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="drone_12key_vco_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="drone_12key_vco_scope_outLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="drone_12key_vco_scope_outLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add “Twelve-key” to the left of the VCO&lt;/li&gt;
-&lt;li&gt;Connect 12 key CV output to VCO V/OCT input&lt;/li&gt;
-&lt;li&gt;Observe what happens when you click different keys on 12 key&lt;ul&gt;
-&lt;li&gt;In terms of sound&lt;/li&gt;
-&lt;li&gt;In terms of wave on scope&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Change OCTAVE on 12 key and repeat&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;If you don&amp;#39;t hear sound, check if your frequency is below 20 kHz; your computer speakers may not produce sound below 100 kHz&lt;/em&gt;&lt;/p&gt;
-&lt;img src='images/solo-modules/12key-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/key-drone_12key-vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setdrone_12key_vco_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="drone_12key_vco_scope_out-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setdrone_12key_vco_scope_outIframe(url){
-  var drone_12key_vco_scope_outIframe = document.getElementById("drone_12key_vco_scope_out-iframe");
-  drone_12key_vco_scope_outIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:drone-12key-vco-scope-out)(ref:drone-12key-vco-scope-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:drone-12key-vco-scope-out)" width="100%" />
+<p class="caption">(\#fig:drone-12key-vco-scope-out)(ref:drone-12key-vco-scope-out)</p>
+</div>
 
 ### Controlling note duration (on/off volume)
 
@@ -446,76 +259,12 @@ Try adding a VCA between the VCO and Scope modules using the button in Figure \@
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdrone_12key_vco_vca_scope_outIframe('https://cardinal.olney.ai?patchurl=key-drone_12key-vco-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#drone_12key_vco_vca_scope_out">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="drone_12key_vco_vca_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="drone_12key_vco_vca_scope_outLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="drone_12key_vco_vca_scope_outLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add VCA between VCO and Scope modules&lt;/li&gt;
-&lt;li&gt;Connect VCO wave to VCA In&lt;/li&gt;
-&lt;li&gt;Connect 12 key GATE output to VCA CV IN&lt;/li&gt;
-&lt;li&gt;Connect VCA OUT to Scope IN&lt;/li&gt;
-&lt;li&gt;What happens when you click different keys on 12 key&lt;ul&gt;
-&lt;li&gt;In terms of sound&lt;/li&gt;
-&lt;li&gt;In terms of wave on scope&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Try holding down key instead of short pressing it and repeat&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img src='images/solo-modules/vca-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/key-note_12key-vco-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setdrone_12key_vco_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="drone_12key_vco_vca_scope_out-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setdrone_12key_vco_vca_scope_outIframe(url){
-  var drone_12key_vco_vca_scope_outIframe = document.getElementById("drone_12key_vco_vca_scope_out-iframe");
-  drone_12key_vco_vca_scope_outIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:drone-12key-vco-vca-scope-out)(ref:drone-12key-vco-vca-scope-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:drone-12key-vco-vca-scope-out)" width="100%" />
+<p class="caption">(\#fig:drone-12key-vco-vca-scope-out)(ref:drone-12key-vco-vca-scope-out)</p>
+</div>
 
 ### Controlling note dynamics (volume during note)
 
@@ -531,75 +280,12 @@ Try adding an ADSR module between the VCO and VCA modules using the button in Fi
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdrone_12key_vco_env_vca_scope_outIframe('https://cardinal.olney.ai?patchurl=key-note_12key-vco-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#drone_12key_vco_env_vca_scope_out">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="drone_12key_vco_env_vca_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="drone_12key_vco_env_vca_scope_outLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="drone_12key_vco_env_vca_scope_outLabel">Modal title</h5> -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add ADSR module between VCO and VCA modules&lt;/li&gt;
-&lt;li&gt;Connect 12 key GATE output to ADSR GATE input&lt;/li&gt;
-&lt;li&gt;Connect ADSR OUT to VCA IN&lt;/li&gt;
-&lt;li&gt;What happens when you click different keys on 12 key&lt;ul&gt;
-&lt;li&gt;In terms of sound&lt;/li&gt;
-&lt;li&gt;In terms of wave on scope&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Change the attack, decay, sustain, release knobs and repeat&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img src='images/solo-modules/adsr-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/key-envelope_12key-vco-env-vca-scope-out.png' style='height: 300px; width: 718px'&gt;">Solution</button>
-        <button type="button" onclick="setdrone_12key_vco_env_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="drone_12key_vco_env_vca_scope_out-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setdrone_12key_vco_env_vca_scope_outIframe(url){
-  var drone_12key_vco_env_vca_scope_outIframe = document.getElementById("drone_12key_vco_env_vca_scope_out-iframe");
-  drone_12key_vco_env_vca_scope_outIframe.src = url;
-};
-
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:drone-12key-vco-env-vca-scope-out)(ref:drone-12key-vco-env-vca-scope-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:drone-12key-vco-env-vca-scope-out)" width="100%" />
+<p class="caption">(\#fig:drone-12key-vco-env-vca-scope-out)(ref:drone-12key-vco-env-vca-scope-out)</p>
+</div>
 
 ## Moving forward
 
