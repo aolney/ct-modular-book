@@ -233,8 +233,8 @@ modular_modal("drone-vco-scope-out", starter_file="drone_vco-out.vcv", instructi
 </ul>
 </li>
 </ul>
-<img src='images/solo-modules/scope-solo.png' style='height: 300px; width: auto'>
-",solution_html="<img src='images/patch-solutions/drone-scope_vco-scope-out.png' style='height: 300px; width: auto'>")
+<img class='rack-image' src='images/solo-modules/scope-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img class='rack-image' src='images/patch-solutions/drone-scope_vco-scope-out.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -269,8 +269,8 @@ modular_modal("drone-12key-vco-scope-out", starter_file="drone-scope_vco-scope-o
 <li>Change OCTAVE on 12 key and repeat</li>
 </ul>
 <p><em>If you don&#39;t hear sound, check if your frequency is below 20 kHz; your computer speakers may not produce sound below 100 kHz</em></p>
-<img src='images/solo-modules/12key-solo.png' style='height: 300px; width: auto'>
-",solution_html="<img src='images/patch-solutions/key-drone_12key-vco-scope-out.png' style='height: 300px; width: auto'>")
+<img class='rack-image' src='images/solo-modules/12key-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img class='rack-image' src='images/patch-solutions/key-drone_12key-vco-scope-out.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -304,8 +304,8 @@ modular_modal("drone-12key-vco-vca-scope-out", starter_file="key-drone_12key-vco
 </li>
 <li>Try holding down key instead of short pressing it and repeat</li>
 </ul>
-<img src='images/solo-modules/vca-solo.png' style='height: 300px; width: auto'>
-",solution_html="<img src='images/patch-solutions/key-note_12key-vco-vca-scope-out.png' style='height: 300px; width: auto'>")
+<img class='rack-image' src='images/solo-modules/vca-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img class='rack-image' src='images/patch-solutions/key-note_12key-vco-vca-scope-out.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -338,8 +338,8 @@ modular_modal("drone-12key-vco-env-vca-scope-out", starter_file="key-note_12key-
 </li>
 <li>Change the attack, decay, sustain, release knobs and repeat</li>
 </ul>
-<img src='images/solo-modules/adsr-solo.png' style='height: 300px; width: auto'>
-",solution_html="<img src='images/patch-solutions/key-envelope_12key-vco-env-vca-scope-out.png' style='height: 300px; width: 718px'>")
+<img class='rack-image' src='images/solo-modules/adsr-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img class='rack-image' src='images/patch-solutions/key-envelope_12key-vco-env-vca-scope-out.png' style='height: 300px; width: 718px'>")
 ```
 
 <!-- CAPTION BLOCK -->

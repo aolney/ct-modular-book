@@ -65,8 +65,8 @@ modular_modal("bar-beat-bpm-scope", starter_file="empty.vcv", instructions_html=
 <li>Connect Clock BAR to Scope In 2</li>
 <li>Set Scope time and gain so you can see bar pulses by color; at 4/4 time these should be every 4 pulses</li>
 </ul>
-<img src='images/solo-modules/clock-solo.png' style='height: 300px; width: auto'>
-",solution_html="<img src='images/patch-solutions/bar-beat-bpm-scope.png' style='height: 300px; width: auto'>")
+<img class='rack-image' src='images/solo-modules/clock-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img class='rack-image' src='images/patch-solutions/bar-beat-bpm-scope.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -99,7 +99,7 @@ modular_modal("clock-sound-bpm-scope-out", starter_file="bar-beat-bpm-scope.vcv"
 <li>BPM on the clock to create different pitches (you may need good headphones)</li>
 </ul>
 </ul>
-",solution_html="<img src='images/patch-solutions/clock-sound-bpm-scope-out.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/clock-sound-bpm-scope-out.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -155,7 +155,7 @@ modular_modal("clock-kick-bpm-vco-adsr-vca-scope-out", starter_file="empty.vcv",
 </ul>
 </li>
 </ul>
-",solution_html="<img src='images/patch-solutions/clock-kick-bpm-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/clock-kick-bpm-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -192,8 +192,8 @@ modular_modal("trg-kick-bpm-trg-vco-adsr-vca-scope-out", starter_file="clock-kic
 </ul>
 </li>
 </ul>
-<img src='images/solo-modules/trg-solo.png' style='height: 300px; width: auto'>
-",solution_html="<img src='images/patch-solutions/trg-kick-bpm-trg-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'>")
+<img class='rack-image' src='images/solo-modules/trg-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img class='rack-image' src='images/patch-solutions/trg-kick-bpm-trg-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -233,9 +233,9 @@ modular_modal("trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out", starter_file="
 <li>Try starting/stopping the Clock. Notice how everything starts mid-sequence?</li>
 <li>Connect Clock RST (reset) out to TRG RST and ADDR-SEQ Reset in. Now you can reset both sequencers by pressing the RST button.</li>
 </ul>
-<img src='images/solo-modules/addr-seq-solo.png' style='height: 300px; width: auto'>
-<img src='images/solo-modules/quadvca-solo.png' style='height: 300px; width: auto'>
-",solution_html="<img src='images/patch-solutions/trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'>")
+<img class='rack-image' src='images/solo-modules/addr-seq-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/quadvca-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img class='rack-image' src='images/patch-solutions/trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -301,7 +301,7 @@ modular_modal("rests-trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out", starter_
 </ul>
 </li>
 </ul>
-",solution_html="<h4>Solution for Trigger Clock and Trigger Gate only</h4><img src='images/patch-solutions/rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'>")
+",solution_html="<h4>Solution for Trigger Clock and Trigger Gate only</h4><img class='rack-image' src='images/patch-solutions/rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -351,8 +351,8 @@ modular_modal("rests-note-lengths-trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-o
 </ul>
 </li>
 </ul>
-<img src='images/solo-modules/dgate-solo.png' style='height: 300px; width: auto'>
-",solution_html="<img src='images/patch-solutions/rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'>")
+<img class='rack-image' src='images/solo-modules/dgate-solo.png' style='height: 300px; width: auto'>
+",solution_html="<img class='rack-image' src='images/patch-solutions/rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->

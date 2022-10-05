@@ -183,6 +183,7 @@ Try patching up a reverb into a single voice keyboard patch using the button in 
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="twelvekey_env_delayLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add Delay between Scope and Host audio&lt;/li&gt;
 &lt;li&gt;Connect Scope out 1 to Delay in&lt;/li&gt;
@@ -197,10 +198,29 @@ Try patching up a reverb into a single voice keyboard patch using the button in 
 &lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/delay-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/delay-solo.png'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-delay.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-delay.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Delay between Scope and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Delay in&lt;/li&gt;
+&lt;li&gt;Connect Delay wet to Host Audio L&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the time setting on the delay&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the feedback setting on the delay&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Change Delay wet out to mix out and then use the mix knob to mix the dry/wet sound&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to Delay Time in and FDBK in, make their attenuator knobs slightly positive, and press a key&lt;/li&gt;
+&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/delay-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-delay.png'&gt;">Solution</button>
         <button type="button" onclick="settwelvekey_env_delayIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -220,10 +240,13 @@ Try patching up a reverb into a single voice keyboard patch using the button in 
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function settwelvekey_env_delayIframe(url){
@@ -231,9 +254,10 @@ function settwelvekey_env_delayIframe(url){
   twelvekey_env_delayIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:twelvekey-env-delay"></span>
 <p class="caption">
@@ -285,6 +309,7 @@ Try patching up a reverb into a single voice keyboard patch using the button in 
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="twelvekey_env_reverbLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add Spring reverb between Scope and Host audio&lt;/li&gt;
 &lt;li&gt;Connect Scope out 1 to Spring reverb in 1&lt;/li&gt;
@@ -300,10 +325,30 @@ Try patching up a reverb into a single voice keyboard patch using the button in 
 &lt;li&gt;Change the ADSR to the Gate from the 12 key; this will produce a knocking sound&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/befaco-spring-reverb-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/befaco-spring-reverb-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-reverb.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-reverb.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Spring reverb between Scope and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Spring reverb in 1&lt;/li&gt;
+&lt;li&gt;Connect Spring reverb wet to Host Audio L and Scope in 2&lt;/li&gt;
+&lt;li&gt;Move the left slider on Spring reverb up to set the level of the effect&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the level setting on the reverb&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the HPF (high pass filter) setting on the reverb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Change Spring reverb wet out to mix out and then use the mix knob to mix the dry/wet sound&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to Spring reverb CV in 1 and press a key (the change is subtle; see the level difference on the scope&lt;/li&gt;
+&lt;li&gt;Change the ADSR to the Gate from the 12 key; this will produce a knocking sound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/befaco-spring-reverb-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-reverb.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="settwelvekey_env_reverbIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -323,10 +368,13 @@ Try patching up a reverb into a single voice keyboard patch using the button in 
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function settwelvekey_env_reverbIframe(url){
@@ -334,9 +382,10 @@ function settwelvekey_env_reverbIframe(url){
   twelvekey_env_reverbIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:twelvekey-env-reverb"></span>
 <p class="caption">
@@ -384,6 +433,7 @@ Try patching up a chorus into a single voice keyboard patch using the button in 
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="twelvekey_env_chorusLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add Chorus between Scope and Host audio&lt;/li&gt;
 &lt;li&gt;Connect Scope out 1 to Chours in L&lt;/li&gt;
@@ -398,10 +448,29 @@ Try patching up a chorus into a single voice keyboard patch using the button in 
 &lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/rackwindows-chorus-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/rackwindows-chorus-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-chorus.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-chorus.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Chorus between Scope and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Chours in L&lt;/li&gt;
+&lt;li&gt;Connect Chorus out L to Host Audio L and Scope in 2&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the range setting on the chorus&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the speed setting on the chorus&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the the dry/wet mix on the chorus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to speed and range to get some bird-like sounds&lt;/li&gt;
+&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/rackwindows-chorus-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-chorus.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="settwelvekey_env_chorusIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -421,10 +490,13 @@ Try patching up a chorus into a single voice keyboard patch using the button in 
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function settwelvekey_env_chorusIframe(url){
@@ -432,9 +504,10 @@ function settwelvekey_env_chorusIframe(url){
   twelvekey_env_chorusIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:twelvekey-env-chorus"></span>
 <p class="caption">
@@ -494,6 +567,7 @@ Try patching up a flanger into a single voice keyboard patch using the button in
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="twelvekey_env_flangerLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add Vibrato between Scope and Host audio&lt;/li&gt;
 &lt;li&gt;Connect Scope out 1 to Vibrato in&lt;/li&gt;
@@ -509,10 +583,30 @@ Try patching up a flanger into a single voice keyboard patch using the button in
 &lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/autinn-vibrato-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/autinn-vibrato-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-flanger.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-flanger.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Vibrato between Scope and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Vibrato in&lt;/li&gt;
+&lt;li&gt;Connect Vibrato out to Host Audio L and Scope in 2&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the flange setting&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the frequency setting&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the width setting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to freq, width, and flange to get some bird-like sounds&lt;/li&gt;
+&lt;li&gt;Use the attenuator knobs below these jacks to change the depth of the modulation &lt;/li&gt;
+&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/autinn-vibrato-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-flanger.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="settwelvekey_env_flangerIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -532,10 +626,13 @@ Try patching up a flanger into a single voice keyboard patch using the button in
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function settwelvekey_env_flangerIframe(url){
@@ -543,9 +640,10 @@ function settwelvekey_env_flangerIframe(url){
   twelvekey_env_flangerIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:twelvekey-env-flanger"></span>
 <p class="caption">
@@ -595,6 +693,7 @@ Try patching up a phaser into a single voice keyboard patch using the button in 
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="twelvekey_env_phaserLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add Phaser FX between Scope and Host audio&lt;/li&gt;
 &lt;li&gt;Connect Scope out 1 to Phaser in&lt;/li&gt;
@@ -610,10 +709,30 @@ Try patching up a phaser into a single voice keyboard patch using the button in 
 &lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/phaserfx-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/phaserfx-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/twelvekey-env-phaser.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-phaser.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Phaser FX between Scope and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Phaser in&lt;/li&gt;
+&lt;li&gt;Connect Phaser out to Host Audio L and Scope in 2&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the rate setting&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the feedback setting (try holding down the key)&lt;/li&gt;
+&lt;li&gt;Periodically pressing the 12 key, change the depth setting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to the CV inputs for these knobs&lt;/li&gt;
+&lt;li&gt;Once connected, these knobs act like attenuators and control the depth of the modulation &lt;/li&gt;
+&lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/phaserfx-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-phaser.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="settwelvekey_env_phaserIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -633,10 +752,13 @@ Try patching up a phaser into a single voice keyboard patch using the button in 
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function settwelvekey_env_phaserIframe(url){
@@ -644,9 +766,10 @@ function settwelvekey_env_phaserIframe(url){
   twelvekey_env_phaserIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:twelvekey-env-phaser"></span>
 <p class="caption">
@@ -719,6 +842,7 @@ Try patching up the two filters using the button in Figure <a href="modifiers.ht
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="noiz_lfp_out_fftLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add Noiz, VCF, Host audio out, and Sassy Scope&lt;/li&gt;
 &lt;li&gt;Connect Noiz white out to VCF in and Sassy input 1&lt;/li&gt;
@@ -734,10 +858,30 @@ Try patching up the two filters using the button in Figure <a href="modifiers.ht
 &lt;li&gt;Repeat with the HPF out to observe high-pass filtering&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img src='images/solo-modules/sassy-scope-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/sassy-scope-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/noiz-lfp-out-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/noiz-lfp-out-fft.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Noiz, VCF, Host audio out, and Sassy Scope&lt;/li&gt;
+&lt;li&gt;Connect Noiz white out to VCF in and Sassy input 1&lt;/li&gt;
+&lt;li&gt;Connect VCF LPF out to Host audio L and Sassy input 2&lt;/li&gt;
+&lt;li&gt;Right click the Sassy cable inputs to change the colors of inputs 1/2 if needed&lt;/li&gt;
+&lt;li&gt;Set Sassy to Freq mode using button, raise nearby slider to 100ms &lt;/li&gt;
+&lt;li&gt;Sassy shows the frequency spectrum of both the white noise and filtered noise&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
+&lt;li&gt;Change the cutoff frequency from zero to far right&lt;/li&gt;
+&lt;li&gt;Mouse over the cutoff knob to get the cutoff freq, then mouse over spectrum to find that freq&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Repeat with the HPF out to observe high-pass filtering&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/sassy-scope-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/noiz-lfp-out-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setnoiz_lfp_out_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -757,10 +901,13 @@ Try patching up the two filters using the button in Figure <a href="modifiers.ht
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function setnoiz_lfp_out_fftIframe(url){
@@ -768,9 +915,10 @@ function setnoiz_lfp_out_fftIframe(url){
   noiz_lfp_out_fftIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:noiz-lfp-out-fft"></span>
 <p class="caption">
@@ -799,6 +947,7 @@ HPF creates perhaps even more curious shapes that quickly turn into increasingly
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="lfo_lfp_out_scope_fftLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add an LFO to the left of Noiz and Scope between Host Audio and Sassy Scope&lt;/li&gt;
 &lt;li&gt;Connect LFO square to VCF in, Scope in 1, and to Sassy input 1&lt;/li&gt;
@@ -814,7 +963,24 @@ HPF creates perhaps even more curious shapes that quickly turn into increasingly
 &lt;li&gt;Repeat with the HPF out to observe high-pass filtering&lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/lfo-lfp-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/lfo-lfp-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add an LFO to the left of Noiz and Scope between Host Audio and Sassy Scope&lt;/li&gt;
+&lt;li&gt;Connect LFO square to VCF in, Scope in 1, and to Sassy input 1&lt;/li&gt;
+&lt;li&gt;Connect VCF LPF out to Host audio L, Scope i n2, and Sassy input 2&lt;/li&gt;
+&lt;li&gt;Right click the Sassy cable inputs to change the colors of inputs 1/2 if needed&lt;/li&gt;
+&lt;li&gt;Set LFO freq to around 100 Hz, VCF cutoff to around 400 Hz, Scope time to around 12 ms, and enable Scope TRG &lt;/li&gt;
+&lt;li&gt;The Scope shows the square wave and filtered square wave&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
+&lt;li&gt;Change the cutoff frequency from zero to far right&lt;/li&gt;
+&lt;li&gt;At various points, the wave should looke more like a triangle wave and then a sine wave&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Repeat with the HPF out to observe high-pass filtering&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/lfo-lfp-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setlfo_lfp_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -834,10 +1000,13 @@ HPF creates perhaps even more curious shapes that quickly turn into increasingly
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function setlfo_lfp_out_scope_fftIframe(url){
@@ -845,9 +1014,10 @@ function setlfo_lfp_out_scope_fftIframe(url){
   lfo_lfp_out_scope_fftIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-lfp-out-scope-fft"></span>
 <p class="caption">
@@ -953,6 +1123,7 @@ Since there are now two cutoffs to control to hear the combined filter sweep, ho
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="lfo_lpf_hpf_out_scope_fftLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add another VCF to the right of the existing VCF. The left will be LPF and the right HPF&lt;/li&gt;
 &lt;li&gt;Connect LPF out to HPF in and remove all other connections from LPF out&lt;/li&gt;
@@ -969,7 +1140,25 @@ Since there are now two cutoffs to control to hear the combined filter sweep, ho
 &lt;li&gt;Set a low LFO frequency (&lt; .5) and note the changes in sound and the spectrum&lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/lfo-lpf-hpf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/lfo-lpf-hpf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add another VCF to the right of the existing VCF. The left will be LPF and the right HPF&lt;/li&gt;
+&lt;li&gt;Connect LPF out to HPF in and remove all other connections from LPF out&lt;/li&gt;
+&lt;li&gt;Connect HPF out to Host audio L, Scope input 2, and Sassy input 2&lt;/li&gt;
+&lt;li&gt;You may wish to use a square wave as Scope EXT TRG&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
+&lt;li&gt;Your two VCFs should have the same cutoff freq now&lt;/li&gt;
+&lt;li&gt;Try to change the two cutoffs to make the peak higher without making it wider&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Add an LFO to control the cutoff frequencies of both VCFs&lt;/li&gt;
+&lt;li&gt;Connect that LFO triangle out to both VCF cutoffs&lt;/li&gt;
+&lt;li&gt;Change the VCF cutoffs attenuators to 100% to allow the full LFO signal&lt;/li&gt;
+&lt;li&gt;Set a low LFO frequency (&lt; .5) and note the changes in sound and the spectrum&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/lfo-lpf-hpf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setlfo_lpf_hpf_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -989,10 +1178,13 @@ Since there are now two cutoffs to control to hear the combined filter sweep, ho
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function setlfo_lpf_hpf_out_scope_fftIframe(url){
@@ -1000,9 +1192,10 @@ function setlfo_lpf_hpf_out_scope_fftIframe(url){
   lfo_lpf_hpf_out_scope_fftIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-lpf-hpf-out-scope-fft"></span>
 <p class="caption">
@@ -1030,6 +1223,7 @@ As before, there are two cutoffs to control to hear the combined filter sweep, s
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="lfo_lfo_lpf_hpf_mixer_out_scope_fftLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Change the VCF cutoffs attenuators to 0% to temporarily disable the LFO signal changing those cutoffs&lt;/li&gt;
 &lt;li&gt;Add a QuadVCA/Mixer between the last VCF and Host audio out&lt;/li&gt;
@@ -1047,7 +1241,26 @@ As before, there are two cutoffs to control to hear the combined filter sweep, s
 &lt;li&gt;Set a low LFO frequency (&lt; .5) and note the changes in sound and the spectrum&lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/lfo-lfo-lpf-hpf-mixer-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/lfo-lfo-lpf-hpf-mixer-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Change the VCF cutoffs attenuators to 0% to temporarily disable the LFO signal changing those cutoffs&lt;/li&gt;
+&lt;li&gt;Add a QuadVCA/Mixer between the last VCF and Host audio out&lt;/li&gt;
+&lt;li&gt;Connect audio rate LFO square out to VCF 1 in and VCF 2 in&lt;/li&gt;
+&lt;li&gt;Connect VCF 1 LPF out to QuadVCA input 1 and remove all other connections from LPF out&lt;/li&gt;
+&lt;li&gt;Connect VCF 2 HPF out to  QuadVCA input 2&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA mix out to Scope input 2, and Sassy input 2, and Host audio L&lt;/li&gt;
+&lt;li&gt;Adjust the top left sliders for Sassy to 1x; this will make it easier to see the notch&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
+&lt;li&gt;Your two VCFs should have the same cutoff freq now&lt;/li&gt;
+&lt;li&gt;Try to change the two cutoffs to make the notch low without making it wide&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Change the VCF cutoffs attenuators to 100% to allow the full LFO signal&lt;/li&gt;
+&lt;li&gt;Set a low LFO frequency (&lt; .5) and note the changes in sound and the spectrum&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/lfo-lfo-lpf-hpf-mixer-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setlfo_lfo_lpf_hpf_mixer_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -1067,10 +1280,13 @@ As before, there are two cutoffs to control to hear the combined filter sweep, s
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function setlfo_lfo_lpf_hpf_mixer_out_scope_fftIframe(url){
@@ -1078,9 +1294,10 @@ function setlfo_lfo_lpf_hpf_mixer_out_scope_fftIframe(url){
   lfo_lfo_lpf_hpf_mixer_out_scope_fftIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft"></span>
 <p class="caption">
@@ -1120,6 +1337,7 @@ You should see that the cutoff frequency and resonance interact in interesting w
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="noiz_lpf_out_scope_fftLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Connect Noiz white out to VCF in, Scope input 1, and Sassy input 1&lt;/li&gt;
 &lt;li&gt;Connect VCF LPF out to Host audio L, Scope input 2, and Sassy input 2&lt;/li&gt;
@@ -1135,7 +1353,24 @@ You should see that the cutoff frequency and resonance interact in interesting w
 &lt;li&gt;Repeat with the HPF out to observe high-pass filtering&lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/noiz-lpf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/noiz-lpf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Connect Noiz white out to VCF in, Scope input 1, and Sassy input 1&lt;/li&gt;
+&lt;li&gt;Connect VCF LPF out to Host audio L, Scope input 2, and Sassy input 2&lt;/li&gt;
+&lt;li&gt;Connect VCF LPF out to Scope EXT TRG (external trigger)  &lt;/li&gt;
+&lt;li&gt;Turn the VCF resonance up until you see a sine wave on the scope and a distinct peak on Sassy&lt;/li&gt;
+&lt;li&gt;Now reconnect everything using a square wave as your VCF input and EXT TRG&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
+&lt;li&gt;Set the resonance at 20% &lt;/li&gt;
+&lt;li&gt;Change the cutoff frequency from zero to far right&lt;/li&gt;
+&lt;li&gt;Repeat with the resonace at 50% and 80%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Repeat with the HPF out to observe high-pass filtering&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/noiz-lpf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setnoiz_lpf_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -1155,10 +1390,13 @@ You should see that the cutoff frequency and resonance interact in interesting w
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function setnoiz_lpf_out_scope_fftIframe(url){
@@ -1166,9 +1404,10 @@ function setnoiz_lpf_out_scope_fftIframe(url){
   noiz_lpf_out_scope_fftIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:noiz-lpf-out-scope-fft"></span>
 <p class="caption">
@@ -1205,6 +1444,7 @@ Any kind of pulse can be used to ping a filter, including envelopes.</p>
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="lfo_vcf_out_scope_fftLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Set LFO freq to .2 Hz&lt;/li&gt;
 &lt;li&gt;Set VCF cutoff to 280 Hz&lt;/li&gt;
@@ -1218,7 +1458,22 @@ Any kind of pulse can be used to ping a filter, including envelopes.</p>
 &lt;li&gt;Repeat with the HPF out; you will get an initial click and a brighter sound&lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/lfo-vcf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/lfo-vcf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Set LFO freq to .2 Hz&lt;/li&gt;
+&lt;li&gt;Set VCF cutoff to 280 Hz&lt;/li&gt;
+&lt;li&gt;Set VCF resonance to 60% &lt;/li&gt;
+&lt;li&gt;Set Scope time to 9 o'clock&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and spectrum&lt;ul&gt;
+&lt;li&gt;Slowly move resonance between 40% and 63%; more resonance gives longer decay &lt;/li&gt;
+&lt;li&gt;With a good resonance, move the cutoff between 90 Hz and 1000 Hz&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Repeat with the HPF out; you will get an initial click and a brighter sound&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/lfo-vcf-out-scope-fft.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setlfo_vcf_out_scope_fftIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -1238,10 +1493,13 @@ Any kind of pulse can be used to ping a filter, including envelopes.</p>
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function setlfo_vcf_out_scope_fftIframe(url){
@@ -1249,9 +1507,10 @@ function setlfo_vcf_out_scope_fftIframe(url){
   lfo_vcf_out_scope_fftIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-vcf-out-scope-fft"></span>
 <p class="caption">
@@ -1364,7 +1623,7 @@ Figure 7.24: <a href="https://cardinal.olney.ai">Virtual modular</a> for applyin
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-04.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

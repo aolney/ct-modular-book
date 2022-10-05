@@ -87,9 +87,9 @@ modular_modal("twelvekey-env-delay", starter_file="key-envelope_12key-vco-env-vc
 <li>You could similarly control the effect using an LFO or other modulator</li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/delay-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/delay-solo.png'>
 </div>
-",solution_html="<img src='images/patch-solutions/twelvekey-env-delay.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/twelvekey-env-delay.png'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -142,9 +142,9 @@ modular_modal("twelvekey-env-reverb", starter_file="key-envelope_12key-vco-env-v
 <li>Change the ADSR to the Gate from the 12 key; this will produce a knocking sound</li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/befaco-spring-reverb-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/befaco-spring-reverb-solo.png' style='height: 300px; width: auto'>
 </div>
-",solution_html="<img src='images/patch-solutions/twelvekey-env-reverb.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/twelvekey-env-reverb.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -192,9 +192,9 @@ modular_modal("twelvekey-env-chorus", starter_file="key-envelope_12key-vco-env-v
 <li>You could similarly control the effect using an LFO or other modulator</li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/rackwindows-chorus-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/rackwindows-chorus-solo.png' style='height: 300px; width: auto'>
 </div>
-",solution_html="<img src='images/patch-solutions/twelvekey-env-chorus.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/twelvekey-env-chorus.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -253,9 +253,9 @@ modular_modal("twelvekey-env-flanger", starter_file="key-envelope_12key-vco-env-
 <li>You could similarly control the effect using an LFO or other modulator</li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/autinn-vibrato-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/autinn-vibrato-solo.png' style='height: 300px; width: auto'>
 </div>
-",solution_html="<img src='images/patch-solutions/twelvekey-env-flanger.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/twelvekey-env-flanger.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -308,9 +308,9 @@ modular_modal("twelvekey-env-phaser", starter_file="key-envelope_12key-vco-env-v
 <li>You could similarly control the effect using an LFO or other modulator</li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/phaserfx-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/phaserfx-solo.png' style='height: 300px; width: auto'>
 </div>
-",solution_html="<img src='images/patch-solutions/twelvekey-env-phaser.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/twelvekey-env-phaser.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -384,9 +384,9 @@ modular_modal("noiz-lfp-out-fft", starter_file="empty.vcv", instructions_html="<
 <li>Repeat with the HPF out to observe high-pass filtering</li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/sassy-scope-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/sassy-scope-solo.png' style='height: 300px; width: auto'>
 </div>
-",solution_html="<img src='images/patch-solutions/noiz-lfp-out-fft.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/noiz-lfp-out-fft.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -418,7 +418,7 @@ modular_modal("lfo-lfp-out-scope-fft", starter_file="noiz-lfp-out-fft.vcv", inst
 </li>
 <li>Repeat with the HPF out to observe high-pass filtering</li>
 </ul>
-",solution_html="<img src='images/patch-solutions/lfo-lfp-out-scope-fft.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/lfo-lfp-out-scope-fft.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -525,7 +525,7 @@ modular_modal("lfo-lpf-hpf-out-scope-fft", starter_file="lfo-lfp-out-scope-fft.v
 <li>Change the VCF cutoffs attenuators to 100% to allow the full LFO signal</li>
 <li>Set a low LFO frequency (< .5) and note the changes in sound and the spectrum</li>
 </ul>
-",solution_html="<img src='images/patch-solutions/lfo-lpf-hpf-out-scope-fft.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/lfo-lpf-hpf-out-scope-fft.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -558,7 +558,7 @@ modular_modal("lfo-lfo-lpf-hpf-mixer-out-scope-fft", starter_file="lfo-lpf-hpf-o
 <li>Change the VCF cutoffs attenuators to 100% to allow the full LFO signal</li>
 <li>Set a low LFO frequency (< .5) and note the changes in sound and the spectrum</li>
 </ul>
-",solution_html="<img src='images/patch-solutions/lfo-lfo-lpf-hpf-mixer-out-scope-fft.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/lfo-lfo-lpf-hpf-mixer-out-scope-fft.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -598,7 +598,7 @@ modular_modal("noiz-lpf-out-scope-fft", starter_file="lfo-lfp-out-scope-fft.vcv"
 </li>
 <li>Repeat with the HPF out to observe high-pass filtering</li>
 </ul>
-",solution_html="<img src='images/patch-solutions/noiz-lpf-out-scope-fft.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/noiz-lpf-out-scope-fft.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -636,7 +636,7 @@ modular_modal("lfo-vcf-out-scope-fft", starter_file="lfo-lfp-out-scope-fft.vcv",
 </li>
 <li>Repeat with the HPF out; you will get an initial click and a brighter sound</li>
 </ul>
-",solution_html="<img src='images/patch-solutions/lfo-vcf-out-scope-fft.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/lfo-vcf-out-scope-fft.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->

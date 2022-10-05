@@ -328,6 +328,7 @@ These are self-explanatory, but in particular the <code>Close</code> button will
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="drone_vco_outLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Use the video demonstration as a guide (open video in separate tab as needed)&lt;/li&gt;
 &lt;li&gt;For each wave output&lt;ul&gt;
@@ -338,7 +339,19 @@ These are self-explanatory, but in particular the <code>Close</code> button will
 &lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="See the video demonstration in the book (open video in separate tab as needed">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="See the video demonstration in the book (open video in separate tab as needed">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Use the video demonstration as a guide (open video in separate tab as needed)&lt;/li&gt;
+&lt;li&gt;For each wave output&lt;ul&gt;
+&lt;li&gt;Connect just it to the audio inputs&lt;/li&gt;
+&lt;li&gt;Sweep the frequency knob&lt;/li&gt;
+&lt;li&gt;Sweep the volume knob&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="See the video demonstration in the book (open video in separate tab as needed">Solution</button>
         <button type="button" onclick="setdrone_vco_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -358,10 +371,13 @@ These are self-explanatory, but in particular the <code>Close</code> button will
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function setdrone_vco_outIframe(url){
@@ -369,9 +385,10 @@ function setdrone_vco_outIframe(url){
   drone_vco_outIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:drone-vco-out"></span>
 <p class="caption">
@@ -411,6 +428,7 @@ Try adding a scope between the modules in the previous patch using the button in
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="drone_vco_scope_outLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add “Scope” between VCO and Host Audio&lt;/li&gt;
 &lt;li&gt;Connect VCO wave out to Scope In&lt;/li&gt;
@@ -423,9 +441,25 @@ Try adding a scope between the modules in the previous patch using the button in
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;img src='images/solo-modules/scope-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/scope-solo.png' style='height: 300px; width: auto'&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/drone-scope_vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/drone-scope_vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add “Scope” between VCO and Host Audio&lt;/li&gt;
+&lt;li&gt;Connect VCO wave out to Scope In&lt;/li&gt;
+&lt;li&gt;Connect Scope out to Host Audio&lt;/li&gt;
+&lt;li&gt;For each waveshape try&lt;ul&gt;
+&lt;li&gt;Adjusting time&lt;/li&gt;
+&lt;li&gt;Adjusting frequency&lt;/li&gt;
+&lt;li&gt;Adjusting gain&lt;/li&gt;
+&lt;li&gt;Changing the waveshape&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img class='rack-image' src='images/solo-modules/scope-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/drone-scope_vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setdrone_vco_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -445,10 +479,13 @@ Try adding a scope between the modules in the previous patch using the button in
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function setdrone_vco_scope_outIframe(url){
@@ -456,9 +493,10 @@ function setdrone_vco_scope_outIframe(url){
   drone_vco_scope_outIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:drone-vco-scope-out"></span>
 <p class="caption">
@@ -495,6 +533,7 @@ Try adding the 12 key to the left of the VCO in the previous patch using the but
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="drone_12key_vco_scope_outLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add “Twelve-key” to the left of the VCO&lt;/li&gt;
 &lt;li&gt;Connect 12 key CV output to VCO V/OCT input&lt;/li&gt;
@@ -506,9 +545,24 @@ Try adding the 12 key to the left of the VCO in the previous patch using the but
 &lt;li&gt;Change OCTAVE on 12 key and repeat&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;If you don&amp;#39;t hear sound, check if your frequency is below 20 kHz; your computer speakers may not produce sound below 100 kHz&lt;/em&gt;&lt;/p&gt;
-&lt;img src='images/solo-modules/12key-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/12key-solo.png' style='height: 300px; width: auto'&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/key-drone_12key-vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-drone_12key-vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add “Twelve-key” to the left of the VCO&lt;/li&gt;
+&lt;li&gt;Connect 12 key CV output to VCO V/OCT input&lt;/li&gt;
+&lt;li&gt;Observe what happens when you click different keys on 12 key&lt;ul&gt;
+&lt;li&gt;In terms of sound&lt;/li&gt;
+&lt;li&gt;In terms of wave on scope&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Change OCTAVE on 12 key and repeat&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;If you don&amp;#39;t hear sound, check if your frequency is below 20 kHz; your computer speakers may not produce sound below 100 kHz&lt;/em&gt;&lt;/p&gt;
+&lt;img class='rack-image' src='images/solo-modules/12key-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-drone_12key-vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setdrone_12key_vco_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -528,10 +582,13 @@ Try adding the 12 key to the left of the VCO in the previous patch using the but
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function setdrone_12key_vco_scope_outIframe(url){
@@ -539,9 +596,10 @@ function setdrone_12key_vco_scope_outIframe(url){
   drone_12key_vco_scope_outIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:drone-12key-vco-scope-out"></span>
 <p class="caption">
@@ -577,6 +635,7 @@ Try adding a VCA between the VCO and Scope modules using the button in Figure <a
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="drone_12key_vco_vca_scope_outLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add VCA between VCO and Scope modules&lt;/li&gt;
 &lt;li&gt;Connect VCO wave to VCA In&lt;/li&gt;
@@ -589,9 +648,25 @@ Try adding a VCA between the VCO and Scope modules using the button in Figure <a
 &lt;/li&gt;
 &lt;li&gt;Try holding down key instead of short pressing it and repeat&lt;/li&gt;
 &lt;/ul&gt;
-&lt;img src='images/solo-modules/vca-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/vca-solo.png' style='height: 300px; width: auto'&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/key-note_12key-vco-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-note_12key-vco-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add VCA between VCO and Scope modules&lt;/li&gt;
+&lt;li&gt;Connect VCO wave to VCA In&lt;/li&gt;
+&lt;li&gt;Connect 12 key GATE output to VCA CV IN&lt;/li&gt;
+&lt;li&gt;Connect VCA OUT to Scope IN&lt;/li&gt;
+&lt;li&gt;What happens when you click different keys on 12 key&lt;ul&gt;
+&lt;li&gt;In terms of sound&lt;/li&gt;
+&lt;li&gt;In terms of wave on scope&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Try holding down key instead of short pressing it and repeat&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img class='rack-image' src='images/solo-modules/vca-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-note_12key-vco-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setdrone_12key_vco_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -611,10 +686,13 @@ Try adding a VCA between the VCO and Scope modules using the button in Figure <a
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function setdrone_12key_vco_vca_scope_outIframe(url){
@@ -622,9 +700,10 @@ function setdrone_12key_vco_vca_scope_outIframe(url){
   drone_12key_vco_vca_scope_outIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:drone-12key-vco-vca-scope-out"></span>
 <p class="caption">
@@ -660,6 +739,7 @@ Try adding an ADSR module between the VCO and VCA modules using the button in Fi
     <div class="modal-content">
       <div class="modal-header justify-content-between">
         <!-- <h5 class="modal-title" id="drone_12key_vco_env_vca_scope_outLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add ADSR module between VCO and VCA modules&lt;/li&gt;
 &lt;li&gt;Connect 12 key GATE output to ADSR GATE input&lt;/li&gt;
@@ -671,9 +751,24 @@ Try adding an ADSR module between the VCO and VCA modules using the button in Fi
 &lt;/li&gt;
 &lt;li&gt;Change the attack, decay, sustain, release knobs and repeat&lt;/li&gt;
 &lt;/ul&gt;
-&lt;img src='images/solo-modules/adsr-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/adsr-solo.png' style='height: 300px; width: auto'&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img src='images/patch-solutions/key-envelope_12key-vco-env-vca-scope-out.png' style='height: 300px; width: 718px'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-envelope_12key-vco-env-vca-scope-out.png' style='height: 300px; width: 718px'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add ADSR module between VCO and VCA modules&lt;/li&gt;
+&lt;li&gt;Connect 12 key GATE output to ADSR GATE input&lt;/li&gt;
+&lt;li&gt;Connect ADSR OUT to VCA IN&lt;/li&gt;
+&lt;li&gt;What happens when you click different keys on 12 key&lt;ul&gt;
+&lt;li&gt;In terms of sound&lt;/li&gt;
+&lt;li&gt;In terms of wave on scope&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Change the attack, decay, sustain, release knobs and repeat&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img class='rack-image' src='images/solo-modules/adsr-solo.png' style='height: 300px; width: auto'&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-envelope_12key-vco-env-vca-scope-out.png' style='height: 300px; width: 718px'&gt;">Solution</button>
         <button type="button" onclick="setdrone_12key_vco_env_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -693,10 +788,13 @@ Try adding an ADSR module between the VCO and VCA modules using the button in Fi
 
 <script>
 // Enable popovers for instructions, etc 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-});
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
 
 // Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
 function setdrone_12key_vco_env_vca_scope_outIframe(url){
@@ -704,9 +802,10 @@ function setdrone_12key_vco_env_vca_scope_outIframe(url){
   drone_12key_vco_env_vca_scope_outIframe.src = url;
 };
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:drone-12key-vco-env-vca-scope-out"></span>
 <p class="caption">
@@ -763,7 +862,7 @@ From there we will continue to spiral outward into increasingly complex modules 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-04.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

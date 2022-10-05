@@ -66,10 +66,10 @@ modular_modal("voltage-division-chords", starter_file="empty.vcv", instructions_
 </li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/bst-voltage-divider-solo.png' style='height: 300px; width: auto'>
-<img src='images/solo-modules/dacchord-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/bst-voltage-divider-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/dacchord-solo.png' style='height: 300px; width: auto'>
 </div>
-",solution_html="<img src='images/patch-solutions/voltage-division-chords.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/voltage-division-chords.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -106,10 +106,10 @@ modular_modal("clock-division-chords", starter_file="voltage-division-chords.vcv
 </li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/dividah-solo.png' style='height: 300px; width: auto'>
-<img src='images/solo-modules/d1v1de-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/dividah-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/d1v1de-solo.png' style='height: 300px; width: auto'>
 </div>
-",solution_html="<img src='images/patch-solutions/clock-division-chords.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/clock-division-chords.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -152,7 +152,7 @@ modular_modal("detune-beat", starter_file="voltage-division-chords.vcv", instruc
 <li>Detune P2 using the Detune knob</li>
 <li>Note the beat whose frequency increases with detuning</li>
 <li>At what point of detuning do you think it sounds best?</li>
-",solution_html="<img src='images/patch-solutions/detune-beat.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/detune-beat.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -224,9 +224,9 @@ modular_modal("pwm-lfo-vco-scope", starter_file="empty.vcv", instructions_html="
 </li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/lfo-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/lfo-solo.png' style='height: 300px; width: auto'>
 </div>
-",solution_html="<img src='images/patch-solutions/pwm-lfo-vco-scope.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/pwm-lfo-vco-scope.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -268,7 +268,7 @@ modular_modal("vibrato-lfo-vca-vco-scope", starter_file="pwm-lfo-vco-scope.vcv",
 </ul>
 </li>
 </ul>
-",solution_html="<img src='images/patch-solutions/vibrato-lfo-vca-vco-scope.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/vibrato-lfo-vca-vco-scope.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -318,7 +318,7 @@ modular_modal("tremelo-lfo-vca-vco-scope", starter_file="vibrato-lfo-vca-vco-sco
 <li>Fix this by connecting VCO square out to QuadVCA input 2</li>
 <li>Adjust the mix to get the right baseline volume and depth of modulation</li>
 </ul>
-",solution_html="<img src='images/patch-solutions/tremelo-lfo-vca-vco-scope.png' style='height: 300px; width: auto'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/tremelo-lfo-vca-vco-scope.png' style='height: 300px; width: auto'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -390,7 +390,7 @@ instructions_html="<ul>
 <li>Try the same changes above with soft sync active</li>
 </ul>
 "
-solution_html="<img src='images/patch-solutions/hard-soft-sync.png' style='height: 300px; width: auto'>"
+solution_html="<img class='rack-image' src='images/patch-solutions/hard-soft-sync.png' style='height: 300px; width: auto'>"
 
 modular_modal(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
 ```
@@ -443,10 +443,10 @@ instructions_html="<ul>
 </li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/noiz-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/noiz-solo.png' style='height: 300px; width: auto'>
 </div>
 "
-solution_html="<h4>Only kick drum shown</h4><img src='images/patch-solutions/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png' style='height: 500px; width: auto'>"
+solution_html="<h4>Only kick drum shown</h4><img class='rack-image' src='images/patch-solutions/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png' style='height: 500px; width: auto'>"
 
 modular_modal(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
 ```
@@ -509,10 +509,10 @@ instructions_html="<ul>
 <li>You can interrupt the playback by pressing another key before the sample finishes</li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/ouaive-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/ouaive-solo.png' style='height: 300px; width: auto'>
 </div>
 "
-solution_html="<img src='images/patch-solutions/sample-12key-ouaive.png' style='height: 300px; width: auto'>"
+solution_html="<img class='rack-image' src='images/patch-solutions/sample-12key-ouaive.png' style='height: 300px; width: auto'>"
 
 modular_modal(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
 ```
@@ -544,10 +544,10 @@ instructions_html="<ul>
 <li>Try adjusting the LFO frequency to change the playback speed</li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img src='images/solo-modules/triggers-mk1-solo.png' style='height: 300px; width: auto'>
+<img class='rack-image' src='images/solo-modules/triggers-mk1-solo.png' style='height: 300px; width: auto'>
 </div>
 "
-solution_html="<img src='images/patch-solutions/sample-lfo-trigger-ouaive.png' style='height: 300px; width: auto'>"
+solution_html="<img class='rack-image' src='images/patch-solutions/sample-lfo-trigger-ouaive.png' style='height: 300px; width: auto'>"
 
 modular_modal(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
 ```
