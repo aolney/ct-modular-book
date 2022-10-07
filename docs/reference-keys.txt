@@ -157,7 +157,7 @@ filters-are-imperfect
 filters-change-frequency-and-phase
 combining-filters
 resonance
-kick-cymbal
+todo
 lead-bass
 trigger
 create

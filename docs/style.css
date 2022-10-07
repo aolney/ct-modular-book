@@ -51,6 +51,7 @@ iframe {
 
 .popover-body {
     overflow-y: auto;
+    height: 350px;
 }
 
 .rack-image {
