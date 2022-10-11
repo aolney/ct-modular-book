@@ -60,85 +60,12 @@ You should see regular pulses off the main output and a different color bar outp
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setbar_beat_bpm_scopeIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#bar_beat_bpm_scope">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="bar_beat_bpm_scope" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bar_beat_bpm_scopeLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="bar_beat_bpm_scopeLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add “Clock” and Scope&lt;/li&gt;
-&lt;li&gt;Connect Clock BEAT to Scope In 1&lt;/li&gt;
-&lt;li&gt;Connect Clock BAR to Scope In 2&lt;/li&gt;
-&lt;li&gt;Set Scope time and gain so you can see bar pulses by color; at 4/4 time these should be every 4 pulses&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img class='rack-image' src='images/solo-modules/clock-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/bar-beat-bpm-scope.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add “Clock” and Scope&lt;/li&gt;
-&lt;li&gt;Connect Clock BEAT to Scope In 1&lt;/li&gt;
-&lt;li&gt;Connect Clock BAR to Scope In 2&lt;/li&gt;
-&lt;li&gt;Set Scope time and gain so you can see bar pulses by color; at 4/4 time these should be every 4 pulses&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img class='rack-image' src='images/solo-modules/clock-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/bar-beat-bpm-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setbar_beat_bpm_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="bar_beat_bpm_scope-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setbar_beat_bpm_scopeIframe(url){
-  var bar_beat_bpm_scopeIframe = document.getElementById("bar_beat_bpm_scope-iframe");
-  bar_beat_bpm_scopeIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:bar-beat-bpm-scope)(ref:bar-beat-bpm-scope)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:bar-beat-bpm-scope)" width="100%" />
+<p class="caption">(\#fig:bar-beat-bpm-scope)(ref:bar-beat-bpm-scope)</p>
+</div>
 
 ### Clock as a generator
 
@@ -154,93 +81,12 @@ The sixteenth note pulses should show as approximately a square wave, and by mov
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_sound_bpm_scope_outIframe('https://cardinal.olney.ai?patchurl=bar-beat-bpm-scope.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_sound_bpm_scope_out">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="clock_sound_bpm_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_sound_bpm_scope_outLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="clock_sound_bpm_scope_outLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Host Audio&lt;/li&gt;
-&lt;li&gt;Remove all patch cables&lt;/li&gt;
-&lt;li&gt;Connect Clock 16th to Scope In 1&lt;/li&gt;
-&lt;li&gt;Connect Scope Out 1 to Host Audio L In&lt;/li&gt;
-&lt;li&gt;Set BPM to 300&lt;/li&gt;
-&lt;li&gt;Try adjusting&lt;ul&gt;
-&lt;li&gt;Time on the scope so you see a square wave (50% duty cycle)&lt;/li&gt;
-&lt;li&gt;BPM on the clock to create different pitches (you may need good headphones)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-sound-bpm-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Host Audio&lt;/li&gt;
-&lt;li&gt;Remove all patch cables&lt;/li&gt;
-&lt;li&gt;Connect Clock 16th to Scope In 1&lt;/li&gt;
-&lt;li&gt;Connect Scope Out 1 to Host Audio L In&lt;/li&gt;
-&lt;li&gt;Set BPM to 300&lt;/li&gt;
-&lt;li&gt;Try adjusting&lt;ul&gt;
-&lt;li&gt;Time on the scope so you see a square wave (50% duty cycle)&lt;/li&gt;
-&lt;li&gt;BPM on the clock to create different pitches (you may need good headphones)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-sound-bpm-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setclock_sound_bpm_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="clock_sound_bpm_scope_out-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setclock_sound_bpm_scope_outIframe(url){
-  var clock_sound_bpm_scope_outIframe = document.getElementById("clock_sound_bpm_scope_out-iframe");
-  clock_sound_bpm_scope_outIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:clock-sound-bpm-scope-out)(ref:clock-sound-bpm-scope-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-sound-bpm-scope-out)" width="100%" />
+<p class="caption">(\#fig:clock-sound-bpm-scope-out)(ref:clock-sound-bpm-scope-out)</p>
+</div>
 
 ## Sequencers
 
@@ -273,105 +119,12 @@ Figure \@ref(fig:clock-kick-bpm-vco-adsr-vca-scope-out) before referring to the 
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_kick_bpm_vco_adsr_vca_scope_outIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_kick_bpm_vco_adsr_vca_scope_out">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="clock_kick_bpm_vco_adsr_vca_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_kick_bpm_vco_adsr_vca_scope_outLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="clock_kick_bpm_vco_adsr_vca_scope_outLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add BPM Clock&lt;/li&gt;
-&lt;li&gt;Add VCO&lt;/li&gt;
-&lt;li&gt;Add ADSR&lt;/li&gt;
-&lt;li&gt;Add VCA&lt;/li&gt;
-&lt;li&gt;Connect VCO sine to VCA in&lt;/li&gt;
-&lt;li&gt;Connect ADSR out to VCA CV in&lt;/li&gt;
-&lt;li&gt;Connect Clock Beat to ADSR gate&lt;/li&gt;
-&lt;li&gt;Add Scope and Host audio&lt;/li&gt;
-&lt;li&gt;Connect VCA out to Scope In 1&lt;/li&gt;
-&lt;li&gt;Connect Scope Out 1 to Host audio L&lt;/li&gt;
-&lt;li&gt;To get a kick sound&lt;ul&gt;
-&lt;li&gt;Change VCO frequency to around 40 Hz&lt;/li&gt;
-&lt;li&gt;Set ADSR attack to about 1ms, Decay to about 50ms, and the rest to 1.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-kick-bpm-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add BPM Clock&lt;/li&gt;
-&lt;li&gt;Add VCO&lt;/li&gt;
-&lt;li&gt;Add ADSR&lt;/li&gt;
-&lt;li&gt;Add VCA&lt;/li&gt;
-&lt;li&gt;Connect VCO sine to VCA in&lt;/li&gt;
-&lt;li&gt;Connect ADSR out to VCA CV in&lt;/li&gt;
-&lt;li&gt;Connect Clock Beat to ADSR gate&lt;/li&gt;
-&lt;li&gt;Add Scope and Host audio&lt;/li&gt;
-&lt;li&gt;Connect VCA out to Scope In 1&lt;/li&gt;
-&lt;li&gt;Connect Scope Out 1 to Host audio L&lt;/li&gt;
-&lt;li&gt;To get a kick sound&lt;ul&gt;
-&lt;li&gt;Change VCO frequency to around 40 Hz&lt;/li&gt;
-&lt;li&gt;Set ADSR attack to about 1ms, Decay to about 50ms, and the rest to 1.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-kick-bpm-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setclock_kick_bpm_vco_adsr_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="clock_kick_bpm_vco_adsr_vca_scope_out-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setclock_kick_bpm_vco_adsr_vca_scope_outIframe(url){
-  var clock_kick_bpm_vco_adsr_vca_scope_outIframe = document.getElementById("clock_kick_bpm_vco_adsr_vca_scope_out-iframe");
-  clock_kick_bpm_vco_adsr_vca_scope_outIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:clock-kick-bpm-vco-adsr-vca-scope-out)(ref:clock-kick-bpm-vco-adsr-vca-scope-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-kick-bpm-vco-adsr-vca-scope-out)" width="100%" />
+<p class="caption">(\#fig:clock-kick-bpm-vco-adsr-vca-scope-out)(ref:clock-kick-bpm-vco-adsr-vca-scope-out)</p>
+</div>
 
 We could expand this example by using clock divisions to add multiple percussion parts.
 For example, a closed hi-hat on the clock, a kick drum on $/2$, and an open hi-hat on $/4$.
@@ -392,93 +145,12 @@ Control of irregular timings is where trigger sequencers really shine compared t
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settrg_kick_bpm_trg_vco_adsr_vca_scope_outIframe('https://cardinal.olney.ai?patchurl=clock-kick-bpm-vco-adsr-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#trg_kick_bpm_trg_vco_adsr_vca_scope_out">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="trg_kick_bpm_trg_vco_adsr_vca_scope_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="trg_kick_bpm_trg_vco_adsr_vca_scope_outLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="trg_kick_bpm_trg_vco_adsr_vca_scope_outLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add TRG between Clock and VCO&lt;/li&gt;
-&lt;li&gt;Connect Clock Beat to TRG CLK&lt;/li&gt;
-&lt;li&gt;Connect TRG Gate to ADSR Gate&lt;/li&gt;
-&lt;li&gt;Adjust TRG&lt;ul&gt;
-&lt;li&gt;Activate steps by clicking on the squares; solid yellow is active&lt;/li&gt;
-&lt;li&gt;Change length to 8 using LEN knob&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img class='rack-image' src='images/solo-modules/trg-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/trg-kick-bpm-trg-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add TRG between Clock and VCO&lt;/li&gt;
-&lt;li&gt;Connect Clock Beat to TRG CLK&lt;/li&gt;
-&lt;li&gt;Connect TRG Gate to ADSR Gate&lt;/li&gt;
-&lt;li&gt;Adjust TRG&lt;ul&gt;
-&lt;li&gt;Activate steps by clicking on the squares; solid yellow is active&lt;/li&gt;
-&lt;li&gt;Change length to 8 using LEN knob&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img class='rack-image' src='images/solo-modules/trg-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/trg-kick-bpm-trg-vco-adsr-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="settrg_kick_bpm_trg_vco_adsr_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="trg_kick_bpm_trg_vco_adsr_vca_scope_out-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function settrg_kick_bpm_trg_vco_adsr_vca_scope_outIframe(url){
-  var trg_kick_bpm_trg_vco_adsr_vca_scope_outIframe = document.getElementById("trg_kick_bpm_trg_vco_adsr_vca_scope_out-iframe");
-  trg_kick_bpm_trg_vco_adsr_vca_scope_outIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:trg-kick-bpm-trg-vco-adsr-vca-scope-out)(ref:trg-kick-bpm-trg-vco-adsr-vca-scope-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:trg-kick-bpm-trg-vco-adsr-vca-scope-out)" width="100%" />
+<p class="caption">(\#fig:trg-kick-bpm-trg-vco-adsr-vca-scope-out)(ref:trg-kick-bpm-trg-vco-adsr-vca-scope-out)</p>
+</div>
 
 ### Control voltage sequencers
 
@@ -495,109 +167,12 @@ Because the volumes of these two instruments, or voices, is so different, you'll
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settrg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai?patchurl=trg-kick-bpm-trg-vco-adsr-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add ADDR-SEQ to the row below the other modules&lt;/li&gt;
-&lt;li&gt;Drag select VCO, ADSR, and VCA&lt;/li&gt;
-&lt;li&gt;Right click on one and select Duplicate&lt;/li&gt;
-&lt;li&gt;Drag the duplicated modules down to the same row as ADDR-SEQ&lt;/li&gt;
-&lt;li&gt;Connect Clock Beat to ADDR-SEQ Clock&lt;/li&gt;
-&lt;li&gt;Connect ADDR-SEQ Out to VCO V/Oct&lt;/li&gt;
-&lt;li&gt;Connect VCO Saw to VCA in&lt;/li&gt;
-&lt;li&gt;Connect Clock Beat to ADSR Gate&lt;/li&gt;
-&lt;li&gt;Connect ADSR Out to VCA CV In&lt;/li&gt;
-&lt;li&gt;Change each of the ADSR settings to 9-12 o&amp;#39;clock&lt;/li&gt;
-&lt;li&gt;Add QuadVCA/Mixer&lt;/li&gt;
-&lt;li&gt;Connect each of the VCA outs to QuadVCA inputs&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA Out Mix to Host Audio L&lt;/li&gt;
-&lt;li&gt;Try starting/stopping the Clock. Notice how everything starts mid-sequence?&lt;/li&gt;
-&lt;li&gt;Connect Clock RST (reset) out to TRG RST and ADDR-SEQ Reset in. Now you can reset both sequencers by pressing the RST button.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img class='rack-image' src='images/solo-modules/addr-seq-solo.png' style='height: 300px; width: auto'&gt;
-&lt;img class='rack-image' src='images/solo-modules/quadvca-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add ADDR-SEQ to the row below the other modules&lt;/li&gt;
-&lt;li&gt;Drag select VCO, ADSR, and VCA&lt;/li&gt;
-&lt;li&gt;Right click on one and select Duplicate&lt;/li&gt;
-&lt;li&gt;Drag the duplicated modules down to the same row as ADDR-SEQ&lt;/li&gt;
-&lt;li&gt;Connect Clock Beat to ADDR-SEQ Clock&lt;/li&gt;
-&lt;li&gt;Connect ADDR-SEQ Out to VCO V/Oct&lt;/li&gt;
-&lt;li&gt;Connect VCO Saw to VCA in&lt;/li&gt;
-&lt;li&gt;Connect Clock Beat to ADSR Gate&lt;/li&gt;
-&lt;li&gt;Connect ADSR Out to VCA CV In&lt;/li&gt;
-&lt;li&gt;Change each of the ADSR settings to 9-12 o&amp;#39;clock&lt;/li&gt;
-&lt;li&gt;Add QuadVCA/Mixer&lt;/li&gt;
-&lt;li&gt;Connect each of the VCA outs to QuadVCA inputs&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA Out Mix to Host Audio L&lt;/li&gt;
-&lt;li&gt;Try starting/stopping the Clock. Notice how everything starts mid-sequence?&lt;/li&gt;
-&lt;li&gt;Connect Clock RST (reset) out to TRG RST and ADDR-SEQ Reset in. Now you can reset both sequencers by pressing the RST button.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img class='rack-image' src='images/solo-modules/addr-seq-solo.png' style='height: 300px; width: auto'&gt;
-&lt;img class='rack-image' src='images/solo-modules/quadvca-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="settrg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function settrg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe(url){
-  var trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe = document.getElementById("trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe");
-  trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)(ref:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)" width="100%" />
+<p class="caption">(\#fig:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)(ref:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)</p>
+</div>
 
 #### Sequencing rests
 
@@ -616,153 +191,12 @@ Figure \@ref(fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) to explo
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai?patchurl=trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Clock Clock, Clock Gate&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Already playing from the last patch&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
-&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
-&lt;li&gt;If you increase sustain/release on the saw voice, how does it change the sound of notes?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Trigger Clock, Trigger Gate&lt;ul&gt;
-&lt;li&gt;Connect TRG Gate to ADDR-SEQ Clock&lt;/li&gt;
-&lt;li&gt;Connect TRG Gate to ADSR Gate (for the saw voice)&lt;/li&gt;
-&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
-&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
-&lt;li&gt;If you increase sustain/release on the saw voice, how does it change the sound of notes that are not back to back?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Trigger Clock, Clock Gate&lt;ul&gt;
-&lt;li&gt;Connect TRG Gate to ADDR-SEQ Clock&lt;/li&gt;
-&lt;li&gt;Connect Clock Beat to ADSR Gate (for the saw voice)&lt;/li&gt;
-&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
-&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
-&lt;li&gt;When are notes hit twice?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Clock Clock, Trigger Gate&lt;ul&gt;
-&lt;li&gt;Connect Clock Beat to ADDR-SEQ Clock&lt;/li&gt;
-&lt;li&gt;Connect TRG Gate to ADSR Gate (for the saw voice)&lt;/li&gt;
-&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
-&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
-&lt;li&gt;If you increase sustain/release on the saw voice, how does it change the sound of notes that are not back to back?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for Trigger Clock and Trigger Gate only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Clock Clock, Clock Gate&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Already playing from the last patch&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
-&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
-&lt;li&gt;If you increase sustain/release on the saw voice, how does it change the sound of notes?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Trigger Clock, Trigger Gate&lt;ul&gt;
-&lt;li&gt;Connect TRG Gate to ADDR-SEQ Clock&lt;/li&gt;
-&lt;li&gt;Connect TRG Gate to ADSR Gate (for the saw voice)&lt;/li&gt;
-&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
-&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
-&lt;li&gt;If you increase sustain/release on the saw voice, how does it change the sound of notes that are not back to back?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Trigger Clock, Clock Gate&lt;ul&gt;
-&lt;li&gt;Connect TRG Gate to ADDR-SEQ Clock&lt;/li&gt;
-&lt;li&gt;Connect Clock Beat to ADSR Gate (for the saw voice)&lt;/li&gt;
-&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
-&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
-&lt;li&gt;When are notes hit twice?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Clock Clock, Trigger Gate&lt;ul&gt;
-&lt;li&gt;Connect Clock Beat to ADDR-SEQ Clock&lt;/li&gt;
-&lt;li&gt;Connect TRG Gate to ADSR Gate (for the saw voice)&lt;/li&gt;
-&lt;li&gt;Listen to the resulting sound&lt;ul&gt;
-&lt;li&gt;Is every note in your saw voice played?&lt;/li&gt;
-&lt;li&gt;If you increase sustain/release on the saw voice, how does it change the sound of notes that are not back to back?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;h4&gt;Solution for Trigger Clock and Trigger Gate only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setrests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setrests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe(url){
-  var rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe = document.getElementById("rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe");
-  rests_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)(ref:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)" width="100%" />
+<p class="caption">(\#fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)(ref:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)</p>
+</div>
 
 The patch in Figure \@ref(fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) illustrates that the way the sequencers are connected to each other and the clock plays a big difference on the resulting sound.
 If the gate and the clock are from the same source, and therefore match, every sequenced note will be heard.
@@ -796,93 +230,12 @@ As you move the gate length knob, you'll hear that the note lengths change corre
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('https://cardinal.olney.ai?patchurl=rests-trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add DGATE trigger to gate module&lt;/li&gt;
-&lt;li&gt;Connect TRG Gate to DGATE Trig in&lt;/li&gt;
-&lt;li&gt;Connect DGATE Gate to saw ADSR Gate&lt;/li&gt;
-&lt;li&gt;Manually change DGATE Gate length knob as the sound plays&lt;ul&gt;
-&lt;li&gt;How does the saw voice sound on notes followed by rests?&lt;/li&gt;
-&lt;li&gt;You may need reduce your ASDR release to hear the gate clearly&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img class='rack-image' src='images/solo-modules/dgate-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add DGATE trigger to gate module&lt;/li&gt;
-&lt;li&gt;Connect TRG Gate to DGATE Trig in&lt;/li&gt;
-&lt;li&gt;Connect DGATE Gate to saw ADSR Gate&lt;/li&gt;
-&lt;li&gt;Manually change DGATE Gate length knob as the sound plays&lt;ul&gt;
-&lt;li&gt;How does the saw voice sound on notes followed by rests?&lt;/li&gt;
-&lt;li&gt;You may need reduce your ASDR release to hear the gate clearly&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img class='rack-image' src='images/solo-modules/dgate-solo.png' style='height: 300px; width: auto'&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png' style='height: 600px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setrests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setrests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe(url){
-  var rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe = document.getElementById("rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_out-iframe");
-  rests_note_lengths_trg_kick_seqaddr_saw_bpm__vco_adsr_vca_mixer_outIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)" width="100%" />
+<p class="caption">(\#fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)</p>
+</div>
 
 <!-- TODO: add envelopes on sequence steps example? -->
 

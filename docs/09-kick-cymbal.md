@@ -107,7 +107,7 @@ Altogether this was a pretty naive attempt.
 (ref:sine-envelope-kick) [Kick](https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html) made using a sine wave with an envelope to control its amplitude.
 
 <div class="figure">
-<iframe src="images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html" width="100%" height="400px" data-external="1"></iframe>
+<a href="https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html" target="_blank"><img src="09-kick-cymbal_files/figure-epub3/sine-envelope-kick-1.png" alt="(ref:sine-envelope-kick)" width="100%" /></a>
 <p class="caption">(\#fig:sine-envelope-kick)(ref:sine-envelope-kick)</p>
 </div>
 
@@ -132,7 +132,7 @@ Of course it might be possible to improve on it by tweaking the noise envelope o
 (ref:sine-envelope-noise-kick) [Kick](https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html) made using a sine wave with an envelope to control its amplitude and mixed with red noise through an envelope to control amplitude.
 
 <div class="figure">
-<iframe src="images/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png-kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
+<a href="https://olney.ai/ct-modular-book/images/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png-kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg-local.html" target="_blank"><img src="09-kick-cymbal_files/figure-epub3/sine-envelope-noise-kick-1.png" alt="(ref:sine-envelope-noise-kick)" width="100%" /></a>
 <p class="caption">(\#fig:sine-envelope-noise-kick)(ref:sine-envelope-noise-kick)</p>
 </div>
 
@@ -155,7 +155,7 @@ seewave::spectro(s,flim=c(0,.7),osc=T,dBref=2*10e-5,heights=c(1,1))
 ```
 
 <div class="figure">
-<img src="09-kick-cymbal_files/figure-html/kick-spectrogram-1.png" alt="(ref:kick-spectrogram)" width="100%" />
+<img src="09-kick-cymbal_files/figure-epub3/kick-spectrogram-1.png" alt="(ref:kick-spectrogram)" width="100%" />
 <p class="caption">(\#fig:kick-spectrogram)(ref:kick-spectrogram)</p>
 </div>
 
@@ -167,7 +167,7 @@ s.spec <- seewave::spec(s,flim=c(0,.7),from=0,to=0.025)
 ```
 
 <div class="figure">
-<img src="09-kick-cymbal_files/figure-html/kick-spectrum-early-1.png" alt="(ref:kick-spectrum-early)" width="100%" />
+<img src="09-kick-cymbal_files/figure-epub3/kick-spectrum-early-1.png" alt="(ref:kick-spectrum-early)" width="100%" />
 <p class="caption">(\#fig:kick-spectrum-early)(ref:kick-spectrum-early)</p>
 </div>
 
@@ -181,7 +181,7 @@ s.spec <- seewave::spec(s,flim=c(0,.7),from=0.025)
 ```
 
 <div class="figure">
-<img src="09-kick-cymbal_files/figure-html/kick-spectrum-late-1.png" alt="(ref:kick-spectrum-late)" width="100%" />
+<img src="09-kick-cymbal_files/figure-epub3/kick-spectrum-late-1.png" alt="(ref:kick-spectrum-late)" width="100%" />
 <p class="caption">(\#fig:kick-spectrum-late)(ref:kick-spectrum-late)</p>
 </div>
 
