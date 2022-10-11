@@ -178,3 +178,11 @@ trigger
 create
 modify
 minimoog-303
+improving-our-understanding-of-the-problem
+fig:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr
+fig:sine-envelope-noise-kick-freq-decay
+fig:kick-noiz-res-filter-lpf-hpf-adsr
+devising-new-plans
+fig:res-filter-envelope-noise-kick-freq-decay
+fig:kick-noiz-waveguide-lpf-hpf-adsr
+fig:waveguide-envelope-noise-kick-freq-decay
