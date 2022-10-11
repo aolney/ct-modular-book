@@ -1,6 +1,169 @@
 # (PART) Sound Design 1 {-}
 
-# TODO
+# Designing a Kick Drum
+
+This chapter focuses on sound design for synthesizing a specific sound, a kick drum, as well as the problem solving that accompanies  that process.
+The goal is to outline and emphasize the thinking process rather than presenting a recipe for a kick drum sound.
+By understanding the thinking process, you should be able to apply it to new sounds that you want to synthesize in the future.
+
+Before proceeding, a quick disclaimer on the term "sound design" and the narrow usage of that term here.
+[Sound design](https://en.wikipedia.org/wiki/Sound_design) is a widely-used term that has deep roots in the film and theatre industries.
+It encompasses all aspects of creating sound, including performance and editing.
+Even in the music production industry, sound design includes editing, mixing, and processing recorded sound.
+Herein sound design refers to only the creation of sounds and effects using modular synthesis.
+
+## Problem solving for sound synthesis
+
+Let's revisit and expand upon the problem solving approach introduced in Chapters \@ref(introduction) and \@ref(basic-modeling-concepts).
+The general problem solving stages are [@Polya2004]:
+
+- Understand the problem
+- Make a plan
+- Implement the plan
+- Evaluate the solution
+
+The make/implement a plan stages of problem solving involves building a model by connecting modules together with patch cables, as we've covered in the last few chapters.
+While reasonable at first glance, the above problem solving approach is much more useful if it is expanded and elaborated in the context of sound design.
+Below is my interpretation of general problem solving [@Polya2004] and computational thinking principles [@Papert1980] [@Anderson2016] as they fit into these stages.
+
+### Understand the problem
+
+The problem is to create a specific sound.
+It may be a natural, physically produced sound, a sound of unknown origin from a recording, or a sound that exists only in your mind.
+The key questions are then:
+
+- What is the sound? What are its defining characteristics? How does it differ from other sounds?
+- How is the sound made in real life? Do you understand the principles and mechanism for how the sound is created? If it doesn't exist in real life, how could it be made if it did?
+- Is all the information needed to make the sound available? If it is not available, how could you get the information you need?
+
+### Devise a plan
+
+This stage is the most complex because you must think about your thinking^[Thinking about your thinking is often called metacognition.].
+It's best to try to stay flexible and evaluate multiple alternatives so you can pick the most promising one.
+This will prevent you from wasting effort on suboptimal strategies.
+
+There are many ways to solve a problem, and often a combination of approaches is required.
+Approaches in the list below require different levels of information and expertise.
+
+- **Guess and check** is the simplest strategy, but if the guesses are uninformed, it is the same as blind search. Given the number of ways modules can be combined, there are too many possibilities for a blind search to be efficient. However, informed guesses can be efficient, and thoughtful exploration can lead to brand new ideas.
+- **Looking at related problems** is sometimes called reasoning by analogy. The idea is to find a known solution to a similar problem and then adapt the solution to the current problem. To do that, you need to identify what parts of the solution should carry over and what parts shouldn't (also known as abstraction and generalization). 
+- **Decomposing the problem** is a very powerful strategy that is easily combined with other strategies. The key idea is to divide a complex problem into smaller problems that are easier to solve. Because there's often more than one way to decompose a problem, it can help to think deeply about different decompositions. For example, related problems might suggest decompositions, and a particular decomposition might create smaller problems you already know how to solve.
+- **Using a model of how sound is made in real life** can help identify modules that correspond to that model. It can also help with deciding how to decompose a problem and identifying related problems.
+- **Working backwards** is a data-driven strategy that easily combines with other strategies. Instead of using your perception of the sound or preconceived notions about the sound, this strategy analyzes the properties of the sound itself to identify key features like frequency spectrum and dynamics.
+
+### Carry out the plan (and replanning)
+
+This stage involves both model building and keeping track of what's working and what isn't.
+Model building has been well elaborated in the last few chapters, but it's worth reminding that sometimes the model idea is correct but parameters, i.e. knob positions, aren't quite right.
+Additionally, sometimes the module type may be correct, but the specific choice in module isn't quite right for the effect to be achieved. 
+For example, in a previous patch we looked at a flanger module that has an internal LFO that can't be completely disabled, so if your patch idea required flanging without an LFO controling the offset, this would be a suboptimal choice.
+So it's important as you carry out the plan that you consider how issues like these might trick you into thinking that your solution isn't good when it actually is but just needs a little tweaking.
+
+Keeping track of what working and what isn't can get rather involved for any amount of extended problem solving.
+Here are some strategies to help with managing alternative solutions to a sound design problem.
+
+- **Having evaluation criteria** is absolutely essential because otherwise, you won't know if you succeeded. You also won't be able to say whether one solution is better than another. The simplest criteria might be a single scale, e.g. 1-10, whereas better criteria can have scales for the defining characteristics of the sound.
+- **Keeping notes** like a list can help keep track of what has been done and prevent repeating solutions. If each solution is documented with its evaluation, it makes it easier to identify common solution elements that seem to be beneficial or not.
+- **Eliminating possibilities** can help you avoid unpromising directions. If every approach with a certain element hasn't worked well, then you might consider avoiding those elements in future attempts.
+- **Using symmetry** can similarly help you understand what elements are exchangeable in a solution and might help generate new approaches. For example, you might have an approximate solution but realize that a module or two could be substituted with something that has a similar function for a better effect.
+
+### Evaluate the solution
+
+Because this is a design problem, there's never a single absolute solution.
+It's best to consider solutions relative to each other in terms of evaluation criteria.
+Additionally, if resources are limited, it makes sense to consider solutions in terms of efficient use of resources, i.e. does one solution use fewer modules than another.
+Regardless of whether the solution is better than one you already generated, its worthwhile pausing to consider what you can learn from this example both in terms of the current problem as well as other potential problems.
+
+It may be obvious that the stages of problem solving blend into each other and that the process of solving problems is iterative.
+Especially in design problems, there is never an absolute end to the process because there is never a single absolute solution.
+Thus the process iterates until you are either satisfied with your best solution or run out of time.
+
+
+## Reviewing previous kick drum patches
+
+Let's review the kick drum patches from previous chapters to outline the thinking behind them and consider how they could be improved.
+The evaluation criteria for the kick drum sound is that it should be realistic and clean (not muffled).
+This review in some sense reflects the notes you might keep while carrying out your sound design plan.
+
+### Sine with envelope
+
+The first patch was presented in Section \@ref(clocks-as-sequencers), and it used a sine wave with an envelope to control its amplitude.
+
+*Understanding the problem*.
+The only identifying characteristic considered was that kick is a low frequency sound.
+We know an idealized membrane (like a drum head) is inharmonic from Section \@ref(inharmonic-standing-waves-and-noise) so it doesn't make sense to use a harmonically rich waveform.
+
+*Devising a plan*.
+Looking at related problems of generating sound, we used the fundamental patch of an oscillator through an envelope to control its amplitude to create a single pitched note. 
+Our model of the sound in real life considered the vibration of the drum after the head was hit by the mallet.
+
+*Carrying out the plan/Evaluating the solution*
+
+No particular care was given to these stages because the goal at the time was to demostrate clocks as a sequencer.
+However, we can do this now by reviewing the patch itself and the associated sound, both of which are presented in Figure \@ref(fig:sine-envelope-kick).
+The sound gets a 5 for realism but a 10 for cleanliness.
+Altogether this was a pretty naive attempt.
+
+(ref:sine-envelope-kick) [Kick](https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html) made using a sine wave with an envelope to control its amplitude.
+
+```{r, sine-envelope-kick, out.width='100%', fig.cap="(ref:sine-envelope-kick)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+  image_ogg_figure("clock-kick-bpm-vco-adsr-vca-scope-out.png","clock-kick-bpm-vco-adsr-vca-scope-out.ogg",template="solution-ogg-template.html", height="400px")
+```
+
+### Sine with an envelope plus noise burst
+
+The second patch was in Section \@ref(noise), and it extended the first by mixing in red noise with an envelope to control its amplitude.
+
+*Understanding the problem*.
+The new identifying characteristic was the sound of a mallet contact on the membrane in addition to the resonant sound of the drum.
+Intuitively, this would be a bunch of short lived frequencies, i.e. noise.
+
+*Devising a plan*.
+This patched used decomposition by breaking down the kick sound into two components and using the existing patch as a solution for one of the components.
+Our model of the sound in real life added the sound when the head was hit by the mallet.
+
+*Carrying out the plan/Evaluating the solution*
+
+As before, no particular care was given to these stages because the goal then was to demonstrate different types of noise.
+Reviewing the patch itself and the associated sound presented in Figure \@ref(fig:sine-envelope-noise-kick), the realism in the sound has improved a bit (6) but also dropped in cleanliness (9).
+Of course it might be possible to improve on it by tweaking the noise envelope or the mix levels a bit more.
+
+(ref:sine-envelope-noise-kick) [Kick](https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html) made using a sine wave with an envelope to control its amplitude and mixed with red noise through an envelope to control amplitude.
+
+```{r, sine-envelope-noise-kick, out.width='100%', fig.cap="(ref:sine-envelope-noise-kick)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+  image_ogg_figure("kick-bpm-noiz-adsr-vco-adsr-vca-scope.png","kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg",template="solution-ogg-template.html", image_height="550",height="620px")
+```
+
+
+## Alternative approaches
+
+- Resonant filter to replace sine
+- Waveguide to replace sine
+- Better modeling of real world behavior
+  - Pitch shift fundamental with envelope (attenuated) to make sound settle on fundamental
+  - Pitch shift noise using filter cutoff so its frequencies "decay" as well
+  - HPF noise so really low frequencies (below fundamental) don't pass
+  
+### Working backwards
+
+```{r kick-spectrogram, echo=T, out.width="100%", fig.cap="(ref:kick-spectrogram)"}
+s <- tuneR::readWave("images/kick2.wav")
+seewave::spectro(s,flim=c(0,.7),osc=T,dBref=2*10e-5,heights=c(1,1))
+```
+
+<!-- message=F, warning=F, -->
+<!-- use eval=F to prevent running; to = and from =  to adjust time -->
+```{r kick-spectrum-early, echo=T, results='hide', out.width="100%", fig.cap="(ref:kick-spectrum-early)"} 
+s.spec <- seewave::spec(s,flim=c(0,.7),from=0,to=0.025)
+seewave::fpeaks(s.spec,f=44100,nmax=12,plot=F)
+```
+
+```{r kick-spectrum-late, echo=T, results='hide', out.width="100%", fig.cap="(ref:kick-spectrum-late)"} 
+s.spec <- seewave::spec(s,flim=c(0,.7),from=0.025)
+seewave::fpeaks(s.spec,f=44100,nmax=12,plot=F)
+```
+
+
 
 
 <!-- Remaining plan -->

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 8 Designing a Kick Drum | Computational Thinking through Modular Sounds Synthesis</title>
+<meta name="author" content="Andrew M. Olney">
+<meta name="description" content="This chapter focuses on sound design for synthesizing a specific sound, a kick drum, as well as the problem solving that accompanies that process. The goal is to outline and emphasize the thinking...">
+<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta property="og:title" content="Chapter 8 Designing a Kick Drum | Computational Thinking through Modular Sounds Synthesis">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/designing-a-kick-drum.html">
+<meta property="og:description" content="This chapter focuses on sound design for synthesizing a specific sound, a kick drum, as well as the problem solving that accompanies that process. The goal is to outline and emphasize the thinking...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 8 Designing a Kick Drum | Computational Thinking through Modular Sounds Synthesis">
+<meta name="twitter:description" content="This chapter focuses on sound design for synthesizing a specific sound, a kick drum, as well as the problem solving that accompanies that process. The goal is to outline and emphasize the thinking...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Computational Thinking through Modular Sounds Synthesis</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li class="book-part">Sound</li>
+<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
+<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
+<li class="book-part">Fundamental Modules</li>
+<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
+<li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
+<li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
+<li><a class="" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
+<li class="book-part">Sound Design 1</li>
+<li><a class="active" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
+<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
+<li class="book-part">Complex Modules</li>
+<li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
+<li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
+<li><a class="" href="modify.html"><span class="header-section-number">12</span> Modify</a></li>
+<li class="book-part">Sound Design 2</li>
+<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="designing-a-kick-drum" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Designing a Kick Drum<a class="anchor" aria-label="anchor" href="#designing-a-kick-drum"><i class="fas fa-link"></i></a>
+</h1>
+<p>This chapter focuses on sound design for synthesizing a specific sound, a kick drum, as well as the problem solving that accompanies that process.
+The goal is to outline and emphasize the thinking process rather than presenting a recipe for a kick drum sound.
+By understanding the thinking process, you should be able to apply it to new sounds that you want to synthesize in the future.</p>
+<p>Before proceeding, a quick disclaimer on the term “sound design” and the narrow usage of that term here.
+<a href="https://en.wikipedia.org/wiki/Sound_design">Sound design</a> is a widely-used term that has deep roots in the film and theatre industries.
+It encompasses all aspects of creating sound, including performance and editing.
+Even in the music production industry, sound design includes editing, mixing, and processing recorded sound.
+Herein sound design refers to only the creation of sounds and effects using modular synthesis.</p>
+<div id="problem-solving-for-sound-synthesis" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Problem solving for sound synthesis<a class="anchor" aria-label="anchor" href="#problem-solving-for-sound-synthesis"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let’s revisit and expand upon the problem solving approach introduced in Chapters <a href="introduction.html#introduction">1</a> and <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a>.
+The general problem solving stages are:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Polya, &lt;em&gt;How to Solve It&lt;/em&gt;.&lt;/p&gt;"><sup>62</sup></a></span></p>
+<ul>
+<li>Understand the problem</li>
+<li>Make a plan</li>
+<li>Implement the plan</li>
+<li>Evaluate the solution</li>
+</ul>
+<p>The make/implement a plan stages of problem solving involves building a model by connecting modules together with patch cables, as we’ve covered in the last few chapters.
+While reasonable at first glance, the above problem solving approach is much more useful if it is expanded and elaborated in the context of sound design.
+Below is my interpretation of general problem solving<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Polya.&lt;/p&gt;"><sup>63</sup></a></span> and computational thinking principles<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Papert, &lt;em&gt;Mindstorms&lt;/em&gt;.&lt;/p&gt;"><sup>64</sup></a></span> <span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;Anderson2016?&lt;/strong&gt;&lt;/p&gt;"><sup>65</sup></a></span> as they fit into these stages.</p>
+<div id="understand-the-problem" class="section level3" number="8.1.1">
+<h3>
+<span class="header-section-number">8.1.1</span> Understand the problem<a class="anchor" aria-label="anchor" href="#understand-the-problem"><i class="fas fa-link"></i></a>
+</h3>
+<p>The problem is to create a specific sound.
+It may be a natural, physically produced sound, a sound of unknown origin from a recording, or a sound that exists only in your mind.
+The key questions are then:</p>
+<ul>
+<li>What is the sound? What are its defining characteristics? How does it differ from other sounds?</li>
+<li>How is the sound made in real life? Do you understand the principles and mechanism for how the sound is created? If it doesn’t exist in real life, how could it be made if it did?</li>
+<li>Is all the information needed to make the sound available? If it is not available, how could you get the information you need?</li>
+</ul>
+</div>
+<div id="devise-a-plan" class="section level3" number="8.1.2">
+<h3>
+<span class="header-section-number">8.1.2</span> Devise a plan<a class="anchor" aria-label="anchor" href="#devise-a-plan"><i class="fas fa-link"></i></a>
+</h3>
+<p>This stage is the most complex because you must think about your thinking<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Thinking about your thinking is often called metacognition.&lt;/p&gt;"><sup>66</sup></a>.
+It’s best to try to stay flexible and evaluate multiple alternatives so you can pick the most promising one.
+This will prevent you from wasting effort on suboptimal strategies.</p>
+<p>There are many ways to solve a problem, and often a combination of approaches is required.
+Approaches in the list below require different levels of information and expertise.</p>
+<ul>
+<li>
+<strong>Guess and check</strong> is the simplest strategy, but if the guesses are uninformed, it is the same as blind search. Given the number of ways modules can be combined, there are too many possibilities for a blind search to be efficient. However, informed guesses can be efficient, and thoughtful exploration can lead to brand new ideas.</li>
+<li>
+<strong>Looking at related problems</strong> is sometimes called reasoning by analogy. The idea is to find a known solution to a similar problem and then adapt the solution to the current problem. To do that, you need to identify what parts of the solution should carry over and what parts shouldn’t (also known as abstraction and generalization).</li>
+<li>
+<strong>Decomposing the problem</strong> is a very powerful strategy that is easily combined with other strategies. The key idea is to divide a complex problem into smaller problems that are easier to solve. Because there’s often more than one way to decompose a problem, it can help to think deeply about different decompositions. For example, related problems might suggest decompositions, and a particular decomposition might create smaller problems you already know how to solve.</li>
+<li>
+<strong>Using a model of how sound is made in real life</strong> can help identify modules that correspond to that model. It can also help with deciding how to decompose a problem and identifying related problems.</li>
+<li>
+<strong>Working backwards</strong> is a data-driven strategy that easily combines with other strategies. Instead of using your perception of the sound or preconceived notions about the sound, this strategy analyzes the properties of the sound itself to identify key features like frequency spectrum and dynamics.</li>
+</ul>
+</div>
+<div id="carry-out-the-plan-and-replanning" class="section level3" number="8.1.3">
+<h3>
+<span class="header-section-number">8.1.3</span> Carry out the plan (and replanning)<a class="anchor" aria-label="anchor" href="#carry-out-the-plan-and-replanning"><i class="fas fa-link"></i></a>
+</h3>
+<p>This stage involves both model building and keeping track of what’s working and what isn’t.
+Model building has been well elaborated in the last few chapters, but it’s worth reminding that sometimes the model idea is correct but parameters, i.e. knob positions, aren’t quite right.
+Additionally, sometimes the module type may be correct, but the specific choice in module isn’t quite right for the effect to be achieved.
+For example, in a previous patch we looked at a flanger module that has an internal LFO that can’t be completely disabled, so if your patch idea required flanging without an LFO controling the offset, this would be a suboptimal choice.
+So it’s important as you carry out the plan that you consider how issues like these might trick you into thinking that your solution isn’t good when it actually is but just needs a little tweaking.</p>
+<p>Keeping track of what working and what isn’t can get rather involved for any amount of extended problem solving.
+Here are some strategies to help with managing alternative solutions to a sound design problem.</p>
+<ul>
+<li>
+<strong>Having evaluation criteria</strong> is absolutely essential because otherwise, you won’t know if you succeeded. You also won’t be able to say whether one solution is better than another. The simplest criteria might be a single scale, e.g. 1-10, whereas better criteria can have scales for the defining characteristics of the sound.</li>
+<li>
+<strong>Keeping notes</strong> like a list can help keep track of what has been done and prevent repeating solutions. If each solution is documented with its evaluation, it makes it easier to identify common solution elements that seem to be beneficial or not.</li>
+<li>
+<strong>Eliminating possibilities</strong> can help you avoid unpromising directions. If every approach with a certain element hasn’t worked well, then you might consider avoiding those elements in future attempts.</li>
+<li>
+<strong>Using symmetry</strong> can similarly help you understand what elements are exchangeable in a solution and might help generate new approaches. For example, you might have an approximate solution but realize that a module or two could be substituted with something that has a similar function for a better effect.</li>
+</ul>
+</div>
+<div id="evaluate-the-solution" class="section level3" number="8.1.4">
+<h3>
+<span class="header-section-number">8.1.4</span> Evaluate the solution<a class="anchor" aria-label="anchor" href="#evaluate-the-solution"><i class="fas fa-link"></i></a>
+</h3>
+<p>Because this is a design problem, there’s never a single absolute solution.
+It’s best to consider solutions relative to each other in terms of evaluation criteria.
+Additionally, if resources are limited, it makes sense to consider solutions in terms of efficient use of resources, i.e. does one solution use fewer modules than another.
+Regardless of whether the solution is better than one you already generated, its worthwhile pausing to consider what you can learn from this example both in terms of the current problem as well as other potential problems.</p>
+<p>It may be obvious that the stages of problem solving blend into each other and that the process of solving problems is iterative.
+Especially in design problems, there is never an absolute end to the process because there is never a single absolute solution.
+Thus the process iterates until you are either satisfied with your best solution or run out of time.</p>
+</div>
+</div>
+<div id="reviewing-previous-kick-drum-patches" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> Reviewing previous kick drum patches<a class="anchor" aria-label="anchor" href="#reviewing-previous-kick-drum-patches"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let’s review the kick drum patches from previous chapters to outline the thinking behind them and consider how they could be improved.
+The evaluation criteria for the kick drum sound is that it should be realistic and clean (not muffled).
+This review in some sense reflects the notes you might keep while carrying out your sound design plan.</p>
+<div id="sine-with-envelope" class="section level3" number="8.2.1">
+<h3>
+<span class="header-section-number">8.2.1</span> Sine with envelope<a class="anchor" aria-label="anchor" href="#sine-with-envelope"><i class="fas fa-link"></i></a>
+</h3>
+<p>The first patch was presented in Section <a href="controllers.html#clocks-as-sequencers">5.2.1</a>, and it used a sine wave with an envelope to control its amplitude.</p>
+<p><em>Understanding the problem</em>.
+The only identifying characteristic considered was that kick is a low frequency sound.
+We know an idealized membrane (like a drum head) is inharmonic from Section <a href="harmonic-and-inharmonic-sounds.html#inharmonic-standing-waves-and-noise">3.3</a> so it doesn’t make sense to use a harmonically rich waveform.</p>
+<p><em>Devising a plan</em>.
+Looking at related problems of generating sound, we used the fundamental patch of an oscillator through an envelope to control its amplitude to create a single pitched note.
+Our model of the sound in real life considered the vibration of the drum after the head was hit by the mallet.</p>
+<p><em>Carrying out the plan/Evaluating the solution</em></p>
+<p>No particular care was given to these stages because the goal at the time was to demostrate clocks as a sequencer.
+However, we can do this now by reviewing the patch itself and the associated sound, both of which are presented in Figure <a href="designing-a-kick-drum.html#fig:sine-envelope-kick">8.1</a>.
+The sound gets a 5 for realism but a 10 for cleanliness.
+Altogether this was a pretty naive attempt.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:sine-envelope-kick"></span>
+<iframe src="images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html" width="100%" height="400px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 8.1: <a href="https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html">Kick</a> made using a sine wave with an envelope to control its amplitude.
+</p>
+</div>
+</div>
+<div id="sine-with-an-envelope-plus-noise-burst" class="section level3" number="8.2.2">
+<h3>
+<span class="header-section-number">8.2.2</span> Sine with an envelope plus noise burst<a class="anchor" aria-label="anchor" href="#sine-with-an-envelope-plus-noise-burst"><i class="fas fa-link"></i></a>
+</h3>
+<p>The second patch was in Section <a href="generators.html#noise">6.5</a>, and it extended the first by mixing in red noise with an envelope to control its amplitude.</p>
+<p><em>Understanding the problem</em>.
+The new identifying characteristic was the sound of a mallet contact on the membrane in addition to the resonant sound of the drum.
+Intuitively, this would be a bunch of short lived frequencies, i.e. noise.</p>
+<p><em>Devising a plan</em>.
+This patched used decomposition by breaking down the kick sound into two components and using the existing patch as a solution for one of the components.
+Our model of the sound in real life added the sound when the head was hit by the mallet.</p>
+<p><em>Carrying out the plan/Evaluating the solution</em></p>
+<p>As before, no particular care was given to these stages because the goal then was to demonstrate different types of noise.
+Reviewing the patch itself and the associated sound presented in Figure <a href="designing-a-kick-drum.html#fig:sine-envelope-noise-kick">8.2</a>, the realism in the sound has improved a bit (6) but also dropped in cleanliness (9).
+Of course it might be possible to improve on it by tweaking the noise envelope or the mix levels a bit more.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:sine-envelope-noise-kick"></span>
+<iframe src="images/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png-kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg-local.html" width="100%" height="620px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 8.2: <a href="https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html">Kick</a> made using a sine wave with an envelope to control its amplitude and mixed with red noise through an envelope to control amplitude.
+</p>
+</div>
+</div>
+</div>
+<div id="alternative-approaches" class="section level2" number="8.3">
+<h2>
+<span class="header-section-number">8.3</span> Alternative approaches<a class="anchor" aria-label="anchor" href="#alternative-approaches"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Resonant filter to replace sine</li>
+<li>Waveguide to replace sine</li>
+<li>Better modeling of real world behavior
+<ul>
+<li>Pitch shift fundamental with envelope (attenuated) to make sound settle on fundamental</li>
+<li>Pitch shift noise using filter cutoff so its frequencies “decay” as well</li>
+<li>HPF noise so really low frequencies (below fundamental) don’t pass</li>
+</ul>
+</li>
+</ul>
+<div id="working-backwards" class="section level3" number="8.3.1">
+<h3>
+<span class="header-section-number">8.3.1</span> Working backwards<a class="anchor" aria-label="anchor" href="#working-backwards"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu">tuneR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tuneR/man/readWave.html">readWave</a></span><span class="op">(</span><span class="st">"images/kick2.wav"</span><span class="op">)</span></span>
+<span><span class="fu">seewave</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/seewave/man/spectro.html">spectro</a></span><span class="op">(</span><span class="va">s</span>,flim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">.7</span><span class="op">)</span>,osc<span class="op">=</span><span class="cn">T</span>,dBref<span class="op">=</span><span class="fl">2</span><span class="op">*</span><span class="fl">10e-5</span>,heights<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:kick-spectrogram"></span>
+<img src="09-kick-cymbal_files/figure-html/kick-spectrogram-1.png" alt="(ref:kick-spectrogram)" width="100%"><p class="caption">
+Figure 8.3: (ref:kick-spectrogram)
+</p>
+</div>
+<!-- message=F, warning=F, -->
+<!-- use eval=F to prevent running; to = and from =  to adjust time -->
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">s.spec</span> <span class="op">&lt;-</span> <span class="fu">seewave</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/seewave/man/spec.html">spec</a></span><span class="op">(</span><span class="va">s</span>,flim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">.7</span><span class="op">)</span>,from<span class="op">=</span><span class="fl">0</span>,to<span class="op">=</span><span class="fl">0.025</span><span class="op">)</span></span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:kick-spectrum-early"></span>
+<img src="09-kick-cymbal_files/figure-html/kick-spectrum-early-1.png" alt="(ref:kick-spectrum-early)" width="100%"><p class="caption">
+Figure 8.4: (ref:kick-spectrum-early)
+</p>
+</div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">seewave</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/seewave/man/fpeaks.html">fpeaks</a></span><span class="op">(</span><span class="va">s.spec</span>,f<span class="op">=</span><span class="fl">44100</span>,nmax<span class="op">=</span><span class="fl">12</span>,plot<span class="op">=</span><span class="cn">F</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">s.spec</span> <span class="op">&lt;-</span> <span class="fu">seewave</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/seewave/man/spec.html">spec</a></span><span class="op">(</span><span class="va">s</span>,flim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">.7</span><span class="op">)</span>,from<span class="op">=</span><span class="fl">0.025</span><span class="op">)</span></span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:kick-spectrum-late"></span>
+<img src="09-kick-cymbal_files/figure-html/kick-spectrum-late-1.png" alt="(ref:kick-spectrum-late)" width="100%"><p class="caption">
+Figure 8.5: (ref:kick-spectrum-late)
+</p>
+</div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">seewave</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/seewave/man/fpeaks.html">fpeaks</a></span><span class="op">(</span><span class="va">s.spec</span>,f<span class="op">=</span><span class="fl">44100</span>,nmax<span class="op">=</span><span class="fl">12</span>,plot<span class="op">=</span><span class="cn">F</span><span class="op">)</span></span></code></pre></div>
+<!-- Remaining plan -->
+<!-- Sound design ideas -->
+<!-- Kick -->
+<!-- Cymbal -->
+<!-- Video game lead -->
+<!-- 80’s music bass -->
+<!-- Maybe use these? -->
+<!-- keyboard filter tracking or notes would disappear; filtering sine wave example -->
+<!-- pinging: sending a gate/trigger to a near-oscillating filter; use AR on filter's freq -->
+<!-- Growl: Low frequency sine wave modulation of the filter cut-off frequency -->
+<!-- wah wah is LFO on LPF cutoff freq -->
+<!-- Complex modules and Compositions        -->
+<!--    Controllers  -->
+<!--        Clock, sequencing, arpggiators -->
+<!--        Euclidean rhythms -->
+<!--        Probability -->
+<!--    Generators   -->
+<!--        PWM -->
+<!--        FM/AM -->
+<!--        Ring modulation -->
+<!-- audio rate modulation into resonant filter? -->
+<!--        Vocoders -->
+<!--        Random sampling -->
+<!--    Modifiers    -->
+<!--        ~~LFO~~ -->
+<!--        Sample and hold -->
+<!--        Slew -->
+<!--        Wave-folding -->
+<!--        Attenuators, inverters, and attenuverters -->
+<!--        Quantizers -->
+<!--        Switches -->
+<!--        Logic -->
+<!-- Actual -->
+<!--     4 Basic Modeling Concepts -->
+<!--     4.1 Modules are the model elements -->
+<!--     4.2 Signals are how the model elements interact -->
+<!--     4.3 Signals are interpreted by modules -->
+<!--     4.4 Pulling it all together -->
+<!--         4.4.1 Drone -->
+<!--         4.4.2 Using an oscilloscope -->
+<!--         4.4.3 Controlling pitch -->
+<!--         4.4.4 Controlling note duration (on/off volume) -->
+<!--         4.4.5 Controlling note dynamics (volume during note) -->
+<!--     4.5 Moving forward -->
+<!-- 5 Controllers -->
+<!-- 5.1 Clocks -->
+<!--     5.1.1 Clock under a scope -->
+<!--     5.1.2 Clock as a generator -->
+<!-- 5.2 Sequencers -->
+<!--     5.2.1 Clocks as sequencers -->
+<!--     5.2.2 Trigger sequencers -->
+<!--     5.2.3 Control voltage sequencers -->
+<!--     6 Generators -->
+<!--     6.1 Chords -->
+<!--     6.2 Chorus -->
+<!--     6.3 Low frequency oscillators & uses -->
+<!--         6.3.1 Pulse width modulation -->
+<!--         6.3.2 Vibrato -->
+<!--         6.3.3 Tremolo -->
+<!--     6.4 Synchronization -->
+<!--     6.5 Noise -->
+<!--     6.6 Samplers -->
+<pre><code>&lt;!-- 7 Modifiers --&gt;
+&lt;!-- 7.1 Effects --&gt;
+&lt;!--     7.1.1 Delays --&gt;
+&lt;!--     7.1.2 Reverb --&gt;
+&lt;!--     7.1.3 Chorus --&gt;
+&lt;!--     7.1.4 Flanger --&gt;
+&lt;!--     7.1.5 Phaser --&gt;
+&lt;!-- 7.2 Voltage controlled filters --&gt;
+&lt;!--     7.2.1 Filters are imperfect --&gt;
+&lt;!--     7.2.2 Filters change frequency and phase --&gt;
+&lt;!--     7.2.3 Combining filters --&gt;
+&lt;!--     7.2.4 Resonance --&gt;</code></pre>
+
+</div>
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></div>
+<div class="next"><a href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#designing-a-kick-drum"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
+<li>
+<a class="nav-link" href="#problem-solving-for-sound-synthesis"><span class="header-section-number">8.1</span> Problem solving for sound synthesis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#understand-the-problem"><span class="header-section-number">8.1.1</span> Understand the problem</a></li>
+<li><a class="nav-link" href="#devise-a-plan"><span class="header-section-number">8.1.2</span> Devise a plan</a></li>
+<li><a class="nav-link" href="#carry-out-the-plan-and-replanning"><span class="header-section-number">8.1.3</span> Carry out the plan (and replanning)</a></li>
+<li><a class="nav-link" href="#evaluate-the-solution"><span class="header-section-number">8.1.4</span> Evaluate the solution</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#reviewing-previous-kick-drum-patches"><span class="header-section-number">8.2</span> Reviewing previous kick drum patches</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#sine-with-envelope"><span class="header-section-number">8.2.1</span> Sine with envelope</a></li>
+<li><a class="nav-link" href="#sine-with-an-envelope-plus-noise-burst"><span class="header-section-number">8.2.2</span> Sine with an envelope plus noise burst</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#alternative-approaches"><span class="header-section-number">8.3</span> Alternative approaches</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#working-backwards"><span class="header-section-number">8.3.1</span> Working backwards</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/09-kick-cymbal.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/09-kick-cymbal.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

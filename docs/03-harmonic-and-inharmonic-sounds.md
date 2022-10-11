@@ -37,7 +37,7 @@ As you can see, when the pulse reaches a fixed end, it reflects both in directio
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<a href="https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/sim-reflect-1.png" alt="(ref:sim-reflect)" width="100%" /></a>
+<iframe src="https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html" width="100%" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:sim-reflect)(ref:sim-reflect)</p>
 </div>
 
@@ -77,7 +77,7 @@ In the video, the tap on the string (a reverse of a pluck) creates two pulses th
 (ref:tap-string) [Youtube video](https://www.youtube.com/watch?v=9O3VEXzuOKI) of a slow motion tap on a long string. Watch how the tap creates two pulses that reflect off their respective ends of the string, switching phase, and then constructively interfere to create an apparent standing wave. Image [© Kemp Strings](https://www.youtube.com/c/KempStrings).
 
 <div class="figure">
-<img src="downloadFigs4latex/tap-string.jpg" alt="(ref:tap-string)"  />
+<iframe src="https://www.youtube.com/embed/9O3VEXzuOKI?start=0" width="672" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:tap-string)(ref:tap-string)</p>
 </div>
 
@@ -133,7 +133,7 @@ This illustrates a general principle of Fourier analysis: sharp edges in a waves
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
 <div class="figure">
-<a href="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/fourier-waves-1.png" alt="(ref:fourier-waves)" width="100%" /></a>
+<iframe src="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1" width="100%" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:fourier-waves)(ref:fourier-waves)</p>
 </div>
 
@@ -169,7 +169,7 @@ If you go back to Figure \@ref(fig:fourier-waves) and increase the amplitude of 
 (ref:freq-spectrum) Frequency spectrum of four basic waveshapes at 1 Hz. Amplitude is normalized so all harmonics sum to 1. Harmonics are offset for comparison.
 
 <div class="figure">
-<img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/freq-spectrum-1.png" alt="(ref:freq-spectrum)"  />
+<img src="03-harmonic-and-inharmonic-sounds_files/figure-html/freq-spectrum-1.png" alt="(ref:freq-spectrum)" width="672" />
 <p class="caption">(\#fig:freq-spectrum)(ref:freq-spectrum)</p>
 </div>
 
@@ -186,14 +186,14 @@ Inharmonic means that the frequencies of the standing waves are not integer mult
 Two-dimensional standing waves are common in drums, cymbals, and related percussion instruments, where they are called modes, and the physics behind the acoustics of these instruments [can get very complex](http://www.ness.music.ed.ac.uk/archives/systems/3d-embeddings).
 Recall that standing waves in a string had nodes which were points of no movement.
 In a circular membrane (a drum) or a circular plate (a cymbal) the nodes are lines and  circles, because the waves can now travel in two dimensions and reflect off the edges of the vibrating surface.
-Some modes of a vibrating drum are shown in Figure \@ref(fig:drum-modes).
-Each of these modes has  0, 1, or 2 nodal lines across the diameter of the drum head and a nodal circle around the perimeter of the drum head.
+Some modes of an ideal clamped vibrating membrane are shown in Figure \@ref(fig:drum-modes).
+Each of these modes has  0, 1, or 2 nodal lines across the diameter of the membrane and a nodal circle around the perimeter of the membrane.
 Modes are usually denoted in pairs $(d,c)$ where $d$ is the number of nodal lines across the diameter and $c$ is the number of nodal circles.
 
-(ref:drum-modes) [Animations](https://olney.ai/ct-modular-book/images/drum-modes.html) of drum head vibration modes with a single nodal circle and 0, 1, or 2 nodal lines. Images [public domain](https://en.wikipedia.org/wiki/Vibrations_of_a_circular_membrane#Animations_of_several_vibration_modes).
+(ref:drum-modes) [Animations](https://olney.ai/ct-modular-book/images/drum-modes.html) of membrane vibration modes with a single nodal circle and 0, 1, or 2 nodal lines. Images [public domain](https://en.wikipedia.org/wiki/Vibrations_of_a_circular_membrane#Animations_of_several_vibration_modes).
 
 <div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/drum-modes.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/drum-modes-1.png" alt="(ref:drum-modes)" width="100%" /></a>
+<iframe src="https://olney.ai/ct-modular-book/images/drum-modes.html" width="100%" height="140px" data-external="1"></iframe>
 <p class="caption">(\#fig:drum-modes)(ref:drum-modes)</p>
 </div>
 
@@ -205,7 +205,7 @@ In general, the modes have inharmonic frequency relationships to each other as s
 The timpani is [a notable counterexample](http://hyperphysics.phy-astr.gsu.edu/hbase/Music/timpani.html) where the kettle and the style of playing enhance the $(d,1)$ modes, a few of which in the timpani have harmonic relationships to each other.
 Cymbals similarly have inharmonic frequency relationships but [differ in modes and spread of ratios across modes](http://acoustics.ae.illinois.edu/pdfs/Vibration%20of%20Plates%20(Leissa,%20NASA%20SP-160).pdf#page=20).
 
-Table: (\#tab:mode-freq) Modes of a vibrating membrane like a drum head and their relative frequencies with respect to (0,1). Note the ratio as not integers and so the series is inharmonic.
+Table: (\#tab:mode-freq) Modes of an ideal clamped vibrating membrane like a drum head and their relative frequencies with respect to (0,1). Note the ratio as not integers and so the series is inharmonic.
 
 | Mode  | Frequency ratio |
 |-------|-----------------|
@@ -240,7 +240,7 @@ All other colors of noise are based on white noise but change the distribution o
 
 <!-- NOTE: must manually copy constituent images to docs/images -->
 <div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/noise-table.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/noise-types-1.png" alt="(ref:noise-types)" width="100%" /></a>
+<iframe src="https://olney.ai/ct-modular-book/images/noise-table.html" width="100%" height="510px" data-external="1"></iframe>
 <p class="caption">(\#fig:noise-types)(ref:noise-types)</p>
 </div>
 
@@ -293,7 +293,7 @@ This effect can be created by using an envelope on a filter, a technique we will
 
 <!-- NOTE: must manually copy constituent images to docs/images -->
 <div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/adsr-sound-table.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/adsr-sound-table-1.png" alt="(ref:adsr-sound-table)" width="100%" /></a>
+<iframe src="https://olney.ai/ct-modular-book/images/adsr-sound-table.html" width="100%" height="150px" data-external="1"></iframe>
 <p class="caption">(\#fig:adsr-sound-table)(ref:adsr-sound-table)</p>
 </div>
 

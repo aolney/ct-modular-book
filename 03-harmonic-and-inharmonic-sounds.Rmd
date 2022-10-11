@@ -226,11 +226,11 @@ Inharmonic means that the frequencies of the standing waves are not integer mult
 Two-dimensional standing waves are common in drums, cymbals, and related percussion instruments, where they are called modes, and the physics behind the acoustics of these instruments [can get very complex](http://www.ness.music.ed.ac.uk/archives/systems/3d-embeddings).
 Recall that standing waves in a string had nodes which were points of no movement.
 In a circular membrane (a drum) or a circular plate (a cymbal) the nodes are lines and  circles, because the waves can now travel in two dimensions and reflect off the edges of the vibrating surface.
-Some modes of a vibrating drum are shown in Figure \@ref(fig:drum-modes).
-Each of these modes has  0, 1, or 2 nodal lines across the diameter of the drum head and a nodal circle around the perimeter of the drum head.
+Some modes of an ideal clamped vibrating membrane are shown in Figure \@ref(fig:drum-modes).
+Each of these modes has  0, 1, or 2 nodal lines across the diameter of the membrane and a nodal circle around the perimeter of the membrane.
 Modes are usually denoted in pairs $(d,c)$ where $d$ is the number of nodal lines across the diameter and $c$ is the number of nodal circles.
 
-(ref:drum-modes) [Animations](https://olney.ai/ct-modular-book/images/drum-modes.html) of drum head vibration modes with a single nodal circle and 0, 1, or 2 nodal lines. Images [public domain](https://en.wikipedia.org/wiki/Vibrations_of_a_circular_membrane#Animations_of_several_vibration_modes).
+(ref:drum-modes) [Animations](https://olney.ai/ct-modular-book/images/drum-modes.html) of membrane vibration modes with a single nodal circle and 0, 1, or 2 nodal lines. Images [public domain](https://en.wikipedia.org/wiki/Vibrations_of_a_circular_membrane#Animations_of_several_vibration_modes).
 
 ```{r, drum-modes, out.width='100%', fig.cap="(ref:drum-modes)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
 # first pass, use local file, build html, and deploy html
@@ -247,7 +247,7 @@ In general, the modes have inharmonic frequency relationships to each other as s
 The timpani is [a notable counterexample](http://hyperphysics.phy-astr.gsu.edu/hbase/Music/timpani.html) where the kettle and the style of playing enhance the $(d,1)$ modes, a few of which in the timpani have harmonic relationships to each other.
 Cymbals similarly have inharmonic frequency relationships but [differ in modes and spread of ratios across modes](http://acoustics.ae.illinois.edu/pdfs/Vibration%20of%20Plates%20(Leissa,%20NASA%20SP-160).pdf#page=20).
 
-Table: (\#tab:mode-freq) Modes of a vibrating membrane like a drum head and their relative frequencies with respect to (0,1). Note the ratio as not integers and so the series is inharmonic.
+Table: (\#tab:mode-freq) Modes of an ideal clamped vibrating membrane like a drum head and their relative frequencies with respect to (0,1). Note the ratio as not integers and so the series is inharmonic.
 
 | Mode  | Frequency ratio |
 |-------|-----------------|
