@@ -65,28 +65,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
-<li class="book-part">Sound</li>
-<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
-<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
-<li class="book-part">Fundamental Modules</li>
-<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
-<li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
-<li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
-<li><a class="" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
-<li class="book-part">Sound Design 1</li>
-<li><a class="active" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
-<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
-<li class="book-part">Complex Modules</li>
-<li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
-<li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
-<li><a class="" href="modify.html"><span class="header-section-number">12</span> Modify</a></li>
-<li class="book-part">Sound Design 2</li>
-<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 8</span> Designing a Kick Drum</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -110,7 +89,7 @@ Herein sound design refers to only the creation of sounds and effects using modu
 <span class="header-section-number">8.1</span> Problem solving for sound synthesis<a class="anchor" aria-label="anchor" href="#problem-solving-for-sound-synthesis"><i class="fas fa-link"></i></a>
 </h2>
 <p>Let’s revisit and expand upon the problem solving approach introduced in Chapters <a href="introduction.html#introduction">1</a> and <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a>.
-The general problem solving stages are:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Polya, &lt;em&gt;How to Solve It&lt;/em&gt;.&lt;/p&gt;"><sup>62</sup></a></span></p>
+The general problem solving stages are:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;George Polya, &lt;em&gt;How to Solve It: A New Aspect of Mathematical Method&lt;/em&gt; (Princeton University Press, 2004).&lt;/p&gt;"><sup>1</sup></a></span></p>
 <ul>
 <li>Understand the problem</li>
 <li>Make a plan</li>
@@ -119,7 +98,7 @@ The general problem solving stages are:<span class="citation"><a class="footnote
 </ul>
 <p>The make/implement a plan stages of problem solving involves building a model by connecting modules together with patch cables, as we’ve covered in the last few chapters.
 While reasonable at first glance, the above problem solving approach is much more useful if it is expanded and elaborated in the context of sound design.
-Below is my interpretation of general problem solving<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Polya.&lt;/p&gt;"><sup>63</sup></a></span> and computational thinking principles<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Papert, &lt;em&gt;Mindstorms&lt;/em&gt;.&lt;/p&gt;"><sup>64</sup></a></span> <span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Nicole D. Anderson, &lt;span&gt;“A Call for Computational Thinking in Undergraduate Psychology,”&lt;/span&gt; &lt;em&gt;Psychology Learning &amp;amp; Teaching&lt;/em&gt; 15, no. 3 (2016): 226–34, &lt;a href="https://doi.org/10.1177/1475725716659252" role="doc-biblioref"&gt;https://doi.org/10.1177/1475725716659252&lt;/a&gt;.&lt;/p&gt;'><sup>65</sup></a></span> as they fit into these stages.</p>
+Below is my interpretation of general problem solving<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Polya.&lt;/p&gt;"><sup>2</sup></a></span> and computational thinking principles<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Seymour Papert, &lt;em&gt;Mindstorms: Children, Computers, and Powerful Ideas&lt;/em&gt; (New York: Basic Books, 1980).&lt;/p&gt;"><sup>3</sup></a></span> <span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Nicole D. Anderson, &lt;span&gt;“A Call for Computational Thinking in Undergraduate Psychology,”&lt;/span&gt; &lt;em&gt;Psychology Learning &amp;amp; Teaching&lt;/em&gt; 15, no. 3 (2016): 226–34, &lt;a href="https://doi.org/10.1177/1475725716659252" role="doc-biblioref"&gt;https://doi.org/10.1177/1475725716659252&lt;/a&gt;.&lt;/p&gt;'><sup>4</sup></a></span> as they fit into these stages.</p>
 <div id="understand-the-problem" class="section level3" number="8.1.1">
 <h3>
 <span class="header-section-number">8.1.1</span> Understand the problem<a class="anchor" aria-label="anchor" href="#understand-the-problem"><i class="fas fa-link"></i></a>
@@ -137,7 +116,7 @@ The key questions are then:</p>
 <h3>
 <span class="header-section-number">8.1.2</span> Devise a plan<a class="anchor" aria-label="anchor" href="#devise-a-plan"><i class="fas fa-link"></i></a>
 </h3>
-<p>This stage is the most complex because you must think about your thinking<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Thinking about your thinking is often called metacognition.&lt;/p&gt;"><sup>66</sup></a>.
+<p>This stage is the most complex because you must think about your thinking<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Thinking about your thinking is often called metacognition.&lt;/p&gt;"><sup>5</sup></a>.
 It’s best to try to stay flexible and evaluate multiple alternatives so you can pick the most promising one.
 This will prevent you from wasting effort on suboptimal strategies.</p>
 <p>There are many ways to solve a problem, and often a combination of approaches is required.
@@ -262,7 +241,7 @@ The most relevant problem solving stages to consider are understanding the probl
 <p>Let’s return to the understanding the problem stage: can we come up with more defining characteristics of the sound or elaborate on how the sound is made in real life?
 Personally, I can’t come up with anything beyond what’s already been said.
 However, we can turn to the Internet to see what research has been done on the acoustics of kick drums for more ideas.</p>
-<p>One acoustic study found that the frequency of the kick drum isn’t constant as we assumed but rather changes very quickly from a higher pitch to a lower pitch (a drop of about 5 Hz)<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Harvey Fletcher and Irvin G. Bassett, &lt;span&gt;“Some Experiments with the Bass Drum,”&lt;/span&gt; &lt;em&gt;The Journal of the Acoustical Society of America&lt;/em&gt; 64, no. 6 (December 1978): 1570–76, &lt;a href="https://doi.org/10.1121/1.382140" role="doc-biblioref"&gt;https://doi.org/10.1121/1.382140&lt;/a&gt;.&lt;/p&gt;'><sup>67</sup></a></span>.
+<p>One acoustic study found that the frequency of the kick drum isn’t constant as we assumed but rather changes very quickly from a higher pitch to a lower pitch (a drop of about 5 Hz)<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Harvey Fletcher and Irvin G. Bassett, &lt;span&gt;“Some Experiments with the Bass Drum,”&lt;/span&gt; &lt;em&gt;The Journal of the Acoustical Society of America&lt;/em&gt; 64, no. 6 (December 1978): 1570–76, &lt;a href="https://doi.org/10.1121/1.382140" role="doc-biblioref"&gt;https://doi.org/10.1121/1.382140&lt;/a&gt;.&lt;/p&gt;'><sup>6</sup></a></span>.
 The presumed mechanism for this behavior is that the drum head’s tension is very high just after it has been struck, and so it vibrates at a higher frequency until is resumes its initial position.
 We can operationalize this in modular using an envelope to control the pitch of the sine wave so that it goes high and then decays to the fundamental pitch.
 Similarly we can envelope the pitch of the noise.
@@ -294,8 +273,10 @@ Try patching these improvements into the last kick patch using the button in Fig
 &lt;li&gt;Adjust the Scope time to see a single beat; use TRG button to sync the scope&lt;/li&gt;
 &lt;li&gt;Add two VCFs and Sassy scope at the bottom&lt;/li&gt;
 &lt;li&gt;Connect Noiz red to VCF 1 in, VCF 1 LPF to VCF 2 in, VCF 2 HPF to Sassy and QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect the frequency ADSR to the VCF 1 (LPF) cutoff in and adjust the attenuator to allow it to have some effect&lt;/li&gt;
 &lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
 &lt;li&gt;Adjust the cutoffs of the two VCFs using Sassy to set up your band pass filter&lt;/li&gt;
+&lt;li&gt;Adjust the cutoff attenuator on VCF 1 (LPF) to control the change in noise frequency&lt;/li&gt;
 &lt;li&gt;Adjust sine ADSR decay and VCA level so that frequency change shows in first part of beat&lt;/li&gt;
 &lt;li&gt;Adjust QuadVCA mix levels to taste&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -310,8 +291,10 @@ Try patching these improvements into the last kick patch using the button in Fig
 &lt;li&gt;Adjust the Scope time to see a single beat; use TRG button to sync the scope&lt;/li&gt;
 &lt;li&gt;Add two VCFs and Sassy scope at the bottom&lt;/li&gt;
 &lt;li&gt;Connect Noiz red to VCF 1 in, VCF 1 LPF to VCF 2 in, VCF 2 HPF to Sassy and QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect the frequency ADSR to the VCF 1 (LPF) cutoff in and adjust the attenuator to allow it to have some effect&lt;/li&gt;
 &lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
 &lt;li&gt;Adjust the cutoffs of the two VCFs using Sassy to set up your band pass filter&lt;/li&gt;
+&lt;li&gt;Adjust the cutoff attenuator on VCF 1 (LPF) to control the change in noise frequency&lt;/li&gt;
 &lt;li&gt;Adjust sine ADSR decay and VCA level so that frequency change shows in first part of beat&lt;/li&gt;
 &lt;li&gt;Adjust QuadVCA mix levels to taste&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -408,7 +391,7 @@ Try patching a resonant filter in place of the VCO sine wave with an envelope us
 &lt;li&gt;Remove the small VCA and VCO, and disconnect the top ADSR outs&lt;/li&gt;
 &lt;li&gt;Add a VCF between the ADSR and QuadVCA/Mixer&lt;/li&gt;
 &lt;li&gt;Connect Clock beat out to both ADSR gates and Scope external trigger&lt;/li&gt;
-&lt;li&gt;Connect the first ADSR out to both VCF cuttoff in and resonance in&lt;/li&gt;
+&lt;li&gt;Connect the first ADSR out to pinging VCF cuttoff in and resonance in, and also connect to noise VCF (LPF) cutoff cv in and adjust attenuator to let some signal through.&lt;/li&gt;
 &lt;li&gt;Connect the second ADSR out to only the VCF in&lt;/li&gt;
 &lt;li&gt;Connect the VCF out to Sassy input 2 and QuadVCA/Mixer input 1&lt;/li&gt;
 &lt;li&gt;Adjust the Scope time to see a single beat; use TRG button to sync the scope&lt;/li&gt;
@@ -416,6 +399,7 @@ Try patching a resonant filter in place of the VCO sine wave with an envelope us
 &lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
 &lt;li&gt;Adjust the VCF cutoff for a kick-appropriate frequency and the resonance to be almost oscillating &lt;/li&gt;
 &lt;li&gt;Adjust the attenuators on the VCF cutoff and resonance so the ADSR has an effect, and change that ADSR's decay amount to influence the frequency decay of the kick&lt;/li&gt;
+&lt;li&gt;Adjust noise VCF (LPF) cutoff attenuator for noise frequency shift amount&lt;/li&gt;
 &lt;li&gt;Adjust QuadVCA mix levels to taste&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -426,7 +410,7 @@ Try patching a resonant filter in place of the VCO sine wave with an envelope us
 &lt;li&gt;Remove the small VCA and VCO, and disconnect the top ADSR outs&lt;/li&gt;
 &lt;li&gt;Add a VCF between the ADSR and QuadVCA/Mixer&lt;/li&gt;
 &lt;li&gt;Connect Clock beat out to both ADSR gates and Scope external trigger&lt;/li&gt;
-&lt;li&gt;Connect the first ADSR out to both VCF cuttoff in and resonance in&lt;/li&gt;
+&lt;li&gt;Connect the first ADSR out to pinging VCF cuttoff in and resonance in, and also connect to noise VCF (LPF) cutoff cv in and adjust attenuator to let some signal through.&lt;/li&gt;
 &lt;li&gt;Connect the second ADSR out to only the VCF in&lt;/li&gt;
 &lt;li&gt;Connect the VCF out to Sassy input 2 and QuadVCA/Mixer input 1&lt;/li&gt;
 &lt;li&gt;Adjust the Scope time to see a single beat; use TRG button to sync the scope&lt;/li&gt;
@@ -434,6 +418,7 @@ Try patching a resonant filter in place of the VCO sine wave with an envelope us
 &lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
 &lt;li&gt;Adjust the VCF cutoff for a kick-appropriate frequency and the resonance to be almost oscillating &lt;/li&gt;
 &lt;li&gt;Adjust the attenuators on the VCF cutoff and resonance so the ADSR has an effect, and change that ADSR's decay amount to influence the frequency decay of the kick&lt;/li&gt;
+&lt;li&gt;Adjust noise VCF (LPF) cutoff attenuator for noise frequency shift amount&lt;/li&gt;
 &lt;li&gt;Adjust QuadVCA mix levels to taste&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -517,7 +502,7 @@ Try patching a waveguide in place of the resonant filter using the button in Fig
         <!-- <h5 class="modal-title" id="kick_noiz_waveguide_lpf_hpf_adsrLabel">Modal title</h5> -->
         <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Remove one of the top ADSRs and add a QuadVCA/Mixer and Delay between the ADSR that's left and the VCF&lt;/li&gt;
+&lt;li&gt;Add a QuadVCA/Mixer and Delay between the top right ADSR and the VCF&lt;/li&gt;
 &lt;li&gt;Connect the ADSR out to the waveguide QuadVCA/Mixer input 1&lt;/li&gt;
 &lt;li&gt;Connect the Delay mix to the VCF in, the VCF LPF to output QuadVCA/Mixer input 1, Sassy input 2, and back to waveguide QuadVCA/Mixer input 2&lt;/li&gt;
 &lt;li&gt;Connect waveguide QuadVCA/Mixer mix output to Delay in&lt;/li&gt;
@@ -533,7 +518,7 @@ Try patching a waveguide in place of the resonant filter using the button in Fig
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-waveguide-lpf-hpf-adsr.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Remove one of the top ADSRs and add a QuadVCA/Mixer and Delay between the ADSR that's left and the VCF&lt;/li&gt;
+&lt;li&gt;Add a QuadVCA/Mixer and Delay between the top right ADSR and the VCF&lt;/li&gt;
 &lt;li&gt;Connect the ADSR out to the waveguide QuadVCA/Mixer input 1&lt;/li&gt;
 &lt;li&gt;Connect the Delay mix to the VCF in, the VCF LPF to output QuadVCA/Mixer input 1, Sassy input 2, and back to waveguide QuadVCA/Mixer input 2&lt;/li&gt;
 &lt;li&gt;Connect waveguide QuadVCA/Mixer mix output to Delay in&lt;/li&gt;
@@ -625,13 +610,13 @@ You could reasonably <a href="https://www.computerworld.com/article/2497143/busi
 
 <div class="figure">
 <span style="display:block;" id="fig:kick2"></span>
-<iframe src="images/kick2.png-kick2.ogg-local.html" width="100%" height="60px" data-external="1">
+<iframe src="https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html" width="100%" height="60px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 8.9: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html">Kick</a> recording used as the reference sound.
+Figure 8.9: <a href="https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html">Kick</a> recording used as the reference sound.
 </p>
 </div>
-<p>The real kick recording<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The kick was extracted from &lt;a href="https://commons.wikimedia.org/wiki/File:Drum_beat.ogg"&gt;this file&lt;/a&gt; which is © Mattgirling/CC-BY-SA-3.0&lt;/p&gt;'><sup>68</sup></a> we’ll use is presented in Figure <a href="designing-a-kick-drum.html#fig:kick2">8.9</a>.
+<p>The real kick recording<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The kick was extracted from &lt;a href="https://commons.wikimedia.org/wiki/File:Drum_beat.ogg"&gt;this file&lt;/a&gt; which is © Mattgirling/CC-BY-SA-3.0&lt;/p&gt;'><sup>7</sup></a> we’ll use is presented in Figure <a href="designing-a-kick-drum.html#fig:kick2">8.9</a>.
 A spectrogram of this recording is presented in Figure <a href="designing-a-kick-drum.html#fig:kick-spectrogram">8.10</a>.
 A spectrogram is merely the frequency spectrum of a sound over time.
 Because frequency spectra already have two dimensions and this adds a third dimension (time), the amplitude of each frequency is shown using color instead of an axis.
@@ -712,12 +697,7 @@ Figure 8.12: (ref:kick-spectrum-late)
 </p>
 </div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">seewave</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/seewave/man/fpeaks.html">fpeaks</a></span><span class="op">(</span><span class="va">s.spec</span>,f<span class="op">=</span><span class="fl">44100</span>,nmax<span class="op">=</span><span class="fl">4</span>,plot<span class="op">=</span><span class="cn">F</span><span class="op">)</span></span>
-<span><span class="co">#&gt;            freq       amp</span></span>
-<span><span class="co">#&gt; [1,] 0.02231781  452508.8</span></span>
-<span><span class="co">#&gt; [2,] 0.05356275 2630931.4</span></span>
-<span><span class="co">#&gt; [3,] 0.09373482  438928.4</span></span>
-<span><span class="co">#&gt; [4,] 0.12497976  715718.1</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">seewave</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/seewave/man/fpeaks.html">fpeaks</a></span><span class="op">(</span><span class="va">s.spec</span>,f<span class="op">=</span><span class="fl">44100</span>,nmax<span class="op">=</span><span class="fl">4</span>,plot<span class="op">=</span><span class="cn">F</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
 <span id="tab:kick-late-peaks">Table 8.2: </span> Frequency peaks in the spectrum of the reference kick sound from 25 to the end. Harmonics of the fundamental are indicated in bold.</caption>
@@ -822,57 +802,33 @@ In the second phase, use oscillators for the partials.</p>
 <!--     6.4 Synchronization -->
 <!--     6.5 Noise -->
 <!--     6.6 Samplers -->
-<pre><code>&lt;!-- 7 Modifiers --&gt;
-&lt;!-- 7.1 Effects --&gt;
-&lt;!--     7.1.1 Delays --&gt;
-&lt;!--     7.1.2 Reverb --&gt;
-&lt;!--     7.1.3 Chorus --&gt;
-&lt;!--     7.1.4 Flanger --&gt;
-&lt;!--     7.1.5 Phaser --&gt;
-&lt;!-- 7.2 Voltage controlled filters --&gt;
-&lt;!--     7.2.1 Filters are imperfect --&gt;
-&lt;!--     7.2.2 Filters change frequency and phase --&gt;
-&lt;!--     7.2.3 Combining filters --&gt;
-&lt;!--     7.2.4 Resonance --&gt;</code></pre>
+<!-- 7 Modifiers -->
+<!-- 7.1 Effects -->
+<!--     7.1.1 Delays -->
+<!--     7.1.2 Reverb -->
+<!--     7.1.3 Chorus -->
+<!--     7.1.4 Flanger -->
+<!--     7.1.5 Phaser -->
+<!-- 7.2 Voltage controlled filters -->
+<!--     7.2.1 Filters are imperfect -->
+<!--     7.2.2 Filters change frequency and phase -->
+<!--     7.2.3 Combining filters -->
+<!--     7.2.4 Resonance -->
 
 </div>
 </div>
 </div>
 
   <div class="chapter-nav">
-<div class="prev"><a href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></div>
-<div class="next"><a href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#designing-a-kick-drum"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
-<li>
-<a class="nav-link" href="#problem-solving-for-sound-synthesis"><span class="header-section-number">8.1</span> Problem solving for sound synthesis</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#understand-the-problem"><span class="header-section-number">8.1.1</span> Understand the problem</a></li>
-<li><a class="nav-link" href="#devise-a-plan"><span class="header-section-number">8.1.2</span> Devise a plan</a></li>
-<li><a class="nav-link" href="#carry-out-the-plan-and-replanning"><span class="header-section-number">8.1.3</span> Carry out the plan (and replanning)</a></li>
-<li><a class="nav-link" href="#evaluate-the-solution"><span class="header-section-number">8.1.4</span> Evaluate the solution</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#reviewing-previous-kick-drum-patches"><span class="header-section-number">8.2</span> Reviewing previous kick drum patches</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#sine-with-envelope"><span class="header-section-number">8.2.1</span> Sine with envelope</a></li>
-<li><a class="nav-link" href="#sine-with-an-envelope-plus-noise-burst"><span class="header-section-number">8.2.2</span> Sine with an envelope plus noise burst</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#alternative-approaches"><span class="header-section-number">8.3</span> Alternative approaches</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#improving-our-understanding-of-the-problem"><span class="header-section-number">8.3.1</span> Improving our understanding of the problem</a></li>
-<li><a class="nav-link" href="#devising-new-plans"><span class="header-section-number">8.3.2</span> Devising new plans</a></li>
-<li><a class="nav-link" href="#working-backwards"><span class="header-section-number">8.3.3</span> Working backwards</a></li>
-</ul>
-</li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/09-kick-cymbal.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/09-kick-cymbal.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>

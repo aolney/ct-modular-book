@@ -164,8 +164,10 @@ modular_modal("kick-noiz-adsr-vco-adsr-lpf-hpf-adsr", starter_file="kick-bpm-noi
 <li>Adjust the Scope time to see a single beat; use TRG button to sync the scope</li>
 <li>Add two VCFs and Sassy scope at the bottom</li>
 <li>Connect Noiz red to VCF 1 in, VCF 1 LPF to VCF 2 in, VCF 2 HPF to Sassy and QuadVCA/Mixer input 2</li>
+<li>Connect the frequency ADSR to the VCF 1 (LPF) cutoff in and adjust the attenuator to allow it to have some effect</li>
 <li>Try the following and note the differences in the sound and scope waveshape<ul>
 <li>Adjust the cutoffs of the two VCFs using Sassy to set up your band pass filter</li>
+<li>Adjust the cutoff attenuator on VCF 1 (LPF) to control the change in noise frequency</li>
 <li>Adjust sine ADSR decay and VCA level so that frequency change shows in first part of beat</li>
 <li>Adjust QuadVCA mix levels to taste</li>
 </ul></li>
@@ -207,7 +209,7 @@ modular_modal("kick-noiz-res-filter-lpf-hpf-adsr", starter_file="kick-noiz-adsr-
 <li>Remove the small VCA and VCO, and disconnect the top ADSR outs</li>
 <li>Add a VCF between the ADSR and QuadVCA/Mixer</li>
 <li>Connect Clock beat out to both ADSR gates and Scope external trigger</li>
-<li>Connect the first ADSR out to both VCF cuttoff in and resonance in</li>
+<li>Connect the first ADSR out to pinging VCF cuttoff in and resonance in, and also connect to noise VCF (LPF) cutoff cv in and adjust attenuator to let some signal through.</li>
 <li>Connect the second ADSR out to only the VCF in</li>
 <li>Connect the VCF out to Sassy input 2 and QuadVCA/Mixer input 1</li>
 <li>Adjust the Scope time to see a single beat; use TRG button to sync the scope</li>
@@ -215,6 +217,7 @@ modular_modal("kick-noiz-res-filter-lpf-hpf-adsr", starter_file="kick-noiz-adsr-
 <li>Try the following and note the differences in the sound and scope waveshape<ul>
 <li>Adjust the VCF cutoff for a kick-appropriate frequency and the resonance to be almost oscillating </li>
 <li>Adjust the attenuators on the VCF cutoff and resonance so the ADSR has an effect, and change that ADSR's decay amount to influence the frequency decay of the kick</li>
+<li>Adjust noise VCF (LPF) cutoff attenuator for noise frequency shift amount</li>
 <li>Adjust QuadVCA mix levels to taste</li>
 </ul></li>
 </ul>
@@ -246,7 +249,7 @@ Try patching a waveguide in place of the resonant filter using the button in Fig
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
 modular_modal("kick-noiz-waveguide-lpf-hpf-adsr", starter_file="kick-noiz-res-filter-lpf-hpf-adsr.vcv", instructions_html="<ul>
-<li>Remove one of the top ADSRs and add a QuadVCA/Mixer and Delay between the ADSR that's left and the VCF</li>
+<li>Add a QuadVCA/Mixer and Delay between the top right ADSR and the VCF</li>
 <li>Connect the ADSR out to the waveguide QuadVCA/Mixer input 1</li>
 <li>Connect the Delay mix to the VCF in, the VCF LPF to output QuadVCA/Mixer input 1, Sassy input 2, and back to waveguide QuadVCA/Mixer input 2</li>
 <li>Connect waveguide QuadVCA/Mixer mix output to Delay in</li>
@@ -295,7 +298,7 @@ There are no tools that produce quality spectograms, and the tools for frequency
 We can use some additional software to help analyze the sound instead, and since this book is written using the R programming language, the analysis below uses that language.
 You could reasonably [install R](https://www.computerworld.com/article/2497143/business-intelligence-beginner-s-guide-to-r-introduction.html) along with the libraries used below and run the commands yourself with your own sound files, or you may already have access to other software that would create spectrograms and frequency spectra.
 
- (ref:kick2) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html) recording used as the reference sound.
+ (ref:kick2) [Kick](https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html) recording used as the reference sound.
 
 ```{r, kick2, out.width='100%', fig.cap="(ref:kick2)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 60)), echo=F}
   image_ogg_figure("kick2.png","kick2.ogg",template="ogg-template.html", image_height="0",height="60px")
