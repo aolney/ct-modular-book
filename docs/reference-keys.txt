@@ -97,6 +97,8 @@ fig:lfo-lpf-hpf-out-scope-fft
 fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft
 fig:noiz-lpf-out-scope-fft
 fig:lfo-vcf-out-scope-fft
+fig:karplus-strong
+fig:karplus-strong-guitar-env-delay-filter
 fig:sine-envelope-kick
 fig:sine-envelope-noise-kick
 fig:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr
@@ -171,6 +173,7 @@ filters-are-imperfect
 filters-change-frequency-and-phase
 combining-filters
 resonance
+waveguides
 designing-a-kick-drum
 problem-solving-for-sound-synthesis
 understand-the-problem
@@ -189,6 +192,3 @@ trigger
 create
 modify
 minimoog-303
-fig:karplus-strong
-waveguides
-fig:karplus-strong-guitar-env-delay-filter

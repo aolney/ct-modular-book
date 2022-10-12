@@ -183,7 +183,7 @@ The problem has been decomposed into generation of a fundamental and a noise bur
 If we consider related problems, we recently learned two ways of generating a fundamental that doesn't use a VCO.
 First, we can ping a resonant filter. 
 We saw in Section \@ref(resonance) that pinging can give a somewhat natural plucky or percusive sound because the ping acts like a dampened oscillator.
-Second, we can use a waveguide as shown in Section \@ref(waveguide).
+Second, we can use a waveguide as shown in Section \@ref(waveguides).
 The waveguide also created a plucky sound, but that was much more string like.
 If we consider the symmetry between these two approaches and a VCO sine wave with an envelope, we realize that we can substitute these into our last patch to see if the sound is improved.
 Try patching a resonant filter in place of the VCO sine wave with an envelope using the button in Figure \@ref(fig:kick-noiz-res-filter-lpf-hpf-adsr).
