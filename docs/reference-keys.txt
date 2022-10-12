@@ -189,3 +189,6 @@ trigger
 create
 modify
 minimoog-303
+fig:karplus-strong
+waveguides
+fig:karplus-strong-guitar-env-delay-filter

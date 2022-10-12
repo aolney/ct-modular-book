@@ -614,6 +614,7 @@ Pinging sends a gate or trigger to a filter in the dampened oscillator region of
 That signal excites the filter enough to create a short oscillation that quickly decays.
 So instead of using a VCO, VCA, and envelop to get a brief oscillation, one can simply ping a resonant filter.
 This is particularly useful for percussive sounds.
+
 Try to ping a filter using the button in Figure \@ref(fig:lfo-vcf-out-scope-fft).
 Once the resonance is adjusted to be on the edge of oscillation, you can ping it by sending a pulse from a square LFO.
 The pitch of the pinged response can be adjusted by the filter's cutoff.
@@ -644,4 +645,58 @@ modular_modal("lfo-vcf-out-scope-fft", starter_file="lfo-lfp-out-scope-fft.vcv",
 modular_caption()
 ```
 
-<!-- TODO: Karplus-Strong -->
+## Waveguides
+
+Time-based effects and filters can be combined to make a synthesis technique called a [waveguide](https://en.wikipedia.org/wiki/Digital_waveguide_synthesis).
+The simplest waveguide is known as the [Karplus-Strong algorithm](https://en.wikipedia.org/wiki/Karplus%E2%80%93Strong_string_synthesis).
+The basic idea of a waveguide is somewhat similar to a resonant filter.
+A resonant filter has a feedback path that cycles energy back into the circuit and sets up oscillation.
+A waveguide creates a delayed copy of the signal (often noise), filters it, and the feeds back to mixes it in with the incoming signal as shown in Figure \@ref(fig:karplus-strong).
+Unlike a resonant filter, however, waveguides are highly influenced by the nature of the delay.
+The time-based effects discussed in this chapter apply to waveguides.
+For example, the flanger effect of creating harmonics in a short delay will affect the harmonics of a waveguide.
+While waveguides can be used to create a wide range of sounds, Karplus-Strong is typically used for string pluck sounds.
+
+(ref:karplus-strong) A diagram of the Karplus-Strong algorithm. The plus symbol mixes the feedback path with the incoming signal. Image [© PoroCYon/CC-BY-SA-3.0](https://en.wikipedia.org/wiki/File:Karplus-strong-schematic.svg).
+
+```{r karplus-strong, echo=F, out.width="80%", fig.cap="(ref:karplus-strong)"}
+ knitr::include_graphics("images/Karplus-strong-schematic.svg.png")
+```
+
+Try to create a guitar string pluck by waveguide using the button in Figure \@ref(fig:karplus-strong-guitar-env-delay-filter).
+One of the tricky things about waveguides is that they have many parameters that depend on each other.
+The initial sound source will bleed through more to the final sound if you use a wider envelope that lets more of it through.
+The delay time will set the fundamental and have some effect on the amount of vibration.
+However, much of the vibration, i.e. how long it takes the vibration to decay, is controlled by the filter cutoff, the mixer controlling feedback from the delay loop, and the amount of initial sound.
+It's best to go back and forth between these settings to see what effect they have to get the sound you want.
+
+(ref:karplus-strong-guitar-env-delay-filter) [Virtual modular](https://cardinal.olney.ai) for applying resonant filtering on white noise and a square wave.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("karplus-strong-guitar-env-delay-filter", starter_file="lfo-lfp-out-scope-fft.vcv", instructions_html="<ul>
+<li>Delete LFO and Noiz</li>
+<li>Add BPM Clock, ADSR, QuadVCA/Mixer, and Delay</li>
+<li>Connect Clock beat out to ADSR gate and Scope ext trigger; press Scope TRG button</li>
+<li>Connect ADSR out to Mixer input 1</li>
+<li>Connect Delay wet out to VCF in, VCF LPF out to Mixer input 2, and Mixer mix out to Delay in</li>
+<li>Note that the delay path starts at the mixer and goes back to the mixer - this is the feedback loop - watch out because you can create out of control feedback quickly</li>
+<li>Set ADSR parameters to 1ms/1%</li>
+<li>Set Mixer A level to 100% and B level on the high end. The B level controls the length of the vibration</li>
+<li>Set Delay time between 7 o'clock and midnight. This sets the fundamental pitch</li>
+<li>Set VCF cutoff between 9 o'clock and 3 o'clock. This affects timbre, amplitude, and slightly pitch</li>
+<li>Try the following and note the differences in the sound and spectrum<ul>
+<li>Slowly change ADSR decay</li>
+<li>Slowly change Mixer B level (watch out for feedback!)</li>
+<li>Slowly change Delay time</li>
+<li>Slowly change VCF cutoff</li>
+</ul>
+</li>
+</ul>
+",solution_html="<img class='rack-image' src='images/patch-solutions/karplus-strong-guitar-env-delay-filter.png' style='height: 300px; width: auto'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r karplus-strong-guitar-env-delay-filter, echo=F, out.width="100%", fig.cap="(ref:karplus-strong-guitar-env-delay-filter)"}
+modular_caption()
+```
