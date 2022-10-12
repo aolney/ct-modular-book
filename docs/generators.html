@@ -181,7 +181,7 @@ Try making a trichord using a fifth and an octave using the button in Figure <a 
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/voltage-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add 12-Key and Host audio&lt;/li&gt;
 &lt;li&gt;Add BST (voltage offset) and D'Acchord (multiple oscillator) &lt;/li&gt;
 &lt;li&gt;Connect 12-Key CV out to BST bias 1 input&lt;/li&gt;
@@ -202,7 +202,7 @@ Try making a trichord using a fifth and an octave using the button in Figure <a 
 &lt;img class='rack-image' src='images/solo-modules/dacchord-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/voltage-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/voltage-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setvoltage_division_chordsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -294,7 +294,7 @@ Try making a trichord using a fifth and an octave using the button in Figure <a 
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Remove modules except for 12-Key and Host audio&lt;/li&gt;
 &lt;li&gt;Add VCO, dividah (even clock divider), D1v1de (adjustable clock divider), Scope, and QuadVCA/Mixer &lt;/li&gt;
 &lt;li&gt;Connect 12-Key CV out to VCO V/Oct&lt;/li&gt;
@@ -315,7 +315,7 @@ Try making a trichord using a fifth and an octave using the button in Figure <a 
 &lt;img class='rack-image' src='images/solo-modules/d1v1de-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setclock_division_chordsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -412,13 +412,13 @@ You should hear a beat whose beat increases as you increase detuning.</p>
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/detune-beat.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Silence P3 using the ATTN knob &lt;/li&gt;
 &lt;li&gt;Detune P2 using the Detune knob&lt;/li&gt;
 &lt;li&gt;Note the beat whose frequency increases with detuning&lt;/li&gt;
 &lt;li&gt;At what point of detuning do you think it sounds best?&lt;/li&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/detune-beat.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/detune-beat.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setdetune_beatIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -537,7 +537,7 @@ The LFO frequency and the PWM depth knobs give control over the speed of the PWM
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/pwm-lfo-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add LFO, VCO, Scope, and Host audio &lt;/li&gt;
 &lt;li&gt;Connect LFO triangle out to VCO PWM&lt;/li&gt;
 &lt;li&gt;Connect VCO square out to  Scope in 1&lt;/li&gt;
@@ -555,7 +555,7 @@ The LFO frequency and the PWM depth knobs give control over the speed of the PWM
 &lt;img class='rack-image' src='images/solo-modules/lfo-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/pwm-lfo-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/pwm-lfo-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setpwm_lfo_vco_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -653,7 +653,7 @@ Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/vibrato-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add a QuadVCA/Mixer between the LFO and VCO &lt;/li&gt;
 &lt;li&gt;Connect LFO triangle out to QuadVCA input 1&lt;/li&gt;
 &lt;li&gt;Connect QuadVCA mix out to VCO V/Oct&lt;/li&gt;
@@ -666,7 +666,7 @@ Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato
 &lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/vibrato-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/vibrato-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setvibrato_lfo_vca_vco_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -772,7 +772,7 @@ As before, no tremolo occurs when the LFO frequency is zero, so on can turn the 
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tremelo-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Disconnect all cables but Scope out 1 to Host audio L and LFO triangle out to Scope in 1&lt;/li&gt;
 &lt;li&gt;Connect VCO square out to QuadVCA input 1&lt;/li&gt;
 &lt;li&gt;Connect LFO triangle out 1 to QuadVCA CH 1 gain CV&lt;/li&gt;
@@ -789,7 +789,7 @@ As before, no tremolo occurs when the LFO frequency is zero, so on can turn the 
 &lt;li&gt;Adjust the mix to get the right baseline volume and depth of modulation&lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tremelo-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tremelo-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="settremelo_lfo_vca_vco_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -912,7 +912,7 @@ Each type of sync produces a characteristic sound that depends on the waveshapes
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/hard-soft-sync.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Disconnect all cables and move the QuadVCA between the Scope and Host Audio&lt;/li&gt;
 &lt;li&gt;Replace the VCO with an LFO. We'll call this the lead VCO&lt;/li&gt;
 &lt;li&gt;Connect lead VCO sine out to follower VCO sync in and Scope in 1&lt;/li&gt;
@@ -930,7 +930,7 @@ Each type of sync produces a characteristic sound that depends on the waveshapes
 &lt;li&gt;Try the same changes above with soft sync active&lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/hard-soft-sync.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/hard-soft-sync.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="sethard_soft_syncIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -1034,7 +1034,7 @@ The patches are identical except for different noise sources and knob settings.<
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Only kick drum shown&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png' style='height: 500px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Replace the VCA with QuadVCA/Mixer&lt;/li&gt;
 &lt;li&gt;Connect VCO sine out to QuadVCA in 1&lt;/li&gt;
 &lt;li&gt;Connect ADSR out to QuadVCA CH 1 gain in&lt;/li&gt;
@@ -1061,7 +1061,7 @@ The patches are identical except for different noise sources and knob settings.<
 &lt;img class='rack-image' src='images/solo-modules/noiz-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;h4&gt;Only kick drum shown&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png' style='height: 500px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;h4&gt;Only kick drum shown&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png' style='height: 500px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setkick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -1173,7 +1173,7 @@ You will need to <a href="images/moonshot.wav">download the sample file</a> to l
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/sample-12key-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add 12 key, OUAIve sampler, and Host audio&lt;/li&gt;
 &lt;li&gt;Right click sampler, choose 'Load sample', and load the sample file&lt;/li&gt;
 &lt;li&gt;Connect 12 key CV out to OUAIve POS in&lt;/li&gt;
@@ -1188,7 +1188,7 @@ You will need to <a href="images/moonshot.wav">download the sample file</a> to l
 &lt;img class='rack-image' src='images/solo-modules/ouaive-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/sample-12key-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/sample-12key-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setsample_12key_ouaiveIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -1270,7 +1270,7 @@ Because the LFO produces continuous changes in voltage, the playback is continuo
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/sample-lfo-trigger-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Delete 12 key; add LFO and Triggers MK1&lt;/li&gt;
 &lt;li&gt;Right click sampler, choose 'Load sample', and load the sample file&lt;/li&gt;
 &lt;li&gt;Connect LFO triangle out to OUAIve POS in&lt;/li&gt;
@@ -1285,7 +1285,7 @@ Because the LFO produces continuous changes in voltage, the playback is continuo
 &lt;img class='rack-image' src='images/solo-modules/triggers-mk1-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/sample-lfo-trigger-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/sample-lfo-trigger-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setsample_lfo_trigger_ouaiveIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -1369,7 +1369,7 @@ Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO con
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-10.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

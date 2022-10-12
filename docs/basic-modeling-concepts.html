@@ -341,7 +341,7 @@ These are self-explanatory, but in particular the <code>Close</code> button will
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="See the video demonstration in the book (open video in separate tab as needed">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Use the video demonstration as a guide (open video in separate tab as needed)&lt;/li&gt;
 &lt;li&gt;For each wave output&lt;ul&gt;
 &lt;li&gt;Connect just it to the audio inputs&lt;/li&gt;
@@ -351,7 +351,7 @@ These are self-explanatory, but in particular the <code>Close</code> button will
 &lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="See the video demonstration in the book (open video in separate tab as needed">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="See the video demonstration in the book (open video in separate tab as needed">Solution</button>
         <button type="button" onclick="setdrone_vco_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -445,7 +445,7 @@ Try adding a scope between the modules in the previous patch using the button in
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/drone-scope_vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add “Scope” between VCO and Host Audio&lt;/li&gt;
 &lt;li&gt;Connect VCO wave out to Scope In&lt;/li&gt;
 &lt;li&gt;Connect Scope out to Host Audio&lt;/li&gt;
@@ -459,7 +459,7 @@ Try adding a scope between the modules in the previous patch using the button in
 &lt;/ul&gt;
 &lt;img class='rack-image' src='images/solo-modules/scope-solo.png' style='height: 300px; width: auto'&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/drone-scope_vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/drone-scope_vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setdrone_vco_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -549,7 +549,7 @@ Try adding the 12 key to the left of the VCO in the previous patch using the but
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-drone_12key-vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add “Twelve-key” to the left of the VCO&lt;/li&gt;
 &lt;li&gt;Connect 12 key CV output to VCO V/OCT input&lt;/li&gt;
 &lt;li&gt;Observe what happens when you click different keys on 12 key&lt;ul&gt;
@@ -562,7 +562,7 @@ Try adding the 12 key to the left of the VCO in the previous patch using the but
 &lt;p&gt;&lt;em&gt;If you don&amp;#39;t hear sound, check if your frequency is below 20 kHz; your computer speakers may not produce sound below 100 kHz&lt;/em&gt;&lt;/p&gt;
 &lt;img class='rack-image' src='images/solo-modules/12key-solo.png' style='height: 300px; width: auto'&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-drone_12key-vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-drone_12key-vco-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setdrone_12key_vco_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -652,7 +652,7 @@ Try adding a VCA between the VCO and Scope modules using the button in Figure <a
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-note_12key-vco-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add VCA between VCO and Scope modules&lt;/li&gt;
 &lt;li&gt;Connect VCO wave to VCA In&lt;/li&gt;
 &lt;li&gt;Connect 12 key GATE output to VCA CV IN&lt;/li&gt;
@@ -666,7 +666,7 @@ Try adding a VCA between the VCO and Scope modules using the button in Figure <a
 &lt;/ul&gt;
 &lt;img class='rack-image' src='images/solo-modules/vca-solo.png' style='height: 300px; width: auto'&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-note_12key-vco-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-note_12key-vco-vca-scope-out.png' style='height: 300px; width: auto'&gt;">Solution</button>
         <button type="button" onclick="setdrone_12key_vco_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -755,7 +755,7 @@ Try adding an ADSR module between the VCO and VCA modules using the button in Fi
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-envelope_12key-vco-env-vca-scope-out.png' style='height: 300px; width: 718px'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add ADSR module between VCO and VCA modules&lt;/li&gt;
 &lt;li&gt;Connect 12 key GATE output to ADSR GATE input&lt;/li&gt;
 &lt;li&gt;Connect ADSR OUT to VCA IN&lt;/li&gt;
@@ -768,7 +768,7 @@ Try adding an ADSR module between the VCO and VCA modules using the button in Fi
 &lt;/ul&gt;
 &lt;img class='rack-image' src='images/solo-modules/adsr-solo.png' style='height: 300px; width: auto'&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-envelope_12key-vco-env-vca-scope-out.png' style='height: 300px; width: 718px'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/key-envelope_12key-vco-env-vca-scope-out.png' style='height: 300px; width: 718px'&gt;">Solution</button>
         <button type="button" onclick="setdrone_12key_vco_env_vca_scope_outIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -862,7 +862,7 @@ From there we will continue to spiral outward into increasingly complex modules 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-10.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
