@@ -186,3 +186,6 @@ devising-new-plans
 fig:res-filter-envelope-noise-kick-freq-decay
 fig:kick-noiz-waveguide-lpf-hpf-adsr
 fig:waveguide-envelope-noise-kick-freq-decay
+fig:kick2
+tab:kick-early-peaks
+tab:kick-late-peaks

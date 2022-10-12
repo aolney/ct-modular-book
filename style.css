@@ -46,10 +46,10 @@ iframe {
 }
 
 .popover{
-    max-width: 50%;
+    max-width: 40%;
 }
 
-.popover-body {
+.modal-popover {
     overflow-y: auto;
     height: 350px;
 }

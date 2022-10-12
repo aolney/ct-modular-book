@@ -17,8 +17,10 @@
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="{{ instructions_html }}">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="{{ solution_html }}">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="{{ instructions_html }}">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="{{ solution_html }}">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="{{ instructions_html }}">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="{{ solution_html }}">Solution</button>
         <button type="button" onclick="set{{ id }}Iframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->

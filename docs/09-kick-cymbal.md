@@ -192,7 +192,8 @@ Try patching these improvements into the last kick patch using the button in Fig
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add ADSR and VCA between Clock and VCO&lt;/li&gt;
 &lt;li&gt;Connect Scope out 1 to Delay in&lt;/li&gt;
 &lt;li&gt;Connect Beat out to ADSR Gate, ADSR out to VCA in, and VCA out to VCO V/Oct&lt;/li&gt;
@@ -206,7 +207,8 @@ Try patching these improvements into the last kick patch using the button in Fig
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png'&gt;">Solution</button>
         <button type="button" onclick="setkick_noiz_adsr_vco_adsr_lpf_hpf_adsrIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -257,7 +259,7 @@ It seems much improved compared to the last version in realism (8) and cleanline
  (ref:sine-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png-kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.ogg-local.html) made using a sine wave with an envelope to control its amplitude and mixed with red noise through an envelope to control amplitude, with additional envelope control of initial frequency of the sine and band-pass filtering of the noise.
 
 <div class="figure">
-<iframe src="images/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png-kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
+<iframe src="https://olney.ai/ct-modular-book/images/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png-kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
 <p class="caption">(\#fig:sine-envelope-noise-kick-freq-decay)(ref:sine-envelope-noise-kick-freq-decay)</p>
 </div>
 
@@ -312,7 +314,8 @@ Try patching a resonant filter in place of the VCO sine wave with an envelope us
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-res-filter-lpf-hpf-adsr.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Remove the small VCA and VCO, and disconnect the top ADSR outs&lt;/li&gt;
 &lt;li&gt;Add a VCF between the ADSR and QuadVCA/Mixer&lt;/li&gt;
 &lt;li&gt;Connect Clock beat out to both ADSR gates and Scope external trigger&lt;/li&gt;
@@ -328,7 +331,8 @@ Try patching a resonant filter in place of the VCO sine wave with an envelope us
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-res-filter-lpf-hpf-adsr.png'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-res-filter-lpf-hpf-adsr.png'&gt;">Solution</button>
         <button type="button" onclick="setkick_noiz_res_filter_lpf_hpf_adsrIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -382,7 +386,7 @@ The cutoff and resonance parameters affect both the initial transient as well as
  (ref:res-filter-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html) made using a resonant filter mixed with red noise through, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 
 <div class="figure">
-<iframe src="images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
+<iframe src="https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
 <p class="caption">(\#fig:res-filter-envelope-noise-kick-freq-decay)(ref:res-filter-envelope-noise-kick-freq-decay)</p>
 </div>
 
@@ -426,7 +430,8 @@ Try patching a waveguide in place of the resonant filter using the button in Fig
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-waveguide-lpf-hpf-adsr.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-html="true" data-content="&lt;ul&gt;
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Remove one of the top ADSRs and add a QuadVCA/Mixer and Delay between the ADSR that's left and the VCF&lt;/li&gt;
 &lt;li&gt;Connect the ADSR out to the waveguide QuadVCA/Mixer input 1&lt;/li&gt;
 &lt;li&gt;Connect the Delay mix to the VCF in, the VCF LPF to output QuadVCA/Mixer input 1, Sassy input 2, and back to waveguide QuadVCA/Mixer input 2&lt;/li&gt;
@@ -440,7 +445,8 @@ Try patching a waveguide in place of the resonant filter using the button in Fig
 &lt;li&gt;&lt;b&gt;The parameters for this patch are very fiddly for getting a good sound&lt;/b&gt;&lt;/li&gt;
 &lt;/ul&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-waveguide-lpf-hpf-adsr.png'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-waveguide-lpf-hpf-adsr.png'&gt;">Solution</button>
         <button type="button" onclick="setkick_noiz_waveguide_lpf_hpf_adsrIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -493,7 +499,7 @@ As with the resonant filter, it seems the problem in making this patch work towa
  (ref:waveguide-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html) made using a resonant filter mixed with red noise through, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 
 <div class="figure">
-<iframe src="images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
+<iframe src="https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
 <p class="caption">(\#fig:waveguide-envelope-noise-kick-freq-decay)(ref:waveguide-envelope-noise-kick-freq-decay)</p>
 </div>
 
@@ -513,7 +519,22 @@ We'd need more information to do this, specifically:
 Unfortunately, the modules currently available in VCVRack/Cardinal are insufficient for most of the diagram needs.
 There are no tools that produce quality spectograms, and the tools for frequency spectra (like Sassy scope) are too coarse/noisy to give good information.
 We can use some additional software to help analyze the sound instead, and since this book is written using the R programming language, the analysis below uses that language.
+You could reasonably [install R](https://www.computerworld.com/article/2497143/business-intelligence-beginner-s-guide-to-r-introduction.html) along with the libraries used below and run the commands yourself with your own sound files, or you may already have access to other software that would create spectrograms and frequency spectra.
 
+ (ref:kick2) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html) recording used as the reference sound.
+
+<div class="figure">
+<iframe src="images/kick2.png-kick2.ogg-local.html" width="100%" height="60px" data-external="1"></iframe>
+<p class="caption">(\#fig:kick2)(ref:kick2)</p>
+</div>
+
+The real kick recording^[The kick was extracted from [this file](https://commons.wikimedia.org/wiki/File:Drum_beat.ogg) which is © Mattgirling/CC-BY-SA-3.0] we'll use is presented in Figure \@ref(fig:kick2).
+A spectrogram of this recording is presented in Figure \@ref(fig:kick-spectrogram).
+A spectrogram is merely the frequency spectrum of a sound over time.
+Because frequency spectra already have two dimensions and this adds a third dimension (time), the amplitude of each frequency is shown using color instead of an axis.
+The R code below loads the kick sound file and then creates a spectrogram with a maximum frequency of .7 KHz and uses 20 $\mu Pa$ as 0 dB.
+
+ (ref:kick-spectrogram) Spectrogram of the reference kick sound (top) and corresponding wave (bottom).
 
 
 ```r
@@ -526,11 +547,21 @@ seewave::spectro(s,flim=c(0,.7),osc=T,dBref=2*10e-5,heights=c(1,1))
 <p class="caption">(\#fig:kick-spectrogram)(ref:kick-spectrogram)</p>
 </div>
 
+The spectrogram shows an initial burst of frequencies, with the most energy at about 200 Hz, followed by a lower range of frequencies with the most energy around 20-30 Hz.
+The corresponding diagram of the wave shape aligns with these regions and shows the initial burst has higher frequency until around 25 milliseconds, followed by a more regular decaying frequency.
+These two phases of the sound broadly align with our earlier patches, though our patches had both noise and fundamental beginning at the same time rather than as separate phases.
+
+A closer examination of the frequency spectrum during the first, noise burst, phase shown in Figure \@ref(fig:kick-spectrum-early) indicates a peak around 200 Hz but a fairly wide range of frequencies between 50 Hz and 350 Hz.
+The shape of the noise burst seems reasonably well aligned with the band pass filter used in the above patches, though some additional tuning of the shape of that filter may be needed to match this spectrum.
+The code below was used to generate the figure and look for frequency peaks.
+
+ (ref:kick-spectrum-early) Frequency spectrum of the reference kick sound from 0 to 25 ms.
+ 
 <!-- message=F, warning=F, -->
-<!-- use eval=F to prevent running; to = and from =  to adjust time -->
+<!-- use eval=F to prevent running; to = and from =  to adjust time ; results='hide',  norm=F, -->
 
 ```r
-s.spec <- seewave::spec(s,flim=c(0,.7),from=0,to=0.025)
+s.spec <- seewave::spec(s,flim=c(0,.7),from=0,to=0.025,norm=F)
 ```
 
 <div class="figure">
@@ -539,12 +570,30 @@ s.spec <- seewave::spec(s,flim=c(0,.7),from=0,to=0.025)
 </div>
 
 ```r
-seewave::fpeaks(s.spec,f=44100,nmax=12,plot=F)
+seewave::fpeaks(s.spec,f=44100,nmax=4,plot=F)
 ```
 
+Table: (\#tab:kick-early-peaks) Frequency peaks in the spectrum of the reference kick sound from 0 to 25 ms. Harmonics of the fundamental are indicated in bold.
+
+| Frequency (Hz) | Amplitude ($\mu Pa$) | Harmonic ratio |
+|-----------:|-----------:|----------------:|
+|      200 | 595,588.06 |          **1.00** |
+|      600 | 104,763.07 |          **3.00** |
+|     1201 |  78,152.55 |          **6.00** |
+|     1801 |  35,439.71 |          **9.00** |
+
+Table \@ref(tab:kick-early-peaks) reveals that the smoothed frequency spectrum in Figure \@ref(fig:kick-spectrum-early) is hiding a number of frequency peaks, a few of which are harmonics of the fundamental 200 Hz.
+This suggests that while there is an initial noise burst, presumably from the mallet hitting the drum head, there is additionally an early harmonic resonant sound happening at the same time.
+Presumably this is the frequency-shifted sound discussed earlier, caused by the increased tension on the drum head shortly after impact, but a much higher frequency shift than previously patched.
+
+A similar examination of the frequency spectrum during the second phase of the kick sound is shown in Figure \@ref(fig:kick-spectrum-late).
+Unlike the first phase, there are multiple clear peaks in the frequency spectrum, with an apparent fundamental around 50 Hz.
+The code below was used to generate the figure and look for frequency peaks.
+
+<!-- results='hide', norm = F -->
 
 ```r
-s.spec <- seewave::spec(s,flim=c(0,.7),from=0.025)
+s.spec <- seewave::spec(s,flim=c(0,.7),from=0.025,norm = F)
 ```
 
 <div class="figure">
@@ -553,10 +602,44 @@ s.spec <- seewave::spec(s,flim=c(0,.7),from=0.025)
 </div>
 
 ```r
-seewave::fpeaks(s.spec,f=44100,nmax=12,plot=F)
+seewave::fpeaks(s.spec,f=44100,nmax=4,plot=F)
+#>            freq       amp
+#> [1,] 0.02231781  452508.8
+#> [2,] 0.05356275 2630931.4
+#> [3,] 0.09373482  438928.4
+#> [4,] 0.12497976  715718.1
 ```
 
+Table: (\#tab:kick-late-peaks) Frequency peaks in the spectrum of the reference kick sound from 25 to the end. Harmonics of the fundamental are indicated in bold.
 
+| Frequency (Hz) | Amplitude ($\mu Pa$) | Harmonic ratio |
+|-----------:|-----------:|----------------:|
+| 22        | 452,508.80   | **1.00**           |
+| 54        | 2,630,931.40 | 2.40           |
+| 94        | 438,928.40   | 4.20           |
+| 125       | 715,718.10   | 5.60           |
+<!-- | 147       | 444,744.40   | 6.60           | -->
+<!-- | 179       | 255,182.70   | **8.00**           | -->
+<!-- | 192       | 268,147.50   | 8.60           | -->
+<!-- | 210       | 138,597.30   | 9.40           | -->
+<!-- | 223       | 202,322.60   | **10.00**          | -->
+<!-- | 232       | 193,303.90   | 10.40          | -->
+<!-- | 344       | 153,652.90   | 15.40          | -->
+<!-- | 402       | 146,643.80   | **18.00**          | -->
+
+Table \@ref(tab:kick-late-peaks) shows the frequency peaks in Figure \@ref(fig:kick-spectrum-late).
+There are no harmonics of the lowest frequency, and interestingly the loudest frequency, 54 Hz, is not the lowest
+This aligns with our general assumptions about percussion being largely inharmonic.
+
+Let's summarize the findings.
+The spectrogram reveals two distinct phases of the sound.
+The first phase, up to 25 ms, blends noise (mostly 0 to 400 Hz) with harmonics.
+The second phase, from 25 ms on, is inharmonic but with clear peaks.
+
+There are many ways to model the above findings in modular
+Let's try modeling the two phases using envelopes to define their durations.
+In the first phase, mix band-passed noise with oscillators for the harmonics.
+In the second phase, use oscillators for the partials.
 
 
 <!-- Remaining plan -->
