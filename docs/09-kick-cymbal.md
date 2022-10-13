@@ -107,7 +107,7 @@ Altogether this was a pretty naive attempt.
 (ref:sine-envelope-kick) [Kick](https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html) made using a sine wave with an envelope to control its amplitude.
 
 <div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html" target="_blank"><img src="09-kick-cymbal_files/figure-epub3/sine-envelope-kick-1.png" alt="(ref:sine-envelope-kick)" width="100%" /></a>
+<iframe src="https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html" width="100%" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:sine-envelope-kick)(ref:sine-envelope-kick)</p>
 </div>
 
@@ -132,7 +132,7 @@ Of course it might be possible to improve on it by tweaking the noise envelope o
 (ref:sine-envelope-noise-kick) [Kick](https://olney.ai/ct-modular-book/images/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png-kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg-local.html) made using a sine wave with an envelope to control its amplitude and mixed with red noise through an envelope to control amplitude.
 
 <div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png-kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg-local.html" target="_blank"><img src="09-kick-cymbal_files/figure-epub3/sine-envelope-noise-kick-1.png" alt="(ref:sine-envelope-noise-kick)" width="100%" /></a>
+<iframe src="https://olney.ai/ct-modular-book/images/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png-kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
 <p class="caption">(\#fig:sine-envelope-noise-kick)(ref:sine-envelope-noise-kick)</p>
 </div>
 
@@ -159,12 +159,103 @@ Try patching these improvements into the last kick patch using the button in Fig
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkick_noiz_adsr_vco_adsr_lpf_hpf_adsrIframe('https://cardinal.olney.ai?patchurl=kick-bpm-noiz-adsr-vco-adsr-vca-scope.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#kick_noiz_adsr_vco_adsr_lpf_hpf_adsr">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="kick_noiz_adsr_vco_adsr_lpf_hpf_adsr" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="kick_noiz_adsr_vco_adsr_lpf_hpf_adsrLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="kick_noiz_adsr_vco_adsr_lpf_hpf_adsrLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add ADSR and VCA between Clock and VCO&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Delay in&lt;/li&gt;
+&lt;li&gt;Connect Beat out to ADSR Gate, ADSR out to VCA in, and VCA out to VCO V/Oct&lt;/li&gt;
+&lt;li&gt;Adjust the Scope time to see a single beat; use TRG button to sync the scope&lt;/li&gt;
+&lt;li&gt;Add two VCFs and Sassy scope at the bottom&lt;/li&gt;
+&lt;li&gt;Connect Noiz red to VCF 1 in, VCF 1 LPF to VCF 2 in, VCF 2 HPF to Sassy and QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect the frequency ADSR to the VCF 1 (LPF) cutoff in and adjust the attenuator to allow it to have some effect&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Adjust the cutoffs of the two VCFs using Sassy to set up your band pass filter&lt;/li&gt;
+&lt;li&gt;Adjust the cutoff attenuator on VCF 1 (LPF) to control the change in noise frequency&lt;/li&gt;
+&lt;li&gt;Adjust sine ADSR decay and VCA level so that frequency change shows in first part of beat&lt;/li&gt;
+&lt;li&gt;Adjust QuadVCA mix levels to taste&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add ADSR and VCA between Clock and VCO&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Delay in&lt;/li&gt;
+&lt;li&gt;Connect Beat out to ADSR Gate, ADSR out to VCA in, and VCA out to VCO V/Oct&lt;/li&gt;
+&lt;li&gt;Adjust the Scope time to see a single beat; use TRG button to sync the scope&lt;/li&gt;
+&lt;li&gt;Add two VCFs and Sassy scope at the bottom&lt;/li&gt;
+&lt;li&gt;Connect Noiz red to VCF 1 in, VCF 1 LPF to VCF 2 in, VCF 2 HPF to Sassy and QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect the frequency ADSR to the VCF 1 (LPF) cutoff in and adjust the attenuator to allow it to have some effect&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Adjust the cutoffs of the two VCFs using Sassy to set up your band pass filter&lt;/li&gt;
+&lt;li&gt;Adjust the cutoff attenuator on VCF 1 (LPF) to control the change in noise frequency&lt;/li&gt;
+&lt;li&gt;Adjust sine ADSR decay and VCA level so that frequency change shows in first part of beat&lt;/li&gt;
+&lt;li&gt;Adjust QuadVCA mix levels to taste&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png'&gt;">Solution</button>
+        <button type="button" onclick="setkick_noiz_adsr_vco_adsr_lpf_hpf_adsrIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="kick_noiz_adsr_vco_adsr_lpf_hpf_adsr-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setkick_noiz_adsr_vco_adsr_lpf_hpf_adsrIframe(url){
+  var kick_noiz_adsr_vco_adsr_lpf_hpf_adsrIframe = document.getElementById("kick_noiz_adsr_vco_adsr_lpf_hpf_adsr-iframe");
+  kick_noiz_adsr_vco_adsr_lpf_hpf_adsrIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr)" width="100%" />
-<p class="caption">(\#fig:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr)(ref:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr)(ref:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr)</p></div>
 
 A version of this patch with my specific settings is shown in Figure \@ref(fig:sine-envelope-noise-kick-freq-decay) along with a recording of the sound.
 It seems much improved compared to the last version in realism (8) and cleanliness (9).
@@ -172,7 +263,7 @@ It seems much improved compared to the last version in realism (8) and cleanline
  (ref:sine-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png-kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.ogg-local.html) made using a sine wave with an envelope to control its amplitude and mixed with red noise through an envelope to control amplitude, with additional envelope control of initial frequency of the sine and band-pass filtering of the noise.
 
 <div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png-kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.ogg-local.html" target="_blank"><img src="09-kick-cymbal_files/figure-epub3/sine-envelope-noise-kick-freq-decay-1.png" alt="(ref:sine-envelope-noise-kick-freq-decay)" width="100%" /></a>
+<iframe src="https://olney.ai/ct-modular-book/images/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png-kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
 <p class="caption">(\#fig:sine-envelope-noise-kick-freq-decay)(ref:sine-envelope-noise-kick-freq-decay)</p>
 </div>
 
@@ -192,12 +283,105 @@ Try patching a resonant filter in place of the VCO sine wave with an envelope us
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkick_noiz_res_filter_lpf_hpf_adsrIframe('https://cardinal.olney.ai?patchurl=kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#kick_noiz_res_filter_lpf_hpf_adsr">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="kick_noiz_res_filter_lpf_hpf_adsr" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="kick_noiz_res_filter_lpf_hpf_adsrLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="kick_noiz_res_filter_lpf_hpf_adsrLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Remove the small VCA and VCO, and disconnect the top ADSR outs&lt;/li&gt;
+&lt;li&gt;Add a VCF between the ADSR and QuadVCA/Mixer&lt;/li&gt;
+&lt;li&gt;Connect Clock beat out to both ADSR gates and Scope external trigger&lt;/li&gt;
+&lt;li&gt;Connect the first ADSR out to pinging VCF cuttoff in and resonance in, and also connect to noise VCF (LPF) cutoff cv in and adjust attenuator to let some signal through.&lt;/li&gt;
+&lt;li&gt;Connect the second ADSR out to only the VCF in&lt;/li&gt;
+&lt;li&gt;Connect the VCF out to Sassy input 2 and QuadVCA/Mixer input 1&lt;/li&gt;
+&lt;li&gt;Adjust the Scope time to see a single beat; use TRG button to sync the scope&lt;/li&gt;
+&lt;li&gt;Add two VCFs and Sassy scope at the bottom&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Adjust the VCF cutoff for a kick-appropriate frequency and the resonance to be almost oscillating &lt;/li&gt;
+&lt;li&gt;Adjust the attenuators on the VCF cutoff and resonance so the ADSR has an effect, and change that ADSR's decay amount to influence the frequency decay of the kick&lt;/li&gt;
+&lt;li&gt;Adjust noise VCF (LPF) cutoff attenuator for noise frequency shift amount&lt;/li&gt;
+&lt;li&gt;Adjust QuadVCA mix levels to taste&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-res-filter-lpf-hpf-adsr.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Remove the small VCA and VCO, and disconnect the top ADSR outs&lt;/li&gt;
+&lt;li&gt;Add a VCF between the ADSR and QuadVCA/Mixer&lt;/li&gt;
+&lt;li&gt;Connect Clock beat out to both ADSR gates and Scope external trigger&lt;/li&gt;
+&lt;li&gt;Connect the first ADSR out to pinging VCF cuttoff in and resonance in, and also connect to noise VCF (LPF) cutoff cv in and adjust attenuator to let some signal through.&lt;/li&gt;
+&lt;li&gt;Connect the second ADSR out to only the VCF in&lt;/li&gt;
+&lt;li&gt;Connect the VCF out to Sassy input 2 and QuadVCA/Mixer input 1&lt;/li&gt;
+&lt;li&gt;Adjust the Scope time to see a single beat; use TRG button to sync the scope&lt;/li&gt;
+&lt;li&gt;Add two VCFs and Sassy scope at the bottom&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Adjust the VCF cutoff for a kick-appropriate frequency and the resonance to be almost oscillating &lt;/li&gt;
+&lt;li&gt;Adjust the attenuators on the VCF cutoff and resonance so the ADSR has an effect, and change that ADSR's decay amount to influence the frequency decay of the kick&lt;/li&gt;
+&lt;li&gt;Adjust noise VCF (LPF) cutoff attenuator for noise frequency shift amount&lt;/li&gt;
+&lt;li&gt;Adjust QuadVCA mix levels to taste&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-res-filter-lpf-hpf-adsr.png'&gt;">Solution</button>
+        <button type="button" onclick="setkick_noiz_res_filter_lpf_hpf_adsrIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="kick_noiz_res_filter_lpf_hpf_adsr-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setkick_noiz_res_filter_lpf_hpf_adsrIframe(url){
+  var kick_noiz_res_filter_lpf_hpf_adsrIframe = document.getElementById("kick_noiz_res_filter_lpf_hpf_adsr-iframe");
+  kick_noiz_res_filter_lpf_hpf_adsrIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:kick-noiz-res-filter-lpf-hpf-adsr)" width="100%" />
-<p class="caption">(\#fig:kick-noiz-res-filter-lpf-hpf-adsr)(ref:kick-noiz-res-filter-lpf-hpf-adsr)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:kick-noiz-res-filter-lpf-hpf-adsr)(ref:kick-noiz-res-filter-lpf-hpf-adsr)</p></div>
 
 A version of this patch with my specific settings is shown in Figure \@ref(fig:res-filter-envelope-noise-kick-freq-decay) along with a recording of the sound.
 It sounds much more realistic, perhaps because of the way the resonant filter handles the dampened oscillation (9)
@@ -205,10 +389,10 @@ However it is also a bit muffled and looses out on cleanliness (6).
 One of the problems we seem to have with this approach is a lack of control of the frequency of the fundamental. 
 The cutoff and resonance parameters affect both the initial transient as well as the body of the kick, whereas with a sine wave there was better separation in control of these two phases.
 
- (ref:res-filter-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html) made using a resonant filter mixed with red noise through, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
+ (ref:res-filter-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html) made using a resonant filter mixed with red noise, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 
 <div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html" target="_blank"><img src="09-kick-cymbal_files/figure-epub3/res-filter-envelope-noise-kick-freq-decay-1.png" alt="(ref:res-filter-envelope-noise-kick-freq-decay)" width="100%" /></a>
+<iframe src="https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
 <p class="caption">(\#fig:res-filter-envelope-noise-kick-freq-decay)(ref:res-filter-envelope-noise-kick-freq-decay)</p>
 </div>
 
@@ -219,22 +403,109 @@ Try patching a waveguide in place of the resonant filter using the button in Fig
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkick_noiz_waveguide_lpf_hpf_adsrIframe('https://cardinal.olney.ai?patchurl=kick-noiz-res-filter-lpf-hpf-adsr.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#kick_noiz_waveguide_lpf_hpf_adsr">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="kick_noiz_waveguide_lpf_hpf_adsr" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="kick_noiz_waveguide_lpf_hpf_adsrLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="kick_noiz_waveguide_lpf_hpf_adsrLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add a QuadVCA/Mixer and Delay between the top right ADSR and the VCF&lt;/li&gt;
+&lt;li&gt;Connect the ADSR out to the waveguide QuadVCA/Mixer input 1&lt;/li&gt;
+&lt;li&gt;Connect the Delay mix to the VCF in, the VCF LPF to output QuadVCA/Mixer input 1, Sassy input 2, and back to waveguide QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect waveguide QuadVCA/Mixer mix output to Delay in&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Adjust the ADSR decay to get a little bit of input to the waveguide&lt;/li&gt;
+&lt;li&gt;Adjust the Delay time to set the waveguide frequency and oscillation, and adjust the Delay mix to control the depth of the waveguide feedback&lt;/li&gt;
+&lt;li&gt;Adjust the VCF cutoff for a kick-appropriate frequency&lt;/li&gt;
+&lt;li&gt;Adjust QuadVCA mix levels to taste&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;The parameters for this patch are very fiddly for getting a good sound&lt;/b&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-waveguide-lpf-hpf-adsr.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add a QuadVCA/Mixer and Delay between the top right ADSR and the VCF&lt;/li&gt;
+&lt;li&gt;Connect the ADSR out to the waveguide QuadVCA/Mixer input 1&lt;/li&gt;
+&lt;li&gt;Connect the Delay mix to the VCF in, the VCF LPF to output QuadVCA/Mixer input 1, Sassy input 2, and back to waveguide QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect waveguide QuadVCA/Mixer mix output to Delay in&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Adjust the ADSR decay to get a little bit of input to the waveguide&lt;/li&gt;
+&lt;li&gt;Adjust the Delay time to set the waveguide frequency and oscillation, and adjust the Delay mix to control the depth of the waveguide feedback&lt;/li&gt;
+&lt;li&gt;Adjust the VCF cutoff for a kick-appropriate frequency&lt;/li&gt;
+&lt;li&gt;Adjust QuadVCA mix levels to taste&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;The parameters for this patch are very fiddly for getting a good sound&lt;/b&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-waveguide-lpf-hpf-adsr.png'&gt;">Solution</button>
+        <button type="button" onclick="setkick_noiz_waveguide_lpf_hpf_adsrIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="kick_noiz_waveguide_lpf_hpf_adsr-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setkick_noiz_waveguide_lpf_hpf_adsrIframe(url){
+  var kick_noiz_waveguide_lpf_hpf_adsrIframe = document.getElementById("kick_noiz_waveguide_lpf_hpf_adsr-iframe");
+  kick_noiz_waveguide_lpf_hpf_adsrIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:kick-noiz-waveguide-lpf-hpf-adsr)" width="100%" />
-<p class="caption">(\#fig:kick-noiz-waveguide-lpf-hpf-adsr)(ref:kick-noiz-waveguide-lpf-hpf-adsr)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:kick-noiz-waveguide-lpf-hpf-adsr)(ref:kick-noiz-waveguide-lpf-hpf-adsr)</p></div>
 
 A version of this patch with my specific settings is shown in Figure \@ref(fig:waveguide-envelope-noise-kick-freq-decay) along with a recording of the sound.
 The sound seems worse and is more like a bass string pluck than a kick drum.
 So it sounds realistic but the wrong instrument (4), and the sound is a bit muffled too (6).
 As with the resonant filter, it seems the problem in making this patch work towards our goal is the difficulty in controlling specific aspects of the sound, since any one parameter changes seems to affect multiple aspects of the sound at once.
 
- (ref:waveguide-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html) made using a resonant filter mixed with red noise through, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
+ (ref:waveguide-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html) made using a waveguide mixed with red noise, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 
 <div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html" target="_blank"><img src="09-kick-cymbal_files/figure-epub3/waveguide-envelope-noise-kick-freq-decay-1.png" alt="(ref:waveguide-envelope-noise-kick-freq-decay)" width="100%" /></a>
+<iframe src="https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
 <p class="caption">(\#fig:waveguide-envelope-noise-kick-freq-decay)(ref:waveguide-envelope-noise-kick-freq-decay)</p>
 </div>
 
@@ -252,18 +523,18 @@ We'd need more information to do this, specifically:
 - Diagrams of frequency spectrum at key time points in the sound
 
 Unfortunately, the modules currently available in VCVRack/Cardinal are insufficient for most of the diagram needs.
-There are no tools that produce quality spectograms, and the tools for frequency spectra (like Sassy scope) are too coarse/noisy to give good information.
+There are no modules that produce quality spectograms, and the tools for frequency spectra (like Sassy scope) are too coarse/noisy to give good information.
 We can use some additional software to help analyze the sound instead, and since this book is written using the R programming language, the analysis below uses that language.
-You could reasonably [install R](https://www.computerworld.com/article/2497143/business-intelligence-beginner-s-guide-to-r-introduction.html) along with the libraries used below and run the commands yourself with your own sound files, or you may already have access to other software that would create spectrograms and frequency spectra.
+You could reasonably [install R](https://www.computerworld.com/article/2497143/business-intelligence-beginner-s-guide-to-r-introduction.html) along with the libraries used below and run the commands yourself with your own sound files, or you may already have access to other software that would create spectrograms and frequency spectra, like Audacity^[See Audacity documentation for creating [spectrograms](https://manual.audacityteam.org/man/spectrogram_view.html) and [plotting frequency spectrum](https://manual.audacityteam.org/man/plot_spectrum.html)].
 
- (ref:kick2) [Kick](https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html) recording used as the reference sound.
+ (ref:kick2) [Kick](https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html) recording used as the reference sound. Sound © [Mattgirling/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Drum_beat.ogg).
 
 <div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html" target="_blank"><img src="09-kick-cymbal_files/figure-epub3/kick2-1.png" alt="(ref:kick2)" width="100%" /></a>
+<iframe src="https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html" width="100%" height="60px" data-external="1"></iframe>
 <p class="caption">(\#fig:kick2)(ref:kick2)</p>
 </div>
 
-The real kick recording^[The kick was extracted from [this file](https://commons.wikimedia.org/wiki/File:Drum_beat.ogg) which is © Mattgirling/CC-BY-SA-3.0] we'll use is presented in Figure \@ref(fig:kick2).
+The real kick recording we'll use is presented in Figure \@ref(fig:kick2).
 A spectrogram of this recording is presented in Figure \@ref(fig:kick-spectrogram).
 A spectrogram is merely the frequency spectrum of a sound over time.
 Because frequency spectra already have two dimensions and this adds a third dimension (time), the amplitude of each frequency is shown using color instead of an axis.
@@ -278,7 +549,7 @@ seewave::spectro(s,flim=c(0,.7),osc=T,dBref=2*10e-5,heights=c(1,1))
 ```
 
 <div class="figure">
-<img src="09-kick-cymbal_files/figure-epub3/kick-spectrogram-1.png" alt="(ref:kick-spectrogram)" width="100%" />
+<img src="09-kick-cymbal_files/figure-html/kick-spectrogram-1.png" alt="(ref:kick-spectrogram)" width="100%" />
 <p class="caption">(\#fig:kick-spectrogram)(ref:kick-spectrogram)</p>
 </div>
 
@@ -286,7 +557,7 @@ The spectrogram shows an initial burst of frequencies, with the most energy at a
 The corresponding diagram of the wave shape aligns with these regions and shows the initial burst has higher frequency until around 25 milliseconds, followed by a more regular decaying frequency.
 These two phases of the sound broadly align with our earlier patches, though our patches had both noise and fundamental beginning at the same time rather than as separate phases.
 
-A closer examination of the frequency spectrum during the first, noise burst, phase shown in Figure \@ref(fig:kick-spectrum-early) indicates a peak around 200 Hz but a fairly wide range of frequencies between 50 Hz and 350 Hz.
+A closer examination of the frequency spectrum during the first phase shown in Figure \@ref(fig:kick-spectrum-early) indicates a peak around 200 Hz but a fairly wide range of frequencies between 50 Hz and 350 Hz.
 The shape of the noise burst seems reasonably well aligned with the band pass filter used in the above patches, though some additional tuning of the shape of that filter may be needed to match this spectrum.
 The code below was used to generate the figure and look for frequency peaks.
 
@@ -300,7 +571,7 @@ s.spec <- seewave::spec(s,flim=c(0,.7),from=0,to=0.025,norm=F)
 ```
 
 <div class="figure">
-<img src="09-kick-cymbal_files/figure-epub3/kick-spectrum-early-1.png" alt="(ref:kick-spectrum-early)" width="100%" />
+<img src="09-kick-cymbal_files/figure-html/kick-spectrum-early-1.png" alt="(ref:kick-spectrum-early)" width="100%" />
 <p class="caption">(\#fig:kick-spectrum-early)(ref:kick-spectrum-early)</p>
 </div>
 
@@ -332,7 +603,7 @@ s.spec <- seewave::spec(s,flim=c(0,.7),from=0.025,norm = F)
 ```
 
 <div class="figure">
-<img src="09-kick-cymbal_files/figure-epub3/kick-spectrum-late-1.png" alt="(ref:kick-spectrum-late)" width="100%" />
+<img src="09-kick-cymbal_files/figure-html/kick-spectrum-late-1.png" alt="(ref:kick-spectrum-late)" width="100%" />
 <p class="caption">(\#fig:kick-spectrum-late)(ref:kick-spectrum-late)</p>
 </div>
 
@@ -366,10 +637,151 @@ The spectrogram reveals two distinct phases of the sound.
 The first phase, up to 25 ms, blends noise (mostly 0 to 400 Hz) with harmonics.
 The second phase, from 25 ms on, is inharmonic but with clear peaks.
 
-There are many ways to model the above findings in modular
-Let's try modeling the two phases using envelopes to define their durations.
-In the first phase, mix band-passed noise with oscillators for the harmonics.
-In the second phase, use oscillators for the partials.
+There are many ways to model the above findings in modular, and we can get as complex as we want.
+However, to keep things simple, let's stay relatively close to previous patches and techniques that have already been introduced.
+Let's use three envelopes for three different sound sources: a band-passed noise source, an early harmonic sound, and a late inharmonic sound.
+For the non-noise sources, we can use separate oscillators for the partials (additive synthesis).
+All partials for a source will run through a mixer to produce the composite sound for that source, then all sources will run through a final stage mixer.
+Because there's clearly some room sound in the recording, run the final mixer output throug a reverb to create a sense of space.
+Try patching this drum kick using the button in Figure \@ref(fig:kick-noiz-osc-banks-lpf-hpf-triple-adsr).
+
+(ref:kick-noiz-osc-banks-lpf-hpf-triple-adsr) [Virtual modular](https://cardinal.olney.ai) for a kick drum using two oscillator banks mixed with noise where the noise frequency is controlled by filters.
+
+<!-- MODAL HTML BLOCK -->
+
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkick_noiz_osc_banks_lpf_hpf_triple_adsrIframe('https://cardinal.olney.ai?patchurl=kick-noiz-waveguide-lpf-hpf-adsr.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#kick_noiz_osc_banks_lpf_hpf_triple_adsr">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="kick_noiz_osc_banks_lpf_hpf_triple_adsr" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="kick_noiz_osc_banks_lpf_hpf_triple_adsrLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="kick_noiz_osc_banks_lpf_hpf_triple_adsrLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Remove the top Delay/VCF and drag the ADSR controlling the band pass filter down to the bottom rails&lt;/li&gt;
+&lt;li&gt;Add four CZDblSine oscillators next to the top left QuadVCA/Mixer, and connect the output of each to inputs of that mixer (remove all other input connections), then select all five modules, duplicate, and move the copy down to the bottom rails. These assemblies will be called oscillator banks hereafter&lt;/li&gt;
+&lt;li&gt;Connect the mix out of the top oscillator bank to the second top mixer input 1 and connect the top ADSR out to that mixer CV input 1&lt;/li&gt;
+&lt;li&gt;Try the following to adjust the sound of this component, the body of the drum&lt;ul&gt;
+&lt;li&gt;Adjust the oscillator bank frequencies to match the table: 22, 54, 94, and 125 &lt;/li&gt;
+&lt;li&gt;Adjust the oscillator bank mixer levels to match the table. Personally I like to normalize each bank so that 100% on a bank is the max volume coming from that bank. The amplitudes are 453K, 2630K, 439K, and 716K&lt;/li&gt;
+&lt;li&gt;Change the mixer switches to exponential response; this makes things snappier&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Add another QuadVCA/Mixer to the bottom rails&lt;/li&gt;
+&lt;li&gt;Change the Noiz to white and connect it to the VCF (LPF) in&lt;/li&gt;
+&lt;li&gt;Using the ADSR already controlling the LPF cuttoff, connect that ADSR to the HPF cutoff&lt;/li&gt;
+&lt;li&gt;Connect the bandpass output and the ADSR controling that ouput to the bottom rail mixer that isn't part of the oscillator bank &lt;/li&gt;
+&lt;li&gt;Connect the output of the lower oscillator bank mixer to input 2 of the other bottom mixer, and connect the ADSR not controlling noise to control this input&lt;/li&gt;
+&lt;li&gt;Connect mixer output for the whole bottom row to the final mixer on the top row input 2 as well as Scope input 2&lt;/li&gt;
+&lt;li&gt;Try the following to adjust the sound of these components, the noise splash and initial harmonic pulse&lt;ul&gt;
+&lt;li&gt;Adjust the oscillator bank frequencies to match the table: 200, 600, 1201, and 1801 &lt;/li&gt;
+&lt;li&gt;Adjust the oscillator bank mixer levels to match the table. The amplitudes are 595K, 105K, 78K, and 35K&lt;/li&gt;
+&lt;li&gt;Change the mixer switches to exponential response; this makes things snappier&lt;/li&gt;
+&lt;li&gt;Silence to kick body on the top mixer to make fine adjustments to the band pass, including attenuators, and mixing of various components. Run the band pass through Sassy help visualize these adjustments&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Once the basic sound is acceptable, run the final mixer output through Reverb FX, adjust its decay/blend, and run the reverb output into Host audio L&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/czdblsine-mixer-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Remove the top Delay/VCF and drag the ADSR controlling the band pass filter down to the bottom rails&lt;/li&gt;
+&lt;li&gt;Add four CZDblSine oscillators next to the top left QuadVCA/Mixer, and connect the output of each to inputs of that mixer (remove all other input connections), then select all five modules, duplicate, and move the copy down to the bottom rails. These assemblies will be called oscillator banks hereafter&lt;/li&gt;
+&lt;li&gt;Connect the mix out of the top oscillator bank to the second top mixer input 1 and connect the top ADSR out to that mixer CV input 1&lt;/li&gt;
+&lt;li&gt;Try the following to adjust the sound of this component, the body of the drum&lt;ul&gt;
+&lt;li&gt;Adjust the oscillator bank frequencies to match the table: 22, 54, 94, and 125 &lt;/li&gt;
+&lt;li&gt;Adjust the oscillator bank mixer levels to match the table. Personally I like to normalize each bank so that 100% on a bank is the max volume coming from that bank. The amplitudes are 453K, 2630K, 439K, and 716K&lt;/li&gt;
+&lt;li&gt;Change the mixer switches to exponential response; this makes things snappier&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Add another QuadVCA/Mixer to the bottom rails&lt;/li&gt;
+&lt;li&gt;Change the Noiz to white and connect it to the VCF (LPF) in&lt;/li&gt;
+&lt;li&gt;Using the ADSR already controlling the LPF cuttoff, connect that ADSR to the HPF cutoff&lt;/li&gt;
+&lt;li&gt;Connect the bandpass output and the ADSR controling that ouput to the bottom rail mixer that isn't part of the oscillator bank &lt;/li&gt;
+&lt;li&gt;Connect the output of the lower oscillator bank mixer to input 2 of the other bottom mixer, and connect the ADSR not controlling noise to control this input&lt;/li&gt;
+&lt;li&gt;Connect mixer output for the whole bottom row to the final mixer on the top row input 2 as well as Scope input 2&lt;/li&gt;
+&lt;li&gt;Try the following to adjust the sound of these components, the noise splash and initial harmonic pulse&lt;ul&gt;
+&lt;li&gt;Adjust the oscillator bank frequencies to match the table: 200, 600, 1201, and 1801 &lt;/li&gt;
+&lt;li&gt;Adjust the oscillator bank mixer levels to match the table. The amplitudes are 595K, 105K, 78K, and 35K&lt;/li&gt;
+&lt;li&gt;Change the mixer switches to exponential response; this makes things snappier&lt;/li&gt;
+&lt;li&gt;Silence to kick body on the top mixer to make fine adjustments to the band pass, including attenuators, and mixing of various components. Run the band pass through Sassy help visualize these adjustments&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Once the basic sound is acceptable, run the final mixer output through Reverb FX, adjust its decay/blend, and run the reverb output into Host audio L&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/czdblsine-mixer-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png'&gt;">Solution</button>
+        <button type="button" onclick="setkick_noiz_osc_banks_lpf_hpf_triple_adsrIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="kick_noiz_osc_banks_lpf_hpf_triple_adsr-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setkick_noiz_osc_banks_lpf_hpf_triple_adsrIframe(url){
+  var kick_noiz_osc_banks_lpf_hpf_triple_adsrIframe = document.getElementById("kick_noiz_osc_banks_lpf_hpf_triple_adsr-iframe");
+  kick_noiz_osc_banks_lpf_hpf_triple_adsrIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
+
+<!-- CAPTION BLOCK -->
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:kick-noiz-osc-banks-lpf-hpf-triple-adsr)(ref:kick-noiz-osc-banks-lpf-hpf-triple-adsr)</p></div>
+
+A version of this patch with my specific settings is shown in Figure \@ref(fig:osc-banks-envelope-noise-kick-freq-decay) along with a recording of the sound.
+It's not as close to the reference sound as I would have hoped, as it both sounds pitched higher in that initial harmonic sound and thinner in terms of noise frequencies.
+I suspect that there are extensive inharmonic partials that are characterizing the body of the sound.
+Nevertheless, the sound is quite realistic (10) and quite clean (8) especially since the reverb can be controlled independently.
+It's perhaps not fair to compare this sound to the previous kick sounds because it is so different and would likely be used in different contexts.
+Matching it to the previous kick sounds (rather than the reference recording) would likely involve a tighter decay on the harmonic sound and a drop in frequencies across the sine banks, which are currently pegged around 55 Hz vs. the 40 Hz of the previous kicks.
+
+ (ref:osc-banks-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png-kick-noiz-osc-banks-lpf-hpf-triple-adsr.ogg-local.html) made using two sine oscillator banks  mixed with white noise with additional envelopes to control the decay of the sine banks and  frequency of the band-pass filtering of the noise.
+
+<div class="figure">
+<iframe src="images/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png-kick-noiz-osc-banks-lpf-hpf-triple-adsr.ogg-local.html" width="100%" height="620px" data-external="1"></iframe>
+<p class="caption">(\#fig:osc-banks-envelope-noise-kick-freq-decay)(ref:osc-banks-envelope-noise-kick-freq-decay)</p>
+</div>
 
 
 <!-- Remaining plan -->

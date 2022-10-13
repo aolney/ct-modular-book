@@ -192,3 +192,5 @@ trigger
 create
 modify
 minimoog-303
+fig:kick-noiz-osc-banks-lpf-hpf-triple-adsr
+fig:osc-banks-envelope-noise-kick-freq-decay

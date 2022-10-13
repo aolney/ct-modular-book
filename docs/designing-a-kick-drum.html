@@ -65,28 +65,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
-<li class="book-part">Sound</li>
-<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
-<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
-<li class="book-part">Fundamental Modules</li>
-<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
-<li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
-<li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
-<li><a class="" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
-<li class="book-part">Sound Design 1</li>
-<li><a class="active" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
-<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
-<li class="book-part">Complex Modules</li>
-<li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
-<li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
-<li><a class="" href="modify.html"><span class="header-section-number">12</span> Modify</a></li>
-<li class="book-part">Sound Design 2</li>
-<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 8</span> Designing a Kick Drum</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -110,7 +89,7 @@ Herein sound design refers to only the creation of sounds and effects using modu
 <span class="header-section-number">8.1</span> Problem solving for sound synthesis<a class="anchor" aria-label="anchor" href="#problem-solving-for-sound-synthesis"><i class="fas fa-link"></i></a>
 </h2>
 <p>Let’s revisit and expand upon the problem solving approach introduced in Chapters <a href="introduction.html#introduction">1</a> and <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a>.
-The general problem solving stages are:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Polya, &lt;em&gt;How to Solve It&lt;/em&gt;.&lt;/p&gt;"><sup>62</sup></a></span></p>
+The general problem solving stages are:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;George Polya, &lt;em&gt;How to Solve It: A New Aspect of Mathematical Method&lt;/em&gt; (Princeton University Press, 2004).&lt;/p&gt;"><sup>1</sup></a></span></p>
 <ul>
 <li>Understand the problem</li>
 <li>Make a plan</li>
@@ -119,7 +98,7 @@ The general problem solving stages are:<span class="citation"><a class="footnote
 </ul>
 <p>The make/implement a plan stages of problem solving involves building a model by connecting modules together with patch cables, as we’ve covered in the last few chapters.
 While reasonable at first glance, the above problem solving approach is much more useful if it is expanded and elaborated in the context of sound design.
-Below is my interpretation of general problem solving<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Polya.&lt;/p&gt;"><sup>63</sup></a></span> and computational thinking principles<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Papert, &lt;em&gt;Mindstorms&lt;/em&gt;.&lt;/p&gt;"><sup>64</sup></a></span> <span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Nicole D. Anderson, &lt;span&gt;“A Call for Computational Thinking in Undergraduate Psychology,”&lt;/span&gt; &lt;em&gt;Psychology Learning &amp;amp; Teaching&lt;/em&gt; 15, no. 3 (2016): 226–34, &lt;a href="https://doi.org/10.1177/1475725716659252" role="doc-biblioref"&gt;https://doi.org/10.1177/1475725716659252&lt;/a&gt;.&lt;/p&gt;'><sup>65</sup></a></span> as they fit into these stages.</p>
+Below is my interpretation of general problem solving<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Polya.&lt;/p&gt;"><sup>2</sup></a></span> and computational thinking principles<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Seymour Papert, &lt;em&gt;Mindstorms: Children, Computers, and Powerful Ideas&lt;/em&gt; (New York: Basic Books, 1980).&lt;/p&gt;"><sup>3</sup></a></span> <span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Nicole D. Anderson, &lt;span&gt;“A Call for Computational Thinking in Undergraduate Psychology,”&lt;/span&gt; &lt;em&gt;Psychology Learning &amp;amp; Teaching&lt;/em&gt; 15, no. 3 (2016): 226–34, &lt;a href="https://doi.org/10.1177/1475725716659252" role="doc-biblioref"&gt;https://doi.org/10.1177/1475725716659252&lt;/a&gt;.&lt;/p&gt;'><sup>4</sup></a></span> as they fit into these stages.</p>
 <div id="understand-the-problem" class="section level3" number="8.1.1">
 <h3>
 <span class="header-section-number">8.1.1</span> Understand the problem<a class="anchor" aria-label="anchor" href="#understand-the-problem"><i class="fas fa-link"></i></a>
@@ -137,7 +116,7 @@ The key questions are then:</p>
 <h3>
 <span class="header-section-number">8.1.2</span> Devise a plan<a class="anchor" aria-label="anchor" href="#devise-a-plan"><i class="fas fa-link"></i></a>
 </h3>
-<p>This stage is the most complex because you must think about your thinking<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Thinking about your thinking is often called metacognition.&lt;/p&gt;"><sup>66</sup></a>.
+<p>This stage is the most complex because you must think about your thinking<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Thinking about your thinking is often called metacognition.&lt;/p&gt;"><sup>5</sup></a>.
 It’s best to try to stay flexible and evaluate multiple alternatives so you can pick the most promising one.
 This will prevent you from wasting effort on suboptimal strategies.</p>
 <p>There are many ways to solve a problem, and often a combination of approaches is required.
@@ -262,7 +241,7 @@ The most relevant problem solving stages to consider are understanding the probl
 <p>Let’s return to the understanding the problem stage: can we come up with more defining characteristics of the sound or elaborate on how the sound is made in real life?
 Personally, I can’t come up with anything beyond what’s already been said.
 However, we can turn to the Internet to see what research has been done on the acoustics of kick drums for more ideas.</p>
-<p>One acoustic study found that the frequency of the kick drum isn’t constant as we assumed but rather changes very quickly from a higher pitch to a lower pitch (a drop of about 5 Hz)<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Harvey Fletcher and Irvin G. Bassett, &lt;span&gt;“Some Experiments with the Bass Drum,”&lt;/span&gt; &lt;em&gt;The Journal of the Acoustical Society of America&lt;/em&gt; 64, no. 6 (December 1978): 1570–76, &lt;a href="https://doi.org/10.1121/1.382140" role="doc-biblioref"&gt;https://doi.org/10.1121/1.382140&lt;/a&gt;.&lt;/p&gt;'><sup>67</sup></a></span>.
+<p>One acoustic study found that the frequency of the kick drum isn’t constant as we assumed but rather changes very quickly from a higher pitch to a lower pitch (a drop of about 5 Hz)<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Harvey Fletcher and Irvin G. Bassett, &lt;span&gt;“Some Experiments with the Bass Drum,”&lt;/span&gt; &lt;em&gt;The Journal of the Acoustical Society of America&lt;/em&gt; 64, no. 6 (December 1978): 1570–76, &lt;a href="https://doi.org/10.1121/1.382140" role="doc-biblioref"&gt;https://doi.org/10.1121/1.382140&lt;/a&gt;.&lt;/p&gt;'><sup>6</sup></a></span>.
 The presumed mechanism for this behavior is that the drum head’s tension is very high just after it has been struck, and so it vibrates at a higher frequency until is resumes its initial position.
 We can operationalize this in modular using an envelope to control the pitch of the sine wave so that it goes high and then decays to the fundamental pitch.
 Similarly we can envelope the pitch of the noise.
@@ -499,7 +478,7 @@ The cutoff and resonance parameters affect both the initial transient as well as
 <iframe src="https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html" width="100%" height="620px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 8.6: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html">Kick</a> made using a resonant filter mixed with red noise through, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
+Figure 8.6: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html">Kick</a> made using a resonant filter mixed with red noise, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 </p>
 </div>
 <p>Let’s see if the waveguide would be any better than the resonant filter, both in terms of sound and our ability to control the sound.
@@ -606,7 +585,7 @@ As with the resonant filter, it seems the problem in making this patch work towa
 <iframe src="https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html" width="100%" height="620px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 8.8: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html">Kick</a> made using a resonant filter mixed with red noise through, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
+Figure 8.8: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html">Kick</a> made using a waveguide mixed with red noise, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 </p>
 </div>
 <p>Personally my favorite of these patches so far is the resonant filter for the overall realism and quality of sound, but I suspect that in some contexts it would muddy up a mix, i.e. it’s not clean enough for some uses.</p>
@@ -625,19 +604,19 @@ We’d need more information to do this, specifically:</p>
 <li>Diagrams of frequency spectrum at key time points in the sound</li>
 </ul>
 <p>Unfortunately, the modules currently available in VCVRack/Cardinal are insufficient for most of the diagram needs.
-There are no tools that produce quality spectograms, and the tools for frequency spectra (like Sassy scope) are too coarse/noisy to give good information.
+There are no modules that produce quality spectograms, and the tools for frequency spectra (like Sassy scope) are too coarse/noisy to give good information.
 We can use some additional software to help analyze the sound instead, and since this book is written using the R programming language, the analysis below uses that language.
-You could reasonably <a href="https://www.computerworld.com/article/2497143/business-intelligence-beginner-s-guide-to-r-introduction.html">install R</a> along with the libraries used below and run the commands yourself with your own sound files, or you may already have access to other software that would create spectrograms and frequency spectra.</p>
+You could reasonably <a href="https://www.computerworld.com/article/2497143/business-intelligence-beginner-s-guide-to-r-introduction.html">install R</a> along with the libraries used below and run the commands yourself with your own sound files, or you may already have access to other software that would create spectrograms and frequency spectra, like Audacity<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;See Audacity documentation for creating &lt;a href="https://manual.audacityteam.org/man/spectrogram_view.html"&gt;spectrograms&lt;/a&gt; and &lt;a href="https://manual.audacityteam.org/man/plot_spectrum.html"&gt;plotting frequency spectrum&lt;/a&gt;&lt;/p&gt;'><sup>7</sup></a>.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:kick2"></span>
 <iframe src="https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html" width="100%" height="60px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 8.9: <a href="https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html">Kick</a> recording used as the reference sound.
+Figure 8.9: <a href="https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html">Kick</a> recording used as the reference sound. Sound © <a href="https://commons.wikimedia.org/wiki/File:Drum_beat.ogg">Mattgirling/CC-BY-SA-3.0</a>.
 </p>
 </div>
-<p>The real kick recording<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The kick was extracted from &lt;a href="https://commons.wikimedia.org/wiki/File:Drum_beat.ogg"&gt;this file&lt;/a&gt; which is © Mattgirling/CC-BY-SA-3.0&lt;/p&gt;'><sup>68</sup></a> we’ll use is presented in Figure <a href="designing-a-kick-drum.html#fig:kick2">8.9</a>.
+<p>The real kick recording we’ll use is presented in Figure <a href="designing-a-kick-drum.html#fig:kick2">8.9</a>.
 A spectrogram of this recording is presented in Figure <a href="designing-a-kick-drum.html#fig:kick-spectrogram">8.10</a>.
 A spectrogram is merely the frequency spectrum of a sound over time.
 Because frequency spectra already have two dimensions and this adds a third dimension (time), the amplitude of each frequency is shown using color instead of an axis.
@@ -655,7 +634,7 @@ Figure 8.10: Spectrogram of the reference kick sound (top) and corresponding wav
 <p>The spectrogram shows an initial burst of frequencies, with the most energy at about 200 Hz, followed by a lower range of frequencies with the most energy around 20-30 Hz.
 The corresponding diagram of the wave shape aligns with these regions and shows the initial burst has higher frequency until around 25 milliseconds, followed by a more regular decaying frequency.
 These two phases of the sound broadly align with our earlier patches, though our patches had both noise and fundamental beginning at the same time rather than as separate phases.</p>
-<p>A closer examination of the frequency spectrum during the first, noise burst, phase shown in Figure <a href="designing-a-kick-drum.html#fig:kick-spectrum-early">8.11</a> indicates a peak around 200 Hz but a fairly wide range of frequencies between 50 Hz and 350 Hz.
+<p>A closer examination of the frequency spectrum during the first phase shown in Figure <a href="designing-a-kick-drum.html#fig:kick-spectrum-early">8.11</a> indicates a peak around 200 Hz but a fairly wide range of frequencies between 50 Hz and 350 Hz.
 The shape of the noise burst seems reasonably well aligned with the band pass filter used in the above patches, though some additional tuning of the shape of that filter may be needed to match this spectrum.
 The code below was used to generate the figure and look for frequency peaks.</p>
 
@@ -757,10 +736,146 @@ This aligns with our general assumptions about percussion being largely inharmon
 The spectrogram reveals two distinct phases of the sound.
 The first phase, up to 25 ms, blends noise (mostly 0 to 400 Hz) with harmonics.
 The second phase, from 25 ms on, is inharmonic but with clear peaks.</p>
-<p>There are many ways to model the above findings in modular
-Let’s try modeling the two phases using envelopes to define their durations.
-In the first phase, mix band-passed noise with oscillators for the harmonics.
-In the second phase, use oscillators for the partials.</p>
+<p>There are many ways to model the above findings in modular, and we can get as complex as we want.
+However, to keep things simple, let’s stay relatively close to previous patches and techniques that have already been introduced.
+Let’s use three envelopes for three different sound sources: a band-passed noise source, an early harmonic sound, and a late inharmonic sound.
+For the non-noise sources, we can use separate oscillators for the partials (additive synthesis).
+All partials for a source will run through a mixer to produce the composite sound for that source, then all sources will run through a final stage mixer.
+Because there’s clearly some room sound in the recording, run the final mixer output throug a reverb to create a sense of space.
+Try patching this drum kick using the button in Figure <a href="designing-a-kick-drum.html#fig:kick-noiz-osc-banks-lpf-hpf-triple-adsr">8.13</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkick_noiz_osc_banks_lpf_hpf_triple_adsrIframe('https://cardinal.olney.ai?patchurl=kick-noiz-waveguide-lpf-hpf-adsr.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#kick_noiz_osc_banks_lpf_hpf_triple_adsr">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="kick_noiz_osc_banks_lpf_hpf_triple_adsr" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="kick_noiz_osc_banks_lpf_hpf_triple_adsrLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="kick_noiz_osc_banks_lpf_hpf_triple_adsrLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Remove the top Delay/VCF and drag the ADSR controlling the band pass filter down to the bottom rails&lt;/li&gt;
+&lt;li&gt;Add four CZDblSine oscillators next to the top left QuadVCA/Mixer, and connect the output of each to inputs of that mixer (remove all other input connections), then select all five modules, duplicate, and move the copy down to the bottom rails. These assemblies will be called oscillator banks hereafter&lt;/li&gt;
+&lt;li&gt;Connect the mix out of the top oscillator bank to the second top mixer input 1 and connect the top ADSR out to that mixer CV input 1&lt;/li&gt;
+&lt;li&gt;Try the following to adjust the sound of this component, the body of the drum&lt;ul&gt;
+&lt;li&gt;Adjust the oscillator bank frequencies to match the table: 22, 54, 94, and 125 &lt;/li&gt;
+&lt;li&gt;Adjust the oscillator bank mixer levels to match the table. Personally I like to normalize each bank so that 100% on a bank is the max volume coming from that bank. The amplitudes are 453K, 2630K, 439K, and 716K&lt;/li&gt;
+&lt;li&gt;Change the mixer switches to exponential response; this makes things snappier&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Add another QuadVCA/Mixer to the bottom rails&lt;/li&gt;
+&lt;li&gt;Change the Noiz to white and connect it to the VCF (LPF) in&lt;/li&gt;
+&lt;li&gt;Using the ADSR already controlling the LPF cuttoff, connect that ADSR to the HPF cutoff&lt;/li&gt;
+&lt;li&gt;Connect the bandpass output and the ADSR controling that ouput to the bottom rail mixer that isn't part of the oscillator bank &lt;/li&gt;
+&lt;li&gt;Connect the output of the lower oscillator bank mixer to input 2 of the other bottom mixer, and connect the ADSR not controlling noise to control this input&lt;/li&gt;
+&lt;li&gt;Connect mixer output for the whole bottom row to the final mixer on the top row input 2 as well as Scope input 2&lt;/li&gt;
+&lt;li&gt;Try the following to adjust the sound of these components, the noise splash and initial harmonic pulse&lt;ul&gt;
+&lt;li&gt;Adjust the oscillator bank frequencies to match the table: 200, 600, 1201, and 1801 &lt;/li&gt;
+&lt;li&gt;Adjust the oscillator bank mixer levels to match the table. The amplitudes are 595K, 105K, 78K, and 35K&lt;/li&gt;
+&lt;li&gt;Change the mixer switches to exponential response; this makes things snappier&lt;/li&gt;
+&lt;li&gt;Silence to kick body on the top mixer to make fine adjustments to the band pass, including attenuators, and mixing of various components. Run the band pass through Sassy help visualize these adjustments&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Once the basic sound is acceptable, run the final mixer output through Reverb FX, adjust its decay/blend, and run the reverb output into Host audio L&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/czdblsine-mixer-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Remove the top Delay/VCF and drag the ADSR controlling the band pass filter down to the bottom rails&lt;/li&gt;
+&lt;li&gt;Add four CZDblSine oscillators next to the top left QuadVCA/Mixer, and connect the output of each to inputs of that mixer (remove all other input connections), then select all five modules, duplicate, and move the copy down to the bottom rails. These assemblies will be called oscillator banks hereafter&lt;/li&gt;
+&lt;li&gt;Connect the mix out of the top oscillator bank to the second top mixer input 1 and connect the top ADSR out to that mixer CV input 1&lt;/li&gt;
+&lt;li&gt;Try the following to adjust the sound of this component, the body of the drum&lt;ul&gt;
+&lt;li&gt;Adjust the oscillator bank frequencies to match the table: 22, 54, 94, and 125 &lt;/li&gt;
+&lt;li&gt;Adjust the oscillator bank mixer levels to match the table. Personally I like to normalize each bank so that 100% on a bank is the max volume coming from that bank. The amplitudes are 453K, 2630K, 439K, and 716K&lt;/li&gt;
+&lt;li&gt;Change the mixer switches to exponential response; this makes things snappier&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Add another QuadVCA/Mixer to the bottom rails&lt;/li&gt;
+&lt;li&gt;Change the Noiz to white and connect it to the VCF (LPF) in&lt;/li&gt;
+&lt;li&gt;Using the ADSR already controlling the LPF cuttoff, connect that ADSR to the HPF cutoff&lt;/li&gt;
+&lt;li&gt;Connect the bandpass output and the ADSR controling that ouput to the bottom rail mixer that isn't part of the oscillator bank &lt;/li&gt;
+&lt;li&gt;Connect the output of the lower oscillator bank mixer to input 2 of the other bottom mixer, and connect the ADSR not controlling noise to control this input&lt;/li&gt;
+&lt;li&gt;Connect mixer output for the whole bottom row to the final mixer on the top row input 2 as well as Scope input 2&lt;/li&gt;
+&lt;li&gt;Try the following to adjust the sound of these components, the noise splash and initial harmonic pulse&lt;ul&gt;
+&lt;li&gt;Adjust the oscillator bank frequencies to match the table: 200, 600, 1201, and 1801 &lt;/li&gt;
+&lt;li&gt;Adjust the oscillator bank mixer levels to match the table. The amplitudes are 595K, 105K, 78K, and 35K&lt;/li&gt;
+&lt;li&gt;Change the mixer switches to exponential response; this makes things snappier&lt;/li&gt;
+&lt;li&gt;Silence to kick body on the top mixer to make fine adjustments to the band pass, including attenuators, and mixing of various components. Run the band pass through Sassy help visualize these adjustments&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Once the basic sound is acceptable, run the final mixer output through Reverb FX, adjust its decay/blend, and run the reverb output into Host audio L&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/czdblsine-mixer-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png'&gt;">Solution</button>
+        <button type="button" onclick="setkick_noiz_osc_banks_lpf_hpf_triple_adsrIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="kick_noiz_osc_banks_lpf_hpf_triple_adsr-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setkick_noiz_osc_banks_lpf_hpf_triple_adsrIframe(url){
+  var kick_noiz_osc_banks_lpf_hpf_triple_adsrIframe = document.getElementById("kick_noiz_osc_banks_lpf_hpf_triple_adsr-iframe");
+  kick_noiz_osc_banks_lpf_hpf_triple_adsrIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:kick-noiz-osc-banks-lpf-hpf-triple-adsr"></span>
+<p class="caption">
+Figure 8.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for a kick drum using two oscillator banks mixed with noise where the noise frequency is controlled by filters.
+</p>
+</div>
+<p>A version of this patch with my specific settings is shown in Figure <a href="designing-a-kick-drum.html#fig:osc-banks-envelope-noise-kick-freq-decay">8.14</a> along with a recording of the sound.
+It’s not as close to the reference sound as I would have hoped, as it both sounds pitched higher in that initial harmonic sound and thinner in terms of noise frequencies.
+I suspect that there are extensive inharmonic partials that are characterizing the body of the sound.
+Nevertheless, the sound is quite realistic (10) and quite clean (8) especially since the reverb can be controlled independently.
+It’s perhaps not fair to compare this sound to the previous kick sounds because it is so different and would likely be used in different contexts.
+Matching it to the previous kick sounds (rather than the reference recording) would likely involve a tighter decay on the harmonic sound and a drop in frequencies across the sine banks, which are currently pegged around 55 Hz vs. the 40 Hz of the previous kicks.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:osc-banks-envelope-noise-kick-freq-decay"></span>
+<iframe src="images/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png-kick-noiz-osc-banks-lpf-hpf-triple-adsr.ogg-local.html" width="100%" height="620px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 8.14: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png-kick-noiz-osc-banks-lpf-hpf-triple-adsr.ogg-local.html">Kick</a> made using two sine oscillator banks mixed with white noise with additional envelopes to control the decay of the sine banks and frequency of the band-pass filtering of the noise.
+</p>
+</div>
 <!-- Remaining plan -->
 <!-- Sound design ideas -->
 <!-- Kick -->
@@ -841,39 +956,15 @@ In the second phase, use oscillators for the partials.</p>
 </div>
 
   <div class="chapter-nav">
-<div class="prev"><a href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></div>
-<div class="next"><a href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#designing-a-kick-drum"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
-<li>
-<a class="nav-link" href="#problem-solving-for-sound-synthesis"><span class="header-section-number">8.1</span> Problem solving for sound synthesis</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#understand-the-problem"><span class="header-section-number">8.1.1</span> Understand the problem</a></li>
-<li><a class="nav-link" href="#devise-a-plan"><span class="header-section-number">8.1.2</span> Devise a plan</a></li>
-<li><a class="nav-link" href="#carry-out-the-plan-and-replanning"><span class="header-section-number">8.1.3</span> Carry out the plan (and replanning)</a></li>
-<li><a class="nav-link" href="#evaluate-the-solution"><span class="header-section-number">8.1.4</span> Evaluate the solution</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#reviewing-previous-kick-drum-patches"><span class="header-section-number">8.2</span> Reviewing previous kick drum patches</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#sine-with-envelope"><span class="header-section-number">8.2.1</span> Sine with envelope</a></li>
-<li><a class="nav-link" href="#sine-with-an-envelope-plus-noise-burst"><span class="header-section-number">8.2.2</span> Sine with an envelope plus noise burst</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#alternative-approaches"><span class="header-section-number">8.3</span> Alternative approaches</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#improving-our-understanding-of-the-problem"><span class="header-section-number">8.3.1</span> Improving our understanding of the problem</a></li>
-<li><a class="nav-link" href="#devising-new-plans"><span class="header-section-number">8.3.2</span> Devising new plans</a></li>
-<li><a class="nav-link" href="#working-backwards"><span class="header-section-number">8.3.3</span> Working backwards</a></li>
-</ul>
-</li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/09-kick-cymbal.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/09-kick-cymbal.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
