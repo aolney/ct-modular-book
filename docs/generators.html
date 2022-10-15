@@ -78,7 +78,7 @@
 <li><a class="" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
 <li class="book-part">Sound Design 1</li>
 <li><a class="" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
-<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
+<li><a class="" href="s-lead-bass.html"><span class="header-section-number">9</span> ’80s Lead &amp; ???Bass</a></li>
 <li class="book-part">Complex Modules</li>
 <li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
 <li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
@@ -114,11 +114,11 @@ Samplers represent the extreme of realism in generators, at least as far as thei
 <p>Section <a href="harmonic-and-inharmonic-sounds.html#phase-reflections-standing-waves-and-harmonics">3.1</a> briefly mentioned the relationship between harmonics and fundamental relationships like octaves and fifths.
 To recap, the second harmonic has double the frequency of the first and so is one octave above the first harmonic.
 We can express this relationship as 2:1, i.e. an octave is twice the frequency of the the fundamental.
-Similarly the third harmonic is a fifth above the second harmonic, so we can express a fifth as 3:2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Whole number ratios require &lt;a href="https://en.wikipedia.org/wiki/Just_intonation"&gt;just intonation&lt;/a&gt;. The twelve tone &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament"&gt;equal temperment&lt;/a&gt; used in Western music is a close approximation, e.g. 3:2 is 1.498 in twelve tone equal temperment.&lt;/p&gt;'><sup>48</sup></a></p>
+Similarly the third harmonic is a fifth above the second harmonic, so we can express a fifth as 3:2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Whole number ratios require &lt;a href="https://en.wikipedia.org/wiki/Just_intonation"&gt;just intonation&lt;/a&gt;. The twelve tone &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament"&gt;equal temperment&lt;/a&gt; used in Western music is a close approximation, e.g. 3:2 is 1.498 in twelve tone equal temperment.&lt;/p&gt;'><sup>50</sup></a></p>
 <p>Now consider what happens if two notes an octave apart or a fifth apart are played at the same time.
 Clearly some of their harmonics will be the same.
 Thus playing two or more notes this way will add and enhance harmonics beyond that of a single note, creating a richer and fuller sound.
-Of course, notes may be played that are not harmonically related, to a different effect.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The reader may be interested in &lt;a href="https://en.wikipedia.org/wiki/Consonance_and_dissonance"&gt;consonance/dissonance&lt;/a&gt; as discussed in music theory.&lt;/p&gt;'><sup>49</sup></a>
+Of course, notes may be played that are not harmonically related, to a different effect.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The reader may be interested in &lt;a href="https://en.wikipedia.org/wiki/Consonance_and_dissonance"&gt;consonance/dissonance&lt;/a&gt; as discussed in music theory.&lt;/p&gt;'><sup>51</sup></a>
 When two notes are played simultaneously, it is called an <a href="https://en.wikipedia.org/wiki/Interval_(music)">interval</a>, with three notes, a <a href="https://en.wikipedia.org/wiki/Trichord">trichord</a>, with four notes, a <a href="https://en.wikipedia.org/wiki/Tetrachord">tetrachord</a>, etc.
 Many harmonically related notes can be played simultaneously to good effect.
 For example, the <a href="https://en.wikipedia.org/wiki/Deep_Note">THX Deep Note</a> in Figure <a href="generators.html#fig:deep-note">6.1</a> resolves to 11 notes, mostly harmonically related by 3, 4, and 7 semitones (minor/major thirds and fifths).</p>
@@ -136,7 +136,7 @@ At the first stage, we have a V/Oct control signal, so we can create chords by m
 At the final stage, we have an audio signal, so we can create chords by making new audio signals harmonically related to the original signal.
 Let’s look at both.</p>
 <p>To create harmonically related control voltage signals, we can use a voltage offset module to create new signals offset from the original signal, i.e. the original voltage plus/minus a harmonically-related voltage.
-It can take a little math to do this if the offset module is labeled in volts<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall 1 V/Oct means a semitone is 1/12 of a volt.&lt;/p&gt;"><sup>50</sup></a>, but if the offset module is labeled in semitones, it is <a href="https://en.wikipedia.org/wiki/Interval_(music)#Main_intervals">fairly straightforward</a>, e.g. a fifth is seven semitones.
+It can take a little math to do this if the offset module is labeled in volts<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall 1 V/Oct means a semitone is 1/12 of a volt.&lt;/p&gt;"><sup>52</sup></a>, but if the offset module is labeled in semitones, it is <a href="https://en.wikipedia.org/wiki/Interval_(music)#Main_intervals">fairly straightforward</a>, e.g. a fifth is seven semitones.
 Additionally we will need multiple oscillators to play a note for each offset voltage.
 We could reasonably do this with separate oscillators, but some chord-oriented modules contain multiple oscillators and take separate V/Oct for each.
 Try making a trichord using a fifth and an octave using the button in Figure <a href="generators.html#fig:voltage-division-chords">6.2</a>.</p>
@@ -616,7 +616,7 @@ Figure 6.8: <a href="https://www.youtube.com/watch?v=CPPOrQHiP40">Youtube video<
 </p>
 </div>
 <p>LFOs can create vibrato on a VCO by controlling V/Oct.
-Unlike PWM, an additional VCA is needed to control the depth of the vibrato.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically you can use the FM input and attenuator, but there are pedagogical reasons for not using the FM input at the moment, namely that we have not discused FM yet. &lt;/p&gt;"><sup>51</sup></a>
+Unlike PWM, an additional VCA is needed to control the depth of the vibrato.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically you can use the FM input and attenuator, but there are pedagogical reasons for not using the FM input at the moment, namely that we have not discused FM yet. &lt;/p&gt;"><sup>53</sup></a>
 Try to create vibrato with an LFO using the button in Figure <a href="generators.html#fig:vibrato-lfo-vca-vco-scope">6.9</a>.
 With a little adjustment of the parameters, it’s possible to match the vibrato of the opera singer just discussed.
 Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato effect on and off by setting LFO frequency, e.g. through a sequencer.</p>
@@ -715,7 +715,7 @@ Figure 6.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for implemen
 <h3>
 <span class="header-section-number">6.3.3</span> Tremolo<a class="anchor" aria-label="anchor" href="#tremolo"><i class="fas fa-link"></i></a>
 </h3>
-<p>In electronic music, tremolo is movement around loudness that can be defined in terms of speed of movement around a center volume and depth of movement, or distance from, that same center volume.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The mnemonic “tremolo&lt;strong&gt;ud&lt;/strong&gt;” might help prevent confusion with vibrato.&lt;/p&gt;"><sup>52</sup></a>
+<p>In electronic music, tremolo is movement around loudness that can be defined in terms of speed of movement around a center volume and depth of movement, or distance from, that same center volume.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The mnemonic “tremolo&lt;strong&gt;ud&lt;/strong&gt;” might help prevent confusion with vibrato.&lt;/p&gt;"><sup>54</sup></a>
 Note that in other forms of music, there are <a href="https://en.wikipedia.org/wiki/Tremolo">different definitions of tremolo</a>.
 Tremolo has been widely used in popular guitar music since the 1960’s, and guitar pedals producing tremolo effects as shown in Figure <a href="generators.html#fig:guitar-tremolo">6.10</a> are quite common today.</p>
 
@@ -1369,7 +1369,7 @@ Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO con
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-13.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

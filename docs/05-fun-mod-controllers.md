@@ -183,7 +183,7 @@ One option would be to adjust the pitch on a step so it is outside the range of 
 While this option is simple and effective, it's possible that the sound will interfere with other sound waves in ways that become audible.
 Another option is to replace the clock signal into the ADDR-SEQ module with the output of the trigger sequencer.
 Since the trigger sequencer has steps with no trigger, this means that no clock would be sent to ADDR-SEQ on these steps.
-The effect of using the trigger sequencer as a clock depends, however, on how the saw envelope is gated
+The effect of using the trigger sequencer as a clock depends, however, on how the VCO envelope is gated, either with the clock or with trigger sequencer.
 Try this using the button in 
 Figure \@ref(fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) to explore the different combinations.
 
@@ -214,11 +214,10 @@ Table: (\#tab:trigger-clock-effects) Effects of gate and clock mismatching when 
 | Trigger sequencer | Trigger sequencer | Every note played, with rests |
 | Trigger sequencer |       Clock       | Notes repeated, no rests       |
 
-
 #### Sequencing note duration
 
 A second limitation of the ADDR-SEQ is that all the notes are the same duration.
-This limitation can be somewhat addressed by using variable length release on the envelope.
+This limitation can be somewhat addressed by using variable length release on respective envelopes.
 A longer release would lengthen the duration of the sound, but for any instrument that has a sustain, the volume would not be correct using this method.
 The fundamental problem is that the gate into the ADSR is a fixed width which results in a fixed length note.
 What is needed is to change the clock signal into a gate where the length of the gate matches the length of the desired note.

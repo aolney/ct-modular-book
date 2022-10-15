@@ -60,7 +60,7 @@ Delay is the longest time-based effect we will discuss, typically ranging from a
 (ref:moonshot-delay2s) [Delay](https://olney.ai/ct-modular-book/images/moonshot-delay2s.png-moonshot-delay2s.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The decaying echos of the delay make the lower track significantly longer than the original.
 
 
-```{r, moonshot-delay2s, out.width='100%', fig.cap="(ref:moonshot-delay2s)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+```{r, moonshot-delay2s, out.width='100%', fig.cap="(ref:moonshot-delay2s)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
   image_ogg_figure("moonshot-delay2s.png","moonshot-delay2s.ogg",height="370px")
 ```
 
@@ -114,7 +114,7 @@ Note that this recording was taken in a stadium that already had significant nat
 (ref:moonshot-reverb75) [Reverb](https://olney.ai/ct-modular-book/images/moonshot-reverb75.png-moonshot-reverb75.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The added reverb slightly extends the length of the original track and is most noticeable at that point due to the natural reverb in the original recording.
 
 
-```{r, moonshot-reverb75, out.width='100%', fig.cap="(ref:moonshot-reverb75)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+```{r, moonshot-reverb75, out.width='100%', fig.cap="(ref:moonshot-reverb75)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
   image_ogg_figure("moonshot-reverb75.png","moonshot-reverb75.ogg",height="370px")
 ```
 
@@ -165,7 +165,7 @@ In this example, the chorus delay is 20 milliseconds, which is in the middle of 
 (ref:moonshot-chorus) [Chorus](https://olney.ai/ct-modular-book/images/moonshot-chorus.png-moonshot-chorus.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of copies of the original signal delayed by 20 milliseconds.
 
 
-```{r, moonshot-chorus, out.width='100%', fig.cap="(ref:moonshot-chorus)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+```{r, moonshot-chorus, out.width='100%', fig.cap="(ref:moonshot-chorus)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
   image_ogg_figure("moonshot-chorus.png","moonshot-chorus.ogg",height="372px")
 ```
 
@@ -224,7 +224,7 @@ In this example, the flanger delay is 1 millisecond and so produces a sweeping t
 (ref:moonshot-flanger5ms) [Flanger](https://olney.ai/ct-modular-book/images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of a copy of the original signal delayed by 1 millisecond.
 
 
-```{r, moonshot-flanger5ms, out.width='100%', fig.cap="(ref:moonshot-flanger5ms)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+```{r, moonshot-flanger5ms, out.width='100%', fig.cap="(ref:moonshot-flanger5ms)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
   image_ogg_figure("moonshot-flanger5ms.png","moonshot-flanger5ms.ogg",height="370px")
 ```
 
@@ -279,7 +279,7 @@ The effect on the shape of the wave is quite subtle compared to the flanger, ref
 (ref:moonshot-phaser) [Phaser](https://olney.ai/ct-modular-book/images/moonshot-phaser.png-moonshot-phaser.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The effect on the shape of the wave is subtle and reflects both constructive and destructive interference.
 
 
-```{r, moonshot-phaser, out.width='100%', fig.cap="(ref:moonshot-phaser)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+```{r, moonshot-phaser, out.width='100%', fig.cap="(ref:moonshot-phaser)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
   image_ogg_figure("moonshot-phaser.png","moonshot-phaser.ogg",height="372px")
 ```
 

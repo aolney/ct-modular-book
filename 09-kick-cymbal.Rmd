@@ -106,7 +106,7 @@ Altogether this was a pretty naive attempt.
 
 (ref:sine-envelope-kick) [Kick](https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html) made using a sine wave with an envelope to control its amplitude.
 
-```{r, sine-envelope-kick, out.width='100%', fig.cap="(ref:sine-envelope-kick)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+```{r, sine-envelope-kick, out.width='100%', fig.cap="(ref:sine-envelope-kick)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
   image_ogg_figure("clock-kick-bpm-vco-adsr-vca-scope-out.png","clock-kick-bpm-vco-adsr-vca-scope-out.ogg",template="solution-ogg-template.html", height="400px")
 ```
 
@@ -130,7 +130,7 @@ Of course it might be possible to improve on it by tweaking the noise envelope o
 
 (ref:sine-envelope-noise-kick) [Kick](https://olney.ai/ct-modular-book/images/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png-kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg-local.html) made using a sine wave with an envelope to control its amplitude and mixed with red noise through an envelope to control amplitude.
 
-```{r, sine-envelope-noise-kick, out.width='100%', fig.cap="(ref:sine-envelope-noise-kick)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+```{r, sine-envelope-noise-kick, out.width='100%', fig.cap="(ref:sine-envelope-noise-kick)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
   image_ogg_figure("kick-bpm-noiz-adsr-vco-adsr-vca-scope.png","kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg",template="solution-ogg-template.html", image_height="550",height="620px")
 ```
 
@@ -185,7 +185,7 @@ It seems much improved compared to the last version in realism (8) and cleanline
 
  (ref:sine-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png-kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.ogg-local.html) made using a sine wave with an envelope to control its amplitude and mixed with red noise through an envelope to control amplitude, with additional envelope control of initial frequency of the sine and band-pass filtering of the noise.
 
-```{r, sine-envelope-noise-kick-freq-decay, out.width='100%', fig.cap="(ref:sine-envelope-noise-kick-freq-decay)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+```{r, sine-envelope-noise-kick-freq-decay, out.width='100%', fig.cap="(ref:sine-envelope-noise-kick-freq-decay)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
   image_ogg_figure("kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png","kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.ogg",template="solution-ogg-template.html", image_height="530",height="620px")
 ```
 
@@ -237,7 +237,7 @@ The cutoff and resonance parameters affect both the initial transient as well as
 
  (ref:res-filter-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html) made using a resonant filter mixed with red noise, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 
-```{r, res-filter-envelope-noise-kick-freq-decay, out.width='100%', fig.cap="(ref:res-filter-envelope-noise-kick-freq-decay)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+```{r, res-filter-envelope-noise-kick-freq-decay, out.width='100%', fig.cap="(ref:res-filter-envelope-noise-kick-freq-decay)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
   image_ogg_figure("kick-noiz-res-filter-lpf-hpf-adsr.png","kick-noiz-res-filter-lpf-hpf-adsr.ogg",template="solution-ogg-template.html", image_height="530",height="620px")
 ```
 
@@ -276,7 +276,7 @@ As with the resonant filter, it seems the problem in making this patch work towa
 
  (ref:waveguide-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html) made using a waveguide mixed with red noise, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 
-```{r, waveguide-envelope-noise-kick-freq-decay, out.width='100%', fig.cap="(ref:waveguide-envelope-noise-kick-freq-decay)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+```{r, waveguide-envelope-noise-kick-freq-decay, out.width='100%', fig.cap="(ref:waveguide-envelope-noise-kick-freq-decay)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
   image_ogg_figure("kick-noiz-waveguide-lpf-hpf-adsr.png","kick-noiz-waveguide-lpf-hpf-adsr.ogg",template="solution-ogg-template.html", image_height="530",height="620px")
 ```
 
@@ -300,7 +300,7 @@ You could reasonably [install R](https://www.computerworld.com/article/2497143/b
 
  (ref:kick2) [Kick](https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html) recording used as the reference sound. Sound © [Mattgirling/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Drum_beat.ogg).
 
-```{r, kick2, out.width='100%', fig.cap="(ref:kick2)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 60)), echo=F}
+```{r, kick2, out.width='100%', fig.cap="(ref:kick2)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 60)), echo=F}
   image_ogg_figure("kick2.png","kick2.ogg",template="ogg-template.html", image_height="0",height="60px")
 ```
 
@@ -438,99 +438,7 @@ Matching it to the previous kick sounds (rather than the reference recording) wo
 
  (ref:osc-banks-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png-kick-noiz-osc-banks-lpf-hpf-triple-adsr.ogg-local.html) made using two sine oscillator banks  mixed with white noise with additional envelopes to control the decay of the sine banks and  frequency of the band-pass filtering of the noise.
 
-```{r, osc-banks-envelope-noise-kick-freq-decay, out.width='100%', fig.cap="(ref:osc-banks-envelope-noise-kick-freq-decay)", dev='png', cache=FALSE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+```{r, osc-banks-envelope-noise-kick-freq-decay, out.width='100%', fig.cap="(ref:osc-banks-envelope-noise-kick-freq-decay)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
   image_ogg_figure("kick-noiz-osc-banks-lpf-hpf-triple-adsr.png","kick-noiz-osc-banks-lpf-hpf-triple-adsr.ogg",template="solution-ogg-template.html", image_height="530",height="620px")
 ```
-
-
-<!-- Remaining plan -->
-
-<!-- Sound design ideas -->
-<!-- Kick -->
-<!-- Cymbal -->
-<!-- Video game lead -->
-<!-- 80’s music bass -->
-
-<!-- Maybe use these? -->
-<!-- keyboard filter tracking or notes would disappear; filtering sine wave example -->
-<!-- pinging: sending a gate/trigger to a near-oscillating filter; use AR on filter's freq -->
-<!-- Growl: Low frequency sine wave modulation of the filter cut-off frequency -->
-<!-- wah wah is LFO on LPF cutoff freq -->
-
-
-
-<!-- Complex modules and Compositions		 -->
-<!-- 	Controllers	 -->
-<!-- 		Clock, sequencing, arpggiators -->
-<!-- 		Euclidean rhythms -->
-<!-- 		Probability -->
-<!-- 	Generators	 -->
-<!-- 		PWM -->
-<!-- 		FM/AM -->
-<!-- 		Ring modulation -->
-<!-- audio rate modulation into resonant filter? -->
-<!-- 		Vocoders -->
-<!-- 		Random sampling -->
-<!-- 	Modifiers	 -->
-<!-- 		~~LFO~~ -->
-<!-- 		Sample and hold -->
-<!-- 		Slew -->
-<!-- 		Wave-folding -->
-<!-- 		Attenuators, inverters, and attenuverters -->
-<!-- 		Quantizers -->
-<!-- 		Switches -->
-<!-- 		Logic -->
-
-
-<!-- Actual -->
-<!--     4 Basic Modeling Concepts -->
-<!--     4.1 Modules are the model elements -->
-<!--     4.2 Signals are how the model elements interact -->
-<!--     4.3 Signals are interpreted by modules -->
-<!--     4.4 Pulling it all together -->
-<!--         4.4.1 Drone -->
-<!--         4.4.2 Using an oscilloscope -->
-<!--         4.4.3 Controlling pitch -->
-<!--         4.4.4 Controlling note duration (on/off volume) -->
-<!--         4.4.5 Controlling note dynamics (volume during note) -->
-<!--     4.5 Moving forward -->
-
-<!-- 5 Controllers -->
-<!-- 5.1 Clocks -->
-
-<!--     5.1.1 Clock under a scope -->
-<!--     5.1.2 Clock as a generator -->
-
-<!-- 5.2 Sequencers -->
-
-<!--     5.2.1 Clocks as sequencers -->
-<!--     5.2.2 Trigger sequencers -->
-<!--     5.2.3 Control voltage sequencers -->
-
-
-<!--     6 Generators -->
-<!--     6.1 Chords -->
-<!--     6.2 Chorus -->
-<!--     6.3 Low frequency oscillators & uses -->
-<!--         6.3.1 Pulse width modulation -->
-<!--         6.3.2 Vibrato -->
-<!--         6.3.3 Tremolo -->
-<!--     6.4 Synchronization -->
-<!--     6.5 Noise -->
-<!--     6.6 Samplers -->
-
-<!-- 7 Modifiers -->
-<!-- 7.1 Effects -->
-<!--     7.1.1 Delays -->
-<!--     7.1.2 Reverb -->
-<!--     7.1.3 Chorus -->
-<!--     7.1.4 Flanger -->
-<!--     7.1.5 Phaser -->
-<!-- 7.2 Voltage controlled filters -->
-<!--     7.2.1 Filters are imperfect -->
-<!--     7.2.2 Filters change frequency and phase -->
-<!--     7.2.3 Combining filters -->
-<!--     7.2.4 Resonance -->
-
-
 

@@ -177,7 +177,7 @@ Are all sounds actually made out of sine waves, or is Fourier analysis only an a
 When we talk about sounds produced using standing waves, [harmonic motion](https://en.wikipedia.org/wiki/Harmonic_oscillator) tells us the sound waves are sine waves.
 Therefore when Fourier analysis is applied to these types of sounds, its solution closely corresponds to how the sounds were generated.
 However, when the sounds are produced by other means, Fourier analysis no longer corresponds to how the sounds were generated, even though it may approximate them arbitrarily.
-These distinctions perhaps don't matter when we are concerned with listening to sound, since our auditory system [decomposes complex sounds into frequency bands](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5819010#S8title) analogous to Fourier analysis, regardless of how the sound was produced.
+These distinctions perhaps don't matter when we are concerned with listening to sound, since our auditory system [decomposes complex sounds into frequency bands](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5819010#S8title) [@Oxenham2018] analogous to Fourier analysis, regardless of how the sound was produced.
 
 ## Inharmonic standing waves and noise
 
@@ -203,7 +203,7 @@ The fundamental mode, in particular, is so efficient at transferring energy to t
 
 In general, the modes have inharmonic frequency relationships to each other as shown in Table \@ref(tab:mode-freq).
 The timpani is [a notable counterexample](http://hyperphysics.phy-astr.gsu.edu/hbase/Music/timpani.html) where the kettle and the style of playing enhance the $(d,1)$ modes, a few of which in the timpani have harmonic relationships to each other.
-Cymbals similarly have inharmonic frequency relationships but [differ in modes and spread of ratios across modes](http://acoustics.ae.illinois.edu/pdfs/Vibration%20of%20Plates%20(Leissa,%20NASA%20SP-160).pdf#page=20).
+Cymbals similarly have inharmonic frequency relationships but [differ in modes and spread of ratios across modes](http://acoustics.ae.illinois.edu/pdfs/Vibration%20of%20Plates%20(Leissa,%20NASA%20SP-160).pdf#page=20) [@Leissa1969].
 
 Table: (\#tab:mode-freq) Modes of an ideal clamped vibrating membrane like a drum head and their relative frequencies with respect to (0,1). Note the ratio as not integers and so the series is inharmonic.
 

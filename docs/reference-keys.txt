@@ -115,6 +115,7 @@ fig:kick-spectrum-late
 tab:kick-late-peaks
 fig:kick-noiz-osc-banks-lpf-hpf-triple-adsr
 fig:osc-banks-envelope-noise-kick-freq-decay
+fig:stranger-things-theme
 introduction
 why-this-book
 computational-thinking
@@ -189,7 +190,9 @@ alternative-approaches
 improving-our-understanding-of-the-problem
 devising-new-plans
 working-backwards
-lead-bass
+s-lead-bass
+s-lead
+waveshape
 trigger
 create
 modify

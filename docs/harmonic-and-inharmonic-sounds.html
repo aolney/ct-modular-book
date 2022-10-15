@@ -78,7 +78,7 @@
 <li><a class="" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
 <li class="book-part">Sound Design 1</li>
 <li><a class="" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
-<li><a class="" href="lead-bass.html"><span class="header-section-number">9</span> Lead &amp; Bass</a></li>
+<li><a class="" href="s-lead-bass.html"><span class="header-section-number">9</span> ’80s Lead &amp; ???Bass</a></li>
 <li class="book-part">Complex Modules</li>
 <li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
 <li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
@@ -265,7 +265,7 @@ Figure 3.4: Frequency spectrum of four basic waveshapes at 1 Hz. Amplitude is no
 When we talk about sounds produced using standing waves, <a href="https://en.wikipedia.org/wiki/Harmonic_oscillator">harmonic motion</a> tells us the sound waves are sine waves.
 Therefore when Fourier analysis is applied to these types of sounds, its solution closely corresponds to how the sounds were generated.
 However, when the sounds are produced by other means, Fourier analysis no longer corresponds to how the sounds were generated, even though it may approximate them arbitrarily.
-These distinctions perhaps don’t matter when we are concerned with listening to sound, since our auditory system <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5819010#S8title">decomposes complex sounds into frequency bands</a> analogous to Fourier analysis, regardless of how the sound was produced.</p>
+These distinctions perhaps don’t matter when we are concerned with listening to sound, since our auditory system <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5819010#S8title">decomposes complex sounds into frequency bands</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Andrew J. Oxenham, &lt;span&gt;“How We Hear: The Perception and Neural Coding of Sound,”&lt;/span&gt; &lt;em&gt;Annual Review of Psychology&lt;/em&gt; 69 (January 2018): 27–50, &lt;a href="https://doi.org/10.1146/annurev-psych-122216-011635" role="doc-biblioref"&gt;https://doi.org/10.1146/annurev-psych-122216-011635&lt;/a&gt;.&lt;/p&gt;'><sup>30</sup></a></span> analogous to Fourier analysis, regardless of how the sound was produced.</p>
 </div>
 <div id="inharmonic-standing-waves-and-noise" class="section level2" number="3.3">
 <h2>
@@ -293,7 +293,7 @@ Some of these modes are very efficient in transferring energy to the air while o
 The fundamental mode, in particular, is so efficient at transferring energy to the air <a href="https://www.acs.psu.edu/drussell/demos/membranecircle/circle.html">that it quickly disappates energy and dies out</a>, which means that in these instruments, the fundamental frequency is very weak compared to harmonic instruments.</p>
 <p>In general, the modes have inharmonic frequency relationships to each other as shown in Table <a href="harmonic-and-inharmonic-sounds.html#tab:mode-freq">3.1</a>.
 The timpani is <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/Music/timpani.html">a notable counterexample</a> where the kettle and the style of playing enhance the <span class="math inline">\((d,1)\)</span> modes, a few of which in the timpani have harmonic relationships to each other.
-Cymbals similarly have inharmonic frequency relationships but <a href="http://acoustics.ae.illinois.edu/pdfs/Vibration%20of%20Plates%20(Leissa,%20NASA%20SP-160).pdf#page=20">differ in modes and spread of ratios across modes</a>.</p>
+Cymbals similarly have inharmonic frequency relationships but <a href="http://acoustics.ae.illinois.edu/pdfs/Vibration%20of%20Plates%20(Leissa,%20NASA%20SP-160).pdf#page=20">differ in modes and spread of ratios across modes</a>.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;A. W. Leissa, &lt;span&gt;“Vibration of Plates,”&lt;/span&gt; January 1969, &lt;a href="https://ntrs.nasa.gov/citations/19700009156" role="doc-biblioref"&gt;https://ntrs.nasa.gov/citations/19700009156&lt;/a&gt;.&lt;/p&gt;'><sup>31</sup></a></span></p>
 <div class="inline-table"><table class="table table-sm">
 <caption>
 <span id="tab:mode-freq">Table 3.1: </span> Modes of an ideal clamped vibrating membrane like a drum head and their relative frequencies with respect to (0,1). Note the ratio as not integers and so the series is inharmonic.</caption>
@@ -346,7 +346,7 @@ Cymbals similarly have inharmonic frequency relationships but <a href="http://ac
 </table></div>
 <p>Harmonics are defined as integer multiples of the fundamental frequency, and the frequency relationships in Table <a href="harmonic-and-inharmonic-sounds.html#tab:mode-freq">3.1</a> are clearly not integers.
 Note also that they are much more closely packed together than integers: there are 10 modes with a frequency ratio below 4, whereas in a harmonic series we’d only expect four standing waves in that space.
-Because the frequency relationships are inharmonic, we can only call the standing wave frequencies of such instruments partials - they are not harmonics.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;They are not overtones either. An overtone is a harmonic above the fundamental.&lt;/p&gt;"><sup>30</sup></a></p>
+Because the frequency relationships are inharmonic, we can only call the standing wave frequencies of such instruments partials - they are not harmonics.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;They are not overtones either. An overtone is a harmonic above the fundamental.&lt;/p&gt;"><sup>32</sup></a></p>
 <p>Because the partials of percussion instruments are dense, their relationships inharmonic, and the fundamental weak, percussion instruments are commonly approximated in electronic music using some form of noise.
 Noise is a random mixture of frequencies, so by definition it does not have harmonic relationships or a fundamental, and the respective frequencies are very close together.
 For percussion instruments that have more pitch to them, one can add a simple wave, like a sine wave, to convey the sense of a fundamental.</p>
@@ -465,7 +465,7 @@ Figure 3.8: <a href="https://olney.ai/ct-modular-book/images/adsr-sound-table.ht
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-13.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
