@@ -269,7 +269,7 @@ A spectrogram is merely the frequency spectrum of a sound over time.
 Because frequency spectra already have two dimensions and this adds a third dimension (time), the amplitude of each frequency is shown using color instead of an axis.
 The R code below loads the kick sound file and then creates a spectrogram with a maximum frequency of .7 KHz and uses 20 $\mu Pa$ as 0 dB.
 
- (ref:kick-spectrogram) Spectrogram of the reference kick sound (top) and corresponding wave (bottom).
+ (ref:kick-spectrogram) Spectrogram of the reference kick sound (upper) and corresponding wave (lower).
 
 
 ```r

@@ -105,7 +105,7 @@ Patch cables are primarily mono but sometimes stereo if a jack supports it.
 These two patch cable types look identical, except at their connectors, as shown in Figure \@ref(fig:ts-trs).
 Stereo patch cables are TRS (tip-ring-sleeve), whereas mono patch cables are TS (tip-sleeve).
 
-(ref:ts-trs) Stereo (top) and mono (bottom) patch cable connectors. Both have a tip and sleeve conductor, but stereo has an additional "ring" conductor to carry a second audio channel. Image [public domain](https://commons.wikimedia.org/wiki/File:Photo-audiojacks.jpg).
+(ref:ts-trs) Stereo (upper) and mono (lower) patch cable connectors. Both have a tip and sleeve conductor, but stereo has an additional "ring" conductor to carry a second audio channel. Image [public domain](https://commons.wikimedia.org/wiki/File:Photo-audiojacks.jpg).
 
 <div class="figure">
 <img src="images/ts-trs.jpg" alt="(ref:ts-trs)" width="100%" />

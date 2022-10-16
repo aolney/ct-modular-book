@@ -33,7 +33,7 @@ When we begin to consider music more broadly, it makes sense to think of phase a
 In real music, simultaneous sounds don't repeat forever but rather change over fairly short timescales, e.g. the envelope of a kick drum.
 For brief moments of time, phase relationships capture most everything, but for longer offset distances, the amount of time that has passed is more relevant than phase relationships.
 For this reason, time-based effects for short periods of time are often described in terms of phase, and longer-period effects are described in terms to time.
-Figure \@ref(fig:moon-phase-time) illustrates this idea with 6 seconds of natural sound (top) compared to .03 seconds of that same sound (bottom).
+Figure \@ref(fig:moon-phase-time) illustrates this idea with 6 seconds of natural sound (upper) compared to .03 seconds of that same sound (lower).
 While the longer stretch is clearly not repeating, the shorter stretch is approximately repeating and could be usefully characterized in terms of phase.
 
 (ref:moon-phase-time) Six seconds of natural sound (upper) with no clear repeating structure and .03 seconds of that same sound (lower) with approximate repeating structure.
