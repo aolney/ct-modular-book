@@ -197,3 +197,6 @@ trigger
 create
 modify
 minimoog-303
+fig:stranger-things-theme-frequency-audacity-7-top-4096
+tab:stranger-things-ref-peaks
+fig:st-square40-square82
