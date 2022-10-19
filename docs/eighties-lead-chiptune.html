@@ -80,11 +80,13 @@
 <li><a class="" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
 <li><a class="active" href="eighties-lead-chiptune.html"><span class="header-section-number">9</span> Eighties Lead &amp; Chiptune</a></li>
 <li class="book-part">Complex Modules</li>
-<li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
-<li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
-<li><a class="" href="modify.html"><span class="header-section-number">12</span> Modify</a></li>
+<li><a class="" href="complex-controllers.html"><span class="header-section-number">10</span> Controllers</a></li>
+<li><a class="" href="complex-generators.html"><span class="header-section-number">11</span> Generators</a></li>
+<li><a class="" href="complex-modifiers.html"><span class="header-section-number">12</span> Modifiers</a></li>
 <li class="book-part">Sound Design 2</li>
-<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
+<li><a class="" href="sd2-B.html"><span class="header-section-number">13</span> TBD &amp; TBD</a></li>
+<li class="book-part">Sound Design 2</li>
+<li><a class="" href="sd2-A.html"><span class="header-section-number">14</span> TBD &amp; TBD</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -148,7 +150,7 @@ Figure 9.2: Frequency spectrum of a single note from the <em>Stranger Things</em
 <p>Characteristics of the frequency peaks are shown in Table <a href="eighties-lead-chiptune.html#tab:stranger-things-ref-peaks">9.1</a>, including the harmonic ratio of each peak with the fundamental.
 Assume for a moment that these are harmonics even though the harmonic ratios are not strictly integers.
 Since both even and odd harmonics are present, this spectrum is consistent with a saw wave.
-However, this pattern could also be observed if there were two square waves, one with a fundamental at 40 Hz and one with a fundamental at 82 Hz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Because 80 Hz is the second harmonic of 40 Hz, the harmonics of the 80 Hz square wave would look like the even harmonics of 40 Hz.&lt;/p&gt;"><sup>72</sup></a></p>
+However, this pattern is also close to that of two square waves, one with a fundamental at 40 Hz and one with a fundamental at 82 Hz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Because 80 Hz is the second harmonic of 40 Hz, the odd harmonics of the 80 Hz square wave would match half the even harmonics of 40 Hz.&lt;/p&gt;"><sup>72</sup></a></p>
 <p>The ambiguity between a single saw and two squares can interrogated by examining the amplitudes in Table <a href="eighties-lead-chiptune.html#tab:stranger-things-ref-peaks">9.1</a>.
 The amplitude peaks at 82 Hz and 164 Hz could be from constructive interference, specifically a saw at 40 Hz and a square at 82 Hz where the square reinforces the existing harmonics of the saw.
 Alternatively, these amplitude peaks could potentially be created by two square waves where the square wave at 82 Hz is mixed in more strongly.</p>
@@ -960,7 +962,7 @@ Figure 9.12: <a href="https://cardinal.olney.ai">Virtual modular</a> for setting
 <h3>
 <span class="header-section-number">9.2.3</span> Secondary sequencer for transposition<a class="anchor" aria-label="anchor" href="#secondary-sequencer-for-transposition"><i class="fas fa-link"></i></a>
 </h3>
-<p>The transposition element is the most novel technique in this patch, relative to what you’ve encountered in the book so far.
+<p>The transposition element is the most novel technique in this patch, relative to what’s been covered so far.
 Recall that the V/Oct standard means that doubling any voltage will transpose a note up one octave.
 Therefore, adding any voltage to an existing V/Oct signal will raise the pitch, and subtracting any voltage from an existing V/Oct signal will lower the pitch.
 We can accomplish adding and subtracting from a signal by using a mixer, since a mixer simply adds two signals together and voltage signals can be negative.</p>
@@ -1250,7 +1252,7 @@ Figure 9.15: <a href="https://cardinal.olney.ai">Virtual modular</a> for setting
 
   <div class="chapter-nav">
 <div class="prev"><a href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></div>
-<div class="next"><a href="trigger.html"><span class="header-section-number">10</span> Trigger</a></div>
+<div class="next"><a href="complex-controllers.html"><span class="header-section-number">10</span> Controllers</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -1273,8 +1275,8 @@ Figure 9.15: <a href="https://cardinal.olney.ai">Virtual modular</a> for setting
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/10-lead-bass.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/10-lead-bass.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/09-lead-chiptune.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/09-lead-chiptune.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -1286,7 +1288,7 @@ Figure 9.15: <a href="https://cardinal.olney.ai">Virtual modular</a> for setting
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-17.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -214,7 +214,8 @@ triad-arpeggio
 lfo-pwm
 secondary-sequencer-for-transposition
 hats-and-kick
-trigger
-create
-modify
-minimoog-303
+complex-controllers
+complex-generators
+complex-modifiers
+sd2-B
+sd2-A

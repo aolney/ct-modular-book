@@ -80,11 +80,13 @@
 <li><a class="active" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
 <li><a class="" href="eighties-lead-chiptune.html"><span class="header-section-number">9</span> Eighties Lead &amp; Chiptune</a></li>
 <li class="book-part">Complex Modules</li>
-<li><a class="" href="trigger.html"><span class="header-section-number">10</span> Trigger</a></li>
-<li><a class="" href="create.html"><span class="header-section-number">11</span> Create</a></li>
-<li><a class="" href="modify.html"><span class="header-section-number">12</span> Modify</a></li>
+<li><a class="" href="complex-controllers.html"><span class="header-section-number">10</span> Controllers</a></li>
+<li><a class="" href="complex-generators.html"><span class="header-section-number">11</span> Generators</a></li>
+<li><a class="" href="complex-modifiers.html"><span class="header-section-number">12</span> Modifiers</a></li>
 <li class="book-part">Sound Design 2</li>
-<li><a class="" href="minimoog-303.html"><span class="header-section-number">13</span> Minimoog &amp; 303</a></li>
+<li><a class="" href="sd2-B.html"><span class="header-section-number">13</span> TBD &amp; TBD</a></li>
+<li class="book-part">Sound Design 2</li>
+<li><a class="" href="sd2-A.html"><span class="header-section-number">14</span> TBD &amp; TBD</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -648,7 +650,7 @@ The R code below loads the kick sound file and then creates a spectrogram with a
 <span><span class="fu">seewave</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/seewave/man/spectro.html">spectro</a></span><span class="op">(</span><span class="va">s</span>,flim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">.7</span><span class="op">)</span>,osc<span class="op">=</span><span class="cn">T</span>,dBref<span class="op">=</span><span class="fl">2</span><span class="op">*</span><span class="fl">10e-5</span>,heights<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:kick-spectrogram"></span>
-<img src="09-kick-cymbal_files/figure-html/kick-spectrogram-1.png" alt="Spectrogram of the reference kick sound (upper) and corresponding wave (lower)." width="100%"><p class="caption">
+<img src="08-design-kick_files/figure-html/kick-spectrogram-1.png" alt="Spectrogram of the reference kick sound (upper) and corresponding wave (lower)." width="100%"><p class="caption">
 Figure 8.10: Spectrogram of the reference kick sound (upper) and corresponding wave (lower).
 </p>
 </div>
@@ -665,7 +667,7 @@ The code below was used to generate the figure and look for frequency peaks.</p>
 <code class="sourceCode R"><span><span class="va">s.spec</span> <span class="op">&lt;-</span> <span class="fu">seewave</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/seewave/man/spec.html">spec</a></span><span class="op">(</span><span class="va">s</span>,flim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">.7</span><span class="op">)</span>,from<span class="op">=</span><span class="fl">0</span>,to<span class="op">=</span><span class="fl">0.025</span>,norm<span class="op">=</span><span class="cn">F</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:kick-spectrum-early"></span>
-<img src="09-kick-cymbal_files/figure-html/kick-spectrum-early-1.png" alt="Frequency spectrum of the reference kick sound from 0 to 25 ms." width="100%"><p class="caption">
+<img src="08-design-kick_files/figure-html/kick-spectrum-early-1.png" alt="Frequency spectrum of the reference kick sound from 0 to 25 ms." width="100%"><p class="caption">
 Figure 8.11: Frequency spectrum of the reference kick sound from 0 to 25 ms.
 </p>
 </div>
@@ -713,7 +715,7 @@ The code below was used to generate the figure and look for frequency peaks.</p>
 <code class="sourceCode R"><span><span class="va">s.spec</span> <span class="op">&lt;-</span> <span class="fu">seewave</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/seewave/man/spec.html">spec</a></span><span class="op">(</span><span class="va">s</span>,flim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">.7</span><span class="op">)</span>,from<span class="op">=</span><span class="fl">0.025</span>,norm <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:kick-spectrum-late"></span>
-<img src="09-kick-cymbal_files/figure-html/kick-spectrum-late-1.png" alt="(ref:kick-spectrum-late)" width="100%"><p class="caption">
+<img src="08-design-kick_files/figure-html/kick-spectrum-late-1.png" alt="(ref:kick-spectrum-late)" width="100%"><p class="caption">
 Figure 8.12: (ref:kick-spectrum-late)
 </p>
 </div>
@@ -934,8 +936,8 @@ Figure 8.14: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-osc-bank
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/09-kick-cymbal.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/09-kick-cymbal.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/08-design-kick.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/08-design-kick.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -947,7 +949,7 @@ Figure 8.14: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-osc-bank
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-17.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
