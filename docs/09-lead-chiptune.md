@@ -205,8 +205,16 @@ Chiptune is a genre of music so-called because it originated in sound chips used
 These early sound chips had low-fidelity digital implementations of various functions we've encountered in modular, like basic waveshapes, noise generators, and envelopes.
 Because the sound chips were relatively limited in capability, designers developed various techniques to create bigger and more interesting sounds.
 One of these tricks, the arpeggio, allowed chips with limited polyphony to emulate it, and thus arpeggio, particularly fast arpeggio, is common in chiptune. 
+If you are not familiar with chiptune, check out the video in Figure \@ref(fig:chiptune-video).
 
-Our design problem is to create a rapid arpeggio reminiscent of chiptune that transposes over time, along with simple percussion in the form of hats and kick drum.
+(ref:chiptune-video) [YouTube video](https://youtu.be/NfxArPJpN5I) of a chiptune groove.  Image [© Noise Engineering](https://www.youtube.com/c/NoiseEngineering).
+
+<div class="figure">
+<img src="downloadFigs4latex/chiptune-video.jpg" alt="(ref:chiptune-video)"  />
+<p class="caption">(\#fig:chiptune-video)(ref:chiptune-video)</p>
+</div>
+
+Our design problem is to create a rapid arpeggio reminiscent of chiptune that transposes over time, like Figure \@ref(fig:chiptune-video), along with simple percussion in the form of hats and kick drum.
 Let's use a decomposition strategy and look at related problems along the way, using the following sequence:
 
 - Triad arpeggio
@@ -242,7 +250,7 @@ We previously controlled PWM using an LFO in Section \@ref(pulse-width-modulatio
 Additionally, let's add an ADSR to control the VCA to get more note-like dynamics.
 Try patching up the LFO into a PWM and ADSR using the button in Figure \@ref(fig:chiptune-single-arp-pwm).
 
-(ref:chiptune-single-arp-pwm) [Virtual modular](https://cardinal.olney.ai) for setting up an enveloped chiptune arpeggio with pulse-width modulated by an LFO.
+(ref:chiptune-single-arp-pwm) [Virtual modular](https://cardinal.olney.ai) for setting up an enveloped chiptune arpeggio with pulse width modulated by an LFO.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -274,7 +282,7 @@ Try patching up the transposing sequencer and mixer using the button in Figure \
 <p class="caption">(\#fig:two-sequencers-mixed)(ref:two-sequencers-mixed)</p>
 </div>
 
-(ref:chiptune-single-arp-pwm-transpose) [Virtual modular](https://cardinal.olney.ai) for setting up an enveloped chiptune arpeggio with pulse-width modulated by an LFO, transposed by a second sequencer every bar.
+(ref:chiptune-single-arp-pwm-transpose) [Virtual modular](https://cardinal.olney.ai) for setting up an enveloped chiptune arpeggio with pulse width modulated by an LFO, transposed by a second sequencer every bar.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -293,7 +301,7 @@ Both voices are ideally controlled with trigger sequencers, and by using two dif
 Try patching up hats and kick with their own sequencers using the button in Figure \@ref(fig:chiptune-single-arp-pwm-transpose-hats-kick).
 
 
-(ref:chiptune-single-arp-pwm-transpose-hats-kick) [Virtual modular](https://cardinal.olney.ai) for setting up an enveloped chiptune arpeggio with pulse-width modulated by an LFO, transposed by a second sequencer every bar, with hats and kick as additional voices.
+(ref:chiptune-single-arp-pwm-transpose-hats-kick) [Virtual modular](https://cardinal.olney.ai) for setting up an enveloped chiptune arpeggio with pulse width modulated by an LFO, transposed by a second sequencer every bar, with hats and kick as additional voices.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -303,113 +311,5 @@ Try patching up hats and kick with their own sequencers using the button in Figu
 <img src="images/launch-virtual-modular-button.png" alt="(ref:chiptune-single-arp-pwm-transpose-hats-kick)" width="100%" />
 <p class="caption">(\#fig:chiptune-single-arp-pwm-transpose-hats-kick)(ref:chiptune-single-arp-pwm-transpose-hats-kick)</p>
 </div>
-
-
-
-<!-- Remaining plan -->
-
-<!-- Sound design ideas -->
-
-<!-- Cymbal PUSH UNTIL AFTER RING MOD -->
-<!-- Video game lead -->
-<!-- 80’s music bass -->
-
-<!-- Maybe use these? -->
-<!-- keyboard filter tracking or notes would disappear; filtering sine wave example -->
-<!-- pinging: sending a gate/trigger to a near-oscillating filter; use AR on filter's freq -->
-<!-- Growl: Low frequency sine wave modulation of the filter cut-off frequency -->
-<!-- wah wah is LFO on LPF cutoff freq -->
-
-
-
-<!-- Complex modules and Compositions		 -->
-<!-- 	Controllers	 -->
-<!-- 		Clock, sequencing, arpggiators -->
-<!-- 		Euclidean rhythms -->
-<!-- 		Probability -->
-<!-- 	Generators	 -->
-<!-- 		PWM -->
-<!-- 		FM/AM -->
-<!-- 		Ring modulation -->
-<!-- audio rate modulation into resonant filter? -->
-<!-- 		Vocoders -->
-<!-- 		Random sampling -->
-<!-- 	Modifiers	 -->
-<!-- 		~~LFO~~ -->
-<!-- 		Sample and hold -->
-<!-- 		Slew -->
-<!-- 		Wave-folding -->
-<!-- 		Attenuators, inverters, and attenuverters -->
-<!-- 		Quantizers -->
-<!-- 		Switches -->
-<!-- 		Logic -->
-
-
-<!-- Actual -->
-<!--     4 Basic Modeling Concepts -->
-<!--     4.1 Modules are the model elements -->
-<!--     4.2 Signals are how the model elements interact -->
-<!--     4.3 Signals are interpreted by modules -->
-<!--     4.4 Pulling it all together -->
-<!--         4.4.1 Drone -->
-<!--         4.4.2 Using an oscilloscope -->
-<!--         4.4.3 Controlling pitch -->
-<!--         4.4.4 Controlling note duration (on/off volume) -->
-<!--         4.4.5 Controlling note dynamics (volume during note) -->
-<!--     4.5 Moving forward -->
-
-<!-- 5 Controllers -->
-<!-- 5.1 Clocks -->
-
-<!--     5.1.1 Clock under a scope -->
-<!--     5.1.2 Clock as a generator -->
-
-<!-- 5.2 Sequencers -->
-
-<!--     5.2.1 Clocks as sequencers -->
-<!--     5.2.2 Trigger sequencers -->
-<!--     5.2.3 Control voltage sequencers -->
-
-
-<!--     6 Generators -->
-<!--     6.1 Chords -->
-<!--     6.2 Chorus -->
-<!--     6.3 Low frequency oscillators & uses -->
-<!--         6.3.1 Pulse width modulation -->
-<!--         6.3.2 Vibrato -->
-<!--         6.3.3 Tremolo -->
-<!--     6.4 Synchronization -->
-<!--     6.5 Noise -->
-<!--     6.6 Samplers -->
-
-<!-- 7 Modifiers -->
-<!-- 7.1 Effects -->
-<!--     7.1.1 Delays -->
-<!--     7.1.2 Reverb -->
-<!--     7.1.3 Chorus -->
-<!--     7.1.4 Flanger -->
-<!--     7.1.5 Phaser -->
-<!-- 7.2 Voltage controlled filters -->
-<!--     7.2.1 Filters are imperfect -->
-<!--     7.2.2 Filters change frequency and phase -->
-<!--     7.2.3 Combining filters -->
-<!--     7.2.4 Resonance -->
-
-
-<!-- 8 Designing a Kick Drum -->
-<!-- 8.1 Problem solving for sound synthesis -->
-<!--     8.1.1 Understand the problem -->
-<!--     8.1.2 Devise a plan -->
-<!--     8.1.3 Carry out the plan (and replanning) -->
-<!--     8.1.4 Evaluate the solution -->
-<!-- 8.2 Reviewing previous kick drum patches -->
-<!--     8.2.1 Sine with envelope -->
-<!--     8.2.2 Sine with an envelope plus noise burst -->
-<!-- 8.3 Alternative approaches -->
-<!--     8.3.1 Improving our understanding of the problem -->
-<!--     8.3.2 Devising new plans -->
-<!--     8.3.3 Working backwards -->
-
-
 
 

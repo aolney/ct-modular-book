@@ -126,6 +126,7 @@ fig:st-square40-square82at36pwm-square164
 fig:stranger-things-square40-square82at36pwm-square164-mixed-to-match-sample7
 fig:st-seq-arp-no-modulated-dynamics
 fig:st-seq-arp-plus-dynamics
+fig:chiptune-video
 fig:chiptune-single-arp
 fig:chiptune-single-arp-pwm
 fig:two-sequencers-mixed
