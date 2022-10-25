@@ -132,6 +132,11 @@ fig:chiptune-single-arp-pwm
 fig:two-sequencers-mixed
 fig:chiptune-single-arp-pwm-transpose
 fig:chiptune-single-arp-pwm-transpose-hats-kick
+fig:clock-div2-div4
+fig:clock-division-drums-mschack
+fig:clock-division-drums-mschack-offbeat-gate-delay
+fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult
+fig:trg-mshack-drums-offbeat-roll
 introduction
 why-this-book
 computational-thinking
@@ -216,6 +221,12 @@ lfo-pwm
 secondary-sequencer-for-transposition
 hats-and-kick
 complex-controllers
+modifying-gates
+selecting-gates-with-logic
+addingremoving-gates-with-probability
+speed-variable-clocks-using-lfos
+euclidean-sequencing
+sequential-switches
 complex-generators
 complex-modifiers
 sd2-B
