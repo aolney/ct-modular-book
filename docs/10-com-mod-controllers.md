@@ -204,6 +204,59 @@ It appears that clock divisions with logic are most suited to regular repeating 
 
 ## Adding/removing gates with probability
 
+Generally speaking, the more complex sequencing we want (i.e. irreducible to a simple pattern), the less compact our control will be.
+We can get around this limitation if we give up precise control of the sequencing by turning to probability.
+A [probability](https://en.wikipedia.org/wiki/Probability) specifies of the likelihood of an event, like a gate.
+In our current approaches, a gate either happens or it doesn't.
+However, if we assign some probability to a gate happening, more complex patterns emerge because sometimes the gate will happen and sometimes it won't.
+
+Perhaps the easiest way to think about probabilistic gates is to think of them like coin flips.
+If we flip a coin and get a head, then the gate will be produced, otherwise no gate will be produced.
+How can we simulate a coin flip in modular?
+One way is to generate a random voltage and then compare it to a reference value.
+If the voltage is above the reference value, we count it as a head and produce a gate.
+We've already seen how to create random voltages with noise generators.
+The new idea here is a comparator, which is a module that accepts an incoming voltage $V$, compares it to a reference voltage $R$, and produces a high signal if $V > R$.^[This approach is chosen for pedagogical reasons. Various modules offer built-in random number generation that is more flexible than combining noise sources with comparators.]
+Because different noise spectra have different distributions of frequencies (and thus voltages), different noise spectra will give us different probabilities for the same reference voltage.
+
+We can use the probabilistic gate idea to sequence all the percussion voices in our ongoing example.
+Since probabilistic gates would be completely random by definition, we'll structure them a bit using logic: a NOT to make two different voices alternate and an AND to combine two different noise signals for a lower probability.
+Try updating the last patch to drive all gates with probability and logic using the button in Figure \@ref(fig:noise-comparator-logic-mshack-drums).
+
+(ref:noise-comparator-logic-mshack-drums) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using probabilistic gates slightly structured with NOT and AND operators.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noise-comparator-logic-mshack-drums)" width="100%" />
+<p class="caption">(\#fig:noise-comparator-logic-mshack-drums)(ref:noise-comparator-logic-mshack-drums)</p>
+</div>
+
+The output of this patch is much more complex than we could reasonably achieve using other sequencing methods, but it is also uncontrolled and not very musical, even when shaped a bit by logic.
+An alternative to randomly creating gates is to take an existing pattern but randomly drop gates.
+This can be implemented as simply as using noise source, a comparator, and an AND module that receives the output as well as the output for the normal gate.
+However, to get the random gates to align with the standard clock, we'll use a new module, a sample and hold module.
+A sample and hold module, when triggered, stores whatever voltage is present at its input and outputs that voltage until a new trigger is received, ignoring whatever input voltages occur in the meantime.
+By connecting a random gate to a sample and hold and triggering it with a clock, we can synchronize the random gate with our clock and have a clean signal for deciding to drop a gate or not.
+Try updating the previous logic patch that selected every other off beat to further consider a random gate using the button in Figure \@ref(fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat).
+
+(ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using a probabilistic gate and logic to decide when to drop a gate from an otherwise non-probabilistic sequence.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)" width="100%" />
+<p class="caption">(\#fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)(ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)</p>
+</div>
+
+As shown by these patches, probability can be used to create interesting variations in several ways.
+These methods are fairly compact and can switch between variations easily, however, there is a loss of control.
+Modules specifically designed for randomness typically have additional parameters that allow the user to define how random events should be, which can help mitigate this loss of control.
+
 ## Speed variable clocks using LFOs
 
 ## Euclidean sequencing

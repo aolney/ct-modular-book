@@ -301,6 +301,96 @@ It appears that clock divisions with logic are most suited to regular repeating 
 
 ## Adding/removing gates with probability
 
+Generally speaking, the more complex sequencing we want (i.e. irreducible to a simple pattern), the less compact our control will be.
+We can get around this limitation if we give up precise control of the sequencing by turning to probability.
+A [probability](https://en.wikipedia.org/wiki/Probability) specifies of the likelihood of an event, like a gate.
+In our current approaches, a gate either happens or it doesn't.
+However, if we assign some probability to a gate happening, more complex patterns emerge because sometimes the gate will happen and sometimes it won't.
+
+Perhaps the easiest way to think about probabilistic gates is to think of them like coin flips.
+If we flip a coin and get a head, then the gate will be produced, otherwise no gate will be produced.
+How can we simulate a coin flip in modular?
+One way is to generate a random voltage and then compare it to a reference value.
+If the voltage is above the reference value, we count it as a head and produce a gate.
+We've already seen how to create random voltages with noise generators.
+The new idea here is a comparator, which is a module that accepts an incoming voltage $V$, compares it to a reference voltage $R$, and produces a high signal if $V > R$.^[This approach is chosen for pedagogical reasons. Various modules offer built-in random number generation that is more flexible than combining noise sources with comparators.]
+Because different noise spectra have different distributions of frequencies (and thus voltages), different noise spectra will give us different probabilities for the same reference voltage.
+
+We can use the probabilistic gate idea to sequence all the percussion voices in our ongoing example.
+Since probabilistic gates would be completely random by definition, we'll structure them a bit using logic: a NOT to make two different voices alternate and an AND to combine two different noise signals for a lower probability.
+Try updating the last patch to drive all gates with probability and logic using the button in Figure \@ref(fig:noise-comparator-logic-mshack-drums).
+
+(ref:noise-comparator-logic-mshack-drums) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using probabilistic gates slightly structured with NOT and AND operators.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("noise-comparator-logic-mshack-drums", starter_file="clock-division-drums-mschack-offbeat-logic-matching-gate-delay.vcv", instructions_html="<ul>
+<li>Delete the Clock and Dividah modules, and add Noiz and two Edge modules to the bottom row</li>
+<li>Disconnect all cables from dualAND and dualNOT</li>
+<li>Connect Noiz red out to the first Edge in, and connect the first Edge high out to the dualAND top input. The high out is active when the input value goes above the threshold set by the rise knob</li>
+<li> Connect the Noiz white out to the second Edge in, and connect the second Edge high out to the second top input of the dual AND. Also connect the high out to the closed hat LVL and TRIG in</li>
+<li>Even if you turn up the rise knob all the way, you should hear almost constant closed hats at this point. This is why we need the AND to lower the probability of gates</li>
+<li>Connect dualAND top output to the open hat LVL and TRIG in. Because the AND is only high when both red and white noise are over threshold at the same time, this gate will occur less often than the closed hat gate</li>
+<li>Connect dualAND top output to the dualNOT top input</li>
+<li>Connect dualNOT top output to the kick LVL and TRIG in. The NOT ensures that the open hat and the kick will be gated in alternation</li>
+<li>Try the following and note the differences in the sound and scope waveshape<ul>
+<li>Change the hold knob on both Edge modules. This controls how long the comparator will hold an output value before testing the input again. Low values will make shorter gates and vice versa</li>
+<li>Change the rise knob on both Edge modules. This controls the reference voltage for the comparator, so making it higher makes the comparator less likely to be active, and vice versa</li>
+<li>Look at the lights on the logic modules. When we were working with clock divisions, they were more orderly because they were synced to the clock. Now they are not orderly because there is no clock.</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='rack-image' src='images/solo-modules/edge-solo.png'>
+</div>
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/noise-comparator-logic-mshack-drums.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r noise-comparator-logic-mshack-drums, echo=F, out.width="100%", fig.cap="(ref:noise-comparator-logic-mshack-drums)"}
+modular_caption()
+```
+
+The output of this patch is much more complex than we could reasonably achieve using other sequencing methods, but it is also uncontrolled and not very musical, even when shaped a bit by logic.
+An alternative to randomly creating gates is to take an existing pattern but randomly drop gates.
+This can be implemented as simply as using noise source, a comparator, and an AND module that receives the output as well as the output for the normal gate.
+However, to get the random gates to align with the standard clock, we'll use a new module, a sample and hold module.
+A sample and hold module, when triggered, stores whatever voltage is present at its input and outputs that voltage until a new trigger is received, ignoring whatever input voltages occur in the meantime.
+By connecting a random gate to a sample and hold and triggering it with a clock, we can synchronize the random gate with our clock and have a clean signal for deciding to drop a gate or not.
+Try updating the previous logic patch that selected every other off beat to further consider a random gate using the button in Figure \@ref(fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat).
+
+(ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using a probabilistic gate and logic to decide when to drop a gate from an otherwise non-probabilistic sequence.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat", starter_file="clock-division-drums-mschack-offbeat-logic-every-other-offbeat.vcv", instructions_html="<ul>
+<li>Add Noiz, Comparator, and Holdah to the bottom row</li>
+<li><em>Tip: We are using a different comparator because Edge outputs 5 V and we need 10 V for a consistent gate across percussion voices. We also want to use the clock as the threshold to the comparator, which Edge can't do</em></li>
+<li>Connect Dividah by 4 to Comparator input a and Noiz red out to Comparator input b</li>
+<li>Connect Comparator a > b out (so Clock is greater than red noise) to Holdah input and connect Dividah by 4 to Holdah trigger</li>
+<li>Connect dualAND top output to dualAND bottom input a and connect Holdah output to dualAND bottom input b</li>
+<li>Connect dualAND bottom output to the open hat LVL and TRIG in. This gate will only be active if it was part of the original sequence AND the random gate is active at the same time</li>
+<li>Run the patch and observe the following<ul>
+<li>Although the comparator output is blinking wildly, the sample and hold output changes only when triggered by the clock. This prevents our hat from being shortened like the last patch</li>
+<li>If you switch the noise type, you should have a change in the number of random gates, e.g. white has a greater tendency towards higher frequencies so would cause more random gates </li>
+<li>Some comparator outputs will never result in a random gate (like =) and others will always result in a random gate (like not equals, !=). This is because a random number exactly equalling a specific value is rare, but not equally a specific value is common </li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='rack-image' src='images/solo-modules/comparator-solo.png'>
+<img class='rack-image' src='images/solo-modules/holdah-solo.png'>
+</div>
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat, echo=F, out.width="100%", fig.cap="(ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)"}
+modular_caption()
+```
+
+As shown by these patches, probability can be used to create interesting variations in several ways.
+These methods are fairly compact and can switch between variations easily, however, there is a loss of control.
+Modules specifically designed for randomness typically have additional parameters that allow the user to define how random events should be, which can help mitigate this loss of control.
+
 ## Speed variable clocks using LFOs
 
 ## Euclidean sequencing

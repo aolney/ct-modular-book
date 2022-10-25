@@ -141,6 +141,8 @@ tab:logic
 fig:clock-division-drums-mschack-offbeat-logic-every-offbeat
 fig:clock-division-drums-mschack-offbeat-logic-every-other-offbeat
 fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay
+fig:noise-comparator-logic-mshack-drums
+fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat
 introduction
 why-this-book
 computational-thinking
