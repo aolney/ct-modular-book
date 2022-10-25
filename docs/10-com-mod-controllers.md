@@ -3,25 +3,13 @@
 # Controllers {#complex-controllers}
 
 
+
 <!-- Remaining plan -->
-
-<!-- Sound design ideas -->
-
-<!-- Cymbal PUSH UNTIL AFTER RING MOD -->
-<!-- Video game lead -->
-<!-- 80’s music bass -->
-
-<!-- Maybe use these? -->
-<!-- keyboard filter tracking or notes would disappear; filtering sine wave example -->
-<!-- pinging: sending a gate/trigger to a near-oscillating filter; use AR on filter's freq -->
-<!-- Growl: Low frequency sine wave modulation of the filter cut-off frequency -->
-<!-- wah wah is LFO on LPF cutoff freq -->
-
 
 
 <!-- Complex modules and Compositions		 -->
 <!-- 	Controllers	 -->
-<!-- 		Clock, sequencing, arpggiators -->
+<!-- 		Clock, sequencing, arpeggiators -->
 <!-- 		Euclidean rhythms -->
 <!-- 		Probability -->
 <!-- 	Generators	 -->
@@ -40,6 +28,14 @@
 <!-- 		Quantizers -->
 <!-- 		Switches -->
 <!-- 		Logic -->
+
+<!-- Sound design ideas -->
+<!-- Cymbal PUSH UNTIL AFTER RING MOD -->
+<!-- Maybe use these? -->
+<!-- keyboard filter tracking or notes would disappear; filtering sine wave example -->
+<!-- Growl: Low frequency sine wave modulation of the filter cut-off frequency -->
+<!-- wah wah is LFO on LPF cutoff freq -->
+
 
 
 <!-- Actual -->
@@ -107,6 +103,16 @@
 <!--     8.3.2 Devising new plans -->
 <!--     8.3.3 Working backwards -->
 
+
+<!-- 9 Eighties Lead & Chiptune -->
+<!-- 9.1 Eighties Lead -->
+<!--     9.1.1 Waveshape -->
+<!--     9.1.2 Dynamics -->
+<!-- 9.2 Chiptune -->
+<!--     9.2.1 Triad arpeggio -->
+<!--     9.2.2 LFO PWM -->
+<!--     9.2.3 Secondary sequencer for transposition -->
+<!--     9.2.4 Hats and kick -->
 
 
 
