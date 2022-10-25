@@ -239,7 +239,7 @@ For example, consider every other offbeat in Figure \@ref(fig:clock-div2-div4).
 These offbeats occur when the clock is not present and the /2 division is present.
 Try updating the last patch with an AND module to implement this logic using the button in Figure \@ref(fig:clock-division-drums-mschack-offbeat-logic-every-other-offbeat).
 
-(ref:clock-division-drums-mschack-offbeat-logic-every-other-offbeat) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using clock divisions and combining the NOT and AND operators to create gates for every other off beat hit.
+(ref:clock-division-drums-mschack-offbeat-logic-every-other-offbeat) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using clock divisions and combining the NOT and AND operators to create gates for every other off beat hits.
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
@@ -270,7 +270,7 @@ Since the last patch used every other off beat, we can use an additional operato
 Again looking at Figure \@ref(fig:clock-div2-div4), we see that we can achieve this by using AND with our existing logic and next larger clock division.
 Try updating the last patch to implement this logic using the button in Figure \@ref(fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay).
 
-(ref:clock-division-drums-mschack-offbeat-logic-matching-gate-delay) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using clock divisions and combining the NOT and AND operators to create gates for every other off beat hit.
+(ref:clock-division-drums-mschack-offbeat-logic-matching-gate-delay) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using clock divisions and combining the NOT and AND operators to create a single gate per bar, matching the previous delayed gate behavior.
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
@@ -356,6 +356,7 @@ This can be implemented as simply as using noise source, a comparator, and an AN
 However, to get the random gates to align with the standard clock, we'll use a new module, a sample and hold module.
 A sample and hold module, when triggered, stores whatever voltage is present at its input and outputs that voltage until a new trigger is received, ignoring whatever input voltages occur in the meantime.
 By connecting a random gate to a sample and hold and triggering it with a clock, we can synchronize the random gate with our clock and have a clean signal for deciding to drop a gate or not.
+Note that if we wanted to produce V/Oct control voltage for random notes, we could similarly use sample and hold module directly connected to our random source, i.e. without a comparator.
 Try updating the previous logic patch that selected every other off beat to further consider a random gate using the button in Figure \@ref(fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat).
 
 (ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using a probabilistic gate and logic to decide when to drop a gate from an otherwise non-probabilistic sequence.
@@ -392,6 +393,55 @@ These methods are fairly compact and can switch between variations easily, howev
 Modules specifically designed for randomness typically have additional parameters that allow the user to define how random events should be, which can help mitigate this loss of control.
 
 ## Speed variable clocks using LFOs
+
+Recall one of the earlier challenges raised was to increasing the number of hits on a particular beat, skipping a beat, and accessing all possible beats (including off beats).
+We've tried to solve this problem using gate delays, logic, or an increased step resolution to access off beats and gate multipliers and increased step resolution to increase the number of hits on a particular beat.
+In each case, one technique would solve some problems but not others, with the exception of step resolution which has the problems previously discussed.
+
+It turns out that we can achieve all three of these goals by running speed variable clocks, one for each percussion voice where we want to have multiple beats, skipping, or offbeats at different times.
+The idea is that when we want multiple beats, we speed the clock up; when we want to skip a beat, we slow the clock down almost zero, and that when we want to access an offbeat, we use the same sequencer we're using the speed up and slow down the clock.
+Because a clock is just unipolar rectangular waves, an LFO can be used as a speed variable clock.
+One of the additional benefits of this approach is that skipping a beat and doubling a beat are controlled by the same parameter, frequency.
+Contrast this with the previous approach using gate multiplication, where skipping a beat required an additional sequencer to shrink gate length to zero.
+We still need a master clock however to keep the LFOs in sync, which can be done by sending clock to their reset inputs, which resets them to the beginning of their waveforms.
+
+Let's recreate the off beat open hat with a double kick on the first beat that we've used as a running example.
+Both of these voices will require their own LFO to serve as a clock, where each LFO has its frequency controlled by a sequencer.
+Try updating the previous patch with gate delay and gate multiplier to use sequenced LFOs instead using the button in Figure \@ref(fig:lfo-mshack-drums-offbeat-roll).
+
+(ref:lfo-mshack-drums-offbeat-roll) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using LFOs as speed variable clocks to achieve gate delays, skipped steps, and off beats using a single parameter.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("lfo-mshack-drums-offbeat-roll", starter_file="clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult.vcv", instructions_html="<ul>
+<li>Remove Dividah, DGATE, and RGATE</li>
+<li>On the bottom row, add LFOs and ADDR-SEQ so you have two of each side by side</li>
+<li>Starting with the open hat LFO/ADDR-SEQ, connect Clock 8ths out to ADDR-SEQ clock in and set the sequencer to 8 steps</li>
+<li>Connect ADDR-SEQ out to LFO FM in and turn attenuator for FM all the way positive</li>
+<li>Connect the LFO square out to the open hat LVL and TRIG in</li>
+<li>Repeat the above for the kick LFO/ADDR-SEQ but use the Clock beat out and only 4 steps</li>
+<li>Connect Clock beat out to the reset of both LFOs to keep them in sync with the clock, and connect Clock reset out to both sequencers to get them synchronized
+<li>Try the following and note the differences in the sound and scope waveshape<ul>
+<li>Change the step voltage for open hat sequencer. Turning all the way to the left should skip the step. Remember you only need one open hat in the sequence, on 4-and</li>
+<li>Change the step voltage for the kick sequencer. Turning to the right will increase the number of beats per step. If you turn it too high, it will appear as a continuous sound, so make small changes. You need two beats on the first step to match the previous pattern</li>
+</ul></li>
+</ul>
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/lfo-mshack-drums-offbeat-roll.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r lfo-mshack-drums-offbeat-roll, echo=F, out.width="100%", fig.cap="(ref:lfo-mshack-drums-offbeat-roll)"}
+modular_caption()
+```
+
+As you can see, this approach is fairly compact but not as compact as using a gate delay and gate multiplier.
+However it is easier to change between variations, e.g. adding rolls on different beats or silencing different beats would not require changing the patch, and these can be controlled by a single parameter.
+
+A variation of this approach, though perhaps a somewhat distant one, can be used to generate gate patterns without a clock.
+Simply mix LFOs at different frequencies to produce an irregular interference pattern that can then be run through a comparator to generate gates.
+If these need to be synced to a clock for uniform gate lengths, then the sample and hold method discussed in the previous section can be used.
+A clock can also be used to periodically trigger the reset of the LFOs, forcing the pattern to repeat.
+
 
 ## Euclidean sequencing
 

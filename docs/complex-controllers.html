@@ -787,7 +787,7 @@ function setclock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:clock-division-drums-mschack-offbeat-logic-every-other-offbeat"></span>
 <p class="caption">
-Figure 10.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percussion patch using clock divisions and combining the NOT and AND operators to create gates for every other off beat hit.
+Figure 10.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percussion patch using clock divisions and combining the NOT and AND operators to create gates for every other off beat hits.
 </p>
 </div>
 <p>Let’s get even more specific with logic to match what we did previously with the gate delay, which was a single off beat.
@@ -879,7 +879,7 @@ function setclock_division_drums_mschack_offbeat_logic_matching_gate_delayIframe
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay"></span>
 <p class="caption">
-Figure 10.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percussion patch using clock divisions and combining the NOT and AND operators to create gates for every other off beat hit.
+Figure 10.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percussion patch using clock divisions and combining the NOT and AND operators to create a single gate per bar, matching the previous delayed gate behavior.
 </p>
 </div>
 <p>Let’s consider the three ideal sequencer properties, in terms of logic.
@@ -1016,6 +1016,7 @@ This can be implemented as simply as using noise source, a comparator, and an AN
 However, to get the random gates to align with the standard clock, we’ll use a new module, a sample and hold module.
 A sample and hold module, when triggered, stores whatever voltage is present at its input and outputs that voltage until a new trigger is received, ignoring whatever input voltages occur in the meantime.
 By connecting a random gate to a sample and hold and triggering it with a clock, we can synchronize the random gate with our clock and have a clean signal for deciding to drop a gate or not.
+Note that if we wanted to produce V/Oct control voltage for random notes, we could similarly use sample and hold module directly connected to our random source, i.e. without a comparator.
 Try updating the previous logic patch that selected every other off beat to further consider a random gate using the button in Figure <a href="complex-controllers.html#fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat">10.10</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -1125,6 +1126,116 @@ Modules specifically designed for randomness typically have additional parameter
 <h2>
 <span class="header-section-number">10.4</span> Speed variable clocks using LFOs<a class="anchor" aria-label="anchor" href="#speed-variable-clocks-using-lfos"><i class="fas fa-link"></i></a>
 </h2>
+<p>Recall one of the earlier challenges raised was to increasing the number of hits on a particular beat, skipping a beat, and accessing all possible beats (including off beats).
+We’ve tried to solve this problem using gate delays, logic, or an increased step resolution to access off beats and gate multipliers and increased step resolution to increase the number of hits on a particular beat.
+In each case, one technique would solve some problems but not others, with the exception of step resolution which has the problems previously discussed.</p>
+<p>It turns out that we can achieve all three of these goals by running speed variable clocks, one for each percussion voice where we want to have multiple beats, skipping, or offbeats at different times.
+The idea is that when we want multiple beats, we speed the clock up; when we want to skip a beat, we slow the clock down almost zero, and that when we want to access an offbeat, we use the same sequencer we’re using the speed up and slow down the clock.
+Because a clock is just unipolar rectangular waves, an LFO can be used as a speed variable clock.
+One of the additional benefits of this approach is that skipping a beat and doubling a beat are controlled by the same parameter, frequency.
+Contrast this with the previous approach using gate multiplication, where skipping a beat required an additional sequencer to shrink gate length to zero.
+We still need a master clock however to keep the LFOs in sync, which can be done by sending clock to their reset inputs, which resets them to the beginning of their waveforms.</p>
+<p>Let’s recreate the off beat open hat with a double kick on the first beat that we’ve used as a running example.
+Both of these voices will require their own LFO to serve as a clock, where each LFO has its frequency controlled by a sequencer.
+Try updating the previous patch with gate delay and gate multiplier to use sequenced LFOs instead using the button in Figure <a href="complex-controllers.html#fig:lfo-mshack-drums-offbeat-roll">10.11</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setlfo_mshack_drums_offbeat_rollIframe('https://cardinal.olney.ai?patchurl=clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#lfo_mshack_drums_offbeat_roll">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="lfo_mshack_drums_offbeat_roll" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="lfo_mshack_drums_offbeat_rollLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="lfo_mshack_drums_offbeat_rollLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Remove Dividah, DGATE, and RGATE&lt;/li&gt;
+&lt;li&gt;On the bottom row, add LFOs and ADDR-SEQ so you have two of each side by side&lt;/li&gt;
+&lt;li&gt;Starting with the open hat LFO/ADDR-SEQ, connect Clock 8ths out to ADDR-SEQ clock in and set the sequencer to 8 steps&lt;/li&gt;
+&lt;li&gt;Connect ADDR-SEQ out to LFO FM in and turn attenuator for FM all the way positive&lt;/li&gt;
+&lt;li&gt;Connect the LFO square out to the open hat LVL and TRIG in&lt;/li&gt;
+&lt;li&gt;Repeat the above for the kick LFO/ADDR-SEQ but use the Clock beat out and only 4 steps&lt;/li&gt;
+&lt;li&gt;Connect Clock beat out to the reset of both LFOs to keep them in sync with the clock, and connect Clock reset out to both sequencers to get them synchronized
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Change the step voltage for open hat sequencer. Turning all the way to the left should skip the step. Remember you only need one open hat in the sequence, on 4-and&lt;/li&gt;
+&lt;li&gt;Change the step voltage for the kick sequencer. Turning to the right will increase the number of beats per step. If you turn it too high, it will appear as a continuous sound, so make small changes. You need two beats on the first step to match the previous pattern&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/lfo-mshack-drums-offbeat-roll.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Remove Dividah, DGATE, and RGATE&lt;/li&gt;
+&lt;li&gt;On the bottom row, add LFOs and ADDR-SEQ so you have two of each side by side&lt;/li&gt;
+&lt;li&gt;Starting with the open hat LFO/ADDR-SEQ, connect Clock 8ths out to ADDR-SEQ clock in and set the sequencer to 8 steps&lt;/li&gt;
+&lt;li&gt;Connect ADDR-SEQ out to LFO FM in and turn attenuator for FM all the way positive&lt;/li&gt;
+&lt;li&gt;Connect the LFO square out to the open hat LVL and TRIG in&lt;/li&gt;
+&lt;li&gt;Repeat the above for the kick LFO/ADDR-SEQ but use the Clock beat out and only 4 steps&lt;/li&gt;
+&lt;li&gt;Connect Clock beat out to the reset of both LFOs to keep them in sync with the clock, and connect Clock reset out to both sequencers to get them synchronized
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Change the step voltage for open hat sequencer. Turning all the way to the left should skip the step. Remember you only need one open hat in the sequence, on 4-and&lt;/li&gt;
+&lt;li&gt;Change the step voltage for the kick sequencer. Turning to the right will increase the number of beats per step. If you turn it too high, it will appear as a continuous sound, so make small changes. You need two beats on the first step to match the previous pattern&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/lfo-mshack-drums-offbeat-roll.png'&gt;">Solution</button>
+        <button type="button" onclick="setlfo_mshack_drums_offbeat_rollIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="lfo_mshack_drums_offbeat_roll-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setlfo_mshack_drums_offbeat_rollIframe(url){
+  var lfo_mshack_drums_offbeat_rollIframe = document.getElementById("lfo_mshack_drums_offbeat_roll-iframe");
+  lfo_mshack_drums_offbeat_rollIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:lfo-mshack-drums-offbeat-roll"></span>
+<p class="caption">
+Figure 10.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percussion patch using LFOs as speed variable clocks to achieve gate delays, skipped steps, and off beats using a single parameter.
+</p>
+</div>
+<p>As you can see, this approach is fairly compact but not as compact as using a gate delay and gate multiplier.
+However it is easier to change between variations, e.g. adding rolls on different beats or silencing different beats would not require changing the patch, and these can be controlled by a single parameter.</p>
+<p>A variation of this approach, though perhaps a somewhat distant one, can be used to generate gate patterns without a clock.
+Simply mix LFOs at different frequencies to produce an irregular interference pattern that can then be run through a comparator to generate gates.
+If these need to be synced to a clock for uniform gate lengths, then the sample and hold method discussed in the previous section can be used.
+A clock can also be used to periodically trigger the reset of the LFOs, forcing the pattern to repeat.</p>
 </div>
 <div id="euclidean-sequencing" class="section level2" number="10.5">
 <h2>
