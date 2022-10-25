@@ -3,7 +3,7 @@
 # Controllers {#complex-controllers}
 
 This chapter extends Chapter \@ref(controllers) by introducing more advanced approaches to sequencing.
-Sequencing can thus be considered a kind of memory for musical events where the events can be stored and played back later.
+Sequencing can be considered a kind of memory for musical events where the events can be stored and played back later.
 Obviously there are gaps between events because not all notes (or beats) play at once.
 This leads to the idea that sequencing involves both [positive space and negative space](https://en.wikipedia.org/wiki/Figure%E2%80%93ground_(perception)): positive space where musical events occur and negative space elsewhere.
 
@@ -127,8 +127,80 @@ For example, if we decide we want a triple hit on a beat rather than a double, w
 Conversely, step sequencers have a high level of precision *if* one accepts increasing the number of steps arbitrarily to account for off beats, [swing](https://en.wikipedia.org/wiki/Swing_(jazz_performance_style)), or [dilla](https://en.wikipedia.org/wiki/J_Dilla#Musical_style), but this then sacrifices compactness.
 Note that the previous approaches with gate delays and multiplications achieved these results to an arbitrary degree without additional loss of compactness, i.e. we could have a 10 hits instead of 2 with the same gate multiplier patch.
 
-## Selecting gates with logic
+## Making gates with logic
 
+Suppose we wanted to select the offbeats in our current pattern.
+Looking at Figure \@ref(fig:clock-div2-div4), the ofbeats are simply where the the beats are *not*.
+So if we had a way of specifying "not beat," then we'd be able make a gate for the off beats.
+[Boolean logic](https://en.wikipedia.org/wiki/Boolean_algebra) provides a way of specifying "not beat" and can further be used for more complex beat specifications.
+
+Although it may seem intimidating at first, Boolean logic has just three basic operators, AND, OR, and NOT.
+AND means two things happen together, OR means at least one thing happens, and NOT means something didn't happen.
+If we represent something happening (like a gate) as 1 and not happening as 0, then these basic operators are summarized in Table \@ref(tab:logic).
+
+
+Table: (\#tab:logic) Basic boolean logic operators on signals S1 and S2. Note that AND and OR consider both signals but NOT considers only one or the other.
+
+
+
+| S1 | S2 | AND(S1,S2) | OR(S1,S2)| NOT(S1) | NOT(S2) |
+|:---:|:----:|:----:|:----:|:--------:|:--------:|
+| 1  | 1  | 1 | 1  | 0      | 0      |
+| 1  | 0  | 0 | 1  | 0      | 1      |
+| 0  | 1  | 0 | 1  | 1      | 0      |
+| 0  | 0  | 0 | 0  | 1      | 1      |
+
+Try updating the basic percussion patch with a NOT module to put the open hat on every off beat using the button in Figure \@ref(fig:trg-mshack-drums-offbeat-roll).
+We'll build on this logic in the following patches.
+
+(ref:clock-division-drums-mschack-offbeat-logic-every-offbeat) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using clock divisions and the NOT operator to create gates for all off beat hits.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack-offbeat-logic-every-offbeat)" width="100%" />
+<p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-every-offbeat)(ref:clock-division-drums-mschack-offbeat-logic-every-offbeat)</p>
+</div>
+
+We can use logic to create other gates using combinations of the basic operators.
+For example, consider every other offbeat in Figure \@ref(fig:clock-div2-div4).
+These offbeats occur when the clock is not present and the /2 division is present.
+Try updating the last patch with an AND module to implement this logic using the button in Figure \@ref(fig:clock-division-drums-mschack-offbeat-logic-every-other-offbeat).
+
+(ref:clock-division-drums-mschack-offbeat-logic-every-other-offbeat) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using clock divisions and combining the NOT and AND operators to create gates for every other off beat hit.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)" width="100%" />
+<p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)(ref:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)</p>
+</div>
+
+Let's get even more specific with logic to match what we did previously with the gate delay, which was a single off beat.
+Since the last patch used every other off beat, we can use an additional operator to select just one of those beats.
+Again looking at Figure \@ref(fig:clock-div2-div4), we see that we can achieve this by using AND with our existing logic and next larger clock division.
+Try updating the last patch to implement this logic using the button in Figure \@ref(fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay).
+
+(ref:clock-division-drums-mschack-offbeat-logic-matching-gate-delay) [Virtual modular](https://cardinal.olney.ai) for a percussion patch using clock divisions and combining the NOT and AND operators to create gates for every other off beat hit.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)" width="100%" />
+<p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)(ref:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)</p>
+</div>
+
+Let's consider the three ideal sequencer properties, in terms of logic.
+The first application of NOT was quite compact, ease to change, and precise.
+However, as the logic became more complex, the sequencing became less easy.
+Contrast the last logic patch that needed three or four logical operators to what was previously accomplished by using a single gate delay.
+It appears that clock divisions with logic are most suited to regular repeating patterns, and that when patterns become less regular, other options may be easier.
 
 ## Adding/removing gates with probability
 

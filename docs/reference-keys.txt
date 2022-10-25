@@ -137,6 +137,10 @@ fig:clock-division-drums-mschack
 fig:clock-division-drums-mschack-offbeat-gate-delay
 fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult
 fig:trg-mshack-drums-offbeat-roll
+tab:logic
+fig:clock-division-drums-mschack-offbeat-logic-every-offbeat
+fig:clock-division-drums-mschack-offbeat-logic-every-other-offbeat
+fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay
 introduction
 why-this-book
 computational-thinking
@@ -222,7 +226,7 @@ secondary-sequencer-for-transposition
 hats-and-kick
 complex-controllers
 modifying-gates
-selecting-gates-with-logic
+making-gates-with-logic
 addingremoving-gates-with-probability
 speed-variable-clocks-using-lfos
 euclidean-sequencing
