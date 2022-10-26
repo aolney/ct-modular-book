@@ -144,6 +144,10 @@ fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay
 fig:noise-comparator-logic-mshack-drums
 fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat
 fig:lfo-mshack-drums-offbeat-roll
+tab:euclid
+fig:bresenham-line
+fig:euclidean-drums-mschack
+fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch
 introduction
 why-this-book
 computational-thinking
@@ -232,7 +236,7 @@ modifying-gates
 making-gates-with-logic
 addingremoving-gates-with-probability
 speed-variable-clocks-using-lfos
-euclidean-sequencing
+euclidean-rhythm
 sequential-switches
 complex-generators
 complex-modifiers
