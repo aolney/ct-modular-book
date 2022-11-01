@@ -138,7 +138,7 @@ Specifically, saws have both even and odd harmonics, whereas squares have only o
 Thus a frequency spectrum could help identify which waveshape is being used.
 Using a frequency spectrum this way allows us to use the working backwards strategy and also use the frequency spectrum as an evaluation criteria.</p>
 <p>It is much more convenient to use Audacity than R here because Audacity allows a portion of a track to be auditioned and then frequency spectrum to be computed for that portion.
-This makes it relatively easy to isolate a portion of the song with just a single note of the arpeggio while it is bright.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;To calculate frequency spectrum in Audacity, drag select the region of the audio, audition it using the play button, and then use Analyze -&amp;gt; Plot Spectrum. A high window size is needed for a detailed spectrum, e.g. 4096.&lt;/p&gt;"><sup>71</sup></a>
+This makes it relatively easy to isolate a portion of the song with just a single note of the arpeggio while it is bright.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;To calculate frequency spectrum in Audacity, drag select the region of the audio, audition it using the play button, and then use Analyze -&amp;gt; Plot Spectrum. A high window size is needed for a detailed spectrum, e.g. 4096.&lt;/p&gt;"><sup>74</sup></a>
 Figure <a href="eighties-lead-chiptune.html#fig:stranger-things-theme-frequency-audacity-7-top-4096">9.2</a> shows the frequency spectrum of a single note of the arpeggio around the 50 second mark.</p>
 
 <div class="figure">
@@ -150,7 +150,7 @@ Figure 9.2: Frequency spectrum of a single note from the <em>Stranger Things</em
 <p>Characteristics of the frequency peaks are shown in Table <a href="eighties-lead-chiptune.html#tab:stranger-things-ref-peaks">9.1</a>, including the harmonic ratio of each peak with the fundamental.
 Assume for a moment that these are harmonics even though the harmonic ratios are not strictly integers.
 Since both even and odd harmonics are present, this spectrum is consistent with a saw wave.
-However, this pattern is also close to that of two square waves, one with a fundamental at 40 Hz and one with a fundamental at 82 Hz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Because 80 Hz is the second harmonic of 40 Hz, the odd harmonics of the 80 Hz square wave would match half the even harmonics of 40 Hz.&lt;/p&gt;"><sup>72</sup></a></p>
+However, this pattern is also close to that of two square waves, one with a fundamental at 40 Hz and one with a fundamental at 82 Hz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Because 80 Hz is the second harmonic of 40 Hz, the odd harmonics of the 80 Hz square wave would match half the even harmonics of 40 Hz.&lt;/p&gt;"><sup>75</sup></a></p>
 <p>The ambiguity between a single saw and two squares can interrogated by examining the amplitudes in Table <a href="eighties-lead-chiptune.html#tab:stranger-things-ref-peaks">9.1</a>.
 The amplitude peaks at 82 Hz and 164 Hz could be from constructive interference, specifically a saw at 40 Hz and a square at 82 Hz where the square reinforces the existing harmonics of the saw.
 Alternatively, these amplitude peaks could potentially be created by two square waves where the square wave at 82 Hz is mixed in more strongly.</p>
@@ -219,7 +219,7 @@ Alternatively, these amplitude peaks could potentially be created by two square 
 The problem solving approach then is to create a model of each possibility and then use them to reason about how the true frequency spectrum was created.
 This is a subtle, yet significant shift in using modular: we are now using it to create alternative models in order to reason about the correct model.</p>
 <p>Try patching two square waves at 40 and 82 Hz and a saw and square wave at the same frequencies using the button in Figure <a href="eighties-lead-chiptune.html#fig:st-square40-square82">9.3</a>.
-Because the current spectrum analyzers available in Rack are too noisy to closely compare with the target spectrum, you’ll need to <a href="https://manual.audacityteam.org/man/tutorial_recording_audio_playing_on_the_computer.html">record output with Audacity</a> and <a href="https://manual.audacityteam.org/man/plot_spectrum.html">plot spectrum there</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The Bogaudio spectrum analyzers are sufficient for &lt;em&gt;approximately&lt;/em&gt; matching spectrum at higher quality settings, but these are not currently working in Cardinal and so must be used in VCVRack. High quality spectrum comparisons currently require Audacity regardless.&lt;/p&gt;"><sup>73</sup></a></p>
+Because the current spectrum analyzers available in Rack are too noisy to closely compare with the target spectrum, you’ll need to <a href="https://manual.audacityteam.org/man/tutorial_recording_audio_playing_on_the_computer.html">record output with Audacity</a> and <a href="https://manual.audacityteam.org/man/plot_spectrum.html">plot spectrum there</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The Bogaudio spectrum analyzers are sufficient for &lt;em&gt;approximately&lt;/em&gt; matching spectrum at higher quality settings, but these are not currently working in Cardinal and so must be used in VCVRack. High quality spectrum comparisons currently require Audacity regardless.&lt;/p&gt;"><sup>76</sup></a></p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -977,7 +977,7 @@ Recall that the V/Oct standard means that doubling any voltage will transpose a 
 Therefore, adding any voltage to an existing V/Oct signal will raise the pitch, and subtracting any voltage from an existing V/Oct signal will lower the pitch.
 We can accomplish adding and subtracting from a signal by using a mixer, since a mixer simply adds two signals together and voltage signals can be negative.</p>
 <p>A very simple idea is to use a longer sequence on the transposing sequencer where each voltage either does nothing (0 V) or is the negative of one of the voltages in the arpeggio sequence.
-Negating the voltage means that the resulting note will be C<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;0 V is C4 in VCVRack, apparently, though there is no such standard in modular in general. V/Oct is a &lt;em&gt;relative&lt;/em&gt; standard, not a standard that specifies what frequencies are associated with specific voltages.&lt;/p&gt;"><sup>74</sup></a>
+Negating the voltage means that the resulting note will be C<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;0 V is C4 in VCVRack, apparently, though there is no such standard in modular in general. V/Oct is a &lt;em&gt;relative&lt;/em&gt; standard, not a standard that specifies what frequencies are associated with specific voltages.&lt;/p&gt;"><sup>77</sup></a>
 To keep things interesting, it’s nice to have one or two notes that don’t follow this pattern.
 In the patch below, I used G#, D#, C#, C, G#, D#, E, and C as the transposing sequence, changing the step at each bar.
 A slowed down video of the two sequencer outputs and their mixed output is shown in Figure <a href="eighties-lead-chiptune.html#fig:two-sequencers-mixed">9.14</a>.
@@ -1212,7 +1212,7 @@ Figure 9.16: <a href="https://cardinal.olney.ai">Virtual modular</a> for setting
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-25.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -104,7 +104,7 @@ Sequencing can be considered a kind of memory for musical events where the event
 Obviously there are gaps between events because not all notes (or beats) play at once.
 This leads to the idea that sequencing involves both <a href="https://en.wikipedia.org/wiki/Figure%E2%80%93ground_(perception)">positive space and negative space</a>: positive space where musical events occur and negative space elsewhere.</p>
 <p>This idea of positive and negative space can be seen clearly in step based sequencers that allow steps without events, such as the trigger sequencers discussed in Chapter <a href="controllers.html#controllers">5</a>.
-However, a step-based conceptualization of sequencing leads to a limitation that a step should represent the smallest duration event, and such fine granularity naturally leads to more steps being empty.
+However, a step-based conceptualization of sequencing leads to the limitation that a step should represent the smallest duration event, and such fine granularity naturally leads to more steps being empty.
 An event-based conceptualization that flexibly represents the start and end of each event, in contrast, has less need to explicitly define negative space.
 For example, consider a sequence with two notes, the first lasting 2 units, followed by 4 units of silence, followed by the second note lasting 1 unit.
 A step-based representation would use 7 steps and four of them would be empty.
@@ -434,9 +434,9 @@ Figure 10.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percu
 </p>
 </div>
 <p>Returning to the three ideal properties, the gate multiplier approach (again combined with clock divisions) is a bit compact because it relies on another sequencer, a bit less easy (because setting the multiplier voltage is a bit fiddly), and more flexible because it allows different drum rolls on each step.
-Just as a sequencer was used for this patch, a sequencer could be used to control the gate delay offset of the previous patch or drop a step by sequencing the length parameter, as shown <a href="images/patch-solutions/clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-skip-seq-gate-length.png">here</a>.</p>
+Just as a sequencer was used to control the gate multiplier, a sequencer could be used to control the gate delay offset of the previous patch or drop a step by controlling the length parameter, as shown <a href="images/patch-solutions/clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-skip-seq-gate-length.png">here</a>.</p>
 <p>It’s clear that adding more sequencers to control these parameters increases flexibility but also makes the overall control less compact and changing between variations less easy.
-For example, if one wanted to replace a skipped step with a triple beat, one would have to adjust the length sequencer for a non-zero gate length, then adjust the multiplier sequencer to create multiple hits on that step.
+For example, if one wanted to replace a skipped step with a triple beat, one would have to adjust the length sequencer for a non-zero gate length, then adjust the multiplier sequencer to create multiple hits on that step, i.e. one would have to adjust multiple parameters for that step, and these parameters are spread across different sequencers.
 Is this suboptimal?
 Let’s compare against other solutions before making judgment.
 One obvious alternative is to create the same pattern using standard step sequencers without any clock divisions.
@@ -903,7 +903,7 @@ How can we simulate a coin flip in modular?
 One way is to generate a random voltage and then compare it to a reference value.
 If the voltage is above the reference value, we count it as a head and produce a gate.
 We’ve already seen how to create random voltages with noise generators.
-The new idea here is a comparator, which is a module that accepts an incoming voltage <span class="math inline">\(V\)</span>, compares it to a reference voltage <span class="math inline">\(R\)</span>, and produces a high signal if <span class="math inline">\(V &gt; R\)</span>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This approach is chosen for pedagogical reasons. Various modules offer built-in random number generation that is more flexible than combining noise sources with comparators.&lt;/p&gt;"><sup>75</sup></a>
+The new idea here is a comparator, which is a module that accepts an incoming voltage <span class="math inline">\(V\)</span>, compares it to a reference voltage <span class="math inline">\(R\)</span>, and produces a high signal if <span class="math inline">\(V &gt; R\)</span>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This approach is chosen for pedagogical reasons. Various modules offer built-in random number generation that is more flexible than combining noise sources with comparators.&lt;/p&gt;"><sup>78</sup></a>
 Because different noise spectra have different distributions of frequencies (and thus voltages), different noise spectra will give us different probabilities for the same reference voltage.</p>
 <p>We can use the probabilistic gate idea to sequence all the percussion voices in our ongoing example.
 Since probabilistic gates would be completely random by definition, we’ll structure them a bit using logic: a NOT to make two different voices alternate and an AND to combine two different noise signals for a lower probability.
@@ -1243,13 +1243,13 @@ A clock can also be used to periodically trigger the reset of the LFOs, forcing 
 </h2>
 <p>We’ve mostly discussed sequencing where the patterns have been designed by hand, with the exception of probabilistic gate sequences and the recently mentioned sequenced generated by frequency-mismatched LFOs.
 What if there was a more predictable, more rule-like way of generating patterns?
-Euclidean rhythm is a recently discovered method that generates patterns in a rule-like way.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Godfried Toussaint, &lt;span&gt;“The Euclidean Algorithm Generates Traditional Musical Rhythms,”&lt;/span&gt; in &lt;em&gt;Renaissance Banff: Mathematics, Music, Art, Culture&lt;/em&gt;, ed. Reza Sarhangi and Robert V. Moody (Southwestern College, Winfield, Kansas: Bridges Conference, 2005), 47–56, &lt;a href="http://archive.bridgesmathart.org/2005/bridges2005-47.html" role="doc-biblioref"&gt;http://archive.bridgesmathart.org/2005/bridges2005-47.html&lt;/a&gt;.&lt;/p&gt;'><sup>76</sup></a></span>
+Euclidean rhythm is a recently discovered method that generates patterns in a rule-like way.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Godfried Toussaint, &lt;span&gt;“The Euclidean Algorithm Generates Traditional Musical Rhythms,”&lt;/span&gt; in &lt;em&gt;Renaissance Banff: Mathematics, Music, Art, Culture&lt;/em&gt;, ed. Reza Sarhangi and Robert V. Moody (Southwestern College, Winfield, Kansas: Bridges Conference, 2005), 47–56, &lt;a href="http://archive.bridgesmathart.org/2005/bridges2005-47.html" role="doc-biblioref"&gt;http://archive.bridgesmathart.org/2005/bridges2005-47.html&lt;/a&gt;.&lt;/p&gt;'><sup>79</sup></a></span>
 This approach gets its name from the <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclidean algorithm</a> for finding the greatest common divisor, which is the largest natural number that divides two numbers, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> without a remainder.
 Here’s how it works.
 Suppose <span class="math inline">\(a &gt; b\)</span>.
 Then the algorithm divides <span class="math inline">\(a\)</span> by <span class="math inline">\(b\)</span> to get a remainder <span class="math inline">\(c\)</span>, e.g. <span class="math inline">\(8/5\)</span> has remainder 3.
 If <span class="math inline">\(c=0\)</span>, then <span class="math inline">\(b\)</span> is the greatest common divisor.
-Otherwise repeat by substituting b and c for a and b, e.g. 5/3 has remainder 2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This is the division variant of Euclid’s algorithm. The original used subtraction and so is slower and slightly more complicated because in subtraction, the difference isn’t guaranteed to be smaller than the subtrahend.&lt;/p&gt;"><sup>77</sup></a></p>
+Otherwise repeat by substituting b and c for a and b, e.g. 5/3 has remainder 2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This is the division variant of Euclid’s algorithm. The original used subtraction and so is slower and slightly more complicated because in subtraction, the difference isn’t guaranteed to be smaller than the subtrahend.&lt;/p&gt;"><sup>80</sup></a></p>
 <p>To map the Euclidean algorithm to beats, suppose that we want to evenly distribute <span class="math inline">\(b\)</span> beats over <span class="math inline">\(p\)</span> positions, which we will call <span class="math inline">\(E( b, p )\)</span>.
 Positions with no beat are silent (<span class="math inline">\(s\)</span>).
 Then we parallel the structure of the Euclidean algorithm and define division as pairing up the <span class="math inline">\(b\)</span> and <span class="math inline">\(s\)</span>, with the unpaired <span class="math inline">\(s\)</span> forming the remainder.
@@ -1298,7 +1298,7 @@ An example of this process is shown in Table <a href="complex-controllers.html#t
 </table></div>
 <p>As shown in Table <a href="complex-controllers.html#tab:euclid">10.2</a>, Euclidean rhythms divide the number of beats across positions as evenly as possible.
 If <span class="math inline">\(b\)</span> divides <span class="math inline">\(p\)</span> without remainder, then there will be an equal number of silences between beats.
-It turns out that there is an even easier way to calculate Euclidean rhythms by using <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm">Bresenham’s line algorithm</a>: using the equation for a line, at each natural number <span class="math inline">\(x\)</span>, take the floor<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A floor operation truncates the decimal portion of a number, e.g. 3.28 becomes 3.&lt;/p&gt;"><sup>78</sup></a> of <span class="math inline">\(y\)</span>.
+It turns out that there is an even easier way to calculate Euclidean rhythms by using <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm">Bresenham’s line algorithm</a>: using the equation for a line, at each natural number <span class="math inline">\(x\)</span>, take the floor<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A floor operation truncates the decimal portion of a number, e.g. 3.28 becomes 3.&lt;/p&gt;"><sup>81</sup></a> of <span class="math inline">\(y\)</span>.
 In this approach, <span class="math inline">\(x\)</span> is equivalent to <span class="math inline">\(p\)</span>, each increase in <span class="math inline">\(y\)</span> is equivalent to <span class="math inline">\(b\)</span>, and each lack of increase in <span class="math inline">\(y\)</span> is equivalent to <span class="math inline">\(s\)</span>.
 The result of the algorithm is shown in shown in Figure <a href="complex-controllers.html#fig:bresenham-line">10.12</a>.
 Note that the colored regions mark the closest fitting line with slope <span class="math inline">\(5/13\)</span> where the line is constrained to move in square units - this is equivalent to distributing beats as evenly as possible across positions.</p>
@@ -1534,98 +1534,6 @@ Figure 10.14: <a href="https://cardinal.olney.ai">Virtual modular</a> for a perc
 </div>
 <p>Using a switch in this way suggests a general strategy for sequencing.
 Since each of the techniques discussed in this chapter has its strengths and weaknesses with respect to compactness, flexibility, and precision, it makes sense to alternate between them depending on the needs of the sequencing problem at hand and use sequential switches to combine them into larger patterns.</p>
-<!-- Remaining plan -->
-<!-- Complex modules and Compositions        -->
-<!--    Controllers  -->
-<!--        Clock, sequencing, arpeggiators -->
-<!--        Euclidean rhythms -->
-<!--        Probability -->
-<!--    Generators   -->
-<!--        PWM -->
-<!--        FM/AM -->
-<!--        Ring modulation -->
-<!-- audio rate modulation into resonant filter? -->
-<!--        Vocoders -->
-<!--        Random sampling -->
-<!--    Modifiers    -->
-<!--        ~~LFO~~ -->
-<!--        Sample and hold -->
-<!--        Slew -->
-<!--        Wave-folding -->
-<!--        Attenuators, inverters, and attenuverters -->
-<!--        Quantizers -->
-<!--        Switches -->
-<!--        Logic -->
-<!-- Sound design ideas -->
-<!-- Cymbal PUSH UNTIL AFTER RING MOD -->
-<!-- Maybe use these? -->
-<!-- keyboard filter tracking or notes would disappear; filtering sine wave example -->
-<!-- Growl: Low frequency sine wave modulation of the filter cut-off frequency -->
-<!-- wah wah is LFO on LPF cutoff freq -->
-<!-- Actual -->
-<!--     4 Basic Modeling Concepts -->
-<!--     4.1 Modules are the model elements -->
-<!--     4.2 Signals are how the model elements interact -->
-<!--     4.3 Signals are interpreted by modules -->
-<!--     4.4 Pulling it all together -->
-<!--         4.4.1 Drone -->
-<!--         4.4.2 Using an oscilloscope -->
-<!--         4.4.3 Controlling pitch -->
-<!--         4.4.4 Controlling note duration (on/off volume) -->
-<!--         4.4.5 Controlling note dynamics (volume during note) -->
-<!--     4.5 Moving forward -->
-<!-- 5 Controllers -->
-<!-- 5.1 Clocks -->
-<!--     5.1.1 Clock under a scope -->
-<!--     5.1.2 Clock as a generator -->
-<!-- 5.2 Sequencers -->
-<!--     5.2.1 Clocks as sequencers -->
-<!--     5.2.2 Trigger sequencers -->
-<!--     5.2.3 Control voltage sequencers -->
-<!--     6 Generators -->
-<!--     6.1 Chords -->
-<!--     6.2 Chorus -->
-<!--     6.3 Low frequency oscillators & uses -->
-<!--         6.3.1 Pulse width modulation -->
-<!--         6.3.2 Vibrato -->
-<!--         6.3.3 Tremolo -->
-<!--     6.4 Synchronization -->
-<!--     6.5 Noise -->
-<!--     6.6 Samplers -->
-<!-- 7 Modifiers -->
-<!-- 7.1 Effects -->
-<!--     7.1.1 Delays -->
-<!--     7.1.2 Reverb -->
-<!--     7.1.3 Chorus -->
-<!--     7.1.4 Flanger -->
-<!--     7.1.5 Phaser -->
-<!-- 7.2 Voltage controlled filters -->
-<!--     7.2.1 Filters are imperfect -->
-<!--     7.2.2 Filters change frequency and phase -->
-<!--     7.2.3 Combining filters -->
-<!--     7.2.4 Resonance -->
-<!-- 8 Designing a Kick Drum -->
-<!-- 8.1 Problem solving for sound synthesis -->
-<!--     8.1.1 Understand the problem -->
-<!--     8.1.2 Devise a plan -->
-<!--     8.1.3 Carry out the plan (and replanning) -->
-<!--     8.1.4 Evaluate the solution -->
-<!-- 8.2 Reviewing previous kick drum patches -->
-<!--     8.2.1 Sine with envelope -->
-<!--     8.2.2 Sine with an envelope plus noise burst -->
-<!-- 8.3 Alternative approaches -->
-<!--     8.3.1 Improving our understanding of the problem -->
-<!--     8.3.2 Devising new plans -->
-<!--     8.3.3 Working backwards -->
-<!-- 9 Eighties Lead & Chiptune -->
-<!-- 9.1 Eighties Lead -->
-<!--     9.1.1 Waveshape -->
-<!--     9.1.2 Dynamics -->
-<!-- 9.2 Chiptune -->
-<!--     9.2.1 Triad arpeggio -->
-<!--     9.2.2 LFO PWM -->
-<!--     9.2.3 Secondary sequencer for transposition -->
-<!--     9.2.4 Hats and kick -->
 
 </div>
 </div>
@@ -1660,7 +1568,7 @@ Since each of the techniques discussed in this chapter has its strengths and wea
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-10-25.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

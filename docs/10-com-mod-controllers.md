@@ -8,7 +8,7 @@ Obviously there are gaps between events because not all notes (or beats) play at
 This leads to the idea that sequencing involves both [positive space and negative space](https://en.wikipedia.org/wiki/Figure%E2%80%93ground_(perception)): positive space where musical events occur and negative space elsewhere.
 
 This idea of positive and negative space can be seen clearly in step based sequencers that allow steps without events, such as the trigger sequencers discussed in Chapter \@ref(controllers).
-However, a step-based conceptualization of sequencing leads to a limitation that a step should represent the smallest duration event, and such fine granularity naturally leads to more steps being empty.
+However, a step-based conceptualization of sequencing leads to the limitation that a step should represent the smallest duration event, and such fine granularity naturally leads to more steps being empty.
 An event-based conceptualization that flexibly represents the start and end of each event, in contrast,  has less need to explicitly define negative space.
 For example, consider a sequence with two notes, the first lasting 2 units, followed by 4 units of silence, followed by the second note lasting 1 unit.
 A step-based representation would use 7 steps and four of them would be empty.
@@ -99,10 +99,10 @@ Because the kick time is 4:4, the sequencer only needs four steps.
 </div>
 
 Returning to the three ideal properties, the gate multiplier approach (again combined with clock divisions) is a bit compact because it relies on another sequencer, a bit less easy (because setting the multiplier voltage is a bit fiddly), and more flexible because it allows different drum rolls on each step.
-Just as a sequencer was used for this patch, a sequencer could be used to control the gate delay offset of the previous patch or drop a step by sequencing the length parameter, as shown [here](images/patch-solutions/clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-skip-seq-gate-length.png).
+Just as a sequencer was used to control the gate multiplier, a sequencer could be used to control the gate delay offset of the previous patch or drop a step by controlling the length parameter, as shown [here](images/patch-solutions/clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-skip-seq-gate-length.png).
 
 It's clear that adding more sequencers to control these parameters increases flexibility but also makes the overall control less compact and changing between variations less easy.
-For example, if one wanted to replace a skipped step with a triple beat, one would have to adjust the length sequencer for a non-zero gate length, then adjust the multiplier sequencer to create multiple hits on that step.
+For example, if one wanted to replace a skipped step with a triple beat, one would have to adjust the length sequencer for a non-zero gate length, then adjust the multiplier sequencer to create multiple hits on that step, i.e. one would have to adjust multiple parameters for that step, and these parameters are spread across different sequencers.
 Is this suboptimal?
 Let's compare against other solutions before making judgment.
 One obvious alternative is to create the same pattern using standard step sequencers without any clock divisions.
@@ -402,118 +402,5 @@ Try implementing this patch using the button in Figure \@ref(fig:clock-division-
 
 Using a switch in this way suggests a general strategy for sequencing.
 Since each of the techniques discussed in this chapter has its strengths and weaknesses with respect to compactness, flexibility, and precision, it makes sense to alternate between them depending on the needs of the sequencing problem at hand and use sequential switches to combine them into larger patterns.
-
-
-
-<!-- Remaining plan -->
-
-
-<!-- Complex modules and Compositions		 -->
-<!-- 	Controllers	 -->
-<!-- 		Clock, sequencing, arpeggiators -->
-<!-- 		Euclidean rhythms -->
-<!-- 		Probability -->
-<!-- 	Generators	 -->
-<!-- 		PWM -->
-<!-- 		FM/AM -->
-<!-- 		Ring modulation -->
-<!-- audio rate modulation into resonant filter? -->
-<!-- 		Vocoders -->
-<!-- 		Random sampling -->
-<!-- 	Modifiers	 -->
-<!-- 		~~LFO~~ -->
-<!-- 		Sample and hold -->
-<!-- 		Slew -->
-<!-- 		Wave-folding -->
-<!-- 		Attenuators, inverters, and attenuverters -->
-<!-- 		Quantizers -->
-<!-- 		Switches -->
-<!-- 		Logic -->
-
-<!-- Sound design ideas -->
-<!-- Cymbal PUSH UNTIL AFTER RING MOD -->
-<!-- Maybe use these? -->
-<!-- keyboard filter tracking or notes would disappear; filtering sine wave example -->
-<!-- Growl: Low frequency sine wave modulation of the filter cut-off frequency -->
-<!-- wah wah is LFO on LPF cutoff freq -->
-
-
-
-<!-- Actual -->
-<!--     4 Basic Modeling Concepts -->
-<!--     4.1 Modules are the model elements -->
-<!--     4.2 Signals are how the model elements interact -->
-<!--     4.3 Signals are interpreted by modules -->
-<!--     4.4 Pulling it all together -->
-<!--         4.4.1 Drone -->
-<!--         4.4.2 Using an oscilloscope -->
-<!--         4.4.3 Controlling pitch -->
-<!--         4.4.4 Controlling note duration (on/off volume) -->
-<!--         4.4.5 Controlling note dynamics (volume during note) -->
-<!--     4.5 Moving forward -->
-
-<!-- 5 Controllers -->
-<!-- 5.1 Clocks -->
-
-<!--     5.1.1 Clock under a scope -->
-<!--     5.1.2 Clock as a generator -->
-
-<!-- 5.2 Sequencers -->
-
-<!--     5.2.1 Clocks as sequencers -->
-<!--     5.2.2 Trigger sequencers -->
-<!--     5.2.3 Control voltage sequencers -->
-
-
-<!--     6 Generators -->
-<!--     6.1 Chords -->
-<!--     6.2 Chorus -->
-<!--     6.3 Low frequency oscillators & uses -->
-<!--         6.3.1 Pulse width modulation -->
-<!--         6.3.2 Vibrato -->
-<!--         6.3.3 Tremolo -->
-<!--     6.4 Synchronization -->
-<!--     6.5 Noise -->
-<!--     6.6 Samplers -->
-
-<!-- 7 Modifiers -->
-<!-- 7.1 Effects -->
-<!--     7.1.1 Delays -->
-<!--     7.1.2 Reverb -->
-<!--     7.1.3 Chorus -->
-<!--     7.1.4 Flanger -->
-<!--     7.1.5 Phaser -->
-<!-- 7.2 Voltage controlled filters -->
-<!--     7.2.1 Filters are imperfect -->
-<!--     7.2.2 Filters change frequency and phase -->
-<!--     7.2.3 Combining filters -->
-<!--     7.2.4 Resonance -->
-
-
-<!-- 8 Designing a Kick Drum -->
-<!-- 8.1 Problem solving for sound synthesis -->
-<!--     8.1.1 Understand the problem -->
-<!--     8.1.2 Devise a plan -->
-<!--     8.1.3 Carry out the plan (and replanning) -->
-<!--     8.1.4 Evaluate the solution -->
-<!-- 8.2 Reviewing previous kick drum patches -->
-<!--     8.2.1 Sine with envelope -->
-<!--     8.2.2 Sine with an envelope plus noise burst -->
-<!-- 8.3 Alternative approaches -->
-<!--     8.3.1 Improving our understanding of the problem -->
-<!--     8.3.2 Devising new plans -->
-<!--     8.3.3 Working backwards -->
-
-
-<!-- 9 Eighties Lead & Chiptune -->
-<!-- 9.1 Eighties Lead -->
-<!--     9.1.1 Waveshape -->
-<!--     9.1.2 Dynamics -->
-<!-- 9.2 Chiptune -->
-<!--     9.2.1 Triad arpeggio -->
-<!--     9.2.2 LFO PWM -->
-<!--     9.2.3 Secondary sequencer for transposition -->
-<!--     9.2.4 Hats and kick -->
-
 
 

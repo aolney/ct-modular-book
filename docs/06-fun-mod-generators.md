@@ -149,6 +149,10 @@ Because this is such a useful and interesting effect, many oscillators that prod
 Try to implement PWM with an LFO using the button in Figure \@ref(fig:pwm-lfo-vco-scope).
 If you hook up the VCO square wave to a scope, you can see the resulting waveshape.
 The LFO frequency and the PWM depth knobs give control over the speed of the PWM and the depth (i.e. the range of duty cycles covered), respectively.
+As you listen to the result of PWM, take note of the changes in the harmonics.
+Square waves have only odd harmonics, but pulse waves more generally have every nth harmonic removed, where n is the denominator of the duty cycle of the wave. 
+For example, a square wave with a 50% duty cycle (1/2) has every 2nd harmonic removed, a pulse wave with a 33% duty cycle (1/3) has every 3rd harmonic removed, and so on.
+Therefore PWM, by modulating the duty cycle, is continuously adding and removing harmonics as the duty cycle changes.
 
 
 (ref:pwm-lfo-vco-scope) [Virtual modular](https://cardinal.olney.ai) for implementing pulse width modulation (PWM) using a low frequency oscillator (LFO).
@@ -323,7 +327,15 @@ Digital audio data is represented according to two parameters that each can be c
 Sampling rate measures how close together each sample is taken.
 If the distance between the samples is small, a straight line is a good approximation of the curve of the wave, and the digital representation has good fidelity to the original sound.
 However, if frequency of the wave is high or the wave otherwise changes suddenly, those changes may be *between* samples and not show up in the digital representation at all.
-Common sample rates are 8 kHz (phone quality), 16 kHz (speech recognition quality), and 44.1 (CD quality). 
+Common sample rates are 8 kHz (phone quality), 16 kHz (speech recognition quality), and 44.1 kHz (CD quality). 
+
+Why sample at 44.1 kHz when the upper limit of human hearing is around 20 kHz?
+The 44.1 kHz rate is the [Nyquist rate](https://en.wikipedia.org/wiki/Nyquist_rate) for 22,050 Hz, i.e. the Nyquist rate is **double** that frequency, which is about 2 kHz above the standard human limit.^[The 2 kHz padding allows use of an [anti-aliasing filter](https://en.wikipedia.org/wiki/Anti-aliasing_filter) that prevents higher frequencies from being sampled. We'll cover how filters work in the next chapter.]
+The reason to sample at twice the highest frequency is pretty simple.
+If we assume all sounds are made of sine waves, as covered in Section \@ref(resonators-formants-and-frequency-spectrum), then we need to be able to define the highest frequency component in our audio as a sine wave.
+If we evenly sample at least two points for a cycle of that sine wave, and we know the maximum possible frequency, then there is only one sine wave that can pass through those points.^[This is analogous to two data points to [solve for two unknowns using linear algebra](https://en.wikipedia.org/wiki/System_of_linear_equations).]
+Without that limit, there are an infinite number of alternative sine waves that will pass between the two points, leading to an ambiguity problem called [aliasing](https://en.wikipedia.org/wiki/Aliasing) where we don't know what sine wave was sampled.
+A familiar example of aliasing occurs when [speed of wheels exceed the sample rate (frame rate) in video/film](https://youtu.be/6XwgbHjRo30?t=8).
 
 Bit depth measures the accuracy at which the sample points are measured from 0.
 Imagine you had a ruler with only inches marked - you could only measure inches, right?

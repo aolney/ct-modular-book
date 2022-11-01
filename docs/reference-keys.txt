@@ -239,6 +239,8 @@ speed-variable-clocks-using-lfos
 euclidean-rhythm
 sequential-switches
 complex-generators
+modulating-amplitude
+modulating-frequency
 complex-modifiers
 sd2-B
 sd2-A
