@@ -148,6 +148,9 @@ tab:euclid
 fig:bresenham-line
 fig:euclidean-drums-mschack
 fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch
+fig:am-unipolar
+fig:am-example
+fig:am-keyboard-frequency-tracking
 introduction
 why-this-book
 computational-thinking
@@ -240,7 +243,12 @@ euclidean-rhythm
 sequential-switches
 complex-generators
 modulating-amplitude
+amplitude-modulation
+ring-modulation
 modulating-frequency
+digital-frequency-modulation
+analogue-frequency-modulation
+phase-modulation
 complex-modifiers
 sd2-B
 sd2-A

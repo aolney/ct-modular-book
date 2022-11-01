@@ -10,6 +10,7 @@ The oscillator receiving the modulation is the *carrier*.
 The depth, or strength, of modulation the carrier receives from the modulator will be called the *modulation index*.
 The modulation index defines how much the parameter of the carrier changes around its default value.
 For example, if a carrier has a frequency of 800 Hz, the modulation index may cause it to go +/- 1 Hz (from 799 to 801 Hz) or +/- 100 Hz (from 700 Hz to 900 Hz).
+The signal resulting from audio-rate modulation is the *output*.
 
 Recall that we can describe any wave by its shape, amplitude, frequency, and phase.
 If we assume we can describe any waveshape by a collection of sine waves via Fourier transform, then we can focus on the amplitude, frequency, and phase parameters of these waves.
@@ -29,15 +30,133 @@ There are actually two families of methods that cover all three parameters, as w
 
 ## Modulating amplitude
 
-AM
-side bands
-Ring mod
+The amplitude family includes amplitude modulation and ring modulation.
+The difference between the two is that amplitude modulation stops producing sound when the modulation signal crosses below zero (unipolar) and ring modulation continues to produce sound (bipolar).
+Although this difference may seem like a small one, it leads to several differences in the resulting sidebands and therefore overall timbre.
+
+### Amplitude modulation
+
+You might have heard of amplitude modulation (AM) before, as it was one of the earliest technologies used in radio and is still in use today.
+We actually already covered the basic idea of AM in Section \@ref(tremolo) to produce tremelo.
+As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the output of our main oscillator.
+AM works exactly the same way as this but at audio rates (>20 Hz).
+At audio rates, we can hear sidebands and the nature of the sound changes from an oscillation in loudness to a new timbre.
+
+The VCA is key to understanding AM.
+Recall that the VCA is a level control that lets us let through a certain amount of signal, typically 0-100%.^[Most VCAs are attenuators and so only reduce signal. Some VCAs include amplifiers that allow the gain on the signal to go above 100%].
+If you stop to think about this mathematically, it means that the VCA is multiplying the signal by a control value.
+For example, if the VCA control value is 50%, then it is multiplying the incoming signal by .5.
+AM stops producing sound when the control value crosses below zero because VCAs are defined to operate in the 0-100% range, i.e., they are unipolar.
+So when the control value crosses below zero, the VCA output simply stays at zero until the control value becomes positive again.
+This behavior is illustrated in Figure \@ref(fig:am-unipolar).
+
+(ref:am-unipolar) An example of amplitude modulation using sine waves for modulator and carrier. Note that where the modulator signal (purple) is at its peak, the output (yellow) is at greatest strength, but where the modulator signal is negative, the output reduces to zero.
+
+```{r am-unipolar, echo=F, out.width="100%", fig.cap="(ref:am-unipolar)"}
+ knitr::include_graphics("images/am-unipolar.png")
+```
+
+Side bands for AM are easiest to understand for sine waves.
+If both modulator and carrier are sine waves, the spectrum of the output will include a partial a the carrier frequency $C_f$ and two partials offset by the modulator frequency $M_f$, specifically $C_f - M_f$ and $C_f + M_f$.
+The sidebands have less strength than the carrier, and the strength of the sidebands is determined by the modulation index, which for AM is defined as the peak change in output amplitude divided by the amplitude of the carrier, $\Delta A/C_a$.
+When the modulator and/or carrier are not sine waves, the sidebands contain the partials from all pairs of partials between the modulator and the carrier.
+For example, if $M_f$ has 3 partials and $C_f$ has 5 partials, then there are $3*5$ partials in the lower sideband and the same number in the upper sideband.
+Even though the carrier frequency is not the fundamental, it is perceived as the pitch center of the sound, even when when the sidebands contain many partials.
+Note that in the above formulas, any partial that crosses below zero disappears.
+Also, if the modulator frequency goes above the carrier, $M_f > C_f$, the roles of carrier and modulator are reversed.
+
+Implementing AM synthesis as described above is relatively simple in our virtual modular set up, but it has some surprises.
+First, if we want pure sine waves, i.e. sine waves with only one harmonic, then we need to use wavetable oscillators, which we've briefly mentioned a few times up to this point but never used.
+A [wavetable](https://en.wikipedia.org/wiki/Wavetable_synthesis) oscillator is a digital oscillator that defines a wave based on one stored cycle of that wave.
+We need wavetable oscillators here to get a perfect sine wave, because the analogue implementations faithfully recreate the imperfections of the original hardware.
+This is also true for real VCAs, which tend to be a bit noisy, so we'll need to use a specific VCA that we've never used before.
+All this effort is only necessary to get a result that matches the previous equations.
+Otherwise you may not care about these small imperfections that give additional character to the sound through the extra sidebands they create.
+Try creating a simple AM patch from scratch using the button in Figure \@ref(fig:am-example).
+
+
+(ref:am-example) [Virtual modular](https://cardinal.olney.ai) for amplitude modulation using pure sine waves.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("am-example", starter_file="empty.vcv", instructions_html="<ul>
+<li>Add two WT VCOs, AMP, Scope, and Sassy</li>
+<li>On each WT VCO, move the wavetable position knob to the left to select a sine wave. The intermediate position morph between other waves like triangle and square</li>
+<li>Connect the oscillator on the left (modulator) to the AMP CV and to a Sassy input</li>
+<li>Connect the oscilator on the right (carrier) to the AMP in and to a Sassy input </li>
+<li>Connect the AMP out to Scopein and a Sassy input</li>
+<li>Enable the external trigger on the Scope, connect the modulator output to the Scop external trigger, and adjust Sassy for high-quality spectrogram output (left top sliders down to 1/32, top right slider up to 1000ms, freq radiobutton, 4x radiobutton)</li>
+<li>Adjust the oscillator frequencies so that the modulator is lower than the carrier and the difference is sufficient to show on Sassy and not cross below zero (I used 60 and 400)</li>
+<li>Try the following and note the differences in the scopes <ul>
+<li>Mouse over the frequency peaks in Sassy. You should see one for the modulator, one for the carrier, and two for sidebands. Check their values and compare to the sideband formula</li>
+<li>Temporarally disconnect the Sassy input from the carrier. You should now see a peak that was hidden in the output </li>
+<li>Change the time knob on the scope to look at the output waveshape across scales. You should see the characteristic waveshape presented earlier. Connect the modulator output to the second Scope input to recreate the figure</li>
+<li>Move the modulator wavetable position knob slowly upward and watch the change in Sassy. You will see both new peaks in the spectrum of the modulator as well as matching peaks in sidebands in the output signal.</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='rack-image' src='images/solo-modules/wtvco-solo.png'>
+<img class='rack-image' src='images/solo-modules/amp-solo.png'>
+</div>
+",solution_html="<img class='rack-image' src='images/patch-solutions/am-example.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r am-example, echo=F, out.width="100%", fig.cap="(ref:am-example)"}
+modular_caption()
+```
+
+AM synthesis will generally produce inharmonic sidebands unless the modulator and carrier frequencies are chosen to create harmonic relationships.
+For example, if modulator and carrier have the same frequency, then the lower sideband will be zero and the upper sideband will be one octave above the carrier, e.g. 100 and 200 Hz.
+We can describe such frequency relationships between modulator and carrier in terms of ratios, so if both have the same frequency, the ratio of C:M is 1:1.
+You can easily check that any N:1 ratio is harmonic, for example using 200 Hz as the carrier would result in 100, 200, and 300 Hz harmonics.
+Likewise, N:2 where N is odd will give odd harmonics (100, 300, 500 Hz), and N:2 where N in even will give even harmonics (200, 400, 600 Hz).
+
+Typically when a harmonic relationship like this has been established, one wishes to keep it intact while playing different notes.
+This is as easy to accomplish as keeping two (or more) oscillators in tune as a chord while playing across a keyboard.
+Try extending the last patch with a keyboard and use V/Oct connections to keep the harmonic relationship between modulator and carrier intact using the button in Figure \@ref(fig:am-keyboard-frequency-tracking).
+This patch is also a good opportunity to explore the sounds of more complex modulator and carrier waves, as well as inharmonic sounds.
+
+
+(ref:am-keyboard-frequency-tracking) [Virtual modular](https://cardinal.olney.ai) for amplitude modulation with keyboard tracking.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("am-keyboard-frequency-tracking", starter_file="am-example.vcv", instructions_html="<ul>
+<li>Add Twelve-Key and Host Audio</li>
+<li>Mve Scope and Sassy to the lower row to make space</li>
+<li>Connect 12 ky CV to both oscillator V/Oct. The voltage from this connection will be summed with the dialed in voltage represented by each oscillator's frequency knob, so when each receives the same voltage from the 12 key, the relative tuning between oscillators will not change</li>
+<li>Connect the AMP out to Host audio L</li>
+<li>Try the following and note the differences in the sound and scopes <ul>
+<li>Play across the keyboard. Notice that the carrier, which is the strongest harmonic, defines the perceived pitch and that the sidebands remain harmonic with it</li>
+<li>Temporarally disconnect the modulator V/Oct and play up the keyboard. Note on most keys the result is inharmonic but it becomes harmonic on other keys by chance</li>
+<li>Reconnect the V/Oct and move the modulator wavetable position knob slowly upward and listen to the change in the sound. Repeat for the carrier knob. Note that the carrier remains the perceived pitch center even as the harmonics increase </li>
+</ul></li>
+</ul>
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/am-keyboard-frequency-tracking.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r am-keyboard-frequency-tracking, echo=F, out.width="100%", fig.cap="(ref:am-keyboard-frequency-tracking)"}
+modular_caption()
+```
+
+### Ring modulation
 
 
 ## Modulating frequency
 
-FM
-linear/exponential/through zero
+### Digital frequency modulation
+
+### Analogue frequency modulation
+
+#### Exponential frequency modulation {-}
+
+#### Linear frequency modulation {-}
+
+#### Through-zero frequency modulation {-}
+
+### Phase modulation
 
 <!-- Remaining plan -->
 
