@@ -151,6 +151,10 @@ fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-ch
 fig:am-unipolar
 fig:am-example
 fig:am-keyboard-frequency-tracking
+fig:rm-bipolar
+fig:four-quadrant-multiplier
+fig:rm-example
+fig:rm-keyboard-frequency-tracking
 introduction
 why-this-book
 computational-thinking

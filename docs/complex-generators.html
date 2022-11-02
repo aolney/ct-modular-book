@@ -117,17 +117,17 @@ When the modulator acts on the frequency parameter of the carrier, the result is
 And when the modulator acts on the phase parameter of the carrier, the result is phase modulation (PM).</p>
 <p>Each of these types of audio-rate modulation creates sidebands, which are new partials in the output.
 Audio-rate modulation therefore is related to additive synthesis in that both involve adding partials to change the timbre of the output sound.
-The main difference is that audio-rate modulation is often not strictly additive but also removes or changes some partials in the carrier.
+The main difference is that audio-rate modulation is not strictly additive and can also remove or change some partials in the carrier.
 However, with sufficient control of audio-rate modulation, one can create a wide variety of sounds more efficiently than additive synthesis, as shown by the explosion of inexpensive FM keyboards in the 1980’s, like the Yamaha DX7.</p>
 <p>The following sections outline the use of audio-rate modulation in modular sound synthesis according to the parameters of amplitude, frequency, and phase.
-However, the story is more complicated than this due to the history of synthesis, limitations of analogue hardware, and mathematical relationships between methods.
-There are actually two families of methods that cover all three parameters, as will be explained.</p>
+However, the story is somewhat complicated due to the history of synthesis, limitations of analogue hardware, and mathematical relationships between methods.
+There are actually two families of methods around amplitude and frequency that cover all three parameters, as will be explained.</p>
 <div id="modulating-amplitude" class="section level2" number="11.1">
 <h2>
 <span class="header-section-number">11.1</span> Modulating amplitude<a class="anchor" aria-label="anchor" href="#modulating-amplitude"><i class="fas fa-link"></i></a>
 </h2>
 <p>The amplitude family includes amplitude modulation and ring modulation.
-The difference between the two is that amplitude modulation stops producing sound when the modulation signal crosses below zero (unipolar) and ring modulation continues to produce sound (bipolar).
+The difference between the two is that amplitude modulation stops producing sound when the modulation signal crosses below zero and ring modulation continues to produce sound.
 Although this difference may seem like a small one, it leads to several differences in the resulting sidebands and therefore overall timbre.</p>
 <div id="amplitude-modulation" class="section level3" number="11.1.1">
 <h3>
@@ -137,12 +137,12 @@ Although this difference may seem like a small one, it leads to several differen
 We actually already covered the basic idea of AM in Section <a href="generators.html#tremolo">6.3.3</a> to produce tremelo.
 As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the output of our main oscillator.
 AM works exactly the same way as this but at audio rates (&gt;20 Hz).
-At audio rates, we can hear sidebands and the nature of the sound changes from an oscillation in loudness to a new timbre.</p>
+At audio rates, we can hear sidebands, and the nature of the sound changes from an oscillation in loudness to a new timbre.</p>
 <p>The VCA is key to understanding AM.
 Recall that the VCA is a level control that lets us let through a certain amount of signal, typically 0-100%.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Most VCAs are attenuators and so only reduce signal. Some VCAs include amplifiers that allow the gain on the signal to go above 100%&lt;/p&gt;"><sup>83</sup></a>.
-If you stop to think about this mathematically, it means that the VCA is multiplying the signal by a control value.
-For example, if the VCA control value is 50%, then it is multiplying the incoming signal by .5.
-AM stops producing sound when the control value crosses below zero because VCAs are defined to operate in the 0-100% range, i.e., they are unipolar.
+If you stop to think about this mathematically, it means that the VCA is multiplying the signal by a control value.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The control value itself at any moment is determined by the output of the modulator and thus it is the two signals that are being multiplied together, but for simplicity of exposition fixed point values are emphasized.&lt;/p&gt;"><sup>84</sup></a>
+For example, if the VCA control value is 50%, then it is multiplying the incoming signal amplitude by .5.
+AM stops producing sound when the control value crosses below zero because VCAs are defined to operate in the 0-100% range, i.e., with unipolar control values only.
 So when the control value crosses below zero, the VCA output simply stays at zero until the control value becomes positive again.
 This behavior is illustrated in Figure <a href="complex-generators.html#fig:am-unipolar">11.1</a>.</p>
 
@@ -152,10 +152,10 @@ This behavior is illustrated in Figure <a href="complex-generators.html#fig:am-u
 Figure 11.1: An example of amplitude modulation using sine waves for modulator and carrier. Note that where the modulator signal (purple) is at its peak, the output (yellow) is at greatest strength, but where the modulator signal is negative, the output reduces to zero.
 </p>
 </div>
-<p>Side bands for AM are easiest to understand for sine waves.
-If both modulator and carrier are sine waves, the spectrum of the output will include a partial a the carrier frequency <span class="math inline">\(C_f\)</span> and two partials offset by the modulator frequency <span class="math inline">\(M_f\)</span>, specifically <span class="math inline">\(C_f - M_f\)</span> and <span class="math inline">\(C_f + M_f\)</span>.
-The sidebands have less strength than the carrier, and the strength of the sidebands is determined by the modulation index, which for AM is defined as the peak change in output amplitude divided by the amplitude of the carrier, <span class="math inline">\(\Delta A/C_a\)</span>.
-When the modulator and/or carrier are not sine waves, the sidebands contain the partials from all pairs of partials between the modulator and the carrier.
+<p>Side bands for AM are simplest for sine waves.
+If both modulator and carrier are sine waves, the spectrum of the output will include a partial at the carrier frequency <span class="math inline">\(C_f\)</span> and two partials offset by the modulator frequency <span class="math inline">\(M_f\)</span>, specifically <span class="math inline">\(C_f - M_f\)</span> and <span class="math inline">\(C_f + M_f\)</span>.
+The sidebands have less strength than the carrier, and the strength of the sidebands is determined by the modulation index, which for AM is defined as the peak change in output amplitude divided by the amplitude of the carrier, <span class="math inline">\(\Delta A/C_a\)</span>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;When the modulation index is at maximum, each sideband is half of the strength of the carrier.&lt;/p&gt;"><sup>85</sup></a>
+When the modulator and/or carrier are not sine waves, the sidebands contain the sums and differences for all pairs of partials between the modulator and the carrier.
 For example, if <span class="math inline">\(M_f\)</span> has 3 partials and <span class="math inline">\(C_f\)</span> has 5 partials, then there are <span class="math inline">\(3*5\)</span> partials in the lower sideband and the same number in the upper sideband.
 Even though the carrier frequency is not the fundamental, it is perceived as the pitch center of the sound, even when when the sidebands contain many partials.
 Note that in the above formulas, any partial that crosses below zero disappears.
@@ -163,7 +163,7 @@ Also, if the modulator frequency goes above the carrier, <span class="math inlin
 <p>Implementing AM synthesis as described above is relatively simple in our virtual modular set up, but it has some surprises.
 First, if we want pure sine waves, i.e. sine waves with only one harmonic, then we need to use wavetable oscillators, which we’ve briefly mentioned a few times up to this point but never used.
 A <a href="https://en.wikipedia.org/wiki/Wavetable_synthesis">wavetable</a> oscillator is a digital oscillator that defines a wave based on one stored cycle of that wave.
-We need wavetable oscillators here to get a perfect sine wave, because the analogue implementations faithfully recreate the imperfections of the original hardware.
+We need wavetable oscillators here to get a perfect sine wave, because the virtual analogue implementations faithfully recreate the imperfections of the original hardware.
 This is also true for real VCAs, which tend to be a bit noisy, so we’ll need to use a specific VCA that we’ve never used before.
 All this effort is only necessary to get a result that matches the previous equations.
 Otherwise you may not care about these small imperfections that give additional character to the sound through the extra sidebands they create.
@@ -273,7 +273,7 @@ Figure 11.2: <a href="https://cardinal.olney.ai">Virtual modular</a> for amplitu
 </p>
 </div>
 <p>AM synthesis will generally produce inharmonic sidebands unless the modulator and carrier frequencies are chosen to create harmonic relationships.
-For example, if modulator and carrier have the same frequency, then the lower sideband will be zero and the upper sideband will be one octave above the carrier, e.g. 100 and 200 Hz.
+Using sine waves for example, if modulator and carrier have the same frequency, then the lower sideband will be zero and the upper sideband will be one octave above the carrier, e.g. 100 and 200 Hz.
 We can describe such frequency relationships between modulator and carrier in terms of ratios, so if both have the same frequency, the ratio of C:M is 1:1.
 You can easily check that any N:1 ratio is harmonic, for example using 200 Hz as the carrier would result in 100, 200, and 300 Hz harmonics.
 Likewise, N:2 where N is odd will give odd harmonics (100, 300, 500 Hz), and N:2 where N in even will give even harmonics (200, 400, 600 Hz).</p>
@@ -301,7 +301,7 @@ This patch is also a good opportunity to explore the sounds of more complex modu
         <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add Twelve-Key and Host Audio&lt;/li&gt;
-&lt;li&gt;Mve Scope and Sassy to the lower row to make space&lt;/li&gt;
+&lt;li&gt;Move Scope and Sassy to the lower row to make space&lt;/li&gt;
 &lt;li&gt;Connect 12 ky CV to both oscillator V/Oct. The voltage from this connection will be summed with the dialed in voltage represented by each oscillator's frequency knob, so when each receives the same voltage from the 12 key, the relative tuning between oscillators will not change&lt;/li&gt;
 &lt;li&gt;Connect the AMP out to Host audio L&lt;/li&gt;
 &lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
@@ -315,7 +315,7 @@ This patch is also a good opportunity to explore the sounds of more complex modu
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add Twelve-Key and Host Audio&lt;/li&gt;
-&lt;li&gt;Mve Scope and Sassy to the lower row to make space&lt;/li&gt;
+&lt;li&gt;Move Scope and Sassy to the lower row to make space&lt;/li&gt;
 &lt;li&gt;Connect 12 ky CV to both oscillator V/Oct. The voltage from this connection will be summed with the dialed in voltage represented by each oscillator's frequency knob, so when each receives the same voltage from the 12 key, the relative tuning between oscillators will not change&lt;/li&gt;
 &lt;li&gt;Connect the AMP out to Host audio L&lt;/li&gt;
 &lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
@@ -374,12 +374,238 @@ Figure 11.3: <a href="https://cardinal.olney.ai">Virtual modular</a> for amplitu
 <h3>
 <span class="header-section-number">11.1.2</span> Ring modulation<a class="anchor" aria-label="anchor" href="#ring-modulation"><i class="fas fa-link"></i></a>
 </h3>
+<p>Ring modulation (RM) is implemented the same way as AM, except with VCA where the control value can cross below zero.
+That means that RM also multiplies the carrier signal by the control value of the VCA, but when that control value is negative, the output will also be negative.
+Negative output is exactly the same as positive output <em>except</em> inverted.
+Thus RM operates just like AM except that RM will never stop at zero, and when it crosses zero, the output is the same as above zero except inverted.
+This behavior is illustrated in Figure <a href="complex-generators.html#fig:rm-bipolar">11.4</a>.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:rm-bipolar"></span>
+<img src="images/rm-bipolar.png" alt="An example of ring modulation using sine waves for modulator and carrier. Note that where the modulator signal (purple) is at either its positive or negative peak, the output (yellow) is at greatest strength. The overall amplitude of the output is reduced relative to Figure 11.1 due to the removal of the carrier frequency (see text)." width="100%"><p class="caption">
+Figure 11.4: An example of ring modulation using sine waves for modulator and carrier. Note that where the modulator signal (purple) is at either its positive or negative peak, the output (yellow) is at greatest strength. The overall amplitude of the output is reduced relative to Figure <a href="complex-generators.html#fig:am-unipolar">11.1</a> due to the removal of the carrier frequency (see text).
+</p>
+</div>
+<p>Ring modulators and VCAs are sometimes called four- and two-quadrant multipliers for this reason, as shown in Figure <a href="complex-generators.html#fig:four-quadrant-multiplier">11.5</a>.
+On a VCA, the input signal can be bipolar but the control value is unipolar.
+That means the output can only occur in two quadrants of the Cartesian plane.
+On a ring modulator, both input signal and control can be bipolar, so the output can occur in all four quadrants of the Cartesian plane.
+Historically, ring modulation was performed by a <a href="https://en.wikipedia.org/wiki/Ring_modulation">circuit consisting of diodes arranged in a ring</a>, thus the name.
+However, a ring modulator is sometimes called a four-quadrant multiplier for the reason above.
+It is also sometimes called balanced modulator because the modulating signal spends as much time being negative as positive.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:four-quadrant-multiplier"></span>
+<img src="images/four-quadrant-multiplier.png" alt="A two-quadrant multiplier multiplies a bipolar signal (carrier) and a unipolar signal (control voltage), so the result must occur in two quadrants (left). A four-quadrant multiplier multiplies two bipolar signals, so the result can occur in all four quadrants (right)." width="100%"><p class="caption">
+Figure 11.5: A two-quadrant multiplier multiplies a bipolar signal (carrier) and a unipolar signal (control voltage), so the result must occur in two quadrants (left). A four-quadrant multiplier multiplies two bipolar signals, so the result can occur in all four quadrants (right).
+</p>
+</div>
+<p>Like AM, side bands for RM are easiest to understand for sine waves.
+The output spectrum is the same as AM, except that the carrier frequency <span class="math inline">\(C_f\)</span> is removed, leaving only the side bands <span class="math inline">\(C_f - M_f\)</span> and <span class="math inline">\(C_f + M_f\)</span>, and any sidebands that cross below zero are reflected back as their absolute value instead of being lost.
+Similarly, when the modulator and/or carrier are not sine waves, the sidebands contain the sums and differences for all pairs of partials between the modulator and the carrier.
+The modulation index for RM is likewise the same as AM, and if the modulator frequency goes above the carrier, <span class="math inline">\(M_f &gt; C_f\)</span>, the roles of carrier and modulator are reversed.</p>
+<p>We can implement RM with a slight modification to the first AM patch.
+Again, the choice of module is important to get identical behavior to the equations above, though in practice, the character of small imperfections might be preferred.
+Try creating a simple RM patch extending the AM patch using the button in Figure <a href="complex-generators.html#fig:rm-example">11.6</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrm_exampleIframe('https://cardinal.olney.ai?patchurl=am-example.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#rm_example">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="rm_example" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="rm_exampleLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="rm_exampleLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add feidah, copy the connections from AMP over to it, and remove AMP&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the scopes &lt;ul&gt;
+&lt;li&gt;Mouse over the frequency peaks in Sassy. You should see one for the modulator, one for the carrier, and two for sidebands. Check their values and compare to the sideband formula&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the Sassy input from the carrier. You should see that this carrier partial is missing from the ring mod output&lt;/li&gt;
+&lt;li&gt;Change the time knob on the scope to look at the output waveshape across scales. You should see the characteristic waveshape presented earlier. Connect the modulator output to the second Scope input to recreate the figure&lt;/li&gt;
+&lt;li&gt;Move the modulator wavetable position knob slowly upward and watch the change in Sassy. You will see both new peaks in the spectrum of the modulator as well as matching peaks in sidebands in the output signal.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/feidah-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/rm-example.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add feidah, copy the connections from AMP over to it, and remove AMP&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the scopes &lt;ul&gt;
+&lt;li&gt;Mouse over the frequency peaks in Sassy. You should see one for the modulator, one for the carrier, and two for sidebands. Check their values and compare to the sideband formula&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the Sassy input from the carrier. You should see that this carrier partial is missing from the ring mod output&lt;/li&gt;
+&lt;li&gt;Change the time knob on the scope to look at the output waveshape across scales. You should see the characteristic waveshape presented earlier. Connect the modulator output to the second Scope input to recreate the figure&lt;/li&gt;
+&lt;li&gt;Move the modulator wavetable position knob slowly upward and watch the change in Sassy. You will see both new peaks in the spectrum of the modulator as well as matching peaks in sidebands in the output signal.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/feidah-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/rm-example.png'&gt;">Solution</button>
+        <button type="button" onclick="setrm_exampleIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="rm_example-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setrm_exampleIframe(url){
+  var rm_exampleIframe = document.getElementById("rm_example-iframe");
+  rm_exampleIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:rm-example"></span>
+<p class="caption">
+Figure 11.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for ring modulation using pure sine waves.
+</p>
+</div>
+<p>In terms of harmonicity, RM is again identical to AM except for the properties of missing the carrier frequency and reflections of sideband partials off zero.
+The missing carrier means that the overall spectrum will no longer have a strong pitch center.
+However, our perception tends to fill in the missing frequency of the carrier such that the pitch still seems centered there, just not as strongly.
+Reflected sideband partials have potential to interfere with other partials, but this will occur only when the modulator or carrier has a richer waveshape than sign and thus higher harmonics to subtract.
+Otherwise the same concerns about harmonic frequency ratios and keyboard tracking apply to RM as AM.
+Try extending the AM patch with a keyboard to RM using the button in Figure <a href="complex-generators.html#fig:rm-keyboard-frequency-tracking">11.7</a>.
+This patch is also a good opportunity to explore how the sound of RM differs from AM.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrm_keyboard_frequency_trackingIframe('https://cardinal.olney.ai?patchurl=am-keyboard-frequency-tracking.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#rm_keyboard_frequency_tracking">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="rm_keyboard_frequency_tracking" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="rm_keyboard_frequency_trackingLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="rm_keyboard_frequency_trackingLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add feidah, copy the connections from AMP over to it, and remove AMP&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play across the keyboard. Notice that even with the carrier missing, it still defines the perceived pitch and the sidebands remain harmonic with it&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the modulator V/Oct and play up the keyboard. Note the result is a bit less inharmonic than AM under these conditions&lt;/li&gt;
+&lt;li&gt;Reconnect the V/Oct and move the modulator wavetable position knob slowly upward and listen to the change in the sound. Note that as the shape approaches saw, the carrier frequency is filled in by reflection. Repeat for the carrier knob. Note that the missing carrier remains the perceived pitch center even as the harmonics increase.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/rm-keyboard-frequency-tracking.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add feidah, copy the connections from AMP over to it, and remove AMP&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play across the keyboard. Notice that even with the carrier missing, it still defines the perceived pitch and the sidebands remain harmonic with it&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the modulator V/Oct and play up the keyboard. Note the result is a bit less inharmonic than AM under these conditions&lt;/li&gt;
+&lt;li&gt;Reconnect the V/Oct and move the modulator wavetable position knob slowly upward and listen to the change in the sound. Note that as the shape approaches saw, the carrier frequency is filled in by reflection. Repeat for the carrier knob. Note that the missing carrier remains the perceived pitch center even as the harmonics increase.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/rm-keyboard-frequency-tracking.png'&gt;">Solution</button>
+        <button type="button" onclick="setrm_keyboard_frequency_trackingIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="rm_keyboard_frequency_tracking-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setrm_keyboard_frequency_trackingIframe(url){
+  var rm_keyboard_frequency_trackingIframe = document.getElementById("rm_keyboard_frequency_tracking-iframe");
+  rm_keyboard_frequency_trackingIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:rm-keyboard-frequency-tracking"></span>
+<p class="caption">
+Figure 11.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for ring modulation with keyboard tracking.
+</p>
+</div>
+<p>RM and AM are very similar in operation and in sound.
+The main differences revolve around the missing carrier component and sidebands reflecting off zero.
+Both of these emphasize sidebands in RM, because the sidebands have more energy in them and are never destroyed.
+In contrast, AM puts more weight on the carrier frequency and less on the sidebands.
+Another way of looking at the difference is that RM copies the characteristics of the carrier into the sidebands without including the carrier, whereas AM copies the same characteristics to a lesser extent and includes the carrier.
+This makes RM potentially more useful as an audio processing tool than AM.</p>
 </div>
 </div>
 <div id="modulating-frequency" class="section level2" number="11.2">
 <h2>
 <span class="header-section-number">11.2</span> Modulating frequency<a class="anchor" aria-label="anchor" href="#modulating-frequency"><i class="fas fa-link"></i></a>
 </h2>
+<p>The frequency family includes frequency modulation and phase modulation.</p>
+<!-- which are related quantities as show in Figure \@ref(fig:freq-phase). -->
+<!-- If we define frequency as the time it take the pendulum to return to vertical position, we can similarly define phase as the angle between the pendulum body and the vertical. -->
+<!-- Unfortunately, explaining frequency modulation is complicated by its long history and different implementations in the digital and analogue domains.  -->
+<!-- <a href="https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif">Animation</a> of a pulse wave across a range of duty cycles. Note that 100% and 0% it ceases to be a wave. Image <a href="https://commons.wikimedia.org/wiki/File:PWM_duty_cycle_with_label.gif">public domain</a>. [Animation](https://upload.wikimedia.org/wikipedia/commons/6/6f/Pendulum-no-text.gif?20201216081225) of a pendulum to illustrate the connection between frequency and phase. Image ©  [Ideophagous/CC-BY-SA-4.0 ](https://commons.wikimedia.org/wiki/File:Pendulum-no-text.gif). -->
+<!-- ```{r pulse-wave, out.width="40%", fig.cap="<a href="https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif">Animation</a> of a pulse wave across a range of duty cycles. Note that 100% and 0% it ceases to be a wave. Image <a href="https://commons.wikimedia.org/wiki/File:PWM_duty_cycle_with_label.gif">public domain</a>.", echo=F} -->
+<!-- embed_linked_media("https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif") -->
+<!-- ``` -->
 <div id="digital-frequency-modulation" class="section level3" number="11.2.1">
 <h3>
 <span class="header-section-number">11.2.1</span> Digital frequency modulation<a class="anchor" aria-label="anchor" href="#digital-frequency-modulation"><i class="fas fa-link"></i></a>

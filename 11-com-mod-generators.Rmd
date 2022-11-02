@@ -21,17 +21,17 @@ And when the modulator acts on the phase parameter of the carrier, the result is
 
 Each of these types of audio-rate modulation creates sidebands, which are new partials in the output.
 Audio-rate modulation therefore is related to additive synthesis in that both involve adding partials to change the timbre of the output sound.
-The main difference is that audio-rate modulation is often not strictly additive but also removes or changes some partials in the carrier.
+The main difference is that audio-rate modulation is not strictly additive and can also remove or change some partials in the carrier.
 However, with sufficient control of audio-rate modulation, one can create a wide variety of sounds more efficiently than additive synthesis, as shown by the explosion of inexpensive FM keyboards in the 1980's, like the Yamaha DX7.
 
 The following sections outline the use of audio-rate modulation in modular sound synthesis according to the parameters of amplitude, frequency, and phase.
-However, the story is more complicated than this due to the history of synthesis, limitations of analogue hardware, and mathematical relationships between methods.
-There are actually two families of methods that cover all three parameters, as will be explained.
+However, the story is somewhat complicated due to the history of synthesis, limitations of analogue hardware, and mathematical relationships between methods.
+There are actually two families of methods around amplitude and frequency that cover all three parameters, as will be explained.
 
 ## Modulating amplitude
 
 The amplitude family includes amplitude modulation and ring modulation.
-The difference between the two is that amplitude modulation stops producing sound when the modulation signal crosses below zero (unipolar) and ring modulation continues to produce sound (bipolar).
+The difference between the two is that amplitude modulation stops producing sound when the modulation signal crosses below zero and ring modulation continues to produce sound.
 Although this difference may seem like a small one, it leads to several differences in the resulting sidebands and therefore overall timbre.
 
 ### Amplitude modulation
@@ -40,13 +40,13 @@ You might have heard of amplitude modulation (AM) before, as it was one of the e
 We actually already covered the basic idea of AM in Section \@ref(tremolo) to produce tremelo.
 As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the output of our main oscillator.
 AM works exactly the same way as this but at audio rates (>20 Hz).
-At audio rates, we can hear sidebands and the nature of the sound changes from an oscillation in loudness to a new timbre.
+At audio rates, we can hear sidebands, and the nature of the sound changes from an oscillation in loudness to a new timbre.
 
 The VCA is key to understanding AM.
 Recall that the VCA is a level control that lets us let through a certain amount of signal, typically 0-100%.^[Most VCAs are attenuators and so only reduce signal. Some VCAs include amplifiers that allow the gain on the signal to go above 100%].
-If you stop to think about this mathematically, it means that the VCA is multiplying the signal by a control value.
-For example, if the VCA control value is 50%, then it is multiplying the incoming signal by .5.
-AM stops producing sound when the control value crosses below zero because VCAs are defined to operate in the 0-100% range, i.e., they are unipolar.
+If you stop to think about this mathematically, it means that the VCA is multiplying the signal by a control value.^[The control value itself at any moment is determined by the output of the modulator and thus it is the two signals that are being multiplied together, but for simplicity of exposition fixed point values are emphasized.]
+For example, if the VCA control value is 50%, then it is multiplying the incoming signal amplitude by .5.
+AM stops producing sound when the control value crosses below zero because VCAs are defined to operate in the 0-100% range, i.e., with unipolar control values only.
 So when the control value crosses below zero, the VCA output simply stays at zero until the control value becomes positive again.
 This behavior is illustrated in Figure \@ref(fig:am-unipolar).
 
@@ -56,10 +56,10 @@ This behavior is illustrated in Figure \@ref(fig:am-unipolar).
  knitr::include_graphics("images/am-unipolar.png")
 ```
 
-Side bands for AM are easiest to understand for sine waves.
-If both modulator and carrier are sine waves, the spectrum of the output will include a partial a the carrier frequency $C_f$ and two partials offset by the modulator frequency $M_f$, specifically $C_f - M_f$ and $C_f + M_f$.
-The sidebands have less strength than the carrier, and the strength of the sidebands is determined by the modulation index, which for AM is defined as the peak change in output amplitude divided by the amplitude of the carrier, $\Delta A/C_a$.
-When the modulator and/or carrier are not sine waves, the sidebands contain the partials from all pairs of partials between the modulator and the carrier.
+Side bands for AM are simplest for sine waves.
+If both modulator and carrier are sine waves, the spectrum of the output will include a partial at the carrier frequency $C_f$ and two partials offset by the modulator frequency $M_f$, specifically $C_f - M_f$ and $C_f + M_f$.
+The sidebands have less strength than the carrier, and the strength of the sidebands is determined by the modulation index, which for AM is defined as the peak change in output amplitude divided by the amplitude of the carrier, $\Delta A/C_a$.^[When the modulation index is at maximum, each sideband is half of the strength of the carrier.] 
+When the modulator and/or carrier are not sine waves, the sidebands contain the sums and differences for all pairs of partials between the modulator and the carrier.
 For example, if $M_f$ has 3 partials and $C_f$ has 5 partials, then there are $3*5$ partials in the lower sideband and the same number in the upper sideband.
 Even though the carrier frequency is not the fundamental, it is perceived as the pitch center of the sound, even when when the sidebands contain many partials.
 Note that in the above formulas, any partial that crosses below zero disappears.
@@ -68,7 +68,7 @@ Also, if the modulator frequency goes above the carrier, $M_f > C_f$, the roles 
 Implementing AM synthesis as described above is relatively simple in our virtual modular set up, but it has some surprises.
 First, if we want pure sine waves, i.e. sine waves with only one harmonic, then we need to use wavetable oscillators, which we've briefly mentioned a few times up to this point but never used.
 A [wavetable](https://en.wikipedia.org/wiki/Wavetable_synthesis) oscillator is a digital oscillator that defines a wave based on one stored cycle of that wave.
-We need wavetable oscillators here to get a perfect sine wave, because the analogue implementations faithfully recreate the imperfections of the original hardware.
+We need wavetable oscillators here to get a perfect sine wave, because the virtual analogue implementations faithfully recreate the imperfections of the original hardware.
 This is also true for real VCAs, which tend to be a bit noisy, so we'll need to use a specific VCA that we've never used before.
 All this effort is only necessary to get a result that matches the previous equations.
 Otherwise you may not care about these small imperfections that give additional character to the sound through the extra sidebands they create.
@@ -107,7 +107,7 @@ modular_caption()
 ```
 
 AM synthesis will generally produce inharmonic sidebands unless the modulator and carrier frequencies are chosen to create harmonic relationships.
-For example, if modulator and carrier have the same frequency, then the lower sideband will be zero and the upper sideband will be one octave above the carrier, e.g. 100 and 200 Hz.
+Using sine waves for example, if modulator and carrier have the same frequency, then the lower sideband will be zero and the upper sideband will be one octave above the carrier, e.g. 100 and 200 Hz.
 We can describe such frequency relationships between modulator and carrier in terms of ratios, so if both have the same frequency, the ratio of C:M is 1:1.
 You can easily check that any N:1 ratio is harmonic, for example using 200 Hz as the carrier would result in 100, 200, and 300 Hz harmonics.
 Likewise, N:2 where N is odd will give odd harmonics (100, 300, 500 Hz), and N:2 where N in even will give even harmonics (200, 400, 600 Hz).
@@ -124,7 +124,7 @@ This patch is also a good opportunity to explore the sounds of more complex modu
 ```{r echo=F, out.width="100%"}
 modular_modal("am-keyboard-frequency-tracking", starter_file="am-example.vcv", instructions_html="<ul>
 <li>Add Twelve-Key and Host Audio</li>
-<li>Mve Scope and Sassy to the lower row to make space</li>
+<li>Move Scope and Sassy to the lower row to make space</li>
 <li>Connect 12 ky CV to both oscillator V/Oct. The voltage from this connection will be summed with the dialed in voltage represented by each oscillator's frequency knob, so when each receives the same voltage from the 12 key, the relative tuning between oscillators will not change</li>
 <li>Connect the AMP out to Host audio L</li>
 <li>Try the following and note the differences in the sound and scopes <ul>
@@ -143,8 +143,119 @@ modular_caption()
 
 ### Ring modulation
 
+Ring modulation (RM) is implemented the same way as AM, except with VCA where the control value can cross below zero.
+That means that RM also multiplies the carrier signal by the control value of the VCA, but when that control value is negative, the output will also be negative.
+Negative output is exactly the same as positive output *except* inverted.
+Thus RM operates just like AM except that RM will never stop at zero, and when it crosses zero, the output is the same as above zero except inverted.
+This behavior is illustrated in Figure \@ref(fig:rm-bipolar).
+
+(ref:rm-bipolar) An example of ring modulation using sine waves for modulator and carrier. Note that where the modulator signal (purple) is at either its positive or negative peak, the output (yellow) is at greatest strength. The overall amplitude of the output is reduced relative to Figure \@ref(fig:am-unipolar) due to the removal of the carrier frequency (see text).
+
+```{r rm-bipolar, echo=F, out.width="100%", fig.cap="(ref:rm-bipolar)"}
+ knitr::include_graphics("images/rm-bipolar.png")
+```
+
+Ring modulators and VCAs are sometimes called four- and two-quadrant multipliers for this reason, as shown in Figure \@ref(fig:four-quadrant-multiplier).
+On a VCA, the input signal can be bipolar but the control value is unipolar.
+That means the output can only occur in two quadrants of the Cartesian plane.
+On a ring modulator, both input signal and control can be bipolar, so the output can occur in all four quadrants of the Cartesian plane.
+Historically, ring modulation was performed by a [circuit consisting of diodes arranged in a ring](https://en.wikipedia.org/wiki/Ring_modulation), thus the name.
+However, a ring modulator is sometimes called a four-quadrant multiplier for the reason above.
+It is also sometimes called balanced modulator because the modulating signal spends as much time being negative as positive.
+
+(ref:four-quadrant-multiplier) A two-quadrant multiplier multiplies a bipolar signal (carrier) and a unipolar signal (control voltage), so the result must occur in two quadrants (left). A four-quadrant multiplier multiplies two bipolar signals, so the result can occur in all four quadrants (right).
+
+```{r four-quadrant-multiplier, echo=F, out.width="100%", fig.cap="(ref:four-quadrant-multiplier)"}
+ knitr::include_graphics("images/four-quadrant-multiplier.png")
+```
+
+Like AM, side bands for RM are easiest to understand for sine waves.
+The output spectrum is the same as AM, except that the carrier frequency $C_f$ is removed, leaving only the side bands $C_f - M_f$ and $C_f + M_f$, and any sidebands that cross below zero are reflected back as their absolute value instead of being lost.
+Similarly, when the modulator and/or carrier are not sine waves, the sidebands contain the sums and differences for all pairs of partials between the modulator and the carrier.
+The modulation index for RM is likewise the same as AM, and if the modulator frequency goes above the carrier, $M_f > C_f$, the roles of carrier and modulator are reversed.
+
+We can implement RM with a slight modification to the first AM patch.
+Again, the choice of module is important to get identical behavior to the equations above, though in practice, the character of small imperfections might be preferred.
+Try creating a simple RM patch extending the AM patch using the button in Figure \@ref(fig:rm-example).
+
+(ref:rm-example) [Virtual modular](https://cardinal.olney.ai) for ring modulation using pure sine waves.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("rm-example", starter_file="am-example.vcv", instructions_html="<ul>
+<li>Add feidah, copy the connections from AMP over to it, and remove AMP</li>
+<li>Try the following and note the differences in the scopes <ul>
+<li>Mouse over the frequency peaks in Sassy. You should see one for the modulator, one for the carrier, and two for sidebands. Check their values and compare to the sideband formula</li>
+<li>Temporarally disconnect the Sassy input from the carrier. You should see that this carrier partial is missing from the ring mod output</li>
+<li>Change the time knob on the scope to look at the output waveshape across scales. You should see the characteristic waveshape presented earlier. Connect the modulator output to the second Scope input to recreate the figure</li>
+<li>Move the modulator wavetable position knob slowly upward and watch the change in Sassy. You will see both new peaks in the spectrum of the modulator as well as matching peaks in sidebands in the output signal.</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='rack-image' src='images/solo-modules/feidah-solo.png'>
+</div>
+",solution_html="<img class='rack-image' src='images/patch-solutions/rm-example.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r rm-example, echo=F, out.width="100%", fig.cap="(ref:rm-example)"}
+modular_caption()
+```
+
+In terms of harmonicity, RM is again identical to AM except for the properties of missing the carrier frequency and reflections of sideband partials off zero.
+The missing carrier means that the overall spectrum will no longer have a strong pitch center.
+However, our perception tends to fill in the missing frequency of the carrier such that the pitch still seems centered there, just not as strongly.
+Reflected sideband partials have potential to interfere with other partials, but this will occur only when the modulator or carrier has a richer waveshape than sign and thus higher harmonics to subtract.
+Otherwise the same concerns about harmonic frequency ratios and keyboard tracking apply to RM as AM.
+Try extending the AM patch with a keyboard to RM using the button in Figure \@ref(fig:rm-keyboard-frequency-tracking).
+This patch is also a good opportunity to explore how the sound of RM differs from AM. 
+
+
+(ref:rm-keyboard-frequency-tracking) [Virtual modular](https://cardinal.olney.ai) for ring modulation with keyboard tracking.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("rm-keyboard-frequency-tracking", starter_file="am-keyboard-frequency-tracking.vcv", instructions_html="<ul>
+<li>Add feidah, copy the connections from AMP over to it, and remove AMP</li>
+<li>Try the following and note the differences in the sound and scopes <ul>
+<li>Play across the keyboard. Notice that even with the carrier missing, it still defines the perceived pitch and the sidebands remain harmonic with it</li>
+<li>Temporarally disconnect the modulator V/Oct and play up the keyboard. Note the result is a bit less inharmonic than AM under these conditions</li>
+<li>Reconnect the V/Oct and move the modulator wavetable position knob slowly upward and listen to the change in the sound. Note that as the shape approaches saw, the carrier frequency is filled in by reflection. Repeat for the carrier knob. Note that the missing carrier remains the perceived pitch center even as the harmonics increase.</li>
+</ul></li>
+</ul>
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/rm-keyboard-frequency-tracking.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r rm-keyboard-frequency-tracking, echo=F, out.width="100%", fig.cap="(ref:rm-keyboard-frequency-tracking)"}
+modular_caption()
+```
+
+RM and AM are very similar in operation and in sound. 
+The main differences revolve around the missing carrier component and sidebands reflecting off zero.
+Both of these emphasize sidebands in RM, because the sidebands have more energy in them and are never destroyed.
+In contrast, AM puts more weight on the carrier frequency and less on the sidebands.
+Another way of looking at the difference is that RM copies the characteristics of the carrier into the sidebands without including the carrier, whereas AM copies the same characteristics to a lesser extent and includes the carrier.
+This makes RM potentially more useful as an audio processing tool than AM.
 
 ## Modulating frequency
+
+The frequency family includes frequency modulation and phase modulation.
+
+
+<!-- which are related quantities as show in Figure \@ref(fig:freq-phase). -->
+<!-- If we define frequency as the time it take the pendulum to return to vertical position, we can similarly define phase as the angle between the pendulum body and the vertical. -->
+<!-- Unfortunately, explaining frequency modulation is complicated by its long history and different implementations in the digital and analogue domains.  -->
+
+
+<!-- (ref:pulse-wave) [Animation](https://upload.wikimedia.org/wikipedia/commons/6/6f/Pendulum-no-text.gif?20201216081225) of a pendulum to illustrate the connection between frequency and phase. Image ©  [Ideophagous/CC-BY-SA-4.0 ](https://commons.wikimedia.org/wiki/File:Pendulum-no-text.gif). -->
+
+<!-- ```{r pulse-wave, out.width="40%", fig.cap="(ref:pulse-wave)", echo=F} -->
+<!-- embed_linked_media("https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif") -->
+<!-- ``` -->
+
+
+
 
 ### Digital frequency modulation
 
