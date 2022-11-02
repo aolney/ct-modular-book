@@ -241,7 +241,82 @@ This makes RM potentially more useful as an audio processing tool than AM.
 ## Modulating frequency
 
 The frequency family includes frequency modulation and phase modulation.
+Since $frequency * time = phase$, frequency and phase modulation are closely related.
+However, understanding this modulation family in modular synthesis requires understanding not just the math behind them but also the history.
+Many modular synthesis methods involving this family are actually approximations rather than exact implementations.
+Each approximation has its own characteristic sound that is now part of the genre of electronic music.
+Thus understanding this family requires understanding both the true methods and the approximations.
 
+### Frequency modulation
+
+Frequency modulation (FM) is a widespread method for radio transmission, just like AM.
+In the context of modular synthesis, FM is strongly associated with @Chowning1973, whose work in the 1970s [was used in the Yamaha FM synthesizers](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis), notably the DX7.
+Although Chowning's FM arrived decades after other forms of FM were used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it.
+
+W previously covered the basic idea of FM in Section \@ref(vibrato) to produce vibrato.
+As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the output of our main oscillator.
+AM works exactly the same way as this but at audio rates (>20 Hz).
+At audio rates, we can hear sidebands, and the nature of the sound changes from an oscillation in loudness to a new timbre.
+
+
+### Analogue exponential frequency modulation
+
+Simple EFM with sine waves using the button in Figure \@ref(fig:efm-example).
+
+(ref:efm-example) [Virtual modular](https://cardinal.olney.ai) for **TODO**.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("efm-example", starter_file="rm-example.vcv", instructions_html="<ul>
+<li>Remove feidah and add Host audio</li>
+<li>Connect the modulator out to the carrier FM in</li>
+<li>Connect the carrier out to Scope in 1 and modulator out to Scope in 2</li>
+<li>Connect the carrier out to Host audio L</li>
+<li>Try the following and note the differences in the sound and scopes <ul>
+<li>Turn up the FM carrier knob slightly. Mouse over the frequency peaks in Sassy. You should see one for the modulator, one for the carrier, and two for sidebands. Check their values and compare to the sideband formula</li>
+<li>Slowly turn up the carrier FM knob. This will increase the modulation index. Observe the changes in both the spectrum and the pitch of the sound. At what modulation index doe the pitch seem to noticably change?</li>
+<li>Change the carrier FM knob down to a low but not zero level. Now increase the waveshape knob on the modulator and note the change in pitch. This is because the modulation index is based on the highest frequency component of the modulator, so when you use a waveshape with higher harmonics, the modulation index will also change.</li>
+</ul></li>
+</ul>
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/efm-example.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r efm-example, echo=F, out.width="100%", fig.cap="(ref:efm-example)"}
+modular_caption()
+```
+
+
+Keyboard tracking EFM with sine waves using the button in Figure \@ref(fig:efm-keyboard-frequency-tracking).
+
+(ref:efm-keyboard-frequency-tracking) [Virtual modular](https://cardinal.olney.ai) for **TODO**.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("efm-keyboard-frequency-tracking", starter_file="rm-keyboard-frequency-tracking.vcv", instructions_html="<ul>
+<li>Remove feidah </li>
+<li>Connect the modulator out to the carrier FM in</li>
+<li>Connect the carrier out to Scope in 1 and modulator out to Scope in 2</li>
+<li>Connect the carrier out to Host audio L</li>
+<li>Try the following and note the differences in the sound and scopes <ul>
+<li>Turn up the FM carrier knob to about 45 percent and play across the keyboard. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre has changed as the pitch has changed. This is because the modulation index depends on the modulator/carrier frequencies and the depth of modulation simultaneously.</li>
+<li>TODO</li>
+</ul></li>
+</ul>
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/efm-keyboard-frequency-tracking.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r efm-keyboard-frequency-tracking, echo=F, out.width="100%", fig.cap="(ref:efm-keyboard-frequency-tracking)"}
+modular_caption()
+```
+
+
+### Analogue linear frequency modulation
+
+### Analogue through-zero frequency modulation
+
+### Phase modulation
 
 <!-- which are related quantities as show in Figure \@ref(fig:freq-phase). -->
 <!-- If we define frequency as the time it take the pendulum to return to vertical position, we can similarly define phase as the angle between the pendulum body and the vertical. -->
@@ -253,21 +328,6 @@ The frequency family includes frequency modulation and phase modulation.
 <!-- ```{r pulse-wave, out.width="40%", fig.cap="(ref:pulse-wave)", echo=F} -->
 <!-- embed_linked_media("https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif") -->
 <!-- ``` -->
-
-
-
-
-### Digital frequency modulation
-
-### Analogue frequency modulation
-
-#### Exponential frequency modulation {-}
-
-#### Linear frequency modulation {-}
-
-#### Through-zero frequency modulation {-}
-
-### Phase modulation
 
 <!-- Remaining plan -->
 

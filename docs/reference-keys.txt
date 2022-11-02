@@ -155,6 +155,8 @@ fig:rm-bipolar
 fig:four-quadrant-multiplier
 fig:rm-example
 fig:rm-keyboard-frequency-tracking
+fig:efm-example
+fig:efm-keyboard-frequency-tracking
 introduction
 why-this-book
 computational-thinking
@@ -250,8 +252,10 @@ modulating-amplitude
 amplitude-modulation
 ring-modulation
 modulating-frequency
-digital-frequency-modulation
-analogue-frequency-modulation
+frequency-modulation
+analogue-exponential-frequency-modulation
+analogue-linear-frequency-modulation
+analogue-through-zero-frequency-modulation
 phase-modulation
 complex-modifiers
 sd2-B

@@ -190,7 +190,59 @@ This makes RM potentially more useful as an audio processing tool than AM.
 ## Modulating frequency
 
 The frequency family includes frequency modulation and phase modulation.
+Since $frequency * time = phase$, frequency and phase modulation are closely related.
+However, understanding this modulation family in modular synthesis requires understanding not just the math behind them but also the history.
+Many modular synthesis methods involving this family are actually approximations rather than exact implementations.
+Each approximation has its own characteristic sound that is now part of the genre of electronic music.
+Thus understanding this family requires understanding both the true methods and the approximations.
 
+### Frequency modulation
+
+Frequency modulation (FM) is a widespread method for radio transmission, just like AM.
+In the context of modular synthesis, FM is strongly associated with @Chowning1973, whose work in the 1970s [was used in the Yamaha FM synthesizers](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis), notably the DX7.
+Although Chowning's FM arrived decades after other forms of FM were used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it.
+
+W previously covered the basic idea of FM in Section \@ref(vibrato) to produce vibrato.
+As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the output of our main oscillator.
+AM works exactly the same way as this but at audio rates (>20 Hz).
+At audio rates, we can hear sidebands, and the nature of the sound changes from an oscillation in loudness to a new timbre.
+
+
+### Analogue exponential frequency modulation
+
+Simple EFM with sine waves using the button in Figure \@ref(fig:efm-example).
+
+(ref:efm-example) [Virtual modular](https://cardinal.olney.ai) for **TODO**.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:efm-example)" width="100%" />
+<p class="caption">(\#fig:efm-example)(ref:efm-example)</p>
+</div>
+
+
+Keyboard tracking EFM with sine waves using the button in Figure \@ref(fig:efm-keyboard-frequency-tracking).
+
+(ref:efm-keyboard-frequency-tracking) [Virtual modular](https://cardinal.olney.ai) for **TODO**.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:efm-keyboard-frequency-tracking)" width="100%" />
+<p class="caption">(\#fig:efm-keyboard-frequency-tracking)(ref:efm-keyboard-frequency-tracking)</p>
+</div>
+
+
+### Analogue linear frequency modulation
+
+### Analogue through-zero frequency modulation
+
+### Phase modulation
 
 <!-- which are related quantities as show in Figure \@ref(fig:freq-phase). -->
 <!-- If we define frequency as the time it take the pendulum to return to vertical position, we can similarly define phase as the angle between the pendulum body and the vertical. -->
@@ -202,21 +254,6 @@ The frequency family includes frequency modulation and phase modulation.
 <!-- ```{r pulse-wave, out.width="40%", fig.cap="(ref:pulse-wave)", echo=F} -->
 <!-- embed_linked_media("https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif") -->
 <!-- ``` -->
-
-
-
-
-### Digital frequency modulation
-
-### Analogue frequency modulation
-
-#### Exponential frequency modulation {-}
-
-#### Linear frequency modulation {-}
-
-#### Through-zero frequency modulation {-}
-
-### Phase modulation
 
 <!-- Remaining plan -->
 
