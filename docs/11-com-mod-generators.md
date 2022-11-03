@@ -43,7 +43,7 @@ AM works exactly the same way as this but at audio rates (>20 Hz).
 At audio rates, we can hear sidebands, and the nature of the sound changes from an oscillation in loudness to a new timbre.
 
 The VCA is key to understanding AM.
-Recall that the VCA is a level control that lets us let through a certain amount of signal, typically 0-100%.^[Most VCAs are attenuators and so only reduce signal. Some VCAs include amplifiers that allow the gain on the signal to go above 100%].
+Recall that the VCA is a level control that lets through a certain amount of signal, typically 0-100%.^[Most VCAs are attenuators and so only reduce signal. Some VCAs include amplifiers that allow the gain on the signal to go above 100%].
 If you stop to think about this mathematically, it means that the VCA is multiplying the signal by a control value.^[The control value itself at any moment is determined by the output of the modulator and thus it is the two signals that are being multiplied together, but for simplicity of exposition fixed point values are emphasized.]
 For example, if the VCA control value is 50%, then it is multiplying the incoming signal amplitude by .5.
 AM stops producing sound when the control value crosses below zero because VCAs are defined to operate in the 0-100% range, i.e., with unipolar control values only.
@@ -60,6 +60,16 @@ This behavior is illustrated in Figure \@ref(fig:am-unipolar).
 Side bands for AM are simplest for sine waves.
 If both modulator and carrier are sine waves, the spectrum of the output will include a partial at the carrier frequency $C_f$ and two partials offset by the modulator frequency $M_f$, specifically $C_f - M_f$ and $C_f + M_f$.
 The sidebands have less strength than the carrier, and the strength of the sidebands is determined by the modulation index, which for AM is defined as the peak change in output amplitude divided by the amplitude of the carrier, $\Delta A/C_a$.^[When the modulation index is at maximum, each sideband is half of the strength of the carrier.] 
+An example of peak change is given in Figure \@ref(fig:am-modulation-index).
+
+(ref:am-modulation-index) An example of peak amplitude change using sine waves for modulator and carrier. The indicated difference in amplitude between the carrier signal (red) and the output (yellow) is the peak amplitude change $\Delta A$.
+
+<div class="figure">
+<img src="images/am-modulation-index.png" alt="(ref:am-modulation-index)" width="100%" />
+<p class="caption">(\#fig:am-modulation-index)(ref:am-modulation-index)</p>
+</div>
+
+
 When the modulator and/or carrier are not sine waves, the sidebands contain the sums and differences for all pairs of partials between the modulator and the carrier.
 For example, if $M_f$ has 3 partials and $C_f$ has 5 partials, then there are $3*5$ partials in the lower sideband and the same number in the upper sideband.
 Even though the carrier frequency is not the fundamental, it is perceived as the pitch center of the sound, even when when the sidebands contain many partials.
@@ -73,7 +83,7 @@ We need wavetable oscillators here to get a perfect sine wave, because the virtu
 This is also true for real VCAs, which tend to be a bit noisy, so we'll need to use a specific VCA that we've never used before.
 All this effort is only necessary to get a result that matches the previous equations.
 Otherwise you may not care about these small imperfections that give additional character to the sound through the extra sidebands they create.
-Try creating a simple AM patch from scratch using the button in Figure \@ref(fig:am-example).
+Try creating a simple AM patch from scratch using the button in Figure \@ref(fig:am-example) and look carefully at the sidebands it creates.
 
 
 (ref:am-example) [Virtual modular](https://cardinal.olney.ai) for amplitude modulation using pure sine waves.
@@ -110,11 +120,30 @@ This patch is also a good opportunity to explore the sounds of more complex modu
 <p class="caption">(\#fig:am-keyboard-frequency-tracking)(ref:am-keyboard-frequency-tracking)</p>
 </div>
 
+AM creates an interesting sound with a fixed modulation index, but as with all audio-rate modulations, we can also change that modulation index over time.
+All that is needed is a signal that changes over time and something to attenuate the modulation index in response to that signal.
+We can extend the last patch along these lines by adding an envelope triggered by the keyboard where that envelope controls another VCA.
+Every keypress will then cause a brief change in the modulation index, which will correspondingly change the strength of the sidebands.
+This effect is even more pronounced for non-sine waves because there are more partials in the sidebands.
+Try modulating the modulation index with an envelope using the button in Figure \@ref(fig:am-keyboard-frequency-tracking-adsr-modulation-index).
+
+(ref:am-keyboard-frequency-tracking-adsr-modulation-index) [Virtual modular](https://cardinal.olney.ai) for amplitude modulation with keyboard tracking where the modulation index is controlled by an envelope.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:am-keyboard-frequency-tracking-adsr-modulation-index)" width="100%" />
+<p class="caption">(\#fig:am-keyboard-frequency-tracking-adsr-modulation-index)(ref:am-keyboard-frequency-tracking-adsr-modulation-index)</p>
+</div>
+
+
 ### Ring modulation
 
-Ring modulation (RM) is implemented the same way as AM, except with VCA where the control value can cross below zero.
-That means that RM also multiplies the carrier signal by the control value of the VCA, but when that control value is negative, the output will also be negative.
-Negative output is exactly the same as positive output *except* inverted.
+Ring modulation (RM) is implemented the same way as AM, except with a VCA where the control value can cross below zero.
+That means that RM multiplies the carrier signal by the control value of the VCA, but since the control value can be negative, the output can also be negative.
+Negative output may sound strange at first, but it is exactly the same as positive output *except* inverted.
 Thus RM operates just like AM except that RM will never stop at zero, and when it crosses zero, the output is the same as above zero except inverted.
 This behavior is illustrated in Figure \@ref(fig:rm-bipolar).
 
@@ -125,15 +154,15 @@ This behavior is illustrated in Figure \@ref(fig:rm-bipolar).
 <p class="caption">(\#fig:rm-bipolar)(ref:rm-bipolar)</p>
 </div>
 
-Ring modulators and VCAs are sometimes called four- and two-quadrant multipliers for this reason, as shown in Figure \@ref(fig:four-quadrant-multiplier).
-On a VCA, the input signal can be bipolar but the control value is unipolar.
-That means the output can only occur in two quadrants of the Cartesian plane.
-On a ring modulator, both input signal and control can be bipolar, so the output can occur in all four quadrants of the Cartesian plane.
 Historically, ring modulation was performed by a [circuit consisting of diodes arranged in a ring](https://en.wikipedia.org/wiki/Ring_modulation), thus the name.
-However, a ring modulator is sometimes called a four-quadrant multiplier for the reason above.
-It is also sometimes called balanced modulator because the modulating signal spends as much time being negative as positive.
+Ring modulators and VCAs are sometimes called four- and two-quadrant multipliers.
+On a VCA, the input signal can be bipolar but the control value is unipolar.
+That means the VCA output is restricted to two quadrants of the Cartesian plane.
+On a ring modulator, both input signal and control can be bipolar, so the output can occur in all four quadrants of the Cartesian plane.
+The difference between  four- and two-quadrant multipliers is illustrated in Figure \@ref(fig:four-quadrant-multiplier).
+Ring modulators are also sometimes called balanced modulators because the modulating signal spends as much time being negative as positive.
 
-(ref:four-quadrant-multiplier) A two-quadrant multiplier multiplies a bipolar signal (carrier) and a unipolar signal (control voltage), so the result must occur in two quadrants (left). A four-quadrant multiplier multiplies two bipolar signals, so the result can occur in all four quadrants (right).
+(ref:four-quadrant-multiplier) A two-quadrant multiplier multiplies a bipolar signal (carrier) and a unipolar signal (control voltage), so has output in two quadrants (left). A four-quadrant multiplier multiplies two bipolar signals, so has output in all four quadrants (right).
 
 <div class="figure">
 <img src="images/four-quadrant-multiplier.png" alt="(ref:four-quadrant-multiplier)" width="100%" />
@@ -164,8 +193,8 @@ In terms of harmonicity, RM is again identical to AM except for the properties o
 The missing carrier means that the overall spectrum will no longer have a strong pitch center.
 However, our perception tends to fill in the missing frequency of the carrier such that the pitch still seems centered there, just not as strongly.
 Reflected sideband partials have potential to interfere with other partials, but this will occur only when the modulator or carrier has a richer waveshape than sign and thus higher harmonics to subtract.
-Otherwise the same concerns about harmonic frequency ratios and keyboard tracking apply to RM as AM.
-Try extending the AM patch with a keyboard to RM using the button in Figure \@ref(fig:rm-keyboard-frequency-tracking).
+Otherwise the same concepts about harmonic frequency ratios, keyboard tracking, and modulating the modulation index apply to RM as AM.
+Try extending the final AM patch to RM using the button in Figure \@ref(fig:rm-keyboard-frequency-tracking).
 This patch is also a good opportunity to explore how the sound of RM differs from AM. 
 
 
@@ -180,12 +209,20 @@ This patch is also a good opportunity to explore how the sound of RM differs fro
 <p class="caption">(\#fig:rm-keyboard-frequency-tracking)(ref:rm-keyboard-frequency-tracking)</p>
 </div>
 
-RM and AM are very similar in operation and in sound. 
+RM and AM are similar in operation and in sound. 
 The main differences revolve around the missing carrier component and sidebands reflecting off zero.
 Both of these emphasize sidebands in RM, because the sidebands have more energy in them and are never destroyed.
 In contrast, AM puts more weight on the carrier frequency and less on the sidebands.
 Another way of looking at the difference is that RM copies the characteristics of the carrier into the sidebands without including the carrier, whereas AM copies the same characteristics to a lesser extent and includes the carrier.
 This makes RM potentially more useful as an audio processing tool than AM.
+These differences between AM and RM are illustrated in Figure \@ref(fig:am-rm-modsquare-carsaw).
+
+(ref:am-rm-modsquare-carsaw) AM (left) and RM (right) for a square wave modulator (blue) and a saw wave carrier (yellow). Note that the energy of the saw wave carrier is more strongly preserved in AM, whereas in RM, the characteristics of the carrier are preserved without preserving its energy.
+
+<div class="figure">
+<img src="images/am-rm-modsquare-carsaw.png" alt="(ref:am-rm-modsquare-carsaw)" width="100%" />
+<p class="caption">(\#fig:am-rm-modsquare-carsaw)(ref:am-rm-modsquare-carsaw)</p>
+</div>
 
 ## Modulating frequency
 
@@ -204,23 +241,31 @@ Although Chowning's FM arrived decades after other forms of FM were used in modu
 
 We previously covered the basic idea of FM in Section \@ref(vibrato) to produce vibrato.
 As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the output of our main oscillator.
-In FM we don't use a VCA but instead an attenuverter/polarizer that is often integrated into the carrier oscillator, i.e. FM crosses zero just like RM.
+In FM we don't use a VCA but instead an attenuverter/polarizer, i.e. FM crosses zero just like RM.
+The attenuverter/polarizer is often integrated into the carrier oscillator as shown in Figure \@ref(fig:fm-voct).
 The voltage into the carrier's FM input is added to the voltage into the carrier's V/Oct input, so when only one input is used, these two inputs are interchangeable.
-When using both, the V/Oct defines the carriers frequency, and the FM input defines the variation around that frequency.
+When using both, the V/Oct defines the carrier's frequency, and the FM input defines the variation around that frequency.
+
+(ref:fm-voct) Voltage controlled oscillators typically have an FM input (lower left) in addition to a V/Oct input (upper left). The voltage from these two inputs is internally summed, thus V/Oct can be used to define a center frequency and FM can be used to define a variation around that frequency. Note the attenuator knob directly above the FM jack can be used to attenuate the FM voltage and therefore the strength of the modulation. 
+
+<div class="figure">
+<img src="images/fm-voct.png" alt="(ref:fm-voct)" width="30%" />
+<p class="caption">(\#fig:fm-voct)(ref:fm-voct)</p>
+</div>
 
 As with AM and RM, FM creates sidebands symmetrically around the carrier frequency.
-In contrast, FM creates an infinite number of sideband partials when the modulator and carrier are sine waves, rather than just two.
+In contrast, FM creates an infinite number of sideband partials rather than just two - even when the modulator and carrier are sine waves.
 These side band partials are arranged in pairs as $C_f - nM_f$ and $C_f + nM_f$, where $n$ is a natural number.
 When $n$ is odd, the side band partials below $C_f$ have reversed phase.
 Additionally, partials that cross zero will reflect with a reversal of phase.
 The above is also true when the modulator and carrier are non-sine waves, in which case each pairing of partials between them creates a new sideband pair.
-To avoid confusion around the word "pair", our discussion of sidebands will be restricted to sine waves for modulator and carrier in what follows.
+To avoid confusion around the word "pair", the following discussion of sidebands will be restricted to sine waves.
 
 The FM modulation index is  defined as the peak change in output frequency divided by the highest frequency component of the modulator, $\Delta F/M_f$.
 Changing the modulation index has a dramatic effect on the timbre for several reasons.
-First, although FM produced infinite sidebands, most of the partials have negligible amplitude.
+First, although FM produces infinite sidebands, most of the partials have negligible amplitude.
 According to [Carson's bandwith rule](https://en.wikipedia.org/wiki/Carson_bandwidth_rule), 98% of the energy in the spectrum is within a bandwidth defined by $2(\Delta F + M_f)$, so  holding $M_f$ constant, the FM bandwidth will increase as the modulation index increases.
-Larger bandwidth affects the timbre of the sound both by increasing the audible partials and increasing the opportunities for partials to reflect off zero and interfere with existing partials.
+Larger bandwidth affects the timbre of the sound by increasing the audible partials and increasing the opportunities for partials to reflect off zero and interfere with existing partials.
 Second, as the modulation index increases, each sideband pair defined by $n$ changes in amplitude according to its own Bessel function, and once the Bessel function crosses below zero, the sideband pair reverses phase.
 The amplitude changes created by the Bessel functions ripple outward for increasing $n$ as the modulation index increases, as shown in Figure \@ref(fig:bessel-modulation).
 
@@ -235,13 +280,15 @@ The amplitude changes created by the Bessel functions ripple outward for increas
 
 
 
-How are sideband frequency and amplitude calculated
-How does modulation index affect these
-What happens to partials that cross zero?
-How is result perceived
-How can we make it harmonic
-Ratios C:M
-Will harmonics track keyboard or not
+**template**
+
+- How are sideband frequency and amplitude calculated
+- How does modulation index affect these
+- What happens to partials that cross zero?
+- How is result perceived
+- How can we make it harmonic
+- Ratios C:M
+- Will harmonics track keyboard or not
 
 
 

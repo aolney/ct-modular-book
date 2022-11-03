@@ -149,12 +149,16 @@ fig:bresenham-line
 fig:euclidean-drums-mschack
 fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch
 fig:am-unipolar
+fig:am-modulation-index
 fig:am-example
 fig:am-keyboard-frequency-tracking
+fig:am-keyboard-frequency-tracking-adsr-modulation-index
 fig:rm-bipolar
 fig:four-quadrant-multiplier
 fig:rm-example
 fig:rm-keyboard-frequency-tracking
+fig:am-rm-modsquare-carsaw
+fig:fm-voct
 fig:bessel-modulation
 fig:efm-example
 fig:efm-keyboard-frequency-tracking
