@@ -158,7 +158,7 @@ fig:four-quadrant-multiplier
 fig:rm-example
 fig:rm-keyboard-frequency-tracking
 fig:am-rm-modsquare-carsaw
-fig:fm-voct
+fig:fm-voct-composite
 fig:bessel-modulation
 fig:efm-example
 fig:efm-keyboard-frequency-tracking
