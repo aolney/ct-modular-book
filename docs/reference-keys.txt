@@ -155,6 +155,7 @@ fig:rm-bipolar
 fig:four-quadrant-multiplier
 fig:rm-example
 fig:rm-keyboard-frequency-tracking
+fig:bessel-modulation
 fig:efm-example
 fig:efm-keyboard-frequency-tracking
 introduction

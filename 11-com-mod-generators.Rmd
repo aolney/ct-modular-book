@@ -127,6 +127,7 @@ modular_modal("am-keyboard-frequency-tracking", starter_file="am-example.vcv", i
 <li>Move Scope and Sassy to the lower row to make space</li>
 <li>Connect 12 ky CV to both oscillator V/Oct. The voltage from this connection will be summed with the dialed in voltage represented by each oscillator's frequency knob, so when each receives the same voltage from the 12 key, the relative tuning between oscillators will not change</li>
 <li>Connect the AMP out to Host audio L</li>
+<li>Set the oscillators to have a harmonic relationship, e.g. N:1</li>
 <li>Try the following and note the differences in the sound and scopes <ul>
 <li>Play across the keyboard. Notice that the carrier, which is the strongest harmonic, defines the perceived pitch and that the sidebands remain harmonic with it</li>
 <li>Temporarally disconnect the modulator V/Oct and play up the keyboard. Note on most keys the result is inharmonic but it becomes harmonic on other keys by chance</li>
@@ -217,6 +218,7 @@ This patch is also a good opportunity to explore how the sound of RM differs fro
 ```{r echo=F, out.width="100%"}
 modular_modal("rm-keyboard-frequency-tracking", starter_file="am-keyboard-frequency-tracking.vcv", instructions_html="<ul>
 <li>Add feidah, copy the connections from AMP over to it, and remove AMP</li>
+<li>Set the oscillators to have a harmonic relationship, e.g. N:1</li>
 <li>Try the following and note the differences in the sound and scopes <ul>
 <li>Play across the keyboard. Notice that even with the carrier missing, it still defines the perceived pitch and the sidebands remain harmonic with it</li>
 <li>Temporarally disconnect the modulator V/Oct and play up the keyboard. Note the result is a bit less inharmonic than AM under these conditions</li>
@@ -253,10 +255,46 @@ Frequency modulation (FM) is a widespread method for radio transmission, just li
 In the context of modular synthesis, FM is strongly associated with @Chowning1973, whose work in the 1970s [was used in the Yamaha FM synthesizers](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis), notably the DX7.
 Although Chowning's FM arrived decades after other forms of FM were used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it.
 
-W previously covered the basic idea of FM in Section \@ref(vibrato) to produce vibrato.
+We previously covered the basic idea of FM in Section \@ref(vibrato) to produce vibrato.
 As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the output of our main oscillator.
-AM works exactly the same way as this but at audio rates (>20 Hz).
-At audio rates, we can hear sidebands, and the nature of the sound changes from an oscillation in loudness to a new timbre.
+In FM we don't use a VCA but instead an attenuverter/polarizer that is often integrated into the carrier oscillator, i.e. FM crosses zero just like RM.
+The voltage into the carrier's FM input is added to the voltage into the carrier's V/Oct input, so when only one input is used, these two inputs are interchangeable.
+When using both, the V/Oct defines the carriers frequency, and the FM input defines the variation around that frequency.
+
+As with AM and RM, FM creates sidebands symmetrically around the carrier frequency.
+In contrast, FM creates an infinite number of sideband partials when the modulator and carrier are sine waves, rather than just two.
+These side band partials are arranged in pairs as $C_f - nM_f$ and $C_f + nM_f$, where $n$ is a natural number.
+When $n$ is odd, the side band partials below $C_f$ have reversed phase.
+Additionally, partials that cross zero will reflect with a reversal of phase.
+The above is also true when the modulator and carrier are non-sine waves, in which case each pairing of partials between them creates a new sideband pair.
+To avoid confusion around the word "pair", our discussion of sidebands will be restricted to sine waves for modulator and carrier in what follows.
+
+The FM modulation index is  defined as the peak change in output frequency divided by the highest frequency component of the modulator, $\Delta F/M_f$.
+Changing the modulation index has a dramatic effect on the timbre for several reasons.
+First, although FM produced infinite sidebands, most of the partials have negligible amplitude.
+According to [Carson's bandwith rule](https://en.wikipedia.org/wiki/Carson_bandwidth_rule), 98% of the energy in the spectrum is within a bandwidth defined by $2(\Delta F + M_f)$, so  holding $M_f$ constant, the FM bandwidth will increase as the modulation index increases.
+Larger bandwidth affects the timbre of the sound both by increasing the audible partials and increasing the opportunities for partials to reflect off zero and interfere with existing partials.
+Second, as the modulation index increases, each sideband pair defined by $n$ changes in amplitude according to its own Bessel function, and once the Bessel function crosses below zero, the sideband pair reverses phase.
+The amplitude changes created by the Bessel functions ripple outward for increasing $n$ as the modulation index increases, as shown in Figure \@ref(fig:bessel-modulation).
+
+
+(ref:bessel-modulation) [Vimeo video](https://vimeo.com/309150702) of FM sideband pair amplitudes following Bessel functions as the modulation index increases. Image [© Jeffery Hass](https://vimeo.com/jeffreyhass).
+
+```{r bessel-modulation, fig.cap="(ref:bessel-modulation)", echo = F}
+embed_vimeo("309150702")
+```
+
+
+
+
+How are sideband frequency and amplitude calculated
+How does modulation index affect these
+What happens to partials that cross zero?
+How is result perceived
+How can we make it harmonic
+Ratios C:M
+Will harmonics track keyboard or not
+
 
 
 ### Analogue exponential frequency modulation
@@ -278,7 +316,7 @@ modular_modal("efm-example", starter_file="rm-example.vcv", instructions_html="<
 <li>Change the carrier FM knob down to a low but not zero level. Now increase the waveshape knob on the modulator and note the change in pitch. This is because the modulation index is based on the highest frequency component of the modulator, so when you use a waveshape with higher harmonics, the modulation index will also change.</li>
 </ul></li>
 </ul>
-",solution_html="<img class='rack-image-6u' src='images/patch-solutions/efm-example.png'>")
+",solution_html="<img class='rack-image' src='images/patch-solutions/efm-example.png'>")
 ```
 
 <!-- CAPTION BLOCK -->

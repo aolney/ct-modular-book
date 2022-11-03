@@ -202,10 +202,47 @@ Frequency modulation (FM) is a widespread method for radio transmission, just li
 In the context of modular synthesis, FM is strongly associated with @Chowning1973, whose work in the 1970s [was used in the Yamaha FM synthesizers](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis), notably the DX7.
 Although Chowning's FM arrived decades after other forms of FM were used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it.
 
-W previously covered the basic idea of FM in Section \@ref(vibrato) to produce vibrato.
+We previously covered the basic idea of FM in Section \@ref(vibrato) to produce vibrato.
 As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the output of our main oscillator.
-AM works exactly the same way as this but at audio rates (>20 Hz).
-At audio rates, we can hear sidebands, and the nature of the sound changes from an oscillation in loudness to a new timbre.
+In FM we don't use a VCA but instead an attenuverter/polarizer that is often integrated into the carrier oscillator, i.e. FM crosses zero just like RM.
+The voltage into the carrier's FM input is added to the voltage into the carrier's V/Oct input, so when only one input is used, these two inputs are interchangeable.
+When using both, the V/Oct defines the carriers frequency, and the FM input defines the variation around that frequency.
+
+As with AM and RM, FM creates sidebands symmetrically around the carrier frequency.
+In contrast, FM creates an infinite number of sideband partials when the modulator and carrier are sine waves, rather than just two.
+These side band partials are arranged in pairs as $C_f - nM_f$ and $C_f + nM_f$, where $n$ is a natural number.
+When $n$ is odd, the side band partials below $C_f$ have reversed phase.
+Additionally, partials that cross zero will reflect with a reversal of phase.
+The above is also true when the modulator and carrier are non-sine waves, in which case each pairing of partials between them creates a new sideband pair.
+To avoid confusion around the word "pair", our discussion of sidebands will be restricted to sine waves for modulator and carrier in what follows.
+
+The FM modulation index is  defined as the peak change in output frequency divided by the highest frequency component of the modulator, $\Delta F/M_f$.
+Changing the modulation index has a dramatic effect on the timbre for several reasons.
+First, although FM produced infinite sidebands, most of the partials have negligible amplitude.
+According to [Carson's bandwith rule](https://en.wikipedia.org/wiki/Carson_bandwidth_rule), 98% of the energy in the spectrum is within a bandwidth defined by $2(\Delta F + M_f)$, so  holding $M_f$ constant, the FM bandwidth will increase as the modulation index increases.
+Larger bandwidth affects the timbre of the sound both by increasing the audible partials and increasing the opportunities for partials to reflect off zero and interfere with existing partials.
+Second, as the modulation index increases, each sideband pair defined by $n$ changes in amplitude according to its own Bessel function, and once the Bessel function crosses below zero, the sideband pair reverses phase.
+The amplitude changes created by the Bessel functions ripple outward for increasing $n$ as the modulation index increases, as shown in Figure \@ref(fig:bessel-modulation).
+
+
+(ref:bessel-modulation) [Vimeo video](https://vimeo.com/309150702) of FM sideband pair amplitudes following Bessel functions as the modulation index increases. Image [© Jeffery Hass](https://vimeo.com/jeffreyhass).
+
+<div class="figure">
+<img src="downloadFigs4latex/bessel-modulation.jpg" alt="(ref:bessel-modulation)"  />
+<p class="caption">(\#fig:bessel-modulation)(ref:bessel-modulation)</p>
+</div>
+
+
+
+
+How are sideband frequency and amplitude calculated
+How does modulation index affect these
+What happens to partials that cross zero?
+How is result perceived
+How can we make it harmonic
+Ratios C:M
+Will harmonics track keyboard or not
+
 
 
 ### Analogue exponential frequency modulation

@@ -27,6 +27,22 @@ embed_youtube <- function(youtube_id,start_time=0,end_time=NULL) {
   }
 }
 
+embed_vimeo <- function(youtube_id) {
+  if (knitr::is_html_output(excludes = "epub")) {
+    url <- str_c("https://player.vimeo.com/video/", youtube_id)
+    return(knitr::include_url(url))
+  } else {
+    # Download thumbnail and use that
+    dir_path <- 'downloadFigs4latex'
+    if (!dir.exists(dir_path)) dir.create(dir_path)
+    file_path <- str_c(dir_path, '/', knitr::opts_current$get()$label, '.jpg')
+    # the vumbnail service will probably go down after a while
+    # https://stackoverflow.com/a/61662687
+    if (!file.exists(file_path)) download.file( str_c("https://vumbnail.com/", youtube_id, ".jpg"), destfile = file_path)
+    return(knitr::include_graphics(file_path))
+  }
+}
+
 
 # In HTML, creates a bootstrap modal with embedded iframe to a modular environment, e.g. DISTRHO/Cardinal
 # Creates NOTHING in other formats. See modular_caption for providing a caption/crossref and placeholder for other formats
