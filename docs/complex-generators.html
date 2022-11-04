@@ -724,11 +724,11 @@ Thus understanding this family requires understanding both the true methods and 
 </h3>
 <p>Frequency modulation (FM) is a widespread method for radio transmission, just like AM.
 In the context of modular synthesis, FM is strongly associated with <span class="citation">John M. Chowning<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“The Synthesis of Complex Audio Spectra by Means of Frequency Modulation,”&lt;/span&gt; &lt;em&gt;Journal of the Audio Engineering Society&lt;/em&gt; 21, no. 7 (1973): 526–34, &lt;a href="http://www.aes.org/e-lib/browse.cfm?elib=1954" role="doc-biblioref"&gt;http://www.aes.org/e-lib/browse.cfm?elib=1954&lt;/a&gt;.&lt;/p&gt;'><sup>86</sup></a></span>, whose work in the 1970s <a href="https://en.wikipedia.org/wiki/Frequency_modulation_synthesis">was used in the Yamaha FM synthesizers</a>, notably the DX7.
-Although Chowning’s FM arrived decades after other forms of FM were used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it.</p>
+Although Chowning’s FM arrived decades after FM was used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it.</p>
 <p>We previously covered the basic idea of FM in Section <a href="generators.html#vibrato">6.3.2</a> to produce vibrato.
-As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the output of our main oscillator.
+As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the V/Oct of our main oscillator.
 In FM we don’t use a VCA but instead an attenuverter/polarizer, i.e. FM crosses zero just like RM.
-The attenuverter/polarizer is often integrated into the carrier oscillator.
+The attenuverter/polarizer is often integrated into the carrier oscillator with a corresponding FM input.
 The voltage into the carrier’s FM input is added to the voltage into the carrier’s V/Oct input, so when only one input is used, these two inputs are interchangeable.
 When using both, the V/Oct defines the carrier’s frequency, and the FM input defines the variation around that frequency.
 Thus as the modulator increases, the frequency of the output increases, and as the modulator decreases, the frequency of the output decreases, as shown in Figure <a href="complex-generators.html#fig:fm-voct-composite">11.11</a>.</p>
@@ -745,7 +745,7 @@ These side band partials are arranged in pairs as <span class="math inline">\(C_
 When <span class="math inline">\(n\)</span> is odd, the side band partials below <span class="math inline">\(C_f\)</span> have reversed phase.
 Additionally, partials that cross zero will reflect with a reversal of phase.
 The above is also true when the modulator and carrier are non-sine waves, in which case each pairing of partials between them creates a new sideband pair.
-To avoid confusion around the word “pair”, the following discussion of sidebands will be restricted to sine waves.</p>
+To avoid confusion around the word “pair,” the following discussion of sidebands will be restricted to sine waves.</p>
 <p>The FM modulation index is defined as the peak change in output frequency divided by the highest frequency component of the modulator, <span class="math inline">\(\Delta F/M_f\)</span>.
 Changing the modulation index has a dramatic effect on the timbre for several reasons.
 First, although FM produces infinite sidebands, most of the partials have negligible amplitude.
@@ -768,16 +768,16 @@ Depending on where the carrier frequency falls along equal loudness contuors (se
 For example, the pitch in Figure <a href="complex-generators.html#fig:bessel-modulation">11.12</a> is about 700 Hz, at which point human hearing has more sensitivity to higher frequencies than lower frequencies.
 Thus as the modulation index increases, the upper sideband is perceived as louder than the lower sideband, causing a perception of upward pitch shift.</p>
 <p>Harmonic ratios of carrier to modulator (C:M) are more complex for FM than AM/RM because FM sidebands are infinite and reflect from zero out of phase.
-Additionally sideband partials may already be inverted if they are both odd and less than the carrier frequency or if their Bessel function drops below zero.
-If we only consider reflection from zero and ignore the other complexities, 1:1 will produce all harmonics and thus be similar to a saw wave.
+Additionally, sideband partials may already be inverted if they are both odd and less than the carrier frequency or if their Bessel function drops below zero.
+If we only consider reflection from zero and ignore the other complexities, a 1:1 ratio will produce all harmonics and thus be similar to a saw wave.
 This is because the first lower sideband partial is <span class="math inline">\(1-1=0\)</span>, and all negative partials for higher <span class="math inline">\(n\)</span> reflect back on top of their positive counterparts.
 Thus for 1:1, the carrier frequency is the fundamental, and the lower sideband is reflected on top of the upper sideband.
 Another simple example is 1:2.
 Since every sideband partial will be <span class="math inline">\(1 \pm n2\)</span>, the partials will always be odd, giving a spectrum similar to a square wave.
-Similarly the lower sideband will reflect across zero on top of the upper sideband, and the carrier frequency will be the fundamental.</p>
-<p>Properties of ratios can be generalized across integers.
+Again the lower sideband will reflect across zero on top of the upper sideband, and the carrier frequency will be the fundamental.</p>
+<p>Properties of C:M ratios can be generalized across integers.
 For example, any N:1 will generate all harmonics starting at the value of 1, though the carrier will only be the fundamental for 1:1.
-Ratio 1:N will skip every nth partial, e.g. for 1:3, partials 3, 9, 27 … will be skipped.
+Ratio 1:N will skip every nth partial, e.g. for 1:3, partials 3, 9, 27, and so on will be skipped.
 Ratio N:2 will yield only even partials if N is even and only odd partials if N is odd.
 These examples show how different ratios can create the same result and illustrates the complexity of this topic, even under our current simplifying assumptions.</p>
 <p>If we consider ratios that produce the same result as a family, then we can describe families using a single ratio called <a href="http://www.sfu.ca/%7Etruax/fmtut.html">the normal form ratio</a> by taking <span class="math inline">\(|C-M|\)</span> until the result is either 1:1 or <span class="math inline">\(M \ge 2C\)</span>.
@@ -786,10 +786,10 @@ An important use of normal form ratios is to tell if a ratio is harmonic or not.
 Any harmonic ratio will have a normal form of 1:N, and any other normal form ratio will be inharmonic.
 For example, 2:7 is in normal form because <span class="math inline">\(M \ge 2C\)</span>, but it is not 1:N, so it is inharmonic.</p>
 <p>Keyboard tracking with FM requires additional effort relative to AM/RM because the modulation index, <span class="math inline">\(\Delta F/M_f\)</span>, depends on the frequency of the modulator.
-Without accounting for this, timbre would change as notes were played across the keyboard.
-Any solution to this problem will increase the <span class="math inline">\(\Delta F\)</span> as <span class="math inline">\(M_f\)</span> increases so that <span class="math inline">\(\Delta F/M_f\)</span> stays constant.
+Without accounting for this, timbre will change as notes were played across the keyboard.
+Any solution to this problem will proportionally increase <span class="math inline">\(\Delta F\)</span> as <span class="math inline">\(M_f\)</span> increases so that <span class="math inline">\(\Delta F/M_f\)</span> stays constant.
 One simple approach is to use the V/Oct from the keyboard to control the attenuverter/polarizer affecting the strength of the modulator.
-As long as the calibration of the attenuverter/polarizer doubles the strength of <span class="math inline">\(\Delta F\)</span> for each volt, the shared V/Oct single will keep the modulation index constant as <span class="math inline">\(M_f\)</span> changes.</p>
+As long as the calibration of the attenuverter/polarizer doubles the strength of <span class="math inline">\(\Delta F\)</span> for each volt, the shared V/Oct signal will keep the modulation index constant as <span class="math inline">\(M_f\)</span> changes.</p>
 <!-- **template** -->
 <!-- - How are sideband frequency and amplitude calculated -->
 <!-- - How does modulation index affect these -->
@@ -1139,7 +1139,7 @@ Figure 11.14: <a href="https://cardinal.olney.ai">Virtual modular</a> for <stron
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-03.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

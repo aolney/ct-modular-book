@@ -237,12 +237,12 @@ Thus understanding this family requires understanding both the true methods and 
 
 Frequency modulation (FM) is a widespread method for radio transmission, just like AM.
 In the context of modular synthesis, FM is strongly associated with @Chowning1973, whose work in the 1970s [was used in the Yamaha FM synthesizers](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis), notably the DX7.
-Although Chowning's FM arrived decades after other forms of FM were used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it.
+Although Chowning's FM arrived decades after FM was used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it.
 
 We previously covered the basic idea of FM in Section \@ref(vibrato) to produce vibrato.
-As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the output of our main oscillator.
+As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the V/Oct of our main oscillator.
 In FM we don't use a VCA but instead an attenuverter/polarizer, i.e. FM crosses zero just like RM.
-The attenuverter/polarizer is often integrated into the carrier oscillator.
+The attenuverter/polarizer is often integrated into the carrier oscillator with a corresponding FM input.
 The voltage into the carrier's FM input is added to the voltage into the carrier's V/Oct input, so when only one input is used, these two inputs are interchangeable.
 When using both, the V/Oct defines the carrier's frequency, and the FM input defines the variation around that frequency.
 Thus as the modulator increases, the frequency of the output increases, and as the modulator decreases, the frequency of the output decreases, as shown in Figure \@ref(fig:fm-voct-composite).
@@ -260,7 +260,7 @@ These side band partials are arranged in pairs as $C_f - nM_f$ and $C_f + nM_f$,
 When $n$ is odd, the side band partials below $C_f$ have reversed phase.
 Additionally, partials that cross zero will reflect with a reversal of phase.
 The above is also true when the modulator and carrier are non-sine waves, in which case each pairing of partials between them creates a new sideband pair.
-To avoid confusion around the word "pair", the following discussion of sidebands will be restricted to sine waves.
+To avoid confusion around the word "pair," the following discussion of sidebands will be restricted to sine waves.
 
 The FM modulation index is  defined as the peak change in output frequency divided by the highest frequency component of the modulator, $\Delta F/M_f$.
 Changing the modulation index has a dramatic effect on the timbre for several reasons.
@@ -285,17 +285,17 @@ For example, the pitch in Figure \@ref(fig:bessel-modulation) is about 700 Hz, a
 Thus as the modulation index increases, the upper sideband is perceived as louder than the lower sideband, causing a perception of upward pitch shift.
 
 Harmonic ratios of carrier to modulator (C:M) are more complex for FM than AM/RM because FM sidebands are infinite and reflect from zero out of phase.
-Additionally sideband partials may already be inverted if they are both odd and less than the carrier frequency or if their Bessel function drops below zero.
-If we only consider reflection from zero and ignore the other complexities, 1:1 will produce all harmonics and thus be similar to a saw wave.
+Additionally, sideband partials may already be inverted if they are both odd and less than the carrier frequency or if their Bessel function drops below zero.
+If we only consider reflection from zero and ignore the other complexities, a 1:1 ratio will produce all harmonics and thus be similar to a saw wave.
 This is because the first lower sideband partial is $1-1=0$, and all negative partials for higher $n$ reflect back on top of their positive counterparts.
 Thus for 1:1, the carrier frequency is the fundamental, and the lower sideband is reflected on top of the upper sideband.
 Another simple example is 1:2.
 Since every sideband partial will be $1 \pm n2$, the partials will always be odd, giving a spectrum similar to a square wave.
-Similarly the lower sideband will reflect across zero on top of the upper sideband, and the carrier frequency will be the fundamental.
+Again the lower sideband will reflect across zero on top of the upper sideband, and the carrier frequency will be the fundamental.
 
-Properties of ratios can be generalized across integers.
+Properties of C:M ratios can be generalized across integers.
 For example, any N:1 will generate all harmonics starting at the value of 1, though the carrier will only be the fundamental for 1:1.
-Ratio 1:N will skip every nth partial, e.g. for 1:3, partials 3, 9, 27 ... will be skipped.
+Ratio 1:N will skip every nth partial, e.g. for 1:3, partials 3, 9, 27, and so on will be skipped.
 Ratio N:2 will yield only even partials if N is even and only odd partials if N is odd.
 These examples show how different ratios can create the same result and illustrates the complexity of this topic, even under our current simplifying assumptions. 
 
@@ -306,11 +306,12 @@ Any harmonic ratio will have a normal form of 1:N, and any other normal form rat
 For example, 2:7 is in normal form because $M \ge 2C$, but it is not 1:N, so it is inharmonic.
 
 Keyboard tracking with FM requires additional effort relative to AM/RM because the modulation index, $\Delta F/M_f$, depends on the frequency of the modulator.
-Without accounting for this, timbre would change as notes were played across the keyboard.
-Any solution to this problem will increase the $\Delta F$ as $M_f$ increases so that  $\Delta F/M_f$ stays constant.
+Without accounting for this, timbre will change as notes were played across the keyboard.
+Any solution to this problem will proportionally increase $\Delta F$ as $M_f$ increases so that  $\Delta F/M_f$ stays constant.
 One simple approach is to use the V/Oct from the keyboard to control the attenuverter/polarizer affecting the strength of the modulator.
-As long as the calibration of the attenuverter/polarizer doubles the strength of $\Delta F$ for each volt, the shared V/Oct single will keep the modulation index constant as $M_f$ changes.
+As long as the calibration of the attenuverter/polarizer doubles the strength of $\Delta F$ for each volt, the shared V/Oct signal will keep the modulation index constant as $M_f$ changes.
 
+**TODO: sum things up here; e.g. this is the baseline FM. It is very nuanced which explains why it was first implemented digitally. Something about operators?**
 <!-- **template** -->
 
 <!-- - How are sideband frequency and amplitude calculated -->
