@@ -102,6 +102,17 @@ Using sine waves for example, if modulator and carrier have the same frequency, 
 We can describe such frequency relationships between modulator and carrier in terms of ratios, so if both have the same frequency, the ratio of C:M is 1:1.
 You can easily check that any N:1 ratio is harmonic, for example using 200 Hz as the carrier would result in 100, 200, and 300 Hz harmonics.
 Likewise, N:2 where N is odd will give odd harmonics (100, 300, 500 Hz), and N:2 where N in even will give even harmonics (200, 400, 600 Hz).
+Typical frequency ratios associated with musical intervals shown in Table \@ref(tab:freq-ratio) may also be used to create chordal harmonic structures.
+
+Table: (\#tab:freq-ratio) Frequency ratios for musical intervals.
+
+| Frequency ratio | Musical interval |
+|:---------------:|------------------|
+|       2:1       | Octave           |
+|       3:2       | Fifth            |
+|       4:3       | Fourth           |
+|       5:4       | Major third      |
+|       6:5       | Minor third      |
 
 Typically when a harmonic relationship like this has been established, one wishes to keep it intact while playing different notes.
 This is as easy to accomplish as keeping two (or more) oscillators in tune as a chord while playing across a keyboard.
@@ -306,12 +317,30 @@ Any harmonic ratio will have a normal form of 1:N, and any other normal form rat
 For example, 2:7 is in normal form because $M \ge 2C$, but it is not 1:N, so it is inharmonic.
 
 Keyboard tracking with FM requires additional effort relative to AM/RM because the modulation index, $\Delta F/M_f$, depends on the frequency of the modulator.
-Without accounting for this, timbre will change as notes were played across the keyboard.
+Without accounting for this, timbre will change as notes are played across the keyboard.
 Any solution to this problem will proportionally increase $\Delta F$ as $M_f$ increases so that  $\Delta F/M_f$ stays constant.
 One simple approach is to use the V/Oct from the keyboard to control the attenuverter/polarizer affecting the strength of the modulator.
 As long as the calibration of the attenuverter/polarizer doubles the strength of $\Delta F$ for each volt, the shared V/Oct signal will keep the modulation index constant as $M_f$ changes.
 
-**TODO: sum things up here; e.g. this is the baseline FM. It is very nuanced which explains why it was first implemented digitally. Something about operators?**
+The discussion to this point has focused on basic FM.
+Despite this, it is fairly nuanced and complex, which explains why FM was first properly implemented digitally.
+More advanced digital applications of FM involve modulators modulating other modulators, sometimes with feedback loops (so modulators are modulating themselves).
+These advanced digital algorithms are typically defined using [operators](https://www.soundonsound.com/techniques/more-frequency-modulation#para5), where each operator is an oscillator, VCA, and envelope, as shown in Figure \@ref(fig:two-op-fm).
+For reference, the DX7 uses six operators - the equivalent of 18 modules!
+While the number of modules required to implement advanced FM algorithms in analogue may sometimes be impractical, understanding the correspondence between operators and  modules will help you import ideas from digital FM into analogue.
+
+(ref:two-op-fm) Two operator FM. Image [© Clusternote/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:2op_FM.svg).
+
+<div class="figure">
+<img src="images/2op_FM.svg.png" alt="(ref:two-op-fm)" width="100%" />
+<p class="caption">(\#fig:two-op-fm)(ref:two-op-fm)</p>
+</div>
+
+### Analogue exponential frequency modulation
+
+
+
+
 <!-- **template** -->
 
 <!-- - How are sideband frequency and amplitude calculated -->
@@ -321,10 +350,6 @@ As long as the calibration of the attenuverter/polarizer doubles the strength of
 <!-- - How can we make it harmonic -->
 <!-- - Ratios C:M -->
 <!-- - Will harmonics track keyboard or not -->
-
-
-
-### Analogue exponential frequency modulation
 
 Simple EFM with sine waves using the button in Figure \@ref(fig:efm-example).
 

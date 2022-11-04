@@ -151,6 +151,7 @@ fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-ch
 fig:am-unipolar
 fig:am-modulation-index
 fig:am-example
+tab:freq-ratio
 fig:am-keyboard-frequency-tracking
 fig:am-keyboard-frequency-tracking-adsr-modulation-index
 fig:rm-bipolar
@@ -160,6 +161,7 @@ fig:rm-keyboard-frequency-tracking
 fig:am-rm-modsquare-carsaw
 fig:fm-voct-composite
 fig:bessel-modulation
+fig:two-op-fm
 fig:efm-example
 fig:efm-keyboard-frequency-tracking
 introduction

@@ -284,7 +284,38 @@ Figure 11.3: <a href="https://cardinal.olney.ai">Virtual modular</a> for amplitu
 Using sine waves for example, if modulator and carrier have the same frequency, then the lower sideband will be zero and the upper sideband will be one octave above the carrier, e.g. 100 and 200 Hz.
 We can describe such frequency relationships between modulator and carrier in terms of ratios, so if both have the same frequency, the ratio of C:M is 1:1.
 You can easily check that any N:1 ratio is harmonic, for example using 200 Hz as the carrier would result in 100, 200, and 300 Hz harmonics.
-Likewise, N:2 where N is odd will give odd harmonics (100, 300, 500 Hz), and N:2 where N in even will give even harmonics (200, 400, 600 Hz).</p>
+Likewise, N:2 where N is odd will give odd harmonics (100, 300, 500 Hz), and N:2 where N in even will give even harmonics (200, 400, 600 Hz).
+Typical frequency ratios associated with musical intervals shown in Table <a href="complex-generators.html#tab:freq-ratio">11.1</a> may also be used to create chordal harmonic structures.</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:freq-ratio">Table 11.1: </span> Frequency ratios for musical intervals.</caption>
+<thead><tr class="header">
+<th align="center">Frequency ratio</th>
+<th>Musical interval</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">2:1</td>
+<td>Octave</td>
+</tr>
+<tr class="even">
+<td align="center">3:2</td>
+<td>Fifth</td>
+</tr>
+<tr class="odd">
+<td align="center">4:3</td>
+<td>Fourth</td>
+</tr>
+<tr class="even">
+<td align="center">5:4</td>
+<td>Major third</td>
+</tr>
+<tr class="odd">
+<td align="center">6:5</td>
+<td>Minor third</td>
+</tr>
+</tbody>
+</table></div>
 <p>Typically when a harmonic relationship like this has been established, one wishes to keep it intact while playing different notes.
 This is as easy to accomplish as keeping two (or more) oscillators in tune as a chord while playing across a keyboard.
 Try extending the last patch with a keyboard and use V/Oct connections to keep the harmonic relationship between modulator and carrier intact using the button in Figure <a href="complex-generators.html#fig:am-keyboard-frequency-tracking">11.4</a>.
@@ -786,10 +817,28 @@ An important use of normal form ratios is to tell if a ratio is harmonic or not.
 Any harmonic ratio will have a normal form of 1:N, and any other normal form ratio will be inharmonic.
 For example, 2:7 is in normal form because <span class="math inline">\(M \ge 2C\)</span>, but it is not 1:N, so it is inharmonic.</p>
 <p>Keyboard tracking with FM requires additional effort relative to AM/RM because the modulation index, <span class="math inline">\(\Delta F/M_f\)</span>, depends on the frequency of the modulator.
-Without accounting for this, timbre will change as notes were played across the keyboard.
+Without accounting for this, timbre will change as notes are played across the keyboard.
 Any solution to this problem will proportionally increase <span class="math inline">\(\Delta F\)</span> as <span class="math inline">\(M_f\)</span> increases so that <span class="math inline">\(\Delta F/M_f\)</span> stays constant.
 One simple approach is to use the V/Oct from the keyboard to control the attenuverter/polarizer affecting the strength of the modulator.
 As long as the calibration of the attenuverter/polarizer doubles the strength of <span class="math inline">\(\Delta F\)</span> for each volt, the shared V/Oct signal will keep the modulation index constant as <span class="math inline">\(M_f\)</span> changes.</p>
+<p>The discussion to this point has focused on basic FM.
+Despite this, it is fairly nuanced and complex, which explains why FM was first properly implemented digitally.
+More advanced digital applications of FM involve modulators modulating other modulators, sometimes with feedback loops (so modulators are modulating themselves).
+These advanced digital algorithms are typically defined using <a href="https://www.soundonsound.com/techniques/more-frequency-modulation#para5">operators</a>, where each operator is an oscillator, VCA, and envelope, as shown in Figure <a href="complex-generators.html#fig:two-op-fm">11.13</a>.
+For reference, the DX7 uses six operators - the equivalent of 18 modules!
+While the number of modules required to implement advanced FM algorithms in analogue may sometimes be impractical, understanding the correspondence between operators and modules will help you import ideas from digital FM into analogue.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:two-op-fm"></span>
+<img src="images/2op_FM.svg.png" alt="Two operator FM. Image © Clusternote/CC-BY-SA-3.0." width="100%"><p class="caption">
+Figure 11.13: Two operator FM. Image <a href="https://commons.wikimedia.org/wiki/File:2op_FM.svg">© Clusternote/CC-BY-SA-3.0</a>.
+</p>
+</div>
+</div>
+<div id="analogue-exponential-frequency-modulation" class="section level3" number="11.2.2">
+<h3>
+<span class="header-section-number">11.2.2</span> Analogue exponential frequency modulation<a class="anchor" aria-label="anchor" href="#analogue-exponential-frequency-modulation"><i class="fas fa-link"></i></a>
+</h3>
 <!-- **template** -->
 <!-- - How are sideband frequency and amplitude calculated -->
 <!-- - How does modulation index affect these -->
@@ -798,12 +847,7 @@ As long as the calibration of the attenuverter/polarizer doubles the strength of
 <!-- - How can we make it harmonic -->
 <!-- - Ratios C:M -->
 <!-- - Will harmonics track keyboard or not -->
-</div>
-<div id="analogue-exponential-frequency-modulation" class="section level3" number="11.2.2">
-<h3>
-<span class="header-section-number">11.2.2</span> Analogue exponential frequency modulation<a class="anchor" aria-label="anchor" href="#analogue-exponential-frequency-modulation"><i class="fas fa-link"></i></a>
-</h3>
-<p>Simple EFM with sine waves using the button in Figure <a href="complex-generators.html#fig:efm-example">11.13</a>.</p>
+<p>Simple EFM with sine waves using the button in Figure <a href="complex-generators.html#fig:efm-example">11.14</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -889,10 +933,10 @@ function setefm_exampleIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:efm-example"></span>
 <p class="caption">
-Figure 11.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for <strong>TODO</strong>.
+Figure 11.14: <a href="https://cardinal.olney.ai">Virtual modular</a> for <strong>TODO</strong>.
 </p>
 </div>
-<p>Keyboard tracking EFM with sine waves using the button in Figure <a href="complex-generators.html#fig:efm-keyboard-frequency-tracking">11.14</a>.</p>
+<p>Keyboard tracking EFM with sine waves using the button in Figure <a href="complex-generators.html#fig:efm-keyboard-frequency-tracking">11.15</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -976,7 +1020,7 @@ function setefm_keyboard_frequency_trackingIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:efm-keyboard-frequency-tracking"></span>
 <p class="caption">
-Figure 11.14: <a href="https://cardinal.olney.ai">Virtual modular</a> for <strong>TODO</strong>.
+Figure 11.15: <a href="https://cardinal.olney.ai">Virtual modular</a> for <strong>TODO</strong>.
 </p>
 </div>
 </div>
