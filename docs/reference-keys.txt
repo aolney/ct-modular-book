@@ -164,6 +164,7 @@ fig:bessel-modulation
 fig:two-op-fm
 fig:efm-example
 fig:efm-keyboard-frequency-tracking
+fig:efm-keyboard-bell
 introduction
 why-this-book
 computational-thinking

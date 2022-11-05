@@ -9,7 +9,7 @@ The audio rate signal source will be called the *modulator*.
 The oscillator receiving the modulation is the *carrier*.
 The depth, or strength, of modulation the carrier receives from the modulator will be called the *modulation index*.
 The modulation index defines how much the parameter of the carrier changes around its default value.
-For example, if a carrier has a frequency of 800 Hz, the modulation index may cause it to go +/- 1 Hz (from 799 to 801 Hz) or +/- 100 Hz (from 700 Hz to 900 Hz).
+For example, if a carrier has a frequency of 800 Hz, the modulator may cause it to go +/- 1 Hz (from 799 to 801 Hz) or +/- 100 Hz (from 700 Hz to 900 Hz).
 The signal resulting from audio-rate modulation is the *output*.
 
 Recall that we can describe any wave by its shape, amplitude, frequency, and phase.
@@ -279,7 +279,7 @@ The FM modulation index is  defined as the peak change in output frequency divid
 Changing the modulation index has a dramatic effect on the timbre for several reasons.
 First, although FM produces infinite sidebands, most of the partials have negligible amplitude.
 According to [Carson's bandwith rule](https://en.wikipedia.org/wiki/Carson_bandwidth_rule), 98% of the energy in the spectrum is within a bandwidth defined by $2(\Delta F + M_f)$, so  holding $M_f$ constant, the FM bandwidth will increase as the modulation index increases.
-Larger bandwidth affects the timbre of the sound by increasing the audible partials and increasing the opportunities for partials to reflect off zero and interfere with existing partials.
+Larger bandwidth affects the timbre of the sound by increasing the audible sideband partials and increasing the opportunities for partials to reflect off zero and interfere with existing partials.
 Second, as the modulation index increases, each sideband pair defined by $n$ changes in amplitude according to its own Bessel function, and once the Bessel function crosses below zero, the sideband pair reverses phase.
 The amplitude changes created by the Bessel functions ripple outward for increasing $n$ as the modulation index increases, as shown in Figure \@ref(fig:bessel-modulation).
 
@@ -319,11 +319,9 @@ Any harmonic ratio will have a normal form of 1:N, and any other normal form rat
 For example, 2:7 is in normal form because $M \ge 2C$, but it is not 1:N, so it is inharmonic.
 An extended table of interesting ratios has been developed by @Truax1977.
 
-Keyboard tracking with FM requires additional effort relative to AM/RM because the modulation index, $\Delta F/M_f$, depends on the frequency of the modulator.
-Without accounting for this, timbre will change as notes are played across the keyboard.
-Any solution to this problem will proportionally increase $\Delta F$ as $M_f$ increases so that  $\Delta F/M_f$ stays constant.
-One simple approach is to use the V/Oct from the keyboard to control the attenuverter/polarizer affecting the strength of the modulator.
-As long as the calibration of the attenuverter/polarizer doubles the strength of $\Delta F$ for each volt, the shared V/Oct signal will keep the modulation index constant as $M_f$ changes.
+Keyboard tracking with FM requires no additional effort relative to AM/RM.
+Even though the modulation index, $\Delta F/M_f$, depends on the frequency of the modulator, if we send the same V/Oct to modulator and carrier, the numerator and denominator of the modulation index will change by the same amount so the modulation index overall will not change.
+Thus timbre will remain constant across the keyboard using the same approach to keyboard tracking as AM/RM.
 
 The discussion to this point has focused on basic FM.
 Even basic FM is fairly nuanced and complex, which explains why FM was first properly implemented digitally.
@@ -339,23 +337,32 @@ While the number of modules required to implement advanced FM algorithms in anal
 <p class="caption">(\#fig:two-op-fm)(ref:two-op-fm)</p>
 </div>
 
+Summary of true FM:
+
+- The FM modulation index changes timbre, becoming more bright with higher index
+- FM sidebands reflect off zero and interfere with partials in complex ways, creating a variety of sounds
+- C:M ratios broadly define FM harmonic structure, and some C:M ratios are inharmonic
+
+
 ### Analogue exponential frequency modulation
 
-Although frequency modulation has been traced back as far as the 1940s [@Bode1984], exponential frequency modulation (EFM) seems most strongly associated with the modular synthesizers after the 1960s when Robert Moog [advanced the volt per octave standard](https://en.wikipedia.org/wiki/Moog_synthesizer).
+Although frequency modulation has been traced back as far as the 1940s [@Bode1984], exponential frequency modulation (EFM) seems most strongly associated with the modular synthesizers after the 1960s when Robert Moog [advanced the exponential volt per octave standard](https://en.wikipedia.org/wiki/Moog_synthesizer).
 In EFM, the output is moved an **equal musical interval** around the carrier's default value.
-For example, suppose a $\pm1 V$ modulator goes into a 400 Hz carrier.
+For example, suppose a $\pm1 V$ modulation signal goes into a 400 Hz carrier's FM input.
 Then the first pair of sidebands will be 200 Hz and 800 Hz, or half and double the carrier frequency, respectively.
 Since the output spends more time above 400 Hz than below it, the perceived pitch is shifted above 400 Hz.
-The pitch shift increases as the modulation index increases [@Hutchins1975] and 
+The EFM pitch shift increases as the modulation index increases [@Hutchins1975] and 
 is very problematic for staying in tune with other instruments.
-Workarounds to the pitch shift problem for EFM include playing with other instruments over a narrow frequency range, not playing with other instruments at all, and using EFM for percussion only.
+Workarounds to the pitch shift problem for EFM include playing with other pitched instruments over a narrow frequency range where the shift is negligible, not playing with other pitched instruments at all, and using EFM for percussion only.
 
+The effect of modulating by an equal musical interval goes beyond pitch shift.
 As the EFM modulation index increases and the sidebands grow, they become increasingly asymmetric, which breaks the normal FM harmonic ratios [@Hutchins1975].
 Recall that normal FM harmonic ratios are heavily dependent on the property of reflecting off zero.
-In EFM, partials rarely reflect off zero because the output frequency can never reach zero and the overall pitch shift pulls the lower sideband away from zero.
+In EFM, partials rarely reflect off zero because the output frequency can never reach zero^[If we keep halving modulator and carrier frequencies, they will get small but not reach zero.] and the overall pitch shift pulls the lower sideband away from zero.
 Thus the partials mostly don't reflect off zero, and the normal harmonic ratios are no longer valid.
 In practice this means that it is difficult to get a stable output that is strongly harmonic as the modulation index increases, in addition to the pitch shift problem.
 
+Despite these challenges, EFM has a history in electronic music and has been widely used for percussive and inharmonic sounds.
 Let's build up some patches to explore EFM, starting with a basic patch to investigate the sidebands and pitch shift.
 Try simple EFM with sine waves using the button in Figure \@ref(fig:efm-example) and note the effect of the modulation index on sidebands, pitch shift, and the harmonicity of the timbre.
 
@@ -370,9 +377,15 @@ Try simple EFM with sine waves using the button in Figure \@ref(fig:efm-example)
 <p class="caption">(\#fig:efm-example)(ref:efm-example)</p>
 </div>
 
-<!-- TODO: keyboard tracking without correction, keyboard tracking with correction -->
+As you can see from the patch in Figure \@ref(fig:efm-example), increasing the modulation index very quickly shifts the pitch up and makes the sound less harmonic. 
+To my ears the inharmonic aspect is essentially immediate and the pitch shift is noticeable around 10%. 
+Similarly, changing the waveshape of the modulator from sine to anything else creates a pitch shift because the modulation index is based on the highest frequency component of $M_f$.
 
-Keyboard tracking EFM with sine waves using the button in Figure \@ref(fig:efm-keyboard-frequency-tracking).
+We can use mathematical thinking to highlight what EFM is doing and how it diverges from true FM.
+Recall that a 1:1 ratio means that the carrier is the fundamental of a harmonic series with all harmonics.
+What will happen in EFM if we use a 1:1 ratio?
+Try extending the last patch to add keyboard tracking using the button in Figure \@ref(fig:efm-keyboard-frequency-tracking).
+While keyboard tracking isn't strictly necessary for this demonstration, it makes it more fun and sets up comparisons with other forms of FM.
 
 (ref:efm-keyboard-frequency-tracking) [Virtual modular](https://cardinal.olney.ai) for for exponential frequency modulation with keyboard tracking.
 
@@ -385,7 +398,27 @@ Keyboard tracking EFM with sine waves using the button in Figure \@ref(fig:efm-k
 <p class="caption">(\#fig:efm-keyboard-frequency-tracking)(ref:efm-keyboard-frequency-tracking)</p>
 </div>
 
-<!-- TODO EFM percussion -->
+The patch in Figure \@ref(fig:efm-keyboard-frequency-tracking) demonstrates good EFM keyboard tracking for a fixed modulation index, as expected.
+However, the patch also demonstrates how EFM, even using a small modulation index, diverges from true FM.
+Not only do we find rogue harmonics below the fundamental, which should not happen with a 1:1 ratio, but we also see the a broad shift in the spectrum as the modulation index is modulated by an LFO, which badly affects EFM's pitch stability during modulation index changes.
+These imperfections of EFM give it an interesting sound, so as previously stated, these problems may not be problems depending on the musical goal. 
+Neither staying in tune with other instruments nor dynamically changing the modulation index are necessary in every situation.
+
+In addition to its distinctive pitched sound, EFM works quite well in percussive voices.
+The kick drum patch in Section \@ref(improving-our-understanding-of-the-problem) actually used FM in the sense of modulating the V/Oct of a sine wave, albeit for a single-cycle envelope.
+As a more interesting example, we can use envelope to control both overall sound and the modulation index to create a bell like sound.
+Try extending the last patch to with an envelope to create a bell sound  using the button in Figure \@ref(fig:efm-keyboard-bell).
+
+(ref:efm-keyboard-bell) [Virtual modular](https://cardinal.olney.ai) for for exponential frequency modulation with keyboard tracking.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:efm-keyboard-bell)" width="100%" />
+<p class="caption">(\#fig:efm-keyboard-bell)(ref:efm-keyboard-bell)</p>
+</div>
 
 <!-- **template** -->
 
