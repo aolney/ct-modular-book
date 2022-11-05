@@ -247,8 +247,10 @@ Thus understanding this family requires understanding both the true methods and 
 ### Frequency modulation
 
 Frequency modulation (FM) is a widespread method for radio transmission, just like AM.
-In the context of modular synthesis, FM is strongly associated with @Chowning1973, whose work in the 1970s [was used in the Yamaha FM synthesizers](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis), notably the DX7.
-Although Chowning's FM arrived decades after FM was used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it.
+In the context of modular synthesis, FM is strongly associated with @Chowning1973, whose work in the 1970s [was used in the Yamaha FM synthesizers](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis), notably the DX7.^[Technically Chowning's FM is phase modulation, as will be discussed later in the chapter.]
+<!-- Although Chowning's approach arrived decades after FM was used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it. -->
+Historically, FM synthesis methods have only approximated true FM.
+The purpose of this section is thus to explain true FM so that approximations have a common reference point.
 
 We previously covered the basic idea of FM in Section \@ref(vibrato) to produce vibrato.
 As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the V/Oct of our main oscillator.
@@ -315,6 +317,7 @@ For example, any N:1 will reduce to 1:1 in normal form because we repeatedly sub
 An important use of normal form ratios is to tell if a ratio is harmonic or not.
 Any harmonic ratio will have a normal form of 1:N, and any other normal form ratio will be inharmonic.
 For example, 2:7 is in normal form because $M \ge 2C$, but it is not 1:N, so it is inharmonic.
+An extended table of interesting ratios has been developed by @Truax1977.
 
 Keyboard tracking with FM requires additional effort relative to AM/RM because the modulation index, $\Delta F/M_f$, depends on the frequency of the modulator.
 Without accounting for this, timbre will change as notes are played across the keyboard.
@@ -323,7 +326,7 @@ One simple approach is to use the V/Oct from the keyboard to control the attenuv
 As long as the calibration of the attenuverter/polarizer doubles the strength of $\Delta F$ for each volt, the shared V/Oct signal will keep the modulation index constant as $M_f$ changes.
 
 The discussion to this point has focused on basic FM.
-Despite this, it is fairly nuanced and complex, which explains why FM was first properly implemented digitally.
+Even basic FM is fairly nuanced and complex, which explains why FM was first properly implemented digitally.
 More advanced digital applications of FM involve modulators modulating other modulators, sometimes with feedback loops (so modulators are modulating themselves).
 These advanced digital algorithms are typically defined using [operators](https://www.soundonsound.com/techniques/more-frequency-modulation#para5), where each operator is an oscillator, VCA, and envelope, as shown in Figure \@ref(fig:two-op-fm).
 For reference, the DX7 uses six operators - the equivalent of 18 modules!
@@ -338,22 +341,25 @@ While the number of modules required to implement advanced FM algorithms in anal
 
 ### Analogue exponential frequency modulation
 
+Although frequency modulation has been traced back as far as the 1940s [@Bode1984], exponential frequency modulation (EFM) seems most strongly associated with the modular synthesizers after the 1960s when Robert Moog [advanced the volt per octave standard](https://en.wikipedia.org/wiki/Moog_synthesizer).
+In EFM, the output is moved an **equal musical interval** around the carrier's default value.
+For example, suppose a $\pm1 V$ modulator goes into a 400 Hz carrier.
+Then the first pair of sidebands will be 200 Hz and 800 Hz, or half and double the carrier frequency, respectively.
+Since the output spends more time above 400 Hz than below it, the perceived pitch is shifted above 400 Hz.
+The pitch shift increases as the modulation index increases [@Hutchins1975] and 
+is very problematic for staying in tune with other instruments.
+Workarounds to the pitch shift problem for EFM include playing with other instruments over a narrow frequency range, not playing with other instruments at all, and using EFM for percussion only.
 
+As the EFM modulation index increases and the sidebands grow, they become increasingly asymmetric, which breaks the normal FM harmonic ratios [@Hutchins1975].
+Recall that normal FM harmonic ratios are heavily dependent on the property of reflecting off zero.
+In EFM, partials rarely reflect off zero because the output frequency can never reach zero and the overall pitch shift pulls the lower sideband away from zero.
+Thus the partials mostly don't reflect off zero, and the normal harmonic ratios are no longer valid.
+In practice this means that it is difficult to get a stable output that is strongly harmonic as the modulation index increases, in addition to the pitch shift problem.
 
+Let's build up some patches to explore EFM, starting with a basic patch to investigate the sidebands and pitch shift.
+Try simple EFM with sine waves using the button in Figure \@ref(fig:efm-example) and note the effect of the modulation index on sidebands, pitch shift, and the harmonicity of the timbre.
 
-<!-- **template** -->
-
-<!-- - How are sideband frequency and amplitude calculated -->
-<!-- - How does modulation index affect these -->
-<!-- - What happens to partials that cross zero? -->
-<!-- - How is result perceived -->
-<!-- - How can we make it harmonic -->
-<!-- - Ratios C:M -->
-<!-- - Will harmonics track keyboard or not -->
-
-Simple EFM with sine waves using the button in Figure \@ref(fig:efm-example).
-
-(ref:efm-example) [Virtual modular](https://cardinal.olney.ai) for **TODO**.
+(ref:efm-example) [Virtual modular](https://cardinal.olney.ai) for exponential frequency modulation illustrating pitch shift and inharmonicity with increasing modulation index.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -364,10 +370,11 @@ Simple EFM with sine waves using the button in Figure \@ref(fig:efm-example).
 <p class="caption">(\#fig:efm-example)(ref:efm-example)</p>
 </div>
 
+<!-- TODO: keyboard tracking without correction, keyboard tracking with correction -->
 
 Keyboard tracking EFM with sine waves using the button in Figure \@ref(fig:efm-keyboard-frequency-tracking).
 
-(ref:efm-keyboard-frequency-tracking) [Virtual modular](https://cardinal.olney.ai) for **TODO**.
+(ref:efm-keyboard-frequency-tracking) [Virtual modular](https://cardinal.olney.ai) for for exponential frequency modulation with keyboard tracking.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -378,6 +385,17 @@ Keyboard tracking EFM with sine waves using the button in Figure \@ref(fig:efm-k
 <p class="caption">(\#fig:efm-keyboard-frequency-tracking)(ref:efm-keyboard-frequency-tracking)</p>
 </div>
 
+<!-- TODO EFM percussion -->
+
+<!-- **template** -->
+
+<!-- - How are sideband frequency and amplitude calculated -->
+<!-- - How does modulation index affect these -->
+<!-- - What happens to partials that cross zero? -->
+<!-- - How is result perceived -->
+<!-- - How can we make it harmonic -->
+<!-- - Ratios C:M -->
+<!-- - Will harmonics track keyboard or not -->
 
 ### Analogue linear frequency modulation
 
