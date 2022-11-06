@@ -478,7 +478,7 @@ modular_modal("efm-keyboard-frequency-tracking", starter_file="efm-example.vcv",
 <li>Adjust FM knob and note the change in timbre</li>
 <li>Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected</li>
 <li>Take the FM knob back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)</li>
-<li>The scope should show a peak at 800 Hz</li>
+<li>Sassy should show a peak at 800 Hz</li>
 <li>Increase the FM knob and remember you should NOT see any partials below 800 Hz in true FM, but one appears almost immediately around 5% FM</li>
 <li>As you continue to move the knob, that rogue harmonic moves up, as does the carrier, and more rogue harmonics appear </li>
 </ul></li>
@@ -530,16 +530,6 @@ modular_modal("efm-keyboard-bell", starter_file="efm-keyboard-frequency-tracking
 modular_caption()
 ```
 
-<!-- **template** -->
-
-<!-- - How are sideband frequency and amplitude calculated -->
-<!-- - How does modulation index affect these -->
-<!-- - What happens to partials that cross zero? -->
-<!-- - How is result perceived -->
-<!-- - How can we make it harmonic -->
-<!-- - Ratios C:M -->
-<!-- - Will harmonics track keyboard or not -->
-
 ### Analogue linear frequency modulation
 
 In analogue linear frequency modulation (LFM), the output is moved in **equal frequencies** around the carrier's default value.
@@ -586,13 +576,14 @@ modular_modal("lfm-keyboard-frequency-tracking", starter_file="efm-keyboard-freq
 <li>If you want, use the Label module to mark off the EFM and LFM sections (right click to enter text) </li>
 <li>Add an 8:1 switch to the right of the 12 key and a Triggers MKIII to the right of that</li>
 <li>Run the EFM out to the first input of the 8:1 and run the 8:1 output to all the places the EFM out previously went (scope, sassy, host audio)</li>
+<li>Connect the LFM to the 2nd 8:1 input</li>
 <li>Set the 8:1 steps to 2 and connect the top Triggers out to the 8:1 clock in</li>
 <li>You can now switch between EFM and LFM by pushing a button. Make sure LFM is selected</li>
 <li>Try the following and note the differences in the sound and scopes <ul>
 <li>Adjust the feidah level knob and note the change in timbre</li>
 <li>Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected</li>
 <li>Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)</li>
-<li>The scope should show a peak at 800 Hz</li>
+<li>Sassy should show a peak at 800 Hz</li>
 <li>Increase the feidah level and remember you should NOT see any partials below 800 Hz in true FM, but one appears around .2</li>
 <li>As you continue to move the knob, that rogue harmonic moves up, as does the carrier, and more rogue harmonics appear </li>
 </ul></li>
@@ -614,9 +605,83 @@ modular_caption()
 
 ### Analogue through-zero frequency modulation
 
+Analogue through-zero frequency modulation (TZFM), is perhaps the easiest FM to understand if you understand true FM, because TZFM is true FM!
+Like LFM, TZFM output moves in equal frequencies around the carrier's default value, but when the modulator drives the carrier's frequency below zero, TZFM oscillators will go through zero instead of stopping at zero like LFM.
+Going "through zero" is implemented by flipping the waveform, and is perhaps most easily understood as [running the waveform backwards](http://electronotes.netfirms.com/EN206.pdf).
+Again, this is true FM: normal symmetric sidebands, no pitch shifting, and perfect harmonic ratios.
 
+Let's take a look at TZFM  using a 1:1 ratio and comparing the results to EFM and LFM.
+Try extending the LFM keyboard patch using the button in Figure \@ref(fig:tzfm-keyboard-frequency-tracking).
+As you can see, there's no pitch shift and no rogue harmonics.
+
+(ref:tzfm-keyboard-frequency-tracking) [Virtual modular](https://cardinal.olney.ai) for  through zero frequency modulation with keyboard tracking and exploring a 1:1 ratio.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("tzfm-keyboard-frequency-tracking", starter_file="lfm-keyboard-frequency-tracking.vcv", instructions_html="<ul>
+<li>Disconnect the LFO for now</li>
+<li>Duplicate the modulator and feidah and move the duplicates to the right of the LFM modules on the top row</li>
+<li>Add Bogg Audio VCO (the carrier) to the right and set its frequency to 800 Hz</li>
+<li>Turn the carrier FM knob all the way up and move the switch to LIN (this is TZFM on this module)</li>
+<li>Wire up the TZFM modules just like the LFM modules</li>
+<li>If you want, use the Label module to mark off the TZFM section (right click to enter text) </li>
+<li>Run the carrier out to the 3rd input of the 8:1 and set the 8:1 steps to 3 </li>
+<li>You can now switch between EFM, LFM, and TZFM by pushing a button. Make sure TZFM is selected</li>
+<li>Try the following and note the differences in the sound and scopes <ul>
+<li>Adjust the feidah level knob and note the change in timbre</li>
+<li>Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected</li>
+<li>Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)</li>
+<li>Sassy should show a peak at 800 Hz</li>
+<li>Increase the feidah level - you will not see any partials below 800 Hz and you will not see the carrier move off 800 Hz</li>
+</ul></li>
+<li>Set feidah level to .5 to approximately match the spectrum of EFM and LFM on and connect the LFO triangle out to the feidah vca in</li>
+<li>Notice the timbre gets brighter and the pitch center is a little unstable, but this is what we expect from FM and the result is quite different from EFM and LFM </li>
+<li>You can use the push button to switch between all three FMs to further compare</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='rack-image' src='images/solo-modules/boggvco-solo.png'>
+</div>
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/tzfm-keyboard-frequency-tracking.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r tzfm-keyboard-frequency-tracking, echo=F, out.width="100%", fig.cap="(ref:tzfm-keyboard-frequency-tracking)"}
+modular_caption()
+```
+
+<!-- **template** -->
+
+<!-- - How are sideband frequency and amplitude calculated -->
+<!-- - How does modulation index affect these -->
+<!-- - What happens to partials that cross zero? -->
+<!-- - How is result perceived -->
+<!-- - How can we make it harmonic -->
+<!-- - Ratios C:M -->
+<!-- - Will harmonics track keyboard or not -->
 
 ### Phase modulation
+
+Phase modulation is very similar to frequency modulation - in fact Chowning's FM used in the DX7 was phase modulation, not frequency modulation!
+Recall that phase and frequency are very closely related.
+Figure \@ref(fig:wheel-sine-2) shows how the angle on the wheel from 0 to 2$pi$ corresponds to one wavelength of a sine wave.
+Since we define frequency in terms of a wavelength, $2pi = 1/f$, both frequency and phase can be described in terms of angle, and indeed both frequency and phase modulation are types of [angle modulation](https://en.wikipedia.org/wiki/Angle_modulation).
+
+Figure \@ref(fig:wheel-sine-2) shows an abstract rendering of this example, highlighting the relationship between the rotation of the wheel (in radians) and the shape of a sine wave.
+
+(ref:wheel-sine) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between a unit circle and a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
+
+```{r wheel-sine-2, echo=F, out.width="80%", fig.cap="(ref:wheel-sine-2)"}
+embed_linked_media("images/wheel-sine.gif")
+```
+
+
+<!-- - How are sideband frequency and amplitude calculated -->
+<!-- - How does modulation index affect these -->
+<!-- - What happens to partials that cross zero? -->
+<!-- - How is result perceived -->
+<!-- - How can we make it harmonic -->
+<!-- - Ratios C:M -->
+<!-- - Will harmonics track keyboard or not -->
 
 <!-- which are related quantities as show in Figure \@ref(fig:freq-phase). -->
 <!-- If we define frequency as the time it take the pendulum to return to vertical position, we can similarly define phase as the angle between the pendulum body and the vertical. -->

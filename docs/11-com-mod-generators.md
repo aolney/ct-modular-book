@@ -426,16 +426,6 @@ Try extending the last patch to with an envelope to create a bell sound  using t
 <p class="caption">(\#fig:efm-keyboard-bell)(ref:efm-keyboard-bell)</p>
 </div>
 
-<!-- **template** -->
-
-<!-- - How are sideband frequency and amplitude calculated -->
-<!-- - How does modulation index affect these -->
-<!-- - What happens to partials that cross zero? -->
-<!-- - How is result perceived -->
-<!-- - How can we make it harmonic -->
-<!-- - Ratios C:M -->
-<!-- - Will harmonics track keyboard or not -->
-
 ### Analogue linear frequency modulation
 
 In analogue linear frequency modulation (LFM), the output is moved in **equal frequencies** around the carrier's default value.
@@ -482,9 +472,60 @@ As you can see, the pitch shift occurs with LFM just like EFM, but the shift is 
 
 ### Analogue through-zero frequency modulation
 
+Analogue through-zero frequency modulation (TZFM), is perhaps the easiest FM to understand if you understand true FM, because TZFM is true FM!
+Like LFM, TZFM output moves in equal frequencies around the carrier's default value, but when the modulator drives the carrier's frequency below zero, TZFM oscillators will go through zero instead of stopping at zero like LFM.
+Going "through zero" is implemented by flipping the waveform, and is perhaps most easily understood as [running the waveform backwards](http://electronotes.netfirms.com/EN206.pdf).
+Again, this is true FM: normal symmetric sidebands, no pitch shifting, and perfect harmonic ratios.
 
+Let's take a look at TZFM  using a 1:1 ratio and comparing the results to EFM and LFM.
+Try extending the LFM keyboard patch using the button in Figure \@ref(fig:tzfm-keyboard-frequency-tracking).
+As you can see, there's no pitch shift and no rogue harmonics.
+
+(ref:tzfm-keyboard-frequency-tracking) [Virtual modular](https://cardinal.olney.ai) for  through zero frequency modulation with keyboard tracking and exploring a 1:1 ratio.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:tzfm-keyboard-frequency-tracking)" width="100%" />
+<p class="caption">(\#fig:tzfm-keyboard-frequency-tracking)(ref:tzfm-keyboard-frequency-tracking)</p>
+</div>
+
+<!-- **template** -->
+
+<!-- - How are sideband frequency and amplitude calculated -->
+<!-- - How does modulation index affect these -->
+<!-- - What happens to partials that cross zero? -->
+<!-- - How is result perceived -->
+<!-- - How can we make it harmonic -->
+<!-- - Ratios C:M -->
+<!-- - Will harmonics track keyboard or not -->
 
 ### Phase modulation
+
+Phase modulation is very similar to frequency modulation - in fact Chowning's FM used in the DX7 was phase modulation, not frequency modulation!
+Recall that phase and frequency are very closely related.
+Figure \@ref(fig:wheel-sine-2) shows how the angle on the wheel from 0 to 2$pi$ corresponds to one wavelength of a sine wave.
+Since we define frequency in terms of a wavelength, $2pi = 1/f$, both frequency and phase can be described in terms of angle, and indeed both frequency and phase modulation are types of [angle modulation](https://en.wikipedia.org/wiki/Angle_modulation).
+
+Figure \@ref(fig:wheel-sine-2) shows an abstract rendering of this example, highlighting the relationship between the rotation of the wheel (in radians) and the shape of a sine wave.
+
+(ref:wheel-sine) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between a unit circle and a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
+
+<div class="figure">
+<img src="downloadFigs4latex/wheel-sine-2.jpg" alt="(ref:wheel-sine-2)" width="80%" />
+<p class="caption">(\#fig:wheel-sine-2)(ref:wheel-sine-2)</p>
+</div>
+
+
+<!-- - How are sideband frequency and amplitude calculated -->
+<!-- - How does modulation index affect these -->
+<!-- - What happens to partials that cross zero? -->
+<!-- - How is result perceived -->
+<!-- - How can we make it harmonic -->
+<!-- - Ratios C:M -->
+<!-- - Will harmonics track keyboard or not -->
 
 <!-- which are related quantities as show in Figure \@ref(fig:freq-phase). -->
 <!-- If we define frequency as the time it take the pendulum to return to vertical position, we can similarly define phase as the angle between the pendulum body and the vertical. -->

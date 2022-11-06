@@ -992,7 +992,7 @@ While keyboard tracking isn’t strictly necessary for this demonstration, it ma
 &lt;li&gt;Adjust FM knob and note the change in timbre&lt;/li&gt;
 &lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
 &lt;li&gt;Take the FM knob back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
-&lt;li&gt;The scope should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
 &lt;li&gt;Increase the FM knob and remember you should NOT see any partials below 800 Hz in true FM, but one appears almost immediately around 5% FM&lt;/li&gt;
 &lt;li&gt;As you continue to move the knob, that rogue harmonic moves up, as does the carrier, and more rogue harmonics appear &lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -1013,7 +1013,7 @@ While keyboard tracking isn’t strictly necessary for this demonstration, it ma
 &lt;li&gt;Adjust FM knob and note the change in timbre&lt;/li&gt;
 &lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
 &lt;li&gt;Take the FM knob back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
-&lt;li&gt;The scope should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
 &lt;li&gt;Increase the FM knob and remember you should NOT see any partials below 800 Hz in true FM, but one appears almost immediately around 5% FM&lt;/li&gt;
 &lt;li&gt;As you continue to move the knob, that rogue harmonic moves up, as does the carrier, and more rogue harmonics appear &lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -1165,14 +1165,6 @@ function setefm_keyboard_bellIframe(url){
 Figure 11.16: <a href="https://cardinal.olney.ai">Virtual modular</a> for exponential frequency modulation to create a bell sound.
 </p>
 </div>
-<!-- **template** -->
-<!-- - How are sideband frequency and amplitude calculated -->
-<!-- - How does modulation index affect these -->
-<!-- - What happens to partials that cross zero? -->
-<!-- - How is result perceived -->
-<!-- - How can we make it harmonic -->
-<!-- - Ratios C:M -->
-<!-- - Will harmonics track keyboard or not -->
 </div>
 <div id="analogue-linear-frequency-modulation" class="section level3" number="11.2.3">
 <h3>
@@ -1230,13 +1222,14 @@ As you can see, the pitch shift occurs with LFM just like EFM, but the shift is 
 &lt;li&gt;If you want, use the Label module to mark off the EFM and LFM sections (right click to enter text) &lt;/li&gt;
 &lt;li&gt;Add an 8:1 switch to the right of the 12 key and a Triggers MKIII to the right of that&lt;/li&gt;
 &lt;li&gt;Run the EFM out to the first input of the 8:1 and run the 8:1 output to all the places the EFM out previously went (scope, sassy, host audio)&lt;/li&gt;
+&lt;li&gt;Connect the LFM to the 2nd 8:1 input&lt;/li&gt;
 &lt;li&gt;Set the 8:1 steps to 2 and connect the top Triggers out to the 8:1 clock in&lt;/li&gt;
 &lt;li&gt;You can now switch between EFM and LFM by pushing a button. Make sure LFM is selected&lt;/li&gt;
 &lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
 &lt;li&gt;Adjust the feidah level knob and note the change in timbre&lt;/li&gt;
 &lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
 &lt;li&gt;Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
-&lt;li&gt;The scope should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
 &lt;li&gt;Increase the feidah level and remember you should NOT see any partials below 800 Hz in true FM, but one appears around .2&lt;/li&gt;
 &lt;li&gt;As you continue to move the knob, that rogue harmonic moves up, as does the carrier, and more rogue harmonics appear &lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -1260,13 +1253,14 @@ As you can see, the pitch shift occurs with LFM just like EFM, but the shift is 
 &lt;li&gt;If you want, use the Label module to mark off the EFM and LFM sections (right click to enter text) &lt;/li&gt;
 &lt;li&gt;Add an 8:1 switch to the right of the 12 key and a Triggers MKIII to the right of that&lt;/li&gt;
 &lt;li&gt;Run the EFM out to the first input of the 8:1 and run the 8:1 output to all the places the EFM out previously went (scope, sassy, host audio)&lt;/li&gt;
+&lt;li&gt;Connect the LFM to the 2nd 8:1 input&lt;/li&gt;
 &lt;li&gt;Set the 8:1 steps to 2 and connect the top Triggers out to the 8:1 clock in&lt;/li&gt;
 &lt;li&gt;You can now switch between EFM and LFM by pushing a button. Make sure LFM is selected&lt;/li&gt;
 &lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
 &lt;li&gt;Adjust the feidah level knob and note the change in timbre&lt;/li&gt;
 &lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
 &lt;li&gt;Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
-&lt;li&gt;The scope should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
 &lt;li&gt;Increase the feidah level and remember you should NOT see any partials below 800 Hz in true FM, but one appears around .2&lt;/li&gt;
 &lt;li&gt;As you continue to move the knob, that rogue harmonic moves up, as does the carrier, and more rogue harmonics appear &lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -1328,11 +1322,157 @@ Figure 11.17: <a href="https://cardinal.olney.ai">Virtual modular</a> for linear
 <h3>
 <span class="header-section-number">11.2.4</span> Analogue through-zero frequency modulation<a class="anchor" aria-label="anchor" href="#analogue-through-zero-frequency-modulation"><i class="fas fa-link"></i></a>
 </h3>
+<p>Analogue through-zero frequency modulation (TZFM), is perhaps the easiest FM to understand if you understand true FM, because TZFM is true FM!
+Like LFM, TZFM output moves in equal frequencies around the carrier’s default value, but when the modulator drives the carrier’s frequency below zero, TZFM oscillators will go through zero instead of stopping at zero like LFM.
+Going “through zero” is implemented by flipping the waveform, and is perhaps most easily understood as <a href="http://electronotes.netfirms.com/EN206.pdf">running the waveform backwards</a>.
+Again, this is true FM: normal symmetric sidebands, no pitch shifting, and perfect harmonic ratios.</p>
+<p>Let’s take a look at TZFM using a 1:1 ratio and comparing the results to EFM and LFM.
+Try extending the LFM keyboard patch using the button in Figure <a href="complex-generators.html#fig:tzfm-keyboard-frequency-tracking">11.18</a>.
+As you can see, there’s no pitch shift and no rogue harmonics.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settzfm_keyboard_frequency_trackingIframe('https://cardinal.olney.ai?patchurl=lfm-keyboard-frequency-tracking.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#tzfm_keyboard_frequency_tracking">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="tzfm_keyboard_frequency_tracking" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="tzfm_keyboard_frequency_trackingLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="tzfm_keyboard_frequency_trackingLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Disconnect the LFO for now&lt;/li&gt;
+&lt;li&gt;Duplicate the modulator and feidah and move the duplicates to the right of the LFM modules on the top row&lt;/li&gt;
+&lt;li&gt;Add Bogg Audio VCO (the carrier) to the right and set its frequency to 800 Hz&lt;/li&gt;
+&lt;li&gt;Turn the carrier FM knob all the way up and move the switch to LIN (this is TZFM on this module)&lt;/li&gt;
+&lt;li&gt;Wire up the TZFM modules just like the LFM modules&lt;/li&gt;
+&lt;li&gt;If you want, use the Label module to mark off the TZFM section (right click to enter text) &lt;/li&gt;
+&lt;li&gt;Run the carrier out to the 3rd input of the 8:1 and set the 8:1 steps to 3 &lt;/li&gt;
+&lt;li&gt;You can now switch between EFM, LFM, and TZFM by pushing a button. Make sure TZFM is selected&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust the feidah level knob and note the change in timbre&lt;/li&gt;
+&lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
+&lt;li&gt;Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Increase the feidah level - you will not see any partials below 800 Hz and you will not see the carrier move off 800 Hz&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Set feidah level to .5 to approximately match the spectrum of EFM and LFM on and connect the LFO triangle out to the feidah vca in&lt;/li&gt;
+&lt;li&gt;Notice the timbre gets brighter and the pitch center is a little unstable, but this is what we expect from FM and the result is quite different from EFM and LFM &lt;/li&gt;
+&lt;li&gt;You can use the push button to switch between all three FMs to further compare&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/boggvco-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/tzfm-keyboard-frequency-tracking.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Disconnect the LFO for now&lt;/li&gt;
+&lt;li&gt;Duplicate the modulator and feidah and move the duplicates to the right of the LFM modules on the top row&lt;/li&gt;
+&lt;li&gt;Add Bogg Audio VCO (the carrier) to the right and set its frequency to 800 Hz&lt;/li&gt;
+&lt;li&gt;Turn the carrier FM knob all the way up and move the switch to LIN (this is TZFM on this module)&lt;/li&gt;
+&lt;li&gt;Wire up the TZFM modules just like the LFM modules&lt;/li&gt;
+&lt;li&gt;If you want, use the Label module to mark off the TZFM section (right click to enter text) &lt;/li&gt;
+&lt;li&gt;Run the carrier out to the 3rd input of the 8:1 and set the 8:1 steps to 3 &lt;/li&gt;
+&lt;li&gt;You can now switch between EFM, LFM, and TZFM by pushing a button. Make sure TZFM is selected&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust the feidah level knob and note the change in timbre&lt;/li&gt;
+&lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
+&lt;li&gt;Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Increase the feidah level - you will not see any partials below 800 Hz and you will not see the carrier move off 800 Hz&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Set feidah level to .5 to approximately match the spectrum of EFM and LFM on and connect the LFO triangle out to the feidah vca in&lt;/li&gt;
+&lt;li&gt;Notice the timbre gets brighter and the pitch center is a little unstable, but this is what we expect from FM and the result is quite different from EFM and LFM &lt;/li&gt;
+&lt;li&gt;You can use the push button to switch between all three FMs to further compare&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/boggvco-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/tzfm-keyboard-frequency-tracking.png'&gt;">Solution</button>
+        <button type="button" onclick="settzfm_keyboard_frequency_trackingIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="tzfm_keyboard_frequency_tracking-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function settzfm_keyboard_frequency_trackingIframe(url){
+  var tzfm_keyboard_frequency_trackingIframe = document.getElementById("tzfm_keyboard_frequency_tracking-iframe");
+  tzfm_keyboard_frequency_trackingIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:tzfm-keyboard-frequency-tracking"></span>
+<p class="caption">
+Figure 11.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for through zero frequency modulation with keyboard tracking and exploring a 1:1 ratio.
+</p>
+</div>
+<!-- **template** -->
+<!-- - How are sideband frequency and amplitude calculated -->
+<!-- - How does modulation index affect these -->
+<!-- - What happens to partials that cross zero? -->
+<!-- - How is result perceived -->
+<!-- - How can we make it harmonic -->
+<!-- - Ratios C:M -->
+<!-- - Will harmonics track keyboard or not -->
 </div>
 <div id="phase-modulation" class="section level3" number="11.2.5">
 <h3>
 <span class="header-section-number">11.2.5</span> Phase modulation<a class="anchor" aria-label="anchor" href="#phase-modulation"><i class="fas fa-link"></i></a>
 </h3>
+<p>Phase modulation is very similar to frequency modulation - in fact Chowning’s FM used in the DX7 was phase modulation, not frequency modulation!
+Recall that phase and frequency are very closely related.
+Figure <a href="complex-generators.html#fig:wheel-sine-2">11.19</a> shows how the angle on the wheel from 0 to 2<span class="math inline">\(pi\)</span> corresponds to one wavelength of a sine wave.
+Since we define frequency in terms of a wavelength, <span class="math inline">\(2pi = 1/f\)</span>, both frequency and phase can be described in terms of angle, and indeed both frequency and phase modulation are types of <a href="https://en.wikipedia.org/wiki/Angle_modulation">angle modulation</a>.</p>
+<p>Figure <a href="complex-generators.html#fig:wheel-sine-2">11.19</a> shows an abstract rendering of this example, highlighting the relationship between the rotation of the wheel (in radians) and the shape of a sine wave.</p>
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif">Relation</a> between a unit circle and a sine wave. Image <a href="https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif">© Brews ohare/CC-BY-4.0</a>. <a href="https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif">Relation</a> between a unit circle and a sine wave. Image <a href="https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif">© Brews ohare/CC-BY-4.0</a>.</p>
+<div class="figure">
+<span style="display:block;" id="fig:wheel-sine-2"></span>
+<img src="images/wheel-sine.gif" alt="(ref:wheel-sine-2)" width="80%"><p class="caption">
+Figure 11.19: (ref:wheel-sine-2)
+</p>
+</div>
+<!-- - How are sideband frequency and amplitude calculated -->
+<!-- - How does modulation index affect these -->
+<!-- - What happens to partials that cross zero? -->
+<!-- - How is result perceived -->
+<!-- - How can we make it harmonic -->
+<!-- - Ratios C:M -->
+<!-- - Will harmonics track keyboard or not -->
 <!-- which are related quantities as show in Figure \@ref(fig:freq-phase). -->
 <!-- If we define frequency as the time it take the pendulum to return to vertical position, we can similarly define phase as the angle between the pendulum body and the vertical. -->
 <!-- Unfortunately, explaining frequency modulation is complicated by its long history and different implementations in the digital and analogue domains.  -->

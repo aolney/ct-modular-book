@@ -166,6 +166,8 @@ fig:efm-example
 fig:efm-keyboard-frequency-tracking
 fig:efm-keyboard-bell
 fig:lfm-keyboard-frequency-tracking
+fig:tzfm-keyboard-frequency-tracking
+fig:wheel-sine-2
 introduction
 why-this-book
 computational-thinking
