@@ -165,6 +165,7 @@ fig:two-op-fm
 fig:efm-example
 fig:efm-keyboard-frequency-tracking
 fig:efm-keyboard-bell
+fig:lfm-keyboard-frequency-tracking
 introduction
 why-this-book
 computational-thinking
