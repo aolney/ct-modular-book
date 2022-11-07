@@ -661,19 +661,84 @@ modular_caption()
 
 ### Phase modulation
 
-Phase modulation is very similar to frequency modulation - in fact Chowning's FM used in the DX7 was phase modulation, not frequency modulation!
+Phase modulation (PM) is very similar to frequency modulation - in fact Chowning's FM used in the DX7 was PM, not FM!
 Recall that phase and frequency are very closely related.
 Figure \@ref(fig:wheel-sine-2) shows how the angle on the wheel from 0 to 2$pi$ corresponds to one wavelength of a sine wave.
-Since we define frequency in terms of a wavelength, $2pi = 1/f$, both frequency and phase can be described in terms of angle, and indeed both frequency and phase modulation are types of [angle modulation](https://en.wikipedia.org/wiki/Angle_modulation).
+We can view frequency like speed: the change in angle over time.
+Since  both frequency and phase can be described in terms of angle, both FM and PM are types of [angle modulation](https://en.wikipedia.org/wiki/Angle_modulation).
 
-Figure \@ref(fig:wheel-sine-2) shows an abstract rendering of this example, highlighting the relationship between the rotation of the wheel (in radians) and the shape of a sine wave.
-
-(ref:wheel-sine) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between a unit circle and a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
+(ref:wheel-sine) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between angle (in radians) and the wavelength of a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
 
 ```{r wheel-sine-2, echo=F, out.width="80%", fig.cap="(ref:wheel-sine-2)"}
 embed_linked_media("images/wheel-sine.gif")
 ```
 
+We can think of PM similarly to TZFM.
+When the modulator is positive, it adds phase to the carrier (moves forward in time along the carrier), and when the modulator changes direction, it subtracts phase from the carrier (moves backward in time along the carrier).
+This makes PM "through zero" and so operate with symmetric sidebands and proper harmonic ratios.
+
+There are two main differences between PM and true FM.
+First, the modulation index for PM is simply $\Delta \theta$, where $\theta$ is the peak phase deviation.
+This differs from true FM, where the modulation index also depends on $M_f$, the highest frequency component of the modulator.
+The other difference with PM is that, relative to FM, it has [different scaling factors and phase offsets](https://moinsound.wordpress.com/2011/03/04/frequency-modulation-or-phase-modulation-synthesizer-technologies/).
+These differences don't seem to matter for sine wave modulators, but for other signals, the differences get more interesting.
+For example, [FM using a square wave gives the same result as PM on a triangle wave](https://ccrma.stanford.edu/software/snd/snd/fm.html).
+So it isn't correct to say that PM and FM are identical, though they are very similar.
+
+To round off this chapter, try adding PM to the TZFM keyboard patch using the button in Figure \@ref(fig:pm-keyboard-frequency-tracking).
+As with TZFM, there's no pitch shift and no rogue harmonics using a 1:1 ratio, just a slightly different sensitivity of the modulation index to the attenuverter/polarizer.
+The timbre is identical to TZFM for an equivalent modulation index.
+
+(ref:pm-keyboard-frequency-tracking) [Virtual modular](https://cardinal.olney.ai) for  phase modulation with keyboard tracking and exploring a 1:1 ratio.
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("pm-keyboard-frequency-tracking", starter_file="tzfm-keyboard-frequency-tracking.vcv", instructions_html="<ul>
+<li>Disconnect the LFO for now</li>
+<li>Duplicate the modulator and feidah and move the duplicates to the right of the TZFM modules on the top row</li>
+<li>Add Bogg Audio Sine (the carrier) to the right and set its frequency to 800 Hz</li>
+<li>Turn the carrier Phase knob all the way to the left (this better matches the shape of TZFM for comparison, but you could move it all the way to the right as well)</li>
+<li>Wire up the PM modules just like the TZFM modules, except use the Phase input instead of FM</li>
+<li>If you want, use the Label module to mark off the PM section (right click to enter text) </li>
+<li>Run the carrier out to the 4th input of the 8:1 and set the 8:1 steps to 4 </li>
+<li>You can now switch between EFM, LFM, TZFM, and PM by pushing a button. Make sure PM is selected</li>
+<li>Try the following and note the differences in the sound and scopes <ul>
+<li>Adjust the feidah level knob and note the change in timbre</li>
+<li>Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected</li>
+<li>Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)</li>
+<li>Sassy should show a peak at 800 Hz</li>
+<li>Increase the feidah level - you will not see any partials below 800 Hz and you will not see the carrier move off 800 Hz</li>
+</ul></li>
+<li>Set feidah level to 1 to approximately match the spectrum of TZFM. You may need to turn the TZFM down to around .3 to have a comparable modulation</li>
+<li>Connect the LFO triangle out to the feidah vca in</li>
+<li>Notice the timbre gets brighter and the pitch center is a little unstable, but this is what we expect from FM and the result is quite different from EFM and LFM</li>
+<li>You can use the push button to switch between all three FMs to further compare. Note in particular the comparison to TZFM. If you set PM to 1 and TZFM to .3 and remove the VCO, they look identical on my scope except for some phase shift</li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='rack-image' src='images/solo-modules/boggsine-solo.png'>
+</div>
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/pm-keyboard-frequency-tracking.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r pm-keyboard-frequency-tracking, echo=F, out.width="100%", fig.cap="(ref:pm-keyboard-frequency-tracking)"}
+modular_caption()
+```
+
+Table \@ref(tab:frequency-summary) summarizes the important properties of the frequency modulation methods discussed in this section
+If one wants a method that behaves like true FM, TZFM and PM are good choices. 
+However, if one wants the character of EFM or LFM, that can't be denied.
+
+Table: (\#tab:frequency-summary) Behaviors of frequency modulation methods discussed in this section. Linear FM items are marked with an asterisk when they are true for practical purposes but not always true.
+
+
+| Behavior            | Exponential FM | Linear FM  | Thru Zero FM | Phase Mod. |
+|---------------------|----------------|------------|-----------------|------------------|
+| Symmetric sidebands | no             | no*         | yes             | yes              |
+| C:M ratios          | broken     | broken | perfect         | perfect          |
+| Pitch shift         | yes            | yes*        | no              | no               |
+
+<!-- **template** -->
 
 <!-- - How are sideband frequency and amplitude calculated -->
 <!-- - How does modulation index affect these -->
@@ -683,16 +748,8 @@ embed_linked_media("images/wheel-sine.gif")
 <!-- - Ratios C:M -->
 <!-- - Will harmonics track keyboard or not -->
 
-<!-- which are related quantities as show in Figure \@ref(fig:freq-phase). -->
-<!-- If we define frequency as the time it take the pendulum to return to vertical position, we can similarly define phase as the angle between the pendulum body and the vertical. -->
-<!-- Unfortunately, explaining frequency modulation is complicated by its long history and different implementations in the digital and analogue domains.  -->
 
 
-<!-- (ref:pulse-wave) [Animation](https://upload.wikimedia.org/wikipedia/commons/6/6f/Pendulum-no-text.gif?20201216081225) of a pendulum to illustrate the connection between frequency and phase. Image ©  [Ideophagous/CC-BY-SA-4.0 ](https://commons.wikimedia.org/wiki/File:Pendulum-no-text.gif). -->
-
-<!-- ```{r pulse-wave, out.width="40%", fig.cap="(ref:pulse-wave)", echo=F} -->
-<!-- embed_linked_media("https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif") -->
-<!-- ``` -->
 
 <!-- Remaining plan -->
 

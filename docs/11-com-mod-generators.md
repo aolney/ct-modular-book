@@ -504,20 +504,60 @@ As you can see, there's no pitch shift and no rogue harmonics.
 
 ### Phase modulation
 
-Phase modulation is very similar to frequency modulation - in fact Chowning's FM used in the DX7 was phase modulation, not frequency modulation!
+Phase modulation (PM) is very similar to frequency modulation - in fact Chowning's FM used in the DX7 was PM, not FM!
 Recall that phase and frequency are very closely related.
 Figure \@ref(fig:wheel-sine-2) shows how the angle on the wheel from 0 to 2$pi$ corresponds to one wavelength of a sine wave.
-Since we define frequency in terms of a wavelength, $2pi = 1/f$, both frequency and phase can be described in terms of angle, and indeed both frequency and phase modulation are types of [angle modulation](https://en.wikipedia.org/wiki/Angle_modulation).
+We can view frequency like speed: the change in angle over time.
+Since  both frequency and phase can be described in terms of angle, both FM and PM are types of [angle modulation](https://en.wikipedia.org/wiki/Angle_modulation).
 
-Figure \@ref(fig:wheel-sine-2) shows an abstract rendering of this example, highlighting the relationship between the rotation of the wheel (in radians) and the shape of a sine wave.
-
-(ref:wheel-sine) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between a unit circle and a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
+(ref:wheel-sine) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between angle (in radians) and the wavelength of a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
 
 <div class="figure">
 <img src="downloadFigs4latex/wheel-sine-2.jpg" alt="(ref:wheel-sine-2)" width="80%" />
 <p class="caption">(\#fig:wheel-sine-2)(ref:wheel-sine-2)</p>
 </div>
 
+We can think of PM similarly to TZFM.
+When the modulator is positive, it adds phase to the carrier (moves forward in time along the carrier), and when the modulator changes direction, it subtracts phase from the carrier (moves backward in time along the carrier).
+This makes PM "through zero" and so operate with symmetric sidebands and proper harmonic ratios.
+
+There are two main differences between PM and true FM.
+First, the modulation index for PM is simply $\Delta \theta$, where $\theta$ is the peak phase deviation.
+This differs from true FM, where the modulation index also depends on $M_f$, the highest frequency component of the modulator.
+The other difference with PM is that, relative to FM, it has [different scaling factors and phase offsets](https://moinsound.wordpress.com/2011/03/04/frequency-modulation-or-phase-modulation-synthesizer-technologies/).
+These differences don't seem to matter for sine wave modulators, but for other signals, the differences get more interesting.
+For example, [FM using a square wave gives the same result as PM on a triangle wave](https://ccrma.stanford.edu/software/snd/snd/fm.html).
+So it isn't correct to say that PM and FM are identical, though they are very similar.
+
+To round off this chapter, try adding PM to the TZFM keyboard patch using the button in Figure \@ref(fig:pm-keyboard-frequency-tracking).
+As with TZFM, there's no pitch shift and no rogue harmonics using a 1:1 ratio, just a slightly different sensitivity of the modulation index to the attenuverter/polarizer.
+The timbre is identical to TZFM for an equivalent modulation index.
+
+(ref:pm-keyboard-frequency-tracking) [Virtual modular](https://cardinal.olney.ai) for  phase modulation with keyboard tracking and exploring a 1:1 ratio.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:pm-keyboard-frequency-tracking)" width="100%" />
+<p class="caption">(\#fig:pm-keyboard-frequency-tracking)(ref:pm-keyboard-frequency-tracking)</p>
+</div>
+
+Table \@ref(tab:frequency-summary) summarizes the important properties of the frequency modulation methods discussed in this section
+If one wants a method that behaves like true FM, TZFM and PM are good choices. 
+However, if one wants the character of EFM or LFM, that can't be denied.
+
+Table: (\#tab:frequency-summary) Behaviors of frequency modulation methods discussed in this section. Linear FM items are marked with an asterisk when they are true for practical purposes but not always true.
+
+
+| Behavior            | Exponential FM | Linear FM  | Thru Zero FM | Phase Mod. |
+|---------------------|----------------|------------|-----------------|------------------|
+| Symmetric sidebands | no             | no*         | yes             | yes              |
+| C:M ratios          | broken     | broken | perfect         | perfect          |
+| Pitch shift         | yes            | yes*        | no              | no               |
+
+<!-- **template** -->
 
 <!-- - How are sideband frequency and amplitude calculated -->
 <!-- - How does modulation index affect these -->
@@ -527,16 +567,8 @@ Figure \@ref(fig:wheel-sine-2) shows an abstract rendering of this example, high
 <!-- - Ratios C:M -->
 <!-- - Will harmonics track keyboard or not -->
 
-<!-- which are related quantities as show in Figure \@ref(fig:freq-phase). -->
-<!-- If we define frequency as the time it take the pendulum to return to vertical position, we can similarly define phase as the angle between the pendulum body and the vertical. -->
-<!-- Unfortunately, explaining frequency modulation is complicated by its long history and different implementations in the digital and analogue domains.  -->
 
 
-<!-- (ref:pulse-wave) [Animation](https://upload.wikimedia.org/wikipedia/commons/6/6f/Pendulum-no-text.gif?20201216081225) of a pendulum to illustrate the connection between frequency and phase. Image ©  [Ideophagous/CC-BY-SA-4.0 ](https://commons.wikimedia.org/wiki/File:Pendulum-no-text.gif). -->
-
-<!-- ```{r pulse-wave, out.width="40%", fig.cap="(ref:pulse-wave)", echo=F} -->
-<!-- embed_linked_media("https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif") -->
-<!-- ``` -->
 
 <!-- Remaining plan -->
 

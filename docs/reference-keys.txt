@@ -168,6 +168,8 @@ fig:efm-keyboard-bell
 fig:lfm-keyboard-frequency-tracking
 fig:tzfm-keyboard-frequency-tracking
 fig:wheel-sine-2
+fig:pm-keyboard-frequency-tracking
+tab:frequency-summary
 introduction
 why-this-book
 computational-thinking
