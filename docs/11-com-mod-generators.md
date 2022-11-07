@@ -510,7 +510,7 @@ Figure \@ref(fig:wheel-sine-2) shows how the angle on the wheel from 0 to 2$pi$ 
 We can view frequency like speed: the change in angle over time.
 Since  both frequency and phase can be described in terms of angle, both FM and PM are types of [angle modulation](https://en.wikipedia.org/wiki/Angle_modulation).
 
-(ref:wheel-sine) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between angle (in radians) and the wavelength of a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
+(ref:wheel-sine-2) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between angle (in radians) and the wavelength of a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
 
 <div class="figure">
 <img src="downloadFigs4latex/wheel-sine-2.jpg" alt="(ref:wheel-sine-2)" width="80%" />
