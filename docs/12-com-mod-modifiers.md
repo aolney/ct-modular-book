@@ -10,11 +10,12 @@ One way to make a bipolar signal unipolar is to add an offset to it, e.g. if a s
 Another more interesting way to convert a bipolar signal to unipolar is to rectify the signal, as shown in Figure \@ref(fig:rectification).
 Half-wave rectification simply removes the negative part of the signal by stopping the signal at zero, and staying at zero until the signal becomes positive again.
 Full-wave rectification reflects the signal across the x-axis, i.e. takes the absolute value of the signal.
+If you add a fully rectified signal to the original signal, you will get a half rectified signal because the negative portion of the original signal and the reflected portion of the fully rectified signal will cancel out. 
 
 (ref:rectification) [Rectification](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) of a sine wave using either half or full rectification. Image [©  	Omegatron/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Rectified_waves.png).
 
 <div class="figure">
-<img src="images/rectification.png" alt="(ref:rectification)" width="80%" />
+<img src="images/rectification.png" alt="(ref:rectification)" width="100%" />
 <p class="caption">(\#fig:rectification)(ref:rectification)</p>
 </div>
 
@@ -26,7 +27,7 @@ Wavefolding does not affect the polarity of a signal.
 (ref:wavefold-sine) Wavefolding of a sine wave. Note that additional folding can be performed by reflecting the wave peak off the opposing boundary.
 
 <div class="figure">
-<img src="images/sine-wavefold.png" alt="(ref:wavefold-sine)" width="80%" />
+<img src="images/sine-wavefold.png" alt="(ref:wavefold-sine)" width="100%" />
 <p class="caption">(\#fig:wavefold-sine)(ref:wavefold-sine)</p>
 </div>
 
@@ -43,7 +44,7 @@ Instead, wavefolding will change the relative strengths of the harmonics, and as
 (ref:triangle-rect-fold) Full wave rectification (left) and wavefolding (right) of a triangle wave. The wavefolded peaks that have just reached the boundary are circled. 
 
 <div class="figure">
-<img src="images/triangle-rect-fold.png" alt="(ref:triangle-rect-fold)" width="80%" />
+<img src="images/triangle-rect-fold.png" alt="(ref:triangle-rect-fold)" width="100%" />
 <p class="caption">(\#fig:triangle-rect-fold)(ref:triangle-rect-fold)</p>
 </div>
 
@@ -53,7 +54,7 @@ During wavefolding, the upper and lower parts of the square wave will move in op
 As a consequence, there are moments where the two parts of the square wave meet at zero and result in a non-wave, somewhat comparable to amplitude modulation through wave folding.
 Half rectification on a square wave turns it into an identical square wave, but at half amplitude and an offset.
 Full rectification on a square wave turns it into just an offset, i.e. a constant voltage.
-Because a constant voltage has zero frequency (0 Hz) it can be removed with a high pass filter - this is a good idea in most audio applications where constant voltages create noise.
+Because a constant voltage has zero frequency (0 Hz) it can be removed with a high pass filter - this is a good idea in most audio applications where constant voltages create noise.^[High pass filtering is a good idea when using clocks or clock dividers outputs as square waves for the same reason.]
 
 The effects of rectification and wavefolding on the four basic wave shapes is summarized in Table \@ref(tab:freq-ratio) with respect to the addition of harmonics, change in frequency, and change in amplitude.
 In all cases, the amplitude of individual harmonics changes, leading to a change in timbre with respect to the original wave.
@@ -85,8 +86,34 @@ Try creating this patch using the button in Figure \@ref(fig:wavefold-rect-examp
 <p class="caption">(\#fig:wavefold-rect-example)(ref:wavefold-rect-example)</p>
 </div>
 
+Rectification has multiple uses besides changing harmonics.
+One obvious use is making a bipolar control signal unipolar (e.g. to drive a VCA).
+Another interesting use is to use rectification to perform waveshape surgery and combine the top part of one waveshape with the bottom of another.
+This is relatively simple to do by fully rectifying two waveshapes and inverting one to become the bottom portion of the wave.
+It's slightly trickier to align the top and bottom portions, but it's possible to do so using a module that allows specfication of phase offsets.
+Figure \@ref(fig:fraken-rect) shows an example of waveshape surgery using the top portion of a sine wave and the bottom portion of a square wave.
+By blending parts of different waves, you can achieve an intermediate sound, e.g. a slightly more mellow square wave.
+
+(ref:fraken-rect) Upper sine wave and lower square wave portions cut using rectification and aligned with a phase offset (left). The final wave is high pass filtered to remove the voltage offset (right).
+
+<div class="figure">
+<img src="images/fraken-rect.png" alt="(ref:fraken-rect)" width="100%" />
+<p class="caption">(\#fig:fraken-rect)(ref:fraken-rect)</p>
+</div>
+
+Try creating a new waveshape through rectification using the button in Figure \@ref(fig:franken-rect).
+This method would also allow you to perform operations on just one part of the signal if desired, e.g. waveshaping on just the top half.
+
+(ref:franken-rect) [Virtual modular](https://cardinal.olney.ai) for contrasting the effect of wavefolding and rectification on the four basic waveshapes. 
+
+<!-- MODAL HTML BLOCK -->
 
 
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:franken-rect)" width="100%" />
+<p class="caption">(\#fig:franken-rect)(ref:franken-rect)</p>
+</div>
 
 ## Slew
 

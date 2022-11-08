@@ -93,7 +93,7 @@ modular_modal("am-example", starter_file="empty.vcv", instructions_html="<ul>
 <li>On each WT VCO, move the wavetable position knob to the left to select a sine wave. The intermediate position morph between other waves like triangle and square</li>
 <li>Connect the oscillator on the left (modulator) to the AMP CV and to a Sassy input</li>
 <li>Connect the oscilator on the right (carrier) to the AMP in and to a Sassy input </li>
-<li>Connect the AMP out to Scopein and a Sassy input</li>
+<li>Connect the AMP out to Scope in and a Sassy input. Note we could alternatively use other VCAs if we made the modulator signal unipolar</li>
 <li>Enable the external trigger on the Scope, connect the modulator output to the Scop external trigger, and adjust Sassy for high-quality spectrogram output (left top sliders down to 1/32, top right slider up to 1000ms, freq radiobutton, 4x radiobutton)</li>
 <li>Adjust the oscillator frequencies so that the modulator is lower than the carrier and the difference is sufficient to show on Sassy and not cross below zero (I used 60 and 400)</li>
 <li>Try the following and note the differences in the scopes <ul>
