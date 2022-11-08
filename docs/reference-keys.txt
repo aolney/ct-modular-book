@@ -170,6 +170,10 @@ fig:tzfm-keyboard-frequency-tracking
 fig:wheel-sine-2
 fig:pm-keyboard-frequency-tracking
 tab:frequency-summary
+fig:rectification
+fig:wavefold-sine
+fig:triangle-rect-fold
+fig:wavefold-rect-example
 introduction
 why-this-book
 computational-thinking
@@ -271,5 +275,8 @@ analogue-linear-frequency-modulation
 analogue-through-zero-frequency-modulation
 phase-modulation
 complex-modifiers
+rectification-and-wavefolding
+slew
+quantizers
 sd2-B
 sd2-A

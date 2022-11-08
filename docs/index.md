@@ -1,7 +1,7 @@
 --- 
 title: "Computational Thinking through Modular Sounds Synthesis"
 author: "Andrew M. Olney"
-date: "2022-11-06"
+date: "2022-11-08"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
@@ -30,7 +30,7 @@ The recommended browser is Firefox on a non-iOS system. The modular software emb
 
 This website is free to use and is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivs 4.0 License](https://creativecommons.org/licenses/by-nc-nd/4.0/). 
 
-&copy; Andrew M. Olney 2022
+&copy; [Andrew M. Olney](https://olney.ai/) 2022
 
 
 

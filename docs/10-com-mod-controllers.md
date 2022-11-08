@@ -1,6 +1,6 @@
-# (PART) Complex Modules {-}
+# (PART) Advanced Techniques {-}
 
-# Controllers {#complex-controllers}
+# Modulating Controllers {#complex-controllers}
 
 This chapter extends Chapter \@ref(controllers) by introducing more advanced approaches to sequencing.
 Sequencing can be considered a kind of memory for musical events where the events can be stored and played back later.

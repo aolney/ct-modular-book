@@ -231,7 +231,7 @@ modular_caption()
 
 A version of this patch with my specific settings is shown in Figure \@ref(fig:res-filter-envelope-noise-kick-freq-decay) along with a recording of the sound.
 It sounds much more realistic, perhaps because of the way the resonant filter handles the dampened oscillation (9)
-However it is also a bit muffled and looses out on cleanliness (6).
+However it is also a bit muffled and loses out on cleanliness (6).
 One of the problems we seem to have with this approach is a lack of control of the frequency of the fundamental. 
 The cutoff and resonance parameters affect both the initial transient as well as the body of the kick, whereas with a sine wave there was better separation in control of these two phases.
 

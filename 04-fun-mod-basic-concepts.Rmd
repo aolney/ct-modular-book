@@ -1,4 +1,4 @@
-# (PART) Fundamental Modules {-}
+# (PART) Fundamental Techniques {-}
 
 # Basic Modeling Concepts
 

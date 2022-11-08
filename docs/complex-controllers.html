@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 10 Controllers | Computational Thinking through Modular Sounds Synthesis</title>
+<title>Chapter 10 Modulating Controllers | Computational Thinking through Modular Sounds Synthesis</title>
 <meta name="author" content="Andrew M. Olney">
 <meta name="description" content="This chapter extends Chapter 5 by introducing more advanced approaches to sequencing. Sequencing can be considered a kind of memory for musical events where the events can be stored and played...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="Chapter 10 Controllers | Computational Thinking through Modular Sounds Synthesis">
+<meta property="og:title" content="Chapter 10 Modulating Controllers | Computational Thinking through Modular Sounds Synthesis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/complex-controllers.html">
 <meta property="og:description" content="This chapter extends Chapter 5 by introducing more advanced approaches to sequencing. Sequencing can be considered a kind of memory for musical events where the events can be stored and played...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 10 Controllers | Computational Thinking through Modular Sounds Synthesis">
+<meta name="twitter:title" content="Chapter 10 Modulating Controllers | Computational Thinking through Modular Sounds Synthesis">
 <meta name="twitter:description" content="This chapter extends Chapter 5 by introducing more advanced approaches to sequencing. Sequencing can be considered a kind of memory for musical events where the events can be stored and played...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -71,7 +71,7 @@
 <li class="book-part">Sound</li>
 <li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
 <li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
-<li class="book-part">Fundamental Modules</li>
+<li class="book-part">Fundamental Techniques</li>
 <li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
 <li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
 <li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
@@ -79,10 +79,10 @@
 <li class="book-part">Sound Design 1</li>
 <li><a class="" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
 <li><a class="" href="eighties-lead-chiptune.html"><span class="header-section-number">9</span> Eighties Lead &amp; Chiptune</a></li>
-<li class="book-part">Complex Modules</li>
-<li><a class="active" href="complex-controllers.html"><span class="header-section-number">10</span> Controllers</a></li>
-<li><a class="" href="complex-generators.html"><span class="header-section-number">11</span> Generators</a></li>
-<li><a class="" href="complex-modifiers.html"><span class="header-section-number">12</span> Modifiers</a></li>
+<li class="book-part">Advanced Techniques</li>
+<li><a class="active" href="complex-controllers.html"><span class="header-section-number">10</span> Modulating Controllers</a></li>
+<li><a class="" href="complex-generators.html"><span class="header-section-number">11</span> Modulating Generators</a></li>
+<li><a class="" href="complex-modifiers.html"><span class="header-section-number">12</span> Modulating Modifiers</a></li>
 <li class="book-part">Sound Design 2</li>
 <li><a class="" href="sd2-B.html"><span class="header-section-number">13</span> TBD &amp; TBD</a></li>
 <li class="book-part">Sound Design 2</li>
@@ -97,7 +97,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="complex-controllers" class="section level1" number="10">
 <h1>
-<span class="header-section-number">10</span> Controllers<a class="anchor" aria-label="anchor" href="#complex-controllers"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10</span> Modulating Controllers<a class="anchor" aria-label="anchor" href="#complex-controllers"><i class="fas fa-link"></i></a>
 </h1>
 <p>This chapter extends Chapter <a href="controllers.html#controllers">5</a> by introducing more advanced approaches to sequencing.
 Sequencing can be considered a kind of memory for musical events where the events can be stored and played back later.
@@ -1540,11 +1540,11 @@ Since each of the techniques discussed in this chapter has its strengths and wea
 
   <div class="chapter-nav">
 <div class="prev"><a href="eighties-lead-chiptune.html"><span class="header-section-number">9</span> Eighties Lead &amp; Chiptune</a></div>
-<div class="next"><a href="complex-generators.html"><span class="header-section-number">11</span> Generators</a></div>
+<div class="next"><a href="complex-generators.html"><span class="header-section-number">11</span> Modulating Generators</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#complex-controllers"><span class="header-section-number">10</span> Controllers</a></li>
+<li><a class="nav-link" href="#complex-controllers"><span class="header-section-number">10</span> Modulating Controllers</a></li>
 <li><a class="nav-link" href="#modifying-gates"><span class="header-section-number">10.1</span> Modifying gates</a></li>
 <li><a class="nav-link" href="#making-gates-with-logic"><span class="header-section-number">10.2</span> Making gates with logic</a></li>
 <li><a class="nav-link" href="#addingremoving-gates-with-probability"><span class="header-section-number">10.3</span> Adding/removing gates with probability</a></li>
@@ -1568,7 +1568,7 @@ Since each of the techniques discussed in this chapter has its strengths and wea
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-06.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

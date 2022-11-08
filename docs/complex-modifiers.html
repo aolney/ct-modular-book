@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 12 Modifiers | Computational Thinking through Modular Sounds Synthesis</title>
+<title>Chapter 12 Modulating Modifiers | Computational Thinking through Modular Sounds Synthesis</title>
 <meta name="author" content="Andrew M. Olney">
-<meta name="description" content="This book presents computational thinking concepts and strategies in the context of modular sound synthesis.">
+<meta name="description" content="Modifying incoming audio and control signals was introduced in Chapter 7. The present chapter introduces new modules and extends earlier concepts in modifiers around the loose organizing theme of...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="Chapter 12 Modifiers | Computational Thinking through Modular Sounds Synthesis">
+<meta property="og:title" content="Chapter 12 Modulating Modifiers | Computational Thinking through Modular Sounds Synthesis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/complex-modifiers.html">
-<meta property="og:description" content="This book presents computational thinking concepts and strategies in the context of modular sound synthesis.">
+<meta property="og:description" content="Modifying incoming audio and control signals was introduced in Chapter 7. The present chapter introduces new modules and extends earlier concepts in modifiers around the loose organizing theme of...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 12 Modifiers | Computational Thinking through Modular Sounds Synthesis">
-<meta name="twitter:description" content="This book presents computational thinking concepts and strategies in the context of modular sound synthesis.">
+<meta name="twitter:title" content="Chapter 12 Modulating Modifiers | Computational Thinking through Modular Sounds Synthesis">
+<meta name="twitter:description" content="Modifying incoming audio and control signals was introduced in Chapter 7. The present chapter introduces new modules and extends earlier concepts in modifiers around the loose organizing theme of...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -71,7 +71,7 @@
 <li class="book-part">Sound</li>
 <li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
 <li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
-<li class="book-part">Fundamental Modules</li>
+<li class="book-part">Fundamental Techniques</li>
 <li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
 <li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
 <li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
@@ -79,10 +79,10 @@
 <li class="book-part">Sound Design 1</li>
 <li><a class="" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
 <li><a class="" href="eighties-lead-chiptune.html"><span class="header-section-number">9</span> Eighties Lead &amp; Chiptune</a></li>
-<li class="book-part">Complex Modules</li>
-<li><a class="" href="complex-controllers.html"><span class="header-section-number">10</span> Controllers</a></li>
-<li><a class="" href="complex-generators.html"><span class="header-section-number">11</span> Generators</a></li>
-<li><a class="active" href="complex-modifiers.html"><span class="header-section-number">12</span> Modifiers</a></li>
+<li class="book-part">Advanced Techniques</li>
+<li><a class="" href="complex-controllers.html"><span class="header-section-number">10</span> Modulating Controllers</a></li>
+<li><a class="" href="complex-generators.html"><span class="header-section-number">11</span> Modulating Generators</a></li>
+<li><a class="active" href="complex-modifiers.html"><span class="header-section-number">12</span> Modulating Modifiers</a></li>
 <li class="book-part">Sound Design 2</li>
 <li><a class="" href="sd2-B.html"><span class="header-section-number">13</span> TBD &amp; TBD</a></li>
 <li class="book-part">Sound Design 2</li>
@@ -97,19 +97,341 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="complex-modifiers" class="section level1" number="12">
 <h1>
-<span class="header-section-number">12</span> Modifiers<a class="anchor" aria-label="anchor" href="#complex-modifiers"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12</span> Modulating Modifiers<a class="anchor" aria-label="anchor" href="#complex-modifiers"><i class="fas fa-link"></i></a>
 </h1>
+<p>Modifying incoming audio and control signals was introduced in Chapter <a href="modifiers.html#modifiers">7</a>.
+The present chapter introduces new modules and extends earlier concepts in modifiers around the loose organizing theme of converting between earlier signals, e.g. from gates to envelopes.</p>
+<div id="rectification-and-wavefolding" class="section level2" number="12.1">
+<h2>
+<span class="header-section-number">12.1</span> Rectification and wavefolding<a class="anchor" aria-label="anchor" href="#rectification-and-wavefolding"><i class="fas fa-link"></i></a>
+</h2>
+<p>As discussed in Chapter <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a>, signals are either unipolar or bipolar.
+One way to make a bipolar signal unipolar is to add an offset to it, e.g. if a signal ranges from -5 to +5 V, then add 5 V to obtain a 0 to +10 V signal.
+Another more interesting way to convert a bipolar signal to unipolar is to rectify the signal, as shown in Figure <a href="complex-modifiers.html#fig:rectification">12.1</a>.
+Half-wave rectification simply removes the negative part of the signal by stopping the signal at zero, and staying at zero until the signal becomes positive again.
+Full-wave rectification reflects the signal across the x-axis, i.e. takes the absolute value of the signal.</p>
 
+<div class="figure">
+<span style="display:block;" id="fig:rectification"></span>
+<img src="images/rectification.png" alt="Rectification of a sine wave using either half or full rectification. Image © Omegatron/CC-BY-SA-3.0." width="80%"><p class="caption">
+Figure 12.1: <a href="https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif">Rectification</a> of a sine wave using either half or full rectification. Image <a href="https://commons.wikimedia.org/wiki/File:Rectified_waves.png">© Omegatron/CC-BY-SA-3.0</a>.
+</p>
+</div>
+<p>A variation of rectification is wavefolding.
+In wavefolding, a comparator (see Section <a href="complex-controllers.html#addingremoving-gates-with-probability">10.3</a>) reflects the the wave when it reaches an upper or lower threshold, as shown in Figure <a href="complex-modifiers.html#fig:wavefold-sine">12.2</a>.
+Thus wavefolding is like rectification on parts of the signal that cross these boundaries, but a folding parameter allows the amplitude of the wave to increase until it reaches the opposing boundary, repeating the process.
+Wavefolding does not affect the polarity of a signal.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:wavefold-sine"></span>
+<img src="images/sine-wavefold.png" alt="Wavefolding of a sine wave. Note that additional folding can be performed by reflecting the wave peak off the opposing boundary." width="80%"><p class="caption">
+Figure 12.2: Wavefolding of a sine wave. Note that additional folding can be performed by reflecting the wave peak off the opposing boundary.
+</p>
+</div>
+<p>Rectification and wavefolding change harmonics and therefore timbre.
+The best way to understand their effect on harmonics is to consider a triangle at full rectification.
+As the bottom part of the triangle is reflected, the resulting wave is still a triangle wave, but at twice the frequency as before, e.g. a 200 Hz wave becomes a 400 Hz wave, and the signal is offset above zero.
+For a triangle wave, wavefolding doesn’t double frequency but instead triples it, e.g. a 200 Hz wave becomes a 600 Hz wave.
+Tripling occurs because when a peak reflects, it creates two additional peaks in addition to itself.
+Figure <a href="complex-modifiers.html#fig:triangle-rect-fold">12.3</a> illustrates these two cases.
+The tripling behavior of wavefolding means that it will add all odd harmonics to a sine wave but not add harmonics to the other basic waveshapes, because they already have odd harmonics.
+Instead, wavefolding will change the relative strengths of the harmonics, and as wavefolding increases it will put more energy into higher harmonics for a brighter sound.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:triangle-rect-fold"></span>
+<img src="images/triangle-rect-fold.png" alt="Full wave rectification (left) and wavefolding (right) of a triangle wave. The wavefolded peaks that have just reached the boundary are circled." width="80%"><p class="caption">
+Figure 12.3: Full wave rectification (left) and wavefolding (right) of a triangle wave. The wavefolded peaks that have just reached the boundary are circled.
+</p>
+</div>
+<p>The square wave has unusual behavior for wavefolding and rectification that deserves special mention.
+During wavefolding, the upper and lower parts of the square wave will move in opposite directions rather than fold as shown in Figures <a href="complex-modifiers.html#fig:wavefold-sine">12.2</a> and <a href="complex-modifiers.html#fig:triangle-rect-fold">12.3</a>.
+As a consequence, there are moments where the two parts of the square wave meet at zero and result in a non-wave, somewhat comparable to amplitude modulation through wave folding.
+Half rectification on a square wave turns it into an identical square wave, but at half amplitude and an offset.
+Full rectification on a square wave turns it into just an offset, i.e. a constant voltage.
+Because a constant voltage has zero frequency (0 Hz) it can be removed with a high pass filter - this is a good idea in most audio applications where constant voltages create noise.</p>
+<p>The effects of rectification and wavefolding on the four basic wave shapes is summarized in Table <a href="complex-generators.html#tab:freq-ratio">11.1</a> with respect to the addition of harmonics, change in frequency, and change in amplitude.
+In all cases, the amplitude of individual harmonics changes, leading to a change in timbre with respect to the original wave.
+Sometimes these changes can be quite extreme.
+For example, a saw wave at full rectification keeps all harmonics, but the strongest harmonics more closely match a triangle wave than a saw.</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:freq-ratio">Table 11.1: </span> Addition of harmonics, change in frequency, and change in amplitude to the four basic waveshapes under wavefolding, half rectification, and full rectification. Note all three affect strength of harmonics and so timbre.</caption>
+<colgroup>
+<col width="11%">
+<col width="16%">
+<col width="32%">
+<col width="39%">
+</colgroup>
+<thead><tr class="header">
+<th>Wave</th>
+<th>Wavefolding</th>
+<th>Half rectification</th>
+<th>Full rectification</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Sine</td>
+<td>Odd harmonics</td>
+<td>All harmonics</td>
+<td>All harmonics at double frequency</td>
+</tr>
+<tr class="even">
+<td>Triangle</td>
+<td>-</td>
+<td>All harmonics but every 4th</td>
+<td>Double frequency</td>
+</tr>
+<tr class="odd">
+<td>Square</td>
+<td>-</td>
+<td>Amplitude reduced by half</td>
+<td>Offset voltage</td>
+</tr>
+<tr class="even">
+<td>Saw</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table></div>
+<p>Let’s take a look at the change in harmonics resulting from wavefolding and rectification.
+The best way to hear these is to step through with a sequential switch and use an LFO to drive the wavefolding.
+Try creating this patch using the button in Figure <a href="complex-modifiers.html#fig:wavefold-rect-example">12.4</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setwavefold_rect_exampleIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#wavefold_rect_example">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="wavefold_rect_example" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="wavefold_rect_exampleLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="wavefold_rect_exampleLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add WT VCO, Utilites, Folding, LFO, Triggers MKIII, 8:1, filtah, Scope, Host audio, and Sassy&lt;/li&gt;
+&lt;li&gt;Connect WT VCO out to Utilities in, Folding in, 8:1 input 1, Scope input 2, and Scope trigger in&lt;/li&gt;
+&lt;li&gt;Connect Utilities half rectify out to 8:1 input 3 and full rectify out to 8:1 input 4&lt;/li&gt;
+&lt;li&gt;Connect LFO triangle out to Folding depth in and change the depth attenuverter (the small knob) to 9 o'clock, a slight amount&lt;/li&gt;
+&lt;li&gt;Connect Folding out to 8:1 input 2&lt;/li&gt;
+&lt;li&gt;Connect Triggers MKIII out to 8:1 clock&lt;/li&gt;
+&lt;li&gt;Set 8:1 steps to 4 and connect out to filtah input&lt;/li&gt;
+&lt;li&gt;Set filtah type switch to high pass and cutoff to the lowest level (lets everything above zero frequency through)and connect filtah out to Scope in 1&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
+&lt;li&gt;Adjust Scope time and Sassy levels and FFT resolution to the highest level&lt;/li&gt;
+&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
+&lt;li&gt;Starting with sine, cycle through the 4 wave options using the button and note the change in sound, the image on the scope, and the change in harmonics. Mouse over the harmonics to check if they are all, odd, or even. You may prefer to set the WT VCO frequency to a round number, e.g. 200 Hz, and set the LFO to a slow rate, e.g. .2 Hz in order to make comparisons easier&lt;/li&gt;
+&lt;li&gt;Repeat the above for the other three waveshapes&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/audibleutilities-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/animatedfolding-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/filtah-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/wavefold-rect-example.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add WT VCO, Utilites, Folding, LFO, Triggers MKIII, 8:1, filtah, Scope, Host audio, and Sassy&lt;/li&gt;
+&lt;li&gt;Connect WT VCO out to Utilities in, Folding in, 8:1 input 1, Scope input 2, and Scope trigger in&lt;/li&gt;
+&lt;li&gt;Connect Utilities half rectify out to 8:1 input 3 and full rectify out to 8:1 input 4&lt;/li&gt;
+&lt;li&gt;Connect LFO triangle out to Folding depth in and change the depth attenuverter (the small knob) to 9 o'clock, a slight amount&lt;/li&gt;
+&lt;li&gt;Connect Folding out to 8:1 input 2&lt;/li&gt;
+&lt;li&gt;Connect Triggers MKIII out to 8:1 clock&lt;/li&gt;
+&lt;li&gt;Set 8:1 steps to 4 and connect out to filtah input&lt;/li&gt;
+&lt;li&gt;Set filtah type switch to high pass and cutoff to the lowest level (lets everything above zero frequency through)and connect filtah out to Scope in 1&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
+&lt;li&gt;Adjust Scope time and Sassy levels and FFT resolution to the highest level&lt;/li&gt;
+&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
+&lt;li&gt;Starting with sine, cycle through the 4 wave options using the button and note the change in sound, the image on the scope, and the change in harmonics. Mouse over the harmonics to check if they are all, odd, or even. You may prefer to set the WT VCO frequency to a round number, e.g. 200 Hz, and set the LFO to a slow rate, e.g. .2 Hz in order to make comparisons easier&lt;/li&gt;
+&lt;li&gt;Repeat the above for the other three waveshapes&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/audibleutilities-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/animatedfolding-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/filtah-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/wavefold-rect-example.png'&gt;">Solution</button>
+        <button type="button" onclick="setwavefold_rect_exampleIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="wavefold_rect_example-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setwavefold_rect_exampleIframe(url){
+  var wavefold_rect_exampleIframe = document.getElementById("wavefold_rect_example-iframe");
+  wavefold_rect_exampleIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:wavefold-rect-example"></span>
+<p class="caption">
+Figure 12.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for contrasting the effect of wavefolding and rectification on the four basic waveshapes.
+</p>
+</div>
+</div>
+<div id="slew" class="section level2" number="12.2">
+<h2>
+<span class="header-section-number">12.2</span> Slew<a class="anchor" aria-label="anchor" href="#slew"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="quantizers" class="section level2" number="12.3">
+<h2>
+<span class="header-section-number">12.3</span> Quantizers<a class="anchor" aria-label="anchor" href="#quantizers"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Remaining plan -->
+<!--    Modifiers    -->
+<!--        Slew -->
+<!--        Wave-folding -->
+<!--        Quantizers -->
+<!-- worthy orphans -->
+<!-- audio rate modulation into resonant filter? -->
+<!--        Vocoders -->
+<!-- - -->
+<!-- possibly undercovered -->
+<!--        Attenuators, inverters, and attenuverters -->
+<!--        ~~Sample and hold~~ -->
+<!-- - -->
+<!-- Sound design ideas -->
+<!-- Cymbal PUSH UNTIL AFTER RING MOD -> clark & reid comparison -->
+<!-- Maybe use these? -->
+<!-- Growl: Low frequency sine wave modulation of the filter cut-off frequency -->
+<!-- wah wah is LFO on LPF cutoff freq -->
+<!-- Actual -->
+<!--     4 Basic Modeling Concepts -->
+<!--     4.1 Modules are the model elements -->
+<!--     4.2 Signals are how the model elements interact -->
+<!--     4.3 Signals are interpreted by modules -->
+<!--     4.4 Pulling it all together -->
+<!--         4.4.1 Drone -->
+<!--         4.4.2 Using an oscilloscope -->
+<!--         4.4.3 Controlling pitch -->
+<!--         4.4.4 Controlling note duration (on/off volume) -->
+<!--         4.4.5 Controlling note dynamics (volume during note) -->
+<!--     4.5 Moving forward -->
+<!-- 5 Controllers -->
+<!-- 5.1 Clocks -->
+<!--     5.1.1 Clock under a scope -->
+<!--     5.1.2 Clock as a generator -->
+<!-- 5.2 Sequencers -->
+<!--     5.2.1 Clocks as sequencers -->
+<!--     5.2.2 Trigger sequencers -->
+<!--     5.2.3 Control voltage sequencers -->
+<!--     6 Generators -->
+<!--     6.1 Chords -->
+<!--     6.2 Chorus -->
+<!--     6.3 Low frequency oscillators & uses -->
+<!--         6.3.1 Pulse width modulation -->
+<!--         6.3.2 Vibrato -->
+<!--         6.3.3 Tremolo -->
+<!--     6.4 Synchronization -->
+<!--     6.5 Noise -->
+<!--     6.6 Samplers -->
+<!-- 7 Modifiers -->
+<!-- 7.1 Effects -->
+<!--     7.1.1 Delays -->
+<!--     7.1.2 Reverb -->
+<!--     7.1.3 Chorus -->
+<!--     7.1.4 Flanger -->
+<!--     7.1.5 Phaser -->
+<!-- 7.2 Voltage controlled filters -->
+<!--     7.2.1 Filters are imperfect -->
+<!--     7.2.2 Filters change frequency and phase -->
+<!--     7.2.3 Combining filters -->
+<!--     7.2.4 Resonance -->
+<!-- 8 Designing a Kick Drum -->
+<!-- 8.1 Problem solving for sound synthesis -->
+<!--     8.1.1 Understand the problem -->
+<!--     8.1.2 Devise a plan -->
+<!--     8.1.3 Carry out the plan (and replanning) -->
+<!--     8.1.4 Evaluate the solution -->
+<!-- 8.2 Reviewing previous kick drum patches -->
+<!--     8.2.1 Sine with envelope -->
+<!--     8.2.2 Sine with an envelope plus noise burst -->
+<!-- 8.3 Alternative approaches -->
+<!--     8.3.1 Improving our understanding of the problem -->
+<!--     8.3.2 Devising new plans -->
+<!--     8.3.3 Working backwards -->
+<!-- 9 Eighties Lead & Chiptune -->
+<!-- 9.1 Eighties Lead -->
+<!--     9.1.1 Waveshape -->
+<!--     9.1.2 Dynamics -->
+<!-- 9.2 Chiptune -->
+<!--     9.2.1 Triad arpeggio -->
+<!--     9.2.2 LFO PWM -->
+<!--     9.2.3 Secondary sequencer for transposition -->
+<!--     9.2.4 Hats and kick -->
+<!-- 10 Controllers -->
+<!-- 10.1 Modifying gates -->
+<!-- 10.2 Making gates with logic -->
+<!-- 10.3 Adding/removing gates with probability -->
+<!-- 10.4 Speed variable clocks using LFOs -->
+<!-- 10.5 Euclidean rhythm -->
+<!-- 10.6 Sequential switches -->
+<!-- 11 Generators -->
+<!-- 11.1 Modulating amplitude -->
+<!--     11.1.1 Amplitude modulation -->
+<!--     11.1.2 Ring modulation -->
+<!-- 11.2 Modulating frequency -->
+<!--     11.2.1 Frequency modulation -->
+<!--     11.2.2 Analogue exponential frequency modulation -->
+<!--     11.2.3 Analogue linear frequency modulation -->
+<!--     11.2.4 Analogue through-zero frequency modulation -->
+<!--     11.2.5 Phase modulation -->
+
+</div>
 </div>
 
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="complex-generators.html"><span class="header-section-number">11</span> Generators</a></div>
+<div class="prev"><a href="complex-generators.html"><span class="header-section-number">11</span> Modulating Generators</a></div>
 <div class="next"><a href="sd2-B.html"><span class="header-section-number">13</span> TBD &amp; TBD</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#complex-modifiers"><span class="header-section-number">12</span> Modifiers</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#complex-modifiers"><span class="header-section-number">12</span> Modulating Modifiers</a></li>
+<li><a class="nav-link" href="#rectification-and-wavefolding"><span class="header-section-number">12.1</span> Rectification and wavefolding</a></li>
+<li><a class="nav-link" href="#slew"><span class="header-section-number">12.2</span> Slew</a></li>
+<li><a class="nav-link" href="#quantizers"><span class="header-section-number">12.3</span> Quantizers</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -126,7 +448,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-06.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
