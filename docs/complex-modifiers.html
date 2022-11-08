@@ -432,6 +432,212 @@ Figure 12.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for contras
 <h2>
 <span class="header-section-number">12.2</span> Slew<a class="anchor" aria-label="anchor" href="#slew"><i class="fas fa-link"></i></a>
 </h2>
+<p>Slew slows the rate of change of a signal.
+We’ve seen this before with low pass filters, where the signal being slowed was audio rate.
+Slew limiters behaves much the same way as low pass filters but are designed to work with unipolar signals.
+Recall RC circuits from Section <a href="modifiers.html#voltage-controlled-filters">7.2</a> leech out energy from parts of the wave shape and return that energy to other parts, thus smoothing the signal.
+Slew limiters work the same way but typically have parameters to control the rate of slew for both upward and downward transitions.</p>
+<p>Slew limiters have applications in many areas that involve delaying a signal.
+For example, we can make a gate delay by combining a slew limiter with a comparator.
+When a slew limiter receives a gate, its output voltage will slowly rise depending on the rate of slew, until the voltage is high enough that the comparator sends out a high signal.
+Before we look at portamento, try creating a gate delay from a slew limiter and comparator using the button in Figure <a href="complex-modifiers.html#fig:slew-gate-delay">12.7</a>.
+The second scope in the patch shows another interesting application of slew, which is to convert gates into envelopes.
+If the rise time runs into the fall time, the envelope will only go up and down (attack and decay).
+Shorter rise and fall times will preserve the top of the gate, making an attack-sustain-release envelope, with sustain at max level.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setslew_gate_delayIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#slew_gate_delay">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="slew_gate_delay" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="slew_gate_delayLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="slew_gate_delayLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Connect LFO square out to Slew in and the first Scope in 1 &lt;/li&gt;
+&lt;li&gt;Connect Slew out to Edge In and the second Scope in 1&lt;/li&gt;
+&lt;li&gt;Connect Edge high out to both Scope input 2 &lt;/li&gt;
+&lt;li&gt;Turn on Scope trigger and adjust time so you see the slow gate&lt;/li&gt;
+&lt;li&gt;Adjust the Slew rise/fall sliders to adjust. Rise affects the delay of the comparator gate, and fall affects the length of that gate&lt;/li&gt;
+&lt;li&gt;Try adjusting the slew to make delayed gates at different delays and lengths&lt;/li&gt;
+&lt;li&gt;As you can see, with this method we can only delay so far because we need an incoming gate for the slew to smooth. A clock divider could create an incoming signal for a longer delay &lt;/li&gt;
+&lt;li&gt;Note the second scope trace for the slewed signal is identical to an envelope, i.e. slew can convert gates into simple envelopes &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/befacoslew-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/slew-gate-delay.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Connect LFO square out to Slew in and the first Scope in 1 &lt;/li&gt;
+&lt;li&gt;Connect Slew out to Edge In and the second Scope in 1&lt;/li&gt;
+&lt;li&gt;Connect Edge high out to both Scope input 2 &lt;/li&gt;
+&lt;li&gt;Turn on Scope trigger and adjust time so you see the slow gate&lt;/li&gt;
+&lt;li&gt;Adjust the Slew rise/fall sliders to adjust. Rise affects the delay of the comparator gate, and fall affects the length of that gate&lt;/li&gt;
+&lt;li&gt;Try adjusting the slew to make delayed gates at different delays and lengths&lt;/li&gt;
+&lt;li&gt;As you can see, with this method we can only delay so far because we need an incoming gate for the slew to smooth. A clock divider could create an incoming signal for a longer delay &lt;/li&gt;
+&lt;li&gt;Note the second scope trace for the slewed signal is identical to an envelope, i.e. slew can convert gates into simple envelopes &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/befacoslew-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/slew-gate-delay.png'&gt;">Solution</button>
+        <button type="button" onclick="setslew_gate_delayIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="slew_gate_delay-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setslew_gate_delayIframe(url){
+  var slew_gate_delayIframe = document.getElementById("slew_gate_delay-iframe");
+  slew_gate_delayIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:slew-gate-delay"></span>
+<p class="caption">
+Figure 12.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for using a slew limiter and comparator to make a gate delay.
+</p>
+</div>
+<p>Perhaps the most common use of slew is to implement portamento/glissando by smoothing stepped V/Oct control signals to create glides.
+If you consider V/Oct signals to be stepped like gates, then the last patch should help you understand how this works.
+A slewed V/Oct signal will have a range of voltages between the steps, and these intermediate voltages will be cause a VCO receiving them to output intermediate pitches.
+Most slew limiters will base the glide time on the distance between notes as well as the rise/fall settings.
+This can be challenging musically, so if a constant glide time is desired, a better option is to use a low-pass filter.
+Try patching up a slew limiter to a VCO to implement portamento using the button in Figure <a href="complex-modifiers.html#fig:slew-portamento">12.8</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setslew_portamentoIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#slew_portamento">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="slew_portamento" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="slew_portamentoLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="slew_portamentoLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add 12 key, Slew limiter, VCO, Host audio, and Scope &lt;/li&gt;
+&lt;li&gt;Connect 12 key CV out to Slew in and Slew out to VCO V/Oct&lt;/li&gt;
+&lt;li&gt;Connect VCO square out to Host audio L and Scope input 1&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play two keys close together and far apart. Note the differenct in portamento length&lt;ul&gt;
+&lt;li&gt;Adjust the Slew sliders one at a time and repeat. Note the asymmetry depending on whether the note sequence is ascending or descending&lt;/li&gt;
+&lt;li&gt;Change the shape knob to the right and repeat. Note the time it takes to implement the glide transition is much slower and matches the icon for that position (long attack)&lt;/li&gt;
+&lt;li&gt;To get a constant time portamento, replace Slew with filtah in LPF mode with a low cutoff. The low cuttoff is essential because the voltage changes are low frequency and will be removed otherwise&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/befacoslew-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/slew-portamento.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add 12 key, Slew limiter, VCO, Host audio, and Scope &lt;/li&gt;
+&lt;li&gt;Connect 12 key CV out to Slew in and Slew out to VCO V/Oct&lt;/li&gt;
+&lt;li&gt;Connect VCO square out to Host audio L and Scope input 1&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play two keys close together and far apart. Note the differenct in portamento length&lt;ul&gt;
+&lt;li&gt;Adjust the Slew sliders one at a time and repeat. Note the asymmetry depending on whether the note sequence is ascending or descending&lt;/li&gt;
+&lt;li&gt;Change the shape knob to the right and repeat. Note the time it takes to implement the glide transition is much slower and matches the icon for that position (long attack)&lt;/li&gt;
+&lt;li&gt;To get a constant time portamento, replace Slew with filtah in LPF mode with a low cutoff. The low cuttoff is essential because the voltage changes are low frequency and will be removed otherwise&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/befacoslew-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/slew-portamento.png'&gt;">Solution</button>
+        <button type="button" onclick="setslew_portamentoIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="slew_portamento-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setslew_portamentoIframe(url){
+  var slew_portamentoIframe = document.getElementById("slew_portamento-iframe");
+  slew_portamentoIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:slew-portamento"></span>
+<p class="caption">
+Figure 12.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for using a slew limiter to implement portamento.
+</p>
+</div>
 </div>
 <div id="quantizers" class="section level2" number="12.3">
 <h2>

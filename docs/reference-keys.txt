@@ -176,6 +176,8 @@ fig:triangle-rect-fold
 fig:wavefold-rect-example
 fig:fraken-rect
 fig:franken-rect
+fig:slew-gate-delay
+fig:slew-portamento
 introduction
 why-this-book
 computational-thinking

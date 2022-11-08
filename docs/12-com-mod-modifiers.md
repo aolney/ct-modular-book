@@ -117,6 +117,50 @@ This method would also allow you to perform operations on just one part of the s
 
 ## Slew
 
+Slew slows the rate of change of a signal.
+We've seen this before with low pass filters, where the signal being slowed was audio rate.
+Slew limiters behaves much the same way as low pass filters but are designed to work with unipolar signals.
+Recall RC circuits from Section \@ref(voltage-controlled-filters) leech out energy from parts of the wave shape and return that energy to other parts, thus smoothing the signal.
+Slew limiters work the same way but typically have parameters to control the rate of slew for both upward and downward transitions.
+
+Slew limiters have applications in many areas that involve delaying a signal. 
+For example, we can make a gate delay by combining a slew limiter with a comparator.
+When a slew limiter receives a gate, its output voltage will slowly rise depending on the rate of slew, until the voltage is high enough that the comparator sends out a high signal.
+Before we look at portamento, try creating  a gate delay from a slew limiter and comparator using the button in Figure \@ref(fig:slew-gate-delay).
+The second scope in the patch shows another interesting application of slew, which is to convert gates into envelopes.
+If the rise time runs into the fall time, the envelope will only go up and down (attack and decay).
+Shorter rise and fall times will preserve the top of the gate, making an attack-sustain-release envelope, with sustain at max level.
+
+(ref:slew-gate-delay) [Virtual modular](https://cardinal.olney.ai) for using a slew limiter and comparator to make a gate delay. 
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:slew-gate-delay)" width="100%" />
+<p class="caption">(\#fig:slew-gate-delay)(ref:slew-gate-delay)</p>
+</div>
+
+Perhaps the most common use of slew is to implement portamento/glissando by smoothing stepped V/Oct control signals to create glides.
+If you consider V/Oct signals to be stepped like gates, then the last patch should help you understand how this works.
+A slewed V/Oct signal will have a range of voltages between the steps, and these intermediate voltages will be cause a VCO receiving them to output intermediate pitches.
+Most slew limiters will base the glide time on the distance between notes as well as the rise/fall settings.
+This can be challenging musically, so if a constant glide time is desired, a better option is to use a low-pass filter.
+Try patching up a slew limiter to a VCO to implement portamento using the button in Figure \@ref(fig:slew-portamento).
+
+(ref:slew-portamento) [Virtual modular](https://cardinal.olney.ai) for using a slew limiter to implement portamento. 
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:slew-portamento)" width="100%" />
+<p class="caption">(\#fig:slew-portamento)(ref:slew-portamento)</p>
+</div>
+
+
 ## Quantizers
 
 

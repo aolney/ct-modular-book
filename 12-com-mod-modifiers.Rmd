@@ -155,6 +155,80 @@ modular_caption()
 
 ## Slew
 
+Slew slows the rate of change of a signal.
+We've seen this before with low pass filters, where the signal being slowed was audio rate.
+Slew limiters behaves much the same way as low pass filters but are designed to work with unipolar signals.
+Recall RC circuits from Section \@ref(voltage-controlled-filters) leech out energy from parts of the wave shape and return that energy to other parts, thus smoothing the signal.
+Slew limiters work the same way but typically have parameters to control the rate of slew for both upward and downward transitions.
+
+Slew limiters have applications in many areas that involve delaying a signal. 
+For example, we can make a gate delay by combining a slew limiter with a comparator.
+When a slew limiter receives a gate, its output voltage will slowly rise depending on the rate of slew, until the voltage is high enough that the comparator sends out a high signal.
+Before we look at portamento, try creating  a gate delay from a slew limiter and comparator using the button in Figure \@ref(fig:slew-gate-delay).
+The second scope in the patch shows another interesting application of slew, which is to convert gates into envelopes.
+If the rise time runs into the fall time, the envelope will only go up and down (attack and decay).
+Shorter rise and fall times will preserve the top of the gate, making an attack-sustain-release envelope, with sustain at max level.
+
+(ref:slew-gate-delay) [Virtual modular](https://cardinal.olney.ai) for using a slew limiter and comparator to make a gate delay. 
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("slew-gate-delay", starter_file="empty.vcv", instructions_html="<ul>
+<li>Connect LFO square out to Slew in and the first Scope in 1 </li>
+<li>Connect Slew out to Edge In and the second Scope in 1</li>
+<li>Connect Edge high out to both Scope input 2 </li>
+<li>Turn on Scope trigger and adjust time so you see the slow gate</li>
+<li>Adjust the Slew rise/fall sliders to adjust. Rise affects the delay of the comparator gate, and fall affects the length of that gate</li>
+<li>Try adjusting the slew to make delayed gates at different delays and lengths</li>
+<li>As you can see, with this method we can only delay so far because we need an incoming gate for the slew to smooth. A clock divider could create an incoming signal for a longer delay </li>
+<li>Note the second scope trace for the slewed signal is identical to an envelope, i.e. slew can convert gates into simple envelopes </li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='rack-image' src='images/solo-modules/befacoslew-solo.png'>
+</div>
+",solution_html="<img class='rack-image' src='images/patch-solutions/slew-gate-delay.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r slew-gate-delay, echo=F, out.width="100%", fig.cap="(ref:slew-gate-delay)"}
+modular_caption()
+```
+
+Perhaps the most common use of slew is to implement portamento/glissando by smoothing stepped V/Oct control signals to create glides.
+If you consider V/Oct signals to be stepped like gates, then the last patch should help you understand how this works.
+A slewed V/Oct signal will have a range of voltages between the steps, and these intermediate voltages will be cause a VCO receiving them to output intermediate pitches.
+Most slew limiters will base the glide time on the distance between notes as well as the rise/fall settings.
+This can be challenging musically, so if a constant glide time is desired, a better option is to use a low-pass filter.
+Try patching up a slew limiter to a VCO to implement portamento using the button in Figure \@ref(fig:slew-portamento).
+
+(ref:slew-portamento) [Virtual modular](https://cardinal.olney.ai) for using a slew limiter to implement portamento. 
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("slew-portamento", starter_file="empty.vcv", instructions_html="<ul>
+<li>Add 12 key, Slew limiter, VCO, Host audio, and Scope </li>
+<li>Connect 12 key CV out to Slew in and Slew out to VCO V/Oct</li>
+<li>Connect VCO square out to Host audio L and Scope input 1</li>
+<li>Try the following and note the differences in the sound and scopes <ul>
+<li>Play two keys close together and far apart. Note the differenct in portamento length<ul>
+<li>Adjust the Slew sliders one at a time and repeat. Note the asymmetry depending on whether the note sequence is ascending or descending</li>
+<li>Change the shape knob to the right and repeat. Note the time it takes to implement the glide transition is much slower and matches the icon for that position (long attack)</li>
+<li>To get a constant time portamento, replace Slew with filtah in LPF mode with a low cutoff. The low cuttoff is essential because the voltage changes are low frequency and will be removed otherwise</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='rack-image' src='images/solo-modules/befacoslew-solo.png'>
+</div>
+",solution_html="<img class='rack-image' src='images/patch-solutions/slew-portamento.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r slew-portamento, echo=F, out.width="100%", fig.cap="(ref:slew-portamento)"}
+modular_caption()
+```
+
+
 ## Quantizers
 
 
