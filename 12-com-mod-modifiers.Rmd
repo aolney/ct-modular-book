@@ -231,7 +231,117 @@ modular_caption()
 
 ## Quantizers
 
+A [quantizer](https://en.wikipedia.org/wiki/Quantization_(signal_processing)) maps input values to a smaller set of outputs.
+Discussed quantization in Section \@ref(samplers) in the context of bit depth, where the height of a sound wave is approximately measured in order to convert it from analogue to digital.
+In music, quantization is typically used to refer to either beat quantization or note quantization.
+Beat quantization is often relevant when performing live into a sequencer.
+If the sequencer is grid-based, any played beat will be snapped to the grid, i.e. snapped to the beat.
+In modular, note quantization is the more commonly used, and note quantization maps a voltage range to a particular note.
+Modular quantizers typically allow scales to be selected to determine what notes are available. 
 
+Perhaps the easiest way to understand quantizers is through voltage controlled sequencers.
+Recall that sequencers are typically clocked and advance one step at a time.
+A voltage controlled sequencer will select the step based on the incoming voltage.
+So when a voltage within a range corresponding to the step is received, that step will be selected, and whatever voltage was there will be output.
+Quantizers perform the same function except that the output notes are determined by the scale rather than being assigned.
+Despite this similarity, quantizers are often used after modular sequencers to make them easier to tune.
+If a quantizer is used this way, adjustment to a sequencer knob will step from one note to the next rather than move through all frequencies in between.
+Try patching up a quantizer both ways using the button in Figure \@ref(fig:cv-sequencer-quantizer-plus-quantizer): first using a voltage controlled sequencer and then as a modifier on a sequencer's output.
+
+(ref:cv-sequencer-quantizer-plus-quantizer) [Virtual modular](https://cardinal.olney.ai) for implementing a quantizer using a voltage controlled sequencer and using a quantizer module to process the output of a sequencer. 
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("cv-sequencer-quantizer-plus-quantizer", starter_file="st-seq-arp-plus-dynamics", instructions_html="
+<em>Quantizing an LFO signal into sequenced notes</em>
+<ul>
+<li>We'll modify the Stranger Things patch to avoid programming specific pitches into the sequencer </li>
+<li>Add an LFO to the left of the Clock</li>
+<li>Disconnect the Clock beat from the ADDR-SEQ Clock input</li>
+<li>Connect the LFO triangle out to the ADDR-SEQ CV in and set the LFO to a low rate, e.g. .1 Hz</li>
+<li>The sequence should move up and down with the LFO. If it is not starting on step 1, connect Clock reset out to the reset ins for LFO and ADDR-SEQ, then hit the button to reset and synchronize them</li>
+</ul>
+<em>Cleaning up sequencer output with a quantizer</em>
+<ul>
+<li>Add JW Quantizer to the right of ADDR-SEQ</li>
+<li>Move all connects from ADDR-SEQ out to JW Quantizer out and connect ADDR-SEQ out to Quantizer in</li>
+<li>Change the root note knob, mode knob, and octave shift knob to see how easy it is do do these manipulations with a quantizer to affect all the notes at once</li>
+<li>Disconnect the LFO so the sequence stops on a single step Turn the knob for that step and notice how it now goes from note to note instead of continuous frequencies - that is the essence of quantization </li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='rack-image' src='images/solo-modules/jwquantizer-solo.png'>
+</div>
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/cv-sequencer-quantizer-plus-quantizer.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r cv-sequencer-quantizer-plus-quantizer, echo=F, out.width="100%", fig.cap="(ref:cv-sequencer-quantizer-plus-quantizer)"}
+modular_caption()
+```
+
+The last patch used a sequencer to store notes, but it's also possible to use a quantizer without a sequencer.
+Particularly for arpeggios, its easy enough to use LFOs that cycle up and down.
+All that is needed is a sample and hold module to synchronize the pitches to gates, and an attenuator to restrict the range of the LFO to the range of notes desired.
+If the sample and hold is clocked with another LFO whose frequency is not a multiple of the quantized LFO, then the arpeggio will slowly shift its played notes over a longer period. 
+Try patching up an LFO quantizer arpeggio using the button in Figure \@ref(fig:lfo-quantizer-arpeggio).
+
+(ref:lfo-quantizer-arpeggio) [Virtual modular](https://cardinal.olney.ai) for creating an arpeggio using an LFO through a quantizer. 
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("lfo-quantizer-arpeggio", starter_file="twelvekey-env-chorus.vcv", instructions_html="<ul>
+<li>Add two LFOs, Bogg Audio Offset, holdah, and Quantizer</li>
+<li>Connect the 2nd LFO (the 'sequencer') triangle out Offset in and set the LFO to a low rate, e.g. .4 Hz</li>
+<li>Connect Offset out to holdah in</li>
+<li>Connect holdah out to Quantizer in</li>
+<li>Connect Quantizer out to VCO V/Oct</li>
+<li>Connect first LFO (the 'clock') square out to holdah trigger in and ADSR gate in. Set it to a higher rate, e.g. 2 or 3 Hz</li>
+<li>Try the following and note the differences in the sound <ul>
+<li>Adjust the Offset scale to a small number, e.g. .15 to define how many notes are in the sweep of the sequencer LFO</li>
+<li>Adjust the frequencies of the clock LFO. The higher it is, the more notes will be selected from the sequencer LFO's sweep</li>
+<li>Adjust the frequencies of the sequencer LFO. The slower it is, the more opportunities the clock LFO will have to select notes before the sequencer LFO changes direction</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='rack-image' src='images/solo-modules/boggaudiooffset-solo.png'>
+</div>
+",solution_html="<img class='rack-image' src='images/patch-solutions/lfo-quantizer-arpeggio.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r lfo-quantizer-arpeggio, echo=F, out.width="100%", fig.cap="(ref:lfo-quantizer-arpeggio)"}
+modular_caption()
+```
+
+Another common application for quantizers is in generative patches where probability is used to generate voltages which are then turned into notes.
+We can incorporate probability into the last patch using almost the same modules but connected a different way.
+Try patching up a probability-based generative patch using sample and hold on noise through a quantizer and speed variable clocks for different note lengths using the button in Figure \@ref(fig:sh-quantizer-generative).
+
+(ref:sh-quantizer-generative) [Virtual modular](https://cardinal.olney.ai) for creating an generative melody using sample and hold on noise through a quantizer. 
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("sh-quantizer-generative", starter_file="lfo-quantizer-arpeggio.vcv", instructions_html="<ul>
+<li>Add Utilities and delete holdah and 12 key. The bottom section of Utilities has an integrated noise source and sample and hold, so we can use it to generate random stepped voltage</li>
+<li>Connect the 2nd LFO (the 'clock') square out to Utilities S&H in</li>
+<li>Connect Utilities out to offset in</li>
+<li>Connect offset out out to Quantizer in</li>
+<li>Connect 1st LFO triangle out to the FM in of the clock LFO</li>
+<li>Try the following and note the differences in the sound <ul>
+<li>Adjust the Offset scale to a small number, e.g. .15 to define how many notes are in the sweep of the sequencer LFO</li>
+<li>Adjust the frequencies of the clock LFO. The higher it is, the more notes will be selected from the sample and hold</li>
+<li>Adjust the frequencies of the first LFO and the FM attenuator of the clock LFO. The faster the first LFO is, the faster the note durations will change. The stronger the attenuated signal is, the more the first LFO will influence the speed of the clock. You might want the first LFO to be bipolar for this</li>
+</ul></li>
+</ul>
+",solution_html="<img class='rack-image' src='images/patch-solutions/sh-quantizer-generative.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r sh-quantizer-generative, echo=F, out.width="100%", fig.cap="(ref:sh-quantizer-generative)"}
+modular_caption()
+```
+
+<!-- In Section \@ref(addingremoving-gates-with-probability) we used probability to create beats and then used logic on clocks to quantize those beats. -->
 
 
 <!-- Remaining plan -->

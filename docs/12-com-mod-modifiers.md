@@ -163,7 +163,67 @@ Try patching up a slew limiter to a VCO to implement portamento using the button
 
 ## Quantizers
 
+A [quantizer](https://en.wikipedia.org/wiki/Quantization_(signal_processing)) maps input values to a smaller set of outputs.
+Discussed quantization in Section \@ref(samplers) in the context of bit depth, where the height of a sound wave is approximately measured in order to convert it from analogue to digital.
+In music, quantization is typically used to refer to either beat quantization or note quantization.
+Beat quantization is often relevant when performing live into a sequencer.
+If the sequencer is grid-based, any played beat will be snapped to the grid, i.e. snapped to the beat.
+In modular, note quantization is the more commonly used, and note quantization maps a voltage range to a particular note.
+Modular quantizers typically allow scales to be selected to determine what notes are available. 
 
+Perhaps the easiest way to understand quantizers is through voltage controlled sequencers.
+Recall that sequencers are typically clocked and advance one step at a time.
+A voltage controlled sequencer will select the step based on the incoming voltage.
+So when a voltage within a range corresponding to the step is received, that step will be selected, and whatever voltage was there will be output.
+Quantizers perform the same function except that the output notes are determined by the scale rather than being assigned.
+Despite this similarity, quantizers are often used after modular sequencers to make them easier to tune.
+If a quantizer is used this way, adjustment to a sequencer knob will step from one note to the next rather than move through all frequencies in between.
+Try patching up a quantizer both ways using the button in Figure \@ref(fig:cv-sequencer-quantizer-plus-quantizer): first using a voltage controlled sequencer and then as a modifier on a sequencer's output.
+
+(ref:cv-sequencer-quantizer-plus-quantizer) [Virtual modular](https://cardinal.olney.ai) for implementing a quantizer using a voltage controlled sequencer and using a quantizer module to process the output of a sequencer. 
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:cv-sequencer-quantizer-plus-quantizer)" width="100%" />
+<p class="caption">(\#fig:cv-sequencer-quantizer-plus-quantizer)(ref:cv-sequencer-quantizer-plus-quantizer)</p>
+</div>
+
+The last patch used a sequencer to store notes, but it's also possible to use a quantizer without a sequencer.
+Particularly for arpeggios, its easy enough to use LFOs that cycle up and down.
+All that is needed is a sample and hold module to synchronize the pitches to gates, and an attenuator to restrict the range of the LFO to the range of notes desired.
+If the sample and hold is clocked with another LFO whose frequency is not a multiple of the quantized LFO, then the arpeggio will slowly shift its played notes over a longer period. 
+Try patching up an LFO quantizer arpeggio using the button in Figure \@ref(fig:lfo-quantizer-arpeggio).
+
+(ref:lfo-quantizer-arpeggio) [Virtual modular](https://cardinal.olney.ai) for creating an arpeggio using an LFO through a quantizer. 
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-quantizer-arpeggio)" width="100%" />
+<p class="caption">(\#fig:lfo-quantizer-arpeggio)(ref:lfo-quantizer-arpeggio)</p>
+</div>
+
+Another common application for quantizers is in generative patches where probability is used to generate voltages which are then turned into notes.
+We can incorporate probability into the last patch using almost the same modules but connected a different way.
+Try patching up a probability-based generative patch using sample and hold on noise through a quantizer and speed variable clocks for different note lengths using the button in Figure \@ref(fig:sh-quantizer-generative).
+
+(ref:sh-quantizer-generative) [Virtual modular](https://cardinal.olney.ai) for creating an generative melody using sample and hold on noise through a quantizer. 
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:sh-quantizer-generative)" width="100%" />
+<p class="caption">(\#fig:sh-quantizer-generative)(ref:sh-quantizer-generative)</p>
+</div>
+
+<!-- In Section \@ref(addingremoving-gates-with-probability) we used probability to create beats and then used logic on clocks to quantize those beats. -->
 
 
 <!-- Remaining plan -->

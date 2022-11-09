@@ -178,6 +178,9 @@ fig:fraken-rect
 fig:franken-rect
 fig:slew-gate-delay
 fig:slew-portamento
+fig:cv-sequencer-quantizer-plus-quantizer
+fig:lfo-quantizer-arpeggio
+fig:sh-quantizer-generative
 introduction
 why-this-book
 computational-thinking
