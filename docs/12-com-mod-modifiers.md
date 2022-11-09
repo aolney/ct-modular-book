@@ -20,14 +20,14 @@ If you add a fully rectified signal to the original signal, you will get a half 
 </div>
 
 A variation of rectification is wavefolding.
-In wavefolding, a comparator (see Section \@ref(addingremoving-gates-with-probability)) reflects the the wave when it reaches an upper or lower threshold, as shown in Figure \@ref(fig:wavefold-sine).
+In wavefolding, a comparator (see Section \@ref(addingremoving-gates-with-probability)) triggers reflection of the wave when it reaches an upper or lower threshold, as shown in Figure \@ref(fig:wavefold-sine).
 Thus wavefolding is like rectification on parts of the signal that cross these boundaries, but a folding parameter allows the amplitude of the wave to increase until it reaches the opposing boundary, repeating the process.
 Wavefolding does not affect the polarity of a signal.
 
-(ref:wavefold-sine) Wavefolding of a sine wave. Note that additional folding can be performed by reflecting the wave peak off the opposing boundary.
+(ref:wavefold-sine) Wavefolding (green) of a sine wave (purple). The fold parameter moves the top and bottom portions of the wave to their respective boundaries where they reflect (left). Further increase of the fold parameter causes them to reach the opposing boundary and reflect again (right), a repeatable process that creates additional folds.
 
 <div class="figure">
-<img src="images/sine-wavefold.png" alt="(ref:wavefold-sine)" width="100%" />
+<img src="images/sine-wavefold-2.png" alt="(ref:wavefold-sine)" width="100%" />
 <p class="caption">(\#fig:wavefold-sine)(ref:wavefold-sine)</p>
 </div>
 
@@ -106,6 +106,8 @@ This method would also allow you to perform operations on just one part of the s
 
 (ref:franken-rect) [Virtual modular](https://cardinal.olney.ai) for contrasting the effect of wavefolding and rectification on the four basic waveshapes. 
 
+<!-- TODO replace 8vert with Bogg Audio Offset? -->
+
 <!-- MODAL HTML BLOCK -->
 
 
@@ -131,7 +133,7 @@ The second scope in the patch shows another interesting application of slew, whi
 If the rise time runs into the fall time, the envelope will only go up and down (attack and decay).
 Shorter rise and fall times will preserve the top of the gate, making an attack-sustain-release envelope, with sustain at max level.
 
-(ref:slew-gate-delay) [Virtual modular](https://cardinal.olney.ai) for using a slew limiter and comparator to make a gate delay. 
+(ref:slew-gate-delay) [Virtual modular](https://cardinal.olney.ai) for using a slew limiter and comparator to make a gate delay and slew alone to convert a gate to an envelope.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -194,8 +196,20 @@ Try patching up a quantizer both ways using the button in Figure \@ref(fig:cv-se
 The last patch used a sequencer to store notes, but it's also possible to use a quantizer without a sequencer.
 Particularly for arpeggios, its easy enough to use LFOs that cycle up and down.
 All that is needed is a sample and hold module to synchronize the pitches to gates, and an attenuator to restrict the range of the LFO to the range of notes desired.
+The relationships between LFO frequency, LFO range, gate/trigger frequency, and gate/trigger synchronization are illustrated in Figure \@ref(fig:sine-quantize-figure).
+If sampling occurs at the same frequency as the LFO, then it will always select the same note.
+To get more notes, the sampling needs to occur at a higher frequency.
+
+(ref:sine-quantize-figure) A sine wave LFO (purple) being sampled (green) so the sampled values can be input to a quantizer to create an arpeggio. If the sampling rate matches the LFO frequency, only one repeating note will be sampled (left). The samplng rate must be higher than the LFO rate (right) to increase the number of notes. See text for additional factors that effect what voltages are sampled.
+
+<div class="figure">
+<img src="images/sine-quantize-figure.png" alt="(ref:sine-quantize-figure)" width="100%" />
+<p class="caption">(\#fig:sine-quantize-figure)(ref:sine-quantize-figure)</p>
+</div>
+
 If the sample and hold is clocked with another LFO whose frequency is not a multiple of the quantized LFO, then the arpeggio will slowly shift its played notes over a longer period. 
 Try patching up an LFO quantizer arpeggio using the button in Figure \@ref(fig:lfo-quantizer-arpeggio).
+Other ways of creating variations are to change the range of the LFO, the offset of the LFO, the sampling rate, and the sampling phase/synchronization to the LFO.
 
 (ref:lfo-quantizer-arpeggio) [Virtual modular](https://cardinal.olney.ai) for creating an arpeggio using an LFO through a quantizer. 
 

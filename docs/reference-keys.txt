@@ -179,6 +179,7 @@ fig:franken-rect
 fig:slew-gate-delay
 fig:slew-portamento
 fig:cv-sequencer-quantizer-plus-quantizer
+fig:sine-quantize-figure
 fig:lfo-quantizer-arpeggio
 fig:sh-quantizer-generative
 introduction
