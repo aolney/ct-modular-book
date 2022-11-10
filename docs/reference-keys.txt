@@ -178,6 +178,7 @@ fig:fraken-rect
 fig:franken-rect
 fig:slew-gate-delay
 fig:slew-portamento
+fig:slew-sidechain-noise
 fig:cv-sequencer-quantizer-plus-quantizer
 fig:sine-quantize-figure
 fig:lfo-quantizer-arpeggio

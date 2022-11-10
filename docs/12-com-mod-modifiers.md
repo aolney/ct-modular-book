@@ -162,11 +162,35 @@ Try patching up a slew limiter to a VCO to implement portamento using the button
 <p class="caption">(\#fig:slew-portamento)(ref:slew-portamento)</p>
 </div>
 
+Slew can also be combined with full rectification to make an envelope follower, a very useful tool for processing audio.
+When we make sounds in modular, we typically apply an envelope like an ADSR in order to give the sound dynamic loudness.
+We can further use the envelope to control modulation like filter cutoff, so that the spectrum of the sound changes at the same time as its loudness.
+Envelopes can can be used for [sidechaining](https://en.wikipedia.org/wiki/Dynamic_range_compression#Side-chaining) effects like ducking, where the envelope on the kick is inverted and used to *reduce* the volume of other sounds, which gives the music a pulsing quality.
+
+Sidechaining is relatively simple when an envelope was used to generate the sound, but when the sound isn't synthesized, like samples or live-recordings of instruments, an envelope follower is needed to generate the envelope that will be used for sidechaining.
+An envelope follower essentially traces a curve along the peaks of a sound wave to outline an envelope akin to an ADSR.
+Since ADSR envelopes are unipolar, full rectification of the audio takes place first.
+Then slew is used to slow the rapid changes in the sound and generate a smoothish curve.
+Some tuning of the envelope follower is typically required to create an envelope with the desired properties.
+Try patching up an envelope follower using full rectification and a slew limiter using the button in Figure \@ref(fig:slew-sidechain-noise).
+The audio in the patch comes from lo-fi synthesized speech with no envelope, and the patch demonstrates sidechaining to duck noise based on the followed envelope.
+
+(ref:slew-sidechain-noise) [Virtual modular](https://cardinal.olney.ai) for using full rectification with a slew limiter to create an envelope follower. 
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:slew-sidechain-noise)" width="100%" />
+<p class="caption">(\#fig:slew-sidechain-noise)(ref:slew-sidechain-noise)</p>
+</div>
+
 
 ## Quantizers
 
 A [quantizer](https://en.wikipedia.org/wiki/Quantization_(signal_processing)) maps input values to a smaller set of outputs.
-Discussed quantization in Section \@ref(samplers) in the context of bit depth, where the height of a sound wave is approximately measured in order to convert it from analogue to digital.
+We discussed quantization in Section \@ref(samplers) in the context of bit depth, where the height of a sound wave is approximately measured in order to convert it from analogue to digital.
 In music, quantization is typically used to refer to either beat quantization or note quantization.
 Beat quantization is often relevant when performing live into a sequencer.
 If the sequencer is grid-based, any played beat will be snapped to the grid, i.e. snapped to the beat.
@@ -178,8 +202,12 @@ Recall that sequencers are typically clocked and advance one step at a time.
 A voltage controlled sequencer will select the step based on the incoming voltage.
 So when a voltage within a range corresponding to the step is received, that step will be selected, and whatever voltage was there will be output.
 Quantizers perform the same function except that the output notes are determined by the scale rather than being assigned.
+
 Despite this similarity, quantizers are often used after modular sequencers to make them easier to tune.
-If a quantizer is used this way, adjustment to a sequencer knob will step from one note to the next rather than move through all frequencies in between.
+If a quantizer is used on the output of a sequencer, adjustment to a sequencer knob will step from one note to the next rather than move through all frequencies in between.
+Also, if the quantizer has scale selection, then it will affect all notes in the sequence simultaneously, which can be very convenient.
+However, it's important to keep in mind that a quantizer's voltage for a note, e.g. C4, may not make your oscillator go to the same note.
+To ensure your oscillator's output matches a quantizer, you must tune your oscillator so they match. 
 Try patching up a quantizer both ways using the button in Figure \@ref(fig:cv-sequencer-quantizer-plus-quantizer): first using a voltage controlled sequencer and then as a modifier on a sequencer's output.
 
 (ref:cv-sequencer-quantizer-plus-quantizer) [Virtual modular](https://cardinal.olney.ai) for implementing a quantizer using a voltage controlled sequencer and using a quantizer module to process the output of a sequencer. 
