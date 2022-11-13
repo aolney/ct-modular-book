@@ -22,6 +22,28 @@
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -43,7 +65,29 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 12</span> Modulating Modifiers</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li class="book-part">Sound</li>
+<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
+<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
+<li class="book-part">Fundamental Techniques</li>
+<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
+<li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
+<li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
+<li><a class="" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
+<li class="book-part">Sound Design 1</li>
+<li><a class="" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
+<li><a class="" href="eighties-lead-chiptune.html"><span class="header-section-number">9</span> Eighties Lead &amp; Chiptune</a></li>
+<li class="book-part">Advanced Techniques</li>
+<li><a class="" href="complex-controllers.html"><span class="header-section-number">10</span> Modulating Controllers</a></li>
+<li><a class="" href="complex-generators.html"><span class="header-section-number">11</span> Modulating Generators</a></li>
+<li><a class="active" href="complex-modifiers.html"><span class="header-section-number">12</span> Modulating Modifiers</a></li>
+<li class="book-part">Sound Design 2</li>
+<li><a class="" href="tb-303.html"><span class="header-section-number">13</span> TB-303</a></li>
+<li><a class="" href="sd2-b.html"><span class="header-section-number">14</span> TBD &amp; TBD</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -104,14 +148,14 @@ During wavefolding, the upper and lower parts of the square wave will move in op
 As a consequence, there are moments where the two parts of the square wave meet at zero and result in a non-wave, somewhat comparable to amplitude modulation through wave folding.
 Half rectification on a square wave turns it into an identical square wave, but at half amplitude and an offset.
 Full rectification on a square wave turns it into just an offset, i.e. a constant voltage.
-Because a constant voltage has zero frequency (0 Hz) it can be removed with a high pass filter - this is a good idea in most audio applications where constant voltages create noise.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;High pass filtering is a good idea when using clocks or clock dividers outputs as square waves for the same reason.&lt;/p&gt;"><sup>1</sup></a></p>
-<p>The effects of rectification and wavefolding on the four basic wave shapes is summarized in Table <a href="complex-modifiers.html#tab:freq-ratio">12.1</a> with respect to the addition of harmonics, change in frequency, and change in amplitude.
+Because a constant voltage has zero frequency (0 Hz) it can be removed with a high pass filter - this is a good idea in most audio applications where constant voltages create noise.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;High pass filtering is a good idea when using clocks or clock dividers outputs as square waves for the same reason.&lt;/p&gt;"><sup>95</sup></a></p>
+<p>The effects of rectification and wavefolding on the four basic wave shapes is summarized in Table <a href="complex-generators.html#tab:freq-ratio">11.1</a> with respect to the addition of harmonics, change in frequency, and change in amplitude.
 In all cases, the amplitude of individual harmonics changes, leading to a change in timbre with respect to the original wave.
 Sometimes these changes can be quite extreme.
 For example, a saw wave at full rectification keeps all harmonics, but the strongest harmonics more closely match a triangle wave than a saw.</p>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:freq-ratio">Table 12.1: </span> Addition of harmonics, change in frequency, and change in amplitude to the four basic waveshapes under wavefolding, half rectification, and full rectification. Note all three affect strength of harmonics and so timbre.</caption>
+<span id="tab:freq-ratio">Table 11.1: </span> Addition of harmonics, change in frequency, and change in amplitude to the four basic waveshapes under wavefolding, half rectification, and full rectification. Note all three affect strength of harmonics and so timbre.</caption>
 <colgroup>
 <col width="11%">
 <col width="16%">
@@ -1041,15 +1085,21 @@ Figure 12.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for creati
 
 
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="complex-generators.html"><span class="header-section-number">11</span> Modulating Generators</a></div>
+<div class="next"><a href="tb-303.html"><span class="header-section-number">13</span> TB-303</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#complex-modifiers"><span class="header-section-number">12</span> Modulating Modifiers</a></li>
+<li><a class="nav-link" href="#rectification-and-wavefolding"><span class="header-section-number">12.1</span> Rectification and wavefolding</a></li>
+<li><a class="nav-link" href="#slew"><span class="header-section-number">12.2</span> Slew</a></li>
+<li><a class="nav-link" href="#quantizers"><span class="header-section-number">12.3</span> Quantizers</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/12-com-mod-modifiers.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/12-com-mod-modifiers.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -1061,7 +1111,7 @@ Figure 12.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for creati
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-10.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -1069,6 +1119,34 @@ Figure 12.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for creati
   </div>
 
 </div></div>
-</footer>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
 </html>

@@ -183,6 +183,8 @@ fig:cv-sequencer-quantizer-plus-quantizer
 fig:sine-quantize-figure
 fig:lfo-quantizer-arpeggio
 fig:sh-quantizer-generative
+fig:303
+fig:acid-tracks
 introduction
 why-this-book
 computational-thinking
@@ -287,10 +289,6 @@ complex-modifiers
 rectification-and-wavefolding
 slew
 quantizers
-sd2-B
-sd2-A
-fig:303
-acid
-history
 tb-303
-fig:acid-tracks
+history
+sd2-b
