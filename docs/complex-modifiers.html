@@ -22,28 +22,6 @@
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-<style type="text/css">
-    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-        }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style>
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
@@ -65,30 +43,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
-<li class="book-part">Sound</li>
-<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
-<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
-<li class="book-part">Fundamental Techniques</li>
-<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
-<li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
-<li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
-<li><a class="" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
-<li class="book-part">Sound Design 1</li>
-<li><a class="" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
-<li><a class="" href="eighties-lead-chiptune.html"><span class="header-section-number">9</span> Eighties Lead &amp; Chiptune</a></li>
-<li class="book-part">Advanced Techniques</li>
-<li><a class="" href="complex-controllers.html"><span class="header-section-number">10</span> Modulating Controllers</a></li>
-<li><a class="" href="complex-generators.html"><span class="header-section-number">11</span> Modulating Generators</a></li>
-<li><a class="active" href="complex-modifiers.html"><span class="header-section-number">12</span> Modulating Modifiers</a></li>
-<li class="book-part">Sound Design 2</li>
-<li><a class="" href="sd2-B.html"><span class="header-section-number">13</span> TBD &amp; TBD</a></li>
-<li class="book-part">Sound Design 2</li>
-<li><a class="" href="sd2-A.html"><span class="header-section-number">14</span> TBD &amp; TBD</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 12</span> Modulating Modifiers</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -149,14 +104,14 @@ During wavefolding, the upper and lower parts of the square wave will move in op
 As a consequence, there are moments where the two parts of the square wave meet at zero and result in a non-wave, somewhat comparable to amplitude modulation through wave folding.
 Half rectification on a square wave turns it into an identical square wave, but at half amplitude and an offset.
 Full rectification on a square wave turns it into just an offset, i.e. a constant voltage.
-Because a constant voltage has zero frequency (0 Hz) it can be removed with a high pass filter - this is a good idea in most audio applications where constant voltages create noise.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;High pass filtering is a good idea when using clocks or clock dividers outputs as square waves for the same reason.&lt;/p&gt;"><sup>95</sup></a></p>
-<p>The effects of rectification and wavefolding on the four basic wave shapes is summarized in Table <a href="complex-generators.html#tab:freq-ratio">11.1</a> with respect to the addition of harmonics, change in frequency, and change in amplitude.
+Because a constant voltage has zero frequency (0 Hz) it can be removed with a high pass filter - this is a good idea in most audio applications where constant voltages create noise.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;High pass filtering is a good idea when using clocks or clock dividers outputs as square waves for the same reason.&lt;/p&gt;"><sup>1</sup></a></p>
+<p>The effects of rectification and wavefolding on the four basic wave shapes is summarized in Table <a href="complex-modifiers.html#tab:freq-ratio">12.1</a> with respect to the addition of harmonics, change in frequency, and change in amplitude.
 In all cases, the amplitude of individual harmonics changes, leading to a change in timbre with respect to the original wave.
 Sometimes these changes can be quite extreme.
 For example, a saw wave at full rectification keeps all harmonics, but the strongest harmonics more closely match a triangle wave than a saw.</p>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:freq-ratio">Table 11.1: </span> Addition of harmonics, change in frequency, and change in amplitude to the four basic waveshapes under wavefolding, half rectification, and full rectification. Note all three affect strength of harmonics and so timbre.</caption>
+<span id="tab:freq-ratio">Table 12.1: </span> Addition of harmonics, change in frequency, and change in amplitude to the four basic waveshapes under wavefolding, half rectification, and full rectification. Note all three affect strength of harmonics and so timbre.</caption>
 <colgroup>
 <col width="11%">
 <col width="16%">
@@ -664,6 +619,7 @@ The audio in the patch comes from lo-fi synthesized speech with no envelope, and
         <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add LFO and Macro oscillator 2 to the top row, and add utilities Slew limiter, Offset, Noiz, QuadVCA/Mixer, Scope, and Host audio to the bottom row &lt;/li&gt;
+&lt;li&gt;Press the Macro osc mode button until the bottom led is lit green. This is the voice/word mode&lt;/li&gt;
 &lt;li&gt;Connect LFO triangle out to Macro osc morph in. Turn the morph attenuator all the way up and the LFO freq low, e.g. .05 &lt;/li&gt;
 &lt;li&gt;Connect Macro osc out to utilities top in, QuadVCA/Mixer input 2, and Scope input 1&lt;/li&gt;
 &lt;li&gt;Connect Utilities full rectify out to Slew in, Slew out to Offset in, and Offset out to QuadVCA/Mixer CV input 1&lt;/li&gt;
@@ -683,6 +639,7 @@ The audio in the patch comes from lo-fi synthesized speech with no envelope, and
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add LFO and Macro oscillator 2 to the top row, and add utilities Slew limiter, Offset, Noiz, QuadVCA/Mixer, Scope, and Host audio to the bottom row &lt;/li&gt;
+&lt;li&gt;Press the Macro osc mode button until the bottom led is lit green. This is the voice/word mode&lt;/li&gt;
 &lt;li&gt;Connect LFO triangle out to Macro osc morph in. Turn the morph attenuator all the way up and the LFO freq low, e.g. .05 &lt;/li&gt;
 &lt;li&gt;Connect Macro osc out to utilities top in, QuadVCA/Mixer input 2, and Scope input 1&lt;/li&gt;
 &lt;li&gt;Connect Utilities full rectify out to Slew in, Slew out to Offset in, and Offset out to QuadVCA/Mixer CV input 1&lt;/li&gt;
@@ -1076,106 +1033,6 @@ function setsh_quantizer_generativeIframe(url){
 Figure 12.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for creating an generative melody using sample and hold on noise through a quantizer.
 </p>
 </div>
-<!-- In Section \@ref(addingremoving-gates-with-probability) we used probability to create beats and then used logic on clocks to quantize those beats. -->
-<!-- Remaining plan -->
-<!--    Modifiers    -->
-<!--        Slew -->
-<!--        Wave-folding -->
-<!--        Quantizers -->
-<!-- worthy orphans -->
-<!-- audio rate modulation into resonant filter? -->
-<!--        Vocoders -->
-<!-- - -->
-<!-- possibly undercovered -->
-<!--        Attenuators, inverters, and attenuverters -->
-<!--        ~~Sample and hold~~ -->
-<!-- - -->
-<!-- Sound design ideas -->
-<!-- Cymbal PUSH UNTIL AFTER RING MOD -> clark & reid comparison -->
-<!-- Maybe use these? -->
-<!-- Growl: Low frequency sine wave modulation of the filter cut-off frequency -->
-<!-- wah wah is LFO on LPF cutoff freq -->
-<!-- Actual -->
-<!--     4 Basic Modeling Concepts -->
-<!--     4.1 Modules are the model elements -->
-<!--     4.2 Signals are how the model elements interact -->
-<!--     4.3 Signals are interpreted by modules -->
-<!--     4.4 Pulling it all together -->
-<!--         4.4.1 Drone -->
-<!--         4.4.2 Using an oscilloscope -->
-<!--         4.4.3 Controlling pitch -->
-<!--         4.4.4 Controlling note duration (on/off volume) -->
-<!--         4.4.5 Controlling note dynamics (volume during note) -->
-<!--     4.5 Moving forward -->
-<!-- 5 Controllers -->
-<!-- 5.1 Clocks -->
-<!--     5.1.1 Clock under a scope -->
-<!--     5.1.2 Clock as a generator -->
-<!-- 5.2 Sequencers -->
-<!--     5.2.1 Clocks as sequencers -->
-<!--     5.2.2 Trigger sequencers -->
-<!--     5.2.3 Control voltage sequencers -->
-<!--     6 Generators -->
-<!--     6.1 Chords -->
-<!--     6.2 Chorus -->
-<!--     6.3 Low frequency oscillators & uses -->
-<!--         6.3.1 Pulse width modulation -->
-<!--         6.3.2 Vibrato -->
-<!--         6.3.3 Tremolo -->
-<!--     6.4 Synchronization -->
-<!--     6.5 Noise -->
-<!--     6.6 Samplers -->
-<!-- 7 Modifiers -->
-<!-- 7.1 Effects -->
-<!--     7.1.1 Delays -->
-<!--     7.1.2 Reverb -->
-<!--     7.1.3 Chorus -->
-<!--     7.1.4 Flanger -->
-<!--     7.1.5 Phaser -->
-<!-- 7.2 Voltage controlled filters -->
-<!--     7.2.1 Filters are imperfect -->
-<!--     7.2.2 Filters change frequency and phase -->
-<!--     7.2.3 Combining filters -->
-<!--     7.2.4 Resonance -->
-<!-- 8 Designing a Kick Drum -->
-<!-- 8.1 Problem solving for sound synthesis -->
-<!--     8.1.1 Understand the problem -->
-<!--     8.1.2 Devise a plan -->
-<!--     8.1.3 Carry out the plan (and replanning) -->
-<!--     8.1.4 Evaluate the solution -->
-<!-- 8.2 Reviewing previous kick drum patches -->
-<!--     8.2.1 Sine with envelope -->
-<!--     8.2.2 Sine with an envelope plus noise burst -->
-<!-- 8.3 Alternative approaches -->
-<!--     8.3.1 Improving our understanding of the problem -->
-<!--     8.3.2 Devising new plans -->
-<!--     8.3.3 Working backwards -->
-<!-- 9 Eighties Lead & Chiptune -->
-<!-- 9.1 Eighties Lead -->
-<!--     9.1.1 Waveshape -->
-<!--     9.1.2 Dynamics -->
-<!-- 9.2 Chiptune -->
-<!--     9.2.1 Triad arpeggio -->
-<!--     9.2.2 LFO PWM -->
-<!--     9.2.3 Secondary sequencer for transposition -->
-<!--     9.2.4 Hats and kick -->
-<!-- 10 Controllers -->
-<!-- 10.1 Modifying gates -->
-<!-- 10.2 Making gates with logic -->
-<!-- 10.3 Adding/removing gates with probability -->
-<!-- 10.4 Speed variable clocks using LFOs -->
-<!-- 10.5 Euclidean rhythm -->
-<!-- 10.6 Sequential switches -->
-<!-- 11 Generators -->
-<!-- 11.1 Modulating amplitude -->
-<!--     11.1.1 Amplitude modulation -->
-<!--     11.1.2 Ring modulation -->
-<!-- 11.2 Modulating frequency -->
-<!--     11.2.1 Frequency modulation -->
-<!--     11.2.2 Analogue exponential frequency modulation -->
-<!--     11.2.3 Analogue linear frequency modulation -->
-<!--     11.2.4 Analogue through-zero frequency modulation -->
-<!--     11.2.5 Phase modulation -->
 
 </div>
 </div>
@@ -1184,21 +1041,15 @@ Figure 12.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for creati
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="complex-generators.html"><span class="header-section-number">11</span> Modulating Generators</a></div>
-<div class="next"><a href="sd2-B.html"><span class="header-section-number">13</span> TBD &amp; TBD</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#complex-modifiers"><span class="header-section-number">12</span> Modulating Modifiers</a></li>
-<li><a class="nav-link" href="#rectification-and-wavefolding"><span class="header-section-number">12.1</span> Rectification and wavefolding</a></li>
-<li><a class="nav-link" href="#slew"><span class="header-section-number">12.2</span> Slew</a></li>
-<li><a class="nav-link" href="#quantizers"><span class="header-section-number">12.3</span> Quantizers</a></li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/12-com-mod-modifiers.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/12-com-mod-modifiers.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
@@ -1218,34 +1069,6 @@ Figure 12.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for creati
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
+</footer>
 </body>
 </html>

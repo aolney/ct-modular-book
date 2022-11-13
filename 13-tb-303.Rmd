@@ -13,10 +13,9 @@ With its 92-page instruction manual, the 303 was widely considered as difficult 
 
 (ref:303) A Roland TB-303. Image [public domain](https://commons.wikimedia.org/wiki/File:Roland_TB-303_Panel.jpg).
 
-<div class="figure">
-<img src="images/Roland_TB-303_Panel-wp-cc0.jpg" alt="(ref:303)" width="100%" />
-<p class="caption">(\#fig:303)(ref:303)</p>
-</div>
+```{r 303, echo=F, out.width="100%", fig.cap="(ref:303)"}
+ knitr::include_graphics("images/Roland_TB-303_Panel-wp-cc0.jpg")
+```
 
 
 The 303's failure in the marketplace, however, meant that it was cheaply available in the secondhand market.
@@ -32,10 +31,10 @@ Thus repeating sequences with shifting timbres became a defining feature of acid
 
 (ref:acid-tracks) [*Acid Tracks*](https://en.wikipedia.org/wiki/Acid_Tracks) by [Phuture](https://en.wikipedia.org/wiki/Phuture). *Acid Tracks* helped define the sound of acid house.
 
-<div class="figure">
-<iframe src="https://olney.ai/ct-modular-book/images/acid-tracks.html" width="100%" height="80px" data-external="1"></iframe>
-<p class="caption">(\#fig:acid-tracks)(ref:acid-tracks)</p>
-</div>
+```{r, acid-tracks, out.width='100%', fig.cap="(ref:acid-tracks)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
+# embed_youtube("igNBeo3QSqc",75) #copyright restriction on embedding
+knitr::include_url("https://olney.ai/ct-modular-book/images/acid-tracks.html", height = "80px")
+```
 
 
 

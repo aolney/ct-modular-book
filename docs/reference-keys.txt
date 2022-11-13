@@ -289,3 +289,8 @@ slew
 quantizers
 sd2-B
 sd2-A
+fig:303
+acid
+history
+tb-303
+fig:acid-tracks

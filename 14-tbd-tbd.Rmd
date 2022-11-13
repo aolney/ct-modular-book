@@ -1,4 +1,2 @@
-# (PART) Sound Design 2 {-}
-
-# TBD & TBD {#sd2-A}
+# TBD & TBD {#sd2-b}
 

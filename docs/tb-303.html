@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 13 TB-303 | Computational Thinking through Modular Sounds Synthesis</title>
+<meta name="author" content="Andrew M. Olney">
+<meta name="description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to create a lead by recreating some of the fundamental characteristics...">
+<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta property="og:title" content="Chapter 13 TB-303 | Computational Thinking through Modular Sounds Synthesis">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/tb-303.html">
+<meta property="og:description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to create a lead by recreating some of the fundamental characteristics...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 13 TB-303 | Computational Thinking through Modular Sounds Synthesis">
+<meta name="twitter:description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to create a lead by recreating some of the fundamental characteristics...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Computational Thinking through Modular Sounds Synthesis</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 13</span> TB-303</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tb-303" class="section level1" number="13">
+<h1>
+<span class="header-section-number">13</span> TB-303<a class="anchor" aria-label="anchor" href="#tb-303"><i class="fas fa-link"></i></a>
+</h1>
+<p>This chapter examines a new sound design problem using the problem solving approach introduced in Chapter <a href="designing-a-kick-drum.html#designing-a-kick-drum">8</a>.
+The problem is to create a lead by recreating some of the fundamental characteristics of the Roland TB-303, which is an iconic instrument in acid house and subsequent genres of electronic music.</p>
+<div id="history" class="section level2" number="13.1">
+<h2>
+<span class="header-section-number">13.1</span> History<a class="anchor" aria-label="anchor" href="#history"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Roland_TB-303">TB-303</a> (303; see Figure <a href="tb-303.html#fig:303">13.1</a>), was released in 1981 and withdrawn in 1984 as a commercial failure.
+The original purpose of the 303 was to replace a bass guitar in much the same way as a drum machine like the <a href="https://en.wikipedia.org/wiki/Roland_TR-808">TR-808</a> was meant to replace drums.
+With its 92-page instruction manual, the 303 was widely considered as difficult to use, which together with a $1300 price tag<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;In 2022 dollars.&lt;/p&gt;"><sup>1</sup></a>, likely led to its demise.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:303"></span>
+<img src="images/Roland_TB-303_Panel-wp-cc0.jpg" alt="A Roland TB-303. Image public domain." width="100%"><p class="caption">
+Figure 13.1: A Roland TB-303. Image <a href="https://commons.wikimedia.org/wiki/File:Roland_TB-303_Panel.jpg">public domain</a>.
+</p>
+</div>
+<p>The 303’s failure in the marketplace, however, meant that it was cheaply available in the secondhand market.
+Dance music artists, most notably in Chicago, began incorporating the 303 into their performances, and the 303 became a signature sound of <a href="https://en.wikipedia.org/wiki/Acid_house">acid house</a>.
+While the 303 was designed for bass guitar sounds, which are a common element of <a href="https://en.wikipedia.org/wiki/Disco">disco</a> dance music, the 303 could also easily (and perhaps more easily) produce sounds nothing like a bass guitar or any other instrument from that time (squelch, chirp, and scream are common descriptors).</p>
+<p>The 303’s sequencer was extremely limited.
+The 303 stored pitch and time information separately, and each of these were entered using separate modes.
+As a result, it was not possible to change the complete sequence in real time, i.e. during performance.
+However, it was very easy to change the timbre of an existing sequence using various parameter knobs (mostly across the top in Figure <a href="tb-303.html#fig:303">13.1</a>).
+The combined difficulty of imputing note sequences and the ease of using parameter knobs to sculpt timbres led early acid house pioneers to focus on the later.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/" class="uri"&gt;https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/&lt;/a&gt;&lt;/p&gt;'><sup>2</sup></a>
+Thus repeating sequences with shifting timbres became a defining feature of acid house, as shown the early example in Figure <a href="tb-303.html#fig:acid-tracks">13.2</a>.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:acid-tracks"></span>
+<iframe src="https://olney.ai/ct-modular-book/images/acid-tracks.html" width="100%" height="80px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 13.2: <a href="https://en.wikipedia.org/wiki/Acid_Tracks"><em>Acid Tracks</em></a> by <a href="https://en.wikipedia.org/wiki/Phuture">Phuture</a>. <em>Acid Tracks</em> helped define the sound of acid house.
+</p>
+</div>
+<!-- Remaining plan -->
+<!-- Sound design ideas -->
+<!-- - cymbal -->
+<!-- - 303 -->
+<!-- - krell -->
+<!-- worthy orphans -->
+<!-- audio rate modulation into resonant filter? -->
+<!--        Vocoders -->
+<!-- - -->
+<!-- possibly undercovered -->
+<!--        Attenuators, inverters, and attenuverters -->
+<!--        ~~Sample and hold~~ -->
+<!-- - -->
+<!-- Sound design ideas -->
+<!-- Cymbal PUSH UNTIL AFTER RING MOD -> clark & reid comparison -->
+<!-- Maybe use these? -->
+<!-- Growl: Low frequency sine wave modulation of the filter cut-off frequency -->
+<!-- wah wah is LFO on LPF cutoff freq -->
+<!-- Actual -->
+<!--     4 Basic Modeling Concepts -->
+<!--     4.1 Modules are the model elements -->
+<!--     4.2 Signals are how the model elements interact -->
+<!--     4.3 Signals are interpreted by modules -->
+<!--     4.4 Pulling it all together -->
+<!--         4.4.1 Drone -->
+<!--         4.4.2 Using an oscilloscope -->
+<!--         4.4.3 Controlling pitch -->
+<!--         4.4.4 Controlling note duration (on/off volume) -->
+<!--         4.4.5 Controlling note dynamics (volume during note) -->
+<!--     4.5 Moving forward -->
+<!-- 5 Controllers -->
+<!-- 5.1 Clocks -->
+<!--     5.1.1 Clock under a scope -->
+<!--     5.1.2 Clock as a generator -->
+<!-- 5.2 Sequencers -->
+<!--     5.2.1 Clocks as sequencers -->
+<!--     5.2.2 Trigger sequencers -->
+<!--     5.2.3 Control voltage sequencers -->
+<!--     6 Generators -->
+<!--     6.1 Chords -->
+<!--     6.2 Chorus -->
+<!--     6.3 Low frequency oscillators & uses -->
+<!--         6.3.1 Pulse width modulation -->
+<!--         6.3.2 Vibrato -->
+<!--         6.3.3 Tremolo -->
+<!--     6.4 Synchronization -->
+<!--     6.5 Noise -->
+<!--     6.6 Samplers -->
+<!-- 7 Modifiers -->
+<!-- 7.1 Effects -->
+<!--     7.1.1 Delays -->
+<!--     7.1.2 Reverb -->
+<!--     7.1.3 Chorus -->
+<!--     7.1.4 Flanger -->
+<!--     7.1.5 Phaser -->
+<!-- 7.2 Voltage controlled filters -->
+<!--     7.2.1 Filters are imperfect -->
+<!--     7.2.2 Filters change frequency and phase -->
+<!--     7.2.3 Combining filters -->
+<!--     7.2.4 Resonance -->
+<!-- 8 Designing a Kick Drum -->
+<!-- 8.1 Problem solving for sound synthesis -->
+<!--     8.1.1 Understand the problem -->
+<!--     8.1.2 Devise a plan -->
+<!--     8.1.3 Carry out the plan (and replanning) -->
+<!--     8.1.4 Evaluate the solution -->
+<!-- 8.2 Reviewing previous kick drum patches -->
+<!--     8.2.1 Sine with envelope -->
+<!--     8.2.2 Sine with an envelope plus noise burst -->
+<!-- 8.3 Alternative approaches -->
+<!--     8.3.1 Improving our understanding of the problem -->
+<!--     8.3.2 Devising new plans -->
+<!--     8.3.3 Working backwards -->
+<!-- 9 Eighties Lead & Chiptune -->
+<!-- 9.1 Eighties Lead -->
+<!--     9.1.1 Waveshape -->
+<!--     9.1.2 Dynamics -->
+<!-- 9.2 Chiptune -->
+<!--     9.2.1 Triad arpeggio -->
+<!--     9.2.2 LFO PWM -->
+<!--     9.2.3 Secondary sequencer for transposition -->
+<!--     9.2.4 Hats and kick -->
+<!-- 10 Controllers -->
+<!-- 10.1 Modifying gates -->
+<!-- 10.2 Making gates with logic -->
+<!-- 10.3 Adding/removing gates with probability -->
+<!-- 10.4 Speed variable clocks using LFOs -->
+<!-- 10.5 Euclidean rhythm -->
+<!-- 10.6 Sequential switches -->
+<!-- 11 Generators -->
+<!-- 11.1 Modulating amplitude -->
+<!--     11.1.1 Amplitude modulation -->
+<!--     11.1.2 Ring modulation -->
+<!-- 11.2 Modulating frequency -->
+<!--     11.2.1 Frequency modulation -->
+<!--     11.2.2 Analogue exponential frequency modulation -->
+<!--     11.2.3 Analogue linear frequency modulation -->
+<!--     11.2.4 Analogue through-zero frequency modulation -->
+<!--     11.2.5 Phase modulation -->
+<!-- 12 Modulating Modifiers -->
+<!-- 12.1 Rectification and wavefolding -->
+<!-- 12.2 Slew -->
+<!-- 12.3 Quantizers -->
+
+</div>
+</div>
+
+
+
+
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
