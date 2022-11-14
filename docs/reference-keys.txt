@@ -185,6 +185,7 @@ fig:lfo-quantizer-arpeggio
 fig:sh-quantizer-generative
 fig:303
 fig:acid-tracks
+fig:tb303-annotated
 introduction
 why-this-book
 computational-thinking
@@ -291,4 +292,6 @@ slew
 quantizers
 tb-303
 history
+problem-solving-approach
+sequencing
 sd2-b

@@ -3,12 +3,12 @@
 # TB-303
 
 This chapter examines a new sound design problem using the problem solving approach introduced in Chapter \@ref(designing-a-kick-drum).
-The problem is to create a lead by recreating some of the fundamental characteristics of the Roland TB-303, which is an iconic instrument in acid house and subsequent genres of electronic music.
+The problem is to make a lead by recreating some of the fundamental characteristics of the Roland TB-303, an iconic instrument in acid house and subsequent genres of electronic music.
 
 ## History
 
-The [TB-303](https://en.wikipedia.org/wiki/Roland_TB-303) (303; see Figure \@ref(fig:303)),  was released in 1981 and withdrawn in 1984 as a commercial failure.
-The original purpose of the 303 was to replace a bass guitar in much the same way as a drum machine like the [TR-808](https://en.wikipedia.org/wiki/Roland_TR-808) was meant to replace drums.
+The [TB-303](https://en.wikipedia.org/wiki/Roland_TB-303) (hereafter 303; see Figure \@ref(fig:303)),  was released in 1981 and withdrawn in 1984 as a commercial failure.
+The original purpose of the 303 was to replace a bass guitar in much the same way a drum machine like the [TR-808](https://en.wikipedia.org/wiki/Roland_TR-808) was meant to replace drums.
 With its 92-page instruction manual, the 303 was widely considered as difficult to use, which together with a $1300 price tag^[In 2022 dollars.], likely led to its demise.
 
 (ref:303) A Roland TB-303. Image [public domain](https://commons.wikimedia.org/wiki/File:Roland_TB-303_Panel.jpg).
@@ -20,11 +20,11 @@ With its 92-page instruction manual, the 303 was widely considered as difficult 
 
 The 303's failure in the marketplace, however, meant that it was cheaply available in the secondhand market.
 Dance music artists, most notably in Chicago, began incorporating the 303 into their performances, and the 303 became a signature sound of [acid house](https://en.wikipedia.org/wiki/Acid_house).
-While the 303 was designed for bass guitar sounds, which are a common element of [disco](https://en.wikipedia.org/wiki/Disco) dance music, the 303 could also easily (and perhaps more easily) produce sounds nothing like a bass guitar or any other instrument from that time (squelch, chirp, and scream are common descriptors).
+While the 303 was designed for bass guitar sounds, which are a common element of [disco](https://en.wikipedia.org/wiki/Disco) dance music, the 303 could also easily (and perhaps more easily) produce sounds that are nothing like a bass guitar or any other instrument from that time.^[Squelch, chirp, and scream are common descriptors of the 303 sound.]
 
 The 303's sequencer was extremely limited.
 The 303 stored pitch and time information separately, and each of these were entered using separate modes.
-As a result, it was not possible to change the complete sequence in real time, i.e. during performance. 
+As a result, it was not possible to edit the complete sequence in real time, i.e. during performance.^[It is possible to [live-play](https://tinyloops.com/tb303/quick_results.html#02) the 303 and [switch between tracks](https://tinyloops.com/tb303/quick_results.html#07), but this is not the same as editing a running sequence.]
 However, it was very easy to change the timbre of an existing sequence using various parameter knobs (mostly across the top in Figure \@ref(fig:303)). 
 The combined difficulty of imputing note sequences and the ease of using parameter knobs to sculpt timbres led early acid house pioneers to focus on the later.^[https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/]
 Thus repeating sequences with shifting timbres became a defining feature of acid house, as shown the early example in Figure \@ref(fig:acid-tracks).
@@ -33,9 +33,44 @@ Thus repeating sequences with shifting timbres became a defining feature of acid
 
 ```{r, acid-tracks, out.width='100%', fig.cap="(ref:acid-tracks)", dev='png', cache=TRUE, screenshot.opts=list(vwidth=400,cliprect = c(0, 0, 400, 300)), echo=F}
 # embed_youtube("igNBeo3QSqc",75) #copyright restriction on embedding
-knitr::include_url("https://olney.ai/ct-modular-book/images/acid-tracks.html", height = "80px")
+knitr::include_url("https://olney.ai/ct-modular-book/images/acid-tracks.html", height = "60px")
 ```
 
+## Problem solving approach
+
+Recall the problem solving stages elaborated for sound design in Chapter \@ref(designing-a-kick-drum):
+
+- Understand the problem
+- Make a plan
+- Implement the plan
+- Evaluate the solution
+
+These problem solving stages mostly apply to emulating a 303 but with some slight variation because the current goal is not to create a specific sound.
+Instead, the current goal is to recreate all sounds produced by a particular instrument.
+
+For the understanding the problem stage, we need to know what the defining characteristics of the 303 are and what makes it special.
+According to Robin Whittle, developer of the Devil Fish 303 mod, the most important aspects of the 303 sound are its sequencer, filter, filter envelope, and some minor nuance to the oscillator.^[Most information is on Robin's [main website](https://www.firstpr.com.au/rwi/dfish/index.html) including the Devil Fish manual. Additional information is on the [Analogue Heaven mailing list](http://www.retrosynth.com/ah/).]
+
+For the making a plan stage, Whittle's observations suggest a plan based around decomposition, namely that the 303 can be considered as a collection of modules.
+Any 303 function that is generic can be satisfied with generic modules, while the functions contributing to the 303's distinctive sound can be addressed independently as subproblems.
+Figure \@ref(fig:tb303-annotated) shows how the 303 interface is loosely organized around modular concepts like oscillators, filters, and envelopes and further supports an overall decomposition strategy for emulating a 303 in modular.
+
+(ref:tb303-annotated) A Roland TB-303 annotated to group interface elements according to modular concepts. Note the accent knob affects both filter and volume envelopes. 
+
+```{r tb303-annotated, echo=F, out.width="100%", fig.cap="(ref:tb303-annotated)"}
+ knitr::include_graphics("images/tb303-annotated.jpg")
+```
+
+For the implementing a plan stage, we need evaluation criteria in order to assess alternate solutions and gauge our progress.
+A simple and straightforward evaluation criterion is to use a well-known song with a 303 line.
+Ideally, the 303 line should be easy to sequence and easy to listen to repeatedly throughout our design process.
+*Da Funk* by Daft Punk seems suitable for this purpose ([listen here](https://youtu.be/PwILkY9gRrc?t=145)).
+Another source of evaluation material has been provided by Din Sync, whose [reference recordings of a 303](http://www.dinsync.info/2010/02/tb-303-reference-recordings-for-x0xb0x.html) systematically map the sound of a C note across 303 knob positions.
+The Din Sync materials are particularly useful for isolating parameters of the 303 as an instrument, which is very difficult to do from a live performance.
+A 1-10 scale for both criteria seem appropriate at first glance.
+Also in the implement a plan stage, we will address the subproblems of sequencing, oscillators, filter, and envelopes using the some overall four problem solving stages.
+
+## Sequencing
 
 
 

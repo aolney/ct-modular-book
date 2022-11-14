@@ -6,21 +6,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 13 TB-303 | Computational Thinking through Modular Sounds Synthesis</title>
 <meta name="author" content="Andrew M. Olney">
-<meta name="description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to create a lead by recreating some of the fundamental characteristics...">
+<meta name="description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to make a lead by recreating some of the fundamental characteristics of...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Chapter 13 TB-303 | Computational Thinking through Modular Sounds Synthesis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/tb-303.html">
-<meta property="og:description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to create a lead by recreating some of the fundamental characteristics...">
+<meta property="og:description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to make a lead by recreating some of the fundamental characteristics of...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 13 TB-303 | Computational Thinking through Modular Sounds Synthesis">
-<meta name="twitter:description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to create a lead by recreating some of the fundamental characteristics...">
+<meta name="twitter:description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to make a lead by recreating some of the fundamental characteristics of...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -43,7 +65,29 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 13</span> TB-303</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li class="book-part">Sound</li>
+<li><a class="" href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></li>
+<li><a class="" href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></li>
+<li class="book-part">Fundamental Techniques</li>
+<li><a class="" href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></li>
+<li><a class="" href="controllers.html"><span class="header-section-number">5</span> Controllers</a></li>
+<li><a class="" href="generators.html"><span class="header-section-number">6</span> Generators</a></li>
+<li><a class="" href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></li>
+<li class="book-part">Sound Design 1</li>
+<li><a class="" href="designing-a-kick-drum.html"><span class="header-section-number">8</span> Designing a Kick Drum</a></li>
+<li><a class="" href="eighties-lead-chiptune.html"><span class="header-section-number">9</span> Eighties Lead &amp; Chiptune</a></li>
+<li class="book-part">Advanced Techniques</li>
+<li><a class="" href="complex-controllers.html"><span class="header-section-number">10</span> Modulating Controllers</a></li>
+<li><a class="" href="complex-generators.html"><span class="header-section-number">11</span> Modulating Generators</a></li>
+<li><a class="" href="complex-modifiers.html"><span class="header-section-number">12</span> Modulating Modifiers</a></li>
+<li class="book-part">Sound Design 2</li>
+<li><a class="active" href="tb-303.html"><span class="header-section-number">13</span> TB-303</a></li>
+<li><a class="" href="sd2-b.html"><span class="header-section-number">14</span> TBD &amp; TBD</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/aolney/ct-modular-book">View book source <i class="fab fa-github"></i></a></p>
@@ -55,14 +99,14 @@
 <span class="header-section-number">13</span> TB-303<a class="anchor" aria-label="anchor" href="#tb-303"><i class="fas fa-link"></i></a>
 </h1>
 <p>This chapter examines a new sound design problem using the problem solving approach introduced in Chapter <a href="designing-a-kick-drum.html#designing-a-kick-drum">8</a>.
-The problem is to create a lead by recreating some of the fundamental characteristics of the Roland TB-303, which is an iconic instrument in acid house and subsequent genres of electronic music.</p>
+The problem is to make a lead by recreating some of the fundamental characteristics of the Roland TB-303, an iconic instrument in acid house and subsequent genres of electronic music.</p>
 <div id="history" class="section level2" number="13.1">
 <h2>
 <span class="header-section-number">13.1</span> History<a class="anchor" aria-label="anchor" href="#history"><i class="fas fa-link"></i></a>
 </h2>
-<p>The <a href="https://en.wikipedia.org/wiki/Roland_TB-303">TB-303</a> (303; see Figure <a href="tb-303.html#fig:303">13.1</a>), was released in 1981 and withdrawn in 1984 as a commercial failure.
-The original purpose of the 303 was to replace a bass guitar in much the same way as a drum machine like the <a href="https://en.wikipedia.org/wiki/Roland_TR-808">TR-808</a> was meant to replace drums.
-With its 92-page instruction manual, the 303 was widely considered as difficult to use, which together with a $1300 price tag<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;In 2022 dollars.&lt;/p&gt;"><sup>1</sup></a>, likely led to its demise.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Roland_TB-303">TB-303</a> (hereafter 303; see Figure <a href="tb-303.html#fig:303">13.1</a>), was released in 1981 and withdrawn in 1984 as a commercial failure.
+The original purpose of the 303 was to replace a bass guitar in much the same way a drum machine like the <a href="https://en.wikipedia.org/wiki/Roland_TR-808">TR-808</a> was meant to replace drums.
+With its 92-page instruction manual, the 303 was widely considered as difficult to use, which together with a $1300 price tag<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;In 2022 dollars.&lt;/p&gt;"><sup>96</sup></a>, likely led to its demise.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:303"></span>
@@ -72,22 +116,61 @@ Figure 13.1: A Roland TB-303. Image <a href="https://commons.wikimedia.org/wiki/
 </div>
 <p>The 303’s failure in the marketplace, however, meant that it was cheaply available in the secondhand market.
 Dance music artists, most notably in Chicago, began incorporating the 303 into their performances, and the 303 became a signature sound of <a href="https://en.wikipedia.org/wiki/Acid_house">acid house</a>.
-While the 303 was designed for bass guitar sounds, which are a common element of <a href="https://en.wikipedia.org/wiki/Disco">disco</a> dance music, the 303 could also easily (and perhaps more easily) produce sounds nothing like a bass guitar or any other instrument from that time (squelch, chirp, and scream are common descriptors).</p>
+While the 303 was designed for bass guitar sounds, which are a common element of <a href="https://en.wikipedia.org/wiki/Disco">disco</a> dance music, the 303 could also easily (and perhaps more easily) produce sounds that are nothing like a bass guitar or any other instrument from that time.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Squelch, chirp, and scream are common descriptors of the 303 sound.&lt;/p&gt;"><sup>97</sup></a></p>
 <p>The 303’s sequencer was extremely limited.
 The 303 stored pitch and time information separately, and each of these were entered using separate modes.
-As a result, it was not possible to change the complete sequence in real time, i.e. during performance.
+As a result, it was not possible to edit the complete sequence in real time, i.e. during performance.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;It is possible to &lt;a href="https://tinyloops.com/tb303/quick_results.html#02"&gt;live-play&lt;/a&gt; the 303 and &lt;a href="https://tinyloops.com/tb303/quick_results.html#07"&gt;switch between tracks&lt;/a&gt;, but this is not the same as editing a running sequence.&lt;/p&gt;'><sup>98</sup></a>
 However, it was very easy to change the timbre of an existing sequence using various parameter knobs (mostly across the top in Figure <a href="tb-303.html#fig:303">13.1</a>).
-The combined difficulty of imputing note sequences and the ease of using parameter knobs to sculpt timbres led early acid house pioneers to focus on the later.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/" class="uri"&gt;https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/&lt;/a&gt;&lt;/p&gt;'><sup>2</sup></a>
+The combined difficulty of imputing note sequences and the ease of using parameter knobs to sculpt timbres led early acid house pioneers to focus on the later.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/" class="uri"&gt;https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>
 Thus repeating sequences with shifting timbres became a defining feature of acid house, as shown the early example in Figure <a href="tb-303.html#fig:acid-tracks">13.2</a>.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:acid-tracks"></span>
-<iframe src="https://olney.ai/ct-modular-book/images/acid-tracks.html" width="100%" height="80px" data-external="1">
+<iframe src="https://olney.ai/ct-modular-book/images/acid-tracks.html" width="100%" height="60px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 13.2: <a href="https://en.wikipedia.org/wiki/Acid_Tracks"><em>Acid Tracks</em></a> by <a href="https://en.wikipedia.org/wiki/Phuture">Phuture</a>. <em>Acid Tracks</em> helped define the sound of acid house.
 </p>
 </div>
+</div>
+<div id="problem-solving-approach" class="section level2" number="13.2">
+<h2>
+<span class="header-section-number">13.2</span> Problem solving approach<a class="anchor" aria-label="anchor" href="#problem-solving-approach"><i class="fas fa-link"></i></a>
+</h2>
+<p>Recall the problem solving stages elaborated for sound design in Chapter <a href="designing-a-kick-drum.html#designing-a-kick-drum">8</a>:</p>
+<ul>
+<li>Understand the problem</li>
+<li>Make a plan</li>
+<li>Implement the plan</li>
+<li>Evaluate the solution</li>
+</ul>
+<p>These problem solving stages mostly apply to emulating a 303 but with some slight variation because the current goal is not to create a specific sound.
+Instead, the current goal is to recreate all sounds produced by a particular instrument.</p>
+<p>For the understanding the problem stage, we need to know what the defining characteristics of the 303 are and what makes it special.
+According to Robin Whittle, developer of the Devil Fish 303 mod, the most important aspects of the 303 sound are its sequencer, filter, filter envelope, and some minor nuance to the oscillator.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Most information is on Robin’s &lt;a href="https://www.firstpr.com.au/rwi/dfish/index.html"&gt;main website&lt;/a&gt; including the Devil Fish manual. Additional information is on the &lt;a href="http://www.retrosynth.com/ah/"&gt;Analogue Heaven mailing list&lt;/a&gt;.&lt;/p&gt;'><sup>100</sup></a></p>
+<p>For the making a plan stage, Whittle’s observations suggest a plan based around decomposition, namely that the 303 can be considered as a collection of modules.
+Any 303 function that is generic can be satisfied with generic modules, while the functions contributing to the 303’s distinctive sound can be addressed independently as subproblems.
+Figure <a href="tb-303.html#fig:tb303-annotated">13.3</a> shows how the 303 interface is loosely organized around modular concepts like oscillators, filters, and envelopes and further supports an overall decomposition strategy for emulating a 303 in modular.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:tb303-annotated"></span>
+<img src="images/tb303-annotated.jpg" alt="A Roland TB-303 annotated to group interface elements according to modular concepts. Note the accent knob affects both filter and volume envelopes." width="100%"><p class="caption">
+Figure 13.3: A Roland TB-303 annotated to group interface elements according to modular concepts. Note the accent knob affects both filter and volume envelopes.
+</p>
+</div>
+<p>For the implementing a plan stage, we need evaluation criteria in order to assess alternate solutions and gauge our progress.
+A simple and straightforward evaluation criterion is to use a well-known song with a 303 line.
+Ideally, the 303 line should be easy to sequence and easy to listen to repeatedly throughout our design process.
+<em>Da Funk</em> by Daft Punk seems suitable for this purpose (<a href="https://youtu.be/PwILkY9gRrc?t=145">listen here</a>).
+Another source of evaluation material has been provided by Din Sync, whose <a href="http://www.dinsync.info/2010/02/tb-303-reference-recordings-for-x0xb0x.html">reference recordings of a 303</a> systematically map the sound of a C note across 303 knob positions.
+The Din Sync materials are particularly useful for isolating parameters of the 303 as an instrument, which is very difficult to do from a live performance.
+A 1-10 scale for both criteria seem appropriate at first glance.
+Also in the implement a plan stage, we will address the subproblems of sequencing, oscillators, filter, and envelopes using the some overall four problem solving stages.</p>
+</div>
+<div id="sequencing" class="section level2" number="13.3">
+<h2>
+<span class="header-section-number">13.3</span> Sequencing<a class="anchor" aria-label="anchor" href="#sequencing"><i class="fas fa-link"></i></a>
+</h2>
 <!-- Remaining plan -->
 <!-- Sound design ideas -->
 <!-- - cymbal -->
@@ -196,15 +279,21 @@ Figure 13.2: <a href="https://en.wikipedia.org/wiki/Acid_Tracks"><em>Acid Tracks
 </div>
 
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="complex-modifiers.html"><span class="header-section-number">12</span> Modulating Modifiers</a></div>
+<div class="next"><a href="sd2-b.html"><span class="header-section-number">14</span> TBD &amp; TBD</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#tb-303"><span class="header-section-number">13</span> TB-303</a></li>
+<li><a class="nav-link" href="#history"><span class="header-section-number">13.1</span> History</a></li>
+<li><a class="nav-link" href="#problem-solving-approach"><span class="header-section-number">13.2</span> Problem solving approach</a></li>
+<li><a class="nav-link" href="#sequencing"><span class="header-section-number">13.3</span> Sequencing</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/aolney/ct-modular-book/blob/master/13-tb-303.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/aolney/ct-modular-book/edit/master/13-tb-303.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -224,6 +313,34 @@ Figure 13.2: <a href="https://en.wikipedia.org/wiki/Acid_Tracks"><em>Acid Tracks
   </div>
 
 </div></div>
-</footer>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
 </html>
