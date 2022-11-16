@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 13 TB-303 | Computational Thinking through Modular Sounds Synthesis</title>
 <meta name="author" content="Andrew M. Olney">
-<meta name="description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to make a lead by recreating some of the fundamental characteristics of...">
+<meta name="description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to make a lead by recreating the fundamental characteristics of the...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Chapter 13 TB-303 | Computational Thinking through Modular Sounds Synthesis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/tb-303.html">
-<meta property="og:description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to make a lead by recreating some of the fundamental characteristics of...">
+<meta property="og:description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to make a lead by recreating the fundamental characteristics of the...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 13 TB-303 | Computational Thinking through Modular Sounds Synthesis">
-<meta name="twitter:description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to make a lead by recreating some of the fundamental characteristics of...">
+<meta name="twitter:description" content="This chapter examines a new sound design problem using the problem solving approach introduced in Chapter 8. The problem is to make a lead by recreating the fundamental characteristics of the...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -99,7 +99,8 @@
 <span class="header-section-number">13</span> TB-303<a class="anchor" aria-label="anchor" href="#tb-303"><i class="fas fa-link"></i></a>
 </h1>
 <p>This chapter examines a new sound design problem using the problem solving approach introduced in Chapter <a href="designing-a-kick-drum.html#designing-a-kick-drum">8</a>.
-The problem is to make a lead by recreating some of the fundamental characteristics of the Roland TB-303, an iconic instrument in acid house and subsequent genres of electronic music.</p>
+The problem is to make a lead by recreating the fundamental characteristics of the Roland TB-303, an iconic instrument in acid house and subsequent genres of electronic music.
+Thus the problem is not only about recreating a particular sound but also involves emulating the key features of the instrument in order to produce the sound.</p>
 <div id="history" class="section level2" number="13.1">
 <h2>
 <span class="header-section-number">13.1</span> History<a class="anchor" aria-label="anchor" href="#history"><i class="fas fa-link"></i></a>
@@ -117,8 +118,8 @@ Figure 13.1: A Roland TB-303. Image <a href="https://commons.wikimedia.org/wiki/
 <p>The 303’s failure in the marketplace, however, meant that it was cheaply available in the secondhand market.
 Dance music artists, most notably in Chicago, began incorporating the 303 into their performances, and the 303 became a signature sound of <a href="https://en.wikipedia.org/wiki/Acid_house">acid house</a>.
 While the 303 was designed for bass guitar sounds, which are a common element of <a href="https://en.wikipedia.org/wiki/Disco">disco</a> dance music, the 303 could also easily (and perhaps more easily) produce sounds that are nothing like a bass guitar or any other instrument from that time.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Squelch, chirp, and scream are common descriptors of the 303 sound.&lt;/p&gt;"><sup>97</sup></a></p>
-<p>The 303’s sequencer was extremely limited.
-The 303 stored pitch and time information separately, and each of these were entered using separate modes.
+<p>The 303’s use in acid house may be due to its extremely limited sequencer.
+The 303 sequencer stored pitch and time information separately, and each of these were entered using separate modes.
 As a result, it was not possible to edit the complete sequence in real time, i.e. during performance.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;It is possible to &lt;a href="https://tinyloops.com/tb303/quick_results.html#02"&gt;live-play&lt;/a&gt; the 303 and &lt;a href="https://tinyloops.com/tb303/quick_results.html#07"&gt;switch between tracks&lt;/a&gt;, but this is not the same as editing a running sequence.&lt;/p&gt;'><sup>98</sup></a>
 However, it was very easy to change the timbre of an existing sequence using various parameter knobs (mostly across the top in Figure <a href="tb-303.html#fig:303">13.1</a>).
 The combined difficulty of imputing note sequences and the ease of using parameter knobs to sculpt timbres led early acid house pioneers to focus on the later.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/" class="uri"&gt;https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>
@@ -137,17 +138,16 @@ Figure 13.2: <a href="https://en.wikipedia.org/wiki/Acid_Tracks"><em>Acid Tracks
 <h2>
 <span class="header-section-number">13.2</span> Problem solving approach<a class="anchor" aria-label="anchor" href="#problem-solving-approach"><i class="fas fa-link"></i></a>
 </h2>
-<p>Recall the problem solving stages elaborated for sound design in Chapter <a href="designing-a-kick-drum.html#designing-a-kick-drum">8</a>:</p>
+<p>The problem solving stages elaborated for sound design in Chapter <a href="designing-a-kick-drum.html#designing-a-kick-drum">8</a> mostly apply to emulating a 303 but with some slight variation because the current goal is create a specific sound by emulating the key features of a 303.
+Recall the problem solving stages are:</p>
 <ul>
 <li>Understand the problem</li>
 <li>Make a plan</li>
 <li>Implement the plan</li>
 <li>Evaluate the solution</li>
 </ul>
-<p>These problem solving stages mostly apply to emulating a 303 but with some slight variation because the current goal is not to create a specific sound.
-Instead, the current goal is to recreate all sounds produced by a particular instrument.</p>
-<p>For the understanding the problem stage, we need to know what the defining characteristics of the 303 are and what makes it special.
-According to Robin Whittle, developer of the Devil Fish 303 mod, the most important aspects of the 303 sound are its sequencer, filter, filter envelope, and some minor nuance to the oscillator.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Most information is on Robin’s &lt;a href="https://www.firstpr.com.au/rwi/dfish/index.html"&gt;main website&lt;/a&gt; including the Devil Fish manual. Additional information is on the &lt;a href="http://www.retrosynth.com/ah/"&gt;Analogue Heaven mailing list&lt;/a&gt;.&lt;/p&gt;'><sup>100</sup></a></p>
+<p>For the understanding the problem stage, we need to know the defining characteristics of the 303 and what makes it special.
+According to Robin Whittle, developer of the Devil Fish 303 mod, the most important aspects of the 303 sound are its sequencer, filter, filter envelope, and the oscillator to a minor extent.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Most information is on Robin’s &lt;a href="https://www.firstpr.com.au/rwi/dfish/index.html"&gt;main website&lt;/a&gt; including the Devil Fish manual. Additional information is on the &lt;a href="http://www.retrosynth.com/ah/"&gt;Analogue Heaven mailing list&lt;/a&gt;.&lt;/p&gt;'><sup>100</sup></a></p>
 <p>For the making a plan stage, Whittle’s observations suggest a plan based around decomposition, namely that the 303 can be considered as a collection of modules.
 Any 303 function that is generic can be satisfied with generic modules, while the functions contributing to the 303’s distinctive sound can be addressed independently as subproblems.
 Figure <a href="tb-303.html#fig:tb303-annotated">13.3</a> shows how the 303 interface is loosely organized around modular concepts like oscillators, filters, and envelopes and further supports an overall decomposition strategy for emulating a 303 in modular.</p>
@@ -165,12 +165,168 @@ Ideally, the 303 line should be easy to sequence and easy to listen to repeatedl
 Another source of evaluation material has been provided by Din Sync, whose <a href="http://www.dinsync.info/2010/02/tb-303-reference-recordings-for-x0xb0x.html">reference recordings of a 303</a> systematically map the sound of a C note across 303 knob positions.
 The Din Sync materials are particularly useful for isolating parameters of the 303 as an instrument, which is very difficult to do from a live performance.
 A 1-10 scale for both criteria seem appropriate at first glance.
-Also in the implement a plan stage, we will address the subproblems of sequencing, oscillators, filter, and envelopes using the some overall four problem solving stages.</p>
+Using these materials, we can address the subproblems of sequencing, oscillators, filter, and envelopes independently using the same four problem solving stages.</p>
+<p>The evaluation stage, which we will cycle through iteratively, will use the <em>Da Funk</em> evaluation to determine overall success.
+If we were trying to recreate the 303 in a broad sense, then additional evaluation materials would be necessary, but for the purposes of this chapter, this should be sufficient.</p>
 </div>
 <div id="sequencing" class="section level2" number="13.3">
 <h2>
 <span class="header-section-number">13.3</span> Sequencing<a class="anchor" aria-label="anchor" href="#sequencing"><i class="fas fa-link"></i></a>
 </h2>
+<p>Let’s begin with understanding the sequencing problem.
+The 303 has a maximum pattern length of 16 steps.
+Because reducing the pattern length is somewhat tedious, many 303 patterns are 16 steps.
+By default, the steps are staccato 16th notes in 4/4 time.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The 303 also has a triplet mode, but that is not generally considered a signature component of the sound.&lt;/p&gt;"><sup>101</sup></a>
+As previously stated, the 303 sequencer has a timing mode and a pitch mode.
+In timing mode, each step is identified as beginning a new note, beginning a rest, or continuing the previous step (which may be a note or a rest).
+In pitch mode, each note is identified, whether it is transposed up/down an octave, whether is has an accent, and whether it has a slide.
+For now, think of the accent as producing a slightly louder note, and a slide as a glide in pitch from one note to the next.
+According to Whittle, the accent and slide are the two components of the sequencer that are the most important to the overall sound of a 303.</p>
+<p>Figure <a href="tb-303.html#fig:tb303-slide">13.4</a> shows an example 303 clock and gate pattern modified by a slide.
+Each step in the example has a different note and is represented by a clock color.
+Gates for a single 16th note only extend less than a full step’s worth of clock pulses, specifically three pulses and the positive portion of the fourth pulse.
+Short gates relative to steps give the 303 its staccato note feel.
+Slides, in contrast to gates, extend the entire step on which they are placed.
+In the example, a slide has been placed on the red note, causing its gate to extend through the blue note’s gate.
+The the red note begins its slide into the blue note when the blue note starts, and the slide circuit stays on until the purple note.
+Accents (not shown) are in time with the gates, and the gates control the envelopes receiving the accents.
+My understanding is that continuing the previous note creates the same gate extension as using a slide.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:tb303-slide"></span>
+<img src="images/303-slide.PNG" alt="Clock, gate, and slide behavior of a 303 for four notes across four steps, indicated by different colors on the clock pulses. Note the gates are shorter than a step, but the slide extends for the entire step." width="80%"><p class="caption">
+Figure 13.4: Clock, gate, and slide behavior of a 303 for four notes across four steps, indicated by different colors on the clock pulses. Note the gates are shorter than a step, but the slide extends for the entire step.
+</p>
+</div>
+<p>Based on the above description, any solution to the 303 sequencer problem will need to somehow represent the following:</p>
+<ul>
+<li>Notes and rests</li>
+<li>Variable length gates in response to slides and step continuations</li>
+<li>Presence of accents and slides</li>
+</ul>
+<p>To make a plan, let’s consider some of our previous sequencing approaches from Chapter <a href="complex-controllers.html#complex-controllers">10</a>.
+First, clocks alone are clearly insufficient because sometimes we need rests.
+We could accomplish rests using clock divisions and logic, but the variable length of notes and rests in the 303 would seem to make that approach very complicated, even if it is possible.
+The two remaining obvious choices are modifying gates and using an LFO as a speed variable clock.
+In the modifying gates approach, we’d zero out gate lengths to make rests and arbitrarily extend gate lengths for continued notes/slides and rests.
+In the LFO clock approach, an LFO would be synced by a clock, and we’d increase/decrease the speed of the clock to change gate duration.
+Comparing these two approaches with the sequencing needs of the 303, it seems that the speed variable clock has capabilities that aren’t needed here, like adding multiple beats, e.g. subdividing 1/16th notes.
+For the goal of emulating 303 sequencing, the modifying gates approach seems like it will accomplish the goals of variable length gates and rests with a minimum of complexity.</p>
+<p>Returning to the list of sequencing elements we need to represent, most of the elements have an on/off flavor except for pitches: note/rest, accents, slides, and extended gates are either present or not.
+This presence/absence flavor suggests that these elements are best represented using trigger sequencers that represent presence/absence of something at each step.
+Because the 303 forces 16th notes in 16 steps as the minimal resolution, we are not sacrificing flexibility by using triggger sequencers in this case.
+Altogether, this suggests one control voltage sequencer for pitch and four trigger sequencers for note/rest, accents, slides, and extended gate.
+The pitch sequencing in this approach is handling three functions on the 303: defining a note, up transpositions, and down transpositions.
+Try patching up <em>Da Funk</em> using a 16 step control voltage sequencer with some other placeholder modules to generate sound using the button in Figure <a href="tb-303.html#fig:pitch-seq-303">13.5</a>.
+The notation for the sequence is provided in the patch instructions.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setpitch_seq_303Iframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#pitch_seq_303">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="pitch_seq_303" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="pitch_seq_303Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="pitch_seq_303Label">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
+&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
+&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
+&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
+&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/pitch-seq-303.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
+&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
+&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
+&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
+&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/pitch-seq-303.png'&gt;">Solution</button>
+        <button type="button" onclick="setpitch_seq_303Iframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="pitch_seq_303-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setpitch_seq_303Iframe(url){
+  var pitch_seq_303Iframe = document.getElementById("pitch_seq_303-iframe");
+  pitch_seq_303Iframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:pitch-seq-303"></span>
+<p class="caption">
+Figure 13.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for sequencing just the pitches of <em>Da Funk</em>.
+</p>
+</div>
 <!-- Remaining plan -->
 <!-- Sound design ideas -->
 <!-- - cymbal -->
@@ -305,7 +461,7 @@ Also in the implement a plan stage, we will address the subproblems of sequencin
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-13.</p>
+    <p>"<strong>Computational Thinking through Modular Sounds Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

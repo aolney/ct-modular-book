@@ -186,6 +186,8 @@ fig:sh-quantizer-generative
 fig:303
 fig:acid-tracks
 fig:tb303-annotated
+fig:tb303-slide
+fig:pitch-seq-303
 introduction
 why-this-book
 computational-thinking

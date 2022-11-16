@@ -54,6 +54,11 @@ iframe {
     height: 350px;
 }
 
+.instruction-wide-image {
+  height: 100%; 
+  width: 100%;
+}
+
 .rack-image {
   height: 300px; 
   width: auto
