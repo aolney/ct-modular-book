@@ -120,14 +120,20 @@ This presence/absence flavor suggests that these elements are best represented u
 Because the 303 forces 16th notes in 16 steps as the minimal resolution, we are not sacrificing flexibility by using triggger sequencers in this case.
 Altogether, this suggests one control voltage sequencer for pitch and four trigger sequencers for note/rest, accents, slides, and extended gate.
 The pitch sequencing in this approach is handling three functions on the 303: defining a note, up transpositions, and down transpositions.
-Try patching up *Da Funk* using a 16 step control voltage sequencer with some other placeholder modules to generate sound using the button in Figure \@ref(fig:pitch-seq-303).
+Try patching up *Da Funk* using a 16 step control voltage sequencer with some other placeholder modules to generate sound using the button in Figure .
 The notation for the sequence is provided in the patch instructions.
 
-(ref:pitch-seq-303) [Virtual modular](https://cardinal.olney.ai) for sequencing just the pitches of *Da Funk*.
+
+Sequencer (with basic voice: oscillator/distortion)
+
+
+Figure \@ref(fig:tb303-seq).
+
+(ref:tb303-seq) [Virtual modular](https://cardinal.olney.ai) for tb303-seq
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
-modular_modal("pitch-seq-303", starter_file="empty.vcv", instructions_html="<ul>
+modular_modal("tb303-seq", starter_file="empty.vcv", instructions_html="<ul>
 <li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
 <li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
 <li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
@@ -148,18 +154,277 @@ modular_modal("pitch-seq-303", starter_file="empty.vcv", instructions_html="<ul>
 <div class='d-flex flex-row justify-content-around'>
 <img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
 </div>
-",solution_html="<h4>Solution for two square waves only</h4><img class='rack-image' src='images/patch-solutions/pitch-seq-303.png'>")
+",solution_html="<h4>Solution for two square waves only</h4><img class='rack-image' src='images/patch-solutions/tb303-seq.png'>")
 ```
 
 <!-- CAPTION BLOCK -->
-```{r pitch-seq-303, echo=F, out.width="100%", fig.cap="(ref:pitch-seq-303)"}
+```{r tb303-seq, echo=F, out.width="100%", fig.cap="(ref:tb303-seq)"}
+modular_caption()
+```
+
+Gate extender
+
+Figure \@ref(fig:tb303-seq-extendgate).
+
+(ref:tb303-seq-extendgate) [Virtual modular](https://cardinal.olney.ai) for tb303-seq-extendgate
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("tb303-seq-extendgate", starter_file="tb303-seq.vcv", instructions_html="<ul>
+<li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
+<li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
+<li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
+<li>Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1</li>
+<li>Adjust the Scope time to see a single wave or two; use TRG button to sync the scope</li>
+<li>Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.</li>
+<li>Try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%</li>
+</ul></li>
+<li>After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
+</div>
+",solution_html="<h4>Solution for two square waves only</h4><img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r tb303-seq-extendgate, echo=F, out.width="100%", fig.cap="(ref:tb303-seq-extendgate)"}
+modular_caption()
+```
+
+Regular gate
+
+Figure \@ref(fig:tb303-seq-extendgate-reggate).
+
+(ref:tb303-seq-extendgate-reggate) [Virtual modular](https://cardinal.olney.ai) for tb303-seq-extendgate-reggate
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("tb303-seq-extendgate-reggate", starter_file="tb303-seq-extendgate.vcv", instructions_html="<ul>
+<li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
+<li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
+<li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
+<li>Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1</li>
+<li>Adjust the Scope time to see a single wave or two; use TRG button to sync the scope</li>
+<li>Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.</li>
+<li>Try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%</li>
+</ul></li>
+<li>After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
+</div>
+",solution_html="<h4>Solution for two square waves only</h4><img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r tb303-seq-extendgate-reggate, echo=F, out.width="100%", fig.cap="(ref:tb303-seq-extendgate-reggate)"}
+modular_caption()
+```
+
+Slide gate
+
+Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate).
+
+(ref:tb303-seq-extendgate-reggate-slidegate) [Virtual modular](https://cardinal.olney.ai) for tb303-seq-extendgate-reggate-slidegate
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("tb303-seq-extendgate-reggate-slidegate", starter_file="tb303-seq-extendgate-reggate.vcv", instructions_html="<ul>
+<li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
+<li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
+<li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
+<li>Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1</li>
+<li>Adjust the Scope time to see a single wave or two; use TRG button to sync the scope</li>
+<li>Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.</li>
+<li>Try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%</li>
+</ul></li>
+<li>After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
+</div>
+",solution_html="<h4>Solution for two square waves only</h4><img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r tb303-seq-extendgate-reggate-slidegate, echo=F, out.width="100%", fig.cap="(ref:tb303-seq-extendgate-reggate-slidegate)"}
 modular_caption()
 ```
 
 
 
+Oscillator
+
+Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate-osc).
+
+(ref:tb303-seq-extendgate-reggate-slidegate-osc) [Virtual modular](https://cardinal.olney.ai) for tb303-seq-extendgate-reggate-slidegate-osc
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("tb303-seq-extendgate-reggate-slidegate-osc", starter_file="tb303-seq-extendgate-reggate-slidegate.vcv", instructions_html="<ul>
+<li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
+<li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
+<li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
+<li>Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1</li>
+<li>Adjust the Scope time to see a single wave or two; use TRG button to sync the scope</li>
+<li>Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.</li>
+<li>Try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%</li>
+</ul></li>
+<li>After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
+</div>
+",solution_html="<h4>Solution for two square waves only</h4><img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r tb303-seq-extendgate-reggate-slidegate-osc, echo=F, out.width="100%", fig.cap="(ref:tb303-seq-extendgate-reggate-slidegate-osc)"}
+modular_caption()
+```
+
+Volume envelope generator/Main envelope generator
+
+Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg).
+
+(ref:tb303-seq-extendgate-reggate-slidegate-osc-megveg) [Virtual modular](https://cardinal.olney.ai) for tb303-seq-extendgate-reggate-slidegate-osc-megveg
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("tb303-seq-extendgate-reggate-slidegate-osc-megveg", starter_file="tb303-seq-extendgate-reggate-slidegate-osc.vcv", instructions_html="<ul>
+<li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
+<li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
+<li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
+<li>Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1</li>
+<li>Adjust the Scope time to see a single wave or two; use TRG button to sync the scope</li>
+<li>Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.</li>
+<li>Try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%</li>
+</ul></li>
+<li>After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
+</div>
+",solution_html="<h4>Solution for two square waves only</h4><img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r tb303-seq-extendgate-reggate-slidegate-osc-megveg, echo=F, out.width="100%", fig.cap="(ref:tb303-seq-extendgate-reggate-slidegate-osc-megveg)"}
+modular_caption()
+```
 
 
+Accent
+
+Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents).
+
+(ref:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents) [Virtual modular](https://cardinal.olney.ai) for tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents", starter_file="tb303-seq-extendgate-reggate-slidegate-osc-megveg.vcv", instructions_html="<ul>
+<li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
+<li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
+<li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
+<li>Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1</li>
+<li>Adjust the Scope time to see a single wave or two; use TRG button to sync the scope</li>
+<li>Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.</li>
+<li>Try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%</li>
+</ul></li>
+<li>After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
+</div>
+",solution_html="<h4>Solution for two square waves only</h4><img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents, echo=F, out.width="100%", fig.cap="(ref:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents)"}
+modular_caption()
+```
+
+
+FINAL
+
+
+Figure \@ref(fig:tb303-final).
+
+(ref:tb303-final) [Virtual modular](https://cardinal.olney.ai) for tb303-final
+
+<!-- MODAL HTML BLOCK -->
+```{r echo=F, out.width="100%"}
+modular_modal("tb303-final", starter_file="tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents.vcv", instructions_html="<ul>
+<li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
+<li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
+<li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
+<li>Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1</li>
+<li>Adjust the Scope time to see a single wave or two; use TRG button to sync the scope</li>
+<li>Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.</li>
+<li>Try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%</li>
+</ul></li>
+<li>After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
+<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
+<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
+<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%</li>
+</ul></li>
+</ul>
+<div class='d-flex flex-row justify-content-around'>
+<img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
+</div>
+",solution_html="<h4>Solution for two square waves only</h4><img class='rack-image' src='images/patch-solutions/tb303-final.png'>")
+```
+
+<!-- CAPTION BLOCK -->
+```{r tb303-final, echo=F, out.width="100%", fig.cap="(ref:tb303-final)"}
+modular_caption()
+```
 
 
 <!-- Remaining plan -->

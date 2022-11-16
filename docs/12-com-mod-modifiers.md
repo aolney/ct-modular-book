@@ -14,10 +14,9 @@ If you add a fully rectified signal to the original signal, you will get a half 
 
 (ref:rectification) [Rectification](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) of a sine wave using either half or full rectification. Image [©  	Omegatron/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Rectified_waves.png).
 
-<div class="figure">
-<img src="images/rectification.png" alt="(ref:rectification)" width="100%" />
-<p class="caption">(\#fig:rectification)(ref:rectification)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/rectification} \caption{(ref:rectification)}(\#fig:rectification)
+\end{figure}
 
 A variation of rectification is wavefolding.
 In wavefolding, a comparator (see Section \@ref(addingremoving-gates-with-probability)) triggers reflection of the wave when it reaches an upper or lower threshold, as shown in Figure \@ref(fig:wavefold-sine).
@@ -26,10 +25,9 @@ Wavefolding does not affect the polarity of a signal.
 
 (ref:wavefold-sine) Wavefolding (green) of a sine wave (purple). The fold parameter moves the top and bottom portions of the wave to their respective boundaries where they reflect (left). Further increase of the fold parameter causes them to reach the opposing boundary and reflect again (right), a repeatable process that creates additional folds.
 
-<div class="figure">
-<img src="images/sine-wavefold-2.png" alt="(ref:wavefold-sine)" width="100%" />
-<p class="caption">(\#fig:wavefold-sine)(ref:wavefold-sine)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/sine-wavefold-2} \caption{(ref:wavefold-sine)}(\#fig:wavefold-sine)
+\end{figure}
 
 Rectification and wavefolding change harmonics and therefore timbre.
 The best way to understand their effect on harmonics is to consider a triangle at full rectification.
@@ -43,10 +41,9 @@ Instead, wavefolding will change the relative strengths of the harmonics, and as
 
 (ref:triangle-rect-fold) Full wave rectification (left) and wavefolding (right) of a triangle wave. The wavefolded peaks that have just reached the boundary are circled. 
 
-<div class="figure">
-<img src="images/triangle-rect-fold.png" alt="(ref:triangle-rect-fold)" width="100%" />
-<p class="caption">(\#fig:triangle-rect-fold)(ref:triangle-rect-fold)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/triangle-rect-fold} \caption{(ref:triangle-rect-fold)}(\#fig:triangle-rect-fold)
+\end{figure}
 
 
 The square wave has unusual behavior for wavefolding and rectification that deserves special mention.
@@ -81,10 +78,9 @@ Try creating this patch using the button in Figure \@ref(fig:wavefold-rect-examp
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:wavefold-rect-example)" width="100%" />
-<p class="caption">(\#fig:wavefold-rect-example)(ref:wavefold-rect-example)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:wavefold-rect-example)}(\#fig:wavefold-rect-example)
+\end{figure}
 
 Rectification has multiple uses besides changing harmonics.
 One obvious use is making a bipolar control signal unipolar (e.g. to drive a VCA).
@@ -96,10 +92,9 @@ By blending parts of different waves, you can achieve an intermediate sound, e.g
 
 (ref:fraken-rect) Upper sine wave and lower square wave portions cut using rectification and aligned with a phase offset (left). The final wave is high pass filtered to remove the voltage offset (right).
 
-<div class="figure">
-<img src="images/fraken-rect.png" alt="(ref:fraken-rect)" width="100%" />
-<p class="caption">(\#fig:fraken-rect)(ref:fraken-rect)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/fraken-rect} \caption{(ref:fraken-rect)}(\#fig:fraken-rect)
+\end{figure}
 
 Try creating a new waveshape through rectification using the button in Figure \@ref(fig:franken-rect).
 This method would also allow you to perform operations on just one part of the signal if desired, e.g. waveshaping on just the top half.
@@ -112,10 +107,9 @@ This method would also allow you to perform operations on just one part of the s
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:franken-rect)" width="100%" />
-<p class="caption">(\#fig:franken-rect)(ref:franken-rect)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:franken-rect)}(\#fig:franken-rect)
+\end{figure}
 
 ## Slew
 
@@ -139,10 +133,9 @@ Shorter rise and fall times will preserve the top of the gate, making an attack-
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:slew-gate-delay)" width="100%" />
-<p class="caption">(\#fig:slew-gate-delay)(ref:slew-gate-delay)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:slew-gate-delay)}(\#fig:slew-gate-delay)
+\end{figure}
 
 Perhaps the most common use of slew is to implement portamento/glissando by smoothing stepped V/Oct control signals to create glides.
 If you consider V/Oct signals to be stepped like gates, then the last patch should help you understand how this works.
@@ -157,10 +150,9 @@ Try patching up a slew limiter to a VCO to implement portamento using the button
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:slew-portamento)" width="100%" />
-<p class="caption">(\#fig:slew-portamento)(ref:slew-portamento)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:slew-portamento)}(\#fig:slew-portamento)
+\end{figure}
 
 Slew can also be combined with full rectification to make an envelope follower, a very useful tool for processing audio.
 When we make sounds in modular, we typically apply an envelope like an ADSR in order to give the sound dynamic loudness.
@@ -181,10 +173,9 @@ The audio in the patch comes from lo-fi synthesized speech with no envelope, and
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:slew-sidechain-noise)" width="100%" />
-<p class="caption">(\#fig:slew-sidechain-noise)(ref:slew-sidechain-noise)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:slew-sidechain-noise)}(\#fig:slew-sidechain-noise)
+\end{figure}
 
 
 ## Quantizers
@@ -216,10 +207,9 @@ Try patching up a quantizer both ways using the button in Figure \@ref(fig:cv-se
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:cv-sequencer-quantizer-plus-quantizer)" width="100%" />
-<p class="caption">(\#fig:cv-sequencer-quantizer-plus-quantizer)(ref:cv-sequencer-quantizer-plus-quantizer)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:cv-sequencer-quantizer-plus-quantizer)}(\#fig:cv-sequencer-quantizer-plus-quantizer)
+\end{figure}
 
 The last patch used a sequencer to store notes, but it's also possible to use a quantizer without a sequencer.
 Particularly for arpeggios, its easy enough to use LFOs that cycle up and down.
@@ -230,10 +220,9 @@ To get more notes, the sampling needs to occur at a higher frequency.
 
 (ref:sine-quantize-figure) A sine wave LFO (purple) being sampled (green) so the sampled values can be input to a quantizer to create an arpeggio. If the sampling rate matches the LFO frequency, only one repeating note will be sampled (left). The samplng rate must be higher than the LFO rate (right) to increase the number of notes. See text for additional factors that effect what voltages are sampled.
 
-<div class="figure">
-<img src="images/sine-quantize-figure.png" alt="(ref:sine-quantize-figure)" width="100%" />
-<p class="caption">(\#fig:sine-quantize-figure)(ref:sine-quantize-figure)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/sine-quantize-figure} \caption{(ref:sine-quantize-figure)}(\#fig:sine-quantize-figure)
+\end{figure}
 
 If the sample and hold is clocked with another LFO whose frequency is not a multiple of the quantized LFO, then the arpeggio will slowly shift its played notes over a longer period. 
 Try patching up an LFO quantizer arpeggio using the button in Figure \@ref(fig:lfo-quantizer-arpeggio).
@@ -245,10 +234,9 @@ Other ways of creating variations are to change the range of the LFO, the offset
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-quantizer-arpeggio)" width="100%" />
-<p class="caption">(\#fig:lfo-quantizer-arpeggio)(ref:lfo-quantizer-arpeggio)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:lfo-quantizer-arpeggio)}(\#fig:lfo-quantizer-arpeggio)
+\end{figure}
 
 Another common application for quantizers is in generative patches where probability is used to generate voltages which are then turned into notes.
 We can incorporate probability into the last patch using almost the same modules but connected a different way.
@@ -260,8 +248,7 @@ Try patching up a probability-based generative patch using sample and hold on no
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:sh-quantizer-generative)" width="100%" />
-<p class="caption">(\#fig:sh-quantizer-generative)(ref:sh-quantizer-generative)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:sh-quantizer-generative)}(\#fig:sh-quantizer-generative)
+\end{figure}
 

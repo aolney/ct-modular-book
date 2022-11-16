@@ -9,10 +9,9 @@ Figure \@ref(fig:serge-modular-2) shows an example patch on a real modular synth
 
 (ref:serge-modular-2) A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. `Wave Multiplier`, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image [© mikael altemark/CC-BY-2.0](https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg).
 
-<div class="figure">
-<img src="images/Serge_Modular,_Norbergfestival_2007_cropped.jpg" alt="(ref:serge-modular-2)" width="100%" />
-<p class="caption">(\#fig:serge-modular-2)(ref:serge-modular-2)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/Serge_Modular,_Norbergfestival_2007_cropped} \caption{(ref:serge-modular-2)}(\#fig:serge-modular-2)
+\end{figure}
 
 Here and throughout the book, we will use open source modular software called VCVRack [@VCVRack2022] that has been ported to the web [@Cardinal2022].
 This version is integrated with the the web version of the book so you can read about modular and solve sound design problems within the same environment.
@@ -57,10 +56,9 @@ Dimmer switches in contrast can smoothly adjust voltage between their minimum an
 
 (ref:light-switches) On/off light switch (left) and dimmer light switch (right). While on/off switches can only be at minimum or maximum voltage, dimmer switches can be at all voltages in between. Images [© DemonDays64/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Rocker_light_switch.jpg) and [© Paolomarco/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Dimmer_Light_Switch.jpg).
 
-<div class="figure">
-<img src="images/light-switches.jpg" alt="(ref:light-switches)" width="100%" />
-<p class="caption">(\#fig:light-switches)(ref:light-switches)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/light-switches} \caption{(ref:light-switches)}(\#fig:light-switches)
+\end{figure}
 
 On/off signals are either gates or triggers, as shown in Figure \@ref(fig:trigger-gate).
 Both triggers and gates are rectangular pulses that control a musical event.
@@ -70,10 +68,9 @@ As a result, we can use a trigger to model a drum hit, but we need a gate to mod
 
 (ref:trigger-gate) Triggers and gates shown over time. Both are on/off unipolar voltages that show as rectangular pulses. Only gates have variable duration.
 
-<div class="figure">
-<img src="images/trigger-gate.PNG" alt="(ref:trigger-gate)" width="100%" />
-<p class="caption">(\#fig:trigger-gate)(ref:trigger-gate)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/trigger-gate} \caption{(ref:trigger-gate)}(\#fig:trigger-gate)
+\end{figure}
 
 Envelopes are a great example of a continuous control voltage.
 As discussed in Section \@ref(dynamics-and-envelopes), envelopes can be used to control the amplitude of a sound wave and thus its loudness.
@@ -82,10 +79,9 @@ This envelope example illustrates how flexible control voltage can be - any volt
 
 (ref:voltage-adsr) An example Attack-Decay-Sustain-Release (ADSR) envelope represented as control voltage.
 
-<div class="figure">
-<img src="images/voltage-adsr.PNG" alt="(ref:voltage-adsr)" width="100%" />
-<p class="caption">(\#fig:voltage-adsr)(ref:voltage-adsr)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/voltage-adsr} \caption{(ref:voltage-adsr)}(\#fig:voltage-adsr)
+\end{figure}
 
 In the Eurorack modular format, signal voltages typically span 10 volts.
 This is much move voltage than common audio devices, so connecting modular gear to standard audio equipment requires some care.
@@ -107,10 +103,9 @@ Stereo patch cables are TRS (tip-ring-sleeve), whereas mono patch cables are TS 
 
 (ref:ts-trs) Stereo (upper) and mono (lower) patch cable connectors. Both have a tip and sleeve conductor, but stereo has an additional "ring" conductor to carry a second audio channel. Image [public domain](https://commons.wikimedia.org/wiki/File:Photo-audiojacks.jpg).
 
-<div class="figure">
-<img src="images/ts-trs.jpg" alt="(ref:ts-trs)" width="100%" />
-<p class="caption">(\#fig:ts-trs)(ref:ts-trs)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/ts-trs} \caption{(ref:ts-trs)}(\#fig:ts-trs)
+\end{figure}
 
 ## Signals are interpreted by modules
 
@@ -151,10 +146,9 @@ If the signal in the oscilloscope looks correct, then it's likely you have a mis
 
 (ref:oscilloscope) A bench oscilloscope showing a sine wave and offset square wave simultaneously. Image [© Wild Pancake/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:My_friend_oscilloscope.jpg).
 
-<div class="figure">
-<img src="images/1024px-My_friend_oscilloscope.jpg" alt="(ref:oscilloscope)" width="100%" />
-<p class="caption">(\#fig:oscilloscope)(ref:oscilloscope)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/1024px-My_friend_oscilloscope} \caption{(ref:oscilloscope)}(\#fig:oscilloscope)
+\end{figure}
 
 ## Pulling it all together
 
@@ -176,10 +170,7 @@ For this patch only, I'm going to demonstrate using the video in Figure \@ref(fi
 
 (ref:drone-demo) [Youtube video](https://www.youtube.com/watch?v=EfIWUOgHmhM) describing the VCVRack/Cardinal interface and builing a drone patch.
 
-<div class="figure">
-<img src="downloadFigs4latex/drone-demo.jpg" alt="(ref:drone-demo)"  />
-<p class="caption">(\#fig:drone-demo)(ref:drone-demo)</p>
-</div>
+![(\#fig:drone-demo)(ref:drone-demo)](downloadFigs4latex/drone-demo.jpg) 
 
 After you watch the demonstration, try to make the patch yourself using the button in Figure \@ref(fig:drone-vco-out).
 When you press the button, you'll see an interface that also includes `Instructions`, `Solution`, and `Close` buttons.
@@ -191,10 +182,9 @@ These are self-explanatory, but in particular the `Close` button will return you
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:drone-vco-out)" width="100%" />
-<p class="caption">(\#fig:drone-vco-out)(ref:drone-vco-out)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:drone-vco-out)}(\#fig:drone-vco-out)
+\end{figure}
 
 
 ### Using an oscilloscope
@@ -217,10 +207,9 @@ Try adding a scope between the modules in the previous patch using the button in
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:drone-vco-scope-out)" width="100%" />
-<p class="caption">(\#fig:drone-vco-scope-out)(ref:drone-vco-scope-out)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:drone-vco-scope-out)}(\#fig:drone-vco-scope-out)
+\end{figure}
 
 
 ### Controlling pitch
@@ -240,10 +229,9 @@ Try adding the 12 key to the left of the VCO in the previous patch using the but
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:drone-12key-vco-scope-out)" width="100%" />
-<p class="caption">(\#fig:drone-12key-vco-scope-out)(ref:drone-12key-vco-scope-out)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:drone-12key-vco-scope-out)}(\#fig:drone-12key-vco-scope-out)
+\end{figure}
 
 ### Controlling note duration (on/off volume)
 
@@ -261,10 +249,9 @@ Try adding a VCA between the VCO and Scope modules using the button in Figure \@
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:drone-12key-vco-vca-scope-out)" width="100%" />
-<p class="caption">(\#fig:drone-12key-vco-vca-scope-out)(ref:drone-12key-vco-vca-scope-out)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:drone-12key-vco-vca-scope-out)}(\#fig:drone-12key-vco-vca-scope-out)
+\end{figure}
 
 ### Controlling note dynamics (volume during note)
 
@@ -282,10 +269,9 @@ Try adding an ADSR module between the VCO and VCA modules using the button in Fi
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:drone-12key-vco-env-vca-scope-out)" width="100%" />
-<p class="caption">(\#fig:drone-12key-vco-env-vca-scope-out)(ref:drone-12key-vco-env-vca-scope-out)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:drone-12key-vco-env-vca-scope-out)}(\#fig:drone-12key-vco-env-vca-scope-out)
+\end{figure}
 
 ## Moving forward
 

@@ -106,10 +106,9 @@ Altogether this was a pretty naive attempt.
 
 (ref:sine-envelope-kick) [Kick](https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html) made using a sine wave with an envelope to control its amplitude.
 
-<div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html" target="_blank"><img src="08-design-kick_files/figure-epub3/sine-envelope-kick-1.png" alt="(ref:sine-envelope-kick)" width="100%" /></a>
-<p class="caption">(\#fig:sine-envelope-kick)(ref:sine-envelope-kick)</p>
-</div>
+\begin{figure}
+\href{https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-adsr-vca-scope-out.png-clock-kick-bpm-vco-adsr-vca-scope-out.ogg-local.html}{\includegraphics[width=1\linewidth]{08-design-kick_files/figure-latex/sine-envelope-kick-1} }\caption{(ref:sine-envelope-kick)}(\#fig:sine-envelope-kick)
+\end{figure}
 
 ### Sine with an envelope plus noise burst
 
@@ -131,10 +130,9 @@ Of course it might be possible to improve on it by tweaking the noise envelope o
 
 (ref:sine-envelope-noise-kick) [Kick](https://olney.ai/ct-modular-book/images/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png-kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg-local.html) made using a sine wave with an envelope to control its amplitude and mixed with red noise through an envelope to control amplitude.
 
-<div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png-kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg-local.html" target="_blank"><img src="08-design-kick_files/figure-epub3/sine-envelope-noise-kick-1.png" alt="(ref:sine-envelope-noise-kick)" width="100%" /></a>
-<p class="caption">(\#fig:sine-envelope-noise-kick)(ref:sine-envelope-noise-kick)</p>
-</div>
+\begin{figure}
+\href{https://olney.ai/ct-modular-book/images/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png-kick-bpm-noiz-adsr-vco-adsr-vca-scope.ogg-local.html}{\includegraphics[width=1\linewidth]{08-design-kick_files/figure-latex/sine-envelope-noise-kick-1} }\caption{(ref:sine-envelope-noise-kick)}(\#fig:sine-envelope-noise-kick)
+\end{figure}
 
 ## Alternative approaches
 
@@ -161,20 +159,18 @@ Try patching these improvements into the last kick patch using the button in Fig
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr)" width="100%" />
-<p class="caption">(\#fig:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr)(ref:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr)}(\#fig:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr)
+\end{figure}
 
 A version of this patch with my specific settings is shown in Figure \@ref(fig:sine-envelope-noise-kick-freq-decay) along with a recording of the sound.
 It seems much improved compared to the last version in realism (8) and cleanliness (9).
 
  (ref:sine-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png-kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.ogg-local.html) made using a sine wave with an envelope to control its amplitude and mixed with red noise through an envelope to control amplitude, with additional envelope control of initial frequency of the sine and band-pass filtering of the noise.
 
-<div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png-kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.ogg-local.html" target="_blank"><img src="08-design-kick_files/figure-epub3/sine-envelope-noise-kick-freq-decay-1.png" alt="(ref:sine-envelope-noise-kick-freq-decay)" width="100%" /></a>
-<p class="caption">(\#fig:sine-envelope-noise-kick-freq-decay)(ref:sine-envelope-noise-kick-freq-decay)</p>
-</div>
+\begin{figure}
+\href{https://olney.ai/ct-modular-book/images/kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.png-kick-noiz-adsr-vco-adsr-lpf-hpf-adsr.ogg-local.html}{\includegraphics[width=1\linewidth]{08-design-kick_files/figure-latex/sine-envelope-noise-kick-freq-decay-1} }\caption{(ref:sine-envelope-noise-kick-freq-decay)}(\#fig:sine-envelope-noise-kick-freq-decay)
+\end{figure}
 
 ### Devising new plans
 
@@ -194,10 +190,9 @@ Try patching a resonant filter in place of the VCO sine wave with an envelope us
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:kick-noiz-res-filter-lpf-hpf-adsr)" width="100%" />
-<p class="caption">(\#fig:kick-noiz-res-filter-lpf-hpf-adsr)(ref:kick-noiz-res-filter-lpf-hpf-adsr)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:kick-noiz-res-filter-lpf-hpf-adsr)}(\#fig:kick-noiz-res-filter-lpf-hpf-adsr)
+\end{figure}
 
 A version of this patch with my specific settings is shown in Figure \@ref(fig:res-filter-envelope-noise-kick-freq-decay) along with a recording of the sound.
 It sounds much more realistic, perhaps because of the way the resonant filter handles the dampened oscillation (9)
@@ -207,10 +202,9 @@ The cutoff and resonance parameters affect both the initial transient as well as
 
  (ref:res-filter-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html) made using a resonant filter mixed with red noise, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 
-<div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html" target="_blank"><img src="08-design-kick_files/figure-epub3/res-filter-envelope-noise-kick-freq-decay-1.png" alt="(ref:res-filter-envelope-noise-kick-freq-decay)" width="100%" /></a>
-<p class="caption">(\#fig:res-filter-envelope-noise-kick-freq-decay)(ref:res-filter-envelope-noise-kick-freq-decay)</p>
-</div>
+\begin{figure}
+\href{https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html}{\includegraphics[width=1\linewidth]{08-design-kick_files/figure-latex/res-filter-envelope-noise-kick-freq-decay-1} }\caption{(ref:res-filter-envelope-noise-kick-freq-decay)}(\#fig:res-filter-envelope-noise-kick-freq-decay)
+\end{figure}
 
 Let's see if the waveguide would be any better than the resonant filter, both in terms of sound and our ability to control the sound.
 Try patching a waveguide in place of the resonant filter using the button in Figure \@ref(fig:kick-noiz-waveguide-lpf-hpf-adsr).
@@ -221,10 +215,9 @@ Try patching a waveguide in place of the resonant filter using the button in Fig
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:kick-noiz-waveguide-lpf-hpf-adsr)" width="100%" />
-<p class="caption">(\#fig:kick-noiz-waveguide-lpf-hpf-adsr)(ref:kick-noiz-waveguide-lpf-hpf-adsr)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:kick-noiz-waveguide-lpf-hpf-adsr)}(\#fig:kick-noiz-waveguide-lpf-hpf-adsr)
+\end{figure}
 
 A version of this patch with my specific settings is shown in Figure \@ref(fig:waveguide-envelope-noise-kick-freq-decay) along with a recording of the sound.
 The sound seems worse and is more like a bass string pluck than a kick drum.
@@ -233,10 +226,9 @@ As with the resonant filter, it seems the problem in making this patch work towa
 
  (ref:waveguide-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html) made using a waveguide mixed with red noise, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 
-<div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html" target="_blank"><img src="08-design-kick_files/figure-epub3/waveguide-envelope-noise-kick-freq-decay-1.png" alt="(ref:waveguide-envelope-noise-kick-freq-decay)" width="100%" /></a>
-<p class="caption">(\#fig:waveguide-envelope-noise-kick-freq-decay)(ref:waveguide-envelope-noise-kick-freq-decay)</p>
-</div>
+\begin{figure}
+\href{https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html}{\includegraphics[width=1\linewidth]{08-design-kick_files/figure-latex/waveguide-envelope-noise-kick-freq-decay-1} }\caption{(ref:waveguide-envelope-noise-kick-freq-decay)}(\#fig:waveguide-envelope-noise-kick-freq-decay)
+\end{figure}
 
 Personally my favorite of these patches so far is the resonant filter for the overall realism and quality of sound, but I suspect that in some contexts it would muddy up a mix, i.e. it's not clean enough for some uses.
   
@@ -258,10 +250,9 @@ You could reasonably [install R](https://www.computerworld.com/article/2497143/b
 
  (ref:kick2) [Kick](https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html) recording used as the reference sound. Sound © [Mattgirling/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Drum_beat.ogg).
 
-<div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html" target="_blank"><img src="08-design-kick_files/figure-epub3/kick2-1.png" alt="(ref:kick2)" width="100%" /></a>
-<p class="caption">(\#fig:kick2)(ref:kick2)</p>
-</div>
+\begin{figure}
+\href{https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html}{\includegraphics[width=1\linewidth]{08-design-kick_files/figure-latex/kick2-1} }\caption{(ref:kick2)}(\#fig:kick2)
+\end{figure}
 
 The real kick recording we'll use is presented in Figure \@ref(fig:kick2).
 A spectrogram of this recording is presented in Figure \@ref(fig:kick-spectrogram).
@@ -277,10 +268,9 @@ s <- tuneR::readWave("images/kick2.wav")
 seewave::spectro(s,flim=c(0,.7),osc=T,dBref=2*10e-5,heights=c(1,1))
 ```
 
-<div class="figure">
-<img src="08-design-kick_files/figure-epub3/kick-spectrogram-1.png" alt="(ref:kick-spectrogram)" width="100%" />
-<p class="caption">(\#fig:kick-spectrogram)(ref:kick-spectrogram)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{08-design-kick_files/figure-latex/kick-spectrogram-1} \caption{(ref:kick-spectrogram)}(\#fig:kick-spectrogram)
+\end{figure}
 
 The spectrogram shows an initial burst of frequencies, with the most energy at about 200 Hz, followed by a lower range of frequencies with the most energy around 20-30 Hz.
 The corresponding diagram of the wave shape aligns with these regions and shows the initial burst has higher frequency until around 25 milliseconds, followed by a more regular decaying frequency.
@@ -299,10 +289,9 @@ The code below was used to generate the figure and look for frequency peaks.
 s.spec <- seewave::spec(s,flim=c(0,.7),from=0,to=0.025,norm=F)
 ```
 
-<div class="figure">
-<img src="08-design-kick_files/figure-epub3/kick-spectrum-early-1.png" alt="(ref:kick-spectrum-early)" width="100%" />
-<p class="caption">(\#fig:kick-spectrum-early)(ref:kick-spectrum-early)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{08-design-kick_files/figure-latex/kick-spectrum-early-1} \caption{(ref:kick-spectrum-early)}(\#fig:kick-spectrum-early)
+\end{figure}
 
 ```r
 seewave::fpeaks(s.spec,f=44100,nmax=4,plot=F)
@@ -331,10 +320,9 @@ The code below was used to generate the figure and look for frequency peaks.
 s.spec <- seewave::spec(s,flim=c(0,.7),from=0.025,norm = F)
 ```
 
-<div class="figure">
-<img src="08-design-kick_files/figure-epub3/kick-spectrum-late-1.png" alt="(ref:kick-spectrum-late)" width="100%" />
-<p class="caption">(\#fig:kick-spectrum-late)(ref:kick-spectrum-late)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{08-design-kick_files/figure-latex/kick-spectrum-late-1} \caption{(ref:kick-spectrum-late)}(\#fig:kick-spectrum-late)
+\end{figure}
 
 ```r
 seewave::fpeaks(s.spec,f=44100,nmax=4,plot=F)
@@ -380,10 +368,9 @@ Try patching this drum kick using the button in Figure \@ref(fig:kick-noiz-osc-b
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:kick-noiz-osc-banks-lpf-hpf-triple-adsr)" width="100%" />
-<p class="caption">(\#fig:kick-noiz-osc-banks-lpf-hpf-triple-adsr)(ref:kick-noiz-osc-banks-lpf-hpf-triple-adsr)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:kick-noiz-osc-banks-lpf-hpf-triple-adsr)}(\#fig:kick-noiz-osc-banks-lpf-hpf-triple-adsr)
+\end{figure}
 
 A version of this patch with my specific settings is shown in Figure \@ref(fig:osc-banks-envelope-noise-kick-freq-decay) along with a recording of the sound.
 It's not as close to the reference sound as I would have hoped, as it both sounds pitched higher in that initial harmonic sound and thinner in terms of noise frequencies.
@@ -394,8 +381,7 @@ Matching it to the previous kick sounds (rather than the reference recording) wo
 
  (ref:osc-banks-envelope-noise-kick-freq-decay) [Kick](https://olney.ai/ct-modular-book/images/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png-kick-noiz-osc-banks-lpf-hpf-triple-adsr.ogg-local.html) made using two sine oscillator banks  mixed with white noise with additional envelopes to control the decay of the sine banks and  frequency of the band-pass filtering of the noise.
 
-<div class="figure">
-<a href="https://olney.ai/ct-modular-book/images/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png-kick-noiz-osc-banks-lpf-hpf-triple-adsr.ogg-local.html" target="_blank"><img src="08-design-kick_files/figure-epub3/osc-banks-envelope-noise-kick-freq-decay-1.png" alt="(ref:osc-banks-envelope-noise-kick-freq-decay)" width="100%" /></a>
-<p class="caption">(\#fig:osc-banks-envelope-noise-kick-freq-decay)(ref:osc-banks-envelope-noise-kick-freq-decay)</p>
-</div>
+\begin{figure}
+\href{https://olney.ai/ct-modular-book/images/kick-noiz-osc-banks-lpf-hpf-triple-adsr.png-kick-noiz-osc-banks-lpf-hpf-triple-adsr.ogg-local.html}{\includegraphics[width=1\linewidth]{08-design-kick_files/figure-latex/osc-banks-envelope-noise-kick-freq-decay-1} }\caption{(ref:osc-banks-envelope-noise-kick-freq-decay)}(\#fig:osc-banks-envelope-noise-kick-freq-decay)
+\end{figure}
 

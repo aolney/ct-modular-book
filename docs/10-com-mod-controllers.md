@@ -35,10 +35,9 @@ If we consider the clock to represent quarter notes, then the gaps between clock
 
 (ref:clock-div2-div4) Four gates from a clock (small) overlaid with two gates from a /2 clock division (medium) and further overlaid by one gate from a /4 clock division (large). If we consider each clock gate as defining a quarter note, then all three gates occur on the first quarter note and the first two occur on the third quarter note, so the three gates are aligning only on beats.  
 
-<div class="figure">
-<img src="images/clock-div2-div4.png" alt="(ref:clock-div2-div4)" width="100%" />
-<p class="caption">(\#fig:clock-div2-div4)(ref:clock-div2-div4)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/clock-div2-div4} \caption{(ref:clock-div2-div4)}(\#fig:clock-div2-div4)
+\end{figure}
 
 Let's build a basic patch with clock divisions that illustrates this on beat property both in sound and visually on the scope.
 To keep things simple throughout this chapter, we will modify this percussion-oriented patch and note differences with sequencing pitches.
@@ -51,10 +50,9 @@ Try patching up this basic percussion patch with clock divisions using the butto
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack)" width="100%" />
-<p class="caption">(\#fig:clock-division-drums-mschack)(ref:clock-division-drums-mschack)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:clock-division-drums-mschack)}(\#fig:clock-division-drums-mschack)
+\end{figure}
 
 In light of the ideal properties for sequencing, the basic clock division approach allows both compact representation in terms of divisions and ease of changing between variations by changing divisions.
 However it lacks precise control because off beats are inaccessible.
@@ -73,10 +71,9 @@ Try extending the last patch with a gate delay to move the open hat to the off b
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack-offbeat-gate-delay)" width="100%" />
-<p class="caption">(\#fig:clock-division-drums-mschack-offbeat-gate-delay)(ref:clock-division-drums-mschack-offbeat-gate-delay)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:clock-division-drums-mschack-offbeat-gate-delay)}(\#fig:clock-division-drums-mschack-offbeat-gate-delay)
+\end{figure}
 
 With respect to the three ideal properties, the delayed gate approach (combined with clock divisions) is still compact, a bit less easy (because setting the delay is a bit fiddly), and more flexible, though the offset is the same for each clock or clock division.
 Thus if we want variations of off beat or rolls, we need additional tools.
@@ -93,10 +90,9 @@ Because the kick time is 4:4, the sequencer only needs four steps.
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult)" width="100%" />
-<p class="caption">(\#fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult)(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult)}(\#fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult)
+\end{figure}
 
 Returning to the three ideal properties, the gate multiplier approach (again combined with clock divisions) is a bit compact because it relies on another sequencer, a bit less easy (because setting the multiplier voltage is a bit fiddly), and more flexible because it allows different drum rolls on each step.
 Just as a sequencer was used to control the gate multiplier, a sequencer could be used to control the gate delay offset of the previous patch or drop a step by controlling the length parameter, as shown [here](images/patch-solutions/clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-skip-seq-gate-length.png).
@@ -115,10 +111,9 @@ Because the kick time is 4:4, the sequencer only needs four steps.
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:trg-mshack-drums-offbeat-roll)" width="100%" />
-<p class="caption">(\#fig:trg-mshack-drums-offbeat-roll)(ref:trg-mshack-drums-offbeat-roll)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:trg-mshack-drums-offbeat-roll)}(\#fig:trg-mshack-drums-offbeat-roll)
+\end{figure}
 
 Contrast this approach with what we've done so far.
 The step sequencers are somewhat compact if the pattern can be decomposed into the smallest repeating loops, though not as compact as a clock divider.
@@ -159,10 +154,9 @@ We'll build on this logic in the following patches.
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack-offbeat-logic-every-offbeat)" width="100%" />
-<p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-every-offbeat)(ref:clock-division-drums-mschack-offbeat-logic-every-offbeat)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:clock-division-drums-mschack-offbeat-logic-every-offbeat)}(\#fig:clock-division-drums-mschack-offbeat-logic-every-offbeat)
+\end{figure}
 
 We can use logic to create other gates using combinations of the basic operators.
 For example, consider every other offbeat in Figure \@ref(fig:clock-div2-div4).
@@ -175,10 +169,9 @@ Try updating the last patch with an AND module to implement this logic using the
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)" width="100%" />
-<p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)(ref:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)}(\#fig:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)
+\end{figure}
 
 Let's get even more specific with logic to match what we did previously with the gate delay, which was a single off beat.
 Since the last patch used every other off beat, we can use an additional operator to select just one of those beats.
@@ -191,10 +184,9 @@ Try updating the last patch to implement this logic using the button in Figure \
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)" width="100%" />
-<p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)(ref:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)}(\#fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)
+\end{figure}
 
 Let's consider the three ideal sequencer properties, in terms of logic.
 The first application of NOT was quite compact, ease to change, and precise.
@@ -229,10 +221,9 @@ Try updating the last patch to drive all gates with probability and logic using 
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:noise-comparator-logic-mshack-drums)" width="100%" />
-<p class="caption">(\#fig:noise-comparator-logic-mshack-drums)(ref:noise-comparator-logic-mshack-drums)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:noise-comparator-logic-mshack-drums)}(\#fig:noise-comparator-logic-mshack-drums)
+\end{figure}
 
 The output of this patch is much more complex than we could reasonably achieve using other sequencing methods, but it is also uncontrolled and not very musical, even when shaped a bit by logic.
 An alternative to randomly creating gates is to take an existing pattern but randomly drop gates.
@@ -249,10 +240,9 @@ Try updating the previous logic patch that selected every other off beat to furt
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)" width="100%" />
-<p class="caption">(\#fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)(ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)}(\#fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)
+\end{figure}
 
 As shown by these patches, probability can be used to create interesting variations in several ways.
 These methods are fairly compact and can switch between variations easily, however, there is a loss of control.
@@ -281,10 +271,9 @@ Try updating the previous patch with gate delay and gate multiplier to use seque
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-mshack-drums-offbeat-roll)" width="100%" />
-<p class="caption">(\#fig:lfo-mshack-drums-offbeat-roll)(ref:lfo-mshack-drums-offbeat-roll)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:lfo-mshack-drums-offbeat-roll)}(\#fig:lfo-mshack-drums-offbeat-roll)
+\end{figure}
 
 As you can see, this approach is fairly compact but not as compact as using a gate delay and gate multiplier because we've explicitly represented a number of skipped steps.
 However it is now easier to change between variations, e.g. adding rolls on different beats or skipping different beats would not require changing the patch, and these can be controlled by a single parameter.
@@ -333,10 +322,9 @@ Note that the colored regions mark the closest fitting line with slope $5/13$ wh
 
 (ref:bresenham-line) Example of Bresenham's line algorithm for the example $E(5,13)$. 
 
-<div class="figure">
-<img src="images/bresenham-line.png" alt="(ref:bresenham-line)" width="100%" />
-<p class="caption">(\#fig:bresenham-line)(ref:bresenham-line)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/bresenham-line} \caption{(ref:bresenham-line)}(\#fig:bresenham-line)
+\end{figure}
 
 Euclidean rhythms can start at an offset into the sequence such that the skipped early portion is then added to the end. 
 This is sometimes called a rotation, and different rotations are sometimes described as belonging to the same necklace.
@@ -350,10 +338,9 @@ Try updating that patch using the button in Figure \@ref(fig:euclidean-drums-msc
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:euclidean-drums-mschack)" width="100%" />
-<p class="caption">(\#fig:euclidean-drums-mschack)(ref:euclidean-drums-mschack)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:euclidean-drums-mschack)}(\#fig:euclidean-drums-mschack)
+\end{figure}
 
 As you can see from the patch, Euclidean rhythms is very compact and flexible, since we can easily change the length of patterns without affecting the proportion of hits and vice versa, just by turning a knob.
 However, we also lose some precision.
@@ -395,10 +382,9 @@ Try implementing this patch using the button in Figure \@ref(fig:clock-division-
 
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch)" width="100%" />
-<p class="caption">(\#fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch)(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch)</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch)}(\#fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch)
+\end{figure}
 
 Using a switch in this way suggests a general strategy for sequencing.
 Since each of the techniques discussed in this chapter has its strengths and weaknesses with respect to compactness, flexibility, and precision, it makes sense to alternate between them depending on the needs of the sequencing problem at hand and use sequential switches to combine them into larger patterns.
