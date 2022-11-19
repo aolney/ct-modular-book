@@ -36,9 +36,10 @@ As you can see, when the pulse reaches a fixed end, it reflects both in directio
 (ref:sim-reflect) [Simulation](https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html) of waves on a string. Simulation by [PhET Interactive Simulations](https://phet.colorado.edu/), University of Colorado Boulder, licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
-\begin{figure}
-\href{https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html}{\includegraphics[width=1\linewidth]{03-harmonic-and-inharmonic-sounds_files/figure-latex/sim-reflect-1} }\caption{(ref:sim-reflect)}(\#fig:sim-reflect)
-\end{figure}
+<div class="figure">
+<a href="https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_en.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/sim-reflect-1.png" alt="(ref:sim-reflect)" width="100%" /></a>
+<p class="caption">(\#fig:sim-reflect)(ref:sim-reflect)</p>
+</div>
 
 You can use the same simulation to make a standing wave.
 Set `Amplitude` to .20, `Frequency` to .17, `Damping` to `None`, `Tension` to `Low`, and select `Oscillate`.
@@ -75,7 +76,10 @@ In the video, the tap on the string (a reverse of a pluck) creates two pulses th
 
 (ref:tap-string) [Youtube video](https://www.youtube.com/watch?v=9O3VEXzuOKI) of a slow motion tap on a long string. Watch how the tap creates two pulses that reflect off their respective ends of the string, switching phase, and then constructively interfere to create an apparent standing wave. Image [© Kemp Strings](https://www.youtube.com/c/KempStrings).
 
-![(\#fig:tap-string)(ref:tap-string)](downloadFigs4latex/tap-string.jpg) 
+<div class="figure">
+<img src="downloadFigs4latex/tap-string.jpg" alt="(ref:tap-string)"  />
+<p class="caption">(\#fig:tap-string)(ref:tap-string)</p>
+</div>
 
 Although Figure \@ref(fig:tap-string) looks straightforward and might lead us to believe that the differences between the simulation and plucking a string are superficial, the true story is more complicated.
 A real string pluck does not create a single standing wave but rather a [stack of standing waves happening all at once](https://physics.stackexchange.com/a/412746).
@@ -128,9 +132,10 @@ This illustrates a general principle of Fourier analysis: sharp edges in a waves
 (ref:fourier-waves) [Simulation](https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1) showing how Fourier analysis can approximate a complex wave using sine waves. Simulation by [PhET Interactive Simulations](https://phet.colorado.edu/), University of Colorado Boulder, licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
-\begin{figure}
-\href{https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1}{\includegraphics[width=1\linewidth]{03-harmonic-and-inharmonic-sounds_files/figure-latex/fourier-waves-1} }\caption{(ref:fourier-waves)}(\#fig:fourier-waves)
-\end{figure}
+<div class="figure">
+<a href="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html?screens=1" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/fourier-waves-1.png" alt="(ref:fourier-waves)" width="100%" /></a>
+<p class="caption">(\#fig:fourier-waves)(ref:fourier-waves)</p>
+</div>
 
 The square and sawtooth waveshapes give more impressive examples of this.
 If you select square, you'll see that again only odd harmonics are used, but you'll also see that the sum of harmonics is pretty far from the square waveshape we looked at before.
@@ -163,7 +168,10 @@ If you go back to Figure \@ref(fig:fourier-waves) and increase the amplitude of 
 
 (ref:freq-spectrum) Frequency spectrum of four basic waveshapes at 1 Hz. Amplitude is normalized so all harmonics sum to 1. Harmonics are offset for comparison.
 
-![(\#fig:freq-spectrum)(ref:freq-spectrum)](03-harmonic-and-inharmonic-sounds_files/figure-latex/freq-spectrum-1.png) 
+<div class="figure">
+<img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/freq-spectrum-1.png" alt="(ref:freq-spectrum)"  />
+<p class="caption">(\#fig:freq-spectrum)(ref:freq-spectrum)</p>
+</div>
 
 Are all sounds actually made out of sine waves, or is Fourier analysis only an approximation of sounds?
 When we talk about sounds produced using standing waves, [harmonic motion](https://en.wikipedia.org/wiki/Harmonic_oscillator) tells us the sound waves are sine waves.
@@ -184,9 +192,10 @@ Modes are usually denoted in pairs $(d,c)$ where $d$ is the number of nodal line
 
 (ref:drum-modes) [Animations](https://olney.ai/ct-modular-book/images/drum-modes.html) of membrane vibration modes with a single nodal circle and 0, 1, or 2 nodal lines. Images [public domain](https://en.wikipedia.org/wiki/Vibrations_of_a_circular_membrane#Animations_of_several_vibration_modes).
 
-\begin{figure}
-\href{https://olney.ai/ct-modular-book/images/drum-modes.html}{\includegraphics[width=1\linewidth]{03-harmonic-and-inharmonic-sounds_files/figure-latex/drum-modes-1} }\caption{(ref:drum-modes)}(\#fig:drum-modes)
-\end{figure}
+<div class="figure">
+<a href="https://olney.ai/ct-modular-book/images/drum-modes.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/drum-modes-1.png" alt="(ref:drum-modes)" width="100%" /></a>
+<p class="caption">(\#fig:drum-modes)(ref:drum-modes)</p>
+</div>
 
 As with standing waves on a string, when a drum or cymbal is struck, infinitely many modes are excited all at once.
 Some of these modes are very efficient in transferring energy to the air while others are less efficient, which causes the frequencies of the modes to be relatively short, or longer lived, respectively.
@@ -230,9 +239,10 @@ All other colors of noise are based on white noise but change the distribution o
 (ref:noise-types) Frequency spectrum and [sound](https://olney.ai/ct-modular-book/images/noise-table.html) of various "colors" of noise.
 
 <!-- NOTE: must manually copy constituent images to docs/images -->
-\begin{figure}
-\href{https://olney.ai/ct-modular-book/images/noise-table.html}{\includegraphics[width=1\linewidth]{03-harmonic-and-inharmonic-sounds_files/figure-latex/noise-types-1} }\caption{(ref:noise-types)}(\#fig:noise-types)
-\end{figure}
+<div class="figure">
+<a href="https://olney.ai/ct-modular-book/images/noise-table.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/noise-types-1.png" alt="(ref:noise-types)" width="100%" /></a>
+<p class="caption">(\#fig:noise-types)(ref:noise-types)</p>
+</div>
 
 Pink noise balances energy across each octave to *roughly* approximate human perception by reducing energy (i.e., amplitude) as frequency increases.
 Brown noise (also called red noise) is like pink noise but reduces energy more quickly as frequency increases, which puts more energy in lower octaves.
@@ -265,9 +275,10 @@ In this way, and ADSR envelope is a simple, yet fairly flexible model of a physi
 
 (ref:adsr-envelope) An example Attack-Decay-Sustain-Release (ADSR) envelope. Sustain ends with manual control and is the only parameter that sets amplitude level. All other stage lengths are controlled by time parameters as indicated.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/adsr-envelope} \caption{(ref:adsr-envelope)}(\#fig:adsr-envelope)
-\end{figure}
+<div class="figure">
+<img src="images/adsr-envelope.PNG" alt="(ref:adsr-envelope)" width="100%" />
+<p class="caption">(\#fig:adsr-envelope)(ref:adsr-envelope)</p>
+</div>
 
 The full ADSR envelope makes the most sense on a keyboard instrument where pressing a key begins the attack for its duration, which then gives way to decay for its duration.
 Sustain is then held as long as the key is held, and release begins as soon as the finger leaves the key and lasts for its duration before the amplitude returns to zero.
@@ -281,9 +292,10 @@ This effect can be created by using an envelope on a filter, a technique we will
 (ref:adsr-sound-table) [Sounds](https://olney.ai/ct-modular-book/images/adsr-sound-table.html) of basic sound waves shaped by envelopes. The kick has fast attack and decay, and the violin has relatively slow attack, decay, and release.
 
 <!-- NOTE: must manually copy constituent images to docs/images -->
-\begin{figure}
-\href{https://olney.ai/ct-modular-book/images/adsr-sound-table.html}{\includegraphics[width=1\linewidth]{03-harmonic-and-inharmonic-sounds_files/figure-latex/adsr-sound-table-1} }\caption{(ref:adsr-sound-table)}(\#fig:adsr-sound-table)
-\end{figure}
+<div class="figure">
+<a href="https://olney.ai/ct-modular-book/images/adsr-sound-table.html" target="_blank"><img src="03-harmonic-and-inharmonic-sounds_files/figure-epub3/adsr-sound-table-1.png" alt="(ref:adsr-sound-table)" width="100%" /></a>
+<p class="caption">(\#fig:adsr-sound-table)(ref:adsr-sound-table)</p>
+</div>
 
 <!-- Tonal sounds	 -->
 <!-- 	Common waves, harmonics, spectrum -->

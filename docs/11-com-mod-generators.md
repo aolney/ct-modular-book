@@ -52,9 +52,10 @@ This behavior is illustrated in Figure \@ref(fig:am-unipolar).
 
 (ref:am-unipolar) An example of amplitude modulation using sine waves for modulator and carrier. Note that where the modulator signal (purple) is at its peak, the output (yellow) is at greatest strength, but where the modulator signal is negative, the output reduces to zero.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/am-unipolar} \caption{(ref:am-unipolar)}(\#fig:am-unipolar)
-\end{figure}
+<div class="figure">
+<img src="images/am-unipolar.png" alt="(ref:am-unipolar)" width="100%" />
+<p class="caption">(\#fig:am-unipolar)(ref:am-unipolar)</p>
+</div>
 
 Side bands for AM are simplest for sine waves.
 If both modulator and carrier are sine waves, the spectrum of the output will include a partial at the carrier frequency $C_f$ and two partials offset by the modulator frequency $M_f$, specifically $C_f - M_f$ and $C_f + M_f$.
@@ -63,9 +64,10 @@ An example of peak change is given in Figure \@ref(fig:am-modulation-index).
 
 (ref:am-modulation-index) An example of peak amplitude change using sine waves for modulator and carrier. The indicated difference in amplitude between the carrier signal (red) and the output (yellow) is the peak amplitude change $\Delta A$.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/am-modulation-index} \caption{(ref:am-modulation-index)}(\#fig:am-modulation-index)
-\end{figure}
+<div class="figure">
+<img src="images/am-modulation-index.png" alt="(ref:am-modulation-index)" width="100%" />
+<p class="caption">(\#fig:am-modulation-index)(ref:am-modulation-index)</p>
+</div>
 
 
 When the modulator and/or carrier are not sine waves, the sidebands contain the sums and differences for all pairs of partials between the modulator and the carrier.
@@ -90,9 +92,10 @@ Try creating a simple AM patch from scratch using the button in Figure \@ref(fig
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:am-example)}(\#fig:am-example)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:am-example)" width="100%" />
+<p class="caption">(\#fig:am-example)(ref:am-example)</p>
+</div>
 
 AM synthesis will generally produce inharmonic sidebands unless the modulator and carrier frequencies are chosen to create harmonic relationships.
 Using sine waves for example, if modulator and carrier have the same frequency, then the lower sideband will be zero and the upper sideband will be one octave above the carrier, e.g. 100 and 200 Hz.
@@ -123,9 +126,10 @@ This patch is also a good opportunity to explore the sounds of more complex modu
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:am-keyboard-frequency-tracking)}(\#fig:am-keyboard-frequency-tracking)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:am-keyboard-frequency-tracking)" width="100%" />
+<p class="caption">(\#fig:am-keyboard-frequency-tracking)(ref:am-keyboard-frequency-tracking)</p>
+</div>
 
 AM creates an interesting sound with a fixed modulation index, but as with all audio-rate modulations, we can also change that modulation index over time.
 All that is needed is a signal that changes over time and something to attenuate the modulation index in response to that signal.
@@ -140,9 +144,10 @@ Try modulating the modulation index with an envelope using the button in Figure 
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:am-keyboard-frequency-tracking-adsr-modulation-index)}(\#fig:am-keyboard-frequency-tracking-adsr-modulation-index)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:am-keyboard-frequency-tracking-adsr-modulation-index)" width="100%" />
+<p class="caption">(\#fig:am-keyboard-frequency-tracking-adsr-modulation-index)(ref:am-keyboard-frequency-tracking-adsr-modulation-index)</p>
+</div>
 
 
 ### Ring modulation
@@ -155,9 +160,10 @@ This behavior is illustrated in Figure \@ref(fig:rm-bipolar).
 
 (ref:rm-bipolar) An example of ring modulation using sine waves for modulator and carrier. Note that where the modulator signal (purple) is at either its positive or negative peak, the output (yellow) is at greatest strength. The overall amplitude of the output is reduced relative to Figure \@ref(fig:am-unipolar) due to the removal of the carrier frequency (see text).
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/rm-bipolar} \caption{(ref:rm-bipolar)}(\#fig:rm-bipolar)
-\end{figure}
+<div class="figure">
+<img src="images/rm-bipolar.png" alt="(ref:rm-bipolar)" width="100%" />
+<p class="caption">(\#fig:rm-bipolar)(ref:rm-bipolar)</p>
+</div>
 
 Historically, ring modulation was performed by a [circuit consisting of diodes arranged in a ring](https://en.wikipedia.org/wiki/Ring_modulation), thus the name.
 Ring modulators and VCAs are sometimes called four- and two-quadrant multipliers.
@@ -169,9 +175,10 @@ Ring modulators are also sometimes called balanced modulators because the modula
 
 (ref:four-quadrant-multiplier) A two-quadrant multiplier multiplies a bipolar signal (carrier) and a unipolar signal (control voltage), so has output in two quadrants (left). A four-quadrant multiplier multiplies two bipolar signals, so has output in all four quadrants (right).
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/four-quadrant-multiplier} \caption{(ref:four-quadrant-multiplier)}(\#fig:four-quadrant-multiplier)
-\end{figure}
+<div class="figure">
+<img src="images/four-quadrant-multiplier.png" alt="(ref:four-quadrant-multiplier)" width="100%" />
+<p class="caption">(\#fig:four-quadrant-multiplier)(ref:four-quadrant-multiplier)</p>
+</div>
 
 Like AM, side bands for RM are easiest to understand for sine waves.
 The output spectrum is the same as AM, except that the carrier frequency $C_f$ is removed, leaving only the side bands $C_f - M_f$ and $C_f + M_f$, and any sidebands that cross below zero are reflected back as their absolute value instead of being lost.
@@ -188,9 +195,10 @@ Try creating a simple RM patch extending the AM patch using the button in Figure
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:rm-example)}(\#fig:rm-example)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:rm-example)" width="100%" />
+<p class="caption">(\#fig:rm-example)(ref:rm-example)</p>
+</div>
 
 In terms of harmonicity, RM is again identical to AM except for the properties of missing the carrier frequency and reflections of sideband partials off zero.
 The missing carrier means that the overall spectrum will no longer have a strong pitch center.
@@ -207,9 +215,10 @@ This patch is also a good opportunity to explore how the sound of RM differs fro
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:rm-keyboard-frequency-tracking)}(\#fig:rm-keyboard-frequency-tracking)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:rm-keyboard-frequency-tracking)" width="100%" />
+<p class="caption">(\#fig:rm-keyboard-frequency-tracking)(ref:rm-keyboard-frequency-tracking)</p>
+</div>
 
 RM and AM are similar in operation and in sound. 
 The main differences revolve around the missing carrier component and sidebands reflecting off zero.
@@ -221,9 +230,10 @@ These differences between AM and RM are illustrated in Figure \@ref(fig:am-rm-mo
 
 (ref:am-rm-modsquare-carsaw) AM (left) and RM (right) for a square wave modulator (blue) and a saw wave carrier (yellow). Note that the energy of the saw wave carrier is more strongly preserved in AM, whereas in RM, the characteristics of the carrier are preserved without preserving its energy.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/am-rm-modsquare-carsaw} \caption{(ref:am-rm-modsquare-carsaw)}(\#fig:am-rm-modsquare-carsaw)
-\end{figure}
+<div class="figure">
+<img src="images/am-rm-modsquare-carsaw.png" alt="(ref:am-rm-modsquare-carsaw)" width="100%" />
+<p class="caption">(\#fig:am-rm-modsquare-carsaw)(ref:am-rm-modsquare-carsaw)</p>
+</div>
 
 ## Modulating frequency
 
@@ -252,9 +262,10 @@ Thus as the modulator's strength increases,^[The strength of the modulation is t
 
 (ref:fm-voct-composite) Voltage controlled oscillators typically have an FM input (lower left) in addition to a V/Oct input (upper left). The voltage from these two inputs is internally summed, thus V/Oct can be used to define a center frequency and FM can be used to define a variation around that frequency. Note the attenuator knob directly above the FM jack can be used to attenuate the FM voltage and therefore the strength of the modulation. The effect of the modulator through the FM jack (right) causes the carrier (yellow) to increase or decrease in frequency according to the value of the modulator (blue). 
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/fm-voct-composite} \caption{(ref:fm-voct-composite)}(\#fig:fm-voct-composite)
-\end{figure}
+<div class="figure">
+<img src="images/fm-voct-composite.png" alt="(ref:fm-voct-composite)" width="100%" />
+<p class="caption">(\#fig:fm-voct-composite)(ref:fm-voct-composite)</p>
+</div>
 
 As with AM and RM, FM creates sidebands symmetrically around the carrier frequency.
 However, FM creates an infinite number of sideband partials rather than just two - even when the modulator and carrier are sine waves.
@@ -280,7 +291,10 @@ So the FM modulation index changes both the number of sideband partials and thei
 
 (ref:bessel-modulation) [Vimeo video](https://vimeo.com/309150702) of FM sideband pair amplitudes following Bessel functions as the modulation index increases. Image [© Jeffery Hass](https://vimeo.com/jeffreyhass).
 
-![(\#fig:bessel-modulation)(ref:bessel-modulation)](downloadFigs4latex/bessel-modulation.jpg) 
+<div class="figure">
+<img src="downloadFigs4latex/bessel-modulation.jpg" alt="(ref:bessel-modulation)"  />
+<p class="caption">(\#fig:bessel-modulation)(ref:bessel-modulation)</p>
+</div>
 
 Figure \@ref(fig:bessel-modulation) illustrates how the brightness of the sound increases as the modulation index increases.
 Because there is a fluctuating loss of energy behind the peaking Bessel functions, the pitch center feels somewhat unstable as the modulation index increases.
@@ -323,9 +337,10 @@ While the number of modules required to implement advanced FM algorithms in anal
 
 (ref:two-op-fm) Two operator FM. Image [© Clusternote/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:2op_FM.svg).
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/2op_FM.svg} \caption{(ref:two-op-fm)}(\#fig:two-op-fm)
-\end{figure}
+<div class="figure">
+<img src="images/2op_FM.svg.png" alt="(ref:two-op-fm)" width="100%" />
+<p class="caption">(\#fig:two-op-fm)(ref:two-op-fm)</p>
+</div>
 
 This section is one of the most technical in the book, and it's easy to get lost in the details of FM. 
 The most important things to remember about true FM are:
@@ -363,9 +378,10 @@ Try simple EFM with sine waves using the button in Figure \@ref(fig:efm-example)
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:efm-example)}(\#fig:efm-example)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:efm-example)" width="100%" />
+<p class="caption">(\#fig:efm-example)(ref:efm-example)</p>
+</div>
 
 As you can see from the patch in Figure \@ref(fig:efm-example), increasing the modulation index very quickly shifts the pitch up and makes the sound less harmonic. 
 To my ears the inharmonic aspect is essentially immediate and the pitch shift is noticeable around 10%. 
@@ -383,9 +399,10 @@ While keyboard tracking isn't strictly necessary for this demonstration, it make
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:efm-keyboard-frequency-tracking)}(\#fig:efm-keyboard-frequency-tracking)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:efm-keyboard-frequency-tracking)" width="100%" />
+<p class="caption">(\#fig:efm-keyboard-frequency-tracking)(ref:efm-keyboard-frequency-tracking)</p>
+</div>
 
 The patch in Figure \@ref(fig:efm-keyboard-frequency-tracking) demonstrates workable EFM keyboard tracking for a moderate fixed modulation index, as expected.^[For example, with feidah at .5 I get zero pitch shift across an octave from C4 to C5 but 6 cents of shift over two octaves, which is [generally perceptible](https://en.wikipedia.org/wiki/Cent_(music)).]
 However, the patch also demonstrates how EFM, even using a small modulation index, diverges from true FM.
@@ -404,9 +421,10 @@ Try extending the last patch to with an envelope to create a bell sound  using t
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:efm-keyboard-bell)}(\#fig:efm-keyboard-bell)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:efm-keyboard-bell)" width="100%" />
+<p class="caption">(\#fig:efm-keyboard-bell)(ref:efm-keyboard-bell)</p>
+</div>
 
 ### Analogue linear frequency modulation
 
@@ -447,9 +465,10 @@ As you can see, the pitch shift occurs with LFM just like EFM, but the shift is 
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:lfm-keyboard-frequency-tracking)}(\#fig:lfm-keyboard-frequency-tracking)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfm-keyboard-frequency-tracking)" width="100%" />
+<p class="caption">(\#fig:lfm-keyboard-frequency-tracking)(ref:lfm-keyboard-frequency-tracking)</p>
+</div>
 
 ### Analogue through-zero frequency modulation
 
@@ -468,9 +487,10 @@ As you can see, there's no pitch shift and no rogue harmonics.
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:tzfm-keyboard-frequency-tracking)}(\#fig:tzfm-keyboard-frequency-tracking)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:tzfm-keyboard-frequency-tracking)" width="100%" />
+<p class="caption">(\#fig:tzfm-keyboard-frequency-tracking)(ref:tzfm-keyboard-frequency-tracking)</p>
+</div>
 
 <!-- **template** -->
 
@@ -492,9 +512,10 @@ Since  both frequency and phase can be described in terms of angle, both FM and 
 
 (ref:wheel-sine-2) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between angle (in radians) and the wavelength of a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
 
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{downloadFigs4latex/wheel-sine-2} \caption{(ref:wheel-sine-2)}(\#fig:wheel-sine-2)
-\end{figure}
+<div class="figure">
+<img src="downloadFigs4latex/wheel-sine-2.jpg" alt="(ref:wheel-sine-2)" width="80%" />
+<p class="caption">(\#fig:wheel-sine-2)(ref:wheel-sine-2)</p>
+</div>
 
 We can think of PM similarly to TZFM.
 When the modulator is positive, it adds phase to the carrier (moves forward in time along the carrier), and when the modulator changes direction, it subtracts phase from the carrier (moves backward in time along the carrier).
@@ -518,9 +539,10 @@ The timbre is identical to TZFM for an equivalent modulation index.
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:pm-keyboard-frequency-tracking)}(\#fig:pm-keyboard-frequency-tracking)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:pm-keyboard-frequency-tracking)" width="100%" />
+<p class="caption">(\#fig:pm-keyboard-frequency-tracking)(ref:pm-keyboard-frequency-tracking)</p>
+</div>
 
 Table \@ref(tab:frequency-summary) summarizes the important properties of the frequency modulation methods discussed in this section
 If one wants a method that behaves like true FM, TZFM and PM are good choices. 

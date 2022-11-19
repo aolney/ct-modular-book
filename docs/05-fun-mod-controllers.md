@@ -23,9 +23,10 @@ Likewise, a modular clock creates a trigger pulse^[Some clocks will produce gate
 
 (ref:metronome) A metronome produces a periodic sound to help musicians keep rhythm. The mechanism is an inverted pendulum with a weight on the end; moving the weight up/down changes the speed of the metronome accordingly. Image [© Vincent Quach/CC-BY-3.0](https://commons.wikimedia.org/wiki/File:Metronome_Nikko.jpg).
 
-\begin{figure}
-\includegraphics[width=0.5\linewidth]{images/514px-Metronome_Nikko} \caption{(ref:metronome)}(\#fig:metronome)
-\end{figure}
+<div class="figure">
+<img src="images/514px-Metronome_Nikko.jpg" alt="(ref:metronome)" width="50%" />
+<p class="caption">(\#fig:metronome)(ref:metronome)</p>
+</div>
 
 Many clock modules also support ways of marking time off the main clock signal.
 Most often these are clock divisions.
@@ -61,9 +62,10 @@ You should see regular pulses off the main output and a different color bar outp
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:bar-beat-bpm-scope)}(\#fig:bar-beat-bpm-scope)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:bar-beat-bpm-scope)" width="100%" />
+<p class="caption">(\#fig:bar-beat-bpm-scope)(ref:bar-beat-bpm-scope)</p>
+</div>
 
 ### Clock as a generator
 
@@ -81,9 +83,10 @@ The sixteenth note pulses should show as approximately a square wave, and by mov
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:clock-sound-bpm-scope-out)}(\#fig:clock-sound-bpm-scope-out)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-sound-bpm-scope-out)" width="100%" />
+<p class="caption">(\#fig:clock-sound-bpm-scope-out)(ref:clock-sound-bpm-scope-out)</p>
+</div>
 
 ## Sequencers
 
@@ -118,9 +121,10 @@ Figure \@ref(fig:clock-kick-bpm-vco-adsr-vca-scope-out) before referring to the 
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:clock-kick-bpm-vco-adsr-vca-scope-out)}(\#fig:clock-kick-bpm-vco-adsr-vca-scope-out)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-kick-bpm-vco-adsr-vca-scope-out)" width="100%" />
+<p class="caption">(\#fig:clock-kick-bpm-vco-adsr-vca-scope-out)(ref:clock-kick-bpm-vco-adsr-vca-scope-out)</p>
+</div>
 
 We could expand this example by using clock divisions to add multiple percussion parts.
 For example, a closed hi-hat on the clock, a kick drum on $/2$, and an open hi-hat on $/4$.
@@ -143,9 +147,10 @@ Control of irregular timings is where trigger sequencers really shine compared t
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:trg-kick-bpm-trg-vco-adsr-vca-scope-out)}(\#fig:trg-kick-bpm-trg-vco-adsr-vca-scope-out)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:trg-kick-bpm-trg-vco-adsr-vca-scope-out)" width="100%" />
+<p class="caption">(\#fig:trg-kick-bpm-trg-vco-adsr-vca-scope-out)(ref:trg-kick-bpm-trg-vco-adsr-vca-scope-out)</p>
+</div>
 
 ### Control voltage sequencers
 
@@ -164,9 +169,10 @@ Because the volumes of these two instruments, or voices, is so different, you'll
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)}(\#fig:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)" width="100%" />
+<p class="caption">(\#fig:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)(ref:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)</p>
+</div>
 
 #### Sequencing rests
 
@@ -187,9 +193,10 @@ Figure \@ref(fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) to explo
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)}(\#fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)" width="100%" />
+<p class="caption">(\#fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)(ref:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)</p>
+</div>
 
 The patch in Figure \@ref(fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) illustrates that the way the sequencers are connected to each other and the clock plays a big difference on the resulting sound.
 If the gate and the clock are from the same source, and therefore match, every sequenced note will be heard.
@@ -224,9 +231,10 @@ As you move the gate length knob, you'll hear that the note lengths change corre
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)}(\#fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)" width="100%" />
+<p class="caption">(\#fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out)</p>
+</div>
 
 <!-- TODO: add envelopes on sequence steps example? -->
 
@@ -244,7 +252,8 @@ Future chapters will explore additional controllers and control techniques.
 
 (ref:seq3-annotated) The SEQ3 sequencer module from VCVRack. The trigger sequence channel is highlighted in red and the control voltage channels are highlighted in blue.
 
-\begin{figure}
-\includegraphics[width=0.5\linewidth]{images/seq3-annotated} \caption{(ref:seq3-annotated)}(\#fig:seq3-annotated)
-\end{figure}
+<div class="figure">
+<img src="images/seq3-annotated.png" alt="(ref:seq3-annotated)" width="50%" />
+<p class="caption">(\#fig:seq3-annotated)(ref:seq3-annotated)</p>
+</div>
 

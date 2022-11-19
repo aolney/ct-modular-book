@@ -20,9 +20,10 @@ Figure \@ref(fig:wheel-sine) shows an abstract rendering of this example, highli
 
 (ref:wheel-sine) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between a unit circle and a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
 
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{downloadFigs4latex/wheel-sine} \caption{(ref:wheel-sine)}(\#fig:wheel-sine)
-\end{figure}
+<div class="figure">
+<img src="downloadFigs4latex/wheel-sine.jpg" alt="(ref:wheel-sine)" width="80%" />
+<p class="caption">(\#fig:wheel-sine)(ref:wheel-sine)</p>
+</div>
 
 The discussion of simultaneously-sounding oscillators in Chapter \@ref(generators) emphasized phase relationships between the oscillators as well as slight tuning differences between the oscillators, both of which can give a fuller sound.
 Phase captures everything about the relationship between continuous tones because the amount one signal has been offset relative to another can always be reduced to between 0 and 360 degrees (or $2pi$).^[If the offset is more than 360 degrees, it simply wraps around to a value equivalent to a value between 0 and 360 degrees, e.g. 370 degrees is the same as 10 degrees.]
@@ -37,9 +38,10 @@ While the longer stretch is clearly not repeating, the shorter stretch is approx
 
 (ref:moon-phase-time) Six seconds of natural sound (upper) with no clear repeating structure and .03 seconds of that same sound (lower) with approximate repeating structure.
 
-\begin{figure}
-\includegraphics[width=0.88\linewidth]{images/moon-phase-time} \caption{(ref:moon-phase-time)}(\#fig:moon-phase-time)
-\end{figure}
+<div class="figure">
+<img src="images/moon-phase-time.png" alt="(ref:moon-phase-time)" width="88%" />
+<p class="caption">(\#fig:moon-phase-time)(ref:moon-phase-time)</p>
+</div>
 
 Unlike the topics we've previously covered, time-based effects tend to be implemented by single modules rather than by collections of modules working together.
 Therefore our discussion will focus on the concepts behind these effects and modules that implement them.
@@ -60,9 +62,10 @@ Delay is the longest time-based effect we will discuss, typically ranging from a
 (ref:moonshot-delay2s) [Delay](https://olney.ai/ct-modular-book/images/moonshot-delay2s.png-moonshot-delay2s.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The decaying echos of the delay make the lower track significantly longer than the original.
 
 
-\begin{figure}
-\href{https://olney.ai/ct-modular-book/images/moonshot-delay2s.png-moonshot-delay2s.ogg-local.html}{\includegraphics[width=1\linewidth]{07-fun-mod-modifiers_files/figure-latex/moonshot-delay2s-1} }\caption{(ref:moonshot-delay2s)}(\#fig:moonshot-delay2s)
-\end{figure}
+<div class="figure">
+<a href="https://olney.ai/ct-modular-book/images/moonshot-delay2s.png-moonshot-delay2s.ogg-local.html" target="_blank"><img src="07-fun-mod-modifiers_files/figure-epub3/moonshot-delay2s-1.png" alt="(ref:moonshot-delay2s)" width="100%" /></a>
+<p class="caption">(\#fig:moonshot-delay2s)(ref:moonshot-delay2s)</p>
+</div>
 
 Let's take a look at a delay module.
 The main controls are the time (length of the delay offset), the feedback (amount of decay), and the wet/dry mix.
@@ -75,9 +78,10 @@ Try patching up a reverb into a single voice keyboard patch using the button in 
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:twelvekey-env-delay)}(\#fig:twelvekey-env-delay)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:twelvekey-env-delay)" width="100%" />
+<p class="caption">(\#fig:twelvekey-env-delay)(ref:twelvekey-env-delay)</p>
+</div>
 
 ### Reverb
 
@@ -96,9 +100,10 @@ Note that this recording was taken in a stadium that already had significant nat
 (ref:moonshot-reverb75) [Reverb](https://olney.ai/ct-modular-book/images/moonshot-reverb75.png-moonshot-reverb75.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The added reverb slightly extends the length of the original track and is most noticeable at that point due to the natural reverb in the original recording.
 
 
-\begin{figure}
-\href{https://olney.ai/ct-modular-book/images/moonshot-reverb75.png-moonshot-reverb75.ogg-local.html}{\includegraphics[width=1\linewidth]{07-fun-mod-modifiers_files/figure-latex/moonshot-reverb75-1} }\caption{(ref:moonshot-reverb75)}(\#fig:moonshot-reverb75)
-\end{figure}
+<div class="figure">
+<a href="https://olney.ai/ct-modular-book/images/moonshot-reverb75.png-moonshot-reverb75.ogg-local.html" target="_blank"><img src="07-fun-mod-modifiers_files/figure-epub3/moonshot-reverb75-1.png" alt="(ref:moonshot-reverb75)" width="100%" /></a>
+<p class="caption">(\#fig:moonshot-reverb75)(ref:moonshot-reverb75)</p>
+</div>
 
 Let's take a look at a reverb module.
 The main controls are the input level, high-pass filtering^[High-pass filtering will be explained in detail later in the chapter.], and the wet/dry mix.
@@ -111,9 +116,10 @@ Try patching up a reverb into a single voice keyboard patch using the button in 
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:twelvekey-env-reverb)}(\#fig:twelvekey-env-reverb)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:twelvekey-env-reverb)" width="100%" />
+<p class="caption">(\#fig:twelvekey-env-reverb)(ref:twelvekey-env-reverb)</p>
+</div>
 
 ### Chorus {#chorus-effect}
 
@@ -128,9 +134,10 @@ In this example, the chorus delay is 20 milliseconds, which is in the middle of 
 (ref:moonshot-chorus) [Chorus](https://olney.ai/ct-modular-book/images/moonshot-chorus.png-moonshot-chorus.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of copies of the original signal delayed by 20 milliseconds.
 
 
-\begin{figure}
-\href{https://olney.ai/ct-modular-book/images/moonshot-chorus.png-moonshot-chorus.ogg-local.html}{\includegraphics[width=1\linewidth]{07-fun-mod-modifiers_files/figure-latex/moonshot-chorus-1} }\caption{(ref:moonshot-chorus)}(\#fig:moonshot-chorus)
-\end{figure}
+<div class="figure">
+<a href="https://olney.ai/ct-modular-book/images/moonshot-chorus.png-moonshot-chorus.ogg-local.html" target="_blank"><img src="07-fun-mod-modifiers_files/figure-epub3/moonshot-chorus-1.png" alt="(ref:moonshot-chorus)" width="100%" /></a>
+<p class="caption">(\#fig:moonshot-chorus)(ref:moonshot-chorus)</p>
+</div>
 
 Let's take a look at a chorus module.
 The main controls are the rate and depth of the internal LFO and the wet/dry mix.
@@ -143,9 +150,10 @@ Try patching up a chorus into a single voice keyboard patch using the button in 
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:twelvekey-env-chorus)}(\#fig:twelvekey-env-chorus)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:twelvekey-env-chorus)" width="100%" />
+<p class="caption">(\#fig:twelvekey-env-chorus)(ref:twelvekey-env-chorus)</p>
+</div>
 
 ### Flanger
 
@@ -158,7 +166,10 @@ Flangers typically use an LFO to vary the offset to create a sweep across such s
 
 (ref:noise-comb) [Youtube video](https://www.youtube.com/watch?v=k5ewou_8Abc) of pink noise with increasing 1 millisecond offsets. Note the harmonic noise that emerges as well as the comb shape of the frequency spectrum. Image [© Sweetwater](https://www.youtube.com/c/sweetwater).
 
-![(\#fig:noise-comb)(ref:noise-comb)](downloadFigs4latex/noise-comb.jpg) 
+<div class="figure">
+<img src="downloadFigs4latex/noise-comb.jpg" alt="(ref:noise-comb)"  />
+<p class="caption">(\#fig:noise-comb)(ref:noise-comb)</p>
+</div>
 
 A flanger has been added to the speech example in in Figure \@ref(fig:moonshot-flanger5ms), and like chorus does not noticeably extend beyond the length of the original audio.
 Additionally, and like chorus, you can see an effect on the shape of the wave as the delayed copy of the signal interferes with the original.
@@ -167,9 +178,10 @@ In this example, the flanger delay is 1 millisecond and so produces a sweeping t
 (ref:moonshot-flanger5ms) [Flanger](https://olney.ai/ct-modular-book/images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The shape of the wave is affected by the interference of a copy of the original signal delayed by 1 millisecond.
 
 
-\begin{figure}
-\href{https://olney.ai/ct-modular-book/images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg-local.html}{\includegraphics[width=1\linewidth]{07-fun-mod-modifiers_files/figure-latex/moonshot-flanger5ms-1} }\caption{(ref:moonshot-flanger5ms)}(\#fig:moonshot-flanger5ms)
-\end{figure}
+<div class="figure">
+<a href="https://olney.ai/ct-modular-book/images/moonshot-flanger5ms.png-moonshot-flanger5ms.ogg-local.html" target="_blank"><img src="07-fun-mod-modifiers_files/figure-epub3/moonshot-flanger5ms-1.png" alt="(ref:moonshot-flanger5ms)" width="100%" /></a>
+<p class="caption">(\#fig:moonshot-flanger5ms)(ref:moonshot-flanger5ms)</p>
+</div>
 
 
 Let's take a look at a flanger module.
@@ -183,9 +195,10 @@ Try patching up a flanger into a single voice keyboard patch using the button in
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:twelvekey-env-flanger)}(\#fig:twelvekey-env-flanger)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:twelvekey-env-flanger)" width="100%" />
+<p class="caption">(\#fig:twelvekey-env-flanger)(ref:twelvekey-env-flanger)</p>
+</div>
 
 ### Phaser
 
@@ -203,9 +216,10 @@ The effect on the shape of the wave is quite subtle compared to the flanger, ref
 (ref:moonshot-phaser) [Phaser](https://olney.ai/ct-modular-book/images/moonshot-phaser.png-moonshot-phaser.ogg-local.html) applied to an audio clip. The original sound (upper) is duplicated (lower) and the effect applied. The effect on the shape of the wave is subtle and reflects both constructive and destructive interference.
 
 
-\begin{figure}
-\href{https://olney.ai/ct-modular-book/images/moonshot-phaser.png-moonshot-phaser.ogg-local.html}{\includegraphics[width=1\linewidth]{07-fun-mod-modifiers_files/figure-latex/moonshot-phaser-1} }\caption{(ref:moonshot-phaser)}(\#fig:moonshot-phaser)
-\end{figure}
+<div class="figure">
+<a href="https://olney.ai/ct-modular-book/images/moonshot-phaser.png-moonshot-phaser.ogg-local.html" target="_blank"><img src="07-fun-mod-modifiers_files/figure-epub3/moonshot-phaser-1.png" alt="(ref:moonshot-phaser)" width="100%" /></a>
+<p class="caption">(\#fig:moonshot-phaser)(ref:moonshot-phaser)</p>
+</div>
 
 
 Let's take a look at a phaser module.
@@ -219,9 +233,10 @@ Try patching up a phaser into a single voice keyboard patch using the button in 
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:twelvekey-env-phaser)}(\#fig:twelvekey-env-phaser)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:twelvekey-env-phaser)" width="100%" />
+<p class="caption">(\#fig:twelvekey-env-phaser)(ref:twelvekey-env-phaser)</p>
+</div>
 
 
 ## Voltage controlled filters
@@ -239,9 +254,10 @@ If that were the case, we might expect a square wave with all but the first two 
 
 (ref:square-fourier-2-harmonics-2) Fourier approximation of the first 11 harmonics of a square wave.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/square-fourier-2-harmonics-2} \caption{(ref:square-fourier-2-harmonics-2)}(\#fig:square-fourier-2-harmonics-2)
-\end{figure}
+<div class="figure">
+<img src="images/square-fourier-2-harmonics-2.png" alt="(ref:square-fourier-2-harmonics-2)" width="100%" />
+<p class="caption">(\#fig:square-fourier-2-harmonics-2)(ref:square-fourier-2-harmonics-2)</p>
+</div>
 
 Using Fourier decomposition to understand VCFs is misleading in many respects, as will become clear by the end of this section.
 It is also not practical to build a filter based on Fourier decomposition for two at least two reasons.
@@ -251,9 +267,10 @@ If we were to use Fourier as the basis of a filter, those peaks would introduce 
 
 (ref:vcf-square-out) VCF output on a square wave that has been aligned and scaled for comparison to Figure \@ref(fig:square-fourier-2-harmonics-2). Note the relatively flat low and high regions of the wave, which imply the presence of higher harmonics.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/vcf-square-out} \caption{(ref:vcf-square-out)}(\#fig:vcf-square-out)
-\end{figure}
+<div class="figure">
+<img src="images/vcf-square-out.png" alt="(ref:vcf-square-out)" width="100%" />
+<p class="caption">(\#fig:vcf-square-out)(ref:vcf-square-out)</p>
+</div>
 
 The output of a real VCF filtering out all but the first 11 harmonics is shown in Figure \@ref(fig:vcf-square-out).
 The VCF output has two striking differences with the Fourier example.
@@ -276,9 +293,10 @@ Try patching up the two filters using the button in Figure \@ref(fig:noiz-lfp-ou
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:noiz-lfp-out-fft)}(\#fig:noiz-lfp-out-fft)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noiz-lfp-out-fft)" width="100%" />
+<p class="caption">(\#fig:noiz-lfp-out-fft)(ref:noiz-lfp-out-fft)</p>
+</div>
 
 Let's take another look, this time with a square wave and an oscilloscope, which will let us look at the effect on the wave rather than the frequency spectrum.
 Of course the disadvantage of white noise is that you can't usefully look at the effect 
@@ -292,9 +310,10 @@ HPF creates perhaps even more curious shapes that quickly turn into increasingly
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:lfo-lfp-out-scope-fft)}(\#fig:lfo-lfp-out-scope-fft)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-lfp-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:lfo-lfp-out-scope-fft)(ref:lfo-lfp-out-scope-fft)</p>
+</div>
 
 ### Filters change frequency and phase
 
@@ -307,9 +326,10 @@ Again, VCFs change more than just frequency spectrum - they also change phase ac
 
 (ref:square-lpf-hpf) Square wave through a low-pass (left) and high-pass (right) filter. Note the symmetry of the difference between the square wave and the filtered signal: the shape of the filtered signal below the square wave in the positive region is the same as the filtered signal above the square wave in the negative region, but flipped. 
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/square-lpf-hpf} \caption{(ref:square-lpf-hpf)}(\#fig:square-lpf-hpf)
-\end{figure}
+<div class="figure">
+<img src="images/square-lpf-hpf.png" alt="(ref:square-lpf-hpf)" width="100%" />
+<p class="caption">(\#fig:square-lpf-hpf)(ref:square-lpf-hpf)</p>
+</div>
 
 Let's look first at the LPF case, using the left side of Figure \@ref(fig:square-lpf-hpf) as a reference.
 As the signal increases, the RC circuit leeches out energy until it fills up, at which point it has no effect on the signal. 
@@ -331,9 +351,10 @@ The RC circuit likewise is opposing the signal's constant voltage.
 
 (ref:bode-low-pass) A Bode plot for a low-pass filter with a cutoff frequency of 100 Hz. Note the lines marked Bode pole represent idealized behavior of the filter and the Low Pass markers indicate actual behavior. The cutoff point is exactly aligned with a -45 degree phase shift. Image [public domain](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{images/bode-low-pass} \caption{(ref:bode-low-pass)}(\#fig:bode-low-pass)
-\end{figure}
+<div class="figure">
+<img src="images/bode-low-pass.png" alt="(ref:bode-low-pass)" width="70%" />
+<p class="caption">(\#fig:bode-low-pass)(ref:bode-low-pass)</p>
+</div>
 
 The effect of the RC circuit on frequency and phase spectrum can be summarized by a [Bode plot](https://en.wikipedia.org/wiki/Bode_plot), as shown for an LPF in Figure \@ref(fig:bode-low-pass).
 The lines labeled "Bode pole" are idealized and the actual behavior of the LPF is indicated by the markers.
@@ -349,9 +370,10 @@ At the cutoff, the phase shift is already -45 degrees.
 
 (ref:bode-high-pass) A Bode plot for a high-pass filter with a cutoff frequency of 100 Hz. Note the lines marked Bode pole represent idealized behavior of the filter and the High Pass markers indicate actual behavior. The cutoff point is exactly aligned with a 45 degree phase shift. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Bode_High-Pass.PNG).
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{images/bode-high-pass} \caption{(ref:bode-high-pass)}(\#fig:bode-high-pass)
-\end{figure}
+<div class="figure">
+<img src="images/bode-high-pass.png" alt="(ref:bode-high-pass)" width="70%" />
+<p class="caption">(\#fig:bode-high-pass)(ref:bode-high-pass)</p>
+</div>
 
 The Bode plot for an HPF looks very similar to that of an LPF, but reversed as shown in Figure \@ref(fig:bode-high-pass).
 As before the range of frequencies affected by the filter extends on both sides of the cutoff point, the signal is already attenuated by 3 dB at the cutoff point, and the decrease in amplitude (this time to the left of the cutoff) is 6 dB/Oct.
@@ -382,9 +404,10 @@ Since there are now two cutoffs to control to hear the combined filter sweep, ho
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:lfo-lpf-hpf-out-scope-fft)}(\#fig:lfo-lpf-hpf-out-scope-fft)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-lpf-hpf-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:lfo-lpf-hpf-out-scope-fft)(ref:lfo-lpf-hpf-out-scope-fft)</p>
+</div>
 
 A notch filter^[A notch filter is sometimes called a band-reject filter.] can be created by combining an LPF and HPF in parallel.
 A notch filter mostly lets through every thing but frequencies within a range.
@@ -397,9 +420,10 @@ As before, there are two cutoffs to control to hear the combined filter sweep, s
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:lfo-lfo-lpf-hpf-mixer-out-scope-fft)}(\#fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-lfo-lpf-hpf-mixer-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft)(ref:lfo-lfo-lpf-hpf-mixer-out-scope-fft)</p>
+</div>
 
 ### Resonance
 
@@ -421,9 +445,10 @@ You should see that the cutoff frequency and resonance interact in interesting w
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:noiz-lpf-out-scope-fft)}(\#fig:noiz-lpf-out-scope-fft)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noiz-lpf-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:noiz-lpf-out-scope-fft)(ref:noiz-lpf-out-scope-fft)</p>
+</div>
 
 Although filter resonance has clear regions where the filter is self-oscillating or not, there is also an intermediate region where the filter begins to oscillate but the oscillation quickly dies out.
 This is analogous to plucking a string or pushing on a pendulum.
@@ -446,9 +471,10 @@ Any kind of pulse can be used to ping a filter, including envelopes.
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:lfo-vcf-out-scope-fft)}(\#fig:lfo-vcf-out-scope-fft)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-vcf-out-scope-fft)" width="100%" />
+<p class="caption">(\#fig:lfo-vcf-out-scope-fft)(ref:lfo-vcf-out-scope-fft)</p>
+</div>
 
 ## Waveguides
 
@@ -464,9 +490,10 @@ While waveguides can be used to create a wide range of sounds, Karplus-Strong is
 
 (ref:karplus-strong) A diagram of the Karplus-Strong algorithm. The plus symbol mixes the feedback path with the incoming signal. Image [© PoroCYon/CC-BY-SA-3.0](https://en.wikipedia.org/wiki/File:Karplus-strong-schematic.svg).
 
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{images/Karplus-strong-schematic.svg} \caption{(ref:karplus-strong)}(\#fig:karplus-strong)
-\end{figure}
+<div class="figure">
+<img src="images/Karplus-strong-schematic.svg.png" alt="(ref:karplus-strong)" width="80%" />
+<p class="caption">(\#fig:karplus-strong)(ref:karplus-strong)</p>
+</div>
 
 Try to create a guitar string pluck by waveguide using the button in Figure \@ref(fig:karplus-strong-guitar-env-delay-filter).
 One of the tricky things about waveguides is that they have many parameters that depend on each other.
@@ -481,6 +508,7 @@ It's best to go back and forth between these settings to see what effect they ha
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:karplus-strong-guitar-env-delay-filter)}(\#fig:karplus-strong-guitar-env-delay-filter)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:karplus-strong-guitar-env-delay-filter)" width="100%" />
+<p class="caption">(\#fig:karplus-strong-guitar-env-delay-filter)(ref:karplus-strong-guitar-env-delay-filter)</p>
+</div>

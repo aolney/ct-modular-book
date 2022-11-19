@@ -30,7 +30,10 @@ For example, the [THX Deep Note](https://en.wikipedia.org/wiki/Deep_Note) in Fig
 
 (ref:deep-note) [Youtube video](https://www.youtube.com/watch?v=sPY3Y2qhyXk) of the THX Deep Note, which resolves to 11 harmonically related notes. Image [© THX Ltd](https://www.youtube.com/c/THXLtd).
 
-![(\#fig:deep-note)(ref:deep-note)](downloadFigs4latex/deep-note.jpg) 
+<div class="figure">
+<img src="downloadFigs4latex/deep-note.jpg" alt="(ref:deep-note)"  />
+<p class="caption">(\#fig:deep-note)(ref:deep-note)</p>
+</div>
 
 In modular synthesis, there are at least two ways to create chords, which correspond to stages of the process to create a single note.
 At the first stage, we have a V/Oct control signal, so we can create chords by making new control signals harmonically related to the original signal.
@@ -49,9 +52,10 @@ Try making a trichord using a fifth and an octave using the button in Figure \@r
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:voltage-division-chords)}(\#fig:voltage-division-chords)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:voltage-division-chords)" width="100%" />
+<p class="caption">(\#fig:voltage-division-chords)(ref:voltage-division-chords)</p>
+</div>
 
 To create harmonically related audio signals, we can use a clock divider as long as the original signal can be interpreted as clock and the clock divider in question can accept audio rates.
 This approach is related to a classic technique for creating a fatter sound, the sub-octave square wave.
@@ -67,9 +71,10 @@ Try making a trichord using a fifth and an octave using the button in Figure \@r
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:clock-division-chords)}(\#fig:clock-division-chords)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-chords)" width="100%" />
+<p class="caption">(\#fig:clock-division-chords)(ref:clock-division-chords)</p>
+</div>
 
 ## Chorus {#chorus-oscillators}
 
@@ -88,9 +93,10 @@ Remember that most interference will create spans of sound with greater loudness
 
 (ref:beat-freq) [Animation](https://olney.ai/ct-modular-book/images/beat-freq.gif) of interfering sine waves as one increases in frequency. Note how multiple beats appear in this short span as the frequency increases. Image [© Adjwilley/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:WaveInterference.gif).
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{downloadFigs4latex/beat-freq} \caption{(ref:beat-freq)}(\#fig:beat-freq)
-\end{figure}
+<div class="figure">
+<img src="downloadFigs4latex/beat-freq.jpg" alt="(ref:beat-freq)" width="70%" />
+<p class="caption">(\#fig:beat-freq)(ref:beat-freq)</p>
+</div>
 
 These changes in volume can be perceived as [beats](https://en.wikipedia.org/wiki/Beat_(acoustics)) if they are strong enough and occur within a certain range of frequencies.
 Typically such beats are unwanted, so the interference between the sound waves should either be too slow/fast to be perceive as beats or the beats themselves are so soft that they are not perceived as beats.
@@ -103,9 +109,10 @@ You should hear a beat whose beat increases as you increase detuning.
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:detune-beat)}(\#fig:detune-beat)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:detune-beat)" width="100%" />
+<p class="caption">(\#fig:detune-beat)(ref:detune-beat)</p>
+</div>
 
 ## Low frequency oscillators & uses
 
@@ -133,7 +140,10 @@ This occurs because the two component waves, which have the same amplitude, comb
 
 (ref:pwm) Interference of a pulse wave with 25% duty cycle (gold) with a pulse wave with a 50% duty cycle (blue). Note the resulting wave (green) has a positive signal matching the 25% wave and a negative signal matching the 50% wave. Waves are offset for comparison.
 
-![(\#fig:pwm)(ref:pwm)](06-fun-mod-generators_files/figure-latex/pwm-1.png) 
+<div class="figure">
+<img src="06-fun-mod-generators_files/figure-epub3/pwm-1.png" alt="(ref:pwm)"  />
+<p class="caption">(\#fig:pwm)(ref:pwm)</p>
+</div>
 
 Because this is such a useful and interesting effect, many oscillators that produce pulse waves have a PWM input that allows the duty cycle of the wave to be controlled by another module.
 Try to implement PWM with an LFO using the button in Figure \@ref(fig:pwm-lfo-vco-scope).
@@ -151,9 +161,10 @@ Therefore PWM, by modulating the duty cycle, is continuously adding and removing
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:pwm-lfo-vco-scope)}(\#fig:pwm-lfo-vco-scope)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:pwm-lfo-vco-scope)" width="100%" />
+<p class="caption">(\#fig:pwm-lfo-vco-scope)(ref:pwm-lfo-vco-scope)</p>
+</div>
 
 ### Vibrato
 
@@ -162,7 +173,10 @@ Vibrato is widely used in music, but is perhaps most strongly associated with op
 
 (ref:opera-vibrato) [Youtube video](https://www.youtube.com/watch?v=CPPOrQHiP40) of an opera singer's vibrato, or frequency variation around a central note. Image [© jiggle throat](https://www.youtube.com/channel/UC9FSr2uoO_OqymmeNSE5AyQ).
 
-![(\#fig:opera-vibrato)(ref:opera-vibrato)](downloadFigs4latex/opera-vibrato.jpg) 
+<div class="figure">
+<img src="downloadFigs4latex/opera-vibrato.jpg" alt="(ref:opera-vibrato)"  />
+<p class="caption">(\#fig:opera-vibrato)(ref:opera-vibrato)</p>
+</div>
 
 LFOs can create vibrato on a VCO by controlling V/Oct.
 Unlike PWM, an additional VCA is needed to control the depth of the vibrato.^[Technically you can use the FM input and attenuator, but there are pedagogical reasons for not using the FM input at the moment, namely that we have not discused FM yet. ]
@@ -177,9 +191,10 @@ Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:vibrato-lfo-vca-vco-scope)}(\#fig:vibrato-lfo-vca-vco-scope)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:vibrato-lfo-vca-vco-scope)" width="100%" />
+<p class="caption">(\#fig:vibrato-lfo-vca-vco-scope)(ref:vibrato-lfo-vca-vco-scope)</p>
+</div>
 
 ### Tremolo
 
@@ -189,7 +204,10 @@ Tremolo has been widely used in popular guitar music since the 1960's, and guita
 
 (ref:guitar-tremolo) [Youtube video](https://youtu.be/ZHDV3yBm33A?t=12) of a tremolo guitar pedal. The flashing light corresponds to the speed of loudness changes around a center volume. Image [© CheaperPedals.com](https://www.youtube.com/c/Cheaperpedals).
 
-![(\#fig:guitar-tremolo)(ref:guitar-tremolo)](downloadFigs4latex/guitar-tremolo.jpg) 
+<div class="figure">
+<img src="downloadFigs4latex/guitar-tremolo.jpg" alt="(ref:guitar-tremolo)"  />
+<p class="caption">(\#fig:guitar-tremolo)(ref:guitar-tremolo)</p>
+</div>
 
 LFOs can create tremolo by controlling the amplitude of VCO output.
 A VCA is is used to the depth of the tremelo.
@@ -207,9 +225,10 @@ As before, no tremolo occurs when the LFO frequency is zero, so on can turn the 
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:tremelo-lfo-vca-vco-scope)}(\#fig:tremelo-lfo-vca-vco-scope)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:tremelo-lfo-vca-vco-scope)" width="100%" />
+<p class="caption">(\#fig:tremelo-lfo-vca-vco-scope)(ref:tremelo-lfo-vca-vco-scope)</p>
+</div>
 
 ## Synchronization
 
@@ -231,9 +250,10 @@ An example of hard sync is shown in Figure \@ref(fig:sine-sync), where the two s
 
 (ref:sine-sync) An example of hard sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader's sine output is connected to the follower's sync input. As soon as the leader's sine wave (blue) increases above zero, the follower's sine wave (red) resets and begins its cycle again, creating a sharp edge in its waveshape.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/sine-sync} \caption{(ref:sine-sync)}(\#fig:sine-sync)
-\end{figure}
+<div class="figure">
+<img src="images/sine-sync.png" alt="(ref:sine-sync)" width="100%" />
+<p class="caption">(\#fig:sine-sync)(ref:sine-sync)</p>
+</div>
 
 There are [several variations](https://en.wikipedia.org/wiki/Oscillator_sync#Soft_Sync) of sync known as soft sync, but they all attempt to align the two oscillators in phase without creating the sharp edge found in hard sync.
 One notable form of soft sync is reverse soft sync (or flip soft sync).
@@ -243,9 +263,10 @@ An example of reverse soft sync is shown in Figure \@ref(fig:sine-sync-soft), wh
 
 (ref:sine-sync-soft) An example of reverse soft sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader's sine output is connected to the follower's sync input. As soon as the leader's sine wave (blue) increases above zero, the follower's sine wave (red) reverses, i.e. runs in the opposite direction, and begins its cycle again, creating a less sharp edge in its waveshape than hard sync.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/sine-sync-soft} \caption{(ref:sine-sync-soft)}(\#fig:sine-sync-soft)
-\end{figure}
+<div class="figure">
+<img src="images/sine-sync-soft.png" alt="(ref:sine-sync-soft)" width="100%" />
+<p class="caption">(\#fig:sine-sync-soft)(ref:sine-sync-soft)</p>
+</div>
 
 
 Try to create hard and soft sync using the button in Figure \@ref(fig:hard-soft-sync) and that matches Figures \@ref(fig:sine-sync) and \@ref(fig:sine-sync-soft), respectively.
@@ -257,9 +278,10 @@ Each type of sync produces a characteristic sound that depends on the waveshapes
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:hard-soft-sync)}(\#fig:hard-soft-sync)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:hard-soft-sync)" width="100%" />
+<p class="caption">(\#fig:hard-soft-sync)(ref:hard-soft-sync)</p>
+</div>
 
 ## Noise
 
@@ -280,9 +302,10 @@ The patches are identical except for different noise sources and knob settings.
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope)}(\#fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope)" width="100%" />
+<p class="caption">(\#fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope)(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope)</p>
+</div>
 
 ## Samplers
 
@@ -296,9 +319,10 @@ Digital audio data is represented according to two parameters that each can be c
 
 (ref:sampling-rate-depth) A wave digitized by sampling. The sampling rate corresponds to the distance between sample times on the horizontal $t$ axis. The bit depth corresponds to the accuracy of distance between the axis and sampled points on the wave. The straight red segments are the digital reconstruction of the original wave based on the samples. Image [public domain](https://commons.wikimedia.org/wiki/File:Signal_Sampling.svg).
 
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{images/sampling-rate-depth} \caption{(ref:sampling-rate-depth)}(\#fig:sampling-rate-depth)
-\end{figure}
+<div class="figure">
+<img src="images/sampling-rate-depth.png" alt="(ref:sampling-rate-depth)" width="80%" />
+<p class="caption">(\#fig:sampling-rate-depth)(ref:sampling-rate-depth)</p>
+</div>
 
 Sampling rate measures how close together each sample is taken.
 If the distance between the samples is small, a straight line is a good approximation of the curve of the wave, and the digital representation has good fidelity to the original sound.
@@ -333,9 +357,10 @@ You will need to [download the sample file](images/moonshot.wav) to load it into
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:sample-12key-ouaive)}(\#fig:sample-12key-ouaive)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:sample-12key-ouaive)" width="100%" />
+<p class="caption">(\#fig:sample-12key-ouaive)(ref:sample-12key-ouaive)</p>
+</div>
 
 We can play, reverse play, and change the playback speed the sample by using an LFO and a gate-style controller.
 Try to construct this patch using the button in Figure \@ref(fig:sample-lfo-trigger-ouaive).
@@ -347,6 +372,7 @@ Because the LFO produces continuous changes in voltage, the playback is continuo
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:sample-lfo-trigger-ouaive)}(\#fig:sample-lfo-trigger-ouaive)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:sample-lfo-trigger-ouaive)" width="100%" />
+<p class="caption">(\#fig:sample-lfo-trigger-ouaive)(ref:sample-lfo-trigger-ouaive)</p>
+</div>

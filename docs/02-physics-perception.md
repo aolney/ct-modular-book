@@ -16,9 +16,10 @@ In other words, our hearing becomes more sensitive depending on the frequency of
 (ref:elc) An equal loudness contour showing improved sensitivity to frequencies between 500Hz and 4KHz, which approximately matches the range of human speech frequencies. Image [public domain](https://en.wikipedia.org/wiki/Psychoacoustics#/media/File:Perceived_Human_Hearing.svg).
 
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/Perceived_Human_Hearing.svg} \caption{(ref:elc)}(\#fig:elc)
-\end{figure}
+<div class="figure">
+<img src="images/Perceived_Human_Hearing.svg.png" alt="(ref:elc)" width="100%" />
+<p class="caption">(\#fig:elc)(ref:elc)</p>
+</div>
 
 Why do we need to understand the physics of sound *and* perception of sound? 
 Ultimately we hear the sounds we're going to make, but the process of making those sounds is based in physics.
@@ -32,9 +33,10 @@ The movement is caused by air molecules^[In what follows, we will ignore that ai
 
 (ref:sim-brownian) [Simulation](https://physics.bu.edu/~duffy/HTML5/brownian_motion.html) of Brownian motion. Press `Pause` to stop the simulation. © Andrew Duffy/[CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-\begin{figure}
-\href{https://physics.bu.edu/~duffy/HTML5/brownian_motion.html}{\includegraphics[width=1\linewidth]{02-physics-perception_files/figure-latex/sim-brownian-1} }\caption{(ref:sim-brownian)}(\#fig:sim-brownian)
-\end{figure}
+<div class="figure">
+<a href="https://physics.bu.edu/~duffy/HTML5/brownian_motion.html" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-brownian-1.png" alt="(ref:sim-brownian)" width="100%" /></a>
+<p class="caption">(\#fig:sim-brownian)(ref:sim-brownian)</p>
+</div>
 
 <!-- Air molecules are always whizzing around like this. -->
 <!-- However, in much of the discussion below, we'll largely ignore this fact and focus instead on the properties of waves passing through air. -->
@@ -45,9 +47,10 @@ The animation in Figure \@ref(fig:firecracker-wave) shows a primary wave of soun
 
 (ref:firecracker-wave) [Animation](http://media.npr.org/assets/img/2014/01/21/cracker.gif) of a firecracker exploding in slow motion, captured by Schlieren photography. Note the pressure wave that radiates outward. Image © Mike Hargather. Linked with [permission from NPR](https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices).
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{downloadFigs4latex/firecracker-wave} \caption{(ref:firecracker-wave)}(\#fig:firecracker-wave)
-\end{figure}
+<div class="figure">
+<img src="downloadFigs4latex/firecracker-wave.jpg" alt="(ref:firecracker-wave)" width="100%" />
+<p class="caption">(\#fig:firecracker-wave)(ref:firecracker-wave)</p>
+</div>
 
 <!-- Note: alternative way using YouTube; revert to this if Tumblr fails -->
 <!-- (ref:firecracker-wave) [Youtube video](https://www.youtube.com/embed/px3oVGXr4mo?start=125&end=128) of firecracker exploding, captured by Schlieren photography. Note the dark pressure wave that radiates outward. Image [© NPR](https://www.youtube.com/nationalpublicradio). -->
@@ -65,7 +68,10 @@ The increase in density is called compression.
 
 (ref:slow-drum) [Youtube video](https://www.youtube.com/watch?v=tM8WyhB6zYo) of a slow motion drum hit. Watch how the drum head continues to move inward and outward after the hit. Image [© Boulder Drum Studio](https://www.youtube.com/channel/UCRZIyRiTD427A9dw3CBM4Fg).
 
-![(\#fig:slow-drum)(ref:slow-drum)](downloadFigs4latex/slow-drum.jpg) 
+<div class="figure">
+<img src="downloadFigs4latex/slow-drum.jpg" alt="(ref:slow-drum)"  />
+<p class="caption">(\#fig:slow-drum)(ref:slow-drum)</p>
+</div>
 
 
 You can see an analogous simulation of to the drum hit in Figure \@ref(fig:sim-gas).
@@ -76,9 +82,10 @@ In the drum example, when the stick hits the head and causes it to move inward, 
 (ref:sim-gas) [Simulation](https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2) of gas in a chamber. Simulation by [PhET Interactive Simulations](https://phet.colorado.edu/), University of Colorado Boulder, licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
-\begin{figure}
-\href{https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2}{\includegraphics[width=1\linewidth]{02-physics-perception_files/figure-latex/sim-gas-1} }\caption{(ref:sim-gas)}(\#fig:sim-gas)
-\end{figure}
+<div class="figure">
+<a href="https://phet.colorado.edu/sims/html/gas-properties/latest/gas-properties_en.html?screens=2" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-gas-1.png" alt="(ref:sim-gas)" width="100%" /></a>
+<p class="caption">(\#fig:sim-gas)(ref:sim-gas)</p>
+</div>
 
 Sound is a difference in air pressure that travels as a wave through compression and rarefaction.
 We could see this with the firecracker example because the explosion rapidly heated and expanded the air, creating a pressure wave on the boundary between the surrounding air and the hot air.
@@ -87,9 +94,10 @@ The Schlieren photography animation in Figure \@ref(fig:schlieren-wave) is more 
 
 (ref:schlieren-wave) [Animation](http://media.npr.org/assets/img/2014/01/21/speaker1.gif) of a continuous tone from a speaker in slow motion, captured by Schlieren photography. The resulting sound wave shows as lighter compression and darker rarefaction bands that radiate outward. Image © Mike Hargather. Linked with [permission from NPR](https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices).
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{downloadFigs4latex/schlieren-wave} \caption{(ref:schlieren-wave)}(\#fig:schlieren-wave)
-\end{figure}
+<div class="figure">
+<img src="downloadFigs4latex/schlieren-wave.jpg" alt="(ref:schlieren-wave)" width="100%" />
+<p class="caption">(\#fig:schlieren-wave)(ref:schlieren-wave)</p>
+</div>
 
 The rings in Figure \@ref(fig:schlieren-wave) represent compression (light) and rarefaction (dark) stages of the wave.
 It is important to understand that air molecules aren't moving from the speaker to the left side of the image.
@@ -107,9 +115,10 @@ This type of graph is commonly used to describe waves, so make sure you feel com
 (ref:sim-wave) [Simulation](https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2) of sound waves. Simulation by [PhET Interactive Simulations](https://phet.colorado.edu/), University of Colorado Boulder, licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
 
 <!-- The block parameters here are very sensitive; slight changes will cause undefined references in pdf (screenshot will appear but not be wrapped in figure) -->
-\begin{figure}
-\href{https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2}{\includegraphics[width=1\linewidth]{02-physics-perception_files/figure-latex/sim-wave-1} }\caption{(ref:sim-wave)}(\#fig:sim-wave)
-\end{figure}
+<div class="figure">
+<a href="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2" target="_blank"><img src="02-physics-perception_files/figure-epub3/sim-wave-1.png" alt="(ref:sim-wave)" width="100%" /></a>
+<p class="caption">(\#fig:sim-wave)(ref:sim-wave)</p>
+</div>
 
 Now that we've established what sound waves are, let's talk about some important physical  properties of sound waves and how we perceive those properties.
 Most of these properties directly align with the shape of a sound wave.
@@ -129,9 +138,10 @@ So the blue wave is .5 Hz and the yellow wave is 2 Hz.
 
 (ref:wavelength-frequency) Two waves overlaid on the same graph. The yellow wave completes its cycle 4 times in 2 seconds and the blue wave completes its cycle 1 time in 2 seconds, so the frequencies of the waves are 2 Hz and .5 Hz, respectively.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/wavelength-frequency} \caption{(ref:wavelength-frequency)}(\#fig:wavelength-frequency)
-\end{figure}
+<div class="figure">
+<img src="images/wavelength-frequency.PNG" alt="(ref:wavelength-frequency)" width="100%" />
+<p class="caption">(\#fig:wavelength-frequency)(ref:wavelength-frequency)</p>
+</div>
 
 <!-- graphics.off() -->
 <!-- png("sine.png", res = 300, width = 6, height = 4,units = 'in') -->
@@ -154,9 +164,10 @@ So for low frequencies, the pitches we perceive are closer together in frequency
 
 (ref:freq-pitch) Part of an 88 key piano keyboard with frequency of keys in Hz on each key. The corresponding note in musical notation and solfège is arranged above the keys. Zoom in on the image for more detail.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/tikz-keyboard-freq} \caption{(ref:freq-pitch)}(\#fig:freq-pitch)
-\end{figure}
+<div class="figure">
+<img src="images/tikz-keyboard-freq.png" alt="(ref:freq-pitch)" width="100%" />
+<p class="caption">(\#fig:freq-pitch)(ref:freq-pitch)</p>
+</div>
 
 Of course we experience pitch linearly, so the difference in pitch between the two keys in the far left is the same as the difference between the keys on the far right.
 We can make the relationship linear by taking the logarithm of the frequencies.
@@ -165,9 +176,10 @@ On the right side of Figure \@ref(fig:log-freq), we see the same piano keys, but
 It turns out that, in general, our perception is logarithmic in nature (this is sometimes called the [Weber-Fechner law](https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law)).
 Our logarithmic perception of pitch is just one example.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{02-physics-perception_files/figure-latex/log-freq-1} \caption{(ref:log-freq)}(\#fig:log-freq)
-\end{figure}
+<div class="figure">
+<img src="02-physics-perception_files/figure-epub3/log-freq-1.png" alt="(ref:log-freq)" width="100%" />
+<p class="caption">(\#fig:log-freq)(ref:log-freq)</p>
+</div>
 
 You might be wondering if there's point at which pitches are low enough that the notes run together!
 It seems the answer to this is that our ability to hear sound at all gives out before this happens.
@@ -194,9 +206,10 @@ It is perhaps not surprising that we perceive larger deviations (with correspond
 
 (ref:amplitude) Two waves overlaid on the same graph, with a dashed line marking the amplitude of each wave as the deviation from equilibrium.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/amplitude} \caption{(ref:amplitude)}(\#fig:amplitude)
-\end{figure}
+<div class="figure">
+<img src="images/amplitude.PNG" alt="(ref:amplitude)" width="100%" />
+<p class="caption">(\#fig:amplitude)(ref:amplitude)</p>
+</div>
 
 The relationship between amplitude and loudness is also nonlinear: we hear quiet sounds very well, and sounds must get a lot louder before we perceive them as being louder.
 In fact, the nonlinear relationship between amplitude and our perception of loudness is *even more extreme* than the relationship for frequency and pitch.
@@ -240,9 +253,10 @@ There are an unlimited number of waveshapes in principle, but in electronic musi
 
 (ref:four-waves) The four classic waveshapes in analogue electronic music. Image [© Omegatron/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Waveforms.svg).
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/Waveforms.svg} \caption{(ref:four-waves)}(\#fig:four-waves)
-\end{figure}
+<div class="figure">
+<img src="images/Waveforms.svg.png" alt="(ref:four-waves)" width="100%" />
+<p class="caption">(\#fig:four-waves)(ref:four-waves)</p>
+</div>
 
 Perhaps another reason for the widespread use of these waveshapes is that their sounds are rough approximations to real instrument sounds.
 As we discussed in Section \@ref(modular-synthesis), the development of electronic music has been strongly influenced by existing instruments.
@@ -264,9 +278,10 @@ We'll explore these dynamic differences in an upcoming section.
 (ref:basic-wave-table-sounds) [Sounds](https://olney.ai/ct-modular-book/images/basic-wave-sound-table.html) of the four classic waveshapes in electronic music, together with example instruments that make similar sounds.
 
 
-\begin{figure}
-\href{https://olney.ai/ct-modular-book/images/basic-wave-sound-table.html}{\includegraphics[width=1\linewidth]{02-physics-perception_files/figure-latex/basic-wave-table-sounds-1} }\caption{(ref:basic-wave-table-sounds)}(\#fig:basic-wave-table-sounds)
-\end{figure}
+<div class="figure">
+<a href="https://olney.ai/ct-modular-book/images/basic-wave-sound-table.html" target="_blank"><img src="02-physics-perception_files/figure-epub3/basic-wave-table-sounds-1.png" alt="(ref:basic-wave-table-sounds)" width="100%" /></a>
+<p class="caption">(\#fig:basic-wave-table-sounds)(ref:basic-wave-table-sounds)</p>
+</div>
 
 There is a variation of the square waveform that you will frequently encounter called the pulse wave.^[One could say the square wave is a special case of the pulse wave. Starting from the circuit or the mathematical definition will give you a different perspective on this; both are true from a certain point of view.]
 In a square wave, the wave is high and low 50% of the time.
@@ -278,9 +293,10 @@ Figure \@ref(fig:pulse-wave) shows a pulse wave across a range of duty cycles, i
 
 (ref:pulse-wave) [Animation](https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_duty_cycle_with_label.gif) of a pulse wave across a range of duty cycles. Note that 100% and 0% it ceases to be a wave. Image [public domain](https://commons.wikimedia.org/wiki/File:PWM_duty_cycle_with_label.gif).
 
-\begin{figure}
-\includegraphics[width=0.4\linewidth]{downloadFigs4latex/pulse-wave} \caption{(ref:pulse-wave)}(\#fig:pulse-wave)
-\end{figure}
+<div class="figure">
+<img src="downloadFigs4latex/pulse-wave.jpg" alt="(ref:pulse-wave)" width="40%" />
+<p class="caption">(\#fig:pulse-wave)(ref:pulse-wave)</p>
+</div>
 
 There are multiple ways of creating waveshapes beyond the four discussed so far.
 One way is to combine waveshapes together.
@@ -301,9 +317,10 @@ When the phase-aligned amplitudes are positive, the amplitude of the resulting w
 
 (ref:interference) Constructive (left) and destructive interference (right). For these matched sine waves, being perfectly in phase or out of phase causes the resulting wave amplitude to be either double or zero, respectively.  Image [© Haade; Wjh31; Quibik/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:Interference_of_two_waves.svg).
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/1024px-Interference_of_two_waves.svg} \caption{(ref:interference)}(\#fig:interference)
-\end{figure}
+<div class="figure">
+<img src="images/1024px-Interference_of_two_waves.svg.png" alt="(ref:interference)" width="100%" />
+<p class="caption">(\#fig:interference)(ref:interference)</p>
+</div>
 
 Destructive interference is the principle behind [noise cancelling headphones](https://en.wikipedia.org/wiki/Active_noise_control), which produce a sound within the headphones to cancel out the background noise outside the headphones.
 Figure \@ref(fig:interference) shows how this can be done with with a sine wave using an identical, but perfectly out of phase sine wave.
@@ -315,9 +332,10 @@ However, the sawtooth wave just doesn't match up the same way, as shown in Figur
 
 (ref:saw-phase) [Animation](https://olney.ai/ct-modular-book/images/saw-phase.gif) of interference from a perfectly out of phase saw wave (yellow) combined with the original wave (blue). The resulting wave (green) has non-zero amplitude because the out of phase wave does not have opposite amplitude to the original wave at all locations. Dotted lines indicate the positions of the original waves.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{downloadFigs4latex/saw-phase} \caption{(ref:saw-phase)}(\#fig:saw-phase)
-\end{figure}
+<div class="figure">
+<img src="downloadFigs4latex/saw-phase.jpg" alt="(ref:saw-phase)" width="100%" />
+<p class="caption">(\#fig:saw-phase)(ref:saw-phase)</p>
+</div>
 
 
 <!-- source for making animated gif; each file made separately and combined with -->

@@ -23,7 +23,10 @@ Listen to the theme in Figure \@ref(fig:stranger-things-theme) to see if you can
 
 (ref:stranger-things-theme) [YouTube video](https://youtu.be/-RcPZdihrp4) of the *Stranger Things* theme song. Image [© Netflix](https://www.youtube.com/c/strangerthings).
 
-![(\#fig:stranger-things-theme)(ref:stranger-things-theme)](downloadFigs4latex/stranger-things-theme.jpg) 
+<div class="figure">
+<img src="downloadFigs4latex/stranger-things-theme.jpg" alt="(ref:stranger-things-theme)"  />
+<p class="caption">(\#fig:stranger-things-theme)(ref:stranger-things-theme)</p>
+</div>
 
 To me, it starts off a bit dull, like a sine or triangle, then gets brighter around 15 seconds, duller again around 30 seconds, and has a quick run up to brightness around 50 seconds.
 The brightness suggests that the waveshape is either saw or square.
@@ -40,9 +43,10 @@ Figure \@ref(fig:stranger-things-theme-frequency-audacity-7-top-4096) shows the 
 
 (ref:stranger-things-theme-frequency-audacity-7-top-4096) Frequency spectrum of a single note from the *Stranger Things* theme arpeggio.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/stranger-things-theme-frequency-audacity-7-top-4096} \caption{(ref:stranger-things-theme-frequency-audacity-7-top-4096)}(\#fig:stranger-things-theme-frequency-audacity-7-top-4096)
-\end{figure}
+<div class="figure">
+<img src="images/stranger-things-theme-frequency-audacity-7-top-4096.png" alt="(ref:stranger-things-theme-frequency-audacity-7-top-4096)" width="100%" />
+<p class="caption">(\#fig:stranger-things-theme-frequency-audacity-7-top-4096)(ref:stranger-things-theme-frequency-audacity-7-top-4096)</p>
+</div>
 
 
 Characteristics of the frequency peaks are shown in Table \@ref(tab:stranger-things-ref-peaks), including the harmonic ratio of each peak with the fundamental.
@@ -83,9 +87,10 @@ Because the current spectrum analyzers available in Rack are too noisy to closel
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:st-square40-square82)}(\#fig:st-square40-square82)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:st-square40-square82)" width="100%" />
+<p class="caption">(\#fig:st-square40-square82)(ref:st-square40-square82)</p>
+</div>
 
 Figure \@ref(fig:stranger-things-two-squares-and-saw-square-mixed-to-match-sample7) shows the frequency spectrum of the two square waves and the saw plus square wave model. 
 In both cases, the first three harmonics approximately match the target spectrum in Figure \@ref(fig:stranger-things-theme-frequency-audacity-7-top-4096), but they diverge on the 4th harmonic.
@@ -95,9 +100,10 @@ Try adding PWM to the 82 Hz square wave in both models to match the target spect
 
 (ref:stranger-things-two-squares-and-saw-square-mixed-to-match-sample7) Frequency spectrum of two square waves (upper) and a saw and square wave (lower) at 40 and 82 Hz, respectively.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/stranger-things-two-squares-and-saw-square-mixed-to-match-sample7} \caption{(ref:stranger-things-two-squares-and-saw-square-mixed-to-match-sample7)}(\#fig:stranger-things-two-squares-and-saw-square-mixed-to-match-sample7)
-\end{figure}
+<div class="figure">
+<img src="images/stranger-things-two-squares-and-saw-square-mixed-to-match-sample7.png" alt="(ref:stranger-things-two-squares-and-saw-square-mixed-to-match-sample7)" width="100%" />
+<p class="caption">(\#fig:stranger-things-two-squares-and-saw-square-mixed-to-match-sample7)(ref:stranger-things-two-squares-and-saw-square-mixed-to-match-sample7)</p>
+</div>
 
 
 (ref:st-square40-square82at36pwm) [Virtual modular](https://cardinal.olney.ai) for assessing whether two square waves or a saw and a square wave are a closer match for the target spectrum, when PWM is applied to the higher frequency square wave.
@@ -106,9 +112,10 @@ Try adding PWM to the 82 Hz square wave in both models to match the target spect
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:st-square40-square82at36pwm)}(\#fig:st-square40-square82at36pwm)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:st-square40-square82at36pwm)" width="100%" />
+<p class="caption">(\#fig:st-square40-square82at36pwm)(ref:st-square40-square82at36pwm)</p>
+</div>
 
 Figure \@ref(fig:stranger-things-square40-square82at36pwm-mixed-to-match-sample7) shows the effect of PWM on the 82 Hz square wave.
 In both cases, the 4th harmonic got boosted but not enough to match the target spectrum in Figure \@ref(fig:stranger-things-theme-frequency-audacity-7-top-4096).
@@ -119,9 +126,10 @@ Try adding an additional square VCO at 164 Hz square wave in both models to matc
 
 (ref:stranger-things-square40-square82at36pwm-mixed-to-match-sample7) Frequency spectrum of two square waves (upper) and a saw and square wave (lower) at 40 and 82 Hz, respectively, when the 82 Hz wave is pulse width modulated with a 36% duty cycle.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/stranger-things-square40-square82at36pwm-mixed-to-match-sample7} \caption{(ref:stranger-things-square40-square82at36pwm-mixed-to-match-sample7)}(\#fig:stranger-things-square40-square82at36pwm-mixed-to-match-sample7)
-\end{figure}
+<div class="figure">
+<img src="images/stranger-things-square40-square82at36pwm-mixed-to-match-sample7.png" alt="(ref:stranger-things-square40-square82at36pwm-mixed-to-match-sample7)" width="100%" />
+<p class="caption">(\#fig:stranger-things-square40-square82at36pwm-mixed-to-match-sample7)(ref:stranger-things-square40-square82at36pwm-mixed-to-match-sample7)</p>
+</div>
 
 (ref:st-square40-square82at36pwm-square164) [Virtual modular](https://cardinal.olney.ai) for assessing whether two square waves or a saw and a square wave, both with PWM applied to the higher frequency square wave, are a closer match for the target spectrum when an additional square wave is added at the 4th harmonic.
 
@@ -129,9 +137,10 @@ Try adding an additional square VCO at 164 Hz square wave in both models to matc
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:st-square40-square82at36pwm-square164)}(\#fig:st-square40-square82at36pwm-square164)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:st-square40-square82at36pwm-square164)" width="100%" />
+<p class="caption">(\#fig:st-square40-square82at36pwm-square164)(ref:st-square40-square82at36pwm-square164)</p>
+</div>
 
 
 Figure \@ref(fig:stranger-things-square40-square82at36pwm-square164-mixed-to-match-sample7) shows the effect of the new 164 Hz square wave.
@@ -140,9 +149,10 @@ Choosing between them is therefore somewhat subjective, but the all square wave 
 
 (ref:stranger-things-square40-square82at36pwm-square164-mixed-to-match-sample7) Frequency spectrum of three square waves (upper) and a saw with two square waves (lower) at 40, 82, and 164 Hz, respectively, when the 82 Hz wave is pulse width modulated with a 36% duty cycle.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/stranger-things-square40-square82at36pwm-square164-mixed-to-match-sample7} \caption{(ref:stranger-things-square40-square82at36pwm-square164-mixed-to-match-sample7)}(\#fig:stranger-things-square40-square82at36pwm-square164-mixed-to-match-sample7)
-\end{figure}
+<div class="figure">
+<img src="images/stranger-things-square40-square82at36pwm-square164-mixed-to-match-sample7.png" alt="(ref:stranger-things-square40-square82at36pwm-square164-mixed-to-match-sample7)" width="100%" />
+<p class="caption">(\#fig:stranger-things-square40-square82at36pwm-square164-mixed-to-match-sample7)(ref:stranger-things-square40-square82at36pwm-square164-mixed-to-match-sample7)</p>
+</div>
 
 ### Dynamics
 
@@ -165,9 +175,10 @@ The arpeggio plays up and down over a broken C major 7th chord: low C, E, G, B, 
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:st-seq-arp-no-modulated-dynamics)}(\#fig:st-seq-arp-no-modulated-dynamics)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:st-seq-arp-no-modulated-dynamics)" width="100%" />
+<p class="caption">(\#fig:st-seq-arp-no-modulated-dynamics)(ref:st-seq-arp-no-modulated-dynamics)</p>
+</div>
 
 Now we can add dynamics to the patch as previously discussed.
 Try adding a VCF and an LFO to control both the VCF and the ADSR  using the button in Figure \@ref(fig:st-seq-arp-plus-dynamics).
@@ -180,9 +191,10 @@ Deciding the VCF and ADSR's setpoints and just how much the LFO will affect them
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:st-seq-arp-plus-dynamics)}(\#fig:st-seq-arp-plus-dynamics)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:st-seq-arp-plus-dynamics)" width="100%" />
+<p class="caption">(\#fig:st-seq-arp-plus-dynamics)(ref:st-seq-arp-plus-dynamics)</p>
+</div>
 
 Altogether the solution seems fairly reasonable, though since the waveshapes were based on a sample of the the spectrum in a particular part of the overall cycle, it could be that the lowest square wave should be a saw in order to sound correct as the filter cutoff cycles up and down.
 Other possibilities in our current design space include a slight detuning between square waves that changes over time or PWM that changes over time.
@@ -197,7 +209,10 @@ If you are not familiar with chiptune, check out the video in Figure \@ref(fig:c
 
 (ref:chiptune-video) [YouTube video](https://youtu.be/NfxArPJpN5I) of a chiptune groove.  Image [© Noise Engineering](https://www.youtube.com/c/NoiseEngineering).
 
-![(\#fig:chiptune-video)(ref:chiptune-video)](downloadFigs4latex/chiptune-video.jpg) 
+<div class="figure">
+<img src="downloadFigs4latex/chiptune-video.jpg" alt="(ref:chiptune-video)"  />
+<p class="caption">(\#fig:chiptune-video)(ref:chiptune-video)</p>
+</div>
 
 Our design problem is to create a rapid arpeggio reminiscent of chiptune that transposes over time, like Figure \@ref(fig:chiptune-video), along with simple percussion in the form of hats and kick drum.
 Let's use a decomposition strategy and look at related problems along the way, using the following sequence:
@@ -224,9 +239,10 @@ Try patching up this arpgeggio from scratch using the button in Figure \@ref(fig
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:chiptune-single-arp)}(\#fig:chiptune-single-arp)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:chiptune-single-arp)" width="100%" />
+<p class="caption">(\#fig:chiptune-single-arp)(ref:chiptune-single-arp)</p>
+</div>
 
 ### LFO PWM
 
@@ -240,9 +256,10 @@ Try patching up the LFO into a PWM and ADSR using the button in Figure \@ref(fig
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:chiptune-single-arp-pwm)}(\#fig:chiptune-single-arp-pwm)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:chiptune-single-arp-pwm)" width="100%" />
+<p class="caption">(\#fig:chiptune-single-arp-pwm)(ref:chiptune-single-arp-pwm)</p>
+</div>
 
 ### Secondary sequencer for transposition
 
@@ -260,7 +277,10 @@ Try patching up the transposing sequencer and mixer using the button in Figure \
 
 (ref:two-sequencers-mixed) [YouTube video](https://youtu.be/BlHnw4rgUEc) of a slow-motion arpeggio (left) voltage mixed with the output of another sequencer (middle) to produce a transposed arpgeggio that changes with each bar (right).
 
-![(\#fig:two-sequencers-mixed)(ref:two-sequencers-mixed)](downloadFigs4latex/two-sequencers-mixed.jpg) 
+<div class="figure">
+<img src="downloadFigs4latex/two-sequencers-mixed.jpg" alt="(ref:two-sequencers-mixed)"  />
+<p class="caption">(\#fig:two-sequencers-mixed)(ref:two-sequencers-mixed)</p>
+</div>
 
 (ref:chiptune-single-arp-pwm-transpose) [Virtual modular](https://cardinal.olney.ai) for setting up an enveloped chiptune arpeggio with pulse width modulated by an LFO, transposed by a second sequencer every bar.
 
@@ -268,9 +288,10 @@ Try patching up the transposing sequencer and mixer using the button in Figure \
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:chiptune-single-arp-pwm-transpose)}(\#fig:chiptune-single-arp-pwm-transpose)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:chiptune-single-arp-pwm-transpose)" width="100%" />
+<p class="caption">(\#fig:chiptune-single-arp-pwm-transpose)(ref:chiptune-single-arp-pwm-transpose)</p>
+</div>
 
 ### Hats and kick
 
@@ -286,8 +307,9 @@ Try patching up hats and kick with their own sequencers using the button in Figu
 
 
 <!-- CAPTION BLOCK -->
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/launch-virtual-modular-button} \caption{(ref:chiptune-single-arp-pwm-transpose-hats-kick)}(\#fig:chiptune-single-arp-pwm-transpose-hats-kick)
-\end{figure}
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:chiptune-single-arp-pwm-transpose-hats-kick)" width="100%" />
+<p class="caption">(\#fig:chiptune-single-arp-pwm-transpose-hats-kick)(ref:chiptune-single-arp-pwm-transpose-hats-kick)</p>
+</div>
 
 
