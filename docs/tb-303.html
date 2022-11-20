@@ -107,7 +107,7 @@ Thus the problem is not only about recreating a particular sound but also involv
 </h2>
 <p>The <a href="https://en.wikipedia.org/wiki/Roland_TB-303">TB-303</a> (hereafter 303; see Figure <a href="tb-303.html#fig:303">13.1</a>), was released in 1981 and withdrawn in 1984 as a commercial failure.
 The original purpose of the 303 was to replace a bass guitar in much the same way a drum machine like the <a href="https://en.wikipedia.org/wiki/Roland_TR-808">TR-808</a> was meant to replace drums.
-With its 92-page instruction manual, the 303 was widely considered as difficult to use, which together with a $1300 price tag<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;In 2022 dollars.&lt;/p&gt;"><sup>96</sup></a>, likely led to its demise.</p>
+The 303 was widely considered as difficult to use, which together with a $1300 price tag<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;In 2022 dollars.&lt;/p&gt;"><sup>96</sup></a>, likely led to its demise.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:303"></span>
@@ -122,8 +122,8 @@ While the 303 was designed for bass guitar sounds, which are a common element of
 The 303 sequencer stored pitch and time information separately, and each of these were entered using separate modes.
 As a result, it was not possible to edit the complete sequence in real time, i.e. during performance.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;It is possible to &lt;a href="https://tinyloops.com/tb303/quick_results.html#02"&gt;live-play&lt;/a&gt; the 303 and &lt;a href="https://tinyloops.com/tb303/quick_results.html#07"&gt;switch between tracks&lt;/a&gt;, but this is not the same as editing a running sequence.&lt;/p&gt;'><sup>98</sup></a>
 However, it was very easy to change the timbre of an existing sequence using various parameter knobs (mostly across the top in Figure <a href="tb-303.html#fig:303">13.1</a>).
-The combined difficulty of imputing note sequences and the ease of using parameter knobs to sculpt timbres led early acid house pioneers to focus on the later.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/" class="uri"&gt;https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>
-Thus repeating sequences with shifting timbres became a defining feature of acid house, as shown the early example in Figure <a href="tb-303.html#fig:acid-tracks">13.2</a>.</p>
+The combined difficulty of sequencing and the ease of using parameter knobs to sculpt timbres led early acid house pioneers to focus on the later.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/" class="uri"&gt;https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>
+Thus repeating sequences with shifting timbres became a defining feature of acid house, as shown by the early example in Figure <a href="tb-303.html#fig:acid-tracks">13.2</a>.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:acid-tracks"></span>
@@ -138,7 +138,7 @@ Figure 13.2: <a href="https://en.wikipedia.org/wiki/Acid_Tracks"><em>Acid Tracks
 <h2>
 <span class="header-section-number">13.2</span> Problem solving approach<a class="anchor" aria-label="anchor" href="#problem-solving-approach"><i class="fas fa-link"></i></a>
 </h2>
-<p>The problem solving stages elaborated for sound design in Chapter <a href="designing-a-kick-drum.html#designing-a-kick-drum">8</a> mostly apply to emulating a 303 but with some slight variation because the current goal is create a specific sound by emulating the key features of a 303.
+<p>The problem solving stages elaborated for sound design in Chapter <a href="designing-a-kick-drum.html#designing-a-kick-drum">8</a> mostly apply to emulating a 303 but with some slight variation given the goal of creating a specific sound by emulating the key features of a 303.
 Recall the problem solving stages are:</p>
 <ul>
 <li>Understand the problem</li>
@@ -150,7 +150,7 @@ Recall the problem solving stages are:</p>
 According to Robin Whittle, developer of the Devil Fish 303 mod, the most important aspects of the 303 sound are its sequencer, filter, filter envelope, and the oscillator to a minor extent.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Most information is on Robin’s &lt;a href="https://www.firstpr.com.au/rwi/dfish/index.html"&gt;main website&lt;/a&gt; including the Devil Fish manual. Additional information is on the &lt;a href="http://www.retrosynth.com/ah/"&gt;Analogue Heaven mailing list&lt;/a&gt;.&lt;/p&gt;'><sup>100</sup></a></p>
 <p>For the making a plan stage, Whittle’s observations suggest a plan based around decomposition, namely that the 303 can be considered as a collection of modules.
 Any 303 function that is generic can be satisfied with generic modules, while the functions contributing to the 303’s distinctive sound can be addressed independently as subproblems.
-Figure <a href="tb-303.html#fig:tb303-annotated">13.3</a> shows how the 303 interface is loosely organized around modular concepts like oscillators, filters, and envelopes and further supports an overall decomposition strategy for emulating a 303 in modular.</p>
+Figure <a href="tb-303.html#fig:tb303-annotated">13.3</a> shows how the 303 interface is loosely organized around modular concepts like oscillators, filters, and envelopes, further supporting an overall decomposition strategy for emulating a 303 in modular.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:tb303-annotated"></span>
@@ -163,7 +163,7 @@ A simple and straightforward evaluation criterion is to use a well-known song wi
 Ideally, the 303 line should be easy to sequence and easy to listen to repeatedly throughout our design process.
 <em>Da Funk</em> by Daft Punk seems suitable for this purpose (<a href="https://youtu.be/PwILkY9gRrc?t=145">listen here</a>).
 Another source of evaluation material has been provided by Din Sync, whose <a href="http://www.dinsync.info/2010/02/tb-303-reference-recordings-for-x0xb0x.html">reference recordings of a 303</a> systematically map the sound of a C note across 303 knob positions.
-The Din Sync materials are particularly useful for isolating parameters of the 303 as an instrument, which is very difficult to do from a live performance.
+The Din Sync materials are useful for isolating parameters of the 303 as an instrument, which is very difficult to do from a live performance.
 A 1-10 scale for both criteria seem appropriate at first glance.
 Using these materials, we can address the subproblems of sequencing, oscillators, filter, and envelopes independently using the same four problem solving stages.</p>
 <p>The evaluation stage, which we will cycle through iteratively, will use the <em>Da Funk</em> evaluation to determine overall success.
@@ -184,31 +184,33 @@ For now, think of the accent as producing a slightly louder note, and a slide as
 According to Whittle, the accent and slide are the two components of the sequencer that are the most important to the overall sound of a 303.</p>
 <p>Figure <a href="tb-303.html#fig:tb303-slide">13.4</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Adapted from &lt;a href="https://www.firstpr.com.au/rwi/dfish/303-slide.html" class="uri"&gt;https://www.firstpr.com.au/rwi/dfish/303-slide.html&lt;/a&gt;.&lt;/p&gt;'><sup>102</sup></a> shows an example 303 clock and gate pattern modified by a slide.
 Each step in the example has a different note and is represented by a clock color.
-Gates for a single 16th note only extend less than a full step’s worth of clock pulses, specifically three pulses and the positive portion of the fourth pulse.
+Gates for a single 16th note extend less than a full step’s worth of clock pulses, specifically three pulses and the positive portion of the fourth pulse.
 Short gates relative to steps give the 303 its staccato note feel.
-Slides, in contrast to gates, extend the entire step on which they are placed.
-In the example, a slide has been placed on the red note, causing its gate to extend through the blue note’s gate.
-The the red note begins its slide into the blue note when the blue note starts, and the slide circuit stays on until the purple note.
-Accents (not shown) are in time with the gates, and the gates control the envelopes receiving the accents.
-My understanding is that continuing the previous note creates the same gate extension as using a slide.</p>
+Extended gates, in contrast to regular gates, extend through the step on which they are placed and into the next step.
+In the example’s second row, a slide has been placed on the red note, causing its gate to extend through the blue note’s gate.
+Regular gates and extended gates control the envelopes for the filter and volume.
+In addition to these gates, slide gates control the portamento from one note to the next.
+In the example’s third row, the red note begins its slide into the blue note when the blue note starts, and the slide circuit stays on until the purple note.
+Accents (not shown) are in time with the gates and further affect the filter and volume envelopes.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:tb303-slide"></span>
-<img src="images/303-slide.PNG" alt="Clock, gate, and slide behavior of a 303 for four notes across four steps, indicated by different colors on the clock pulses. Note the gates are shorter than a step, but the slide extends for the entire step." width="80%"><p class="caption">
-Figure 13.4: Clock, gate, and slide behavior of a 303 for four notes across four steps, indicated by different colors on the clock pulses. Note the gates are shorter than a step, but the slide extends for the entire step.
+<img src="images/303-slide.PNG" alt="Clock, gate, and slide behavior of a 303 for four notes across four steps, indicated by different colors on the clock pulses. Note the gates are shorter than a step, gates can be extended across steps, and slide gates extend across an entire step." width="80%"><p class="caption">
+Figure 13.4: Clock, gate, and slide behavior of a 303 for four notes across four steps, indicated by different colors on the clock pulses. Note the gates are shorter than a step, gates can be extended across steps, and slide gates extend across an entire step.
 </p>
 </div>
 <p>Based on the above description, any solution to the 303 sequencer problem will need to somehow represent the following:</p>
 <ul>
 <li>Notes and rests</li>
-<li>Variable length gates in response to slides and step continuations</li>
-<li>Presence of accents and slides</li>
+<li>Gates spanning steps in response to slides and extended steps</li>
+<li>Gates to control slide</li>
+<li>Presence of accents</li>
 </ul>
 <p>To make a plan, let’s consider some of our previous sequencing approaches from Chapter <a href="complex-controllers.html#complex-controllers">10</a>.
 First, clocks alone are clearly insufficient because sometimes we need rests.
 We could accomplish rests using clock divisions and logic, but the variable length of notes and rests in the 303 would seem to make that approach very complicated, even if it is possible.
 The two remaining obvious choices are modifying gates and using an LFO as a speed variable clock.
-In the modifying gates approach, we’d zero out gate lengths to make rests and arbitrarily extend gate lengths for continued notes/slides and rests.
+In the modifying gates approach, we could trigger gates on steps with notes and arbitrarily extend gate lengths for continued notes/slides and rests.
 In the LFO clock approach, an LFO would be synced by a clock, and we’d increase/decrease the speed of the clock to change gate duration.
 Comparing these two approaches with the sequencing needs of the 303, it seems that the speed variable clock has capabilities that aren’t needed here, like adding multiple beats, e.g. subdividing 1/16th notes.
 For the goal of emulating 303 sequencing, the modifying gates approach seems like it will accomplish the goals of variable length gates and rests with a minimum of complexity.</p>
@@ -217,10 +219,8 @@ This presence/absence flavor suggests that these elements are best represented u
 Because the 303 forces 16th notes in 16 steps as the minimal resolution, we are not sacrificing flexibility by using triggger sequencers in this case.
 Altogether, this suggests one control voltage sequencer for pitch and four trigger sequencers for note/rest, accents, slides, and extended gate.
 The pitch sequencing in this approach is handling three functions on the 303: defining a note, up transpositions, and down transpositions.
-Try patching up <em>Da Funk</em> using a 16 step control voltage sequencer with some other placeholder modules to generate sound using the button in Figure .
+Try patching up <em>Da Funk</em> using a 16 step control voltage sequencer with some other placeholder modules to generate sound using the button in Figure <a href="tb-303.html#fig:tb303-seq">13.5</a>.
 The notation for the sequence is provided in the patch instructions.</p>
-<p>Sequencer (with basic voice: oscillator/distortion)</p>
-<p>Figure <a href="tb-303.html#fig:tb303-seq">13.5</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -240,52 +240,56 @@ The notation for the sequence is provided in the patch instructions.</p>
         <!-- <h5 class="modal-title" id="tb303_seqLabel">Modal title</h5> -->
         <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
-&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;li&gt;Add BPM Clock, ADDR-SEQ, ASX immediately to the right of ADDR-SEQ, four TRG, JW Quantizer, Four-View, VCO, SuperDrive, and Host Audio&lt;/li&gt;
+&lt;li&gt;Connect the Clock reset out to each of the sequencers. In general, you will need to hit reset on every patch that loads because they will not load in sync by default&lt;/li&gt;
+&lt;li&gt;Connect Clock 16ths out to each of the sequencers&lt;/li&gt;
+&lt;li&gt;Connect ADDR-SEQ out to the V/Oct in of the Quantizer&lt;/li&gt;
+&lt;li&gt;Connect the Quantizer out to the first input of the Four-View and the VCO V/Oct in. The Four-View will show the note corresponding to the voltage received from the Quantizer&lt;/li&gt;
+&lt;li&gt;Connect the VCO saw to the SuperDrive in. The SuperDrive is a distortion module that technically isn't part of the 303, but was a common effect applied to 303 sounds (including in Da Funk). The bypass button allows the dry sound to pass through, which is convenient in testing&lt;/li&gt;
+&lt;li&gt;Connect the SuperDrive out to the Host Audio L &lt;/li&gt;
+&lt;li&gt;Program the sequencers as specified below&lt;ul&gt;
+&lt;li&gt;Set the Quantizer to G Locrian with Octave shift -2. &lt;/li&gt;
+&lt;li&gt;Dial in each note of ADDR-SEQ, noting that ASX adds notes 9-16. The first note should be G2. The down notes are X1 and the up notes are X3&lt;/li&gt;
+&lt;li&gt;Enter the steps for each trigger sequencer. The order of sequencers is PRASE: pitch, rest, accent, slide, extend. Each TRG should have 16 steps. All steps for the rest TRG should be active (rests are empty). For Da Funk, all steps for extend should be empty&lt;/li&gt;
+&lt;li&gt;Listen to the song periodically as you enter steps. This should help you catch mistakes&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class='d-flex flex-row justify-content-around'&gt;
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/asx-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/fourview-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/superdrive-solo.png'&gt;
+&lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq.png'&gt;">Solution</button> -->
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
-&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;li&gt;Add BPM Clock, ADDR-SEQ, ASX immediately to the right of ADDR-SEQ, four TRG, JW Quantizer, Four-View, VCO, SuperDrive, and Host Audio&lt;/li&gt;
+&lt;li&gt;Connect the Clock reset out to each of the sequencers. In general, you will need to hit reset on every patch that loads because they will not load in sync by default&lt;/li&gt;
+&lt;li&gt;Connect Clock 16ths out to each of the sequencers&lt;/li&gt;
+&lt;li&gt;Connect ADDR-SEQ out to the V/Oct in of the Quantizer&lt;/li&gt;
+&lt;li&gt;Connect the Quantizer out to the first input of the Four-View and the VCO V/Oct in. The Four-View will show the note corresponding to the voltage received from the Quantizer&lt;/li&gt;
+&lt;li&gt;Connect the VCO saw to the SuperDrive in. The SuperDrive is a distortion module that technically isn't part of the 303, but was a common effect applied to 303 sounds (including in Da Funk). The bypass button allows the dry sound to pass through, which is convenient in testing&lt;/li&gt;
+&lt;li&gt;Connect the SuperDrive out to the Host Audio L &lt;/li&gt;
+&lt;li&gt;Program the sequencers as specified below&lt;ul&gt;
+&lt;li&gt;Set the Quantizer to G Locrian with Octave shift -2. &lt;/li&gt;
+&lt;li&gt;Dial in each note of ADDR-SEQ, noting that ASX adds notes 9-16. The first note should be G2. The down notes are X1 and the up notes are X3&lt;/li&gt;
+&lt;li&gt;Enter the steps for each trigger sequencer. The order of sequencers is PRASE: pitch, rest, accent, slide, extend. Each TRG should have 16 steps. All steps for the rest TRG should be active (rests are empty). For Da Funk, all steps for extend should be empty&lt;/li&gt;
+&lt;li&gt;Listen to the song periodically as you enter steps. This should help you catch mistakes&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class='d-flex flex-row justify-content-around'&gt;
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/asx-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/fourview-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/superdrive-solo.png'&gt;
+&lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq.png'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq.png'&gt;">Solution</button>
         <button type="button" onclick="settb303_seqIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -326,11 +330,15 @@ function settb303_seqIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:tb303-seq"></span>
 <p class="caption">
-Figure 13.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-seq
+Figure 13.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for a 303-style sequencer.
 </p>
 </div>
-<p>Gate extender</p>
-<p>Figure <a href="tb-303.html#fig:tb303-seq-extendgate">13.6</a>.</p>
+<p>At this point, the song should be somewhat recognizable but also recognizably not right.
+The 16th note gates generated by the clock are the right length for the 303’s regular gates, but 9/16 of the steps have slides, and these should be implemented as extended gates and not short gates.
+Extended gates should happen either when a step has been marked as a slide gate or when it has been marked as an extended gate.
+Additionally, the extended gate should only occur when the step has a note.
+The flavor of these conditions suggest logic should be used to decide when an extended gate should fire.
+Try extending the last patch by adding logic to trigger extended gates and then tune those gates to the correct length using the button in Figure <a href="tb-303.html#fig:tb303-seq-extendgate">13.6</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -350,52 +358,44 @@ Figure 13.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-s
         <!-- <h5 class="modal-title" id="tb303_seq_extendgateLabel">Modal title</h5> -->
         <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
-&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
+&lt;li&gt;On the row below, add dualOR, dualAND, DGATE, filtah, and Scope&lt;/li&gt;
+&lt;li&gt;Connect the TRG slide out and extended out to dualOR inputs 1 and 2. The dualOR will be high when either of these gates is active&lt;/li&gt;
+&lt;li&gt;Connect the dualOR out to dualAND input 1 and TRG rest out to dualAND input 2. The dualAND will be high when it receives a gate from either slide or extend and simultaneously receives a gate from the active step&lt;/li&gt;
+&lt;li&gt;Connect dualAND out to DGATE trigger in and DGATE gate out to Scope in 1&lt;/li&gt;
+&lt;li&gt;Connect TRG rest out to Scope in 2&lt;/li&gt;
+&lt;li&gt;Listen to the song and make the following adjustments on the Scope&lt;ul&gt;
+&lt;li&gt;The default gate length is 1s. Reduce it until the length spans the high/low of a gate and the high of the next gate. Note this is tempo-driven, so a change in tempo will require recallibration&lt;/li&gt;
+&lt;li&gt;Note that the extended gate sometimes has a downward line in the middle. This is because multiple gates are overlapping, which we expect because the TRG slide sometimes has multiple steps in a row. To fix this, we need to run the extended gate through a LPF to slow the control voltage enough to remove these downward transitions, which otherwise would trigger an envelope&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Connect filtah in between DGATE and the Scope and turn the cutoff down until the downward transitions disappear&lt;/li&gt;
+&lt;li&gt;Add ADSR and VCA to the right of the VCO&lt;/li&gt;
+&lt;li&gt;Connect the VCO saw out to the VCA in&lt;/li&gt;
+&lt;li&gt;Connect the ADSR out to the VCA CV in&lt;/li&gt;
+&lt;li&gt;Connect the VCA out to the SuperDrive in&lt;/li&gt;
+&lt;li&gt;Connect filtah out to ADSR gate in and listen to the song&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
-&lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate.png'&gt;">Solution</button> -->
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
-&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
+&lt;li&gt;On the row below, add dualOR, dualAND, DGATE, filtah, and Scope&lt;/li&gt;
+&lt;li&gt;Connect the TRG slide out and extended out to dualOR inputs 1 and 2. The dualOR will be high when either of these gates is active&lt;/li&gt;
+&lt;li&gt;Connect the dualOR out to dualAND input 1 and TRG rest out to dualAND input 2. The dualAND will be high when it receives a gate from either slide or extend and simultaneously receives a gate from the active step&lt;/li&gt;
+&lt;li&gt;Connect dualAND out to DGATE trigger in and DGATE gate out to Scope in 1&lt;/li&gt;
+&lt;li&gt;Connect TRG rest out to Scope in 2&lt;/li&gt;
+&lt;li&gt;Listen to the song and make the following adjustments on the Scope&lt;ul&gt;
+&lt;li&gt;The default gate length is 1s. Reduce it until the length spans the high/low of a gate and the high of the next gate. Note this is tempo-driven, so a change in tempo will require recallibration&lt;/li&gt;
+&lt;li&gt;Note that the extended gate sometimes has a downward line in the middle. This is because multiple gates are overlapping, which we expect because the TRG slide sometimes has multiple steps in a row. To fix this, we need to run the extended gate through a LPF to slow the control voltage enough to remove these downward transitions, which otherwise would trigger an envelope&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Connect filtah in between DGATE and the Scope and turn the cutoff down until the downward transitions disappear&lt;/li&gt;
+&lt;li&gt;Add ADSR and VCA to the right of the VCO&lt;/li&gt;
+&lt;li&gt;Connect the VCO saw out to the VCA in&lt;/li&gt;
+&lt;li&gt;Connect the ADSR out to the VCA CV in&lt;/li&gt;
+&lt;li&gt;Connect the VCA out to the SuperDrive in&lt;/li&gt;
+&lt;li&gt;Connect filtah out to ADSR gate in and listen to the song&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
-&lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate.png'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate.png'&gt;">Solution</button>
         <button type="button" onclick="settb303_seq_extendgateIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -436,11 +436,21 @@ function settb303_seq_extendgateIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:tb303-seq-extendgate"></span>
 <p class="caption">
-Figure 13.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-seq-extendgate
+Figure 13.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for extending the 303 patch with extended gates.
 </p>
 </div>
-<p>Regular gate</p>
-<p>Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate">13.7</a>.</p>
+<p>The song may sound more correct now but flawed in a different way.
+This is because the last patch replaced all gates with extended gates.
+Since a few gates are regular gates, they are currently not being generated.
+Ideally, we’d use logic to define the length of the gate to generate and use the same mechanism to generate both regular and extended gates.
+Unfortunately, the module being used to generate extended gates does not accept CV to control gate length.
+As a result, we need two sources of gates and to send gates from both sources to the ADSR.
+One option would be to use a sequential switch that accepted the gates from both sources and then selected one to send through using logic.
+This would require several additional modules.
+A simpler approach is to use a mixer to mix extended gates and regular gates from the step/rest sequencer.
+This creates lumpy gates, but envelopes generally only pay attention to the rising and falling edges of a gate, so the lumpiness often won’t matter.
+Try extending the last patch by mixing in regular gates using the button in Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate">13.7</a>.
+We’ll throw in some logic to show that the logic doesn’t actually matter.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -460,52 +470,44 @@ Figure 13.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-s
         <!-- <h5 class="modal-title" id="tb303_seq_extendgate_reggateLabel">Modal title</h5> -->
         <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
-&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;li&gt;Let's start with the assumption that logic is needed to solve this problem&lt;/li&gt;
+&lt;li&gt;Add dualOR, dualNOT, dualAND, and QuadVCA/Mixer to the bottom row&lt;/li&gt;
+&lt;li&gt;Connect TRG slide and extend outs to the dualOR like the last patch. The dualOR will be high if either is active&lt;/li&gt;
+&lt;li&gt;Connect the dualOR output to dualNOT input 1. Then dualNOT will be high when neither is active&lt;/li&gt;
+&lt;li&gt;Connect dualNOT output to dualAND input 1 and TRG step/rest out to dualAND input 2. The dualAND will be high when there is a regular step and there is no extended gate&lt;/li&gt;
+&lt;li&gt;Connect the DGATE out QuadVCA/Mixer input 1 and TRG step/rest out to QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect the dualAND out to QuadVCA/Mixer gain CV input 2. This will throttle back the regular gates when there is an extended gate&lt;/li&gt;
+&lt;li&gt;Move/connect filtah to QuadVCA/Mixer mix out to remove glitches from the gates&lt;/li&gt;
+&lt;li&gt;Listen to the song and watch the Scope&lt;ul&gt;
+&lt;li&gt;You should see a peak at the end of each extended gate. This is the regular gate being mixed on top of the extended gate&lt;/li&gt;
+&lt;li&gt;You should see an occasional solitary regular gate at the same height as the extended gates. This occurs on step 2 (step 16 extends its gate into step 1)&lt;/li&gt;
+&lt;li&gt;Remove the dualAND connection to QuadVCA/Mixer gain CV input 2 &lt;/li&gt;
+&lt;li&gt;You should see that the extended gates are even lumpier than before, but there is no change in the behavior of the ADSR &lt;/li&gt;
+&lt;li&gt;Thus the additional logic modules for regular gates that we added are unnecessary - only the mixer was needed&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
-&lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate.png'&gt;">Solution</button> -->
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
-&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;li&gt;Let's start with the assumption that logic is needed to solve this problem&lt;/li&gt;
+&lt;li&gt;Add dualOR, dualNOT, dualAND, and QuadVCA/Mixer to the bottom row&lt;/li&gt;
+&lt;li&gt;Connect TRG slide and extend outs to the dualOR like the last patch. The dualOR will be high if either is active&lt;/li&gt;
+&lt;li&gt;Connect the dualOR output to dualNOT input 1. Then dualNOT will be high when neither is active&lt;/li&gt;
+&lt;li&gt;Connect dualNOT output to dualAND input 1 and TRG step/rest out to dualAND input 2. The dualAND will be high when there is a regular step and there is no extended gate&lt;/li&gt;
+&lt;li&gt;Connect the DGATE out QuadVCA/Mixer input 1 and TRG step/rest out to QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect the dualAND out to QuadVCA/Mixer gain CV input 2. This will throttle back the regular gates when there is an extended gate&lt;/li&gt;
+&lt;li&gt;Move/connect filtah to QuadVCA/Mixer mix out to remove glitches from the gates&lt;/li&gt;
+&lt;li&gt;Listen to the song and watch the Scope&lt;ul&gt;
+&lt;li&gt;You should see a peak at the end of each extended gate. This is the regular gate being mixed on top of the extended gate&lt;/li&gt;
+&lt;li&gt;You should see an occasional solitary regular gate at the same height as the extended gates. This occurs on step 2 (step 16 extends its gate into step 1)&lt;/li&gt;
+&lt;li&gt;Remove the dualAND connection to QuadVCA/Mixer gain CV input 2 &lt;/li&gt;
+&lt;li&gt;You should see that the extended gates are even lumpier than before, but there is no change in the behavior of the ADSR &lt;/li&gt;
+&lt;li&gt;Thus the additional logic modules for regular gates that we added are unnecessary - only the mixer was needed&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
-&lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate.png'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate.png'&gt;">Solution</button>
         <button type="button" onclick="settb303_seq_extendgate_reggateIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -546,12 +548,18 @@ function settb303_seq_extendgate_reggateIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:tb303-seq-extendgate-reggate"></span>
 <p class="caption">
-Figure 13.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-seq-extendgate-reggate
+Figure 13.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for extending the 303 patch by mixing regular and extended gates.
 </p>
 </div>
-<p>Slide gate</p>
-<p>Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate-slidegate">13.8</a>.</p>
+<p>The final element of the sequencer we need to implement are the slide gates.
+Recall that slide gates start on the step after the marked step.
+For example, if step 8 is marked for a slide, step 8 will have its gate extended, but the slide gate which controls the portamento doesn’t start until step 9.
+Delayed gates again offer a convenient solution, but again they need to be tuned to the length of a step as well as filtering to glue together overlapping gates.
+Unfortunately, it’s less clear what the actual slide should look like in terms of its shape, which is important to know for slewing the V/Oct during the duration of the gate.
+Plotting the frequency spectrum in Audacity is one way to get the frequencies of a window of audio, but extrapolating that to the change of frequencies over time seems so fraught with error that it is better to attempt setting the slew by ear.
+Try extending the last patch with slide gates and tune the V/Oct slew using the button in Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate-slidegate">13.8</a>.</p>
 
+<p>STOPPED HERE</p>
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
@@ -591,7 +599,7 @@ Figure 13.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-s
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate.png'&gt;">Solution</button> -->
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
@@ -615,7 +623,7 @@ Figure 13.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-s
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate.png'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate.png'&gt;">Solution</button>
         <button type="button" onclick="settb303_seq_extendgate_reggate_slidegateIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -656,7 +664,7 @@ function settb303_seq_extendgate_reggate_slidegateIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:tb303-seq-extendgate-reggate-slidegate"></span>
 <p class="caption">
-Figure 13.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-seq-extendgate-reggate-slidegate
+Figure 13.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for extending the 303 patch using slide gates and slewed V/Oct.
 </p>
 </div>
 <p>Oscillator</p>
@@ -701,7 +709,7 @@ Figure 13.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-s
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc.png'&gt;">Solution</button> -->
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
@@ -725,7 +733,7 @@ Figure 13.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-s
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc.png'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc.png'&gt;">Solution</button>
         <button type="button" onclick="settb303_seq_extendgate_reggate_slidegate_oscIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -811,7 +819,7 @@ Figure 13.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-s
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg.png'&gt;">Solution</button> -->
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
@@ -835,7 +843,7 @@ Figure 13.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-s
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg.png'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg.png'&gt;">Solution</button>
         <button type="button" onclick="settb303_seq_extendgate_reggate_slidegate_osc_megvegIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -921,7 +929,7 @@ Figure 13.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents.png'&gt;">Solution</button> -->
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
@@ -945,7 +953,7 @@ Figure 13.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents.png'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents.png'&gt;">Solution</button>
         <button type="button" onclick="settb303_seq_extendgate_reggate_slidegate_osc_megveg_accentsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
@@ -1031,7 +1039,7 @@ Figure 13.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-final.png'&gt;">Solution</button> -->
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-final.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
@@ -1055,7 +1063,7 @@ Figure 13.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-
 &lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
 &lt;/div&gt;
 ">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/tb303-final.png'&gt;">Solution</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-final.png'&gt;">Solution</button>
         <button type="button" onclick="settb303_finalIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- For some reason the button type below will not play along with justify-content-between  -->
         <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
