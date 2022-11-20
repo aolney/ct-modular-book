@@ -191,6 +191,8 @@ fig:tb303-seq
 fig:tb303-seq-extendgate
 fig:tb303-seq-extendgate-reggate
 fig:tb303-seq-extendgate-reggate-slidegate
+fig:tb303-square-saw
+fig:tb303-square-saw-hpf
 fig:tb303-seq-extendgate-reggate-slidegate-osc
 fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg
 fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents
@@ -303,4 +305,5 @@ tb-303
 history
 problem-solving-approach
 sequencing
+oscillator
 sd2-b

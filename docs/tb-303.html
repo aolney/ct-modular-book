@@ -556,10 +556,10 @@ Recall that slide gates start on the step after the marked step.
 For example, if step 8 is marked for a slide, step 8 will have its gate extended, but the slide gate which controls the portamento doesn’t start until step 9.
 Delayed gates again offer a convenient solution, but again they need to be tuned to the length of a step as well as filtering to glue together overlapping gates.
 Unfortunately, it’s less clear what the actual slide should look like in terms of its shape, which is important to know for slewing the V/Oct during the duration of the gate.
-Plotting the frequency spectrum in Audacity is one way to get the frequencies of a window of audio, but extrapolating that to the change of frequencies over time seems so fraught with error that it is better to attempt setting the slew by ear.
+The Din Sync reference recordings do not have an example of slide.
+Plotting the frequency spectrum of the song in Audacity is one way to get the frequencies of a window of audio, but extrapolating that to the change of frequencies over time seems so fraught with error that it is better to attempt setting the slew by ear.
 Try extending the last patch with slide gates and tune the V/Oct slew using the button in Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate-slidegate">13.8</a>.</p>
 
-<p>STOPPED HERE</p>
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
@@ -578,50 +578,44 @@ Try extending the last patch with slide gates and tune the V/Oct slew using the 
         <!-- <h5 class="modal-title" id="tb303_seq_extendgate_reggate_slidegateLabel">Modal title</h5> -->
         <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
-&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
+&lt;li&gt;On the bottom row to the right of the regular gate section, add dualAND, DGATE, filtah, Slew Limiter, and Scope&lt;/li&gt;
+&lt;li&gt;Connect TRG step/rest gate out to dualAND input 1 and TRG slide gate out to dualAND input 2. The dualAND will be high when both have active steps&lt;/li&gt;
+&lt;li&gt;Connect dualAND out to DGATE triggger in&lt;/li&gt;
+&lt;li&gt;Connect DGATE gate out to filtah in&lt;/li&gt;
+&lt;li&gt;Connect filtah out to the rise/fall CV in of the Slew Limiter&lt;/li&gt;
+&lt;li&gt;Connect the Quantizer out to the Slew Limiter in and the Slew Limiter out to VCO V/Oct. This will slew the V/Oct on slide gates&lt;/li&gt;
+&lt;li&gt;Connect TRG step/rest gate out to Scope input 1 and filtah out to Scope input 2&lt;/li&gt;
+&lt;li&gt;Listen to the song and make the following adjustments on the Scope&lt;ul&gt;
+&lt;li&gt;The default gate length is 1s and the default delay is 0s. From the extended gate patch we know that a step and a half is around .2s, so a step is around .135s. Since the gate should be delayed 1 step and last 1 step, both of these parameters should be .135s&lt;/li&gt;
+&lt;li&gt;Check the length of the slide gate on the scope. Note that some slide gates are consecutive and will be longer&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;li&gt;Listen to the song and make the following adjustments to the Slew Limiter. You may need to have the song open so you can compare back and forth&lt;ul&gt;
+&lt;li&gt;Increase the rise and fall sliders in equal amounts. At what point does it no longer sound correct?&lt;/li&gt;
+&lt;li&gt;If the slew extends the length of a step, then we expect that a value around .135s will sound correct&lt;/li&gt;
+&lt;li&gt;The Slew Limiter also has a shape parameter that goes from linear slew on the left to logarithmic slew on the right. At what point does it no longer sound correct?&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
-&lt;/div&gt;
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
-&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
+&lt;li&gt;On the bottom row to the right of the regular gate section, add dualAND, DGATE, filtah, Slew Limiter, and Scope&lt;/li&gt;
+&lt;li&gt;Connect TRG step/rest gate out to dualAND input 1 and TRG slide gate out to dualAND input 2. The dualAND will be high when both have active steps&lt;/li&gt;
+&lt;li&gt;Connect dualAND out to DGATE triggger in&lt;/li&gt;
+&lt;li&gt;Connect DGATE gate out to filtah in&lt;/li&gt;
+&lt;li&gt;Connect filtah out to the rise/fall CV in of the Slew Limiter&lt;/li&gt;
+&lt;li&gt;Connect the Quantizer out to the Slew Limiter in and the Slew Limiter out to VCO V/Oct. This will slew the V/Oct on slide gates&lt;/li&gt;
+&lt;li&gt;Connect TRG step/rest gate out to Scope input 1 and filtah out to Scope input 2&lt;/li&gt;
+&lt;li&gt;Listen to the song and make the following adjustments on the Scope&lt;ul&gt;
+&lt;li&gt;The default gate length is 1s and the default delay is 0s. From the extended gate patch we know that a step and a half is around .2s, so a step is around .135s. Since the gate should be delayed 1 step and last 1 step, both of these parameters should be .135s&lt;/li&gt;
+&lt;li&gt;Check the length of the slide gate on the scope. Note that some slide gates are consecutive and will be longer&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;li&gt;Listen to the song and make the following adjustments to the Slew Limiter. You may need to have the song open so you can compare back and forth&lt;ul&gt;
+&lt;li&gt;Increase the rise and fall sliders in equal amounts. At what point does it no longer sound correct?&lt;/li&gt;
+&lt;li&gt;If the slew extends the length of a step, then we expect that a value around .135s will sound correct&lt;/li&gt;
+&lt;li&gt;The Slew Limiter also has a shape parameter that goes from linear slew on the left to logarithmic slew on the right. At what point does it no longer sound correct?&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
-&lt;/div&gt;
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate.png'&gt;">Solution</button>
         <button type="button" onclick="settb303_seq_extendgate_reggate_slidegateIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -667,8 +661,29 @@ function settb303_seq_extendgate_reggate_slidegateIframe(url){
 Figure 13.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for extending the 303 patch using slide gates and slewed V/Oct.
 </p>
 </div>
-<p>Oscillator</p>
-<p>Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate-slidegate-osc">13.9</a>.</p>
+</div>
+<div id="oscillator" class="section level2" number="13.4">
+<h2>
+<span class="header-section-number">13.4</span> Oscillator<a class="anchor" aria-label="anchor" href="#oscillator"><i class="fas fa-link"></i></a>
+</h2>
+<p>The waveshapes produced by the 303 are a bit unusual, as shown in Figure <a href="tb-303.html#fig:tb303-square-saw">13.9</a>.
+The 303’s square wave has a sloping top.
+According to Whittle, the duty cycle of the square wave at high pitches is about 45% but about 71% at the lowest pitches.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:tb303-square-saw"></span>
+<img src="images/tb303-square-saw.jpg" alt="Square (left) and saw (right) waves for a C note from the Din Sync reference recordings. Note neither waveshape matches the canonical form." width="100%"><p class="caption">
+Figure 13.9: Square (left) and saw (right) waves for a C note from the Din Sync reference recordings. Note neither waveshape matches the canonical form.
+</p>
+</div>
+
+<div class="figure">
+<span style="display:block;" id="fig:tb303-square-saw-hpf"></span>
+<img src="images/tb303-square-saw-hpf-out.png" alt="TODO" width="100%"><p class="caption">
+Figure 13.10: TODO
+</p>
+</div>
+<p>Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate-slidegate-osc">13.11</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -774,11 +789,11 @@ function settb303_seq_extendgate_reggate_slidegate_oscIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:tb303-seq-extendgate-reggate-slidegate-osc"></span>
 <p class="caption">
-Figure 13.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-seq-extendgate-reggate-slidegate-osc
+Figure 13.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-seq-extendgate-reggate-slidegate-osc
 </p>
 </div>
 <p>Volume envelope generator/Main envelope generator</p>
-<p>Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg">13.10</a>.</p>
+<p>Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg">13.12</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -884,11 +899,11 @@ function settb303_seq_extendgate_reggate_slidegate_osc_megvegIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg"></span>
 <p class="caption">
-Figure 13.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-seq-extendgate-reggate-slidegate-osc-megveg
+Figure 13.12: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-seq-extendgate-reggate-slidegate-osc-megveg
 </p>
 </div>
 <p>Accent</p>
-<p>Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents">13.11</a>.</p>
+<p>Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents">13.13</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -994,11 +1009,11 @@ function settb303_seq_extendgate_reggate_slidegate_osc_megveg_accentsIframe(url)
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents"></span>
 <p class="caption">
-Figure 13.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents
+Figure 13.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents
 </p>
 </div>
 <p>FINAL</p>
-<p>Figure <a href="tb-303.html#fig:tb303-final">13.12</a>.</p>
+<p>Figure <a href="tb-303.html#fig:tb303-final">13.14</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -1104,7 +1119,7 @@ function settb303_finalIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:tb303-final"></span>
 <p class="caption">
-Figure 13.12: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-final
+Figure 13.14: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-final
 </p>
 </div>
 <!-- Remaining plan -->
@@ -1224,6 +1239,7 @@ Figure 13.12: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-
 <li><a class="nav-link" href="#history"><span class="header-section-number">13.1</span> History</a></li>
 <li><a class="nav-link" href="#problem-solving-approach"><span class="header-section-number">13.2</span> Problem solving approach</a></li>
 <li><a class="nav-link" href="#sequencing"><span class="header-section-number">13.3</span> Sequencing</a></li>
+<li><a class="nav-link" href="#oscillator"><span class="header-section-number">13.4</span> Oscillator</a></li>
 </ul>
 
       <div class="book-extra">

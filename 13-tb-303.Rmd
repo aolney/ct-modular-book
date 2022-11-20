@@ -243,36 +243,32 @@ Recall that slide gates start on the step after the marked step.
 For example, if step 8 is marked for a slide, step 8 will have its gate extended, but the slide gate which controls the portamento doesn't start until step 9.
 Delayed gates again offer a convenient solution, but again they need to be tuned to the length of a step as well as filtering to glue together overlapping gates.
 Unfortunately, it's less clear what the actual slide should look like in terms of its shape, which is important to know for slewing the V/Oct during the duration of the gate.
-Plotting the frequency spectrum in Audacity is one way to get the frequencies of a window of audio, but extrapolating that to the change of frequencies over time seems so fraught with error that it is better to attempt setting the slew by ear.
+The Din Sync reference recordings do not have an example of slide.
+Plotting the frequency spectrum of the song in Audacity is one way to get the frequencies of a window of audio, but extrapolating that to the change of frequencies over time seems so fraught with error that it is better to attempt setting the slew by ear.
 Try extending the last patch with slide gates and tune the V/Oct slew using the button in Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate).
 
 (ref:tb303-seq-extendgate-reggate-slidegate) [Virtual modular](https://cardinal.olney.ai) for  extending the 303 patch using slide gates and slewed V/Oct.
 
-STOPPED HERE
-
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
 modular_modal("tb303-seq-extendgate-reggate-slidegate", starter_file="tb303-seq-extendgate-reggate.vcv", instructions_html="<ul>
-<li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
-<li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
-<li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
-<li>Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1</li>
-<li>Adjust the Scope time to see a single wave or two; use TRG button to sync the scope</li>
-<li>Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.</li>
-<li>Try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
-<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
-<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
-<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%</li>
+<li>On the bottom row to the right of the regular gate section, add dualAND, DGATE, filtah, Slew Limiter, and Scope</li>
+<li>Connect TRG step/rest gate out to dualAND input 1 and TRG slide gate out to dualAND input 2. The dualAND will be high when both have active steps</li>
+<li>Connect dualAND out to DGATE triggger in</li>
+<li>Connect DGATE gate out to filtah in</li>
+<li>Connect filtah out to the rise/fall CV in of the Slew Limiter</li>
+<li>Connect the Quantizer out to the Slew Limiter in and the Slew Limiter out to VCO V/Oct. This will slew the V/Oct on slide gates</li>
+<li>Connect TRG step/rest gate out to Scope input 1 and filtah out to Scope input 2</li>
+<li>Listen to the song and make the following adjustments on the Scope<ul>
+<li>The default gate length is 1s and the default delay is 0s. From the extended gate patch we know that a step and a half is around .2s, so a step is around .135s. Since the gate should be delayed 1 step and last 1 step, both of these parameters should be .135s</li>
+<li>Check the length of the slide gate on the scope. Note that some slide gates are consecutive and will be longer</li>
 </ul></li>
-<li>After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
-<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
-<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
-<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%</li>
+<li>Listen to the song and make the following adjustments to the Slew Limiter. You may need to have the song open so you can compare back and forth<ul>
+<li>Increase the rise and fall sliders in equal amounts. At what point does it no longer sound correct?</li>
+<li>If the slew extends the length of a step, then we expect that a value around .135s will sound correct</li>
+<li>The Slew Limiter also has a shape parameter that goes from linear slew on the left to logarithmic slew on the right. At what point does it no longer sound correct?</li>
 </ul></li>
 </ul>
-<div class='d-flex flex-row justify-content-around'>
-<img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
-</div>
 ",solution_html="<img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate.png'>")
 ```
 
@@ -281,9 +277,26 @@ modular_modal("tb303-seq-extendgate-reggate-slidegate", starter_file="tb303-seq-
 modular_caption()
 ```
 
+## Oscillator
+
+The waveshapes produced by the 303 are a bit unusual, as shown in Figure \@ref(fig:tb303-square-saw).
+The 303's square wave has a sloping top.
+According to Whittle, the duty cycle of the square wave at high pitches is about 45% but about 71% at the lowest pitches. 
 
 
-Oscillator
+(ref:tb303-square-saw) Square (left) and saw (right) waves for a C note from the Din Sync reference recordings. Note neither waveshape matches the canonical form.
+
+```{r tb303-square-saw, echo=F, out.width="100%", fig.cap="(ref:tb303-square-saw)"}
+ knitr::include_graphics("images/tb303-square-saw.jpg")
+```
+
+(ref:tb303-square-saw-hpf) TODO
+
+```{r tb303-square-saw-hpf, echo=F, out.width="100%", fig.cap="(ref:tb303-square-saw-hpf)"}
+ knitr::include_graphics("images/tb303-square-saw-hpf-out.png")
+```
+
+
 
 Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate-osc).
 
