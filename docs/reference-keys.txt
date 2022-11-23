@@ -197,6 +197,9 @@ fig:tb303-seq-extendgate-reggate-slidegate-osc
 fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg
 fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents
 fig:tb303-final
+fig:krell-performance
+fig:krell-patch-diagram
+fig:krell-walk-through
 introduction
 why-this-book
 computational-thinking
@@ -306,4 +309,7 @@ history
 problem-solving-approach
 sequencing
 oscillator
-sd2-b
+krell
+history-1
+problem-solving-approach-1
+section
