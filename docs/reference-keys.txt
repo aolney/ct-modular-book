@@ -200,6 +200,9 @@ fig:tb303-final
 fig:krell-performance
 fig:krell-patch-diagram
 fig:krell-walk-through
+fig:krell-osc-env-vca-filter
+fig:krell-envA-envD
+fig:noisy-triangle
 introduction
 why-this-book
 computational-thinking
@@ -312,4 +315,10 @@ oscillator
 krell
 history-1
 problem-solving-approach-1
-section
+basic-voice
+nesting-envelopes
+probabilistic-control
+buchla-265
+probabilistic-rhythm
+probabilistic-pitch
+probabilistic-timbre

@@ -83,4 +83,105 @@ The best evaluation material seems to be the videos in Figures \@ref(fig:krell-p
 The evaluation stage will used the above videos to determine success based on what appear to be their major characteristics, i.e. matching of variation in melody, timbre, etc.
 Since the patch is generative, it is impossible to match it exactly, so any evaluation will have a subjective aspect.
 
-## 
+## Basic voice
+
+The basic voice of the Krell patch uses a 261e oscillator, a 281e attack/decay envelope, a 292e VCA, and a 291e filter.
+The oscillator is initially outputting a sine wave at approximately 200 Hz and seems to be straightforward.
+The envelope is not a standard triggered envelope but rather a looping envelope.
+Perhaps the best way to understand looping is that the envelope fires a trigger at the end of its decay stage, and when it is in looping mode, that trigger is used to fire the envelope again.
+Thus the envelope will repeat forever somewhat like an LFO but have voltage-controlled parameters for attack and decay.
+The VCA can act as as a low-pass gate, which is a signature part of the Buchla sound.
+A low-pass gate (LPG) combines a VCA and a filter in a single module with a single parameter that affects both the gain of the VCA and the cutoff frequency of the filter.
+As a result, higher frequencies pass through when the VCA is high, and lower frequencies pass through when the VCA is low.
+This combination of pitch shift with volume is useful for percussion intruments, and in previous chapters, the combination was implemented with separate modules.
+In the walk through video, it's pretty clear that the VCA is in gate mode based on an indicator light, though in the other video the same light is off, and its not clear from the manual what that means.
+It seems relatively safe to assume it is functioning as a gate, though we can compare by adding a low pass filter as well.
+Finally, the filter is potentially quite complicated but seems to be in a simple mode that is allowing lower frequencies (apparently centered at 62 Hz) with a wide band (20% of range, presumably 4000 Hz).
+Try patching up the basic Krell voice using the button in Figure \@ref(fig:krell-osc-env-vca-filter).
+Open up the walk through video in another tab so you can refer to its sound as you complete the patch.
+
+(ref:krell-osc-env-vca-filter) [Virtual modular](https://cardinal.olney.ai) for a basic Krell voice.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:krell-osc-env-vca-filter)" width="100%" />
+<p class="caption">(\#fig:krell-osc-env-vca-filter)(ref:krell-osc-env-vca-filter)</p>
+</div>
+
+This first patch has no discernible differences in sound to the reference recording, so it is presumably correct.
+
+## Nesting envelopes
+
+Figure \@ref(fig:krell-patch-diagram) shows how the main envelope from the last patch is modulated by two additional envelopes from the 281e, which we will call the attack and decay envelopes, because they modulate the attack and decay parameters of the main envelope, respectively.
+The idea behind the nested envelopes is similar to LFO modulation of an oscillator's frequency.
+As the LFO is increases and decreases over time, it creates a pattern in the frequency of the oscillator.
+Changing the attack and decay portion of the main envelope with other envelopes will similarly set up a longer duration repeating pattern.
+Explore this effect by extending the last patch with nested envelopes using the button in Figure \@ref(fig:krell-envA-envD).
+Keep the walk through video open in another tab so you can refer to its sound as you complete the patch.
+
+(ref:krell-envA-envD) [Virtual modular](https://cardinal.olney.ai) for a basic Krell voice.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:krell-envA-envD)" width="100%" />
+<p class="caption">(\#fig:krell-envA-envD)(ref:krell-envA-envD)</p>
+</div>
+
+It's harder to say for this last patch that we're on target because there are only a few seconds of the walk through video to reference.
+Overall it seems close, but it also seems that the length of Barton's envelopes are longer.
+The main envelope can be lengthened to accommodate this difference.
+It's also unclear how Barton is handling the synchronization between the attack and decay envelopes.
+Having them offset seems to get a better result, and the 281e has an option for quadrature mode that causes another envelope to be triggered when an envelope reaches the end of its attack stage.
+Quadrature would create the needed offset, but again we can't tell if it's activated in the patch and can only assume that it isn't.
+
+## Probabilistic control
+
+The next stages of the patch rely heavily on the 266e Source of Uncertainty.
+This is a rather famous module that inspired many Eurorack modules with similar functions.
+The most significant functions for present purposes are the fluctuating random voltages (FRV), which are used to modulate the attack and decay envelopes, and the stored random voltage (SRV), which is used to control the pitch of the oscillator.
+
+Unfortunately there don't seem to be good analogues in our virtual modular for these two functions at this time.
+It is also a bit difficult to recreate them in modular based on the [complexity of the 266 circuit](https://modularsynthesis.com/roman/buchla266/266sou_pcb1.htm).
+However, it is possible to recreate the Buchla 265, which also has these functions, in our virtual modular.
+The functions aren't implemented the same way as the 266, so potentially there could be some resulting differences in sound.
+As we will see, however, there are also some interesting possibilities for gaining more control over the various probabilities with this approach, which makes it useful for other problems in the future as well as the current problem.
+
+### Buchla 265
+
+The 265 preceded the 266 and has functions for FRV and SRV.
+Both functions rely on a "noisy triangle," which may be created by using white noise to FM a triangle oscillator^[See the [Doepfer manual section of fluctuating random voltages](https://doepfer.de/a100_man/a100_patch.htm)] or by using a comparator on the noise level and triggering a hard sync on the triangle oscillator.^[See [Mark Verbos interview](https://youtu.be/8I2PfWKT_aY?t=827) and [Signal article](https://www.perfectcircuit.com/signal/learning-synthesis-random-2).]
+Since I have no reference for the sync approach, specifically how to set up the comparator, the FM variant of the noisy triangle is preferred. 
+Try setting up a noisy triangle using the button in Figure \@ref(fig:noisy-triangle).
+
+(ref:noisy-triangle) [Virtual modular](https://cardinal.olney.ai) for a basic Krell voice.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noisy-triangle)" width="100%" />
+<p class="caption">(\#fig:noisy-triangle)(ref:noisy-triangle)</p>
+</div>
+
+The noisy triangle is a building block for the FRV.
+The FRV uses a sample & hold to sample the current value of the noisy triangle and then slews that value to create a smooth random voltage.
+There are several advantages to sampling a noisy triangle rather than sampling the noise directly.
+First, the noisy triangle ensures an even distribution of corresponding voltages, and the range of these voltages can be controlled by changing the amplitude of the triangle or offsetting the triangle.
+Second, depending the the sampling frequency of the sample & hold, the random values will be somewhat correlated to the shape of a triangle.
+In other words, the random values will tend to go in one direction (on average) before reversing and going in the other direction.
+This kind of randomness is called a [random walk](https://en.wikipedia.org/wiki/Random_walk), since the next random state (here a voltage) depends on the current random state.
+
+
+
+### Probabilistic rhythm
+
+### Probabilistic pitch
+
+## Probabilistic timbre
