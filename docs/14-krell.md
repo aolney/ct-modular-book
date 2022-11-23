@@ -122,7 +122,7 @@ Changing the attack and decay portion of the main envelope with other envelopes 
 Explore this effect by extending the last patch with nested envelopes using the button in Figure \@ref(fig:krell-envA-envD).
 Keep the walk through video open in another tab so you can refer to its sound as you complete the patch.
 
-(ref:krell-envA-envD) [Virtual modular](https://cardinal.olney.ai) for a basic Krell voice.
+(ref:krell-envA-envD) [Virtual modular](https://cardinal.olney.ai) for a basic Krell voice with nested envelopes.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -159,7 +159,7 @@ Both functions rely on a "noisy triangle," which may be created by using white n
 Since I have no reference for the sync approach, specifically how to set up the comparator, the FM variant of the noisy triangle is preferred. 
 Try setting up a noisy triangle using the button in Figure \@ref(fig:noisy-triangle).
 
-(ref:noisy-triangle) [Virtual modular](https://cardinal.olney.ai) for a basic Krell voice.
+(ref:noisy-triangle) [Virtual modular](https://cardinal.olney.ai) for a noisy triangle.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -177,11 +177,123 @@ First, the noisy triangle ensures an even distribution of corresponding voltages
 Second, depending the the sampling frequency of the sample & hold, the random values will be somewhat correlated to the shape of a triangle.
 In other words, the random values will tend to go in one direction (on average) before reversing and going in the other direction.
 This kind of randomness is called a [random walk](https://en.wikipedia.org/wiki/Random_walk), since the next random state (here a voltage) depends on the current random state.
+Try extending the noisy triangle with an FRV using the button in Figure \@ref(fig:noisy-triangle).
+
+(ref:noisy-triangle-frv) [Virtual modular](https://cardinal.olney.ai) for a floating random voltage (FRV) based on a noisy triangle.
+
+<!-- MODAL HTML BLOCK -->
 
 
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noisy-triangle-frv)" width="100%" />
+<p class="caption">(\#fig:noisy-triangle-frv)(ref:noisy-triangle-frv)</p>
+</div>
+
+The noisy triangle is also a building block of the SRV.
+Like the FRV, the SRV samples the noisy triangle, but with two main differences.
+First, the SRV only samples on demand, i.e. when triggered, rather than by an internal independent clock.
+This means that a random value can be held, or "stored," indefinitely.
+Second, the SRV has a correlation parameter that controls how different the next random value should be from the last random value.
+This idea is similar to the random walk idea: as the correlation value approaches 1, the new random value becomes increasingly closer to the old random value, and as the correlation value approaches 0, the new random value becomes increasingly distant in a probabilistic sense.
+This is achieved internally by using a crossfader, which gradually fades in one value as it fades out the other, effectively blending/interpolating between the two voltages.
+We can accomplish this effect using two sample & holds.
+The first will sample directly from the noisy triangle, and the second will sample from the crossfader, which is the source of the last output value.
+Try extending the last patch with a SRV using the button in Figure \@ref(fig:noisy-triangle-frv-srv).
+
+(ref:noisy-triangle-frv-srv) [Virtual modular](https://cardinal.olney.ai) for a stored random voltage (SRV) based on a noisy triangle.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noisy-triangle-frv-srv)" width="100%" />
+<p class="caption">(\#fig:noisy-triangle-frv-srv)(ref:noisy-triangle-frv-srv)</p>
+</div>
+
+One of the possible advantages of the 265 for the Krell patch over the 266 is that the FRV and SRV are correlated more closely in the 265.
+Both use the same random triangle, which means that the output of the SRV and FRV will be less random (and likely more musical) than if they used completely separate random sources.
+We can increase the correlation even further by having the SRV sample from the stepped portion of the FRV or the smoothed portion of the FRV.
+Additionally, the correlation parameter on the 265 seems to afford more control for the degree of randomness than controls on the 266, though the 266 also has a parameter for degree of randomness as well as skewing probabilities towards higher/lower values and the overall shape of the probability distribution.
+Overall it is reasonable to believe the 265 can stand in for the 266 in the Krell patch, though the extent of this won't be clear until after integration and evaluations.
 
 ### Probabilistic rhythm
 
+The next stage of the Krell patch adds separated FRVs to the attack and decay envelopes.
+Interestingly the patch uses FRVs to control the opposite parameter of the parameter these envelopes are controlling on the main envelope.
+It's clear this reversal affects the sound, so that itself is worth investigating.
+Try extending the last Krell patch with FRVs to control the nested envelopes using the button in Figure \@ref(fig:krell-frvs).
+
+(ref:krell-frvs) [Virtual modular](https://cardinal.olney.ai) for a Krell patch with fluctuating random voltages sections for controlling the nested envelopes.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:krell-frvs)" width="100%" />
+<p class="caption">(\#fig:krell-frvs)(ref:krell-frvs)</p>
+</div>
+
+This patch illustrates how the FRVs are probably most useful for adding some variation to the synchronization of the attack and decay envelopes.
+In other words, those two envelopes together will generate a pattern that repeats over time, and the repetition is probably noticeable.
+By changing their attack and decay parameters with FRVs, their synchronization is constantly changing by small amounts, which makes the overal pattern less repetitive, though it has cycling slow and fast parts.
+The use of reversing the parameters the FRVs are controlling, e.g. controlling the decay of the attack envelope, doesn't seem to matter in practice.
+Ultimately each of the nested envelopes is controlling a parameter of the main envelope over their whole cycle, which includes attack and decay, so interchangeability makes sense.
+
+From an evaluation perspective, it seems that the patch is on track because it approximately matches the sound of the walk-through video at this stage.
+Though our patch may be a bit faster than the reference, the speed can be adjusted by changing the attack/decay times on the main envelope.
+As before, its hard to say with certainty because there are only a few seconds of sound to reference at this stage before Barton moves to the next stage.
+
 ### Probabilistic pitch
 
+Perhaps the most satisfying part of the Krell patch is the pitch, which is controlled by the SRV.
+The SRV sends random voltages that the oscillator interprets as pitches, and because the SRV has the correlation parameter, we can control how far each note is from the last note.
+As discussed in the previous section, the SRV receives its random voltage from the noisy triangle (mediated in our case by the FRV).
+The sampling of each new note is triggered by the end-of-cycle trigger from the main envelope, and the degree of randomness is controlled by one of the FRVs.
+Depending on how closely we decide to correlate the SRV and FRV, the low pitches could be more likely to be close together than high pitches or vice versa.
+Try extending the last Krell patch with an SRV to control oscillator pitch using the button in Figure \@ref(fig:krell-srv).
+
+(ref:krell-srv) [Virtual modular](https://cardinal.olney.ai) for a Krell patch with a stored random voltage section to control oscillator pitch.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:krell-srv)" width="100%" />
+<p class="caption">(\#fig:krell-srv)(ref:krell-srv)</p>
+</div>
+
+The patch in Figure \@ref(fig:krell-srv) illustrates how small choices in handling the random values for pitches have a fairly large effect on the overall sound.
+Increasing correlation with the FRV confines variability, as does linking the offset scale to the FRV.
+In both cases, the effect seems to be a small improvement aesthetically, though these changes seem to create a somewhat less random patch than the reference in terms of pitch variability.
+
 ## Probabilistic timbre
+
+The final component of the Krell patch is dynamic changes to timbre through filter cutoff modulation, wavefolding, and fm modulation.
+Each of these is rather straightforward and subtle, producing an aggregate effect that is just enough to create the sense of different voices withough being overly aggressive in their sound.
+The FM appears to be a fixed modulation of around 3600 Hz, which gives the timbre a bit of a wobble but mostly produces harmonics that are filtered out by the band pass filter.
+The wavefolding also is fairly subtle and uses an independent cycling attack decay envelope rather than being triggered by the main envelope.
+The filter cutoff is modulated by one of the FRVs rather than by the main envelope.
+Presumably these choices to decouple the voice parameters from the main envelope were to give the timbre extra unpredictability.
+Try extending the last Krell patch with these timbral elements using the button in Figure \@ref(fig:krell-filter-fold-fm).
+Open the reference in another tab so you can refer to it while you update the patch.
+
+(ref:krell-filter-fold-fm) [Virtual modular](https://cardinal.olney.ai) for a Krell patch with timbral modulation using FM, wavefolding, and filter cutoff.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:krell-filter-fold-fm)" width="100%" />
+<p class="caption">(\#fig:krell-filter-fold-fm)(ref:krell-filter-fold-fm)</p>
+</div>
+
+Overall the final patch seems to match the reference pretty well. 
+Because the effect of various randomization choices can take some time to assess, i.e. they play out over long stretches of time, an analytical approach that considered long time scales and average values would likely be needed to get closer.
+For example, we could measure the probability of small/large transitions between notes, the probability of short/long main envelopes, and similar characteristics of the patch.
+While this patch uses many more modules than if a 265 or 266 were available in our vitual modular, it also shows how building approximations with more modules can open up additional probabilities for control.
+Our options for getting values for the SRV is just one example, and the possibilities are only limited by your imagination.

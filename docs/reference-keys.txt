@@ -203,6 +203,11 @@ fig:krell-walk-through
 fig:krell-osc-env-vca-filter
 fig:krell-envA-envD
 fig:noisy-triangle
+fig:noisy-triangle-frv
+fig:noisy-triangle-frv-srv
+fig:krell-frvs
+fig:krell-srv
+fig:krell-filter-fold-fm
 introduction
 why-this-book
 computational-thinking
