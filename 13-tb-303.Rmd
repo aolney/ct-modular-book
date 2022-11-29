@@ -286,8 +286,9 @@ The waveshapes produced by the 303 are a bit unusual in the reference recordings
 Curiously, each of these waves is very similar to high pass filtered versions of the other wave, as shown in the bottom two rows of Figure \@ref(fig:tb303-square-saw-hpf-compare).
 Based on the reference recordings, we may achieve a more accurate sound by high pass filtering the opposing wave.
 That's not to say that this is how it was done in the hardware but rather that it could be a reasonable strategy for recreating the sound in modular.
+Because the reference recordings are all at a single note, it's unclear how the filtering could or should track V/Oct.
 
-(ref:tb303-square-saw-hpf-compare) Top row: square (left) and saw (right) waves for a C note from the Din Sync reference recordings. Note neither waveshape matches the canonical form. Middle row: square wave that is high pass filtered, creating a shape similar to the reference recording saw wave. Bottom row: saw wave that is high pass filtered, creating a shape similar to the reference recording square wave.
+(ref:tb303-square-saw-hpf-compare) Top row: square (left) and saw (right) waves for a C note from the Din Sync reference recordings. Note neither waveshape matches the canonical form. Middle row: square wave (left) that is high pass filtered (right), creating a shape similar to the reference recording saw wave. Bottom row: saw wave (left) that is high pass filtered (right), creating a shape similar to the reference recording square wave.
 
 ```{r tb303-square-saw-hpf-compare, echo=F, out.width="100%", fig.cap="(ref:tb303-square-saw-hpf-compare)"}
  knitr::include_graphics("images/tb303-square-saw-hpf-compare.png")
@@ -297,33 +298,29 @@ Another quirk of the 303 oscillator is that, according to Whittle, the duty cycl
 We can approximate this change in duty cycle by modulating the PWM input of the oscillator using the same voltage that is controlling pitch.
 Try extending the last patch with these oscillator modifications using the button in Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate-osc).
 
-(ref:tb303-seq-extendgate-reggate-slidegate-osc) [Virtual modular](https://cardinal.olney.ai) for tb303-seq-extendgate-reggate-slidegate-osc
+(ref:tb303-seq-extendgate-reggate-slidegate-osc) [Virtual modular](https://cardinal.olney.ai) for extending the 303 patch with oscillator modifications for V/Oct driven PWM and HPF.
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
 modular_modal("tb303-seq-extendgate-reggate-slidegate-osc", starter_file="tb303-seq-extendgate-reggate-slidegate.vcv", instructions_html="<ul>
 <li>Stop, reset, and run the sequencers to make sure they are in sync</li>
-<li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
-<li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
-<li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
-<li>Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1</li>
-<li>Adjust the Scope time to see a single wave or two; use TRG button to sync the scope</li>
-<li>Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.</li>
-<li>Try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
-<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
-<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
-<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%</li>
-</ul></li>
-<li>After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
-<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
-<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
-<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%</li>
+<li>Move the VCO down to the right of the slide gate sectin</li>
+<li>Add two VCFs to the right of the VCO and tune their cutoffs to 82 Hz</li>
+<li>Add Bog Audio Switch81 and Scope to the right of the two VCFs </li>
+<li>Connect VCO square and saw outs to the respective ins of the VCFs</li>
+<li>Connect the VCF HPF outs to the first two inputs of the Switch. Right click the Switch and select exclusive switching so we can choose one oscillator or the other</li>
+<li>Connect Switch out to the Scope input 1 and to the VCA in on the row above </li>
+<li>Try the following and note the differences in the sound and scope waveshape<ul>
+<li>Adjust the VCF cutoffs to approximately match the reference wave shapes (I set mine at 115 Hz)</li>
+<li>Connect the V/Oct to the cutoff inputs of both VCFs and adjust the attenuverter to match the reference wave shape (I set mine to 100%)</li>
+<li>Connect the V/Oct to the VCO PWM input and adjust the attenuverter to match the 45%-71% range described by Whittle (I set mine to -64%)</li>
+<li>What effect does the filtering have on the sound? Does it sound more or less correct to you?</li>
 </ul></li>
 </ul>
 <div class='d-flex flex-row justify-content-around'>
-<img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
+<img class='rack-image' src='images/solo-modules/switch81-solo.png'>
 </div>
-",solution_html="<img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc.png'>")
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc.png'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -331,36 +328,40 @@ modular_modal("tb303-seq-extendgate-reggate-slidegate-osc", starter_file="tb303-
 modular_caption()
 ```
 
-Volume envelope generator/Main envelope generator
+## Filter and envelope generators
 
-Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg).
+The filter on the 303 has been the subject of much debate and speculation.
+Tim Stinchcombe has done [extensive analysis of the filter and its transfer function](https://www.timstinchcombe.co.uk/index.php?pge=diode
+).
+His results indicate that the filter is a 24 dB, 4-pole filter, and he suggests that perhaps the reason it is commonly described as an 18 dB filter is that it behaves more like an 18 dB filter over much of its audible range.^[Perhaps there were legal reasons for Roland to go along with the 18 dB description. The 303 diode ladder filter is seen as similar to the Moog transistor ladder filter, which was protected by patent at the time the 303 was developed.]
+The 303's filter no doubt plays a significant role in its sound, but in our virtual modular environment we are rather constrained by a lack of filter options.
+Another diode ladder filter would likely be the best choice, but short of that, a 24 dB transistor ladder filter seems the best alternative.
 
-(ref:tb303-seq-extendgate-reggate-slidegate-osc-megveg) [Virtual modular](https://cardinal.olney.ai) for tb303-seq-extendgate-reggate-slidegate-osc-megveg
+The 303 has two envelopes, which Whittle calls the main envelope generator (MEG) and the volume envelope generator (VEG).^[https://www.firstpr.com.au/rwi/dfish/303-unique.html]
+Both envelopes are attack-decay with very fast attack.
+The MEG controls the filter cutoff, and the VEG controls the final VCA.
+The MEG and VEG have additional complexities involving accents, but we will address those in the next section.
+Try extending the last patch with the filter and envelope generators using the button in Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg).
+
+(ref:tb303-seq-extendgate-reggate-slidegate-osc-megveg) [Virtual modular](https://cardinal.olney.ai) for extending the 303 patch with filter and envelope generators.
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
 modular_modal("tb303-seq-extendgate-reggate-slidegate-osc-megveg", starter_file="tb303-seq-extendgate-reggate-slidegate-osc.vcv", instructions_html="<ul>
-<li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
-<li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
-<li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
-<li>Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1</li>
-<li>Adjust the Scope time to see a single wave or two; use TRG button to sync the scope</li>
-<li>Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.</li>
-<li>Try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
-<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
-<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
-<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%</li>
-</ul></li>
-<li>After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
-<li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
-<li>Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.</li>
-<li>Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%</li>
+<li>Stop, reset, and run the sequencers to make sure they are in sync</li>
+<li>To the right of Four-View, add ADSR, VCR, ADSR, and Scope </li>
+<li>Connect the extended gate out to the first ADSR gate in. This is the MEG. The decay on the MEG corresponds to the 303 'decay' knob</li>
+<li>Connect the MEG out to VCF cutoff in. The cutoff on the VCF corresponds to the 303 'cut off freq' knob, the resonance on the VCF corresponds to the 303 'resonance' knob, and the cutoff attenuator correponds to the 303 'env mod' knob</li>
+<li>Connect Switch out to VCF in and VCF LPF out to VCA in </li>
+<li>Connect the extended gate out to the second ADSR. This is the VEG</li>
+<li>Connect VEG out to the adjacent Scope input 1 and to the VCA cv in</li>
+<li>Try the following and note the differences in the sound and scope waveshape<ul>
+<li>Adjust the MEG ADSR parameters for a short attack and long decay</li>
+<li>Adjust the VEG ADSR parameters for a short attack and long decay</li>
+<li>Adjust the VCF cutoff, resonance, and cutoff attenuator to match the reference recording</li>
 </ul></li>
 </ul>
-<div class='d-flex flex-row justify-content-around'>
-<img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
-</div>
-",solution_html="<img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg.png'>")
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg.png'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -368,21 +369,40 @@ modular_modal("tb303-seq-extendgate-reggate-slidegate-osc-megveg", starter_file=
 modular_caption()
 ```
 
+## Accent
 
-Accent
+The 303 accent system alters the behavior of the MEG and VEG.
+The accented changes and be broadly thought of as a pluckier sound that is shorter, louder, and slightly brighter. 
+On an accented note:
 
-Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents).
+- The MEG decay is shortened
+- The MEG sends additional control voltage to the VCA, making it louder
+- The filter cutoff is raised
 
-(ref:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents) [Virtual modular](https://cardinal.olney.ai) for tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents
+Whittle [describes the effect on the filter](https://www.firstpr.com.au/rwi/dfish/303-unique.html) as an accent sweep circuit that smooths the control voltage driving the filter cutoff.
+The smoothed voltage has a slow decay, so if there are multiple accent notes in a row, the voltage will continue to increase, creating a series of increasing peaks in filter cutoff, as shown in Figure \@ref(fig:accent-sweep).^[Based on [Whittle's diagram](https://www.firstpr.com.au/rwi/dfish/303-unique.html)]
+
+(ref:accent-sweep) Conceptual diagram of the effect of the 303 accent sweep circuit on filter cutoff control voltage. The accent sweep circuit does not fully discharge before the next step, creating increasing peaks when consecutive steps are accented.
+
+```{r accent-sweep, echo=F, out.width="100%", fig.cap="(ref:accent-sweep)"}
+ knitr::include_graphics("images/accent-sweep.png")
+```
+
+The accent system can be conceptualized in modular by incorporating a module that does smoothing and by incorporating a module that gives regular envelopes when no accents are received and modified envelopes when accents are received.
+Smoothing can normally be accomplished using a slew limiter.
+Modifying envelopes when accents are received can be accomplished similarly to how we modified gates, i.e. by mixing the accent voltages with the regular MEG/VEG envelopes.
+Try extending the last patch with the accents using the button in Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents).
+
+(ref:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents) [Virtual modular](https://cardinal.olney.ai) for for extending the 303 patch with accents.
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
 modular_modal("tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents", starter_file="tb303-seq-extendgate-reggate-slidegate-osc-megveg.vcv", instructions_html="<ul>
-<li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
-<li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
-<li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>
-<li>Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1</li>
-<li>Adjust the Scope time to see a single wave or two; use TRG button to sync the scope</li>
+<li>On the row above the sequencer row, add Slew Limiter, QuadVCA/Mixer, Offset, Scope for the MEG and QuadVCA/Mixer and Scope for the VEG</li>
+<li>Connect the accent sequencer (the order is PRASE) to Slew in and Slew out to MEG ADSR Decay. This will control decay on accented notes</li>
+<li>Connect Slew out to VEG QuadVCA/Mixer input 1. This will send extra volume voltage on accented notes</li>
+<li>Connect the Slew out to the MEG QuadVCA/Mixer input 1 and the MEG ADSR out to the same QuadVCA/Mixer input 2</li>
+<li>Connect the MEG QuadVCA/Mixer mix out to the Offset in
 <li>Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.</li>
 <li>Try the following and note the differences in the sound, scope waveshape, and spectrum<ul>
 <li>Adjust the mix levels for the two oscillators to best match the target spectrum</li>
@@ -398,7 +418,7 @@ modular_modal("tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents", start
 <div class='d-flex flex-row justify-content-around'>
 <img class='instruction-wide-image' src='images/303-da-funk-pattern.png'>
 </div>
-",solution_html="<img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents.png'>")
+",solution_html="<img class='rack-image-9u' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents.png'>")
 ```
 
 <!-- CAPTION BLOCK -->

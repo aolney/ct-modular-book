@@ -194,6 +194,7 @@ fig:tb303-seq-extendgate-reggate-slidegate
 fig:tb303-square-saw-hpf-compare
 fig:tb303-seq-extendgate-reggate-slidegate-osc
 fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg
+fig:accent-sweep
 fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents
 fig:tb303-final
 fig:krell-performance
@@ -316,6 +317,8 @@ history
 problem-solving-approach
 sequencing
 oscillator
+filter-and-envelope-generators
+accent
 krell
 history-1
 problem-solving-approach-1
