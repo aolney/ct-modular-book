@@ -23,7 +23,7 @@ The 303's failure in the marketplace, however, meant that it was cheaply availab
 Dance music artists, most notably in Chicago, began incorporating the 303 into their performances, and the 303 became a signature sound of [acid house](https://en.wikipedia.org/wiki/Acid_house).
 While the 303 was designed for bass guitar sounds, which are a common element of [disco](https://en.wikipedia.org/wiki/Disco) dance music, the 303 could also easily (and perhaps more easily) produce sounds that are nothing like a bass guitar or any other instrument from that time.^[Squelch, chirp, and scream are common descriptors of the 303 sound.]
 
-The 303's use in acid house may be due to its extremely limited sequencer.
+The way the 303 was used in acid house may be due to its extremely limited sequencer.
 The 303 sequencer stored pitch and time information separately, and each of these were entered using separate modes.
 As a result, it was not possible to edit the complete sequence in real time, i.e. during performance.^[It is possible to [live-play](https://tinyloops.com/tb303/quick_results.html#02) the 303 and [switch between tracks](https://tinyloops.com/tb303/quick_results.html#07), but this is not the same as editing a running sequence.]
 However, it was very easy to change the timbre of an existing sequence using various parameter knobs (mostly across the top in Figure \@ref(fig:303)). 
@@ -167,11 +167,12 @@ Additionally, the extended gate should only occur when the step has a note.
 The flavor of these conditions suggest logic should be used to decide when an extended gate should fire.
 Try extending the last patch by adding logic to trigger extended gates and then tune those gates to the correct length  using the button in Figure \@ref(fig:tb303-seq-extendgate).
 
-(ref:tb303-seq-extendgate) [Virtual modular](https://cardinal.olney.ai) for extending the 303 patch with extended gates.
+(ref:tb303-seq-extendgate) [Virtual modular](https://cardinal.olney.ai) for improving the 303 patch with extended gates.
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
 modular_modal("tb303-seq-extendgate", starter_file="tb303-seq.vcv", instructions_html="<ul>
+<li>Stop, reset, and run the sequencers to make sure they are in sync</li>
 <li>On the row below, add dualOR, dualAND, DGATE, filtah, and Scope</li>
 <li>Connect the TRG slide out and extended out to dualOR inputs 1 and 2. The dualOR will be high when either of these gates is active</li>
 <li>Connect the dualOR out to dualAND input 1 and TRG rest out to dualAND input 2. The dualAND will be high when it receives a gate from either slide or extend and simultaneously receives a gate from the active step</li>
@@ -188,7 +189,7 @@ modular_modal("tb303-seq-extendgate", starter_file="tb303-seq.vcv", instructions
 <li>Connect the VCA out to the SuperDrive in</li>
 <li>Connect filtah out to ADSR gate in and listen to the song</li>
 </ul>
-",solution_html="<img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate.png'>")
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/tb303-seq-extendgate.png'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -196,9 +197,9 @@ modular_modal("tb303-seq-extendgate", starter_file="tb303-seq.vcv", instructions
 modular_caption()
 ```
 
-The song may sound more correct now but flawed in a different way.
+With the patch in Figure \@ref(fig:tb303-seq-extendgate), the song may sound more correct  but flawed in a different way.
 This is because the last patch replaced all gates with extended gates.
-Since a few gates are regular gates, they are currently not being generated.
+Since a few gates are regular gates, they are currently not being generated at all.
 Ideally, we'd use logic to define the length of the gate to generate and use the same mechanism to generate both regular and extended gates.
 Unfortunately, the module being used to generate extended gates does not accept CV to control gate length.
 As a result, we need two sources of gates and to send gates from both sources to the ADSR.
@@ -207,13 +208,14 @@ This would require several additional modules.
 A simpler approach is to use a mixer to mix extended gates and regular gates from the step/rest sequencer.
 This creates lumpy gates, but envelopes generally only pay attention to the rising and falling edges of a gate, so the lumpiness often won't matter.
 Try extending the last patch by mixing in regular gates  using the button in Figure \@ref(fig:tb303-seq-extendgate-reggate).
-We'll throw in some logic to show that the logic doesn't actually matter.
+We'll throw in some logic in order to show that the logic doesn't actually matter in this case.
 
 (ref:tb303-seq-extendgate-reggate) [Virtual modular](https://cardinal.olney.ai) for  extending the 303 patch by mixing regular and extended gates.
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
 modular_modal("tb303-seq-extendgate-reggate", starter_file="tb303-seq-extendgate.vcv", instructions_html="<ul>
+<li>Stop, reset, and run the sequencers to make sure they are in sync</li>
 <li>Let's start with the assumption that logic is needed to solve this problem</li>
 <li>Add dualOR, dualNOT, dualAND, and QuadVCA/Mixer to the bottom row</li>
 <li>Connect TRG slide and extend outs to the dualOR like the last patch. The dualOR will be high if either is active</li>
@@ -230,7 +232,7 @@ modular_modal("tb303-seq-extendgate-reggate", starter_file="tb303-seq-extendgate
 <li>Thus the additional logic modules for regular gates that we added are unnecessary - only the mixer was needed</li>
 </ul></li>
 </ul>
-",solution_html="<img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate.png'>")
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/tb303-seq-extendgate-reggate.png'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -252,6 +254,7 @@ Try extending the last patch with slide gates and tune the V/Oct slew using the 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
 modular_modal("tb303-seq-extendgate-reggate-slidegate", starter_file="tb303-seq-extendgate-reggate.vcv", instructions_html="<ul>
+<li>Stop, reset, and run the sequencers to make sure they are in sync</li>
 <li>On the bottom row to the right of the regular gate section, add dualAND, DGATE, filtah, Slew Limiter, and Scope</li>
 <li>Connect TRG step/rest gate out to dualAND input 1 and TRG slide gate out to dualAND input 2. The dualAND will be high when both have active steps</li>
 <li>Connect dualAND out to DGATE triggger in</li>
@@ -269,7 +272,7 @@ modular_modal("tb303-seq-extendgate-reggate-slidegate", starter_file="tb303-seq-
 <li>The Slew Limiter also has a shape parameter that goes from linear slew on the left to logarithmic slew on the right. At what point does it no longer sound correct?</li>
 </ul></li>
 </ul>
-",solution_html="<img class='rack-image' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate.png'>")
+",solution_html="<img class='rack-image-6u' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate.png'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -279,32 +282,27 @@ modular_caption()
 
 ## Oscillator
 
-The waveshapes produced by the 303 are a bit unusual, as shown in Figure \@ref(fig:tb303-square-saw).
-The 303's square wave has a sloping top.
-According to Whittle, the duty cycle of the square wave at high pitches is about 45% but about 71% at the lowest pitches. 
+The waveshapes produced by the 303 are a bit unusual in the reference recordings, as shown in the top row of Figure \@ref(fig:tb303-square-saw-hpf-compare).
+Curiously, each of these waves is very similar to high pass filtered versions of the other wave, as shown in the bottom two rows of Figure \@ref(fig:tb303-square-saw-hpf-compare).
+Based on the reference recordings, we may achieve a more accurate sound by high pass filtering the opposing wave.
+That's not to say that this is how it was done in the hardware but rather that it could be a reasonable strategy for recreating the sound in modular.
 
+(ref:tb303-square-saw-hpf-compare) Top row: square (left) and saw (right) waves for a C note from the Din Sync reference recordings. Note neither waveshape matches the canonical form. Middle row: square wave that is high pass filtered, creating a shape similar to the reference recording saw wave. Bottom row: saw wave that is high pass filtered, creating a shape similar to the reference recording square wave.
 
-(ref:tb303-square-saw) Square (left) and saw (right) waves for a C note from the Din Sync reference recordings. Note neither waveshape matches the canonical form.
-
-```{r tb303-square-saw, echo=F, out.width="100%", fig.cap="(ref:tb303-square-saw)"}
- knitr::include_graphics("images/tb303-square-saw.jpg")
+```{r tb303-square-saw-hpf-compare, echo=F, out.width="100%", fig.cap="(ref:tb303-square-saw-hpf-compare)"}
+ knitr::include_graphics("images/tb303-square-saw-hpf-compare.png")
 ```
 
-(ref:tb303-square-saw-hpf) TODO
-
-```{r tb303-square-saw-hpf, echo=F, out.width="100%", fig.cap="(ref:tb303-square-saw-hpf)"}
- knitr::include_graphics("images/tb303-square-saw-hpf-out.png")
-```
-
-
-
-Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate-osc).
+Another quirk of the 303 oscillator is that, according to Whittle, the duty cycle of the square wave at high pitches is about 45% but about 71% at the lowest pitches. 
+We can approximate this change in duty cycle by modulating the PWM input of the oscillator using the same voltage that is controlling pitch.
+Try extending the last patch with these oscillator modifications using the button in Figure \@ref(fig:tb303-seq-extendgate-reggate-slidegate-osc).
 
 (ref:tb303-seq-extendgate-reggate-slidegate-osc) [Virtual modular](https://cardinal.olney.ai) for tb303-seq-extendgate-reggate-slidegate-osc
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
 modular_modal("tb303-seq-extendgate-reggate-slidegate-osc", starter_file="tb303-seq-extendgate-reggate-slidegate.vcv", instructions_html="<ul>
+<li>Stop, reset, and run the sequencers to make sure they are in sync</li>
 <li>Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope</li>
 <li>Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz</li>
 <li>Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2</li>

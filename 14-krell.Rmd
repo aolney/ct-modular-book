@@ -157,7 +157,7 @@ modular_modal("krell-envA-envD", starter_file="krell-osc-env-vca-filter.vcv", in
 <li>De-synchronize the two envelopes by pressing on the LP button of one for a moment to turn of looping, then prese it again to turn looping back on. The repeating pattern should now be different.
 </ul></li>
 </ul>
-",solution_html="<img class='rack-image-6u' src='images/patch-solutions/krell-envA-envD.png'>")
+",solution_html="<img class='rack-image-9u' src='images/patch-solutions/krell-envA-envD.png'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -322,7 +322,7 @@ modular_modal("krell-frvs", starter_file="krell-frvs-starter.vcv", instructions_
 <li>For fun, reverse the parameters the FRVs are controling, i.e. control the decay of the decay envelope and the attack of the attack envelope. What is the difference to the sound?</li>
 </ul></li>
 </ul>
-",solution_html="<img class='rack-image' src='images/patch-solutions/krell-frvs.png'>")
+",solution_html="<img class='rack-image-9u' src='images/patch-solutions/krell-frvs.png'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -366,7 +366,7 @@ modular_modal("krell-srv", starter_file="krell-srv-starter.vcv", instructions_ht
 <li>Connect the FRV Offset out to the SRV Offset CV in. Is the sound more or less like the reference?</li>
 </ul></li>
 </ul>
-",solution_html="<img class='rack-image' src='images/patch-solutions/krell-srv.png'>")
+",solution_html="<img class='rack-image-9u' src='images/patch-solutions/krell-srv.png'>")
 ```
 
 <!-- CAPTION BLOCK -->
@@ -407,7 +407,7 @@ modular_modal("krell-filter-fold-fm", starter_file="krell-srv.vcv", instructions
 <li>Change main envelope attack/decay times the match the reference</li>
 </ul></li>
 </ul>
-",solution_html="<img class='rack-image' src='images/patch-solutions/krell-filter-fold-fm.png'>")
+",solution_html="<img class='rack-image-9u' src='images/patch-solutions/krell-filter-fold-fm.png'>")
 ```
 
 <!-- CAPTION BLOCK -->
