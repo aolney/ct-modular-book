@@ -196,7 +196,6 @@ fig:tb303-seq-extendgate-reggate-slidegate-osc
 fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg
 fig:accent-sweep
 fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents
-fig:tb303-final
 fig:krell-performance
 fig:krell-patch-diagram
 fig:krell-walk-through
@@ -319,6 +318,7 @@ sequencing
 oscillator
 filter-and-envelope-generators
 accent
+looking-back
 krell
 history-1
 problem-solving-approach-1
@@ -329,3 +329,4 @@ buchla-265
 probabilistic-rhythm
 probabilistic-pitch
 probabilistic-timbre
+looking-back-1

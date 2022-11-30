@@ -912,17 +912,21 @@ On an accented note:</p>
 <li>The filter cutoff is raised</li>
 </ul>
 <p>Whittle <a href="https://www.firstpr.com.au/rwi/dfish/303-unique.html">describes the effect on the filter</a> as an accent sweep circuit that smooths the control voltage driving the filter cutoff.
-The smoothed voltage has a slow decay, so if there are multiple accent notes in a row, the voltage will continue to increase, creating a series of increasing peaks in filter cutoff, as shown in Figure <a href="tb-303.html#fig:accent-sweep">13.12</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Based on &lt;a href="https://www.firstpr.com.au/rwi/dfish/303-unique.html"&gt;Whittle’s diagram&lt;/a&gt;&lt;/p&gt;'><sup>105</sup></a></p>
+The smoothed voltage has a slow decay, so if there are multiple accent notes in a row, the voltage will continue to increase, creating a series of increasing peaks in filter cutoff, as shown in Figure <a href="tb-303.html#fig:accent-sweep">13.12</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Based on &lt;a href="https://www.firstpr.com.au/rwi/dfish/303-unique.html"&gt;Whittle’s diagram.&lt;/a&gt;&lt;/p&gt;'><sup>105</sup></a></p>
 
 <div class="figure">
 <span style="display:block;" id="fig:accent-sweep"></span>
-<img src="images/accent-sweep.png" alt="Conceptual diagram of the effect of the 303 accent sweep circuit on filter cutoff control voltage. The accent sweep circuit does not fully discharge before the next step, creating increasing peaks when consecutive steps are accented." width="100%"><p class="caption">
+<img src="images/accent-sweep.png" alt="Conceptual diagram of the effect of the 303 accent sweep circuit on filter cutoff control voltage. The accent sweep circuit does not fully discharge before the next step, creating increasing peaks when consecutive steps are accented." width="95%"><p class="caption">
 Figure 13.12: Conceptual diagram of the effect of the 303 accent sweep circuit on filter cutoff control voltage. The accent sweep circuit does not fully discharge before the next step, creating increasing peaks when consecutive steps are accented.
 </p>
 </div>
 <p>The accent system can be conceptualized in modular by incorporating a module that does smoothing and by incorporating a module that gives regular envelopes when no accents are received and modified envelopes when accents are received.
 Smoothing can normally be accomplished using a slew limiter.
-Modifying envelopes when accents are received can be accomplished similarly to how we modified gates, i.e. by mixing the accent voltages with the regular MEG/VEG envelopes.
+Modifying envelopes when accents are received can be accomplished similarly to how we modified gates, i.e. by creating step-length gates when accets are received, and using those gates to decide when to alternate between accented voltages and regular MEG voltages.
+However, there seems to be a point of ambiguity in Whittle’s description on how the smooth voltages is used.
+It could be that there is a switch controlled by accents that determines whether to use the smoothed voltage or the regular MEG voltage.
+The apparent problem with that is that the smoothed voltage will have a much longer decay than normal, which is the opposite of the behavior the accented envelope is supposed to have.
+For this reason, it seems a better solution is to mix the smoothed voltage with the regular envelope on accented steps.
 Try extending the last patch with the accents using the button in Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents">13.13</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -943,50 +947,68 @@ Try extending the last patch with the accents using the button in Figure <a href
         <!-- <h5 class="modal-title" id="tb303_seq_extendgate_reggate_slidegate_osc_megveg_accentsLabel">Modal title</h5> -->
         <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;On the row above the sequencer row, add Slew Limiter, QuadVCA/Mixer, Offset, Scope for the MEG and QuadVCA/Mixer and Scope for the VEG&lt;/li&gt;
-&lt;li&gt;Connect the accent sequencer (the order is PRASE) to Slew in and Slew out to MEG ADSR Decay. This will control decay on accented notes&lt;/li&gt;
-&lt;li&gt;Connect Slew out to VEG QuadVCA/Mixer input 1. This will send extra volume voltage on accented notes&lt;/li&gt;
-&lt;li&gt;Connect the Slew out to the MEG QuadVCA/Mixer input 1 and the MEG ADSR out to the same QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect the MEG QuadVCA/Mixer mix out to the Offset in
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
+&lt;li&gt;Stop, reset, and run the sequencers to make sure they are in sync&lt;/li&gt;
+&lt;li&gt;On the row above the sequencer row, add DGATE, filtah (you can copy these from the slide window), Scope, Slew Limiter, Offset, QuadVCA/Mixer, and Scope for the MEG and QuadVCA/Mixer and Scope for the VEG&lt;/li&gt;
+&lt;li&gt;Connect the accent sequencer (the order is PRASE) to DGATE trigger in and DGATE gate out to filtah input. This will create single gates for accents that cross several steps&lt;/li&gt;
+&lt;li&gt;Connect filtah out to input 1 of both Scopes&lt;/li&gt;
+&lt;li&gt;Connect filtah out to MEG ADSR decay.  This will control decay on accented notes&lt;/li&gt;
+&lt;li&gt;Connect MEG ADSR out to Slew in and Slew out to Offset in&lt;/li&gt;
+&lt;li&gt;Connect Offset out to VEG QuadVCA/Mixer input 1. This will send extra volume voltage on accented notes&lt;/li&gt;
+&lt;li&gt;Connect the Offset out to the MEG QuadVCA/Mixer input 1 and the MEG ADSR out to the same QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect filtah out to MEG QuadVCA/Mixer input 1 gain. This will gate the smoothed voltage so it is added only on accents&lt;/li&gt;
+&lt;li&gt;Connect MEG QuadVCA/Mixer mix out to VEG Scope input 2 and VCF cutoff&lt;/li&gt;
+&lt;li&gt;Connect Slew out to MEG Scope input 2&lt;/li&gt;
+&lt;li&gt;Connect VEG ADSR to VEG QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect VEG QuadVCA/Mixer mix out to VEG Scope input 1 and VCA cv in&lt;/li&gt;
+&lt;li&gt;Connect VEG ADSR out to VEG Scope input 2&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Adjust DGATE and filtah to match a step, using the slide window parameters as a model. You should see a long gate that covers 4 accented steps and a short gate that covers 1 on the scope&lt;/li&gt;
+&lt;li&gt;Adjust the Slew rise/fall to get a curve like the diagram on the text, i.e. multiple peaks. Notet the Scope will show all envelopes, not just the accented ones, which align with the accent gates &lt;/li&gt;
+&lt;li&gt;Adjust the MEG mixer levels to combine the smoothed and regular envelopes using the second scope. You should see higher peaks when the offset scale knob is turned up. This knob corresponds to the 303 accent knob. If the signal is too hot, it will be flat on top to indicate clipping&lt;/li&gt;
+&lt;li&gt;Adjust the decay attenuverter on the MEG ADSR and the cutoff knob on the MEG VCF&lt;/li&gt;
+&lt;li&gt;Adjust the mixer levels on the VEG using the scope as a guide. You should see a bump on the VEG scope for accented notes relative to unaccented notes&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;li&gt;Have a jam and test out the sound. The following correspond to the 303 knobs&lt;ul&gt;
+&lt;li&gt;MEG VCF cutoff is the 303 cutoff frequency&lt;/li&gt;
+&lt;li&gt;MEG VCF resonance is the 303 resonance&lt;/li&gt;
+&lt;li&gt;MEG VCF cutoff attenuverter is the 303 env mod&lt;/li&gt;
+&lt;li&gt;MEG ADSR decay is the 303 decay&lt;/li&gt;
+&lt;li&gt;Accent Offset is the accent&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
-&lt;/div&gt;
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-9u' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents.png'&gt;">Solution</button> -->
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;On the row above the sequencer row, add Slew Limiter, QuadVCA/Mixer, Offset, Scope for the MEG and QuadVCA/Mixer and Scope for the VEG&lt;/li&gt;
-&lt;li&gt;Connect the accent sequencer (the order is PRASE) to Slew in and Slew out to MEG ADSR Decay. This will control decay on accented notes&lt;/li&gt;
-&lt;li&gt;Connect Slew out to VEG QuadVCA/Mixer input 1. This will send extra volume voltage on accented notes&lt;/li&gt;
-&lt;li&gt;Connect the Slew out to the MEG QuadVCA/Mixer input 1 and the MEG ADSR out to the same QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect the MEG QuadVCA/Mixer mix out to the Offset in
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
+&lt;li&gt;Stop, reset, and run the sequencers to make sure they are in sync&lt;/li&gt;
+&lt;li&gt;On the row above the sequencer row, add DGATE, filtah (you can copy these from the slide window), Scope, Slew Limiter, Offset, QuadVCA/Mixer, and Scope for the MEG and QuadVCA/Mixer and Scope for the VEG&lt;/li&gt;
+&lt;li&gt;Connect the accent sequencer (the order is PRASE) to DGATE trigger in and DGATE gate out to filtah input. This will create single gates for accents that cross several steps&lt;/li&gt;
+&lt;li&gt;Connect filtah out to input 1 of both Scopes&lt;/li&gt;
+&lt;li&gt;Connect filtah out to MEG ADSR decay.  This will control decay on accented notes&lt;/li&gt;
+&lt;li&gt;Connect MEG ADSR out to Slew in and Slew out to Offset in&lt;/li&gt;
+&lt;li&gt;Connect Offset out to VEG QuadVCA/Mixer input 1. This will send extra volume voltage on accented notes&lt;/li&gt;
+&lt;li&gt;Connect the Offset out to the MEG QuadVCA/Mixer input 1 and the MEG ADSR out to the same QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect filtah out to MEG QuadVCA/Mixer input 1 gain. This will gate the smoothed voltage so it is added only on accents&lt;/li&gt;
+&lt;li&gt;Connect MEG QuadVCA/Mixer mix out to VEG Scope input 2 and VCF cutoff&lt;/li&gt;
+&lt;li&gt;Connect Slew out to MEG Scope input 2&lt;/li&gt;
+&lt;li&gt;Connect VEG ADSR to VEG QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect VEG QuadVCA/Mixer mix out to VEG Scope input 1 and VCA cv in&lt;/li&gt;
+&lt;li&gt;Connect VEG ADSR out to VEG Scope input 2&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Adjust DGATE and filtah to match a step, using the slide window parameters as a model. You should see a long gate that covers 4 accented steps and a short gate that covers 1 on the scope&lt;/li&gt;
+&lt;li&gt;Adjust the Slew rise/fall to get a curve like the diagram on the text, i.e. multiple peaks. Notet the Scope will show all envelopes, not just the accented ones, which align with the accent gates &lt;/li&gt;
+&lt;li&gt;Adjust the MEG mixer levels to combine the smoothed and regular envelopes using the second scope. You should see higher peaks when the offset scale knob is turned up. This knob corresponds to the 303 accent knob. If the signal is too hot, it will be flat on top to indicate clipping&lt;/li&gt;
+&lt;li&gt;Adjust the decay attenuverter on the MEG ADSR and the cutoff knob on the MEG VCF&lt;/li&gt;
+&lt;li&gt;Adjust the mixer levels on the VEG using the scope as a guide. You should see a bump on the VEG scope for accented notes relative to unaccented notes&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;li&gt;Have a jam and test out the sound. The following correspond to the 303 knobs&lt;ul&gt;
+&lt;li&gt;MEG VCF cutoff is the 303 cutoff frequency&lt;/li&gt;
+&lt;li&gt;MEG VCF resonance is the 303 resonance&lt;/li&gt;
+&lt;li&gt;MEG VCF cutoff attenuverter is the 303 env mod&lt;/li&gt;
+&lt;li&gt;MEG ADSR decay is the 303 decay&lt;/li&gt;
+&lt;li&gt;Accent Offset is the accent&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
-&lt;/div&gt;
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image-9u' src='images/patch-solutions/tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents.png'&gt;">Solution</button>
         <button type="button" onclick="settb303_seq_extendgate_reggate_slidegate_osc_megveg_accentsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -1032,219 +1054,17 @@ function settb303_seq_extendgate_reggate_slidegate_osc_megveg_accentsIframe(url)
 Figure 13.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for for extending the 303 patch with accents.
 </p>
 </div>
-<p>FINAL</p>
-<p>Figure <a href="tb-303.html#fig:tb303-final">13.14</a>.</p>
-
-<!-- MODAL HTML BLOCK -->
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settb303_finalIframe('https://cardinal.olney.ai?patchurl=tb303-seq-extendgate-reggate-slidegate-osc-megveg-accents.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#tb303_final">
-    Launch Virtual Modular
-  </button>
 </div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="tb303_final" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="tb303_finalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="tb303_finalLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
-&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-final.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
-&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
-&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
-&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
-&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
-&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
-&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
-&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='instruction-wide-image' src='images/303-da-funk-pattern.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tb303-final.png'&gt;">Solution</button>
-        <button type="button" onclick="settb303_finalIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="tb303_final-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function settb303_finalIframe(url){
-  var tb303_finalIframe = document.getElementById("tb303_final-iframe");
-  tb303_finalIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
-<span style="display:block;" id="fig:tb303-final"></span>
-<p class="caption">
-Figure 13.14: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-final
-</p>
-</div>
-<!-- Remaining plan -->
-<!-- Sound design ideas -->
-<!-- - cymbal -->
-<!-- - 303 -->
-<!-- - krell -->
-<!-- worthy orphans -->
-<!-- audio rate modulation into resonant filter? -->
-<!--        Vocoders -->
-<!-- - -->
-<!-- possibly undercovered -->
-<!--        Attenuators, inverters, and attenuverters -->
-<!--        ~~Sample and hold~~ -->
-<!-- - -->
-<!-- Sound design ideas -->
-<!-- Cymbal PUSH UNTIL AFTER RING MOD -> clark & reid comparison -->
-<!-- Maybe use these? -->
-<!-- Growl: Low frequency sine wave modulation of the filter cut-off frequency -->
-<!-- wah wah is LFO on LPF cutoff freq -->
-<!-- Actual -->
-<!--     4 Basic Modeling Concepts -->
-<!--     4.1 Modules are the model elements -->
-<!--     4.2 Signals are how the model elements interact -->
-<!--     4.3 Signals are interpreted by modules -->
-<!--     4.4 Pulling it all together -->
-<!--         4.4.1 Drone -->
-<!--         4.4.2 Using an oscilloscope -->
-<!--         4.4.3 Controlling pitch -->
-<!--         4.4.4 Controlling note duration (on/off volume) -->
-<!--         4.4.5 Controlling note dynamics (volume during note) -->
-<!--     4.5 Moving forward -->
-<!-- 5 Controllers -->
-<!-- 5.1 Clocks -->
-<!--     5.1.1 Clock under a scope -->
-<!--     5.1.2 Clock as a generator -->
-<!-- 5.2 Sequencers -->
-<!--     5.2.1 Clocks as sequencers -->
-<!--     5.2.2 Trigger sequencers -->
-<!--     5.2.3 Control voltage sequencers -->
-<!--     6 Generators -->
-<!--     6.1 Chords -->
-<!--     6.2 Chorus -->
-<!--     6.3 Low frequency oscillators & uses -->
-<!--         6.3.1 Pulse width modulation -->
-<!--         6.3.2 Vibrato -->
-<!--         6.3.3 Tremolo -->
-<!--     6.4 Synchronization -->
-<!--     6.5 Noise -->
-<!--     6.6 Samplers -->
-<!-- 7 Modifiers -->
-<!-- 7.1 Effects -->
-<!--     7.1.1 Delays -->
-<!--     7.1.2 Reverb -->
-<!--     7.1.3 Chorus -->
-<!--     7.1.4 Flanger -->
-<!--     7.1.5 Phaser -->
-<!-- 7.2 Voltage controlled filters -->
-<!--     7.2.1 Filters are imperfect -->
-<!--     7.2.2 Filters change frequency and phase -->
-<!--     7.2.3 Combining filters -->
-<!--     7.2.4 Resonance -->
-<!-- 8 Designing a Kick Drum -->
-<!-- 8.1 Problem solving for sound synthesis -->
-<!--     8.1.1 Understand the problem -->
-<!--     8.1.2 Devise a plan -->
-<!--     8.1.3 Carry out the plan (and replanning) -->
-<!--     8.1.4 Evaluate the solution -->
-<!-- 8.2 Reviewing previous kick drum patches -->
-<!--     8.2.1 Sine with envelope -->
-<!--     8.2.2 Sine with an envelope plus noise burst -->
-<!-- 8.3 Alternative approaches -->
-<!--     8.3.1 Improving our understanding of the problem -->
-<!--     8.3.2 Devising new plans -->
-<!--     8.3.3 Working backwards -->
-<!-- 9 Eighties Lead & Chiptune -->
-<!-- 9.1 Eighties Lead -->
-<!--     9.1.1 Waveshape -->
-<!--     9.1.2 Dynamics -->
-<!-- 9.2 Chiptune -->
-<!--     9.2.1 Triad arpeggio -->
-<!--     9.2.2 LFO PWM -->
-<!--     9.2.3 Secondary sequencer for transposition -->
-<!--     9.2.4 Hats and kick -->
-<!-- 10 Controllers -->
-<!-- 10.1 Modifying gates -->
-<!-- 10.2 Making gates with logic -->
-<!-- 10.3 Adding/removing gates with probability -->
-<!-- 10.4 Speed variable clocks using LFOs -->
-<!-- 10.5 Euclidean rhythm -->
-<!-- 10.6 Sequential switches -->
-<!-- 11 Generators -->
-<!-- 11.1 Modulating amplitude -->
-<!--     11.1.1 Amplitude modulation -->
-<!--     11.1.2 Ring modulation -->
-<!-- 11.2 Modulating frequency -->
-<!--     11.2.1 Frequency modulation -->
-<!--     11.2.2 Analogue exponential frequency modulation -->
-<!--     11.2.3 Analogue linear frequency modulation -->
-<!--     11.2.4 Analogue through-zero frequency modulation -->
-<!--     11.2.5 Phase modulation -->
-<!-- 12 Modulating Modifiers -->
-<!-- 12.1 Rectification and wavefolding -->
-<!-- 12.2 Slew -->
-<!-- 12.3 Quantizers -->
+<div id="looking-back" class="section level2" number="13.7">
+<h2>
+<span class="header-section-number">13.7</span> Looking back<a class="anchor" aria-label="anchor" href="#looking-back"><i class="fas fa-link"></i></a>
+</h2>
+<p>Overall this seems like a decent approximation to a 303.
+My biggest reservations are around the accent system, which seems to capture some but not all of Whittle’s descriptions.
+Improving the accent system would require additional research and probably studying the circuit itself.
+It would also be nice to have a diode ladder filter module rather than a transistor ladder module.
+The transistor ladder seems to a pretty good job at low to medium resonance, but I’m not as convinced at higher resonance.
+Probably the best way to make continued progress on this patch would be to obtain a real 303 and then make reference recordings for our target song and then use those to better tune parameters and make design decisions.</p>
 
 </div>
 </div>
@@ -1262,6 +1082,7 @@ Figure 13.14: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-
 <li><a class="nav-link" href="#oscillator"><span class="header-section-number">13.4</span> Oscillator</a></li>
 <li><a class="nav-link" href="#filter-and-envelope-generators"><span class="header-section-number">13.5</span> Filter and envelope generators</a></li>
 <li><a class="nav-link" href="#accent"><span class="header-section-number">13.6</span> Accent</a></li>
+<li><a class="nav-link" href="#looking-back"><span class="header-section-number">13.7</span> Looking back</a></li>
 </ul>
 
       <div class="book-extra">
@@ -1279,7 +1100,7 @@ Figure 13.14: <a href="https://cardinal.olney.ai">Virtual modular</a> for tb303-
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-29.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
