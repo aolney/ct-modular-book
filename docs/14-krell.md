@@ -18,7 +18,7 @@ Thus Barton's choice of the name "Krell" for the patch is an homage to the film'
 (ref:krell-performance) [Vimeo video](https://vimeo.com/48382205) of Todd Barton's Krell patch. Image [© Todd Barton](https://vimeo.com/user2359061).
 
 <div class="figure">
-<iframe src="https://player.vimeo.com/video/48382205" width="672" height="400px" data-external="1"></iframe>
+<img src="downloadFigs4latex/krell-performance.jpg" alt="(ref:krell-performance)"  />
 <p class="caption">(\#fig:krell-performance)(ref:krell-performance)</p>
 </div>
 
@@ -73,7 +73,7 @@ Thus we can treat each stage as a subproblem and further address issues that ari
 (ref:krell-walk-through) [Vimeo video](https://vimeo.com/48466272) showing an incremental build of Todd Barton's Krell patch, with voice-over explanation. Image [© Todd Barton](https://vimeo.com/user2359061).
 
 <div class="figure">
-<iframe src="https://player.vimeo.com/video/48466272" width="672" height="400px" data-external="1"></iframe>
+<img src="downloadFigs4latex/krell-walk-through.jpg" alt="(ref:krell-walk-through)"  />
 <p class="caption">(\#fig:krell-walk-through)(ref:krell-walk-through)</p>
 </div>
 
@@ -104,109 +104,12 @@ Open up the walk through video in another tab so you can refer to its sound as y
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkrell_osc_env_vca_filterIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#krell_osc_env_vca_filter">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="krell_osc_env_vca_filter" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="krell_osc_env_vca_filterLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="krell_osc_env_vca_filterLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add VCO, VCA, two VCFs, and Host audio to the top row. Add Bogg Audio AD to the bottom row with a Scope&lt;/li&gt;
-&lt;li&gt;Connect the sine out of the VCO to the in of the VCA&lt;/li&gt;
-&lt;li&gt;Connect the out of the VCA to the in of the first VCF&lt;/li&gt;
-&lt;li&gt;Connect connect the LPF out of that VCF to the in of the 2nd VCF&lt;/li&gt;
-&lt;li&gt;Connect the HPF out of the second VCF to Host audio L. The two VCFs together are acting as a band pass filter&lt;/li&gt;
-&lt;li&gt;Connect the env out of AD to Scope in and to VCA in. Press LP on AD to start it looping&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Adjust AD attack and decay to .25 s. Adjust the scope to show the full envelope&lt;/li&gt;
-&lt;li&gt;Adjust VCO frequency to 200 Hz&lt;/li&gt;
-&lt;li&gt;Adjust left VCF cutoff to 4000 Hz and right VCF cutoff to 62 Hz to create the bandpass&lt;/li&gt;
-&lt;li&gt;Compare the sound to the reference recording. Does it sound the same?&lt;/li&gt;
-&lt;li&gt;Add filtah and control its cutoff with the envelope. Does it sound more or less like the reference with the filter added?&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/bgaad-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/krell-osc-env-vca-filter.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add VCO, VCA, two VCFs, and Host audio to the top row. Add Bogg Audio AD to the bottom row with a Scope&lt;/li&gt;
-&lt;li&gt;Connect the sine out of the VCO to the in of the VCA&lt;/li&gt;
-&lt;li&gt;Connect the out of the VCA to the in of the first VCF&lt;/li&gt;
-&lt;li&gt;Connect connect the LPF out of that VCF to the in of the 2nd VCF&lt;/li&gt;
-&lt;li&gt;Connect the HPF out of the second VCF to Host audio L. The two VCFs together are acting as a band pass filter&lt;/li&gt;
-&lt;li&gt;Connect the env out of AD to Scope in and to VCA in. Press LP on AD to start it looping&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Adjust AD attack and decay to .25 s. Adjust the scope to show the full envelope&lt;/li&gt;
-&lt;li&gt;Adjust VCO frequency to 200 Hz&lt;/li&gt;
-&lt;li&gt;Adjust left VCF cutoff to 4000 Hz and right VCF cutoff to 62 Hz to create the bandpass&lt;/li&gt;
-&lt;li&gt;Compare the sound to the reference recording. Does it sound the same?&lt;/li&gt;
-&lt;li&gt;Add filtah and control its cutoff with the envelope. Does it sound more or less like the reference with the filter added?&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/bgaad-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/krell-osc-env-vca-filter.png'&gt;">Solution</button>
-        <button type="button" onclick="setkrell_osc_env_vca_filterIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="krell_osc_env_vca_filter-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setkrell_osc_env_vca_filterIframe(url){
-  var krell_osc_env_vca_filterIframe = document.getElementById("krell_osc_env_vca_filter-iframe");
-  krell_osc_env_vca_filterIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:krell-osc-env-vca-filter)(ref:krell-osc-env-vca-filter)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:krell-osc-env-vca-filter)" width="100%" />
+<p class="caption">(\#fig:krell-osc-env-vca-filter)(ref:krell-osc-env-vca-filter)</p>
+</div>
 
 This first patch has no discernible differences in sound to the reference recording, so it is presumably correct.
 
@@ -223,103 +126,12 @@ Keep the walk through video open in another tab so you can refer to its sound as
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkrell_envA_envDIframe('https://cardinal.olney.ai?patchurl=krell-osc-env-vca-filter.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#krell_envA_envD">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="krell_envA_envD" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="krell_envA_envDLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="krell_envA_envDLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Duplicate the main envelope and Scope and put the copy on the row below&lt;/li&gt;
-&lt;li&gt;Connect the env out of the attack envelope to the attack of the main envelope. We'll call this the attack envelope&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Slowly increase the attack and decay parameters of the attack envelope to 3s&lt;/li&gt;
-&lt;li&gt;Notice the frequency of the main envelope increases as the attack envelope decreases. This is comparable to frequency modulation&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Duplicate the attack envelope and Scope and put the copy to the right of the attack envelope&lt;/li&gt;
-&lt;li&gt;Connect the env out of the right envelope to the decay of the main envelope. We'll call this the decay envelope&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Slowly increase the attack and decay parameters of the decay envelope to 3s&lt;/li&gt;
-&lt;li&gt;Notice the frequency of the main envelope increases as the attack envelope decreases. The effect is even more extreme because the attack and decay envelopes are both in sync. Wait until you have a good feel for the repeating pattern&lt;/li&gt;
-&lt;li&gt;De-synchronize the two envelopes by pressing on the LP button of one for a moment to turn of looping, then prese it again to turn looping back on. The repeating pattern should now be different.
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-9u' src='images/patch-solutions/krell-envA-envD.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Duplicate the main envelope and Scope and put the copy on the row below&lt;/li&gt;
-&lt;li&gt;Connect the env out of the attack envelope to the attack of the main envelope. We'll call this the attack envelope&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Slowly increase the attack and decay parameters of the attack envelope to 3s&lt;/li&gt;
-&lt;li&gt;Notice the frequency of the main envelope increases as the attack envelope decreases. This is comparable to frequency modulation&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Duplicate the attack envelope and Scope and put the copy to the right of the attack envelope&lt;/li&gt;
-&lt;li&gt;Connect the env out of the right envelope to the decay of the main envelope. We'll call this the decay envelope&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Slowly increase the attack and decay parameters of the decay envelope to 3s&lt;/li&gt;
-&lt;li&gt;Notice the frequency of the main envelope increases as the attack envelope decreases. The effect is even more extreme because the attack and decay envelopes are both in sync. Wait until you have a good feel for the repeating pattern&lt;/li&gt;
-&lt;li&gt;De-synchronize the two envelopes by pressing on the LP button of one for a moment to turn of looping, then prese it again to turn looping back on. The repeating pattern should now be different.
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-9u' src='images/patch-solutions/krell-envA-envD.png'&gt;">Solution</button>
-        <button type="button" onclick="setkrell_envA_envDIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="krell_envA_envD-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setkrell_envA_envDIframe(url){
-  var krell_envA_envDIframe = document.getElementById("krell_envA_envD-iframe");
-  krell_envA_envDIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:krell-envA-envD)(ref:krell-envA-envD)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:krell-envA-envD)" width="100%" />
+<p class="caption">(\#fig:krell-envA-envD)(ref:krell-envA-envD)</p>
+</div>
 
 It's harder to say for this last patch that we're on target because there are only a few seconds of the walk through video to reference.
 Overall it seems close, but it also seems that the length of Barton's envelopes are longer.
@@ -351,93 +163,12 @@ Try setting up a noisy triangle using the button in Figure \@ref(fig:noisy-trian
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setnoisy_triangleIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#noisy_triangle">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="noisy_triangle" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="noisy_triangleLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="noisy_triangleLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Noiz, VCO, Scope, and LFO&lt;/li&gt;
-&lt;li&gt;Connect Noiz white out to VCO FM in&lt;/li&gt;
-&lt;li&gt;Connect VCO triangle out to Scope in&lt;/li&gt;
-&lt;li&gt;Connect LFO square out to Scope ext trigger in&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the scope waveshape&lt;ul&gt;
-&lt;li&gt;Slowly increase FM attenuator on the VCO&lt;/li&gt;
-&lt;li&gt;Notice the frequency of the triangle increases and that it becomes noisy in shape and frequency at the same time&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/noisy-triangle.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Noiz, VCO, Scope, and LFO&lt;/li&gt;
-&lt;li&gt;Connect Noiz white out to VCO FM in&lt;/li&gt;
-&lt;li&gt;Connect VCO triangle out to Scope in&lt;/li&gt;
-&lt;li&gt;Connect LFO square out to Scope ext trigger in&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the scope waveshape&lt;ul&gt;
-&lt;li&gt;Slowly increase FM attenuator on the VCO&lt;/li&gt;
-&lt;li&gt;Notice the frequency of the triangle increases and that it becomes noisy in shape and frequency at the same time&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/noisy-triangle.png'&gt;">Solution</button>
-        <button type="button" onclick="setnoisy_triangleIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="noisy_triangle-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setnoisy_triangleIframe(url){
-  var noisy_triangleIframe = document.getElementById("noisy_triangle-iframe");
-  noisy_triangleIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:noisy-triangle)(ref:noisy-triangle)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noisy-triangle)" width="100%" />
+<p class="caption">(\#fig:noisy-triangle)(ref:noisy-triangle)</p>
+</div>
 
 The noisy triangle is a building block for the FRV.
 The FRV uses a sample & hold to sample the current value of the noisy triangle and then slews that value to create a smooth random voltage.
@@ -452,103 +183,12 @@ Try extending the noisy triangle with an FRV using the button in Figure \@ref(fi
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setnoisy_triangle_frvIframe('https://cardinal.olney.ai?patchurl=noisy-triangle.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#noisy_triangle_frv">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="noisy_triangle_frv" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="noisy_triangle_frvLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="noisy_triangle_frvLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add LFO, holdah, Slew Limiter, Offset, and Scope to the right of the noisy triangle&lt;/li&gt;
-&lt;li&gt;Connect the noisy triangle out to holdah input&lt;/li&gt;
-&lt;li&gt;Connect holdah output to Scope input 1 and Slew in&lt;/li&gt;
-&lt;li&gt;Connect Slew out to Offset in and Offset out to Scope input 2&lt;/li&gt;
-&lt;li&gt;Connect LFO square out to holdah trigger in. This will clock the S&amp;H&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the scope waveshape&lt;ul&gt;
-&lt;li&gt;Slowly increase the rise/fall times to get a smoothed version of the stepped random voltage from holdah. If you go too far, it will become almost a line. You can 'tune' this using Min/Max so the smooth version has a wide voltage range while still being smooth&lt;/li&gt;
-&lt;li&gt;Once you have a good smoothing, increase the rate of the LFO. Is the smoothing still good? The 265 had a single knob to control both at once, probably for this reason&lt;/li&gt;
-&lt;li&gt;Offset so the signal is unipolar (we want that for later controlling envelopes&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/minmax-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/noisy-triangle-frv.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add LFO, holdah, Slew Limiter, Offset, and Scope to the right of the noisy triangle&lt;/li&gt;
-&lt;li&gt;Connect the noisy triangle out to holdah input&lt;/li&gt;
-&lt;li&gt;Connect holdah output to Scope input 1 and Slew in&lt;/li&gt;
-&lt;li&gt;Connect Slew out to Offset in and Offset out to Scope input 2&lt;/li&gt;
-&lt;li&gt;Connect LFO square out to holdah trigger in. This will clock the S&amp;H&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the scope waveshape&lt;ul&gt;
-&lt;li&gt;Slowly increase the rise/fall times to get a smoothed version of the stepped random voltage from holdah. If you go too far, it will become almost a line. You can 'tune' this using Min/Max so the smooth version has a wide voltage range while still being smooth&lt;/li&gt;
-&lt;li&gt;Once you have a good smoothing, increase the rate of the LFO. Is the smoothing still good? The 265 had a single knob to control both at once, probably for this reason&lt;/li&gt;
-&lt;li&gt;Offset so the signal is unipolar (we want that for later controlling envelopes&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/minmax-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/noisy-triangle-frv.png'&gt;">Solution</button>
-        <button type="button" onclick="setnoisy_triangle_frvIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="noisy_triangle_frv-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setnoisy_triangle_frvIframe(url){
-  var noisy_triangle_frvIframe = document.getElementById("noisy_triangle_frv-iframe");
-  noisy_triangle_frvIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:noisy-triangle-frv)(ref:noisy-triangle-frv)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noisy-triangle-frv)" width="100%" />
+<p class="caption">(\#fig:noisy-triangle-frv)(ref:noisy-triangle-frv)</p>
+</div>
 
 The noisy triangle is also a building block of the SRV.
 Like the FRV, the SRV samples the noisy triangle, but with two main differences.
@@ -565,105 +205,12 @@ Try extending the last patch with a SRV using the button in Figure \@ref(fig:noi
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setnoisy_triangle_frv_srvIframe('https://cardinal.olney.ai?patchurl=noisy-triangle-frv.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#noisy_triangle_frv_srv">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="noisy_triangle_frv_srv" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="noisy_triangle_frv_srvLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="noisy_triangle_frv_srvLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Triggers MKIII, holdah, mixah, and Scope to the right of the FRV&lt;/li&gt;
-&lt;li&gt;Connect the noisy triangle out to holdah top input&lt;/li&gt;
-&lt;li&gt;Connect holdah top output to Scope input 1 and mixah input a&lt;/li&gt;
-&lt;li&gt;Connect mixah output holdah bottom input and to Scope input 2&lt;/li&gt;
-&lt;li&gt;Connect holdah bottom output to mixah input b. Now the mixah is receiving the last sampled value from the noisy triangle (holdah top) and the last value from mixah (holdah bottom) &lt;/li&gt;
-&lt;li&gt;Connect one of the triggers to both holdah trigger ins&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the scope&lt;ul&gt;
-&lt;li&gt;Move the mixah top knob to the left (counterclockwise) and take a few samples. You should see two colored lines on the slope because the values are all sampled from the noisy triangle&lt;/li&gt;
-&lt;li&gt;Move the mixah top knob to the middle and take a few samples. You should see two colored lines still on the slope, but they should be closer together (on average) than before because the new values are being averaged with the stored values&lt;/li&gt;
-&lt;li&gt;Move the mixah top knob to the right and take a few samples. You should see only one colored line because the stored value is always selected and so never changes&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/mixah-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/noisy-triangle-frv-srv.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Triggers MKIII, holdah, mixah, and Scope to the right of the FRV&lt;/li&gt;
-&lt;li&gt;Connect the noisy triangle out to holdah top input&lt;/li&gt;
-&lt;li&gt;Connect holdah top output to Scope input 1 and mixah input a&lt;/li&gt;
-&lt;li&gt;Connect mixah output holdah bottom input and to Scope input 2&lt;/li&gt;
-&lt;li&gt;Connect holdah bottom output to mixah input b. Now the mixah is receiving the last sampled value from the noisy triangle (holdah top) and the last value from mixah (holdah bottom) &lt;/li&gt;
-&lt;li&gt;Connect one of the triggers to both holdah trigger ins&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the scope&lt;ul&gt;
-&lt;li&gt;Move the mixah top knob to the left (counterclockwise) and take a few samples. You should see two colored lines on the slope because the values are all sampled from the noisy triangle&lt;/li&gt;
-&lt;li&gt;Move the mixah top knob to the middle and take a few samples. You should see two colored lines still on the slope, but they should be closer together (on average) than before because the new values are being averaged with the stored values&lt;/li&gt;
-&lt;li&gt;Move the mixah top knob to the right and take a few samples. You should see only one colored line because the stored value is always selected and so never changes&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/mixah-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/noisy-triangle-frv-srv.png'&gt;">Solution</button>
-        <button type="button" onclick="setnoisy_triangle_frv_srvIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="noisy_triangle_frv_srv-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setnoisy_triangle_frv_srvIframe(url){
-  var noisy_triangle_frv_srvIframe = document.getElementById("noisy_triangle_frv_srv-iframe");
-  noisy_triangle_frv_srvIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:noisy-triangle-frv-srv)(ref:noisy-triangle-frv-srv)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noisy-triangle-frv-srv)" width="100%" />
+<p class="caption">(\#fig:noisy-triangle-frv-srv)(ref:noisy-triangle-frv-srv)</p>
+</div>
 
 One of the possible advantages of the 265 for the Krell patch over the 266 is that the FRV and SRV are correlated more closely in the 265.
 Both use the same random triangle, which means that the output of the SRV and FRV will be less random (and likely more musical) than if they used completely separate random sources.
@@ -682,107 +229,12 @@ Try extending the last Krell patch with FRVs to control the nested envelopes usi
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkrell_frvsIframe('https://cardinal.olney.ai?patchurl=krell-frvs-starter.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#krell_frvs">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="krell_frvs" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="krell_frvsLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="krell_frvsLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Note the attack and decay times of the main envelope have been increased to about 2s&lt;/li&gt;
-&lt;li&gt;One FRV from the previous patch is disconnected on the left of the Krell patch&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope&lt;ul&gt;
-&lt;li&gt;Connect the FRV Offset out to the decay in of the attack envelope &lt;/li&gt;
-&lt;li&gt;Watch the decay of that envelope. You should see that sometimes it is slow and other times quite fast (a sharp drop down). This affects the frequency of this envelope over time as well as its current value, both of which affect the main envelope&lt;/li&gt;
-&lt;li&gt;Listen to the pattern in the sound for a bit. How much of an effect is the FRV having?&lt;/li&gt;
-&lt;li&gt;Adjust the FRV LFO frequency and slew. Can you improve the effect on the main envelope somehow?&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope&lt;ul&gt;
-&lt;li&gt;Make a copy of the FRV and place the copy to the right of the main envelope&lt;/li&gt;
-&lt;li&gt;Connect that FRV Offset out to the attack in of the decay envelope &lt;/li&gt;
-&lt;li&gt;Watch the attack of that envelope. You should see that sometimes it is slow and other times quite fast (a sharp rise up, like percussion). This affects the frequency of this envelope over time as well as its current value, both of which affect the main envelope&lt;/li&gt;
-&lt;li&gt;Listen to the pattern in the sound for a bit. How much of an effect is the FRV having?&lt;/li&gt;
-&lt;li&gt;For fun, reverse the parameters the FRVs are controling, i.e. control the decay of the decay envelope and the attack of the attack envelope. What is the difference to the sound?&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-9u' src='images/patch-solutions/krell-frvs.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Note the attack and decay times of the main envelope have been increased to about 2s&lt;/li&gt;
-&lt;li&gt;One FRV from the previous patch is disconnected on the left of the Krell patch&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope&lt;ul&gt;
-&lt;li&gt;Connect the FRV Offset out to the decay in of the attack envelope &lt;/li&gt;
-&lt;li&gt;Watch the decay of that envelope. You should see that sometimes it is slow and other times quite fast (a sharp drop down). This affects the frequency of this envelope over time as well as its current value, both of which affect the main envelope&lt;/li&gt;
-&lt;li&gt;Listen to the pattern in the sound for a bit. How much of an effect is the FRV having?&lt;/li&gt;
-&lt;li&gt;Adjust the FRV LFO frequency and slew. Can you improve the effect on the main envelope somehow?&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope&lt;ul&gt;
-&lt;li&gt;Make a copy of the FRV and place the copy to the right of the main envelope&lt;/li&gt;
-&lt;li&gt;Connect that FRV Offset out to the attack in of the decay envelope &lt;/li&gt;
-&lt;li&gt;Watch the attack of that envelope. You should see that sometimes it is slow and other times quite fast (a sharp rise up, like percussion). This affects the frequency of this envelope over time as well as its current value, both of which affect the main envelope&lt;/li&gt;
-&lt;li&gt;Listen to the pattern in the sound for a bit. How much of an effect is the FRV having?&lt;/li&gt;
-&lt;li&gt;For fun, reverse the parameters the FRVs are controling, i.e. control the decay of the decay envelope and the attack of the attack envelope. What is the difference to the sound?&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-9u' src='images/patch-solutions/krell-frvs.png'&gt;">Solution</button>
-        <button type="button" onclick="setkrell_frvsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="krell_frvs-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setkrell_frvsIframe(url){
-  var krell_frvsIframe = document.getElementById("krell_frvs-iframe");
-  krell_frvsIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:krell-frvs)(ref:krell-frvs)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:krell-frvs)" width="100%" />
+<p class="caption">(\#fig:krell-frvs)(ref:krell-frvs)</p>
+</div>
 
 This patch illustrates how the FRVs are probably most useful for adding some variation to the synchronization of the attack and decay envelopes.
 In other words, those two envelopes together will generate a pattern that repeats over time, and the repetition is probably noticeable.
@@ -807,99 +259,12 @@ Try extending the last Krell patch with an SRV to control oscillator pitch using
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkrell_srvIframe('https://cardinal.olney.ai?patchurl=krell-srv-starter.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#krell_srv">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="krell_srv" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="krell_srvLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="krell_srvLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;The SRV from the previous patch is disconnected on the top left row&lt;/li&gt;
-&lt;li&gt;Connect the Offset out from the FRV below it to mixah top input to control the crossfader&lt;/li&gt;
-&lt;li&gt;Connect the mixah output to the V/Oct of the VCO&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope&lt;ul&gt;
-&lt;li&gt;Connect the SRV Offset input to the FRV noisy triangle VCO out, the FRV holdah out, and the FRV Slew out. Each of these is a slightly different random voltage in terms of correlation between the SRV and FRV. Which of these connections sound the most like the reference sound?&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;The Offset in the SRV is a new addition to control the spread of voltages received from the FRV. This approximates the 266 skew parameter&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope&lt;ul&gt;
-&lt;li&gt;Set the Offset scale to 1 (no change). Is the sound more or less like the reference?&lt;/li&gt;
-&lt;li&gt;Connect the FRV Offset out to the SRV Offset CV in. Is the sound more or less like the reference?&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-9u' src='images/patch-solutions/krell-srv.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;The SRV from the previous patch is disconnected on the top left row&lt;/li&gt;
-&lt;li&gt;Connect the Offset out from the FRV below it to mixah top input to control the crossfader&lt;/li&gt;
-&lt;li&gt;Connect the mixah output to the V/Oct of the VCO&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope&lt;ul&gt;
-&lt;li&gt;Connect the SRV Offset input to the FRV noisy triangle VCO out, the FRV holdah out, and the FRV Slew out. Each of these is a slightly different random voltage in terms of correlation between the SRV and FRV. Which of these connections sound the most like the reference sound?&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;The Offset in the SRV is a new addition to control the spread of voltages received from the FRV. This approximates the 266 skew parameter&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope&lt;ul&gt;
-&lt;li&gt;Set the Offset scale to 1 (no change). Is the sound more or less like the reference?&lt;/li&gt;
-&lt;li&gt;Connect the FRV Offset out to the SRV Offset CV in. Is the sound more or less like the reference?&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-9u' src='images/patch-solutions/krell-srv.png'&gt;">Solution</button>
-        <button type="button" onclick="setkrell_srvIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="krell_srv-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setkrell_srvIframe(url){
-  var krell_srvIframe = document.getElementById("krell_srv-iframe");
-  krell_srvIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:krell-srv)(ref:krell-srv)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:krell-srv)" width="100%" />
+<p class="caption">(\#fig:krell-srv)(ref:krell-srv)</p>
+</div>
 
 The patch in Figure \@ref(fig:krell-srv) illustrates how small choices in handling the random values for pitches have a fairly large effect on the overall sound.
 Increasing correlation with the FRV confines variability, as does linking the offset scale to the FRV.
@@ -920,101 +285,12 @@ Open the reference in another tab so you can refer to it while you update the pa
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkrell_filter_fold_fmIframe('https://cardinal.olney.ai?patchurl=krell-srv.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#krell_filter_fold_fm">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="krell_filter_fold_fm" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="krell_filter_fold_fmLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="krell_filter_fold_fmLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Sine to the left of the VCO, AD to the right of VCO, Folding to the right of AD, and a Scope to the right of Folding&lt;/li&gt;
-&lt;li&gt;Connect Sine out to FM input of the VCO&lt;/li&gt;
-&lt;li&gt;Connect AD env out to Folding depth in&lt;/li&gt;
-&lt;li&gt;Connect VCO sine out to Folding in and to Scope input 1 &lt;/li&gt;
-&lt;li&gt;Connect Folding out to VCA in and to Scope input 2&lt;/li&gt;
-&lt;li&gt;Connect the right FRV to the first VCF cutoff in. This changes the bandpass width&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope&lt;ul&gt;
-&lt;li&gt;Change the FM attenuator on the VCO to match the reference&lt;/li&gt;
-&lt;li&gt;Change the Folding depth and the attenuator below it to match the reference&lt;/li&gt;
-&lt;li&gt;Change the VCF cutoff attenuator to match the reference&lt;/li&gt;
-&lt;li&gt;Change main envelope attack/decay times the match the reference&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-9u' src='images/patch-solutions/krell-filter-fold-fm.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Sine to the left of the VCO, AD to the right of VCO, Folding to the right of AD, and a Scope to the right of Folding&lt;/li&gt;
-&lt;li&gt;Connect Sine out to FM input of the VCO&lt;/li&gt;
-&lt;li&gt;Connect AD env out to Folding depth in&lt;/li&gt;
-&lt;li&gt;Connect VCO sine out to Folding in and to Scope input 1 &lt;/li&gt;
-&lt;li&gt;Connect Folding out to VCA in and to Scope input 2&lt;/li&gt;
-&lt;li&gt;Connect the right FRV to the first VCF cutoff in. This changes the bandpass width&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope&lt;ul&gt;
-&lt;li&gt;Change the FM attenuator on the VCO to match the reference&lt;/li&gt;
-&lt;li&gt;Change the Folding depth and the attenuator below it to match the reference&lt;/li&gt;
-&lt;li&gt;Change the VCF cutoff attenuator to match the reference&lt;/li&gt;
-&lt;li&gt;Change main envelope attack/decay times the match the reference&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-9u' src='images/patch-solutions/krell-filter-fold-fm.png'&gt;">Solution</button>
-        <button type="button" onclick="setkrell_filter_fold_fmIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="krell_filter_fold_fm-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setkrell_filter_fold_fmIframe(url){
-  var krell_filter_fold_fmIframe = document.getElementById("krell_filter_fold_fm-iframe");
-  krell_filter_fold_fmIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:krell-filter-fold-fm)(ref:krell-filter-fold-fm)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:krell-filter-fold-fm)" width="100%" />
+<p class="caption">(\#fig:krell-filter-fold-fm)(ref:krell-filter-fold-fm)</p>
+</div>
 
 ## Looking back
 

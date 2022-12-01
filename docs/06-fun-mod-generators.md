@@ -31,7 +31,7 @@ For example, the [THX Deep Note](https://en.wikipedia.org/wiki/Deep_Note) in Fig
 (ref:deep-note) [Youtube video](https://www.youtube.com/watch?v=sPY3Y2qhyXk) of the THX Deep Note, which resolves to 11 harmonically related notes. Image [© THX Ltd](https://www.youtube.com/c/THXLtd).
 
 <div class="figure">
-<iframe src="https://www.youtube.com/embed/sPY3Y2qhyXk?start=5" width="672" height="400px" data-external="1"></iframe>
+<img src="downloadFigs4latex/deep-note.jpg" alt="(ref:deep-note)"  />
 <p class="caption">(\#fig:deep-note)(ref:deep-note)</p>
 </div>
 
@@ -50,113 +50,12 @@ Try making a trichord using a fifth and an octave using the button in Figure \@r
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setvoltage_division_chordsIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#voltage_division_chords">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="voltage_division_chords" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="voltage_division_chordsLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="voltage_division_chordsLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add 12-Key and Host audio&lt;/li&gt;
-&lt;li&gt;Add BST (voltage offset) and D'Acchord (multiple oscillator) &lt;/li&gt;
-&lt;li&gt;Connect 12-Key CV out to BST bias 1 input&lt;/li&gt;
-&lt;li&gt;Make sure the Volts/Semi switch is set to semi&lt;/li&gt;
-&lt;li&gt;Set BST bias 1 output to +0st (root note) and connect to D'Acchord P1&lt;/li&gt;
-&lt;li&gt;Set BST bias 2 output to +7st (fifth) and connect to D'Acchord P2&lt;/li&gt;
-&lt;li&gt;Set BST bias 3 output to +12st (octave) and connect to D'Acchord P3&lt;/li&gt;
-&lt;li&gt;Connect D'Accord Left/Right to Host audio Left/Right&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Use the ATTN row of knobs in D&amp;#39;Accord to remove all but the root note&lt;/li&gt;
-&lt;li&gt;Add each the others back in slowly, noting the change in the sound&lt;/li&gt;
-&lt;li&gt;Play the keyboard and note the stability of the chord across keys &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/bst-voltage-divider-solo.png' style='height: 300px; width: auto'&gt;
-&lt;img class='rack-image' src='images/solo-modules/dacchord-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/voltage-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add 12-Key and Host audio&lt;/li&gt;
-&lt;li&gt;Add BST (voltage offset) and D'Acchord (multiple oscillator) &lt;/li&gt;
-&lt;li&gt;Connect 12-Key CV out to BST bias 1 input&lt;/li&gt;
-&lt;li&gt;Make sure the Volts/Semi switch is set to semi&lt;/li&gt;
-&lt;li&gt;Set BST bias 1 output to +0st (root note) and connect to D'Acchord P1&lt;/li&gt;
-&lt;li&gt;Set BST bias 2 output to +7st (fifth) and connect to D'Acchord P2&lt;/li&gt;
-&lt;li&gt;Set BST bias 3 output to +12st (octave) and connect to D'Acchord P3&lt;/li&gt;
-&lt;li&gt;Connect D'Accord Left/Right to Host audio Left/Right&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Use the ATTN row of knobs in D&amp;#39;Accord to remove all but the root note&lt;/li&gt;
-&lt;li&gt;Add each the others back in slowly, noting the change in the sound&lt;/li&gt;
-&lt;li&gt;Play the keyboard and note the stability of the chord across keys &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/bst-voltage-divider-solo.png' style='height: 300px; width: auto'&gt;
-&lt;img class='rack-image' src='images/solo-modules/dacchord-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/voltage-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setvoltage_division_chordsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="voltage_division_chords-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setvoltage_division_chordsIframe(url){
-  var voltage_division_chordsIframe = document.getElementById("voltage_division_chords-iframe");
-  voltage_division_chordsIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:voltage-division-chords)(ref:voltage-division-chords)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:voltage-division-chords)" width="100%" />
+<p class="caption">(\#fig:voltage-division-chords)(ref:voltage-division-chords)</p>
+</div>
 
 To create harmonically related audio signals, we can use a clock divider as long as the original signal can be interpreted as clock and the clock divider in question can accept audio rates.
 This approach is related to a classic technique for creating a fatter sound, the sub-octave square wave.
@@ -170,113 +69,12 @@ Try making a trichord using a fifth and an octave using the button in Figure \@r
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_division_chordsIframe('https://cardinal.olney.ai?patchurl=voltage-division-chords.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_division_chords">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="clock_division_chords" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_division_chordsLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="clock_division_chordsLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Remove modules except for 12-Key and Host audio&lt;/li&gt;
-&lt;li&gt;Add VCO, dividah (even clock divider), D1v1de (adjustable clock divider), Scope, and QuadVCA/Mixer &lt;/li&gt;
-&lt;li&gt;Connect 12-Key CV out to VCO V/Oct&lt;/li&gt;
-&lt;li&gt;Connect VCO Sqr out to dividah Clock in, D1v1de in, Scope in 1, and QuadVCA in 1&lt;/li&gt;
-&lt;li&gt;Connect dividah by 2 out to Scope in 2 and QuadVCA in 2&lt;/li&gt;
-&lt;li&gt;Connect D1v1de out to QuadVCA in 3 and set D1v1de clock division to 3&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA mix out to Host audio L&lt;/li&gt;
-&lt;li&gt;Use the scope to confirm the divided signals are correctly aligned to the VCO&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Use the QuadVCA sliders to mute all but the root note&lt;/li&gt;
-&lt;li&gt;Add each the others back in slowly, noting the change in the sound&lt;/li&gt;
-&lt;li&gt;Play the keyboard and note the stability of the chord across keys &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/dividah-solo.png' style='height: 300px; width: auto'&gt;
-&lt;img class='rack-image' src='images/solo-modules/d1v1de-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Remove modules except for 12-Key and Host audio&lt;/li&gt;
-&lt;li&gt;Add VCO, dividah (even clock divider), D1v1de (adjustable clock divider), Scope, and QuadVCA/Mixer &lt;/li&gt;
-&lt;li&gt;Connect 12-Key CV out to VCO V/Oct&lt;/li&gt;
-&lt;li&gt;Connect VCO Sqr out to dividah Clock in, D1v1de in, Scope in 1, and QuadVCA in 1&lt;/li&gt;
-&lt;li&gt;Connect dividah by 2 out to Scope in 2 and QuadVCA in 2&lt;/li&gt;
-&lt;li&gt;Connect D1v1de out to QuadVCA in 3 and set D1v1de clock division to 3&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA mix out to Host audio L&lt;/li&gt;
-&lt;li&gt;Use the scope to confirm the divided signals are correctly aligned to the VCO&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Use the QuadVCA sliders to mute all but the root note&lt;/li&gt;
-&lt;li&gt;Add each the others back in slowly, noting the change in the sound&lt;/li&gt;
-&lt;li&gt;Play the keyboard and note the stability of the chord across keys &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/dividah-solo.png' style='height: 300px; width: auto'&gt;
-&lt;img class='rack-image' src='images/solo-modules/d1v1de-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-division-chords.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setclock_division_chordsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="clock_division_chords-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setclock_division_chordsIframe(url){
-  var clock_division_chordsIframe = document.getElementById("clock_division_chords-iframe");
-  clock_division_chordsIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:clock-division-chords)(ref:clock-division-chords)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-chords)" width="100%" />
+<p class="caption">(\#fig:clock-division-chords)(ref:clock-division-chords)</p>
+</div>
 
 ## Chorus {#chorus-oscillators}
 
@@ -296,7 +94,7 @@ Remember that most interference will create spans of sound with greater loudness
 (ref:beat-freq) [Animation](https://olney.ai/ct-modular-book/images/beat-freq.gif) of interfering sine waves as one increases in frequency. Note how multiple beats appear in this short span as the frequency increases. Image [© Adjwilley/CC-BY-SA-3.0](https://commons.wikimedia.org/wiki/File:WaveInterference.gif).
 
 <div class="figure">
-<img src="images/beat-freq.gif" alt="(ref:beat-freq)" width="70%" />
+<img src="downloadFigs4latex/beat-freq.jpg" alt="(ref:beat-freq)" width="70%" />
 <p class="caption">(\#fig:beat-freq)(ref:beat-freq)</p>
 </div>
 
@@ -309,83 +107,12 @@ You should hear a beat whose beat increases as you increase detuning.
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setdetune_beatIframe('https://cardinal.olney.ai?patchurl=voltage-division-chords.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#detune_beat">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="detune_beat" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="detune_beatLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="detune_beatLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Silence P3 using the ATTN knob &lt;/li&gt;
-&lt;li&gt;Detune P2 using the Detune knob&lt;/li&gt;
-&lt;li&gt;Note the beat whose frequency increases with detuning&lt;/li&gt;
-&lt;li&gt;At what point of detuning do you think it sounds best?&lt;/li&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/detune-beat.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Silence P3 using the ATTN knob &lt;/li&gt;
-&lt;li&gt;Detune P2 using the Detune knob&lt;/li&gt;
-&lt;li&gt;Note the beat whose frequency increases with detuning&lt;/li&gt;
-&lt;li&gt;At what point of detuning do you think it sounds best?&lt;/li&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/detune-beat.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setdetune_beatIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="detune_beat-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setdetune_beatIframe(url){
-  var detune_beatIframe = document.getElementById("detune_beat-iframe");
-  detune_beatIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:detune-beat)(ref:detune-beat)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:detune-beat)" width="100%" />
+<p class="caption">(\#fig:detune-beat)(ref:detune-beat)</p>
+</div>
 
 ## Low frequency oscillators & uses
 
@@ -414,7 +141,7 @@ This occurs because the two component waves, which have the same amplitude, comb
 (ref:pwm) Interference of a pulse wave with 25% duty cycle (gold) with a pulse wave with a 50% duty cycle (blue). Note the resulting wave (green) has a positive signal matching the 25% wave and a negative signal matching the 50% wave. Waves are offset for comparison.
 
 <div class="figure">
-<img src="06-fun-mod-generators_files/figure-html/pwm-1.png" alt="(ref:pwm)" width="672" />
+<img src="06-fun-mod-generators_files/figure-epub3/pwm-1.png" alt="(ref:pwm)"  />
 <p class="caption">(\#fig:pwm)(ref:pwm)</p>
 </div>
 
@@ -432,107 +159,12 @@ Therefore PWM, by modulating the duty cycle, is continuously adding and removing
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setpwm_lfo_vco_scopeIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#pwm_lfo_vco_scope">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="pwm_lfo_vco_scope" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="pwm_lfo_vco_scopeLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="pwm_lfo_vco_scopeLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add LFO, VCO, Scope, and Host audio &lt;/li&gt;
-&lt;li&gt;Connect LFO triangle out to VCO PWM&lt;/li&gt;
-&lt;li&gt;Connect VCO square out to  Scope in 1&lt;/li&gt;
-&lt;li&gt;Connect LFO triangle out to  Scope in 2&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 to Host audio L&lt;/li&gt;
-&lt;li&gt;Adjust the scope to visualize the wave&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound (richness/beats)&lt;ul&gt;
-&lt;li&gt;Increase the depth of the PWM by adjusting the PWM knob on the VCO (the knob adjusts an internal VCA)&lt;/li&gt;
-&lt;li&gt;Turn the LFO frequency to zero to hear the raw wave, then increase frequency&lt;/li&gt;
-&lt;li&gt;Try different LFO waves&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/lfo-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/pwm-lfo-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add LFO, VCO, Scope, and Host audio &lt;/li&gt;
-&lt;li&gt;Connect LFO triangle out to VCO PWM&lt;/li&gt;
-&lt;li&gt;Connect VCO square out to  Scope in 1&lt;/li&gt;
-&lt;li&gt;Connect LFO triangle out to  Scope in 2&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 to Host audio L&lt;/li&gt;
-&lt;li&gt;Adjust the scope to visualize the wave&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound (richness/beats)&lt;ul&gt;
-&lt;li&gt;Increase the depth of the PWM by adjusting the PWM knob on the VCO (the knob adjusts an internal VCA)&lt;/li&gt;
-&lt;li&gt;Turn the LFO frequency to zero to hear the raw wave, then increase frequency&lt;/li&gt;
-&lt;li&gt;Try different LFO waves&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/lfo-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/pwm-lfo-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setpwm_lfo_vco_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="pwm_lfo_vco_scope-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setpwm_lfo_vco_scopeIframe(url){
-  var pwm_lfo_vco_scopeIframe = document.getElementById("pwm_lfo_vco_scope-iframe");
-  pwm_lfo_vco_scopeIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:pwm-lfo-vco-scope)(ref:pwm-lfo-vco-scope)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:pwm-lfo-vco-scope)" width="100%" />
+<p class="caption">(\#fig:pwm-lfo-vco-scope)(ref:pwm-lfo-vco-scope)</p>
+</div>
 
 ### Vibrato
 
@@ -542,7 +174,7 @@ Vibrato is widely used in music, but is perhaps most strongly associated with op
 (ref:opera-vibrato) [Youtube video](https://www.youtube.com/watch?v=CPPOrQHiP40) of an opera singer's vibrato, or frequency variation around a central note. Image [© jiggle throat](https://www.youtube.com/channel/UC9FSr2uoO_OqymmeNSE5AyQ).
 
 <div class="figure">
-<iframe src="https://www.youtube.com/embed/CPPOrQHiP40?start=0" width="672" height="400px" data-external="1"></iframe>
+<img src="downloadFigs4latex/opera-vibrato.jpg" alt="(ref:opera-vibrato)"  />
 <p class="caption">(\#fig:opera-vibrato)(ref:opera-vibrato)</p>
 </div>
 
@@ -557,97 +189,12 @@ Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setvibrato_lfo_vca_vco_scopeIframe('https://cardinal.olney.ai?patchurl=pwm-lfo-vco-scope.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#vibrato_lfo_vca_vco_scope">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="vibrato_lfo_vca_vco_scope" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="vibrato_lfo_vca_vco_scopeLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="vibrato_lfo_vca_vco_scopeLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add a QuadVCA/Mixer between the LFO and VCO &lt;/li&gt;
-&lt;li&gt;Connect LFO triangle out to QuadVCA input 1&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA mix out to VCO V/Oct&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 to Host audio L&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Decrease the depth of the vibrato by adjusting the QuadVCA gain down towards zero&lt;/li&gt;
-&lt;li&gt;Turn the LFO frequency to zero to hear the raw wave, then increase frequency&lt;/li&gt;
-&lt;li&gt;Try different LFO waves&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/vibrato-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add a QuadVCA/Mixer between the LFO and VCO &lt;/li&gt;
-&lt;li&gt;Connect LFO triangle out to QuadVCA input 1&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA mix out to VCO V/Oct&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 to Host audio L&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Decrease the depth of the vibrato by adjusting the QuadVCA gain down towards zero&lt;/li&gt;
-&lt;li&gt;Turn the LFO frequency to zero to hear the raw wave, then increase frequency&lt;/li&gt;
-&lt;li&gt;Try different LFO waves&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/vibrato-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setvibrato_lfo_vca_vco_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="vibrato_lfo_vca_vco_scope-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setvibrato_lfo_vca_vco_scopeIframe(url){
-  var vibrato_lfo_vca_vco_scopeIframe = document.getElementById("vibrato_lfo_vca_vco_scope-iframe");
-  vibrato_lfo_vca_vco_scopeIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:vibrato-lfo-vca-vco-scope)(ref:vibrato-lfo-vca-vco-scope)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:vibrato-lfo-vca-vco-scope)" width="100%" />
+<p class="caption">(\#fig:vibrato-lfo-vca-vco-scope)(ref:vibrato-lfo-vca-vco-scope)</p>
+</div>
 
 ### Tremolo
 
@@ -658,7 +205,7 @@ Tremolo has been widely used in popular guitar music since the 1960's, and guita
 (ref:guitar-tremolo) [Youtube video](https://youtu.be/ZHDV3yBm33A?t=12) of a tremolo guitar pedal. The flashing light corresponds to the speed of loudness changes around a center volume. Image [© CheaperPedals.com](https://www.youtube.com/c/Cheaperpedals).
 
 <div class="figure">
-<iframe src="https://www.youtube.com/embed/ZHDV3yBm33A?start=12" width="672" height="400px" data-external="1"></iframe>
+<img src="downloadFigs4latex/guitar-tremolo.jpg" alt="(ref:guitar-tremolo)"  />
 <p class="caption">(\#fig:guitar-tremolo)(ref:guitar-tremolo)</p>
 </div>
 
@@ -676,105 +223,12 @@ As before, no tremolo occurs when the LFO frequency is zero, so on can turn the 
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settremelo_lfo_vca_vco_scopeIframe('https://cardinal.olney.ai?patchurl=vibrato-lfo-vca-vco-scope.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#tremelo_lfo_vca_vco_scope">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="tremelo_lfo_vca_vco_scope" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="tremelo_lfo_vca_vco_scopeLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="tremelo_lfo_vca_vco_scopeLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Disconnect all cables but Scope out 1 to Host audio L and LFO triangle out to Scope in 1&lt;/li&gt;
-&lt;li&gt;Connect VCO square out to QuadVCA input 1&lt;/li&gt;
-&lt;li&gt;Connect LFO triangle out 1 to QuadVCA CH 1 gain CV&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA mix out to Scope in 1&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Decrease the depth of the tremelo by adjusting the QuadVCA gain down towards zero&lt;/li&gt;
-&lt;li&gt;Turn the LFO frequency to zero to hear the raw wave, then increase frequency&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Notice the LFO wave on the scope goes below zero but there is no effect on the sound&lt;/li&gt;
-&lt;li&gt;Fix this by changing the LFO OFST to unipolar&lt;/li&gt;
-&lt;li&gt;Notice the volume goes to zero when the LFO goes to zero&lt;/li&gt;
-&lt;li&gt;Fix this by connecting VCO square out to QuadVCA input 2&lt;/li&gt;
-&lt;li&gt;Adjust the mix to get the right baseline volume and depth of modulation&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tremelo-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Disconnect all cables but Scope out 1 to Host audio L and LFO triangle out to Scope in 1&lt;/li&gt;
-&lt;li&gt;Connect VCO square out to QuadVCA input 1&lt;/li&gt;
-&lt;li&gt;Connect LFO triangle out 1 to QuadVCA CH 1 gain CV&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA mix out to Scope in 1&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Decrease the depth of the tremelo by adjusting the QuadVCA gain down towards zero&lt;/li&gt;
-&lt;li&gt;Turn the LFO frequency to zero to hear the raw wave, then increase frequency&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Notice the LFO wave on the scope goes below zero but there is no effect on the sound&lt;/li&gt;
-&lt;li&gt;Fix this by changing the LFO OFST to unipolar&lt;/li&gt;
-&lt;li&gt;Notice the volume goes to zero when the LFO goes to zero&lt;/li&gt;
-&lt;li&gt;Fix this by connecting VCO square out to QuadVCA input 2&lt;/li&gt;
-&lt;li&gt;Adjust the mix to get the right baseline volume and depth of modulation&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/tremelo-lfo-vca-vco-scope.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="settremelo_lfo_vca_vco_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="tremelo_lfo_vca_vco_scope-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function settremelo_lfo_vca_vco_scopeIframe(url){
-  var tremelo_lfo_vca_vco_scopeIframe = document.getElementById("tremelo_lfo_vca_vco_scope-iframe");
-  tremelo_lfo_vca_vco_scopeIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:tremelo-lfo-vca-vco-scope)(ref:tremelo-lfo-vca-vco-scope)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:tremelo-lfo-vca-vco-scope)" width="100%" />
+<p class="caption">(\#fig:tremelo-lfo-vca-vco-scope)(ref:tremelo-lfo-vca-vco-scope)</p>
+</div>
 
 ## Synchronization
 
@@ -822,107 +276,12 @@ Each type of sync produces a characteristic sound that depends on the waveshapes
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="sethard_soft_syncIframe('https://cardinal.olney.ai?patchurl=tremelo-lfo-vca-vco-scope.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#hard_soft_sync">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="hard_soft_sync" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="hard_soft_syncLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="hard_soft_syncLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Disconnect all cables and move the QuadVCA between the Scope and Host Audio&lt;/li&gt;
-&lt;li&gt;Replace the VCO with an LFO. We'll call this the lead VCO&lt;/li&gt;
-&lt;li&gt;Connect lead VCO sine out to follower VCO sync in and Scope in 1&lt;/li&gt;
-&lt;li&gt;Connect follower VCO sine out to Scope in 2&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 and 2 to QuadVCA in 1 and 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA mix out to Host audio L&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Adjust the QuadVCA gain to hear only the follower, then a mix of both&lt;/li&gt;
-&lt;li&gt;Turn the leader frequency up and down&lt;/li&gt;
-&lt;li&gt;Turn the follower frequency up and down&lt;/li&gt;
-&lt;li&gt;Set the follower frequency at an integer multiple of the leader&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Turn on soft sync using the button next to the input jack&lt;/li&gt;
-&lt;li&gt;Try the same changes above with soft sync active&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/hard-soft-sync.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Disconnect all cables and move the QuadVCA between the Scope and Host Audio&lt;/li&gt;
-&lt;li&gt;Replace the VCO with an LFO. We'll call this the lead VCO&lt;/li&gt;
-&lt;li&gt;Connect lead VCO sine out to follower VCO sync in and Scope in 1&lt;/li&gt;
-&lt;li&gt;Connect follower VCO sine out to Scope in 2&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 and 2 to QuadVCA in 1 and 2&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA mix out to Host audio L&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Adjust the QuadVCA gain to hear only the follower, then a mix of both&lt;/li&gt;
-&lt;li&gt;Turn the leader frequency up and down&lt;/li&gt;
-&lt;li&gt;Turn the follower frequency up and down&lt;/li&gt;
-&lt;li&gt;Set the follower frequency at an integer multiple of the leader&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Turn on soft sync using the button next to the input jack&lt;/li&gt;
-&lt;li&gt;Try the same changes above with soft sync active&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/hard-soft-sync.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="sethard_soft_syncIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="hard_soft_sync-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function sethard_soft_syncIframe(url){
-  var hard_soft_syncIframe = document.getElementById("hard_soft_sync-iframe");
-  hard_soft_syncIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:hard-soft-sync)(ref:hard-soft-sync)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:hard-soft-sync)" width="100%" />
+<p class="caption">(\#fig:hard-soft-sync)(ref:hard-soft-sync)</p>
+</div>
 
 ## Noise
 
@@ -941,125 +300,12 @@ The patches are identical except for different noise sources and knob settings.
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setkick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe('https://cardinal.olney.ai?patchurl=clock-kick-bpm-vco-adsr-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#kick_bpm_noiz_adsr_vco_adsr_vca_scope">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="kick_bpm_noiz_adsr_vco_adsr_vca_scope" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="kick_bpm_noiz_adsr_vco_adsr_vca_scopeLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="kick_bpm_noiz_adsr_vco_adsr_vca_scopeLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Replace the VCA with QuadVCA/Mixer&lt;/li&gt;
-&lt;li&gt;Connect VCO sine out to QuadVCA in 1&lt;/li&gt;
-&lt;li&gt;Connect ADSR out to QuadVCA CH 1 gain in&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA mix out to Scope in 1&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 to Host audio L&lt;/li&gt;
-&lt;li&gt;Add Noiz module below VCO and put new ADSR next to Noiz&lt;/li&gt;
-&lt;li&gt;Connect Noiz Red out to QuadVCA in 2&lt;/li&gt;
-&lt;li&gt;Connect Clock out to noise ADSR gate in&lt;/li&gt;
-&lt;li&gt;Connect noise ADSR out to QuadVCA CH 2 gain in&lt;/li&gt;
-&lt;li&gt;Adjust noise ADSR knobs to 1 (lowest setting)&lt;/li&gt;
-&lt;li&gt;Adjust QuadVCA ch 1 gain to max and ch2 gain to 20%&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Adjust the QuadVCA gain to make the sine kick quiter and noise louder&lt;/li&gt;
-&lt;li&gt;Adjust the noise ADSR to make the noise slower/longer&lt;/li&gt;
-&lt;li&gt;To make a snare, change the noise source to blue&lt;/li&gt;
-&lt;li&gt;Increase the noise ADSR decay to 25ms&lt;/li&gt;
-&lt;li&gt;Increase the VCO frequency to 180 Hz&lt;/li&gt;
-&lt;li&gt;Adjust the QuadVCA gain so drum and noise are equal&lt;/li&gt;
-&lt;li&gt;Try the adjustments suggested for the kick and note changes in sound&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/noiz-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Only kick drum shown&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png' style='height: 500px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Replace the VCA with QuadVCA/Mixer&lt;/li&gt;
-&lt;li&gt;Connect VCO sine out to QuadVCA in 1&lt;/li&gt;
-&lt;li&gt;Connect ADSR out to QuadVCA CH 1 gain in&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA mix out to Scope in 1&lt;/li&gt;
-&lt;li&gt;Connect Scope out 1 to Host audio L&lt;/li&gt;
-&lt;li&gt;Add Noiz module below VCO and put new ADSR next to Noiz&lt;/li&gt;
-&lt;li&gt;Connect Noiz Red out to QuadVCA in 2&lt;/li&gt;
-&lt;li&gt;Connect Clock out to noise ADSR gate in&lt;/li&gt;
-&lt;li&gt;Connect noise ADSR out to QuadVCA CH 2 gain in&lt;/li&gt;
-&lt;li&gt;Adjust noise ADSR knobs to 1 (lowest setting)&lt;/li&gt;
-&lt;li&gt;Adjust QuadVCA ch 1 gain to max and ch2 gain to 20%&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound&lt;ul&gt;
-&lt;li&gt;Adjust the QuadVCA gain to make the sine kick quiter and noise louder&lt;/li&gt;
-&lt;li&gt;Adjust the noise ADSR to make the noise slower/longer&lt;/li&gt;
-&lt;li&gt;To make a snare, change the noise source to blue&lt;/li&gt;
-&lt;li&gt;Increase the noise ADSR decay to 25ms&lt;/li&gt;
-&lt;li&gt;Increase the VCO frequency to 180 Hz&lt;/li&gt;
-&lt;li&gt;Adjust the QuadVCA gain so drum and noise are equal&lt;/li&gt;
-&lt;li&gt;Try the adjustments suggested for the kick and note changes in sound&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/noiz-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;h4&gt;Only kick drum shown&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/kick-bpm-noiz-adsr-vco-adsr-vca-scope.png' style='height: 500px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setkick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="kick_bpm_noiz_adsr_vco_adsr_vca_scope-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setkick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe(url){
-  var kick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe = document.getElementById("kick_bpm_noiz_adsr_vco_adsr_vca_scope-iframe");
-  kick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope)(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope)" width="100%" />
+<p class="caption">(\#fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope)(ref:kick-bpm-noiz-adsr-vco-adsr-vca-scope)</p>
+</div>
 
 ## Samplers
 
@@ -1109,101 +355,12 @@ You will need to [download the sample file](images/moonshot.wav) to load it into
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setsample_12key_ouaiveIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#sample_12key_ouaive">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="sample_12key_ouaive" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="sample_12key_ouaiveLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="sample_12key_ouaiveLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add 12 key, OUAIve sampler, and Host audio&lt;/li&gt;
-&lt;li&gt;Right click sampler, choose 'Load sample', and load the sample file&lt;/li&gt;
-&lt;li&gt;Connect 12 key CV out to OUAIve POS in&lt;/li&gt;
-&lt;li&gt;Connect 12 key Gate out to OUAIve Trig in&lt;/li&gt;
-&lt;li&gt;Press OUAIve Type button until Trig is shown&lt;/li&gt;
-&lt;li&gt;Press OUAIve Play button until a single play icon appears&lt;/li&gt;
-&lt;li&gt;Connect OUAIve outs to Host audio ins&lt;/li&gt;
-&lt;li&gt;Try playing different notes on the keyboard to play the sample at different locations&lt;/li&gt;
-&lt;li&gt;You can interrupt the playback by pressing another key before the sample finishes&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/ouaive-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/sample-12key-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add 12 key, OUAIve sampler, and Host audio&lt;/li&gt;
-&lt;li&gt;Right click sampler, choose 'Load sample', and load the sample file&lt;/li&gt;
-&lt;li&gt;Connect 12 key CV out to OUAIve POS in&lt;/li&gt;
-&lt;li&gt;Connect 12 key Gate out to OUAIve Trig in&lt;/li&gt;
-&lt;li&gt;Press OUAIve Type button until Trig is shown&lt;/li&gt;
-&lt;li&gt;Press OUAIve Play button until a single play icon appears&lt;/li&gt;
-&lt;li&gt;Connect OUAIve outs to Host audio ins&lt;/li&gt;
-&lt;li&gt;Try playing different notes on the keyboard to play the sample at different locations&lt;/li&gt;
-&lt;li&gt;You can interrupt the playback by pressing another key before the sample finishes&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/ouaive-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/sample-12key-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setsample_12key_ouaiveIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="sample_12key_ouaive-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setsample_12key_ouaiveIframe(url){
-  var sample_12key_ouaiveIframe = document.getElementById("sample_12key_ouaive-iframe");
-  sample_12key_ouaiveIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:sample-12key-ouaive)(ref:sample-12key-ouaive)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:sample-12key-ouaive)" width="100%" />
+<p class="caption">(\#fig:sample-12key-ouaive)(ref:sample-12key-ouaive)</p>
+</div>
 
 We can play, reverse play, and change the playback speed the sample by using an LFO and a gate-style controller.
 Try to construct this patch using the button in Figure \@ref(fig:sample-lfo-trigger-ouaive).
@@ -1213,98 +370,9 @@ Because the LFO produces continuous changes in voltage, the playback is continuo
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setsample_lfo_trigger_ouaiveIframe('https://cardinal.olney.ai?patchurl=sample-12key-ouaive.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#sample_lfo_trigger_ouaive">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="sample_lfo_trigger_ouaive" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="sample_lfo_trigger_ouaiveLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="sample_lfo_trigger_ouaiveLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Delete 12 key; add LFO and Triggers MK1&lt;/li&gt;
-&lt;li&gt;Right click sampler, choose 'Load sample', and load the sample file&lt;/li&gt;
-&lt;li&gt;Connect LFO triangle out to OUAIve POS in&lt;/li&gt;
-&lt;li&gt;Set LFO OFST to unipolar&lt;/li&gt;
-&lt;li&gt;Connect Triggers MK1 out to OUAIve Trig in&lt;/li&gt;
-&lt;li&gt;Press OUAIve Type button until Gate is shown&lt;/li&gt;
-&lt;li&gt;Press OUAIve Play button until a single play icon appears&lt;/li&gt;
-&lt;li&gt;Press the Triggers MK1 Latch button to start playback&lt;/li&gt;
-&lt;li&gt;Try adjusting the LFO frequency to change the playback speed&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/triggers-mk1-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/sample-lfo-trigger-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Delete 12 key; add LFO and Triggers MK1&lt;/li&gt;
-&lt;li&gt;Right click sampler, choose 'Load sample', and load the sample file&lt;/li&gt;
-&lt;li&gt;Connect LFO triangle out to OUAIve POS in&lt;/li&gt;
-&lt;li&gt;Set LFO OFST to unipolar&lt;/li&gt;
-&lt;li&gt;Connect Triggers MK1 out to OUAIve Trig in&lt;/li&gt;
-&lt;li&gt;Press OUAIve Type button until Gate is shown&lt;/li&gt;
-&lt;li&gt;Press OUAIve Play button until a single play icon appears&lt;/li&gt;
-&lt;li&gt;Press the Triggers MK1 Latch button to start playback&lt;/li&gt;
-&lt;li&gt;Try adjusting the LFO frequency to change the playback speed&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/triggers-mk1-solo.png' style='height: 300px; width: auto'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/sample-lfo-trigger-ouaive.png' style='height: 300px; width: auto'&gt;">Solution</button>
-        <button type="button" onclick="setsample_lfo_trigger_ouaiveIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="sample_lfo_trigger_ouaive-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setsample_lfo_trigger_ouaiveIframe(url){
-  var sample_lfo_trigger_ouaiveIframe = document.getElementById("sample_lfo_trigger_ouaive-iframe");
-  sample_lfo_trigger_ouaiveIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:sample-lfo-trigger-ouaive)(ref:sample-lfo-trigger-ouaive)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:sample-lfo-trigger-ouaive)" width="100%" />
+<p class="caption">(\#fig:sample-lfo-trigger-ouaive)(ref:sample-lfo-trigger-ouaive)</p>
+</div>

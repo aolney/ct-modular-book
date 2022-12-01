@@ -49,105 +49,12 @@ Try patching up this basic percussion patch with clock divisions using the butto
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_division_drums_mschackIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_division_drums_mschack">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="clock_division_drums_mschack" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_division_drums_mschackLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="clock_division_drums_mschackLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add BPM Clock, Dividah, Synth Drums, Scope, QuadVCA/Mixer, and Host audio&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 2 out to Synth Drums top LVL and TRIG. This will be the kick drum&lt;/li&gt;
-&lt;li&gt;Connect Clock out to Synth Drums middle LVL and TRIG. This will be the closed hat&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 8 out to Synth Drums bottom LVL and TRIG. This will be the open hat&lt;/li&gt;
-&lt;li&gt;Connect the kick out to Scope in 1 and QuadVCA/Mixer input 1, snare out to QuadVCA/Mixer input 2, and hat out to Scope in 2 and QuadVCA/Mixer input 3&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Host audio L&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Adjust the sound type (checkbox), freq, hit, and release time for kick, closed hat, and open hat. These correspond to the module parameters you'd use if you'd made these voices with multiple modules like VCO, noise, and ADSR&lt;/li&gt;
-&lt;li&gt;Adjust the QuadVCA/Mixer levels&lt;/li&gt;
-&lt;li&gt;Adjust the BPM so that kick is at about 120 (and the closed hat is twice that) &lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/synthdrums-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-division-drums-mschack.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add BPM Clock, Dividah, Synth Drums, Scope, QuadVCA/Mixer, and Host audio&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 2 out to Synth Drums top LVL and TRIG. This will be the kick drum&lt;/li&gt;
-&lt;li&gt;Connect Clock out to Synth Drums middle LVL and TRIG. This will be the closed hat&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 8 out to Synth Drums bottom LVL and TRIG. This will be the open hat&lt;/li&gt;
-&lt;li&gt;Connect the kick out to Scope in 1 and QuadVCA/Mixer input 1, snare out to QuadVCA/Mixer input 2, and hat out to Scope in 2 and QuadVCA/Mixer input 3&lt;/li&gt;
-&lt;li&gt;Connect QuadVCA/Mixer mix out to Host audio L&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Adjust the sound type (checkbox), freq, hit, and release time for kick, closed hat, and open hat. These correspond to the module parameters you'd use if you'd made these voices with multiple modules like VCO, noise, and ADSR&lt;/li&gt;
-&lt;li&gt;Adjust the QuadVCA/Mixer levels&lt;/li&gt;
-&lt;li&gt;Adjust the BPM so that kick is at about 120 (and the closed hat is twice that) &lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/synthdrums-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-division-drums-mschack.png'&gt;">Solution</button>
-        <button type="button" onclick="setclock_division_drums_mschackIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="clock_division_drums_mschack-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setclock_division_drums_mschackIframe(url){
-  var clock_division_drums_mschackIframe = document.getElementById("clock_division_drums_mschack-iframe");
-  clock_division_drums_mschackIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:clock-division-drums-mschack)(ref:clock-division-drums-mschack)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack)" width="100%" />
+<p class="caption">(\#fig:clock-division-drums-mschack)(ref:clock-division-drums-mschack)</p>
+</div>
 
 In light of the ideal properties for sequencing, the basic clock division approach allows both compact representation in terms of divisions and ease of changing between variations by changing divisions.
 However it lacks precise control because off beats are inaccessible.
@@ -164,95 +71,12 @@ Try extending the last patch with a gate delay to move the open hat to the off b
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_division_drums_mschack_offbeat_gate_delayIframe('https://cardinal.olney.ai?patchurl=clock-division-drums-mschack.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_division_drums_mschack_offbeat_gate_delay">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="clock_division_drums_mschack_offbeat_gate_delay" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_division_drums_mschack_offbeat_gate_delayLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="clock_division_drums_mschack_offbeat_gate_delayLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add DGATE between Dividah and Synth Drums&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 8 out to DGATE trig in and connect DGATE gate out to both LVL and Trig inputs for the open hat&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Adjust the DGATE delay to get the open hat on a kick offbeat&lt;/li&gt;
-&lt;li&gt;Adjust the DGATE Gate, a length parameter, so see the effect of choking the hat&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/dgate-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-division-drums-mschack-offbeat-gate-delay.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add DGATE between Dividah and Synth Drums&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 8 out to DGATE trig in and connect DGATE gate out to both LVL and Trig inputs for the open hat&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Adjust the DGATE delay to get the open hat on a kick offbeat&lt;/li&gt;
-&lt;li&gt;Adjust the DGATE Gate, a length parameter, so see the effect of choking the hat&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/dgate-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/clock-division-drums-mschack-offbeat-gate-delay.png'&gt;">Solution</button>
-        <button type="button" onclick="setclock_division_drums_mschack_offbeat_gate_delayIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="clock_division_drums_mschack_offbeat_gate_delay-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setclock_division_drums_mschack_offbeat_gate_delayIframe(url){
-  var clock_division_drums_mschack_offbeat_gate_delayIframe = document.getElementById("clock_division_drums_mschack_offbeat_gate_delay-iframe");
-  clock_division_drums_mschack_offbeat_gate_delayIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:clock-division-drums-mschack-offbeat-gate-delay)(ref:clock-division-drums-mschack-offbeat-gate-delay)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack-offbeat-gate-delay)" width="100%" />
+<p class="caption">(\#fig:clock-division-drums-mschack-offbeat-gate-delay)(ref:clock-division-drums-mschack-offbeat-gate-delay)</p>
+</div>
 
 With respect to the three ideal properties, the delayed gate approach (combined with clock divisions) is still compact, a bit less easy (because setting the delay is a bit fiddly), and more flexible, though the offset is the same for each clock or clock division.
 Thus if we want variations of off beat or rolls, we need additional tools.
@@ -267,99 +91,12 @@ Because the kick time is 4:4, the sequencer only needs four steps.
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_multIframe('https://cardinal.olney.ai?patchurl=clock-division-drums-mschack-offbeat-gate-delay.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_multLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_multLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add RGATE and ADDR-SEQ to the bottom row&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 2 out to both RGATE clock in and ADDR-SEQ clock in&lt;/li&gt;
-&lt;li&gt;Connect ADDR-SEQ out to RGATE mult in&lt;/li&gt;
-&lt;li&gt;Connect RGATE gate out to both LVL and Trig inputs for the kick&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Adjust the RGATE clock multiplication and ADDR-SEQ step voltage to get 2 kicks on a beat (strategy: start with the max value of one and then adjust the other)&lt;/li&gt;
-&lt;li&gt;Use your ears and the Scope to make sure it's correct&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/rgate-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add RGATE and ADDR-SEQ to the bottom row&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 2 out to both RGATE clock in and ADDR-SEQ clock in&lt;/li&gt;
-&lt;li&gt;Connect ADDR-SEQ out to RGATE mult in&lt;/li&gt;
-&lt;li&gt;Connect RGATE gate out to both LVL and Trig inputs for the kick&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Adjust the RGATE clock multiplication and ADDR-SEQ step voltage to get 2 kicks on a beat (strategy: start with the max value of one and then adjust the other)&lt;/li&gt;
-&lt;li&gt;Use your ears and the Scope to make sure it's correct&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/rgate-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult.png'&gt;">Solution</button>
-        <button type="button" onclick="setclock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_multIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setclock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_multIframe(url){
-  var clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_multIframe = document.getElementById("clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult-iframe");
-  clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_multIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult)(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult)" width="100%" />
+<p class="caption">(\#fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult)(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult)</p>
+</div>
 
 Returning to the three ideal properties, the gate multiplier approach (again combined with clock divisions) is a bit compact because it relies on another sequencer, a bit less easy (because setting the multiplier voltage is a bit fiddly), and more flexible because it allows different drum rolls on each step.
 Just as a sequencer was used to control the gate multiplier, a sequencer could be used to control the gate delay offset of the previous patch or drop a step by controlling the length parameter, as shown [here](images/patch-solutions/clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-skip-seq-gate-length.png).
@@ -376,99 +113,12 @@ Because the kick time is 4:4, the sequencer only needs four steps.
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settrg_mshack_drums_offbeat_rollIframe('https://cardinal.olney.ai?patchurl=clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#trg_mshack_drums_offbeat_roll">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="trg_mshack_drums_offbeat_roll" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="trg_mshack_drums_offbeat_rollLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="trg_mshack_drums_offbeat_rollLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two TRG step sequencers to the bottom row and move the DGATE next to the one on the left. This will be the open hat TRG&lt;/li&gt;
-&lt;li&gt;Connect Clock beat out to both TRG clock ins&lt;/li&gt;
-&lt;li&gt;Connect the open hat TRG to the DGATE trig in. The DGATE gate outs should already be connected to the Synth Drums open hat LVL and TRIG&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Tip: You need DGATE here not for delay, but for a nonzero gate length for LVL. Alternatively you could use an ADSR for this&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Connect the kick TRG gate out to the kick LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;You may wish to connect the Clock reset out to both TRGs to align their sequences&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Adjust the TRGs to 8 steps. You need 8 in order to have two kick hits on the first beat, keeping Clock BPM at around 240&lt;/li&gt;
-&lt;li&gt;Step sequence in 4:4 for the kick with a double hit on the first beat&lt;/li&gt;
-&lt;li&gt;Step sequence in the off beat open hat (Hint: this occurs on 2-and)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/trg-mshack-drums-offbeat-roll.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add two TRG step sequencers to the bottom row and move the DGATE next to the one on the left. This will be the open hat TRG&lt;/li&gt;
-&lt;li&gt;Connect Clock beat out to both TRG clock ins&lt;/li&gt;
-&lt;li&gt;Connect the open hat TRG to the DGATE trig in. The DGATE gate outs should already be connected to the Synth Drums open hat LVL and TRIG&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Tip: You need DGATE here not for delay, but for a nonzero gate length for LVL. Alternatively you could use an ADSR for this&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Connect the kick TRG gate out to the kick LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;You may wish to connect the Clock reset out to both TRGs to align their sequences&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Adjust the TRGs to 8 steps. You need 8 in order to have two kick hits on the first beat, keeping Clock BPM at around 240&lt;/li&gt;
-&lt;li&gt;Step sequence in 4:4 for the kick with a double hit on the first beat&lt;/li&gt;
-&lt;li&gt;Step sequence in the off beat open hat (Hint: this occurs on 2-and)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/trg-mshack-drums-offbeat-roll.png'&gt;">Solution</button>
-        <button type="button" onclick="settrg_mshack_drums_offbeat_rollIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="trg_mshack_drums_offbeat_roll-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function settrg_mshack_drums_offbeat_rollIframe(url){
-  var trg_mshack_drums_offbeat_rollIframe = document.getElementById("trg_mshack_drums_offbeat_roll-iframe");
-  trg_mshack_drums_offbeat_rollIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:trg-mshack-drums-offbeat-roll)(ref:trg-mshack-drums-offbeat-roll)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:trg-mshack-drums-offbeat-roll)" width="100%" />
+<p class="caption">(\#fig:trg-mshack-drums-offbeat-roll)(ref:trg-mshack-drums-offbeat-roll)</p>
+</div>
 
 Contrast this approach with what we've done so far.
 The step sequencers are somewhat compact if the pattern can be decomposed into the smallest repeating loops, though not as compact as a clock divider.
@@ -507,99 +157,12 @@ We'll build on this logic in the following patches.
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_division_drums_mschack_offbeat_logic_every_offbeatIframe('https://cardinal.olney.ai?patchurl=clock-division-drums-mschack.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_division_drums_mschack_offbeat_logic_every_offbeat">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="clock_division_drums_mschack_offbeat_logic_every_offbeat" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_division_drums_mschack_offbeat_logic_every_offbeatLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="clock_division_drums_mschack_offbeat_logic_every_offbeatLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add dualNOT to the bottom row&lt;/li&gt;
-&lt;li&gt;Connect Clock beat out to both TRG clock ins&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 2 out to dualNOT top input&lt;/li&gt;
-&lt;li&gt;Connect dualNOT top output to the open hat LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
-&lt;li&gt;The open hats are now exactly on the off beat, with no fine adjustment needed&lt;/li&gt;
-&lt;li&gt;The lights on dualNOT show the logic of what is happening: when input is high, output is low and when input is low, output is high - exactly what is needed for the off beats&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/dualnot-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/clock-division-drums-mschack-offbeat-logic-every-offbeat.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add dualNOT to the bottom row&lt;/li&gt;
-&lt;li&gt;Connect Clock beat out to both TRG clock ins&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 2 out to dualNOT top input&lt;/li&gt;
-&lt;li&gt;Connect dualNOT top output to the open hat LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
-&lt;li&gt;The open hats are now exactly on the off beat, with no fine adjustment needed&lt;/li&gt;
-&lt;li&gt;The lights on dualNOT show the logic of what is happening: when input is high, output is low and when input is low, output is high - exactly what is needed for the off beats&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/dualnot-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/clock-division-drums-mschack-offbeat-logic-every-offbeat.png'&gt;">Solution</button>
-        <button type="button" onclick="setclock_division_drums_mschack_offbeat_logic_every_offbeatIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="clock_division_drums_mschack_offbeat_logic_every_offbeat-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setclock_division_drums_mschack_offbeat_logic_every_offbeatIframe(url){
-  var clock_division_drums_mschack_offbeat_logic_every_offbeatIframe = document.getElementById("clock_division_drums_mschack_offbeat_logic_every_offbeat-iframe");
-  clock_division_drums_mschack_offbeat_logic_every_offbeatIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-every-offbeat)(ref:clock-division-drums-mschack-offbeat-logic-every-offbeat)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack-offbeat-logic-every-offbeat)" width="100%" />
+<p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-every-offbeat)(ref:clock-division-drums-mschack-offbeat-logic-every-offbeat)</p>
+</div>
 
 We can use logic to create other gates using combinations of the basic operators.
 For example, consider every other offbeat in Figure \@ref(fig:clock-div2-div4).
@@ -610,101 +173,12 @@ Try updating the last patch with an AND module to implement this logic using the
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe('https://cardinal.olney.ai?patchurl=clock-division-drums-mschack-offbeat-logic-every-offbeat.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_division_drums_mschack_offbeat_logic_every_other_offbeat">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="clock_division_drums_mschack_offbeat_logic_every_other_offbeat" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_division_drums_mschack_offbeat_logic_every_other_offbeatLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="clock_division_drums_mschack_offbeat_logic_every_other_offbeatLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add dualAND to the bottom row&lt;/li&gt;
-&lt;li&gt;Connect dualNOT output to dualAND top input&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 4 out to dualAND bottom input&lt;/li&gt;
-&lt;li&gt;Connect dualAND top output to the open hat LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
-&lt;li&gt;The open hats are now exactly on every other the off beat, courtesy of the /4 division&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Tip: Because we are running the Clock at double speed, the divisions here are twice what they are in the text. If the dualNOT took clock directly, then dualAND would take the /2 clock division&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;The lights on dualAND show the logic of what is happening: when both inputs are high, output is high and otherwise low - meaning we get a gate only when a /4 gate occurs and a /2 gate does not occur at the same time&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/dualand-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/clock-division-drums-mschack-offbeat-logic-every-other-offbeat.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add dualAND to the bottom row&lt;/li&gt;
-&lt;li&gt;Connect dualNOT output to dualAND top input&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 4 out to dualAND bottom input&lt;/li&gt;
-&lt;li&gt;Connect dualAND top output to the open hat LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
-&lt;li&gt;The open hats are now exactly on every other the off beat, courtesy of the /4 division&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Tip: Because we are running the Clock at double speed, the divisions here are twice what they are in the text. If the dualNOT took clock directly, then dualAND would take the /2 clock division&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;The lights on dualAND show the logic of what is happening: when both inputs are high, output is high and otherwise low - meaning we get a gate only when a /4 gate occurs and a /2 gate does not occur at the same time&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/dualand-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/clock-division-drums-mschack-offbeat-logic-every-other-offbeat.png'&gt;">Solution</button>
-        <button type="button" onclick="setclock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="clock_division_drums_mschack_offbeat_logic_every_other_offbeat-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setclock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe(url){
-  var clock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe = document.getElementById("clock_division_drums_mschack_offbeat_logic_every_other_offbeat-iframe");
-  clock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)(ref:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)" width="100%" />
+<p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)(ref:clock-division-drums-mschack-offbeat-logic-every-other-offbeat)</p>
+</div>
 
 Let's get even more specific with logic to match what we did previously with the gate delay, which was a single off beat.
 Since the last patch used every other off beat, we can use an additional operator to select just one of those beats.
@@ -715,95 +189,12 @@ Try updating the last patch to implement this logic using the button in Figure \
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_division_drums_mschack_offbeat_logic_matching_gate_delayIframe('https://cardinal.olney.ai?patchurl=clock-division-drums-mschack-offbeat-logic-every-other-offbeat.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_division_drums_mschack_offbeat_logic_matching_gate_delay">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="clock_division_drums_mschack_offbeat_logic_matching_gate_delay" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_division_drums_mschack_offbeat_logic_matching_gate_delayLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="clock_division_drums_mschack_offbeat_logic_matching_gate_delayLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Connect Dividah by 4 out to dualNOT bottom input (don't change top input)&lt;/li&gt;
-&lt;li&gt;Connect dualNOT bottom output to dualAND bottom input (don't change top input)&lt;/li&gt;
-&lt;li&gt;Connect dualAND top output to the dualAND bottom input left over&lt;/li&gt;
-&lt;li&gt;Connect dualAND bottom output to the open hat LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
-&lt;li&gt;The open hats are now exactly one off beat every 4 beats, courtesy of the /4 division&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Tip: Because we are running the Clock at double speed, the divisions here are twice what they are in the text. If the dualNOT took clock directly, then dualAND would take the /2 clock division&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;The lights on bottom dualAND show the logic of what is happening: the original logic was selecting two offbeats, but we select only one of them by using NOT on /4 and combining that with AND on the existing logic&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/clock-division-drums-mschack-offbeat-logic-matching-gate-delay.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Connect Dividah by 4 out to dualNOT bottom input (don't change top input)&lt;/li&gt;
-&lt;li&gt;Connect dualNOT bottom output to dualAND bottom input (don't change top input)&lt;/li&gt;
-&lt;li&gt;Connect dualAND top output to the dualAND bottom input left over&lt;/li&gt;
-&lt;li&gt;Connect dualAND bottom output to the open hat LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
-&lt;li&gt;The open hats are now exactly one off beat every 4 beats, courtesy of the /4 division&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Tip: Because we are running the Clock at double speed, the divisions here are twice what they are in the text. If the dualNOT took clock directly, then dualAND would take the /2 clock division&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;The lights on bottom dualAND show the logic of what is happening: the original logic was selecting two offbeats, but we select only one of them by using NOT on /4 and combining that with AND on the existing logic&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/clock-division-drums-mschack-offbeat-logic-matching-gate-delay.png'&gt;">Solution</button>
-        <button type="button" onclick="setclock_division_drums_mschack_offbeat_logic_matching_gate_delayIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="clock_division_drums_mschack_offbeat_logic_matching_gate_delay-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setclock_division_drums_mschack_offbeat_logic_matching_gate_delayIframe(url){
-  var clock_division_drums_mschack_offbeat_logic_matching_gate_delayIframe = document.getElementById("clock_division_drums_mschack_offbeat_logic_matching_gate_delay-iframe");
-  clock_division_drums_mschack_offbeat_logic_matching_gate_delayIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)(ref:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)" width="100%" />
+<p class="caption">(\#fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)(ref:clock-division-drums-mschack-offbeat-logic-matching-gate-delay)</p>
+</div>
 
 Let's consider the three ideal sequencer properties, in terms of logic.
 The first application of NOT was quite compact, ease to change, and precise.
@@ -836,109 +227,12 @@ Try updating the last patch to drive all gates with probability and logic using 
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setnoise_comparator_logic_mshack_drumsIframe('https://cardinal.olney.ai?patchurl=clock-division-drums-mschack-offbeat-logic-matching-gate-delay.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#noise_comparator_logic_mshack_drums">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="noise_comparator_logic_mshack_drums" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="noise_comparator_logic_mshack_drumsLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="noise_comparator_logic_mshack_drumsLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Delete the Clock and Dividah modules, and add Noiz and two Edge modules to the bottom row&lt;/li&gt;
-&lt;li&gt;Disconnect all cables from dualAND and dualNOT&lt;/li&gt;
-&lt;li&gt;Connect Noiz red out to the first Edge in, and connect the first Edge high out to the dualAND top input. The high out is active when the input value goes above the threshold set by the rise knob&lt;/li&gt;
-&lt;li&gt; Connect the Noiz white out to the second Edge in, and connect the second Edge high out to the second top input of the dual AND. Also connect the high out to the closed hat LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Even if you turn up the rise knob all the way, you should hear almost constant closed hats at this point. This is why we need the AND to lower the probability of gates&lt;/li&gt;
-&lt;li&gt;Connect dualAND top output to the open hat LVL and TRIG in. Because the AND is only high when both red and white noise are over threshold at the same time, this gate will occur less often than the closed hat gate&lt;/li&gt;
-&lt;li&gt;Connect dualAND top output to the dualNOT top input&lt;/li&gt;
-&lt;li&gt;Connect dualNOT top output to the kick LVL and TRIG in. The NOT ensures that the open hat and the kick will be gated in alternation&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Change the hold knob on both Edge modules. This controls how long the comparator will hold an output value before testing the input again. Low values will make shorter gates and vice versa&lt;/li&gt;
-&lt;li&gt;Change the rise knob on both Edge modules. This controls the reference voltage for the comparator, so making it higher makes the comparator less likely to be active, and vice versa&lt;/li&gt;
-&lt;li&gt;Look at the lights on the logic modules. When we were working with clock divisions, they were more orderly because they were synced to the clock. Now they are not orderly because there is no clock.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/edge-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/noise-comparator-logic-mshack-drums.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Delete the Clock and Dividah modules, and add Noiz and two Edge modules to the bottom row&lt;/li&gt;
-&lt;li&gt;Disconnect all cables from dualAND and dualNOT&lt;/li&gt;
-&lt;li&gt;Connect Noiz red out to the first Edge in, and connect the first Edge high out to the dualAND top input. The high out is active when the input value goes above the threshold set by the rise knob&lt;/li&gt;
-&lt;li&gt; Connect the Noiz white out to the second Edge in, and connect the second Edge high out to the second top input of the dual AND. Also connect the high out to the closed hat LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Even if you turn up the rise knob all the way, you should hear almost constant closed hats at this point. This is why we need the AND to lower the probability of gates&lt;/li&gt;
-&lt;li&gt;Connect dualAND top output to the open hat LVL and TRIG in. Because the AND is only high when both red and white noise are over threshold at the same time, this gate will occur less often than the closed hat gate&lt;/li&gt;
-&lt;li&gt;Connect dualAND top output to the dualNOT top input&lt;/li&gt;
-&lt;li&gt;Connect dualNOT top output to the kick LVL and TRIG in. The NOT ensures that the open hat and the kick will be gated in alternation&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Change the hold knob on both Edge modules. This controls how long the comparator will hold an output value before testing the input again. Low values will make shorter gates and vice versa&lt;/li&gt;
-&lt;li&gt;Change the rise knob on both Edge modules. This controls the reference voltage for the comparator, so making it higher makes the comparator less likely to be active, and vice versa&lt;/li&gt;
-&lt;li&gt;Look at the lights on the logic modules. When we were working with clock divisions, they were more orderly because they were synced to the clock. Now they are not orderly because there is no clock.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/edge-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/noise-comparator-logic-mshack-drums.png'&gt;">Solution</button>
-        <button type="button" onclick="setnoise_comparator_logic_mshack_drumsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="noise_comparator_logic_mshack_drums-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setnoise_comparator_logic_mshack_drumsIframe(url){
-  var noise_comparator_logic_mshack_drumsIframe = document.getElementById("noise_comparator_logic_mshack_drums-iframe");
-  noise_comparator_logic_mshack_drumsIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:noise-comparator-logic-mshack-drums)(ref:noise-comparator-logic-mshack-drums)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noise-comparator-logic-mshack-drums)" width="100%" />
+<p class="caption">(\#fig:noise-comparator-logic-mshack-drums)(ref:noise-comparator-logic-mshack-drums)</p>
+</div>
 
 The output of this patch is much more complex than we could reasonably achieve using other sequencing methods, but it is also uncontrolled and not very musical, even when shaped a bit by logic.
 An alternative to randomly creating gates is to take an existing pattern but randomly drop gates.
@@ -953,107 +247,12 @@ Try updating the previous logic patch that selected every other off beat to furt
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setnoise_comparator_clock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe('https://cardinal.olney.ai?patchurl=clock-division-drums-mschack-offbeat-logic-every-other-offbeat.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#noise_comparator_clock_division_drums_mschack_offbeat_logic_every_other_offbeat">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="noise_comparator_clock_division_drums_mschack_offbeat_logic_every_other_offbeat" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="noise_comparator_clock_division_drums_mschack_offbeat_logic_every_other_offbeatLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="noise_comparator_clock_division_drums_mschack_offbeat_logic_every_other_offbeatLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Noiz, Comparator, and Holdah to the bottom row&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Tip: We are using a different comparator because Edge outputs 5 V and we need 10 V for a consistent gate across percussion voices. We also want to use the clock as the threshold to the comparator, which Edge can't do&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 4 to Comparator input a and Noiz red out to Comparator input b&lt;/li&gt;
-&lt;li&gt;Connect Comparator a &gt; b out (so Clock is greater than red noise) to Holdah input and connect Dividah by 4 to Holdah trigger&lt;/li&gt;
-&lt;li&gt;Connect dualAND top output to dualAND bottom input a and connect Holdah output to dualAND bottom input b&lt;/li&gt;
-&lt;li&gt;Connect dualAND bottom output to the open hat LVL and TRIG in. This gate will only be active if it was part of the original sequence AND the random gate is active at the same time&lt;/li&gt;
-&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
-&lt;li&gt;Although the comparator output is blinking wildly, the sample and hold output changes only when triggered by the clock. This prevents our hat from being shortened like the last patch&lt;/li&gt;
-&lt;li&gt;If you switch the noise type, you should have a change in the number of random gates, e.g. white has a greater tendency towards higher frequencies so would cause more random gates &lt;/li&gt;
-&lt;li&gt;Some comparator outputs will never result in a random gate (like =) and others will always result in a random gate (like not equals, !=). This is because a random number exactly equalling a specific value is rare, but not equally a specific value is common &lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/comparator-solo.png'&gt;
-&lt;img class='rack-image' src='images/solo-modules/holdah-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add Noiz, Comparator, and Holdah to the bottom row&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Tip: We are using a different comparator because Edge outputs 5 V and we need 10 V for a consistent gate across percussion voices. We also want to use the clock as the threshold to the comparator, which Edge can't do&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 4 to Comparator input a and Noiz red out to Comparator input b&lt;/li&gt;
-&lt;li&gt;Connect Comparator a &gt; b out (so Clock is greater than red noise) to Holdah input and connect Dividah by 4 to Holdah trigger&lt;/li&gt;
-&lt;li&gt;Connect dualAND top output to dualAND bottom input a and connect Holdah output to dualAND bottom input b&lt;/li&gt;
-&lt;li&gt;Connect dualAND bottom output to the open hat LVL and TRIG in. This gate will only be active if it was part of the original sequence AND the random gate is active at the same time&lt;/li&gt;
-&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
-&lt;li&gt;Although the comparator output is blinking wildly, the sample and hold output changes only when triggered by the clock. This prevents our hat from being shortened like the last patch&lt;/li&gt;
-&lt;li&gt;If you switch the noise type, you should have a change in the number of random gates, e.g. white has a greater tendency towards higher frequencies so would cause more random gates &lt;/li&gt;
-&lt;li&gt;Some comparator outputs will never result in a random gate (like =) and others will always result in a random gate (like not equals, !=). This is because a random number exactly equalling a specific value is rare, but not equally a specific value is common &lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/comparator-solo.png'&gt;
-&lt;img class='rack-image' src='images/solo-modules/holdah-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat.png'&gt;">Solution</button>
-        <button type="button" onclick="setnoise_comparator_clock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="noise_comparator_clock_division_drums_mschack_offbeat_logic_every_other_offbeat-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setnoise_comparator_clock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe(url){
-  var noise_comparator_clock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe = document.getElementById("noise_comparator_clock_division_drums_mschack_offbeat_logic_every_other_offbeat-iframe");
-  noise_comparator_clock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)(ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)" width="100%" />
+<p class="caption">(\#fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)(ref:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat)</p>
+</div>
 
 As shown by these patches, probability can be used to create interesting variations in several ways.
 These methods are fairly compact and can switch between variations easily, however, there is a loss of control.
@@ -1080,99 +279,12 @@ Try updating the previous patch with gate delay and gate multiplier to use seque
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setlfo_mshack_drums_offbeat_rollIframe('https://cardinal.olney.ai?patchurl=clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#lfo_mshack_drums_offbeat_roll">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="lfo_mshack_drums_offbeat_roll" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="lfo_mshack_drums_offbeat_rollLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="lfo_mshack_drums_offbeat_rollLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Remove Dividah, DGATE, and RGATE&lt;/li&gt;
-&lt;li&gt;On the bottom row, add LFOs and ADDR-SEQ so you have two of each side by side&lt;/li&gt;
-&lt;li&gt;Starting with the open hat LFO/ADDR-SEQ, connect Clock 8ths out to ADDR-SEQ clock in and set the sequencer to 8 steps&lt;/li&gt;
-&lt;li&gt;Connect ADDR-SEQ out to LFO FM in and turn attenuator for FM all the way positive&lt;/li&gt;
-&lt;li&gt;Connect the LFO square out to the open hat LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Repeat the above for the kick LFO/ADDR-SEQ but use the Clock beat out and only 4 steps&lt;/li&gt;
-&lt;li&gt;Connect Clock beat out to the reset of both LFOs to keep them in sync with the clock, and connect Clock reset out to both sequencers to get them synchronized
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Change the step voltage for open hat sequencer. Turning all the way to the left should skip the step. Remember you only need one open hat in the sequence, on 4-and&lt;/li&gt;
-&lt;li&gt;Change the step voltage for the kick sequencer. Turning to the right will increase the number of beats per step. If you turn it too high, it will appear as a continuous sound, so make small changes. You need two beats on the first step to match the previous pattern&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/lfo-mshack-drums-offbeat-roll.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Remove Dividah, DGATE, and RGATE&lt;/li&gt;
-&lt;li&gt;On the bottom row, add LFOs and ADDR-SEQ so you have two of each side by side&lt;/li&gt;
-&lt;li&gt;Starting with the open hat LFO/ADDR-SEQ, connect Clock 8ths out to ADDR-SEQ clock in and set the sequencer to 8 steps&lt;/li&gt;
-&lt;li&gt;Connect ADDR-SEQ out to LFO FM in and turn attenuator for FM all the way positive&lt;/li&gt;
-&lt;li&gt;Connect the LFO square out to the open hat LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Repeat the above for the kick LFO/ADDR-SEQ but use the Clock beat out and only 4 steps&lt;/li&gt;
-&lt;li&gt;Connect Clock beat out to the reset of both LFOs to keep them in sync with the clock, and connect Clock reset out to both sequencers to get them synchronized
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Change the step voltage for open hat sequencer. Turning all the way to the left should skip the step. Remember you only need one open hat in the sequence, on 4-and&lt;/li&gt;
-&lt;li&gt;Change the step voltage for the kick sequencer. Turning to the right will increase the number of beats per step. If you turn it too high, it will appear as a continuous sound, so make small changes. You need two beats on the first step to match the previous pattern&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/lfo-mshack-drums-offbeat-roll.png'&gt;">Solution</button>
-        <button type="button" onclick="setlfo_mshack_drums_offbeat_rollIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="lfo_mshack_drums_offbeat_roll-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setlfo_mshack_drums_offbeat_rollIframe(url){
-  var lfo_mshack_drums_offbeat_rollIframe = document.getElementById("lfo_mshack_drums_offbeat_roll-iframe");
-  lfo_mshack_drums_offbeat_rollIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:lfo-mshack-drums-offbeat-roll)(ref:lfo-mshack-drums-offbeat-roll)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:lfo-mshack-drums-offbeat-roll)" width="100%" />
+<p class="caption">(\#fig:lfo-mshack-drums-offbeat-roll)(ref:lfo-mshack-drums-offbeat-roll)</p>
+</div>
 
 As you can see, this approach is fairly compact but not as compact as using a gate delay and gate multiplier because we've explicitly represented a number of skipped steps.
 However it is now easier to change between variations, e.g. adding rolls on different beats or skipping different beats would not require changing the patch, and these can be controlled by a single parameter.
@@ -1236,99 +348,12 @@ Try updating that patch using the button in Figure \@ref(fig:euclidean-drums-msc
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="seteuclidean_drums_mschackIframe('https://cardinal.olney.ai?patchurl=clock-division-drums-mschack.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#euclidean_drums_mschack">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="euclidean_drums_mschack" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="euclidean_drums_mschackLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="euclidean_drums_mschackLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Remove Dividah and add three pairs of Eugene and DGATE to the bottom row, one per voice. The first pair will be for the open hat, the second for the closed hat, and the third for the kick &lt;/li&gt;
-&lt;li&gt;Connect the Clock 8ths out the Eugene for the closed and open hats, and connect the Clock beat out to the Eugene for the kick&lt;/li&gt;
-&lt;li&gt;Connect each Eugene out to its corresponding voice trig input and its paired DGATE trig input &lt;/li&gt;
-&lt;li&gt;Connect each DGATE gate out to its corresponding voice level&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Change the length, hits, and shift for each Eugene to create a pattern. Length is the pattern length, hits is the *percentage* of patterns steps that have a beat, and shift rotates the start position of the pattern. The effects of these are shown on the Eugene display&lt;/li&gt;
-&lt;li&gt;If you choose 1/8, 8/8, and 4/4, you are close to the original delayed gate pattern&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/eugene-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/euclidean-drums-mschack.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Remove Dividah and add three pairs of Eugene and DGATE to the bottom row, one per voice. The first pair will be for the open hat, the second for the closed hat, and the third for the kick &lt;/li&gt;
-&lt;li&gt;Connect the Clock 8ths out the Eugene for the closed and open hats, and connect the Clock beat out to the Eugene for the kick&lt;/li&gt;
-&lt;li&gt;Connect each Eugene out to its corresponding voice trig input and its paired DGATE trig input &lt;/li&gt;
-&lt;li&gt;Connect each DGATE gate out to its corresponding voice level&lt;/li&gt;
-&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
-&lt;li&gt;Change the length, hits, and shift for each Eugene to create a pattern. Length is the pattern length, hits is the *percentage* of patterns steps that have a beat, and shift rotates the start position of the pattern. The effects of these are shown on the Eugene display&lt;/li&gt;
-&lt;li&gt;If you choose 1/8, 8/8, and 4/4, you are close to the original delayed gate pattern&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/eugene-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/euclidean-drums-mschack.png'&gt;">Solution</button>
-        <button type="button" onclick="seteuclidean_drums_mschackIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="euclidean_drums_mschack-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function seteuclidean_drums_mschackIframe(url){
-  var euclidean_drums_mschackIframe = document.getElementById("euclidean_drums_mschack-iframe");
-  euclidean_drums_mschackIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:euclidean-drums-mschack)(ref:euclidean-drums-mschack)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:euclidean-drums-mschack)" width="100%" />
+<p class="caption">(\#fig:euclidean-drums-mschack)(ref:euclidean-drums-mschack)</p>
+</div>
 
 As you can see from the patch, Euclidean rhythms is very compact and flexible, since we can easily change the length of patterns without affecting the proportion of hits and vice versa, just by turning a knob.
 However, we also lose some precision.
@@ -1368,101 +393,12 @@ Try implementing this patch using the button in Figure \@ref(fig:clock-division-
 
 <!-- MODAL HTML BLOCK -->
 
-```{=html}
-<!-- Button trigger modal -->
-<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setclock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult_pattern_change_sequential_switchIframe('https://cardinal.olney.ai?patchurl=clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult_pattern_change_sequential_switch">
-    Launch Virtual Modular
-  </button>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult_pattern_change_sequential_switch" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult_pattern_change_sequential_switchLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header justify-content-between">
-        <!-- <h5 class="modal-title" id="clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult_pattern_change_sequential_switchLabel">Modal title</h5> -->
-        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add 8:1 to the bottom row to the left of ADDR-SEQ &lt;/li&gt;
-&lt;li&gt;Connect Dividah by 2 out to 8:1 input 1&lt;/li&gt;
-&lt;li&gt;Connect RGATE gate out to 8:1 input 2&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 8 out to 8:1 clock input and Clock reset to 8:1 reset&lt;/li&gt;
-&lt;li&gt;Set the 8:1 steps to 2 and connect 8:1 out to kick LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
-&lt;li&gt;The switch is changing every 4 beats (see the light moving between inputs)&lt;/li&gt;
-&lt;li&gt;Both inputs are always going, but the switch is choosing which to let through at any moment&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/81-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch.png'&gt;">Solution</button> -->
-        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
-        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;ul&gt;
-&lt;li&gt;Add 8:1 to the bottom row to the left of ADDR-SEQ &lt;/li&gt;
-&lt;li&gt;Connect Dividah by 2 out to 8:1 input 1&lt;/li&gt;
-&lt;li&gt;Connect RGATE gate out to 8:1 input 2&lt;/li&gt;
-&lt;li&gt;Connect Dividah by 8 out to 8:1 clock input and Clock reset to 8:1 reset&lt;/li&gt;
-&lt;li&gt;Set the 8:1 steps to 2 and connect 8:1 out to kick LVL and TRIG in&lt;/li&gt;
-&lt;li&gt;Run the patch and observe the following&lt;ul&gt;
-&lt;li&gt;The switch is changing every 4 beats (see the light moving between inputs)&lt;/li&gt;
-&lt;li&gt;Both inputs are always going, but the switch is choosing which to let through at any moment&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/81-solo.png'&gt;
-&lt;/div&gt;
-">Instructions</button>
-        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
-        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch.png'&gt;">Solution</button>
-        <button type="button" onclick="setclock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult_pattern_change_sequential_switchIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- For some reason the button type below will not play along with justify-content-between  -->
-        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
-      </div>
-      <div class="modal-body">
-        <iframe id="clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult_pattern_change_sequential_switch-iframe" src="" height="100%" width="100%"></iframe>
-      </div>      
-      <!-- <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-
-  
-
-<script>
-// Enable popovers for instructions, etc 
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl)
-// });
-$(function () {
-  $('[data-toggle="modal-popover"]').popover()
-})
-
-// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
-function setclock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult_pattern_change_sequential_switchIframe(url){
-  var clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult_pattern_change_sequential_switchIframe = document.getElementById("clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult_pattern_change_sequential_switch-iframe");
-  clock_division_mshack_drums_offbeat_gate_delay_roll_seq_gate_mult_pattern_change_sequential_switchIframe.src = url;
-};
-
-// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
-// $('.popover-dismiss').popover({
-//   trigger: 'focus'
-// })
-</script>
-
-```
 
 <!-- CAPTION BLOCK -->
-<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch)(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch)</p></div>
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch)" width="100%" />
+<p class="caption">(\#fig:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch)(ref:clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-pattern-change-sequential-switch)</p>
+</div>
 
 Using a switch in this way suggests a general strategy for sequencing.
 Since each of the techniques discussed in this chapter has its strengths and weaknesses with respect to compactness, flexibility, and precision, it makes sense to alternate between them depending on the needs of the sequencing problem at hand and use sequential switches to combine them into larger patterns.
