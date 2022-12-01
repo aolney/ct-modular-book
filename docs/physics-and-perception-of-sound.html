@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 2 Physics and Perception of Sound | Computational Thinking through Modular Sound Synthesis</title>
 <meta name="author" content="Andrew M. Olney">
-<meta name="description" content="From the outset, it’s important to understand that the physics of sound and how we perceive it are not the same. This is a simple fact of biology. Birds can see ultraviolet, and bats can hear...">
+<meta name="description" content="From the outset, it's important to understand that the physics of sound and how we perceive it are not the same. This is a simple fact of biology. Birds can see ultraviolet, and bats can hear...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Physics and Perception of Sound | Computational Thinking through Modular Sound Synthesis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/physics-and-perception-of-sound.html">
-<meta property="og:description" content="From the outset, it’s important to understand that the physics of sound and how we perceive it are not the same. This is a simple fact of biology. Birds can see ultraviolet, and bats can hear...">
+<meta property="og:description" content="From the outset, it's important to understand that the physics of sound and how we perceive it are not the same. This is a simple fact of biology. Birds can see ultraviolet, and bats can hear...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 2 Physics and Perception of Sound | Computational Thinking through Modular Sound Synthesis">
-<meta name="twitter:description" content="From the outset, it’s important to understand that the physics of sound and how we perceive it are not the same. This is a simple fact of biology. Birds can see ultraviolet, and bats can hear...">
+<meta name="twitter:description" content="From the outset, it's important to understand that the physics of sound and how we perceive it are not the same. This is a simple fact of biology. Birds can see ultraviolet, and bats can hear...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -45,6 +45,7 @@
     }
   </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -98,12 +99,12 @@
 <h1>
 <span class="header-section-number">2</span> Physics and Perception of Sound<a class="anchor" aria-label="anchor" href="#physics-and-perception-of-sound"><i class="fas fa-link"></i></a>
 </h1>
-<p>From the outset, it’s important to understand that the physics of sound and how we perceive it are not the same.
+<p>From the outset, it's important to understand that the physics of sound and how we perceive it are not the same.
 This is a simple fact of biology.
-Birds can see ultraviolet, and bats can hear ultrasound; humans can’t do either.
+Birds can see ultraviolet, and bats can hear ultrasound; humans can't do either.
 Dogs have up to 40 times more olfactory receptors than humans and correspondingly have a much keener sense of smell.
 We can only perceive what our bodies are equipped to perceive.</p>
-<p>In addition to the limits of our perception, our bodies also <em>structure</em> sensations in ways that don’t always align with physics.
+<p>In addition to the limits of our perception, our bodies also <em>structure</em> sensations in ways that don't always align with physics.
 A good example of this is <a href="https://en.wikipedia.org/wiki/Equal-loudness_contour">equal loudness contours</a>.
 As shown in Figure <a href="physics-and-perception-of-sound.html#fig:elc">2.1</a>, sounds can appear equally loud to humans across frequencies even though the actual sound pressure level (a measure of sound energy) is not constant.
 In other words, our hearing becomes more sensitive depending on the frequency of the sound.</p>
@@ -115,7 +116,7 @@ Figure 2.1: An equal loudness contour showing improved sensitivity to frequencie
 </p>
 </div>
 <p>Why do we need to understand the physics of sound <em>and</em> perception of sound?
-Ultimately we hear the sounds we’re going to make, but the process of making those sounds is based in physics.
+Ultimately we hear the sounds we're going to make, but the process of making those sounds is based in physics.
 So we need to know how both the physics and perception of sound work, at least a bit.</p>
 <div id="waves" class="section level2" number="2.1">
 <h2>
@@ -150,7 +151,7 @@ Figure 2.3: <a href="http://media.npr.org/assets/img/2014/01/21/cracker.gif">Ani
 <!-- ```{r firecracker-wave, fig.cap="<a href="http://media.npr.org/assets/img/2014/01/21/cracker.gif">Animation</a> of a firecracker exploding in slow motion, captured by Schlieren photography. Note the pressure wave that radiates outward. Image © Mike Hargather. Linked with <a href="https://www.npr.org/about-npr/179876898/terms-of-use#LinksNPRServices">permission from NPR</a>.", echo = F} -->
 <!-- embed_youtube("px3oVGXr4mo",125,128) -->
 <!-- ``` -->
-<p>Let’s look at a more musical example, the slow motion drum hit shown in Figure <a href="physics-and-perception-of-sound.html#fig:slow-drum">2.4</a>.
+<p>Let's look at a more musical example, the slow motion drum hit shown in Figure <a href="physics-and-perception-of-sound.html#fig:slow-drum">2.4</a>.
 After the stick hits the drum head, the head first moves inward and then outward, before repeating the inward/outward cycle.
 When the drum head moves inward, it creates more room for the surrounding air molecules, so the density of the air next to the drum head decreases (i.e., it becomes less dense, because there is more space for the same amount of air molecules).
 The decrease in density is called rarefaction.
@@ -181,7 +182,7 @@ Figure 2.5: <a href="https://phet.colorado.edu/sims/html/gas-properties/latest/g
 </div>
 <p>Sound is a difference in air pressure that travels as a wave through compression and rarefaction.
 We could see this with the firecracker example because the explosion rapidly heated and expanded the air, creating a pressure wave on the boundary between the surrounding air and the hot air.
-However, as we’ve seen with the drum and will discuss in more detail later, musical instruments are designed to create more than a single wave.
+However, as we've seen with the drum and will discuss in more detail later, musical instruments are designed to create more than a single wave.
 The Schlieren photography animation in Figure <a href="physics-and-perception-of-sound.html#fig:schlieren-wave">2.6</a> is more typical of a musical instrument.</p>
 
 <div class="figure">
@@ -191,7 +192,7 @@ Figure 2.6: <a href="http://media.npr.org/assets/img/2014/01/21/speaker1.gif">An
 </p>
 </div>
 <p>The rings in Figure <a href="physics-and-perception-of-sound.html#fig:schlieren-wave">2.6</a> represent compression (light) and rarefaction (dark) stages of the wave.
-It is important to understand that air molecules aren’t moving from the speaker to the left side of the image.
+It is important to understand that air molecules aren't moving from the speaker to the left side of the image.
 Instead, the wave is moving the entire distance, and the air molecules are only moving a little bit as a result of the wave.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The air molecules are moving randomly in general, so the simulation shows only the movement attributable to the effect of the wave.&lt;/p&gt;"><sup>15</sup></a></p>
 <p>To see how this works, take a look at the simulation in Figure <a href="physics-and-perception-of-sound.html#fig:sim-wave">2.7</a>.
 Hit the green button to start the sound waves and then select the <code>Particles</code> radio button.
@@ -211,20 +212,20 @@ This type of graph is commonly used to describe waves, so make sure you feel com
 Figure 2.7: <a href="https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2">Simulation</a> of sound waves. Simulation by <a href="https://phet.colorado.edu/">PhET Interactive Simulations</a>, University of Colorado Boulder, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.
 </p>
 </div>
-<p>Now that we’ve established what sound waves are, let’s talk about some important physical properties of sound waves and how we perceive those properties.
+<p>Now that we've established what sound waves are, let's talk about some important physical properties of sound waves and how we perceive those properties.
 Most of these properties directly align with the shape of a sound wave.</p>
 </div>
 <div id="frequency-and-pitch" class="section level2" number="2.2">
 <h2>
 <span class="header-section-number">2.2</span> Frequency and pitch<a class="anchor" aria-label="anchor" href="#frequency-and-pitch"><i class="fas fa-link"></i></a>
 </h2>
-<p>Almost all waves we’ll talk about are periodic, meaning they repeat themselves over time.
-If you look at the blue wave in Figure <a href="physics-and-perception-of-sound.html#fig:wavelength-frequency">2.8</a>, you’ll notice that it starts at equilibrium pressure (marked as zero<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall sound is a pressure wave, and it is the change in air pressure we care about. Subtracting out the equilibrium pressure to get zero here makes the positive/negative changes in air pressure easier to see.&lt;/p&gt;"><sup>16</sup></a>), goes positive, hits zero again, and then goes negative before hitting zero at 2 seconds.
+<p>Almost all waves we'll talk about are periodic, meaning they repeat themselves over time.
+If you look at the blue wave in Figure <a href="physics-and-perception-of-sound.html#fig:wavelength-frequency">2.8</a>, you'll notice that it starts at equilibrium pressure (marked as zero<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall sound is a pressure wave, and it is the change in air pressure we care about. Subtracting out the equilibrium pressure to get zero here makes the positive/negative changes in air pressure easier to see.&lt;/p&gt;"><sup>16</sup></a>), goes positive, hits zero again, and then goes negative before hitting zero at 2 seconds.
 So at 2 seconds, the blue wave has completed 1 full cycle.
 Now look at the yellow wave.
 The end of its first cycle is indicated by the circle marker at .5 seconds.
 By the 2 second mark, the yellow wave has repeated its cycle 4 times.
-Because the yellow wave has more cycles than the blue wave in the same amount of time, we say that the yellow wave has a higher frequency, i.e. it repeats its cycle more frequently than the blue wave.
+Because the yellow wave has more cycles than the blue wave in the same amount of time, we say that the yellow wave has a higher frequency, i.e. it repeats its cycle more frequently than the blue wave.
 The standard unit of frequency is Hertz (Hz), which is the number of cycles per second.
 So the blue wave is .5 Hz and the yellow wave is 2 Hz.</p>
 
@@ -244,7 +245,7 @@ Figure 2.8: Two waves overlaid on the same graph. The yellow wave completes its 
 <!-- abline(0,0,col="black") -->
 <!-- dev.off() -->
 <p>Humans perceive sound wave frequency as pitch.
-As a sound wave cycles faster, we hear the sound’s pitch increase.
+As a sound wave cycles faster, we hear the sound's pitch increase.
 However, the relationship between frequency and pitch is nonlinear.
 For example, the pitch A above middle C is 440 Hz<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Also called A4.&lt;/p&gt;"><sup>17</sup></a>, but the A one octave higher is 880 Hz, and the A two octaves higher is 1760 Hz.
 If you wanted to write an equation for this progression, it would look something like <span class="math inline">\(A_n = 440 * 2^n\)</span>, which means the relationship between frequency and pitch is exponential.
@@ -261,7 +262,7 @@ Figure 2.9: Part of an 88 key piano keyboard with frequency of keys in Hz on eac
 <p>Of course we experience pitch linearly, so the difference in pitch between the two keys in the far left is the same as the difference between the keys on the far right.
 We can make the relationship linear by taking the logarithm of the frequencies.
 On the left side of Figure <a href="physics-and-perception-of-sound.html#fig:log-freq">2.10</a>, we see the exponential relationship between frequency and pitch: as we go higher on the piano keys and pitch increases, the frequencies increase faster, such that the differences in frequencies between keys gets wider.
-On the right side of Figure <a href="physics-and-perception-of-sound.html#fig:log-freq">2.10</a>, we see the same piano keys, but we’ve taken the logarithm of the frequencies, and now the relationship is linear.
+On the right side of Figure <a href="physics-and-perception-of-sound.html#fig:log-freq">2.10</a>, we see the same piano keys, but we've taken the logarithm of the frequencies, and now the relationship is linear.
 It turns out that, in general, our perception is logarithmic in nature (this is sometimes called the <a href="https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law">Weber-Fechner law</a>).
 Our logarithmic perception of pitch is just one example.</p>
 <div class="figure">
@@ -270,18 +271,18 @@ Our logarithmic perception of pitch is just one example.</p>
 Figure 2.10: (ref:log-freq)
 </p>
 </div>
-<p>You might be wondering if there’s point at which pitches are low enough that the notes run together!
+<p>You might be wondering if there's point at which pitches are low enough that the notes run together!
 It seems the answer to this is that our ability to hear sound at all gives out before this happens.
 Going back to the 88-key piano keyboard, the two lowest keys (keys 1 &amp; 2; not shown) are about 1.5 Hz appart, but the lowest key<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Also called A0&lt;/p&gt;"><sup>18</sup></a> is 27.5 Hz.
 Humans generally can only hear frequencies between 20 Hz and 20,000 Hz (20 kHz).
-Below 20 Hz, sounds are felt more than heard (especially if they are loud), and above 20 kHz generally can’t be heard at all, though intense sounds at these frequencies can still cause hearing damage.</p>
+Below 20 Hz, sounds are felt more than heard (especially if they are loud), and above 20 kHz generally can't be heard at all, though intense sounds at these frequencies can still cause hearing damage.</p>
 <p>You may also be curious about the fractional frequencies for pitches besides A.
 This appears to be largely based on several historical conventions.
 In brief, western music divides the octave into 12 pitches called semitones based on a system called <a href="https://en.wikipedia.org/wiki/Equal_temperament#Twelve-tone_equal_temperament">twelve-tone equal temperment</a>.
 This is why on a piano, there are 12 white and black keys in an octave - each key represents a semitone.
-It’s possible to divide an octave into more or less than 12 pitches, and some cultures do this.
-In fact, research suggests that our perception of octaves isn’t universal either.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Nori Jacoby et al., &lt;span&gt;“Universal and &lt;span&gt;Non&lt;/span&gt;-Universal &lt;span&gt;Features&lt;/span&gt; of &lt;span&gt;Musical&lt;/span&gt; &lt;span&gt;Pitch&lt;/span&gt; &lt;span&gt;Perception&lt;/span&gt; &lt;span&gt;Revealed&lt;/span&gt; by &lt;span&gt;Singing&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;Current Biology&lt;/em&gt; 29, no. 19 (2019): 3229–3243.e12, &lt;a href="https://doi.org/10.1016/j.cub.2019.08.020" role="doc-biblioref"&gt;https://doi.org/10.1016/j.cub.2019.08.020&lt;/a&gt;.&lt;/p&gt;'><sup>19</sup></a></span>
-We’ll discuss why notes an octave apart feel somehow the same in a later section.</p>
+It's possible to divide an octave into more or less than 12 pitches, and some cultures do this.
+In fact, research suggests that our perception of octaves isn't universal either.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Nori Jacoby et al., &lt;span&gt;“Universal and &lt;span&gt;Non&lt;/span&gt;-Universal &lt;span&gt;Features&lt;/span&gt; of &lt;span&gt;Musical&lt;/span&gt; &lt;span&gt;Pitch&lt;/span&gt; &lt;span&gt;Perception&lt;/span&gt; &lt;span&gt;Revealed&lt;/span&gt; by &lt;span&gt;Singing&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;Current Biology&lt;/em&gt; 29, no. 19 (2019): 3229–3243.e12, &lt;a href="https://doi.org/10.1016/j.cub.2019.08.020" role="doc-biblioref"&gt;https://doi.org/10.1016/j.cub.2019.08.020&lt;/a&gt;.&lt;/p&gt;'><sup>19</sup></a></span>
+We'll discuss why notes an octave apart feel somehow the same in a later section.</p>
 </div>
 <div id="amplitude-and-loudness" class="section level2" number="2.3">
 <h2>
@@ -309,10 +310,10 @@ Therefore, decibels are always based on a reference value.
 For hearing, that reference value is the quietest sound people can detect, which is defined as 0 dB.
 Some examples of 0 to 10dB sounds are a mosquito, breathing, a pin drop, or a leaf hitting the ground.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;These are commonly given examples, but see below for how they are misleading when you take frequency into account.&lt;/p&gt;"><sup>21</sup></a></p>
 <p>If we call the reference sound pressure <span class="math inline">\(S_0\)</span> and the sound pressure we are measuring <span class="math inline">\(S\)</span>, then we calculate the sound pressure level dB of <span class="math inline">\(S\)</span> as <span class="math inline">\(20 * log_{10}(S/S_0)\)</span> dB.
-Under this definition, a 6 dB increase in sound pressure level means amplitude has doubled: <span class="math inline">\(20 * log_{10}(2) = 6.02\)</span> dB.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Note that if we’d used sound intensity level, the corresponding value would be 3 dB. Sound pressure level is more useful in our context: it connects directly to sound wave amplitude, it is measured by a microphone and reflected in microphone output voltage, and it has the same formula as dBV, a decibel measurement of voltage common in audio electronics. Sound intensity level is the square of the sound pressure level.&lt;/p&gt;"><sup>22</sup></a>
+Under this definition, a 6 dB increase in sound pressure level means amplitude has doubled: <span class="math inline">\(20 * log_{10}(2) = 6.02\)</span> dB.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Note that if we'd used sound intensity level, the corresponding value would be 3 dB. Sound pressure level is more useful in our context: it connects directly to sound wave amplitude, it is measured by a microphone and reflected in microphone output voltage, and it has the same formula as dBV, a decibel measurement of voltage common in audio electronics. Sound intensity level is the square of the sound pressure level.&lt;/p&gt;"><sup>22</sup></a>
 Since our hearing is quickly damaged at 120 dB, you can see that our range of hearing goes from the quietest sound we can hear (0 dB) to a sound that is 1,000,000,000,000 times more intense (120 dB).</p>
 <p>Remember from Figure <a href="physics-and-perception-of-sound.html#fig:elc">2.1</a> that frequency affects our perception of loudness.
-As a result, we can’t say how loud a person will perceive a random 40 dB sound - not in general.
+As a result, we can't say how loud a person will perceive a random 40 dB sound - not in general.
 One way of approaching this problem is to choose a standard frequency and define loudness for that frequency.
 The <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/Sound/phon.html">phon/sone</a> system uses a standard frequency of 1 kHz so that a <a href="https://en.wikipedia.org/wiki/Sone">10 dB increase in sound pressure level is perceived as twice as loud</a>.
 This relationship is commonly described as needing 10 violins to sound twice as loud as a single violin.
@@ -328,7 +329,7 @@ Table <a href="physics-and-perception-of-sound.html#tab:db">2.1</a> summarizes t
 <tbody>
 <tr class="odd">
 <td>0 db</td>
-<td>Reference level, e.g. quietest audible sound.</td>
+<td>Reference level, e.g. quietest audible sound.</td>
 </tr>
 <tr class="even">
 <td>6 db increase</td>
@@ -363,13 +364,13 @@ Figure 2.12: The four classic waveshapes in analogue electronic music. Image <a 
 <p>Perhaps another reason for the widespread use of these waveshapes is that their sounds are rough approximations to real instrument sounds.
 As we discussed in Section <a href="introduction.html#modular-synthesis">1.3</a>, the development of electronic music has been strongly influenced by existing instruments.
 Figure <a href="physics-and-perception-of-sound.html#fig:basic-wave-table-sounds">2.13</a> presents sounds for each of these waveshapes, together with real instruments that have similar sounds.</p>
-<p>As you listen to the waveshape sounds, take a moment to consider their qualities with respect to each other, e.g. how noisy are they and how bright?
-The differences you’re hearing are referred to as <a href="https://en.wikipedia.org/wiki/Timbre">timbre</a> or tone color.
+<p>As you listen to the waveshape sounds, take a moment to consider their qualities with respect to each other, e.g. how noisy are they and how bright?
+The differences you're hearing are referred to as <a href="https://en.wikipedia.org/wiki/Timbre">timbre</a> or tone color.
 Each of the waveshape sounds is the same frequency (220 Hz; A3), and the different timbres illustrate how waveforms can have the same frequency but still have their own characteristic sound.</p>
 <p>As you listen to the real instrument sounds, consider what about them matches the timbre of the waveshapes and what does not.
 You may need to listen to some real instruments longer to notice the similarities and differences.
 For example, when an instrument is played quietly, it may have a different timbre than when it is played loudly.
-We’ll explore these dynamic differences in an upcoming section.</p>
+We'll explore these dynamic differences in an upcoming section.</p>
 <!-- Best way to do the audio files appears to be as a separate HTML page that contains a table of them. Then use include_url to insert that table. This gives a compact presentation and maintains compatibility with epub and pdf. -->
 <!-- ![attached audio](https://upload.wikimedia.org/wikipedia/commons/d/d1/220_Hz_sine_wave.ogg) -->
 
@@ -397,7 +398,7 @@ Figure 2.14: <a href="https://upload.wikimedia.org/wikipedia/commons/0/02/PWM_du
 </div>
 <p>There are multiple ways of creating waveshapes beyond the four discussed so far.
 One way is to combine waveshapes together.
-This is somewhat analogous to mixing paint, e.g. you can mix primary colors red and blue to make purple, and we’ll get more precise about how it’s done shortly.
+This is somewhat analogous to mixing paint, e.g. you can mix primary colors red and blue to make purple, and we'll get more precise about how it's done shortly.
 Alternatively, we can focus on what a wave looks like rather than how we can make it with analogue circuitry.
 Since waves are many repetitions of a single cycle, we could draw an arbitrary shape for a cycle and just keep repeating that to make a wave - this is the essence of <a href="https://en.wikipedia.org/wiki/Wavetable_synthesis">wavetable synthesis</a> and is only practical with digital circuitry.</p>
 </div>
@@ -405,7 +406,7 @@ Since waves are many repetitions of a single cycle, we could draw an arbitrary s
 <h2>
 <span class="header-section-number">2.5</span> Phase and interference<a class="anchor" aria-label="anchor" href="#phase-and-interference"><i class="fas fa-link"></i></a>
 </h2>
-<p>The last important property of sound waves that we’ll discuss is not about the shape of the wave but rather the <em>timing</em> of the wave.
+<p>The last important property of sound waves that we'll discuss is not about the shape of the wave but rather the <em>timing</em> of the wave.
 Suppose for a moment that you played the same sine wave out of two speakers.
 It would be louder, right?
 Now suppose that you started the sine wave out of one speaker a half cycle later than the other, so that when the first sine wave was in its negative phase, the second sine wave was in its positive phase.
@@ -425,7 +426,7 @@ Figure <a href="physics-and-perception-of-sound.html#fig:interference">2.15</a> 
 However, being perfectly out of phase is not enough to guarantee cancellation in general.
 Take a look again at the waveshapes in Figure <a href="physics-and-perception-of-sound.html#fig:four-waves">2.12</a>.
 You should find it relatively easy to imagine how the first three would be cancelled by an out of phase copy of themselves.
-However, the sawtooth wave just doesn’t match up the same way, as shown in Figure <a href="physics-and-perception-of-sound.html#fig:saw-phase">2.16</a>.</p>
+However, the sawtooth wave just doesn't match up the same way, as shown in Figure <a href="physics-and-perception-of-sound.html#fig:saw-phase">2.16</a>.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:saw-phase"></span>
@@ -454,18 +455,188 @@ When we add a wave to its mirror image, we achieve perfect cancellation, even fo
 It just so happens that the first three waves in Figure <a href="physics-and-perception-of-sound.html#fig:four-waves">2.12</a> are symmetric, which makes their perfect out of phase and and inverted versions identical.</p>
 <p>So what is phase exactly?
 If we consider the cycle of a wave to go from 0 to 1, then the phase of a wave is the position of the wave on that interval.
-You’ve likely seen this concept before in geometry with the sine function, where you can describe one cycle either in degrees (360°) or in radians (<span class="math inline">\(2\pi\)</span>).
+You've likely seen this concept before in geometry with the sine function, where you can describe one cycle either in degrees (360°) or in radians (<span class="math inline">\(2\pi\)</span>).
 The unit is somewhat arbitrary: the important thing to remember is that if two waves are out of sync in their cycles, they will interfere with each other, and we describe this difference in cycle position as a difference in phase.
 The interference caused by phase differences can result in a wide range of effects from cancellation, to the creation of a new wave, to an exact copy of the original wave with double amplitude.</p>
 <p>There are a few very practical contexts for phase to keep in mind.
-The first is that sounds waves reflect, so you don’t need two speakers to get phase effects as in the examples above.
-We’ll discuss how phase and reflection are intrinsic to the sounds of many instruments in the next chapter, but any reflective surface can affect phase, which has implications for acoustics in rooms.
+The first is that sounds waves reflect, so you don't need two speakers to get phase effects as in the examples above.
+We'll discuss how phase and reflection are intrinsic to the sounds of many instruments in the next chapter, but any reflective surface can affect phase, which has implications for acoustics in rooms.
 The second practical context is that you will often want to play multiple notes at the same time, and when you have an electronic instrument, those notes can be triggered very precisely - precisely enough that you have some control over the phase relationships and can use them to shape the sound to your liking.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Any wave property that lends itself to interference can be used similarly, including frequency and amplitude.&lt;/p&gt;"><sup>25</sup></a></p>
 
 </div>
 </div>
 
-  <div class="chapter-nav">
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><div class="chapter-nav">
 <div class="prev"><a href="introduction.html"><span class="header-section-number">1</span> Introduction</a></div>
 <div class="next"><a href="harmonic-and-inharmonic-sounds.html"><span class="header-section-number">3</span> Harmonic and Inharmonic Sounds</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -494,7 +665,7 @@ The second practical context is that you will often want to play multiple notes 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

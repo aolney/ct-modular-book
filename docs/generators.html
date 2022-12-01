@@ -45,6 +45,7 @@
     }
   </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -114,8 +115,8 @@ Samplers represent the extreme of realism in generators, at least as far as thei
 <!-- - chords from voltage division -->
 <p>Section <a href="harmonic-and-inharmonic-sounds.html#phase-reflections-standing-waves-and-harmonics">3.1</a> briefly mentioned the relationship between harmonics and fundamental relationships like octaves and fifths.
 To recap, the second harmonic has double the frequency of the first and so is one octave above the first harmonic.
-We can express this relationship as 2:1, i.e. an octave is twice the frequency of the the fundamental.
-Similarly the third harmonic is a fifth above the second harmonic, so we can express a fifth as 3:2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Whole number ratios require &lt;a href="https://en.wikipedia.org/wiki/Just_intonation"&gt;just intonation&lt;/a&gt;. The twelve tone &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament"&gt;equal temperment&lt;/a&gt; used in Western music is a close approximation, e.g. 3:2 is 1.498 in twelve tone equal temperment.&lt;/p&gt;'><sup>51</sup></a></p>
+We can express this relationship as 2:1, i.e. an octave is twice the frequency of the the fundamental.
+Similarly the third harmonic is a fifth above the second harmonic, so we can express a fifth as 3:2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Whole number ratios require &lt;a href="https://en.wikipedia.org/wiki/Just_intonation"&gt;just intonation&lt;/a&gt;. The twelve tone &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament"&gt;equal temperment&lt;/a&gt; used in Western music is a close approximation, e.g. 3:2 is 1.498 in twelve tone equal temperment.&lt;/p&gt;'><sup>51</sup></a></p>
 <p>Now consider what happens if two notes an octave apart or a fifth apart are played at the same time.
 Clearly some of their harmonics will be the same.
 Thus playing two or more notes this way will add and enhance harmonics beyond that of a single note, creating a richer and fuller sound.
@@ -135,9 +136,9 @@ Figure 6.1: <a href="https://www.youtube.com/watch?v=sPY3Y2qhyXk">Youtube video<
 <p>In modular synthesis, there are at least two ways to create chords, which correspond to stages of the process to create a single note.
 At the first stage, we have a V/Oct control signal, so we can create chords by making new control signals harmonically related to the original signal.
 At the final stage, we have an audio signal, so we can create chords by making new audio signals harmonically related to the original signal.
-Let’s look at both.</p>
-<p>To create harmonically related control voltage signals, we can use a voltage offset module to create new signals offset from the original signal, i.e. the original voltage plus/minus a harmonically-related voltage.
-It can take a little math to do this if the offset module is labeled in volts<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall 1 V/Oct means a semitone is 1/12 of a volt.&lt;/p&gt;"><sup>53</sup></a>, but if the offset module is labeled in semitones, it is <a href="https://en.wikipedia.org/wiki/Interval_(music)#Main_intervals">fairly straightforward</a>, e.g. a fifth is seven semitones.
+Let's look at both.</p>
+<p>To create harmonically related control voltage signals, we can use a voltage offset module to create new signals offset from the original signal, i.e. the original voltage plus/minus a harmonically-related voltage.
+It can take a little math to do this if the offset module is labeled in volts<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall 1 V/Oct means a semitone is 1/12 of a volt.&lt;/p&gt;"><sup>53</sup></a>, but if the offset module is labeled in semitones, it is <a href="https://en.wikipedia.org/wiki/Interval_(music)#Main_intervals">fairly straightforward</a>, e.g. a fifth is seven semitones.
 Additionally we will need multiple oscillators to play a note for each offset voltage.
 We could reasonably do this with separate oscillators, but some chord-oriented modules contain multiple oscillators and take separate V/Oct for each.
 Try making a trichord using a fifth and an octave using the button in Figure <a href="generators.html#fig:voltage-division-chords">6.2</a>.</p>
@@ -252,7 +253,7 @@ This approach is related to a classic technique for creating a fatter sound, the
 A sub-octave square wave is exactly that: a square wave one octave below the fundamental.
 Since a clock division of <span class="math inline">\(/2\)</span> cuts the source clock frequency in half, we can easily generate a sub-octave square wave using a clock divider, albeit with the same assumptions.
 Perhaps more interestingly, if our clock divider supports both even and odd divisions we can create subharmonic chords, or perhaps more appropriately, an <a href="https://en.wikipedia.org/wiki/Inversion_(music)">inverted chord</a>.
-All that is required is knowing the harmonic ratios mentioned above, e.g. 3:2 means that the divisions <span class="math inline">\(/3\)</span> and <span class="math inline">\(/2\)</span> are a fifth apart.
+All that is required is knowing the harmonic ratios mentioned above, e.g. 3:2 means that the divisions <span class="math inline">\(/3\)</span> and <span class="math inline">\(/2\)</span> are a fifth apart.
 Try making a trichord using a fifth and an octave using the button in Figure <a href="generators.html#fig:clock-division-chords">6.3</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -471,12 +472,12 @@ Figure 6.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for detuning
 <p>Low frequency oscillators (LFOs) are modules that produce waves at frequencies below audio rates.
 It may seem strange to introduce LFOs in a chapter on generators, which by our definition create audible sound.
 The reason is that LFOs are essentially identical to regular oscillators (VCOs) except that LFOs operate at lower frequencies.
-In fact, it’s common to find LFOs that can operate at audio rates and VCOs that operate below audio rates.
+In fact, it's common to find LFOs that can operate at audio rates and VCOs that operate below audio rates.
 One other common difference is that LFOs often have a unipolar switch.
 The switch changes the output of the LFO, which are by default bipolar and range from -5 to +5 V, to unipolar output of 0 to 10 V.
-We’ve already met a unipolar LFO by another name - a clock is a unipolar LFO that uses a pulse wave!</p>
+We've already met a unipolar LFO by another name - a clock is a unipolar LFO that uses a pulse wave!</p>
 <p>LFOs have many potential uses, but perhaps the most prominent is to add movement to a sound.
-For example, it’s generally thought that chorus adds to sound through movement, specifically movement caused by interference and changing harmonics.
+For example, it's generally thought that chorus adds to sound through movement, specifically movement caused by interference and changing harmonics.
 LFOs can create similar movement in other contexts as described below.
 What all these contexts share is two properties: the speed of the movement (frequency) and the depth of the movement (amplitude).</p>
 <div id="pulse-width-modulation" class="section level3" number="6.3.1">
@@ -499,7 +500,7 @@ Figure 6.6: Interference of a pulse wave with 25% duty cycle (gold) with a pulse
 <p>Because this is such a useful and interesting effect, many oscillators that produce pulse waves have a PWM input that allows the duty cycle of the wave to be controlled by another module.
 Try to implement PWM with an LFO using the button in Figure <a href="generators.html#fig:pwm-lfo-vco-scope">6.7</a>.
 If you hook up the VCO square wave to a scope, you can see the resulting waveshape.
-The LFO frequency and the PWM depth knobs give control over the speed of the PWM and the depth (i.e. the range of duty cycles covered), respectively.
+The LFO frequency and the PWM depth knobs give control over the speed of the PWM and the depth (i.e. the range of duty cycles covered), respectively.
 As you listen to the result of PWM, take note of the changes in the harmonics.
 Square waves have only odd harmonics, but pulse waves more generally have every nth harmonic removed, where n is the denominator of the duty cycle of the wave.
 For example, a square wave with a 50% duty cycle (1/2) has every 2nd harmonic removed, a pulse wave with a 33% duty cycle (1/3) has every 3rd harmonic removed, and so on.
@@ -617,14 +618,14 @@ Vibrato is widely used in music, but is perhaps most strongly associated with op
 <iframe src="https://www.youtube.com/embed/CPPOrQHiP40?start=0" width="672" height="400px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 6.8: <a href="https://www.youtube.com/watch?v=CPPOrQHiP40">Youtube video</a> of an opera singer’s vibrato, or frequency variation around a central note. Image <a href="https://www.youtube.com/channel/UC9FSr2uoO_OqymmeNSE5AyQ">© jiggle throat</a>.
+Figure 6.8: <a href="https://www.youtube.com/watch?v=CPPOrQHiP40">Youtube video</a> of an opera singer's vibrato, or frequency variation around a central note. Image <a href="https://www.youtube.com/channel/UC9FSr2uoO_OqymmeNSE5AyQ">© jiggle throat</a>.
 </p>
 </div>
 <p>LFOs can create vibrato on a VCO by controlling V/Oct.
 Unlike PWM, an additional VCA is needed to control the depth of the vibrato.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically you can use the FM input and attenuator, but there are pedagogical reasons for not using the FM input at the moment, namely that we have not discused FM yet. &lt;/p&gt;"><sup>54</sup></a>
 Try to create vibrato with an LFO using the button in Figure <a href="generators.html#fig:vibrato-lfo-vca-vco-scope">6.9</a>.
-With a little adjustment of the parameters, it’s possible to match the vibrato of the opera singer just discussed.
-Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato effect on and off by setting LFO frequency, e.g. through a sequencer.</p>
+With a little adjustment of the parameters, it's possible to match the vibrato of the opera singer just discussed.
+Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato effect on and off by setting LFO frequency, e.g. through a sequencer.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -720,9 +721,9 @@ Figure 6.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for implemen
 <h3>
 <span class="header-section-number">6.3.3</span> Tremolo<a class="anchor" aria-label="anchor" href="#tremolo"><i class="fas fa-link"></i></a>
 </h3>
-<p>In electronic music, tremolo is movement around loudness that can be defined in terms of speed of movement around a center volume and depth of movement, or distance from, that same center volume.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The mnemonic “tremolo&lt;strong&gt;ud&lt;/strong&gt;” might help prevent confusion with vibrato.&lt;/p&gt;"><sup>55</sup></a>
+<p>In electronic music, tremolo is movement around loudness that can be defined in terms of speed of movement around a center volume and depth of movement, or distance from, that same center volume.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The mnemonic "tremolo&lt;strong&gt;ud&lt;/strong&gt;" might help prevent confusion with vibrato.&lt;/p&gt;'><sup>55</sup></a>
 Note that in other forms of music, there are <a href="https://en.wikipedia.org/wiki/Tremolo">different definitions of tremolo</a>.
-Tremolo has been widely used in popular guitar music since the 1960’s, and guitar pedals producing tremolo effects as shown in Figure <a href="generators.html#fig:guitar-tremolo">6.10</a> are quite common today.</p>
+Tremolo has been widely used in popular guitar music since the 1960's, and guitar pedals producing tremolo effects as shown in Figure <a href="generators.html#fig:guitar-tremolo">6.10</a> are quite common today.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:guitar-tremolo"></span>
@@ -856,25 +857,25 @@ If the two waves were identical in frequency, hard sync would simply align them 
 When the two waves are different in frequency, one wave is reset and therefore has a sharp edges in its waveshape.
 As discussed in Section <a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum">3.2</a>, sharp edges contribute higher partials
 Sync therefore changes the harmonic content of a wave in a different way than chorus type effects.
-Notably, the closer the follower’s frequency is to an integer multiple of the leader’s frequency, the more the sync will emphasize the harmonics of the leader, but in general the new partials will not be harmonically related to the leader.
+Notably, the closer the follower's frequency is to an integer multiple of the leader's frequency, the more the sync will emphasize the harmonics of the leader, but in general the new partials will not be harmonically related to the leader.
 An example of hard sync is shown in Figure <a href="generators.html#fig:sine-sync">6.12</a>, where the two sine waves on the left are hard synchronized on the right.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:sine-sync"></span>
-<img src="images/sine-sync.png" alt="An example of hard sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader’s sine output is connected to the follower’s sync input. As soon as the leader’s sine wave (blue) increases above zero, the follower’s sine wave (red) resets and begins its cycle again, creating a sharp edge in its waveshape." width="100%"><p class="caption">
-Figure 6.12: An example of hard sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader’s sine output is connected to the follower’s sync input. As soon as the leader’s sine wave (blue) increases above zero, the follower’s sine wave (red) resets and begins its cycle again, creating a sharp edge in its waveshape.
+<img src="images/sine-sync.png" alt="An example of hard sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader's sine output is connected to the follower's sync input. As soon as the leader's sine wave (blue) increases above zero, the follower's sine wave (red) resets and begins its cycle again, creating a sharp edge in its waveshape." width="100%"><p class="caption">
+Figure 6.12: An example of hard sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader's sine output is connected to the follower's sync input. As soon as the leader's sine wave (blue) increases above zero, the follower's sine wave (red) resets and begins its cycle again, creating a sharp edge in its waveshape.
 </p>
 </div>
 <p>There are <a href="https://en.wikipedia.org/wiki/Oscillator_sync#Soft_Sync">several variations</a> of sync known as soft sync, but they all attempt to align the two oscillators in phase without creating the sharp edge found in hard sync.
 One notable form of soft sync is reverse soft sync (or flip soft sync).
 Reverse soft sync reverses the direction of the wave at the moment of reset.
-This causes the follower to match the direction of the leader without exactly matching the leader’s phase.
+This causes the follower to match the direction of the leader without exactly matching the leader's phase.
 An example of reverse soft sync is shown in Figure <a href="generators.html#fig:sine-sync-soft">6.13</a>, where the two sine waves on the left are soft synchronized on the right.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:sine-sync-soft"></span>
-<img src="images/sine-sync-soft.png" alt="An example of reverse soft sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader’s sine output is connected to the follower’s sync input. As soon as the leader’s sine wave (blue) increases above zero, the follower’s sine wave (red) reverses, i.e. runs in the opposite direction, and begins its cycle again, creating a less sharp edge in its waveshape than hard sync." width="100%"><p class="caption">
-Figure 6.13: An example of reverse soft sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader’s sine output is connected to the follower’s sync input. As soon as the leader’s sine wave (blue) increases above zero, the follower’s sine wave (red) reverses, i.e. runs in the opposite direction, and begins its cycle again, creating a less sharp edge in its waveshape than hard sync.
+<img src="images/sine-sync-soft.png" alt="An example of reverse soft sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader's sine output is connected to the follower's sync input. As soon as the leader's sine wave (blue) increases above zero, the follower's sine wave (red) reverses, i.e. runs in the opposite direction, and begins its cycle again, creating a less sharp edge in its waveshape than hard sync." width="100%"><p class="caption">
+Figure 6.13: An example of reverse soft sync using two sine waves. On the left, the sine waves are not synchronized. On the right, the leader's sine output is connected to the follower's sync input. As soon as the leader's sine wave (blue) increases above zero, the follower's sine wave (red) reverses, i.e. runs in the opposite direction, and begins its cycle again, creating a less sharp edge in its waveshape than hard sync.
 </p>
 </div>
 <p>Try to create hard and soft sync using the button in Figure <a href="generators.html#fig:hard-soft-sync">6.14</a> and that matches Figures <a href="generators.html#fig:sine-sync">6.12</a> and <a href="generators.html#fig:sine-sync-soft">6.13</a>, respectively.
@@ -989,7 +990,7 @@ As discussed in Section <a href="harmonic-and-inharmonic-sounds.html#inharmonic-
 In modular, noise is typically provided by specialized modules, with separate jacks for different colors of noise.</p>
 <p>Noise blended with other generators can create transients and complementary sounds that produce more realistic percussion.
 For example, a kick drum has an initial noise transient that quickly dies out, and a snare has a long-lasting noise component that comes from the metal snares below the bottom membrane.
-However, the kick drum noise is tilted towards lower frequencies (e.g. red noise) and the snare is tilted towards higher frequencies (e.g. blue noise).
+However, the kick drum noise is tilted towards lower frequencies (e.g. red noise) and the snare is tilted towards higher frequencies (e.g. blue noise).
 Try to create kick and snare drums with noise using the button in Figure <a href="generators.html#fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope">6.15</a>.
 The patches are identical except for different noise sources and knob settings.</p>
 
@@ -1116,7 +1117,7 @@ Figure 6.15: <a href="https://cardinal.olney.ai">Virtual modular</a> for adding 
 <span class="header-section-number">6.6</span> Samplers<a class="anchor" aria-label="anchor" href="#samplers"><i class="fas fa-link"></i></a>
 </h2>
 <p>Samplers are popular type of generator that can be used to produce very realistic sounds but simply playing back prerecorded sounds.
-Samplers are thus very useful for performing with sounds that are difficult to synthesize (e.g. speech) or when it is impractical to use modules to synthesize multiple instruments due to cost/space constraints (as is often the case with percussion).</p>
+Samplers are thus very useful for performing with sounds that are difficult to synthesize (e.g. speech) or when it is impractical to use modules to synthesize multiple instruments due to cost/space constraints (as is often the case with percussion).</p>
 <p>Samplers do not perform synthesis per se, though there are crossovers like wavetable synthesis, as discussed in Section <a href="physics-and-perception-of-sound.html#waveshape-and-timbre">2.4</a>.
 Instead, samplers represent audio data, typically digital audio data, without representing the process that generated the data.
 Digital audio data is represented according to two parameters that each can be considered a kind of resolution, as shown in Figure <a href="generators.html#fig:sampling-rate-depth">6.16</a>.</p>
@@ -1132,11 +1133,11 @@ If the distance between the samples is small, a straight line is a good approxim
 However, if frequency of the wave is high or the wave otherwise changes suddenly, those changes may be <em>between</em> samples and not show up in the digital representation at all.
 Common sample rates are 8 kHz (phone quality), 16 kHz (speech recognition quality), and 44.1 kHz (CD quality).</p>
 <p>Why sample at 44.1 kHz when the upper limit of human hearing is around 20 kHz?
-The 44.1 kHz rate is the <a href="https://en.wikipedia.org/wiki/Nyquist_rate">Nyquist rate</a> for 22,050 Hz, i.e. the Nyquist rate is <strong>double</strong> that frequency, which is about 2 kHz above the standard human limit.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The 2 kHz padding allows use of an &lt;a href="https://en.wikipedia.org/wiki/Anti-aliasing_filter"&gt;anti-aliasing filter&lt;/a&gt; that prevents higher frequencies from being sampled. We’ll cover how filters work in the next chapter.&lt;/p&gt;'><sup>56</sup></a>
+The 44.1 kHz rate is the <a href="https://en.wikipedia.org/wiki/Nyquist_rate">Nyquist rate</a> for 22,050 Hz, i.e. the Nyquist rate is <strong>double</strong> that frequency, which is about 2 kHz above the standard human limit.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The 2 kHz padding allows use of an &lt;a href=&quot;https://en.wikipedia.org/wiki/Anti-aliasing_filter&quot;&gt;anti-aliasing filter&lt;/a&gt; that prevents higher frequencies from being sampled. We'll cover how filters work in the next chapter.&lt;/p&gt;"><sup>56</sup></a>
 The reason to sample at twice the highest frequency is pretty simple.
 If we assume all sounds are made of sine waves, as covered in Section <a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum">3.2</a>, then we need to be able to define the highest frequency component in our audio as a sine wave.
 If we evenly sample at least two points for a cycle of that sine wave, and we know the maximum possible frequency, then there is only one sine wave that can pass through those points.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;This is analogous to two data points to &lt;a href="https://en.wikipedia.org/wiki/System_of_linear_equations"&gt;solve for two unknowns using linear algebra&lt;/a&gt;.&lt;/p&gt;'><sup>57</sup></a>
-Without that limit, there are an infinite number of alternative sine waves that will pass between the two points, leading to an ambiguity problem called <a href="https://en.wikipedia.org/wiki/Aliasing">aliasing</a> where we don’t know what sine wave was sampled.
+Without that limit, there are an infinite number of alternative sine waves that will pass between the two points, leading to an ambiguity problem called <a href="https://en.wikipedia.org/wiki/Aliasing">aliasing</a> where we don't know what sine wave was sampled.
 A familiar example of aliasing occurs when <a href="https://youtu.be/6XwgbHjRo30?t=8">speed of wheels exceed the sample rate (frame rate) in video/film</a>.</p>
 <p>Bit depth measures the accuracy at which the sample points are measured from 0.
 Imagine you had a ruler with only inches marked - you could only measure inches, right?
@@ -1147,7 +1148,7 @@ This is why higher bit depths have better fidelity to the original signal.
 Common bit depths are 16 and 24 bits per sample.</p>
 <p>While samplers offer less control over their representations than other forms of synthesis, they typically have many options for control, including playback within a sample, playing a sample at a faster/slower speed than the original, playing a sample in reverse, etc.
 These performance parameters are typically under voltage control and so can be controlled by a keyboard, sequencer, or other controller.
-Let’s take a look at keyboard control of a sampler that changes the playback position of a sample based on the keyboard’s output voltage.
+Let's take a look at keyboard control of a sampler that changes the playback position of a sample based on the keyboard's output voltage.
 Try this patch using the button in Figure <a href="generators.html#fig:sample-12key-ouaive">6.17</a>.
 You will need to <a href="images/moonshot.wav">download the sample file</a> to load it into the sampler.</p>
 
@@ -1241,7 +1242,7 @@ function setsample_12key_ouaiveIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:sample-12key-ouaive"></span>
 <p class="caption">
-Figure 6.17: <a href="https://cardinal.olney.ai">Virtual modular</a> for keyboard control of a sampler’s playback position.
+Figure 6.17: <a href="https://cardinal.olney.ai">Virtual modular</a> for keyboard control of a sampler's playback position.
 </p>
 </div>
 <p>We can play, reverse play, and change the playback speed the sample by using an LFO and a gate-style controller.
@@ -1338,14 +1339,184 @@ function setsample_lfo_trigger_ouaiveIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:sample-lfo-trigger-ouaive"></span>
 <p class="caption">
-Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO control of a sampler’s playback: forward, reverse, and speed.
+Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO control of a sampler's playback: forward, reverse, and speed.
 </p>
 </div>
 
 </div>
 </div>
 
-  <div class="chapter-nav">
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><div class="chapter-nav">
 <div class="prev"><a href="controllers.html"><span class="header-section-number">5</span> Controllers</a></div>
 <div class="next"><a href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -1381,7 +1552,7 @@ Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO con
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

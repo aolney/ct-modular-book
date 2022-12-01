@@ -288,7 +288,7 @@ Based on the reference recordings, we may achieve a more accurate sound by high 
 That's not to say that this is how it was done in the hardware but rather that it could be a reasonable strategy for recreating the sound in modular.
 Because the reference recordings are all at a single note, it's unclear how the filtering could or should track V/Oct.
 
-(ref:tb303-square-saw-hpf-compare) Top row: square (left) and saw (right) waves for a C note from the Din Sync reference recordings. Note neither waveshape matches the canonical form. Middle row: square wave (left) that is high pass filtered (right), creating a shape similar to the reference recording saw wave. Bottom row: saw wave (left) that is high pass filtered (right), creating a shape similar to the reference recording square wave.
+(ref:tb303-square-saw-hpf-compare) Top row: square (left) and saw (right) waves for a C note from the Din Sync 303 reference recordings. Note neither waveshape matches the canonical form. Middle row: square wave (left) that is high pass filtered (right), creating a shape similar to the reference recording saw wave. Bottom row: saw wave (left) that is high pass filtered (right), creating a shape similar to the reference recording square wave.
 
 ```{r tb303-square-saw-hpf-compare, echo=F, out.width="100%", fig.cap="(ref:tb303-square-saw-hpf-compare)"}
  knitr::include_graphics("images/tb303-square-saw-hpf-compare.png")
@@ -304,7 +304,7 @@ Try extending the last patch with these oscillator modifications using the butto
 ```{r echo=F, out.width="100%"}
 modular_modal("tb303-seq-extendgate-reggate-slidegate-osc", starter_file="tb303-seq-extendgate-reggate-slidegate.vcv", instructions_html="<ul>
 <li>Stop, reset, and run the sequencers to make sure they are in sync</li>
-<li>Move the VCO down to the right of the slide gate sectin</li>
+<li>Move the VCO down to the right of the slide gate section</li>
 <li>Add two VCFs to the right of the VCO and tune their cutoffs to 82 Hz</li>
 <li>Add Bog Audio Switch81 and Scope to the right of the two VCFs </li>
 <li>Connect VCO square and saw outs to the respective ins of the VCFs</li>

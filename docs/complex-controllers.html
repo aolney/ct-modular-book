@@ -45,6 +45,7 @@
     }
   </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -110,15 +111,15 @@ A step-based representation would use 7 steps and four of them would be empty.
 An event-based representation would use two events, one starting at time 1 and lasting 2 units and one starting at time 6 and lasting 1 unit.</p>
 <p>In practice, modular sequencing often combines both step-based and event-based elements.
 The reason for combining both is that each has different strengths.
-To better appreciate these strengths, let’s define three ideal properties of a sequencing approach and use it to evaluate alternatives.
+To better appreciate these strengths, let's define three ideal properties of a sequencing approach and use it to evaluate alternatives.
 An ideal sequencing approach should allow:</p>
 <ul>
-<li>Compact representation of variations, i.e. in a minimal amount of space</li>
+<li>Compact representation of variations, i.e. in a minimal amount of space</li>
 <li>Ease of changes between variations</li>
 <li>Precise control of variations</li>
 </ul>
 <p>It turns out that sometimes these properties are at odds with each other, such that different combinations of modules can outperform on some and underperform on others.
-As we examine different options in this chapter, we’ll keep this properties in mind.</p>
+As we examine different options in this chapter, we'll keep this properties in mind.</p>
 <div id="modifying-gates" class="section level2" number="10.1">
 <h2>
 <span class="header-section-number">10.1</span> Modifying gates<a class="anchor" aria-label="anchor" href="#modifying-gates"><i class="fas fa-link"></i></a>
@@ -126,7 +127,7 @@ As we examine different options in this chapter, we’ll keep this properties in
 <p>One of the limitations of pure clock-based sequencing is that every gate starts <a href="https://en.wikipedia.org/wiki/Beat_(music)#On-beat_and_off-beat">on the beat</a>.
 Unfortunately, <a href="https://en.wikipedia.org/wiki/Syncopation">syncopation</a>, which emphasizes off beats, is widespread in modern music.
 The on-beat property of clock divisions is illustrated in Figure <a href="complex-controllers.html#fig:clock-div2-div4">10.1</a>.
-If we consider the clock to represent quarter notes, then the gaps between clock gates are eighth note off beats, i.e. if we count 1-and 2-and 3-and 4-and, the off beats are ‘and’.</p>
+If we consider the clock to represent quarter notes, then the gaps between clock gates are eighth note off beats, i.e. if we count 1-and 2-and 3-and 4-and, the off beats are 'and'.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:clock-div2-div4"></span>
@@ -134,7 +135,7 @@ If we consider the clock to represent quarter notes, then the gaps between clock
 Figure 10.1: Four gates from a clock (small) overlaid with two gates from a /2 clock division (medium) and further overlaid by one gate from a /4 clock division (large). If we consider each clock gate as defining a quarter note, then all three gates occur on the first quarter note and the first two occur on the third quarter note, so the three gates are aligning only on beats.
 </p>
 </div>
-<p>Let’s build a basic patch with clock divisions that illustrates this on beat property both in sound and visually on the scope.
+<p>Let's build a basic patch with clock divisions that illustrates this on beat property both in sound and visually on the scope.
 To keep things simple throughout this chapter, we will modify this percussion-oriented patch and note differences with sequencing pitches.
 All the modules and concepts in this patch were introduced in previous chapters, except for a new three-voice percussion module that can produce various sounds.
 Try patching up this basic percussion patch with clock divisions using the button in Figure <a href="complex-controllers.html#fig:clock-division-drums-mschack">10.2</a>.</p>
@@ -240,7 +241,7 @@ Figure 10.2: <a href="https://cardinal.olney.ai">Virtual modular</a> for a basic
 However it lacks precise control because off beats are inaccessible.
 Other related complications include increasing the number of hits on a particular beat, sometimes called a <a href="https://en.wikipedia.org/wiki/Drum_rudiment#Roll_rudiments">roll</a> and skipping a beat.
 All three of these variations can be approached by modifying existing gates, a concept that was first introduced in Section <a href="controllers.html#sequencing-note-duration">5.2.3.2</a> for sequencing note duration.
-Since sequencing note duration is identical to sequencing gate duration, we’ll look at only the other two techniques here.</p>
+Since sequencing note duration is identical to sequencing gate duration, we'll look at only the other two techniques here.</p>
 <p>Hitting an off beat can be accomplished using a gate delay module.
 A gate delay module receives an incoming gate (sometimes a trigger) and then create another gate at some time delay.
 If the time delay corresponds to the length of a beat, then the delayed gate will appear on the off beat.
@@ -434,10 +435,10 @@ Figure 10.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percu
 </div>
 <p>Returning to the three ideal properties, the gate multiplier approach (again combined with clock divisions) is a bit compact because it relies on another sequencer, a bit less easy (because setting the multiplier voltage is a bit fiddly), and more flexible because it allows different drum rolls on each step.
 Just as a sequencer was used to control the gate multiplier, a sequencer could be used to control the gate delay offset of the previous patch or drop a step by controlling the length parameter, as shown <a href="images/patch-solutions/clock-division-mshack-drums-offbeat-gate-delay-roll-seq-gate-mult-skip-seq-gate-length.png">here</a>.</p>
-<p>It’s clear that adding more sequencers to control these parameters increases flexibility but also makes the overall control less compact and changing between variations less easy.
-For example, if one wanted to replace a skipped step with a triple beat, one would have to adjust the length sequencer for a non-zero gate length, then adjust the multiplier sequencer to create multiple hits on that step, i.e. one would have to adjust multiple parameters for that step, and these parameters are spread across different sequencers.
+<p>It's clear that adding more sequencers to control these parameters increases flexibility but also makes the overall control less compact and changing between variations less easy.
+For example, if one wanted to replace a skipped step with a triple beat, one would have to adjust the length sequencer for a non-zero gate length, then adjust the multiplier sequencer to create multiple hits on that step, i.e. one would have to adjust multiple parameters for that step, and these parameters are spread across different sequencers.
 Is this suboptimal?
-Let’s compare against other solutions before making judgment.
+Let's compare against other solutions before making judgment.
 One obvious alternative is to create the same pattern using standard step sequencers without any clock divisions.
 Try updating the last patch with a step sequencer for the off beat hat and the double beat kick using the button in Figure <a href="complex-controllers.html#fig:trg-mshack-drums-offbeat-roll">10.5</a>.
 Because the kick time is 4:4, the sequencer only needs four steps.</p>
@@ -533,12 +534,12 @@ function settrg_mshack_drums_offbeat_rollIframe(url){
 Figure 10.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percussion patch using step sequencers for an off beat hit and multiple hits on the beat.
 </p>
 </div>
-<p>Contrast this approach with what we’ve done so far.
+<p>Contrast this approach with what we've done so far.
 The step sequencers are somewhat compact if the pattern can be decomposed into the smallest repeating loops, though not as compact as a clock divider.
 They are easy to change in some ways but not others.
 For example, if we decide we want a triple hit on a beat rather than a double, we need to increase the step resolution from two steps per quarter note to three steps per quarter note, which requires changing the entire kick pattern.
 Conversely, step sequencers have a high level of precision <em>if</em> one accepts increasing the number of steps arbitrarily to account for off beats, <a href="https://en.wikipedia.org/wiki/Swing_(jazz_performance_style)">swing</a>, or <a href="https://en.wikipedia.org/wiki/J_Dilla#Musical_style">dilla</a>, but this then sacrifices compactness.
-Note that the previous approaches with gate delays and multiplications achieved these results to an arbitrary degree without additional loss of compactness, i.e. we could have a 10 hits instead of 2 with the same gate multiplier patch.</p>
+Note that the previous approaches with gate delays and multiplications achieved these results to an arbitrary degree without additional loss of compactness, i.e. we could have a 10 hits instead of 2 with the same gate multiplier patch.</p>
 </div>
 <div id="making-gates-with-logic" class="section level2" number="10.2">
 <h2>
@@ -546,10 +547,10 @@ Note that the previous approaches with gate delays and multiplications achieved 
 </h2>
 <p>Suppose we wanted to select the offbeats in our current pattern.
 Looking at Figure <a href="complex-controllers.html#fig:clock-div2-div4">10.1</a>, the ofbeats are simply where the the beats are <em>not</em>.
-So if we had a way of specifying “not beat,” then we’d be able make a gate for the off beats.
-<a href="https://en.wikipedia.org/wiki/Boolean_algebra">Boolean logic</a> provides a way of specifying “not beat” and can further be used for more complex beat specifications.</p>
+So if we had a way of specifying "not beat," then we'd be able make a gate for the off beats.
+<a href="https://en.wikipedia.org/wiki/Boolean_algebra">Boolean logic</a> provides a way of specifying "not beat" and can further be used for more complex beat specifications.</p>
 <p>Although it may seem intimidating at first, Boolean logic has just three basic operators, AND, OR, and NOT.
-AND means two things happen together, OR means at least one thing happens, and NOT means something didn’t happen.
+AND means two things happen together, OR means at least one thing happens, and NOT means something didn't happen.
 If we represent something happening (like a gate) as 1 and not happening as 0, then these basic operators are summarized in Table <a href="complex-controllers.html#tab:logic">10.1</a>.</p>
 <div class="inline-table"><table class="table table-sm">
 <caption>
@@ -598,7 +599,7 @@ If we represent something happening (like a gate) as 1 and not happening as 0, t
 </tbody>
 </table></div>
 <p>Try updating the basic percussion patch with a NOT module to put the open hat on every off beat using the button in Figure <a href="complex-controllers.html#fig:trg-mshack-drums-offbeat-roll">10.5</a>.
-We’ll build on this logic in the following patches.</p>
+We'll build on this logic in the following patches.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -789,7 +790,7 @@ function setclock_division_drums_mschack_offbeat_logic_every_other_offbeatIframe
 Figure 10.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percussion patch using clock divisions and combining the NOT and AND operators to create gates for every other off beat hits.
 </p>
 </div>
-<p>Let’s get even more specific with logic to match what we did previously with the gate delay, which was a single off beat.
+<p>Let's get even more specific with logic to match what we did previously with the gate delay, which was a single off beat.
 Since the last patch used every other off beat, we can use an additional operator to select just one of those beats.
 Again looking at Figure <a href="complex-controllers.html#fig:clock-div2-div4">10.1</a>, we see that we can achieve this by using AND with our existing logic and next larger clock division.
 Try updating the last patch to implement this logic using the button in Figure <a href="complex-controllers.html#fig:clock-division-drums-mschack-offbeat-logic-matching-gate-delay">10.8</a>.</p>
@@ -881,7 +882,7 @@ function setclock_division_drums_mschack_offbeat_logic_matching_gate_delayIframe
 Figure 10.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percussion patch using clock divisions and combining the NOT and AND operators to create a single gate per bar, matching the previous delayed gate behavior.
 </p>
 </div>
-<p>Let’s consider the three ideal sequencer properties, in terms of logic.
+<p>Let's consider the three ideal sequencer properties, in terms of logic.
 The first application of NOT was quite compact, ease to change, and precise.
 However, as the logic became more complex, the sequencing became less easy.
 Contrast the last logic patch that needed three or four logical operators to what was previously accomplished by using a single gate delay.
@@ -891,21 +892,21 @@ It appears that clock divisions with logic are most suited to regular repeating 
 <h2>
 <span class="header-section-number">10.3</span> Adding/removing gates with probability<a class="anchor" aria-label="anchor" href="#addingremoving-gates-with-probability"><i class="fas fa-link"></i></a>
 </h2>
-<p>Generally speaking, the more complex sequencing we want (i.e. irreducible to a simple pattern), the less compact our control will be.
+<p>Generally speaking, the more complex sequencing we want (i.e. irreducible to a simple pattern), the less compact our control will be.
 We can get around this limitation if we give up precise control of the sequencing by turning to probability.
 A <a href="https://en.wikipedia.org/wiki/Probability">probability</a> specifies of the likelihood of an event, like a gate.
-In our current approaches, a gate either happens or it doesn’t.
-However, if we assign some probability to a gate happening, more complex patterns emerge because sometimes the gate will happen and sometimes it won’t.</p>
+In our current approaches, a gate either happens or it doesn't.
+However, if we assign some probability to a gate happening, more complex patterns emerge because sometimes the gate will happen and sometimes it won't.</p>
 <p>Perhaps the easiest way to think about probabilistic gates is to think of them like coin flips.
 If we flip a coin and get a head, then the gate will be produced, otherwise no gate will be produced.
 How can we simulate a coin flip in modular?
 One way is to generate a random voltage and then compare it to a reference value.
 If the voltage is above the reference value, we count it as a head and produce a gate.
-We’ve already seen how to create random voltages with noise generators.
+We've already seen how to create random voltages with noise generators.
 The new idea here is a comparator, which is a module that accepts an incoming voltage <span class="math inline">\(V\)</span>, compares it to a reference voltage <span class="math inline">\(R\)</span>, and produces a high signal if <span class="math inline">\(V &gt; R\)</span>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This approach is chosen for pedagogical reasons. Various modules offer built-in random number generation that is more flexible than combining noise sources with comparators.&lt;/p&gt;"><sup>78</sup></a>
 Because different noise spectra have different distributions of frequencies (and thus voltages), different noise spectra will give us different probabilities for the same reference voltage.</p>
 <p>We can use the probabilistic gate idea to sequence all the percussion voices in our ongoing example.
-Since probabilistic gates would be completely random by definition, we’ll structure them a bit using logic: a NOT to make two different voices alternate and an AND to combine two different noise signals for a lower probability.
+Since probabilistic gates would be completely random by definition, we'll structure them a bit using logic: a NOT to make two different voices alternate and an AND to combine two different noise signals for a lower probability.
 Try updating the last patch to drive all gates with probability and logic using the button in Figure <a href="complex-controllers.html#fig:noise-comparator-logic-mshack-drums">10.9</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -1012,10 +1013,10 @@ Figure 10.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percu
 <p>The output of this patch is much more complex than we could reasonably achieve using other sequencing methods, but it is also uncontrolled and not very musical, even when shaped a bit by logic.
 An alternative to randomly creating gates is to take an existing pattern but randomly drop gates.
 This can be implemented as simply as using noise source, a comparator, and an AND module that receives the output as well as the output for the normal gate.
-However, to get the random gates to align with the standard clock, we’ll use a new module, a sample and hold module.
+However, to get the random gates to align with the standard clock, we'll use a new module, a sample and hold module.
 A sample and hold module, when triggered, stores whatever voltage is present at its input and outputs that voltage until a new trigger is received, ignoring whatever input voltages occur in the meantime.
 By connecting a random gate to a sample and hold and triggering it with a clock, we can synchronize the random gate with our clock and have a clean signal for deciding to drop a gate or not.
-Note that if we wanted to produce V/Oct control voltage for random notes, we could similarly use sample and hold module directly connected to our random source, i.e. without a comparator.
+Note that if we wanted to produce V/Oct control voltage for random notes, we could similarly use sample and hold module directly connected to our random source, i.e. without a comparator.
 Try updating the previous logic patch that selected every other off beat to further consider a random gate using the button in Figure <a href="complex-controllers.html#fig:noise-comparator-clock-division-drums-mschack-offbeat-logic-every-other-offbeat">10.10</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -1126,15 +1127,15 @@ Modules specifically designed for randomness typically have additional parameter
 <span class="header-section-number">10.4</span> Speed variable clocks using LFOs<a class="anchor" aria-label="anchor" href="#speed-variable-clocks-using-lfos"><i class="fas fa-link"></i></a>
 </h2>
 <p>Recall one of the earlier challenges raised was to increasing the number of hits on a particular beat, skipping a beat, and accessing all possible beats (including off beats).
-We’ve tried to solve this problem using gate delays, logic, or an increased step resolution to access off beats and gate multipliers and increased step resolution to increase the number of hits on a particular beat.
+We've tried to solve this problem using gate delays, logic, or an increased step resolution to access off beats and gate multipliers and increased step resolution to increase the number of hits on a particular beat.
 In each case, one technique would solve some problems but not others, with the exception of step resolution which has the problems previously discussed.</p>
 <p>It turns out that we can achieve all three of these goals by running speed variable clocks, one for each percussion voice where we want to have multiple beats, skipping, or offbeats at different times.
-The idea is that when we want multiple beats, we speed the clock up; when we want to skip a beat, we slow the clock down almost zero, and that when we want to access an offbeat, we use the same sequencer we’re using the speed up and slow down the clock.
+The idea is that when we want multiple beats, we speed the clock up; when we want to skip a beat, we slow the clock down almost zero, and that when we want to access an offbeat, we use the same sequencer we're using the speed up and slow down the clock.
 Because a clock is just unipolar rectangular waves, an LFO can be used as a speed variable clock.
 One of the additional benefits of this approach is that skipping a beat and doubling a beat are controlled by the same parameter, frequency.
 Contrast this with the previous approach using gate multiplication, where skipping a beat required an additional sequencer to shrink gate length to zero.
 We still need a master clock however to keep the LFOs in sync, which can be done by sending clock to their reset inputs, which resets them to the beginning of their waveforms.</p>
-<p>Let’s recreate the off beat open hat with a double kick on the first beat that we’ve used as a running example.
+<p>Let's recreate the off beat open hat with a double kick on the first beat that we've used as a running example.
 Both of these voices will require their own LFO to serve as a clock, where each LFO has its frequency controlled by a sequencer.
 Try updating the previous patch with gate delay and gate multiplier to use sequenced LFOs instead using the button in Figure <a href="complex-controllers.html#fig:lfo-mshack-drums-offbeat-roll">10.11</a>.</p>
 
@@ -1229,8 +1230,8 @@ function setlfo_mshack_drums_offbeat_rollIframe(url){
 Figure 10.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for a percussion patch using LFOs as speed variable clocks to achieve gate delays, skipped steps, and off beats using a single parameter.
 </p>
 </div>
-<p>As you can see, this approach is fairly compact but not as compact as using a gate delay and gate multiplier because we’ve explicitly represented a number of skipped steps.
-However it is now easier to change between variations, e.g. adding rolls on different beats or skipping different beats would not require changing the patch, and these can be controlled by a single parameter.</p>
+<p>As you can see, this approach is fairly compact but not as compact as using a gate delay and gate multiplier because we've explicitly represented a number of skipped steps.
+However it is now easier to change between variations, e.g. adding rolls on different beats or skipping different beats would not require changing the patch, and these can be controlled by a single parameter.</p>
 <p>A variation of this approach, though perhaps a somewhat distant one, can be used to generate gate patterns without a clock.
 Simply mix LFOs at different frequencies to produce an irregular interference pattern that can then be run through a comparator to generate gates.
 If these need to be synced to a clock for uniform gate lengths, then the sample and hold method discussed in the previous section can be used.
@@ -1240,15 +1241,15 @@ A clock can also be used to periodically trigger the reset of the LFOs, forcing 
 <h2>
 <span class="header-section-number">10.5</span> Euclidean rhythm<a class="anchor" aria-label="anchor" href="#euclidean-rhythm"><i class="fas fa-link"></i></a>
 </h2>
-<p>We’ve mostly discussed sequencing where the patterns have been designed by hand, with the exception of probabilistic gate sequences and the recently mentioned sequenced generated by frequency-mismatched LFOs.
+<p>We've mostly discussed sequencing where the patterns have been designed by hand, with the exception of probabilistic gate sequences and the recently mentioned sequenced generated by frequency-mismatched LFOs.
 What if there was a more predictable, more rule-like way of generating patterns?
 Euclidean rhythm is a recently discovered method that generates patterns in a rule-like way.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Godfried Toussaint, &lt;span&gt;“The Euclidean Algorithm Generates Traditional Musical Rhythms,”&lt;/span&gt; in &lt;em&gt;Renaissance Banff: Mathematics, Music, Art, Culture&lt;/em&gt;, ed. Reza Sarhangi and Robert V. Moody (Southwestern College, Winfield, Kansas: Bridges Conference, 2005), 47–56, &lt;a href="http://archive.bridgesmathart.org/2005/bridges2005-47.html" role="doc-biblioref"&gt;http://archive.bridgesmathart.org/2005/bridges2005-47.html&lt;/a&gt;.&lt;/p&gt;'><sup>79</sup></a></span>
 This approach gets its name from the <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclidean algorithm</a> for finding the greatest common divisor, which is the largest natural number that divides two numbers, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> without a remainder.
-Here’s how it works.
+Here's how it works.
 Suppose <span class="math inline">\(a &gt; b\)</span>.
-Then the algorithm divides <span class="math inline">\(a\)</span> by <span class="math inline">\(b\)</span> to get a remainder <span class="math inline">\(c\)</span>, e.g. <span class="math inline">\(8/5\)</span> has remainder 3.
+Then the algorithm divides <span class="math inline">\(a\)</span> by <span class="math inline">\(b\)</span> to get a remainder <span class="math inline">\(c\)</span>, e.g. <span class="math inline">\(8/5\)</span> has remainder 3.
 If <span class="math inline">\(c=0\)</span>, then <span class="math inline">\(b\)</span> is the greatest common divisor.
-Otherwise repeat by substituting b and c for a and b, e.g. 5/3 has remainder 2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This is the division variant of Euclid’s algorithm. The original used subtraction and so is slower and slightly more complicated because in subtraction, the difference isn’t guaranteed to be smaller than the subtrahend.&lt;/p&gt;"><sup>80</sup></a></p>
+Otherwise repeat by substituting b and c for a and b, e.g. 5/3 has remainder 2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This is the division variant of Euclid's algorithm. The original used subtraction and so is slower and slightly more complicated because in subtraction, the difference isn't guaranteed to be smaller than the subtrahend.&lt;/p&gt;"><sup>80</sup></a></p>
 <p>To map the Euclidean algorithm to beats, suppose that we want to evenly distribute <span class="math inline">\(b\)</span> beats over <span class="math inline">\(p\)</span> positions, which we will call <span class="math inline">\(E( b, p )\)</span>.
 Positions with no beat are silent (<span class="math inline">\(s\)</span>).
 Then we parallel the structure of the Euclidean algorithm and define division as pairing up the <span class="math inline">\(b\)</span> and <span class="math inline">\(s\)</span>, with the unpaired <span class="math inline">\(s\)</span> forming the remainder.
@@ -1297,21 +1298,21 @@ An example of this process is shown in Table <a href="complex-controllers.html#t
 </table></div>
 <p>As shown in Table <a href="complex-controllers.html#tab:euclid">10.2</a>, Euclidean rhythms divide the number of beats across positions as evenly as possible.
 If <span class="math inline">\(b\)</span> divides <span class="math inline">\(p\)</span> without remainder, then there will be an equal number of silences between beats.
-It turns out that there is an even easier way to calculate Euclidean rhythms by using <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm">Bresenham’s line algorithm</a>: using the equation for a line, at each natural number <span class="math inline">\(x\)</span>, take the floor<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A floor operation truncates the decimal portion of a number, e.g. 3.28 becomes 3.&lt;/p&gt;"><sup>81</sup></a> of <span class="math inline">\(y\)</span>.
+It turns out that there is an even easier way to calculate Euclidean rhythms by using <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm">Bresenham's line algorithm</a>: using the equation for a line, at each natural number <span class="math inline">\(x\)</span>, take the floor<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A floor operation truncates the decimal portion of a number, e.g. 3.28 becomes 3.&lt;/p&gt;"><sup>81</sup></a> of <span class="math inline">\(y\)</span>.
 In this approach, <span class="math inline">\(x\)</span> is equivalent to <span class="math inline">\(p\)</span>, each increase in <span class="math inline">\(y\)</span> is equivalent to <span class="math inline">\(b\)</span>, and each lack of increase in <span class="math inline">\(y\)</span> is equivalent to <span class="math inline">\(s\)</span>.
 The result of the algorithm is shown in shown in Figure <a href="complex-controllers.html#fig:bresenham-line">10.12</a>.
 Note that the colored regions mark the closest fitting line with slope <span class="math inline">\(5/13\)</span> where the line is constrained to move in square units - this is equivalent to distributing beats as evenly as possible across positions.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:bresenham-line"></span>
-<img src="images/bresenham-line.png" alt="Example of Bresenham’s line algorithm for the example \(E(5,13)\)." width="100%"><p class="caption">
-Figure 10.12: Example of Bresenham’s line algorithm for the example <span class="math inline">\(E(5,13)\)</span>.
+<img src="images/bresenham-line.png" alt="Example of Bresenham's line algorithm for the example \(E(5,13)\)." width="100%"><p class="caption">
+Figure 10.12: Example of Bresenham's line algorithm for the example <span class="math inline">\(E(5,13)\)</span>.
 </p>
 </div>
 <p>Euclidean rhythms can start at an offset into the sequence such that the skipped early portion is then added to the end.
 This is sometimes called a rotation, and different rotations are sometimes described as belonging to the same necklace.
-Let’s apply Euclidean rhythms to the basic percussion patch from the beginning of the chapter.
-We’ll use a special model that generates a Euclidean rhythm for each percussion voice, along with a trigger to gate module.
+Let's apply Euclidean rhythms to the basic percussion patch from the beginning of the chapter.
+We'll use a special model that generates a Euclidean rhythm for each percussion voice, along with a trigger to gate module.
 Try updating that patch using the button in Figure <a href="complex-controllers.html#fig:euclidean-drums-mschack">10.13</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -1407,9 +1408,9 @@ Figure 10.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for a perc
 </div>
 <p>As you can see from the patch, Euclidean rhythms is very compact and flexible, since we can easily change the length of patterns without affecting the proportion of hits and vice versa, just by turning a knob.
 However, we also lose some precision.
-For example, it isn’t possible to make a double hit on the first beat because Euclidean rhythms by definition evenly distribute beats.
+For example, it isn't possible to make a double hit on the first beat because Euclidean rhythms by definition evenly distribute beats.
 So again, we trade precision for compactness and flexibility.
-It’s worth noting that Euclidean rhythms can also define scales.
+It's worth noting that Euclidean rhythms can also define scales.
 For example, <span class="math inline">\(E(5,12)\)</span> selects notes in the major pentatonic scale, and <span class="math inline">\(E(7,12)\)</span> selects notes in the diatonic scale C major.</p>
 </div>
 <div id="sequential-switches" class="section level2" number="10.6">
@@ -1427,10 +1428,10 @@ When the selection is done by clock, each clock advances the switch just like a 
 When the selection is done by control voltage, different voltage ranges select different destinations so that the selection can go out of order.</p>
 <p>As a concrete example, supposed you have a kick drum and you want to send it a pattern, and when that pattern finishes, send it another pattern.
 That is multiplexing because you have <span class="math inline">\(N\)</span> patterns you are sending to 1 place, the kick drum.
-On the other hand, suppose you have a pattern that you’d first like to send to flute voice, and when that pattern finishes, send the same pattern to a violin voice, and so on.
+On the other hand, suppose you have a pattern that you'd first like to send to flute voice, and when that pattern finishes, send the same pattern to a violin voice, and so on.
 That is demultiplexing because you have 1 pattern that you are sending <span class="math inline">\(N\)</span> different places.
-If this is confusing, it’s best to assume multiplexing (N:1) as this seems to be the more common operation.</p>
-<p>Let’s look at a simple example of using a sequential switch.
+If this is confusing, it's best to assume multiplexing (N:1) as this seems to be the more common operation.</p>
+<p>Let's look at a simple example of using a sequential switch.
 In the previous patch with a gate delay and gate multiplier, the kick had a double hit on the first beat, and this was repeated every four beats.
 Suppose we wanted to repeat every eight beats instead.
 One option is to fill up the sequencer with empty steps, but another option is to divide the eight steps into two sequences of four steps each.
@@ -1537,7 +1538,177 @@ Since each of the techniques discussed in this chapter has its strengths and wea
 </div>
 </div>
 
-  <div class="chapter-nav">
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><div class="chapter-nav">
 <div class="prev"><a href="eighties-lead-chiptune.html"><span class="header-section-number">9</span> Eighties Lead &amp; Chiptune</a></div>
 <div class="next"><a href="complex-generators.html"><span class="header-section-number">11</span> Modulating Generators</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -1567,7 +1738,7 @@ Since each of the techniques discussed in this chapter has its strengths and wea
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

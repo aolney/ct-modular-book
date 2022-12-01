@@ -90,12 +90,111 @@ Try creating a simple AM patch from scratch using the button in Figure \@ref(fig
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setam_exampleIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#am_example">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="am_example" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="am_exampleLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="am_exampleLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add two WT VCOs, AMP, Scope, and Sassy&lt;/li&gt;
+&lt;li&gt;On each WT VCO, move the wavetable position knob to the left to select a sine wave. The intermediate position morph between other waves like triangle and square&lt;/li&gt;
+&lt;li&gt;Connect the oscillator on the left (modulator) to the AMP CV and to a Sassy input&lt;/li&gt;
+&lt;li&gt;Connect the oscilator on the right (carrier) to the AMP in and to a Sassy input &lt;/li&gt;
+&lt;li&gt;Connect the AMP out to Scope in and a Sassy input. Note we could alternatively use other VCAs if we made the modulator signal unipolar&lt;/li&gt;
+&lt;li&gt;Enable the external trigger on the Scope, connect the modulator output to the Scop external trigger, and adjust Sassy for high-quality spectrogram output (left top sliders down to 1/32, top right slider up to 1000ms, freq radiobutton, 4x radiobutton)&lt;/li&gt;
+&lt;li&gt;Adjust the oscillator frequencies so that the modulator is lower than the carrier and the difference is sufficient to show on Sassy and not cross below zero (I used 60 and 400)&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the scopes &lt;ul&gt;
+&lt;li&gt;Mouse over the frequency peaks in Sassy. You should see one for the modulator, one for the carrier, and two for sidebands. Check their values and compare to the sideband formula&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the Sassy input from the carrier. You should now see a peak that was hidden in the output &lt;/li&gt;
+&lt;li&gt;Change the time knob on the scope to look at the output waveshape across scales. You should see the characteristic waveshape presented earlier. Connect the modulator output to the second Scope input to recreate the figure&lt;/li&gt;
+&lt;li&gt;Move the modulator wavetable position knob slowly upward and watch the change in Sassy. You will see both new peaks in the spectrum of the modulator as well as matching peaks in sidebands in the output signal.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/wtvco-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/amp-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/am-example.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add two WT VCOs, AMP, Scope, and Sassy&lt;/li&gt;
+&lt;li&gt;On each WT VCO, move the wavetable position knob to the left to select a sine wave. The intermediate position morph between other waves like triangle and square&lt;/li&gt;
+&lt;li&gt;Connect the oscillator on the left (modulator) to the AMP CV and to a Sassy input&lt;/li&gt;
+&lt;li&gt;Connect the oscilator on the right (carrier) to the AMP in and to a Sassy input &lt;/li&gt;
+&lt;li&gt;Connect the AMP out to Scope in and a Sassy input. Note we could alternatively use other VCAs if we made the modulator signal unipolar&lt;/li&gt;
+&lt;li&gt;Enable the external trigger on the Scope, connect the modulator output to the Scop external trigger, and adjust Sassy for high-quality spectrogram output (left top sliders down to 1/32, top right slider up to 1000ms, freq radiobutton, 4x radiobutton)&lt;/li&gt;
+&lt;li&gt;Adjust the oscillator frequencies so that the modulator is lower than the carrier and the difference is sufficient to show on Sassy and not cross below zero (I used 60 and 400)&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the scopes &lt;ul&gt;
+&lt;li&gt;Mouse over the frequency peaks in Sassy. You should see one for the modulator, one for the carrier, and two for sidebands. Check their values and compare to the sideband formula&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the Sassy input from the carrier. You should now see a peak that was hidden in the output &lt;/li&gt;
+&lt;li&gt;Change the time knob on the scope to look at the output waveshape across scales. You should see the characteristic waveshape presented earlier. Connect the modulator output to the second Scope input to recreate the figure&lt;/li&gt;
+&lt;li&gt;Move the modulator wavetable position knob slowly upward and watch the change in Sassy. You will see both new peaks in the spectrum of the modulator as well as matching peaks in sidebands in the output signal.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/wtvco-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/amp-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/am-example.png'&gt;">Solution</button>
+        <button type="button" onclick="setam_exampleIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="am_example-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setam_exampleIframe(url){
+  var am_exampleIframe = document.getElementById("am_example-iframe");
+  am_exampleIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:am-example)" width="100%" />
-<p class="caption">(\#fig:am-example)(ref:am-example)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:am-example)(ref:am-example)</p></div>
 
 AM synthesis will generally produce inharmonic sidebands unless the modulator and carrier frequencies are chosen to create harmonic relationships.
 Using sine waves for example, if modulator and carrier have the same frequency, then the lower sideband will be zero and the upper sideband will be one octave above the carrier, e.g. 100 and 200 Hz.
@@ -124,12 +223,97 @@ This patch is also a good opportunity to explore the sounds of more complex modu
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setam_keyboard_frequency_trackingIframe('https://cardinal.olney.ai?patchurl=am-example.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#am_keyboard_frequency_tracking">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="am_keyboard_frequency_tracking" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="am_keyboard_frequency_trackingLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="am_keyboard_frequency_trackingLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Twelve-Key and Host Audio&lt;/li&gt;
+&lt;li&gt;Move Scope and Sassy to the lower row to make space&lt;/li&gt;
+&lt;li&gt;Connect 12 ky CV to both oscillator V/Oct. The voltage from this connection will be summed with the dialed in voltage represented by each oscillator's frequency knob, so when each receives the same voltage from the 12 key, the relative tuning between oscillators will not change&lt;/li&gt;
+&lt;li&gt;Connect the AMP out to Host audio L&lt;/li&gt;
+&lt;li&gt;Set the oscillators to have a harmonic relationship, e.g. N:1&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play across the keyboard. Notice that the carrier, which is the strongest harmonic, defines the perceived pitch and that the sidebands remain harmonic with it&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the modulator V/Oct and play up the keyboard. Note on most keys the result is inharmonic but it becomes harmonic on other keys by chance&lt;/li&gt;
+&lt;li&gt;Reconnect the V/Oct and move the modulator wavetable position knob slowly upward and listen to the change in the sound. Repeat for the carrier knob. Note that the carrier remains the perceived pitch center even as the harmonics increase &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/am-keyboard-frequency-tracking.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Twelve-Key and Host Audio&lt;/li&gt;
+&lt;li&gt;Move Scope and Sassy to the lower row to make space&lt;/li&gt;
+&lt;li&gt;Connect 12 ky CV to both oscillator V/Oct. The voltage from this connection will be summed with the dialed in voltage represented by each oscillator's frequency knob, so when each receives the same voltage from the 12 key, the relative tuning between oscillators will not change&lt;/li&gt;
+&lt;li&gt;Connect the AMP out to Host audio L&lt;/li&gt;
+&lt;li&gt;Set the oscillators to have a harmonic relationship, e.g. N:1&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play across the keyboard. Notice that the carrier, which is the strongest harmonic, defines the perceived pitch and that the sidebands remain harmonic with it&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the modulator V/Oct and play up the keyboard. Note on most keys the result is inharmonic but it becomes harmonic on other keys by chance&lt;/li&gt;
+&lt;li&gt;Reconnect the V/Oct and move the modulator wavetable position knob slowly upward and listen to the change in the sound. Repeat for the carrier knob. Note that the carrier remains the perceived pitch center even as the harmonics increase &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/am-keyboard-frequency-tracking.png'&gt;">Solution</button>
+        <button type="button" onclick="setam_keyboard_frequency_trackingIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="am_keyboard_frequency_tracking-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setam_keyboard_frequency_trackingIframe(url){
+  var am_keyboard_frequency_trackingIframe = document.getElementById("am_keyboard_frequency_tracking-iframe");
+  am_keyboard_frequency_trackingIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:am-keyboard-frequency-tracking)" width="100%" />
-<p class="caption">(\#fig:am-keyboard-frequency-tracking)(ref:am-keyboard-frequency-tracking)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:am-keyboard-frequency-tracking)(ref:am-keyboard-frequency-tracking)</p></div>
 
 AM creates an interesting sound with a fixed modulation index, but as with all audio-rate modulations, we can also change that modulation index over time.
 All that is needed is a signal that changes over time and something to attenuate the modulation index in response to that signal.
@@ -142,12 +326,95 @@ Try modulating the modulation index with an envelope using the button in Figure 
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setam_keyboard_frequency_tracking_adsr_modulation_indexIframe('https://cardinal.olney.ai?patchurl=am-keyboard-frequency-tracking.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#am_keyboard_frequency_tracking_adsr_modulation_index">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="am_keyboard_frequency_tracking_adsr_modulation_index" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="am_keyboard_frequency_tracking_adsr_modulation_indexLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="am_keyboard_frequency_tracking_adsr_modulation_indexLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add ADSR and another AMP to the right of the carrier VCO&lt;/li&gt;
+&lt;li&gt;Connect 12 ky gate out to ADSR gate in&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to the new AMP CV in&lt;/li&gt;
+&lt;li&gt;Connect modulator out to new AMP in, new AMP out to old AMP CV&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play across the keyboard. Notice the enveloped sound becomes a bit brighter and the brightness fades with the envelope. This is analogous to having filter whose cutoff is controlled by an envelope, but without using a filter module!&lt;/li&gt;
+&lt;li&gt;Change the gain on the new AMP all the way down. You should see a sine wave on the scope. Now when you play across the keyboard, the envelope it going from non-AM to AM wherease before, it was baseline AM to stronger AM&lt;/li&gt;
+&lt;li&gt;Repeat the above with non-sine waveshapes for modulator and carrier. The effect of the envelope is even more dramatic in these cases&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/am-keyboard-frequency-tracking-adsr-modulation-index.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add ADSR and another AMP to the right of the carrier VCO&lt;/li&gt;
+&lt;li&gt;Connect 12 ky gate out to ADSR gate in&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to the new AMP CV in&lt;/li&gt;
+&lt;li&gt;Connect modulator out to new AMP in, new AMP out to old AMP CV&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play across the keyboard. Notice the enveloped sound becomes a bit brighter and the brightness fades with the envelope. This is analogous to having filter whose cutoff is controlled by an envelope, but without using a filter module!&lt;/li&gt;
+&lt;li&gt;Change the gain on the new AMP all the way down. You should see a sine wave on the scope. Now when you play across the keyboard, the envelope it going from non-AM to AM wherease before, it was baseline AM to stronger AM&lt;/li&gt;
+&lt;li&gt;Repeat the above with non-sine waveshapes for modulator and carrier. The effect of the envelope is even more dramatic in these cases&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/am-keyboard-frequency-tracking-adsr-modulation-index.png'&gt;">Solution</button>
+        <button type="button" onclick="setam_keyboard_frequency_tracking_adsr_modulation_indexIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="am_keyboard_frequency_tracking_adsr_modulation_index-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setam_keyboard_frequency_tracking_adsr_modulation_indexIframe(url){
+  var am_keyboard_frequency_tracking_adsr_modulation_indexIframe = document.getElementById("am_keyboard_frequency_tracking_adsr_modulation_index-iframe");
+  am_keyboard_frequency_tracking_adsr_modulation_indexIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:am-keyboard-frequency-tracking-adsr-modulation-index)" width="100%" />
-<p class="caption">(\#fig:am-keyboard-frequency-tracking-adsr-modulation-index)(ref:am-keyboard-frequency-tracking-adsr-modulation-index)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:am-keyboard-frequency-tracking-adsr-modulation-index)(ref:am-keyboard-frequency-tracking-adsr-modulation-index)</p></div>
 
 
 ### Ring modulation
@@ -193,12 +460,97 @@ Try creating a simple RM patch extending the AM patch using the button in Figure
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrm_exampleIframe('https://cardinal.olney.ai?patchurl=am-example.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#rm_example">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="rm_example" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="rm_exampleLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="rm_exampleLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add feidah, copy the connections from AMP over to it, and remove AMP&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the scopes &lt;ul&gt;
+&lt;li&gt;Mouse over the frequency peaks in Sassy. You should see one for the modulator, one for the carrier, and two for sidebands. Check their values and compare to the sideband formula&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the Sassy input from the carrier. You should see that this carrier partial is missing from the ring mod output&lt;/li&gt;
+&lt;li&gt;Change the time knob on the scope to look at the output waveshape across scales. You should see the characteristic waveshape presented earlier. Connect the modulator output to the second Scope input to recreate the figure&lt;/li&gt;
+&lt;li&gt;Move the modulator wavetable position knob slowly upward and watch the change in Sassy. You will see both new peaks in the spectrum of the modulator as well as matching peaks in sidebands in the output signal.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/feidah-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/rm-example.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add feidah, copy the connections from AMP over to it, and remove AMP&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the scopes &lt;ul&gt;
+&lt;li&gt;Mouse over the frequency peaks in Sassy. You should see one for the modulator, one for the carrier, and two for sidebands. Check their values and compare to the sideband formula&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the Sassy input from the carrier. You should see that this carrier partial is missing from the ring mod output&lt;/li&gt;
+&lt;li&gt;Change the time knob on the scope to look at the output waveshape across scales. You should see the characteristic waveshape presented earlier. Connect the modulator output to the second Scope input to recreate the figure&lt;/li&gt;
+&lt;li&gt;Move the modulator wavetable position knob slowly upward and watch the change in Sassy. You will see both new peaks in the spectrum of the modulator as well as matching peaks in sidebands in the output signal.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/feidah-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/rm-example.png'&gt;">Solution</button>
+        <button type="button" onclick="setrm_exampleIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="rm_example-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setrm_exampleIframe(url){
+  var rm_exampleIframe = document.getElementById("rm_example-iframe");
+  rm_exampleIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:rm-example)" width="100%" />
-<p class="caption">(\#fig:rm-example)(ref:rm-example)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:rm-example)(ref:rm-example)</p></div>
 
 In terms of harmonicity, RM is again identical to AM except for the properties of missing the carrier frequency and reflections of sideband partials off zero.
 The missing carrier means that the overall spectrum will no longer have a strong pitch center.
@@ -213,12 +565,91 @@ This patch is also a good opportunity to explore how the sound of RM differs fro
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setrm_keyboard_frequency_trackingIframe('https://cardinal.olney.ai?patchurl=rm-keyboard-frequency-tracking-adsr-modulation-index.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#rm_keyboard_frequency_tracking">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="rm_keyboard_frequency_tracking" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="rm_keyboard_frequency_trackingLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="rm_keyboard_frequency_trackingLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add two feidahs, copy the connections from the AMPs over to them, and remove the AMPs&lt;/li&gt;
+&lt;li&gt;Set the oscillators to have a harmonic relationship, e.g. N:1&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play across the keyboard. Notice that even with the carrier missing, it still defines the perceived pitch and the sidebands remain harmonic with it. Notice the change in brightness with the envelope&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the modulator V/Oct and play up the keyboard. Note the result is perhaps a bit less inharmonic than AM under these conditions&lt;/li&gt;
+&lt;li&gt;Reconnect the V/Oct and move the modulator wavetable position knob slowly upward and listen to the change in the sound. Note that as the shape approaches saw, the carrier frequency is filled in by reflection. Repeat for the carrier knob. Note that the missing carrier remains the perceived pitch center even as the harmonics increase.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/rm-keyboard-frequency-tracking.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add two feidahs, copy the connections from the AMPs over to them, and remove the AMPs&lt;/li&gt;
+&lt;li&gt;Set the oscillators to have a harmonic relationship, e.g. N:1&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play across the keyboard. Notice that even with the carrier missing, it still defines the perceived pitch and the sidebands remain harmonic with it. Notice the change in brightness with the envelope&lt;/li&gt;
+&lt;li&gt;Temporarally disconnect the modulator V/Oct and play up the keyboard. Note the result is perhaps a bit less inharmonic than AM under these conditions&lt;/li&gt;
+&lt;li&gt;Reconnect the V/Oct and move the modulator wavetable position knob slowly upward and listen to the change in the sound. Note that as the shape approaches saw, the carrier frequency is filled in by reflection. Repeat for the carrier knob. Note that the missing carrier remains the perceived pitch center even as the harmonics increase.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/rm-keyboard-frequency-tracking.png'&gt;">Solution</button>
+        <button type="button" onclick="setrm_keyboard_frequency_trackingIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="rm_keyboard_frequency_tracking-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setrm_keyboard_frequency_trackingIframe(url){
+  var rm_keyboard_frequency_trackingIframe = document.getElementById("rm_keyboard_frequency_tracking-iframe");
+  rm_keyboard_frequency_trackingIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:rm-keyboard-frequency-tracking)" width="100%" />
-<p class="caption">(\#fig:rm-keyboard-frequency-tracking)(ref:rm-keyboard-frequency-tracking)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:rm-keyboard-frequency-tracking)(ref:rm-keyboard-frequency-tracking)</p></div>
 
 RM and AM are similar in operation and in sound. 
 The main differences revolve around the missing carrier component and sidebands reflecting off zero.
@@ -292,7 +723,7 @@ So the FM modulation index changes both the number of sideband partials and thei
 (ref:bessel-modulation) [Vimeo video](https://vimeo.com/309150702) of FM sideband pair amplitudes following Bessel functions as the modulation index increases. Image [© Jeffery Hass](https://vimeo.com/jeffreyhass).
 
 <div class="figure">
-<img src="downloadFigs4latex/bessel-modulation.jpg" alt="(ref:bessel-modulation)"  />
+<iframe src="https://player.vimeo.com/video/309150702" width="672" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:bessel-modulation)(ref:bessel-modulation)</p>
 </div>
 
@@ -376,12 +807,97 @@ Try simple EFM with sine waves using the button in Figure \@ref(fig:efm-example)
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setefm_exampleIframe('https://cardinal.olney.ai?patchurl=rm-example.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#efm_example">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="efm_example" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="efm_exampleLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="efm_exampleLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Remove feidah and add Host audio&lt;/li&gt;
+&lt;li&gt;Connect the modulator out to the carrier FM in&lt;/li&gt;
+&lt;li&gt;Connect the carrier out to Scope in 1 and modulator out to Scope in 2&lt;/li&gt;
+&lt;li&gt;Connect the carrier out to Host audio L&lt;/li&gt;
+&lt;li&gt;Set the oscillators to have a harmonic relationship, e.g. N:1&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Turn up the FM carrier knob slightly. Mouse over the frequency peaks in Sassy. You should see one for the modulator, one for the carrier, and two for sidebands. Check their values against the sideband formula with exponential modulation (i.e. half and double C +/- M)&lt;/li&gt;
+&lt;li&gt;Slowly turn up the carrier FM knob. This will increase the modulation index. Observe the changes in both the spectrum and the pitch of the sound. At what modulation index does the pitch seem to noticably change? Does the sound become inharmonic at a different time or the same time?&lt;/li&gt;
+&lt;li&gt;Change the carrier FM knob down to a low but not zero level. Now increase the waveshape knob on the modulator and note the change in pitch. This is because the modulation index is based on the highest frequency component of the modulator, so when you use a waveshape with higher harmonics, the modulation index will also change.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/efm-example.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Remove feidah and add Host audio&lt;/li&gt;
+&lt;li&gt;Connect the modulator out to the carrier FM in&lt;/li&gt;
+&lt;li&gt;Connect the carrier out to Scope in 1 and modulator out to Scope in 2&lt;/li&gt;
+&lt;li&gt;Connect the carrier out to Host audio L&lt;/li&gt;
+&lt;li&gt;Set the oscillators to have a harmonic relationship, e.g. N:1&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Turn up the FM carrier knob slightly. Mouse over the frequency peaks in Sassy. You should see one for the modulator, one for the carrier, and two for sidebands. Check their values against the sideband formula with exponential modulation (i.e. half and double C +/- M)&lt;/li&gt;
+&lt;li&gt;Slowly turn up the carrier FM knob. This will increase the modulation index. Observe the changes in both the spectrum and the pitch of the sound. At what modulation index does the pitch seem to noticably change? Does the sound become inharmonic at a different time or the same time?&lt;/li&gt;
+&lt;li&gt;Change the carrier FM knob down to a low but not zero level. Now increase the waveshape knob on the modulator and note the change in pitch. This is because the modulation index is based on the highest frequency component of the modulator, so when you use a waveshape with higher harmonics, the modulation index will also change.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/efm-example.png'&gt;">Solution</button>
+        <button type="button" onclick="setefm_exampleIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="efm_example-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setefm_exampleIframe(url){
+  var efm_exampleIframe = document.getElementById("efm_example-iframe");
+  efm_exampleIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:efm-example)" width="100%" />
-<p class="caption">(\#fig:efm-example)(ref:efm-example)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:efm-example)(ref:efm-example)</p></div>
 
 As you can see from the patch in Figure \@ref(fig:efm-example), increasing the modulation index very quickly shifts the pitch up and makes the sound less harmonic. 
 To my ears the inharmonic aspect is essentially immediate and the pitch shift is noticeable around 10%. 
@@ -397,12 +913,109 @@ While keyboard tracking isn't strictly necessary for this demonstration, it make
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setefm_keyboard_frequency_trackingIframe('https://cardinal.olney.ai?patchurl=efm-example.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#efm_keyboard_frequency_tracking">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="efm_keyboard_frequency_tracking" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="efm_keyboard_frequency_trackingLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="efm_keyboard_frequency_trackingLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Move the VCOs to the upper row&lt;/li&gt;
+&lt;li&gt;Add 12 key to the lower row and connect its CV out to the modulator and carrier V/Oct&lt;/li&gt;
+&lt;li&gt;Set the oscillators to have a 1:1 relationship, with both at 800 Hz&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust FM knob and note the change in timbre&lt;/li&gt;
+&lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
+&lt;li&gt;Take the FM knob back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Increase the FM knob and remember you should NOT see any partials below 800 Hz in true FM, but one appears almost immediately around 5% FM&lt;/li&gt;
+&lt;li&gt;As you continue to move the knob, that rogue harmonic moves up, as does the carrier, and more rogue harmonics appear &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Add feidah between the VCOs on the top row and an LFO to the bottom row &lt;/li&gt;
+&lt;li&gt;Connect the modulator out to feidah in&lt;/li&gt;
+&lt;li&gt;Connect feidah out to carrier FM in and turn both the feidah level and FM knob to fully open &lt;/li&gt;
+&lt;li&gt;Connect the LFO triangle out to the feidah vca in and set the LFO frequency to .1 or less&lt;/li&gt;
+&lt;li&gt;Notice the pitch shift we expect from EFM but also the corresponding change in harmonics, with the rogue harmonics appearing below the carrier frequency and all partials moving up, even though the VCO frequencies are constant. This illustrates the massive pitch stability problem for EFM when the modulation index changes: the fundamental is being supplanted by rogue harmonics and the spectrum is being shifted at the same time&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/efm-keyboard-frequency-tracking.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Move the VCOs to the upper row&lt;/li&gt;
+&lt;li&gt;Add 12 key to the lower row and connect its CV out to the modulator and carrier V/Oct&lt;/li&gt;
+&lt;li&gt;Set the oscillators to have a 1:1 relationship, with both at 800 Hz&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust FM knob and note the change in timbre&lt;/li&gt;
+&lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
+&lt;li&gt;Take the FM knob back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Increase the FM knob and remember you should NOT see any partials below 800 Hz in true FM, but one appears almost immediately around 5% FM&lt;/li&gt;
+&lt;li&gt;As you continue to move the knob, that rogue harmonic moves up, as does the carrier, and more rogue harmonics appear &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Add feidah between the VCOs on the top row and an LFO to the bottom row &lt;/li&gt;
+&lt;li&gt;Connect the modulator out to feidah in&lt;/li&gt;
+&lt;li&gt;Connect feidah out to carrier FM in and turn both the feidah level and FM knob to fully open &lt;/li&gt;
+&lt;li&gt;Connect the LFO triangle out to the feidah vca in and set the LFO frequency to .1 or less&lt;/li&gt;
+&lt;li&gt;Notice the pitch shift we expect from EFM but also the corresponding change in harmonics, with the rogue harmonics appearing below the carrier frequency and all partials moving up, even though the VCO frequencies are constant. This illustrates the massive pitch stability problem for EFM when the modulation index changes: the fundamental is being supplanted by rogue harmonics and the spectrum is being shifted at the same time&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/efm-keyboard-frequency-tracking.png'&gt;">Solution</button>
+        <button type="button" onclick="setefm_keyboard_frequency_trackingIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="efm_keyboard_frequency_tracking-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setefm_keyboard_frequency_trackingIframe(url){
+  var efm_keyboard_frequency_trackingIframe = document.getElementById("efm_keyboard_frequency_tracking-iframe");
+  efm_keyboard_frequency_trackingIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:efm-keyboard-frequency-tracking)" width="100%" />
-<p class="caption">(\#fig:efm-keyboard-frequency-tracking)(ref:efm-keyboard-frequency-tracking)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:efm-keyboard-frequency-tracking)(ref:efm-keyboard-frequency-tracking)</p></div>
 
 The patch in Figure \@ref(fig:efm-keyboard-frequency-tracking) demonstrates workable EFM keyboard tracking for a moderate fixed modulation index, as expected.^[For example, with feidah at .5 I get zero pitch shift across an octave from C4 to C5 but 6 cents of shift over two octaves, which is [generally perceptible](https://en.wikipedia.org/wiki/Cent_(music)).]
 However, the patch also demonstrates how EFM, even using a small modulation index, diverges from true FM.
@@ -419,12 +1032,95 @@ Try extending the last patch to with an envelope to create a bell sound  using t
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setefm_keyboard_bellIframe('https://cardinal.olney.ai?patchurl=efm-keyboard-frequency-tracking.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#efm_keyboard_bell">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="efm_keyboard_bell" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="efm_keyboard_bellLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="efm_keyboard_bellLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add ADSR and QuadVCA/Mixer to the top row on the right&lt;/li&gt;
+&lt;li&gt;Connect carrier out to QuadVCA/Mixer input 1&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA/Mixer mix out to Host audio L&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to  QuadVCA/Mixer CV input 1 and feidah VCA in&lt;/li&gt;
+&lt;li&gt;Connect 12 key out to ADSR gate in&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust ADSR to get a bell like timbre with feidah level set at 25%&lt;/li&gt;
+&lt;li&gt;Once the ADSR is set, increase feidah level to get a better timbre&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/efm-keyboard-bell.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add ADSR and QuadVCA/Mixer to the top row on the right&lt;/li&gt;
+&lt;li&gt;Connect carrier out to QuadVCA/Mixer input 1&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA/Mixer mix out to Host audio L&lt;/li&gt;
+&lt;li&gt;Connect ADSR out to  QuadVCA/Mixer CV input 1 and feidah VCA in&lt;/li&gt;
+&lt;li&gt;Connect 12 key out to ADSR gate in&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust ADSR to get a bell like timbre with feidah level set at 25%&lt;/li&gt;
+&lt;li&gt;Once the ADSR is set, increase feidah level to get a better timbre&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/efm-keyboard-bell.png'&gt;">Solution</button>
+        <button type="button" onclick="setefm_keyboard_bellIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="efm_keyboard_bell-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setefm_keyboard_bellIframe(url){
+  var efm_keyboard_bellIframe = document.getElementById("efm_keyboard_bell-iframe");
+  efm_keyboard_bellIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:efm-keyboard-bell)" width="100%" />
-<p class="caption">(\#fig:efm-keyboard-bell)(ref:efm-keyboard-bell)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:efm-keyboard-bell)(ref:efm-keyboard-bell)</p></div>
 
 ### Analogue linear frequency modulation
 
@@ -463,12 +1159,129 @@ As you can see, the pitch shift occurs with LFM just like EFM, but the shift is 
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setlfm_keyboard_frequency_trackingIframe('https://cardinal.olney.ai?patchurl=efm-keyboard-frequency-tracking.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#lfm_keyboard_frequency_tracking">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="lfm_keyboard_frequency_tracking" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="lfm_keyboard_frequency_trackingLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="lfm_keyboard_frequency_trackingLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Disconnect the LFO for now&lt;/li&gt;
+&lt;li&gt;Duplicate the modulator and feidah and move the duplicates to the right of the EFM modules on the top row&lt;/li&gt;
+&lt;li&gt;Add evenVCO to the right. It uses a linear FM input&lt;/li&gt;
+&lt;li&gt;evenVCO uses octaves/semitones instead of frequency. Set Octave to .5 and Tune to -4.6525 semitones to get 800 Hz&lt;/li&gt;
+&lt;li&gt;Wire up the linear FM modules just like the EFM modules&lt;/li&gt;
+&lt;li&gt;If you want, use the Label module to mark off the EFM and LFM sections (right click to enter text) &lt;/li&gt;
+&lt;li&gt;Add an 8:1 switch to the right of the 12 key and a Triggers MKIII to the right of that&lt;/li&gt;
+&lt;li&gt;Run the EFM out to the first input of the 8:1 and run the 8:1 output to all the places the EFM out previously went (scope, sassy, host audio)&lt;/li&gt;
+&lt;li&gt;Connect the LFM to the 2nd 8:1 input&lt;/li&gt;
+&lt;li&gt;Set the 8:1 steps to 2 and connect the top Triggers out to the 8:1 clock in&lt;/li&gt;
+&lt;li&gt;You can now switch between EFM and LFM by pushing a button. Make sure LFM is selected&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust the feidah level knob and note the change in timbre&lt;/li&gt;
+&lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
+&lt;li&gt;Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Increase the feidah level and remember you should NOT see any partials below 800 Hz in true FM, but one appears around .2&lt;/li&gt;
+&lt;li&gt;As you continue to move the knob, that rogue harmonic moves up, as does the carrier, and more rogue harmonics appear &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Set feidah level to full on and connect the LFO triangle out to the feidah vca in&lt;/li&gt;
+&lt;li&gt;Notice the pitch shift and change in harmonics are qualitatively similar to EFM, with the rogue harmonics appearing below the carrier frequency and all partials moving up&lt;/li&gt;
+&lt;li&gt;You can use the push button to switch between EFM and LFM. Notice that the pitch shift is greater for EFM over the same LFO range&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/evenvco-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/label-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/lfm-keyboard-frequency-tracking.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Disconnect the LFO for now&lt;/li&gt;
+&lt;li&gt;Duplicate the modulator and feidah and move the duplicates to the right of the EFM modules on the top row&lt;/li&gt;
+&lt;li&gt;Add evenVCO to the right. It uses a linear FM input&lt;/li&gt;
+&lt;li&gt;evenVCO uses octaves/semitones instead of frequency. Set Octave to .5 and Tune to -4.6525 semitones to get 800 Hz&lt;/li&gt;
+&lt;li&gt;Wire up the linear FM modules just like the EFM modules&lt;/li&gt;
+&lt;li&gt;If you want, use the Label module to mark off the EFM and LFM sections (right click to enter text) &lt;/li&gt;
+&lt;li&gt;Add an 8:1 switch to the right of the 12 key and a Triggers MKIII to the right of that&lt;/li&gt;
+&lt;li&gt;Run the EFM out to the first input of the 8:1 and run the 8:1 output to all the places the EFM out previously went (scope, sassy, host audio)&lt;/li&gt;
+&lt;li&gt;Connect the LFM to the 2nd 8:1 input&lt;/li&gt;
+&lt;li&gt;Set the 8:1 steps to 2 and connect the top Triggers out to the 8:1 clock in&lt;/li&gt;
+&lt;li&gt;You can now switch between EFM and LFM by pushing a button. Make sure LFM is selected&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust the feidah level knob and note the change in timbre&lt;/li&gt;
+&lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
+&lt;li&gt;Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Increase the feidah level and remember you should NOT see any partials below 800 Hz in true FM, but one appears around .2&lt;/li&gt;
+&lt;li&gt;As you continue to move the knob, that rogue harmonic moves up, as does the carrier, and more rogue harmonics appear &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Set feidah level to full on and connect the LFO triangle out to the feidah vca in&lt;/li&gt;
+&lt;li&gt;Notice the pitch shift and change in harmonics are qualitatively similar to EFM, with the rogue harmonics appearing below the carrier frequency and all partials moving up&lt;/li&gt;
+&lt;li&gt;You can use the push button to switch between EFM and LFM. Notice that the pitch shift is greater for EFM over the same LFO range&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/evenvco-solo.png'&gt;
+&lt;img class='rack-image' src='images/solo-modules/label-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/lfm-keyboard-frequency-tracking.png'&gt;">Solution</button>
+        <button type="button" onclick="setlfm_keyboard_frequency_trackingIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="lfm_keyboard_frequency_tracking-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setlfm_keyboard_frequency_trackingIframe(url){
+  var lfm_keyboard_frequency_trackingIframe = document.getElementById("lfm_keyboard_frequency_tracking-iframe");
+  lfm_keyboard_frequency_trackingIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:lfm-keyboard-frequency-tracking)" width="100%" />
-<p class="caption">(\#fig:lfm-keyboard-frequency-tracking)(ref:lfm-keyboard-frequency-tracking)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:lfm-keyboard-frequency-tracking)(ref:lfm-keyboard-frequency-tracking)</p></div>
 
 ### Analogue through-zero frequency modulation
 
@@ -485,12 +1298,119 @@ As you can see, there's no pitch shift and no rogue harmonics.
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="settzfm_keyboard_frequency_trackingIframe('https://cardinal.olney.ai?patchurl=lfm-keyboard-frequency-tracking.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#tzfm_keyboard_frequency_tracking">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="tzfm_keyboard_frequency_tracking" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="tzfm_keyboard_frequency_trackingLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="tzfm_keyboard_frequency_trackingLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Disconnect the LFO for now&lt;/li&gt;
+&lt;li&gt;Duplicate the modulator and feidah and move the duplicates to the right of the LFM modules on the top row&lt;/li&gt;
+&lt;li&gt;Add Bogg Audio VCO (the carrier) to the right and set its frequency to 800 Hz&lt;/li&gt;
+&lt;li&gt;Turn the carrier FM knob all the way up and move the switch to LIN (this is TZFM on this module)&lt;/li&gt;
+&lt;li&gt;Wire up the TZFM modules just like the LFM modules&lt;/li&gt;
+&lt;li&gt;If you want, use the Label module to mark off the TZFM section (right click to enter text) &lt;/li&gt;
+&lt;li&gt;Run the carrier out to the 3rd input of the 8:1 and set the 8:1 steps to 3 &lt;/li&gt;
+&lt;li&gt;You can now switch between EFM, LFM, and TZFM by pushing a button. Make sure TZFM is selected&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust the feidah level knob and note the change in timbre&lt;/li&gt;
+&lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
+&lt;li&gt;Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Increase the feidah level - you will not see any partials below 800 Hz and you will not see the carrier move off 800 Hz&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Set feidah level to .5 to approximately match the spectrum of EFM and LFM on and connect the LFO triangle out to the feidah vca in&lt;/li&gt;
+&lt;li&gt;Notice the timbre gets brighter and the pitch center is a little unstable, but this is what we expect from FM and the result is quite different from EFM and LFM &lt;/li&gt;
+&lt;li&gt;You can use the push button to switch between all three FMs to further compare&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/boggvco-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/tzfm-keyboard-frequency-tracking.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Disconnect the LFO for now&lt;/li&gt;
+&lt;li&gt;Duplicate the modulator and feidah and move the duplicates to the right of the LFM modules on the top row&lt;/li&gt;
+&lt;li&gt;Add Bogg Audio VCO (the carrier) to the right and set its frequency to 800 Hz&lt;/li&gt;
+&lt;li&gt;Turn the carrier FM knob all the way up and move the switch to LIN (this is TZFM on this module)&lt;/li&gt;
+&lt;li&gt;Wire up the TZFM modules just like the LFM modules&lt;/li&gt;
+&lt;li&gt;If you want, use the Label module to mark off the TZFM section (right click to enter text) &lt;/li&gt;
+&lt;li&gt;Run the carrier out to the 3rd input of the 8:1 and set the 8:1 steps to 3 &lt;/li&gt;
+&lt;li&gt;You can now switch between EFM, LFM, and TZFM by pushing a button. Make sure TZFM is selected&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust the feidah level knob and note the change in timbre&lt;/li&gt;
+&lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
+&lt;li&gt;Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Increase the feidah level - you will not see any partials below 800 Hz and you will not see the carrier move off 800 Hz&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Set feidah level to .5 to approximately match the spectrum of EFM and LFM on and connect the LFO triangle out to the feidah vca in&lt;/li&gt;
+&lt;li&gt;Notice the timbre gets brighter and the pitch center is a little unstable, but this is what we expect from FM and the result is quite different from EFM and LFM &lt;/li&gt;
+&lt;li&gt;You can use the push button to switch between all three FMs to further compare&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/boggvco-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/tzfm-keyboard-frequency-tracking.png'&gt;">Solution</button>
+        <button type="button" onclick="settzfm_keyboard_frequency_trackingIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="tzfm_keyboard_frequency_tracking-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function settzfm_keyboard_frequency_trackingIframe(url){
+  var tzfm_keyboard_frequency_trackingIframe = document.getElementById("tzfm_keyboard_frequency_tracking-iframe");
+  tzfm_keyboard_frequency_trackingIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:tzfm-keyboard-frequency-tracking)" width="100%" />
-<p class="caption">(\#fig:tzfm-keyboard-frequency-tracking)(ref:tzfm-keyboard-frequency-tracking)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:tzfm-keyboard-frequency-tracking)(ref:tzfm-keyboard-frequency-tracking)</p></div>
 
 <!-- **template** -->
 
@@ -513,7 +1433,7 @@ Since  both frequency and phase can be described in terms of angle, both FM and 
 (ref:wheel-sine-2) [Relation](https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_curve_drawing_animation.gif) between angle (in radians) and the wavelength of a sine wave. Image [© Brews ohare/CC-BY-4.0](https://commons.wikimedia.org/wiki/File:Sine_curve_drawing_animation.gif).
 
 <div class="figure">
-<img src="downloadFigs4latex/wheel-sine-2.jpg" alt="(ref:wheel-sine-2)" width="80%" />
+<img src="images/wheel-sine.gif" alt="(ref:wheel-sine-2)" width="80%" />
 <p class="caption">(\#fig:wheel-sine-2)(ref:wheel-sine-2)</p>
 </div>
 
@@ -537,12 +1457,121 @@ The timbre is identical to TZFM for an equivalent modulation index.
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setpm_keyboard_frequency_trackingIframe('https://cardinal.olney.ai?patchurl=tzfm-keyboard-frequency-tracking.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#pm_keyboard_frequency_tracking">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="pm_keyboard_frequency_tracking" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="pm_keyboard_frequency_trackingLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="pm_keyboard_frequency_trackingLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Disconnect the LFO for now&lt;/li&gt;
+&lt;li&gt;Duplicate the modulator and feidah and move the duplicates to the right of the TZFM modules on the top row&lt;/li&gt;
+&lt;li&gt;Add Bogg Audio Sine (the carrier) to the right and set its frequency to 800 Hz&lt;/li&gt;
+&lt;li&gt;Turn the carrier Phase knob all the way to the left (this better matches the shape of TZFM for comparison, but you could move it all the way to the right as well)&lt;/li&gt;
+&lt;li&gt;Wire up the PM modules just like the TZFM modules, except use the Phase input instead of FM&lt;/li&gt;
+&lt;li&gt;If you want, use the Label module to mark off the PM section (right click to enter text) &lt;/li&gt;
+&lt;li&gt;Run the carrier out to the 4th input of the 8:1 and set the 8:1 steps to 4 &lt;/li&gt;
+&lt;li&gt;You can now switch between EFM, LFM, TZFM, and PM by pushing a button. Make sure PM is selected&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust the feidah level knob and note the change in timbre&lt;/li&gt;
+&lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
+&lt;li&gt;Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Increase the feidah level - you will not see any partials below 800 Hz and you will not see the carrier move off 800 Hz&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Set feidah level to 1 to approximately match the spectrum of TZFM. You may need to turn the TZFM down to around .3 to have a comparable modulation&lt;/li&gt;
+&lt;li&gt;Connect the LFO triangle out to the feidah vca in&lt;/li&gt;
+&lt;li&gt;Notice the timbre gets brighter and the pitch center is a little unstable, but this is what we expect from FM and the result is quite different from EFM and LFM&lt;/li&gt;
+&lt;li&gt;You can use the push button to switch between all three FMs to further compare. Note in particular the comparison to TZFM. If you set PM to 1 and TZFM to .3 and remove the VCO, they look identical on my scope except for some phase shift&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/boggsine-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/pm-keyboard-frequency-tracking.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Disconnect the LFO for now&lt;/li&gt;
+&lt;li&gt;Duplicate the modulator and feidah and move the duplicates to the right of the TZFM modules on the top row&lt;/li&gt;
+&lt;li&gt;Add Bogg Audio Sine (the carrier) to the right and set its frequency to 800 Hz&lt;/li&gt;
+&lt;li&gt;Turn the carrier Phase knob all the way to the left (this better matches the shape of TZFM for comparison, but you could move it all the way to the right as well)&lt;/li&gt;
+&lt;li&gt;Wire up the PM modules just like the TZFM modules, except use the Phase input instead of FM&lt;/li&gt;
+&lt;li&gt;If you want, use the Label module to mark off the PM section (right click to enter text) &lt;/li&gt;
+&lt;li&gt;Run the carrier out to the 4th input of the 8:1 and set the 8:1 steps to 4 &lt;/li&gt;
+&lt;li&gt;You can now switch between EFM, LFM, TZFM, and PM by pushing a button. Make sure PM is selected&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Adjust the feidah level knob and note the change in timbre&lt;/li&gt;
+&lt;li&gt;Choose a timbre with few enough sidebands that you can easily count them, then play up the keyboard and note if the number changes and sounds changes. Now change the keyboard octave up by 2 and play across the keyboard again. Notice how the timbre remains the same, as expected&lt;/li&gt;
+&lt;li&gt;Take the feidah leve back down to zero, set the 12 key octave to 4, and press the leftmost key (which sends 0 volts)&lt;/li&gt;
+&lt;li&gt;Sassy should show a peak at 800 Hz&lt;/li&gt;
+&lt;li&gt;Increase the feidah level - you will not see any partials below 800 Hz and you will not see the carrier move off 800 Hz&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Set feidah level to 1 to approximately match the spectrum of TZFM. You may need to turn the TZFM down to around .3 to have a comparable modulation&lt;/li&gt;
+&lt;li&gt;Connect the LFO triangle out to the feidah vca in&lt;/li&gt;
+&lt;li&gt;Notice the timbre gets brighter and the pitch center is a little unstable, but this is what we expect from FM and the result is quite different from EFM and LFM&lt;/li&gt;
+&lt;li&gt;You can use the push button to switch between all three FMs to further compare. Note in particular the comparison to TZFM. If you set PM to 1 and TZFM to .3 and remove the VCO, they look identical on my scope except for some phase shift&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/boggsine-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/pm-keyboard-frequency-tracking.png'&gt;">Solution</button>
+        <button type="button" onclick="setpm_keyboard_frequency_trackingIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="pm_keyboard_frequency_tracking-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setpm_keyboard_frequency_trackingIframe(url){
+  var pm_keyboard_frequency_trackingIframe = document.getElementById("pm_keyboard_frequency_tracking-iframe");
+  pm_keyboard_frequency_trackingIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:pm-keyboard-frequency-tracking)" width="100%" />
-<p class="caption">(\#fig:pm-keyboard-frequency-tracking)(ref:pm-keyboard-frequency-tracking)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:pm-keyboard-frequency-tracking)(ref:pm-keyboard-frequency-tracking)</p></div>
 
 Table \@ref(tab:frequency-summary) summarizes the important properties of the frequency modulation methods discussed in this section
 If one wants a method that behaves like true FM, TZFM and PM are good choices. 

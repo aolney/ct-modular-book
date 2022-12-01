@@ -1,8 +1,13 @@
 bookdown::bs4_book:
-  css: style.css
+  css:
+  - style.css
+  - include/webex.css
   theme:
-    primary: "#096B72"
+    primary: '#096B72'
   repo: https://github.com/aolney/ct-modular-book
+  includes:
+    after_body: include/webex.js
+  md_extensions: -smart
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex

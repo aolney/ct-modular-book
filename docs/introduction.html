@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 1 Introduction | Computational Thinking through Modular Sound Synthesis</title>
 <meta name="author" content="Andrew M. Olney">
-<meta name="description" content="1.1 Why this book? Let’s start with why I’m writing it. I got into electronic music in the 1990s when I lived in London but never transitioned from DJing to making music, though several of my...">
+<meta name="description" content="1.1 Why this book? Let's start with why I'm writing it. I got into electronic music in the 1990s when I lived in London but never transitioned from DJing to making music, though several of my...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Chapter 1 Introduction | Computational Thinking through Modular Sound Synthesis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/introduction.html">
-<meta property="og:description" content="1.1 Why this book? Let’s start with why I’m writing it. I got into electronic music in the 1990s when I lived in London but never transitioned from DJing to making music, though several of my...">
+<meta property="og:description" content="1.1 Why this book? Let's start with why I'm writing it. I got into electronic music in the 1990s when I lived in London but never transitioned from DJing to making music, though several of my...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 1 Introduction | Computational Thinking through Modular Sound Synthesis">
-<meta name="twitter:description" content="1.1 Why this book? Let’s start with why I’m writing it. I got into electronic music in the 1990s when I lived in London but never transitioned from DJing to making music, though several of my...">
+<meta name="twitter:description" content="1.1 Why this book? Let's start with why I'm writing it. I got into electronic music in the 1990s when I lived in London but never transitioned from DJing to making music, though several of my...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -45,6 +45,7 @@
     }
   </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -102,21 +103,21 @@
 <h2>
 <span class="header-section-number">1.1</span> Why this book?<a class="anchor" aria-label="anchor" href="#why-this-book"><i class="fas fa-link"></i></a>
 </h2>
-<p>Let’s start with why I’m writing it.
+<p>Let's start with why I'm writing it.
 <!-- that may help justify why you might want to read it.  -->
 I got into electronic music in the 1990s when I lived in London but never transitioned from DJing to making music, though several of my friends did.
 A few years ago, they started talking about modular, and in talking to them and trying to find out more about it, I realized a few things:</p>
 <ul>
-<li>The best books (to me) were from the 1970s and 1980s<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Old books that I like are &lt;span class="citation"&gt;David Crombie, &lt;em&gt;The &lt;span&gt;Complete&lt;/span&gt; &lt;span&gt;Synthesizer&lt;/span&gt;: &lt;span&gt;A&lt;/span&gt; &lt;span&gt;Comprehensive&lt;/span&gt; &lt;span&gt;Guide&lt;/span&gt;&lt;/em&gt; (Omnipress Books, 1982)&lt;/span&gt; and &lt;span class="citation"&gt;Allen Strange, &lt;em&gt;Electronic &lt;span&gt;Music&lt;/span&gt;: &lt;span&gt;Systems&lt;/span&gt;, &lt;span&gt;Techniques&lt;/span&gt;, and &lt;span&gt;Controls&lt;/span&gt;&lt;/em&gt;, 2nd ed. (Dubuque, Iowa: William C Brown Publishers, 1983)&lt;/span&gt;. Newer books of note are &lt;span class="citation"&gt;Kim Bjørn and Chris Meyer, &lt;em&gt;Patch &amp;amp; &lt;span&gt;Tweak&lt;/span&gt;: &lt;span&gt;Exploring&lt;/span&gt; &lt;span&gt;Modular&lt;/span&gt; &lt;span&gt;Synthesis&lt;/span&gt;&lt;/em&gt; (Bjooks, 2018)&lt;/span&gt;, which gives a great overview of module hardware and history, &lt;span class="citation"&gt;Ziv Eliraz, &lt;span&gt;“Loopop’s &lt;span&gt;In&lt;/span&gt;-&lt;span&gt;Complete&lt;/span&gt; &lt;span&gt;Book&lt;/span&gt; of &lt;span&gt;Electronic&lt;/span&gt; &lt;span&gt;Music&lt;/span&gt;,”&lt;/span&gt; 2022, &lt;a href="https://www.patreon.com/loopop" role="doc-biblioref"&gt;https://www.patreon.com/loopop&lt;/a&gt;&lt;/span&gt;, which gives a broader overview of issues related to musical equipment and production, and &lt;span class="citation"&gt;Tupla Dusha, Anna Martonova, and Pete Johnston, &lt;em&gt;Modular &lt;span&gt;Sound&lt;/span&gt; &lt;span&gt;Synthesis&lt;/span&gt; &lt;span&gt;On&lt;/span&gt; the &lt;span&gt;Moon&lt;/span&gt;&lt;/em&gt; (Modular Moon, 2020)&lt;/span&gt;, which gives a modern but briefer introduction to modular than the older books. There are also some online courses (paid), but since I haven’t taken them, I’m not listing them here.&lt;/p&gt;'><sup>3</sup></a>
+<li>The best books (to me) were from the 1970s and 1980s<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Old books that I like are &lt;span class=&quot;citation&quot;&gt;David Crombie, &lt;em&gt;The &lt;span&gt;Complete&lt;/span&gt; &lt;span&gt;Synthesizer&lt;/span&gt;: &lt;span&gt;A&lt;/span&gt; &lt;span&gt;Comprehensive&lt;/span&gt; &lt;span&gt;Guide&lt;/span&gt;&lt;/em&gt; (Omnipress Books, 1982)&lt;/span&gt; and &lt;span class=&quot;citation&quot;&gt;Allen Strange, &lt;em&gt;Electronic &lt;span&gt;Music&lt;/span&gt;: &lt;span&gt;Systems&lt;/span&gt;, &lt;span&gt;Techniques&lt;/span&gt;, and &lt;span&gt;Controls&lt;/span&gt;&lt;/em&gt;, 2nd ed. (Dubuque, Iowa: William C Brown Publishers, 1983)&lt;/span&gt;. Newer books of note are &lt;span class=&quot;citation&quot;&gt;Kim Bjørn and Chris Meyer, &lt;em&gt;Patch &amp;amp; &lt;span&gt;Tweak&lt;/span&gt;: &lt;span&gt;Exploring&lt;/span&gt; &lt;span&gt;Modular&lt;/span&gt; &lt;span&gt;Synthesis&lt;/span&gt;&lt;/em&gt; (Bjooks, 2018)&lt;/span&gt;, which gives a great overview of module hardware and history, &lt;span class=&quot;citation&quot;&gt;Ziv Eliraz, &lt;span&gt;“Loopop’s &lt;span&gt;In&lt;/span&gt;-&lt;span&gt;Complete&lt;/span&gt; &lt;span&gt;Book&lt;/span&gt; of &lt;span&gt;Electronic&lt;/span&gt; &lt;span&gt;Music&lt;/span&gt;,”&lt;/span&gt; 2022, &lt;a href=&quot;https://www.patreon.com/loopop&quot; role=&quot;doc-biblioref&quot;&gt;https://www.patreon.com/loopop&lt;/a&gt;&lt;/span&gt;, which gives a broader overview of issues related to musical equipment and production, and &lt;span class=&quot;citation&quot;&gt;Tupla Dusha, Anna Martonova, and Pete Johnston, &lt;em&gt;Modular &lt;span&gt;Sound&lt;/span&gt; &lt;span&gt;Synthesis&lt;/span&gt; &lt;span&gt;On&lt;/span&gt; the &lt;span&gt;Moon&lt;/span&gt;&lt;/em&gt; (Modular Moon, 2020)&lt;/span&gt;, which gives a modern but briefer introduction to modular than the older books. There are also some online courses (paid), but since I haven't taken them, I'm not listing them here.&lt;/p&gt;"><sup>3</sup></a>
 </li>
 <li>Modular synthesis is really well aligned with <em>computational thinking</em>
 </li>
 </ul>
-<p>If you’ve never heard of computational thinking and/or modular, that last point won’t make a lot of sense, so let’s break it down.</p>
+<p>If you've never heard of computational thinking and/or modular, that last point won't make a lot of sense, so let's break it down.</p>
 <p>Modular sound synthesis (modular) creates sound by connecting modules that each perform some function on sound.
 Different sounds are created by combining modules in different ways.</p>
 <p>Computational thinking creates runnable models to solve a problem or answer a question.
-Models can be scientific models (e.g. meteorology), statistical models (e.g. statistics/data science), computation models (computer science), and perhaps other kinds of models.</p>
+Models can be scientific models (e.g. meteorology), statistical models (e.g. statistics/data science), computation models (computer science), and perhaps other kinds of models.</p>
 <p>How are they connected?
 Modular involves computational thinking when we:</p>
 <ul>
@@ -127,7 +128,7 @@ Modular involves computational thinking when we:</p>
 This book is about modular, but it approaches modular in a way that highlights computational thinking.
 I believe this deeper approach to modular will help you do more with modular, other synthesizers, and studio production tools.
 Additionally, the computational thinking approach should help accelerate your learning of computational-thinking domains in the future.
-Since computational thinking involves problem solving, this book is full of interactive activities that will let you hone your modular skills - something you won’t find in most books!</p>
+Since computational thinking involves problem solving, this book is full of interactive activities that will let you hone your modular skills - something you won't find in most books!</p>
 <p>The next sections give some background on computational thinking and modular to better explain where this book is coming from.
 <!-- Don't worry if this doesn't make a lot of sense yet. --></p>
 </div>
@@ -136,15 +137,15 @@ Since computational thinking involves problem solving, this book is full of inte
 <span class="header-section-number">1.2</span> Computational thinking<a class="anchor" aria-label="anchor" href="#computational-thinking"><i class="fas fa-link"></i></a>
 </h2>
 <p><span class="citation">Matti Tedre and Peter J. Denning<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“The Long Quest for Computational Thinking,”&lt;/span&gt; in &lt;em&gt;Proceedings of the 16th Koli Calling International Conference on Computing Education Research&lt;/em&gt;, Koli Calling ’16 (New York, NY, USA: Association for Computing Machinery, 2016), 120–29, &lt;a href="https://doi.org/10.1145/2999541.2999542" role="doc-biblioref"&gt;https://doi.org/10.1145/2999541.2999542&lt;/a&gt;.&lt;/p&gt;'><sup>4</sup></a></span> present a nice overview of the history of computational thinking.
-Here’s a brief summary.</p>
-<p>When the field of computing was taking off in the 1950s, there was interest and discussion about how it was different from other fields (e.g. math).
-One argument was that computing involved <em>algorithmic thinking</em>, which is designing algorithms to solve problems (cf. programming), and this kind of thinking was unique to computing.
+Here's a brief summary.</p>
+<p>When the field of computing was taking off in the 1950s, there was interest and discussion about how it was different from other fields (e.g. math).
+One argument was that computing involved <em>algorithmic thinking</em>, which is designing algorithms to solve problems (cf. programming), and this kind of thinking was unique to computing.
 Some even thought that this kind of thinking could improve thinking generally.</p>
 <p><em>Computational thinking</em> appears to have been coined in the 1980s by Seymour Papert and popularized in his book <em>Mindstorms</em>.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Seymour Papert, &lt;em&gt;Mindstorms: Children, Computers, and Powerful Ideas&lt;/em&gt; (New York: Basic Books, 1980).&lt;/p&gt;"><sup>5</sup></a></span>
 Papert was a mathematician by training, and his approach was much broader than the algorithmic thinking approach that came before.
-Papert’s approach was empirical and embraced model building, which he implemented using simulated microworlds containing robots (LEGO Mindstorms takes its name from this work).
+Papert's approach was empirical and embraced model building, which he implemented using simulated microworlds containing robots (LEGO Mindstorms takes its name from this work).
 It was revolutionary in its time and received a lot of attention from educators and policy makers of widely different backgrounds.</p>
-<p>Unfortunately, today it’s very hard to get agreement on what computational thinking is, so definitions tend to be squishy.
+<p>Unfortunately, today it's very hard to get agreement on what computational thinking is, so definitions tend to be squishy.
 This is likely due to the widespread use of computers and the tendency for everyone to frame computational thinking in terms of what <em>they</em> do with computers.
 Some want to reduce it to computer literacy, others to basic programming, and yet others to discovery learning with computers, etc.</p>
 <p>I take a more unified view of computational thinking based on model building and problem solving.
@@ -155,7 +156,7 @@ I define computational thinking as building a <em>runnable</em> model to solve a
 </li>
 <li>For general scientific fields, this is a <a href="https://en.wikipedia.org/wiki/Scientific_modelling">scientific model</a> of a phenomenon or process</li>
 </ul>
-<p>The model doesn’t need to run on a computer, but to be a runnable model, it needs to be mechanistic.
+<p>The model doesn't need to run on a computer, but to be a runnable model, it needs to be mechanistic.
 One of my favorite examples of a non-computer model is MENACE,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Donald Michie, &lt;span&gt;“&lt;span class="nocase"&gt;Experiments on the Mechanization of Game-Learning Part I. Characterization of the Model and its parameters&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;The Computer Journal&lt;/em&gt; 6, no. 3 (1963): 232–36, &lt;a href="https://doi.org/10.1093/comjnl/6.3.232" role="doc-biblioref"&gt;https://doi.org/10.1093/comjnl/6.3.232&lt;/a&gt;.&lt;/p&gt;'><sup>6</sup></a></span> which plays tic-tac-toe (AKA noughts and crosses).
 MENACE plays tic-tac-toe using matchboxes full of colored beads as shown in Figure <a href="introduction.html#fig:menace">1.1</a>.
 Each possible board position (starting with a blank board) is represented by a matchbox, and each move is represented by one of nine colored beads.
@@ -171,8 +172,8 @@ Figure 1.1: Machine Educable Noughts and Crosses Engine (MENACE). Each matchbox 
 </p>
 </div>
 <p>MENACE is a nice example of computational thinking without computers because algorithmic game playing has a long history in computer science and AI.
-However MENACE is not “an exception to the rule” - teaching computer science without computers has been part of the model curriculum for almost 20 years.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Allen Tucker, &lt;span&gt;“A Model Curriculum for &lt;span&gt;K–12&lt;/span&gt; Computer Science: Final Report of the &lt;span&gt;ACM K–12&lt;/span&gt; Task Force Curriculum Committee”&lt;/span&gt; (New York, NY, USA: Association for Computing Machinery, 2003); Tim Bell, &lt;span&gt;“&lt;span&gt;CS&lt;/span&gt; Unplugged or Coding Classes?”&lt;/span&gt; &lt;em&gt;Communications of the ACM&lt;/em&gt; 64, no. 5 (2021): 25–27, &lt;a href="https://doi.org/10.1145/3457195" role="doc-biblioref"&gt;https://doi.org/10.1145/3457195&lt;/a&gt;.&lt;/p&gt;'><sup>7</sup></a></span>
-We really don’t need computers for computational thinking!</p>
+However MENACE is not "an exception to the rule" - teaching computer science without computers has been part of the model curriculum for almost 20 years.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Allen Tucker, &lt;span&gt;“A Model Curriculum for &lt;span&gt;K–12&lt;/span&gt; Computer Science: Final Report of the &lt;span&gt;ACM K–12&lt;/span&gt; Task Force Curriculum Committee”&lt;/span&gt; (New York, NY, USA: Association for Computing Machinery, 2003); Tim Bell, &lt;span&gt;“&lt;span&gt;CS&lt;/span&gt; Unplugged or Coding Classes?”&lt;/span&gt; &lt;em&gt;Communications of the ACM&lt;/em&gt; 64, no. 5 (2021): 25–27, &lt;a href="https://doi.org/10.1145/3457195" role="doc-biblioref"&gt;https://doi.org/10.1145/3457195&lt;/a&gt;.&lt;/p&gt;'><sup>7</sup></a></span>
+We really don't need computers for computational thinking!</p>
 <p>So how do we <em>learn</em> to build runnable models to solve problems (i.e., how do we learn computational thinking)?
 Well, models are made of interacting elements, so we need to learn those elements, and we need to learn how the elements interact.</p>
 <p>Once we know those things, we can customize general problem solving, which has the same basic steps:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;George Polya, &lt;em&gt;How to Solve It: A New Aspect of Mathematical Method&lt;/em&gt; (Princeton University Press, 2004).&lt;/p&gt;"><sup>8</sup></a></span></p>
@@ -182,8 +183,8 @@ Well, models are made of interacting elements, so we need to learn those element
 <li>Implement the plan</li>
 <li>Evaluate the solution</li>
 </ul>
-<p>For any new domain, the big things to learn are the “understand the problem” and the “make a plan” steps of problem solving.
-That’s the approach of this book - for the domain of modular synthesis.</p>
+<p>For any new domain, the big things to learn are the "understand the problem" and the "make a plan" steps of problem solving.
+That's the approach of this book - for the domain of modular synthesis.</p>
 </div>
 <div id="modular-synthesis" class="section level2" number="1.3">
 <h2>
@@ -201,7 +202,7 @@ Even before the complete electrification of instruments (synthesizers are electr
 <iframe src="https://www.youtube.com/embed/k_YUB_S6Gpo?start=78" width="672" height="400px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 1.2: <a href="https://youtu.be/k_YUB_S6Gpo?start=21">YouTube video</a> of Wolfgang von Kempelen’s speaking machine circa 1780. Image <a href="https://www.youtube.com/user/Quintatoen">© Fabian Brackhane</a>.
+Figure 1.2: <a href="https://youtu.be/k_YUB_S6Gpo?start=21">YouTube video</a> of Wolfgang von Kempelen's speaking machine circa 1780. Image <a href="https://www.youtube.com/user/Quintatoen">© Fabian Brackhane</a>.
 </p>
 </div>
 <p>Consider the difference between wind chimes or a player piano and this speaking machine.
@@ -211,15 +212,15 @@ In contrast, the speaking machine is a well-considered model of the human speech
 Patents were awarded just a few years apart to Elisha Gray, whose synthesizer comprised simple single note oscillators and transmitted over the telegraph, and Thaddeus Cahill, whose larger Telharmonium could sound like an organ or various wood instruments but weighed 210 tons!</p>
 <p>The modular synthesizer was developed by Harald Bode from 1959-1960,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Harald Bode, &lt;span&gt;“History of Electronic Sound Modification,”&lt;/span&gt; &lt;em&gt;Journal of the Audio Engineering Society&lt;/em&gt; 32, no. 10 (1984): 730–39, &lt;a href="http://www.aes.org/e-lib/browse.cfm?elib=4481" role="doc-biblioref"&gt;http://www.aes.org/e-lib/browse.cfm?elib=4481&lt;/a&gt;.&lt;/p&gt;'><sup>11</sup></a></span> and this innovation quickly spread to other electronic music pioneers like Moog and Buchla.
 The key idea of modular is flexibility.
-This is achieved by refactoring aspects of synthesis (i.e. functions on sound) into a collection of modules.
-These modules may then be combined to create a certain sound by patching them together and adjusting module parameters (e.g. by turning knobs or adjusting sliders).
+This is achieved by refactoring aspects of synthesis (i.e. functions on sound) into a collection of modules.
+These modules may then be combined to create a certain sound by patching them together and adjusting module parameters (e.g. by turning knobs or adjusting sliders).
 An example modular synthesizer is shown in Figure <a href="introduction.html#fig:serge-modular">1.3</a>.</p>
 
 <!-- See credit line guidance https://commons.wikimedia.org/wiki/Commons:Credit_line -->
 <div class="figure">
 <span style="display:block;" id="fig:serge-modular"></span>
-<img src="images/Serge_Modular,_Norbergfestival_2007_cropped.jpg" alt="A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. Wave Multiplier, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image © mikael altemark/CC-BY-2.0." width="100%"><p class="caption">
-Figure 1.3: A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. <code>Wave Multiplier</code>, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image <a href="https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg">© mikael altemark/CC-BY-2.0</a>.
+<img src="images/Serge_Modular,_Norbergfestival_2007_cropped.jpg" alt="A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. Wave Multiplier, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image © mikael altemark/CC-BY-2.0." width="100%"><p class="caption">
+Figure 1.3: A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. <code>Wave Multiplier</code>, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image <a href="https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg">© mikael altemark/CC-BY-2.0</a>.
 </p>
 </div>
 <p>In the 1970s, <em>semi-modular</em> synthesizers were developed that did not require patching to make a sound.
@@ -274,7 +275,7 @@ Figure 1.7: A Eurorack modular synthesizer. The different modules designs and lo
 One possible reason is the reduction in price over time, shown in Table <a href="introduction.html#tab:price">1.1</a>.
 However, other trends seem to be at work.
 While the modular synthesizer was simplified for wider adoption early in its history, first with semi-modular and later with digital synthesizers, the culmination of this trend led to large preset and sample banks that transformed the task of creating a specific sound to searching for a pre-made sound.
-It’s plausible that as the search for sounds became more intensive, the time savings of presets diminished, making the modular approach more attractive.
+It's plausible that as the search for sounds became more intensive, the time savings of presets diminished, making the modular approach more attractive.
 An intersecting trend is a commonly-expressed dissatisfaction with using computers for every aspect of music making and a corresponding return to hardware instruments, including modular.</p>
 <div class="inline-table"><table class="table table-sm">
 <caption>
@@ -311,7 +312,7 @@ An intersecting trend is a commonly-expressed dissatisfaction with using compute
 <td>$2,400</td>
 </tr>
 <tr class="even">
-<td>…</td>
+<td>...</td>
 <td>VCVRack virtual modular</td>
 <td>Free</td>
 </tr>
@@ -326,14 +327,14 @@ If you understand these building blocks in modular, you should understand them e
 <h2>
 <span class="header-section-number">1.4</span> Moving forward<a class="anchor" aria-label="anchor" href="#moving-forward"><i class="fas fa-link"></i></a>
 </h2>
-<p>The next two chapters will focus on “understanding the problem.”
+<p>The next two chapters will focus on "understanding the problem."
 Chapter <a href="physics-and-perception-of-sound.html#physics-and-perception-of-sound">2</a> reviews both the physics of sound and our perception of it, which perhaps surprisingly, are not the same.
 From there we move into sounds commonly found in music and their properties, ranging from harmonic sounds to inharmonic sounds like percussion in Chapter <a href="harmonic-and-inharmonic-sounds.html#harmonic-and-inharmonic-sounds">3</a>.</p>
 <p>Modular synthesis is properly introduced in Chapter <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a> with an overview of modules and how they connect together.
-This is the foundation of the “make a plan” stage of problem solving.
+This is the foundation of the "make a plan" stage of problem solving.
 The remainder of the book alternates between learning model elements (modules), how they interact (patches), problem solving (sound design).
 The progressive <em>Modules</em> and <em>Sound Design</em> sections build up from basic approaches to the more complex.
-By the time we’re done, you should have a good foundation to create patches to solve new sound design problems.</p>
+By the time we're done, you should have a good foundation to create patches to solve new sound design problems.</p>
 
 </div>
 </div>
@@ -341,7 +342,177 @@ By the time we’re done, you should have a good foundation to create patches to
 
 
 
-  <div class="chapter-nav">
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><div class="chapter-nav">
 <div class="prev"><a href="index.html">Welcome</a></div>
 <div class="next"><a href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -369,7 +540,7 @@ By the time we’re done, you should have a good foundation to create patches to
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

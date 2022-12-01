@@ -45,6 +45,7 @@
     }
   </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -99,27 +100,27 @@
 <span class="header-section-number">14</span> Krell<a class="anchor" aria-label="anchor" href="#krell"><i class="fas fa-link"></i></a>
 </h1>
 <p>This final chapter explores a new sound design problem centered on recreating the Krell patch by Todd Barton.
-The Krell patch is a generative patch (it plays itself) that makes use of more advanced probability techniques than we’ve previously discussed.
+The Krell patch is a generative patch (it plays itself) that makes use of more advanced probability techniques than we've previously discussed.
 An additional challenge with this patch is that Barton uses the Buchla 200e series rather than Eurorack, so the modules and signals between them are not directly compatible and must be translated.</p>
 <div id="history-1" class="section level2" number="14.1">
 <h2>
 <span class="header-section-number">14.1</span> History<a class="anchor" aria-label="anchor" href="#history-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>The Krell patch, shown in Figure <a href="krell.html#fig:krell-performance">14.1</a>, was publicly released by <a href="https://toddbarton.com/">Todd Barton</a> in 2012.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Based on the release date of the &lt;a href="https://vimeo.com/48382205"&gt;performance video&lt;/a&gt; and &lt;a href="https://vimeo.com/48466272"&gt;walkthrough video&lt;/a&gt;.&lt;/p&gt;'><sup>106</sup></a>
-The name “Krell” is an homage to the 1956 sci-fi film <a href="https://en.wikipedia.org/wiki/Forbidden_Planet"><em>Forbidden Planet</em></a>, which was the first film to use an electronic score.
+The name "Krell" is an homage to the 1956 sci-fi film <a href="https://en.wikipedia.org/wiki/Forbidden_Planet"><em>Forbidden Planet</em></a>, which was the first film to use an electronic score.
 In the film, human explorers encounter strange forces on the planet of an ancient extinct alien race, called the Krell.
 The film was scored by <a href="https://en.wikipedia.org/wiki/Bebe_and_Louis_Barron">Bebe and Louis Barron</a> who were early electronic music pioneers inspired by <a href="https://en.wikipedia.org/wiki/Cybernetics">cybernetics</a>, a precusor to artificial intelligence.
 Louis Barron created much of his own equipment, including synthesizer circuits used to generate sound, such as ring modulators.
 The sounds were recorded onto tape for mixing, adding effects, and preservation, as the circuits themselves burned out quickly.
-The Barron’s work on film sound effects led to their work on <em>Forbidden Planet</em>.
-Thus Barton’s choice of the name “Krell” for the patch is an homage to the film’s score and the work of Bebe and Louis Barron.</p>
+The Barron's work on film sound effects led to their work on <em>Forbidden Planet</em>.
+Thus Barton's choice of the name "Krell" for the patch is an homage to the film's score and the work of Bebe and Louis Barron.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:krell-performance"></span>
 <iframe src="https://player.vimeo.com/video/48382205" width="672" height="400px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 14.1: <a href="https://vimeo.com/48382205">Vimeo video</a> of Todd Barton’s Krell patch. Image <a href="https://vimeo.com/user2359061">© Todd Barton</a>.
+Figure 14.1: <a href="https://vimeo.com/48382205">Vimeo video</a> of Todd Barton's Krell patch. Image <a href="https://vimeo.com/user2359061">© Todd Barton</a>.
 </p>
 </div>
 <p>As illustrated by Figure <a href="krell.html#fig:krell-performance">14.1</a>, the patch is produces a non-repeating melody.
@@ -140,12 +141,12 @@ Keeping this cohesion is a primary concern in recreating the sound of this patch
 </ul>
 <p>For the understanding the problem stage, we need to understand the patch, which divides into understanding the function of each module and the signals sent from module to module.
 An Internet search reveals some disagreement about the modules involved in the patch.
-It is generally agreed that there is a main envelope controlling the length of each note, where that envelope’s attack and decay are controlled by additional envelopes receiving random modulation.
+It is generally agreed that there is a main envelope controlling the length of each note, where that envelope's attack and decay are controlled by additional envelopes receiving random modulation.
 However, there are additional modules that seem to be in dispute.
 Some patches exclude a wavefolder on the main voice<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="http://manual-synthesis.info/2017/01/26/krell" class="uri"&gt;http://manual-synthesis.info/2017/01/26/krell&lt;/a&gt;&lt;/p&gt;'><sup>107</sup></a>, others exclude FM<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://modwiggler.com/forum/viewtopic.php?t=159798" class="uri"&gt;https://modwiggler.com/forum/viewtopic.php?t=159798&lt;/a&gt;&lt;/p&gt;'><sup>108</sup></a>, and yet others exclude band pass filtering.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Bjørn and Meyer, &lt;em&gt;Patch &amp;amp; &lt;span&gt;Tweak&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;"><sup>109</sup></a></span>
-Review of Barton’s <a href="https://vimeo.com/48382205">performance video</a> and <a href="https://vimeo.com/48466272">walkthrough video</a> indicate that all of these elements are present in the patch.
-Figure <a href="krell.html#fig:krell-patch-diagram">14.2</a> was created by carefully tracing each of the connections shown in the videos and Todd’s comments about the connections.
-Todd’s comments are particularly important as some functions, like FM, are internally routed in his Buchla 200e system and so are not marked with a patch cable.</p>
+Review of Barton's <a href="https://vimeo.com/48382205">performance video</a> and <a href="https://vimeo.com/48466272">walkthrough video</a> indicate that all of these elements are present in the patch.
+Figure <a href="krell.html#fig:krell-patch-diagram">14.2</a> was created by carefully tracing each of the connections shown in the videos and Todd's comments about the connections.
+Todd's comments are particularly important as some functions, like FM, are internally routed in his Buchla 200e system and so are not marked with a patch cable.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:krell-patch-diagram"></span>
@@ -155,8 +156,8 @@ Figure 14.2: A diagram of the Krell patch illustrating signal flow between modul
 </div>
 <p>One of the major issues with understanding the Krell patch in detail is that the Buchla 200e system is different from Eurorack in several respects.
 First, the modules themselves are idiosyncratic.
-For example, the 291e Triple Morphing Filter combines band pass filtering with sequencing, and the precise functioning of the filter is a matter of ongoing speculation, despite access to Buchla’s circuit designs.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://modwiggler.com/forum/viewtopic.php?t=106373" class="uri"&gt;https://modwiggler.com/forum/viewtopic.php?t=106373&lt;/a&gt;&lt;/p&gt;'><sup>110</sup></a>
-Thus close matching of the module’s behavior is unlikely in some instances, and we’ll have to determine what elements are more important than others to match.
+For example, the 291e Triple Morphing Filter combines band pass filtering with sequencing, and the precise functioning of the filter is a matter of ongoing speculation, despite access to Buchla's circuit designs.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://modwiggler.com/forum/viewtopic.php?t=106373" class="uri"&gt;https://modwiggler.com/forum/viewtopic.php?t=106373&lt;/a&gt;&lt;/p&gt;'><sup>110</sup></a>
+Thus close matching of the module's behavior is unlikely in some instances, and we'll have to determine what elements are more important than others to match.
 Second, Buchla signals are different from the types of signals used in Eurorack.
 One of the most notable difference is that Buchla separates audio and signals rather than using the same standard for both: audio signals are line level (~1 V) whereas control voltages are 10 V.
 These two signals are handled by different wires, perhaps to prevent sending the wrong type of signal to the wrong jack.
@@ -166,7 +167,7 @@ Thus to send a gate that sustains a note, one would send (on the same cable) a s
 These different signal types are color coded on the 200e: CV inputs are black/grey, CV outputs are blue/violet/green, pulse inputs are orange, and pulse outputs are red.
 Knowing these conventions is useful when reviewing a Buchla patch in order to determine whether a module is generating or receiving a signal, in addition to consulting the terse <a href="https://buchla.com/guides/200e_Users_Guide_v1.4.pdf">200e manual</a>.</p>
 <p>For the making a plan stage, decomposition of the patch according to modules seems like a valid approach.
-Since Barton’s walk through video in Figure <a href="krell.html#fig:krell-walk-through">14.3</a> shows how the patch sounds at different stages of completion, building up the patch in the same order seems ideal because it produces sound at each stage of development.
+Since Barton's walk through video in Figure <a href="krell.html#fig:krell-walk-through">14.3</a> shows how the patch sounds at different stages of completion, building up the patch in the same order seems ideal because it produces sound at each stage of development.
 Thus we can treat each stage as a subproblem and further address issues that arise in those stages.</p>
 
 <div class="figure">
@@ -174,12 +175,12 @@ Thus we can treat each stage as a subproblem and further address issues that ari
 <iframe src="https://player.vimeo.com/video/48466272" width="672" height="400px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 14.3: <a href="https://vimeo.com/48466272">Vimeo video</a> showing an incremental build of Todd Barton’s Krell patch, with voice-over explanation. Image <a href="https://vimeo.com/user2359061">© Todd Barton</a>.
+Figure 14.3: <a href="https://vimeo.com/48466272">Vimeo video</a> showing an incremental build of Todd Barton's Krell patch, with voice-over explanation. Image <a href="https://vimeo.com/user2359061">© Todd Barton</a>.
 </p>
 </div>
 <p>For the implementing a plan stage, we need evaluation criteria in order to assess alternate solutions and gauge our progress.
 The best evaluation material seems to be the videos in Figures <a href="krell.html#fig:krell-performance">14.1</a> &amp; <a href="krell.html#fig:krell-walk-through">14.3</a>, though there are additional recordings available from Barton.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;On SoundCloud &lt;a href="https://soundcloud.com/user7621213/krell-muzak-1"&gt;here&lt;/a&gt; and &lt;a href="https://soundcloud.com/user7621213/krell-muzak-2"&gt;here&lt;/a&gt;.&lt;/p&gt;'><sup>112</sup></a></p>
-<p>The evaluation stage will used the above videos to determine success based on what appear to be their major characteristics, i.e. matching of variation in melody, timbre, etc.
+<p>The evaluation stage will used the above videos to determine success based on what appear to be their major characteristics, i.e. matching of variation in melody, timbre, etc.
 Since the patch is generative, it is impossible to match it exactly, so any evaluation will have a subjective aspect.</p>
 </div>
 <div id="basic-voice" class="section level2" number="14.3">
@@ -195,7 +196,7 @@ The VCA can act as as a low-pass gate, which is a signature part of the Buchla s
 A low-pass gate (LPG) combines a VCA and a filter in a single module with a single parameter that affects both the gain of the VCA and the cutoff frequency of the filter.
 As a result, higher frequencies pass through when the VCA is high, and lower frequencies pass through when the VCA is low.
 This combination of pitch shift with volume is useful for percussion intruments, and in previous chapters, the combination was implemented with separate modules.
-In the walk through video, it’s pretty clear that the VCA is in gate mode based on an indicator light, though in the other video the same light is off, and its not clear from the manual what that means.
+In the walk through video, it's pretty clear that the VCA is in gate mode based on an indicator light, though in the other video the same light is off, and its not clear from the manual what that means.
 It seems relatively safe to assume it is functioning as a gate, though we can compare by adding a low pass filter as well.
 Finally, the filter is potentially quite complicated but seems to be in a simple mode that is allowing lower frequencies (apparently centered at 62 Hz) with a wide band (20% of range, presumably 4000 Hz).
 Try patching up the basic Krell voice using the button in Figure <a href="krell.html#fig:krell-osc-env-vca-filter">14.4</a>.
@@ -309,7 +310,7 @@ Figure 14.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for a basic
 <span class="header-section-number">14.4</span> Nesting envelopes<a class="anchor" aria-label="anchor" href="#nesting-envelopes"><i class="fas fa-link"></i></a>
 </h2>
 <p>Figure <a href="krell.html#fig:krell-patch-diagram">14.2</a> shows how the main envelope from the last patch is modulated by two additional envelopes from the 281e, which we will call the attack and decay envelopes, because they modulate the attack and decay parameters of the main envelope, respectively.
-The idea behind the nested envelopes is similar to LFO modulation of an oscillator’s frequency.
+The idea behind the nested envelopes is similar to LFO modulation of an oscillator's frequency.
 As the LFO is increases and decreases over time, it creates a pattern in the frequency of the oscillator.
 Changing the attack and decay portion of the main envelope with other envelopes will similarly set up a longer duration repeating pattern.
 Explore this effect by extending the last patch with nested envelopes using the button in Figure <a href="krell.html#fig:krell-envA-envD">14.5</a>.
@@ -410,12 +411,12 @@ function setkrell_envA_envDIframe(url){
 Figure 14.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for a basic Krell voice with nested envelopes.
 </p>
 </div>
-<p>It’s harder to say for this last patch that we’re on target because there are only a few seconds of the walk through video to reference.
-Overall it seems close, but it also seems that the length of Barton’s envelopes are longer.
+<p>It's harder to say for this last patch that we're on target because there are only a few seconds of the walk through video to reference.
+Overall it seems close, but it also seems that the length of Barton's envelopes are longer.
 The main envelope can be lengthened to accommodate this difference.
-It’s also unclear how Barton is handling the synchronization between the attack and decay envelopes.
+It's also unclear how Barton is handling the synchronization between the attack and decay envelopes.
 Having them offset seems to get a better result, and the 281e has an option for quadrature mode that causes another envelope to be triggered when an envelope reaches the end of its attack stage.
-Quadrature would create the needed offset, but again we can’t tell if it’s activated in the patch and can only assume that it isn’t.</p>
+Quadrature would create the needed offset, but again we can't tell if it's activated in the patch and can only assume that it isn't.</p>
 </div>
 <div id="probabilistic-control" class="section level2" number="14.5">
 <h2>
@@ -424,17 +425,17 @@ Quadrature would create the needed offset, but again we can’t tell if it’s a
 <p>The next stages of the patch rely heavily on the 266e Source of Uncertainty.
 This is a rather famous module that inspired many Eurorack modules with similar functions.
 The most significant functions for present purposes are the fluctuating random voltages (FRV), which are used to modulate the attack and decay envelopes, and the stored random voltage (SRV), which is used to control the pitch of the oscillator.</p>
-<p>Unfortunately there don’t seem to be good analogues in our virtual modular for these two functions at this time.
+<p>Unfortunately there don't seem to be good analogues in our virtual modular for these two functions at this time.
 It is also a bit difficult to recreate them in modular based on the <a href="https://modularsynthesis.com/roman/buchla266/266sou_pcb1.htm">complexity of the 266 circuit</a>.
 However, it is possible to recreate the Buchla 265, which also has these functions, in our virtual modular.
-The functions aren’t implemented the same way as the 266, so potentially there could be some resulting differences in sound.
+The functions aren't implemented the same way as the 266, so potentially there could be some resulting differences in sound.
 As we will see, however, there are also some interesting possibilities for gaining more control over the various probabilities with this approach, which makes it useful for other problems in the future as well as the current problem.</p>
 <div id="buchla-265" class="section level3" number="14.5.1">
 <h3>
 <span class="header-section-number">14.5.1</span> Buchla 265<a class="anchor" aria-label="anchor" href="#buchla-265"><i class="fas fa-link"></i></a>
 </h3>
 <p>The 265 preceded the 266 and has functions for FRV and SRV.
-Both functions rely on a “noisy triangle,” which may be created by using white noise to FM a triangle oscillator<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;See the &lt;a href="https://doepfer.de/a100_man/a100_patch.htm"&gt;Doepfer manual section of fluctuating random voltages&lt;/a&gt;&lt;/p&gt;'><sup>113</sup></a> or by using a comparator on the noise level and triggering a hard sync on the triangle oscillator.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;See &lt;a href="https://youtu.be/8I2PfWKT_aY?t=827"&gt;Mark Verbos interview&lt;/a&gt; and &lt;a href="https://www.perfectcircuit.com/signal/learning-synthesis-random-2"&gt;Signal article&lt;/a&gt;.&lt;/p&gt;'><sup>114</sup></a>
+Both functions rely on a "noisy triangle," which may be created by using white noise to FM a triangle oscillator<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;See the &lt;a href="https://doepfer.de/a100_man/a100_patch.htm"&gt;Doepfer manual section of fluctuating random voltages&lt;/a&gt;&lt;/p&gt;'><sup>113</sup></a> or by using a comparator on the noise level and triggering a hard sync on the triangle oscillator.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;See &lt;a href="https://youtu.be/8I2PfWKT_aY?t=827"&gt;Mark Verbos interview&lt;/a&gt; and &lt;a href="https://www.perfectcircuit.com/signal/learning-synthesis-random-2"&gt;Signal article&lt;/a&gt;.&lt;/p&gt;'><sup>114</sup></a>
 Since I have no reference for the sync approach, specifically how to set up the comparator, the FM variant of the noisy triangle is preferred.
 Try setting up a noisy triangle using the button in Figure <a href="krell.html#fig:noisy-triangle">14.6</a>.</p>
 
@@ -629,8 +630,8 @@ Figure 14.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for a float
 </div>
 <p>The noisy triangle is also a building block of the SRV.
 Like the FRV, the SRV samples the noisy triangle, but with two main differences.
-First, the SRV only samples on demand, i.e. when triggered, rather than by an internal independent clock.
-This means that a random value can be held, or “stored,” indefinitely.
+First, the SRV only samples on demand, i.e. when triggered, rather than by an internal independent clock.
+This means that a random value can be held, or "stored," indefinitely.
 Second, the SRV has a correlation parameter that controls how different the next random value should be from the last random value.
 This idea is similar to the random walk idea: as the correlation value approaches 1, the new random value becomes increasingly closer to the old random value, and as the correlation value approaches 0, the new random value becomes increasingly distant in a probabilistic sense.
 This is achieved internally by using a crossfader, which gradually fades in one value as it fades out the other, effectively blending/interpolating between the two voltages.
@@ -739,7 +740,7 @@ Figure 14.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for a store
 Both use the same random triangle, which means that the output of the SRV and FRV will be less random (and likely more musical) than if they used completely separate random sources.
 We can increase the correlation even further by having the SRV sample from the stepped portion of the FRV or the smoothed portion of the FRV.
 Additionally, the correlation parameter on the 265 seems to afford more control for the degree of randomness than controls on the 266, though the 266 also has a parameter for degree of randomness as well as skewing probabilities towards higher/lower values and the overall shape of the probability distribution.
-Overall it is reasonable to believe the 265 can stand in for the 266 in the Krell patch, though the extent of this won’t be clear until after integration and evaluations.</p>
+Overall it is reasonable to believe the 265 can stand in for the 266 in the Krell patch, though the extent of this won't be clear until after integration and evaluations.</p>
 </div>
 <div id="probabilistic-rhythm" class="section level3" number="14.5.2">
 <h3>
@@ -747,7 +748,7 @@ Overall it is reasonable to believe the 265 can stand in for the 266 in the Krel
 </h3>
 <p>The next stage of the Krell patch adds separated FRVs to the attack and decay envelopes.
 Interestingly the patch uses FRVs to control the opposite parameter of the parameter these envelopes are controlling on the main envelope.
-It’s clear this reversal affects the sound, so that itself is worth investigating.
+It's clear this reversal affects the sound, so that itself is worth investigating.
 Try extending the last Krell patch with FRVs to control the nested envelopes using the button in Figure <a href="krell.html#fig:krell-frvs">14.9</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -852,7 +853,7 @@ Figure 14.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for a Krell
 <p>This patch illustrates how the FRVs are probably most useful for adding some variation to the synchronization of the attack and decay envelopes.
 In other words, those two envelopes together will generate a pattern that repeats over time, and the repetition is probably noticeable.
 By changing their attack and decay parameters with FRVs, their synchronization is constantly changing by small amounts, which makes the overal pattern less repetitive, though it has cycling slow and fast parts.
-The use of reversing the parameters the FRVs are controlling, e.g. controlling the decay of the attack envelope, doesn’t seem to matter in practice.
+The use of reversing the parameters the FRVs are controlling, e.g. controlling the decay of the attack envelope, doesn't seem to matter in practice.
 Ultimately each of the nested envelopes is controlling a parameter of the main envelope over their whole cycle, which includes attack and decay, so interchangeability makes sense.</p>
 <p>From an evaluation perspective, it seems that the patch is on track because it approximately matches the sound of the walk-through video at this stage.
 Though our patch may be a bit faster than the reference, the speed can be adjusted by changing the attack/decay times on the main envelope.
@@ -1077,7 +1078,7 @@ Figure 14.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for a Krel
 <span class="header-section-number">14.7</span> Looking back<a class="anchor" aria-label="anchor" href="#looking-back-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>Overall the final patch seems to match the reference pretty well.
-Because the effect of various randomization choices can take some time to assess, i.e. they play out over long stretches of time, an analytical approach that considered long time scales and average values would likely be needed to get closer.
+Because the effect of various randomization choices can take some time to assess, i.e. they play out over long stretches of time, an analytical approach that considered long time scales and average values would likely be needed to get closer.
 For example, we could measure the probability of small/large transitions between notes, the probability of short/long main envelopes, and similar characteristics of the patch.
 While this patch uses many more modules than if a 265 or 266 were available in our vitual modular, it also shows how building approximations with more modules can open up additional possibilities for control.
 Our options for getting values for the SRV is just one example, and additional possibilities are only limited by your imagination.</p>
@@ -1188,7 +1189,177 @@ Our options for getting values for the SRV is just one example, and additional p
 </div>
 </div>
 
-  <div class="chapter-nav">
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><div class="chapter-nav">
 <div class="prev"><a href="tb-303.html"><span class="header-section-number">13</span> TB-303</a></div>
 <div class="next"><a href="references.html">References</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -1225,7 +1396,7 @@ Our options for getting values for the SRV is just one example, and additional p
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

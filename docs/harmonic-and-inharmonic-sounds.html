@@ -45,6 +45,7 @@
     }
   </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -106,7 +107,7 @@ Understanding the relationship between waveshape and harmonics will be extremely
 In order to explain the harmonics behind the different waveshape timbres, we need to understand what harmonics are and how they are created.
 Not all sounds are harmonic, however.
 Most percussion sounds are inharmonic, with drums and cymbals as prominent examples.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;I prefer to think of these sounds as pitched but inharmonic, but this is not a common view.&lt;/p&gt;"><sup>26</sup></a>
-These sounds have a high degree of “noise” associated with them.
+These sounds have a high degree of "noise" associated with them.
 Finally, traditional instruments producing harmonic and inharmonic sounds have distinctly different dynamics that contribute to their timbre.
 Harmonic, inharmonic, and dynamic elements all play an important role in shaping sounds.</p>
 <div id="phase-reflections-standing-waves-and-harmonics" class="section level2" number="3.1">
@@ -120,12 +121,12 @@ What about a stick hitting an empty glass?</p>
 <p>A common property of musical instruments is that they make reliable pitches rather than noise.
 These pitches are created by waves reflecting in the instrument to create standing waves and, in harmonic instruments, get rid of noise.
 Standing waves are fairly similar and straightforward in <a href="http://www.phys.unsw.edu.au/jw/basics.html">strings and pipes</a>, so
-we’ll begin our discussion with strings, where the waves are easily visible.</p>
-<p>Standing waves are created when two waves moving in opposite directions interfere with each other to create a new wave that appears to remain in place (i.e. it “stands” rather than moves).
+we'll begin our discussion with strings, where the waves are easily visible.</p>
+<p>Standing waves are created when two waves moving in opposite directions interfere with each other to create a new wave that appears to remain in place (i.e. it "stands" rather than moves).
 In a string, the two waves are created by an initial wave that reflects back from the ends of the string, which creates an out of phase wave.
 Figure <a href="harmonic-and-inharmonic-sounds.html#fig:sim-reflect">3.1</a> shows a simulation of a reflected wave.
 Select the checkbox for <code>Pulse</code> and move <code>Damping</code> to <code>None</code>, then press the green button to initiate a pulse.
-As you can see, when the pulse reaches a fixed end, it reflects both in direction and in phase, i.e. if it is above the line going right, it will flip below the line and go left when it hits a fixed end.
+As you can see, when the pulse reaches a fixed end, it reflects both in direction and in phase, i.e. if it is above the line going right, it will flip below the line and go left when it hits a fixed end.
 <!-- Once the wave has traversed the string a few times, move `Damping` higher and watch the wave die out. -->
 <!-- Damping is an important property that removes energy from the system. -->
 <!-- In an instrument, damping is what removes noise a bit faster than standing waves, allowing us to hear a tone. --></p>
@@ -149,12 +150,12 @@ You can make the first harmonic (commonly called the fundamental frequency) by r
 Observe that the only nodes are the two ends of the string.
 Finally, you can create additional harmonics by multiplying the frequency of the fundamental by integers greater than 1.
 Try <span class="math inline">\(.085 * 3 = .255 \approx .26\)</span>, <span class="math inline">\(.085 * 4 = 34\)</span>, <span class="math inline">\(.085 * 5 = .425 \approx .43\)</span>, etc.
-Note the green beads don’t always mark nodes, which by definition don’t move; instead the green beads sometimes mark antinodes, or places of greatest motion.</p>
+Note the green beads don't always mark nodes, which by definition don't move; instead the green beads sometimes mark antinodes, or places of greatest motion.</p>
 <p>For the odd harmonics, the simulation requires us to do some rounding that results in an imperfect standing wave.
 Eventually these imperfect standing waves will cancel out because they are not true standing waves.
 True standing waves on our string model have frequencies that are perfectly aligned with the length of our string.
-When this happens, the two waves that create the standing wave constructively interfere with each other, i.e. they are self-reinforcing.
-We can see this in the simulation when we don’t round the frequencies because the amplitude of the waves keeps increasing over time as we add more energy into the system through the oscillator on the left hand side.
+When this happens, the two waves that create the standing wave constructively interfere with each other, i.e. they are self-reinforcing.
+We can see this in the simulation when we don't round the frequencies because the amplitude of the waves keeps increasing over time as we add more energy into the system through the oscillator on the left hand side.
 Any wave whose frequency does not create a standing wave will eventually cancel itself out even if damping is zero.</p>
 <p>Standing waves on a string explain why harmonics are integer multiples of the fundamental frequency.
 In the simulation for the first harmonic, the oscillator started its second pulse at the moment the first reflected pulse returned to the oscillator, so the first pulse had to travel twice the length of the string.
@@ -164,7 +165,7 @@ The integer relationship of harmonics is very important to how we perceive music
 For example, recall from Section <a href="physics-and-perception-of-sound.html#frequency-and-pitch">2.2</a> than one octave above a pitch is double the frequency of that pitch.
 Since the second harmonic is double the frequency of the fundamental, the second harmonic is one octave above the fundamental frequency.
 Similarly, the third harmonic is one fifth above the second harmonic, and the fifth harmonic is a major third over the fourth harmonic.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;One might speculate that we created instruments in order to consistently create pitches based on the fundamental, but the instruments instilled in us a music theory as a side effect of their harmonics.&lt;/p&gt;"><sup>27</sup></a></p>
-<p>Before moving on, it’s important to note that the oscillator simulation in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:sim-reflect">3.1</a> does not accurately represent what happens in a plucked string because the simulation doesn’t fix both sides of the string.
+<p>Before moving on, it's important to note that the oscillator simulation in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:sim-reflect">3.1</a> does not accurately represent what happens in a plucked string because the simulation doesn't fix both sides of the string.
 Instead, the simulation uses an oscillator on one side to generate sine waves.
 We can, however, observe a very similar behavior to the simulation when a string is plucked, as shown the slow motion video in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:tap-string">3.2</a>.
 In the video, the tap on the string (a reverse of a pluck) creates two pulses that move in opposite directions, reflect off their respective ends of the string and switch phase, and then constructively interfere in the center to create an apparent standing wave.</p>
@@ -196,14 +197,14 @@ Therefore the resonator creates a larger change in air pressure for a higher amp
 The resonator does not amplify the string frequencies perfectly, however.
 Some frequencies are better amplified than others, and this means that the resonator affects the timbre of the instrument.
 This is why two guitars with different resonators will sound different even if they have identical strings.
-The effect a resonator has on a frequency’s amplitude is called <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a>, and the relative strengths of frequencies emitted by a resonator are called formants.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;You will often see the word “formants” applied to human speech, where the resonator is the vocal tract, but it also applies to instruments with resonators.&lt;/p&gt;"><sup>29</sup></a></p>
+The effect a resonator has on a frequency's amplitude is called <a href="https://en.wikipedia.org/wiki/Q_factor">Q</a>, and the relative strengths of frequencies emitted by a resonator are called formants.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;You will often see the word "formants" applied to human speech, where the resonator is the vocal tract, but it also applies to instruments with resonators.&lt;/p&gt;'><sup>29</sup></a></p>
 <p>You can probably imagine how differences in the construction and operation of other instruments might lead to the differences in their characteristic sounds.
 Their mode of operation (string, wind, etc.) and their resonators (wood, metal, etc.) affect both what harmonics are produced and the relative strengths of these frequencies (the formants).
 For example, <a href="https://newt.phys.unsw.edu.au/jw/flutes.v.clarinets.html">closed end pipes produce only odd harmonics</a>!
 In each case, the instrument is producing multiple harmonic frequencies at once, with some instruments producing more harmonics than others.
 These differences in characteristic sounds are reflected in the four waveshapes presented in Section <a href="physics-and-perception-of-sound.html#waveshape-and-timbre">2.4</a>.</p>
-<p>Unfortunately, when we look at a waveshape, we see the sum of all the harmonic frequencies - we can’t see the individual harmonics just by looking at a waveshape.
-Wouldn’t it be nice if we could somehow see all the harmonics that make up a waveshape?
+<p>Unfortunately, when we look at a waveshape, we see the sum of all the harmonic frequencies - we can't see the individual harmonics just by looking at a waveshape.
+Wouldn't it be nice if we could somehow see all the harmonics that make up a waveshape?
 It turns out we can decompose any complex waveshape into components using a technique called <a href="https://en.wikipedia.org/wiki/Fourier_analysis">Fourier analysis</a>.
 Each component extracted by Fourier analysis is a sine wave called a partial, and we can reconstruct a complex waveshape by adding the sine wave partials together (potentially an infinite number of them).
 When the waveshape is from a harmonic instrument, the partials are harmonics, so we can use Fourier analysis to see all the harmonics in a waveshape.</p>
@@ -214,7 +215,7 @@ You can grab the top of that bar and move it up and down to change the amplitude
 As you move the bar, note how the bottom graph showing the sum of harmonics changes exactly the same way - this is because it is the sum of harmonics, and we only have one harmonic, so the sum is equal to that harmonic.</p>
 <p>Use the dropdown on the right to select a triangle waveshape.
 Note that all the harmonics are odd for the triangle, and that the sum is clearly different from the sine wave of the first harmonic.
-It turns out you can’t get any closer to a triangle waveshape with only 11 harmonics, but feel free to try by moving the sliders around.
+It turns out you can't get any closer to a triangle waveshape with only 11 harmonics, but feel free to try by moving the sliders around.
 What you will find is that as you try to change the shape at one part of the waveshape, you end up making changes everywhere.
 This is because the sine waves that are being summed up keep going up and down everywhere.
 The only way to get closer to a triangle shape is to use more and smaller sine waves.
@@ -231,10 +232,10 @@ Figure 3.3: <a href="https://phet.colorado.edu/sims/html/fourier-making-waves/la
 </p>
 </div>
 <p>The square and sawtooth waveshapes give more impressive examples of this.
-If you select square, you’ll see that again only odd harmonics are used, but you’ll also see that the sum of harmonics is pretty far from the square waveshape we looked at before.
+If you select square, you'll see that again only odd harmonics are used, but you'll also see that the sum of harmonics is pretty far from the square waveshape we looked at before.
 The sawtooth waveshape, which uses both even and odd harmonics (with opposite signs), also looks pretty different from the sawtooth waveshape we saw before.
 Both of these waveshapes have sharp edges that need more harmonics to approximate.
-They also have straight regions that don’t line up well with the straight-ish part of the first harmonic, and these straight regions also need more high frequency components to straighten out.
+They also have straight regions that don't line up well with the straight-ish part of the first harmonic, and these straight regions also need more high frequency components to straighten out.
 In both cases, you can check infinite harmonics to see how additional harmonics would help.</p>
 <p>It may have already occurred to you that you could create any sound by adding together the sine waves in the right combinations.
 This is exactly what <a href="https://en.wikipedia.org/wiki/Additive_synthesis">additive synthesis</a> does!
@@ -243,14 +244,14 @@ However, even though the idea of additive synthesis has been around a long time,
 <!-- As digital technology improved, sampling and [wavetable synthsis](https://en.wikipedia.org/wiki/Wavetable_synthesis) became more popular than additive synthesis in achieving similar goals. -->
 Conceptually, the alternative to additive synthesis is <a href="https://en.wikipedia.org/wiki/Subtractive_synthesis">subtractive synthesis</a>, which has been a very popular approach in analogue synthesis to the present day.
 Subtractive synthesis starts with complex waveforms and then removes harmonics to create the desired sound.
-Harmonics can be removed with relatively simple analogue electronics as we’ll discuss in a later chapter.</p>
-<p>While the simulation in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:fourier-waves">3.3</a> is useful for understanding how Fourier analysis works, it’s difficult to see all of the frequenecy components because they are stacked on top of each other.
+Harmonics can be removed with relatively simple analogue electronics as we'll discuss in a later chapter.</p>
+<p>While the simulation in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:fourier-waves">3.3</a> is useful for understanding how Fourier analysis works, it's difficult to see all of the frequenecy components because they are stacked on top of each other.
 An alternative way of visualizing a Fourier analysis is a frequency spectrogram.
 A frequency spectrogram shows each sine wave based on its frequency and amplitude.
 Figure <a href="harmonic-and-inharmonic-sounds.html#fig:freq-spectrum">3.4</a> shows a frequency spectrogram of the same four waveshapes at 1 Hz with harmonics side by side and amplitudes normalized so all harmonics sum to 1.
-The order of harmonics at 1 Hz shows how much energy each waveshape has in the first harmonic, the order of harmonics at 2 Hz shows the energy at the second harmonic, etc.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;1 Hz is a convenient fundamental frequency to get 10 harmonics on a compact plot, but we’d see the same pattern regardless of the fundamental frequency.&lt;/p&gt;"><sup>30</sup></a></p>
+The order of harmonics at 1 Hz shows how much energy each waveshape has in the first harmonic, the order of harmonics at 2 Hz shows the energy at the second harmonic, etc.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;1 Hz is a convenient fundamental frequency to get 10 harmonics on a compact plot, but we'd see the same pattern regardless of the fundamental frequency.&lt;/p&gt;"><sup>30</sup></a></p>
 <p>Figure <a href="harmonic-and-inharmonic-sounds.html#fig:freq-spectrum">3.4</a> clearly shows what we noted before: only sawtooth has even harmonics, and only sawtooth and square have easily visible harmonics above the third harmonic.
-It’s quite amazing that these waves have such small visible differences in their frequency spectrums and yet have such distinctive sounds.
+It's quite amazing that these waves have such small visible differences in their frequency spectrums and yet have such distinctive sounds.
 For all waveshapes, the fundamental has the most energy (highest amplitude).
 This is crucial to our perception of the overall pitch of the sound.
 If you go back to Figure <a href="harmonic-and-inharmonic-sounds.html#fig:fourier-waves">3.3</a> and increase the amplitude of a harmonic above the amplitude of the harmonic (and click the checkbox to hear the sound), your perception of the pitch will shift to the louder harmonic.
@@ -266,7 +267,7 @@ Figure 3.4: Frequency spectrum of four basic waveshapes at 1 Hz. Amplitude is no
 When we talk about sounds produced using standing waves, <a href="https://en.wikipedia.org/wiki/Harmonic_oscillator">harmonic motion</a> tells us the sound waves are sine waves.
 Therefore when Fourier analysis is applied to these types of sounds, its solution closely corresponds to how the sounds were generated.
 However, when the sounds are produced by other means, Fourier analysis no longer corresponds to how the sounds were generated, even though it may approximate them arbitrarily.
-These distinctions perhaps don’t matter when we are concerned with listening to sound, since our auditory system <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5819010#S8title">decomposes complex sounds into frequency bands</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Andrew J. Oxenham, &lt;span&gt;“How We Hear: The Perception and Neural Coding of Sound,”&lt;/span&gt; &lt;em&gt;Annual Review of Psychology&lt;/em&gt; 69 (January 2018): 27–50, &lt;a href="https://doi.org/10.1146/annurev-psych-122216-011635" role="doc-biblioref"&gt;https://doi.org/10.1146/annurev-psych-122216-011635&lt;/a&gt;.&lt;/p&gt;'><sup>31</sup></a></span> analogous to Fourier analysis, regardless of how the sound was produced.</p>
+These distinctions perhaps don't matter when we are concerned with listening to sound, since our auditory system <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5819010#S8title">decomposes complex sounds into frequency bands</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Andrew J. Oxenham, &lt;span&gt;“How We Hear: The Perception and Neural Coding of Sound,”&lt;/span&gt; &lt;em&gt;Annual Review of Psychology&lt;/em&gt; 69 (January 2018): 27–50, &lt;a href="https://doi.org/10.1146/annurev-psych-122216-011635" role="doc-biblioref"&gt;https://doi.org/10.1146/annurev-psych-122216-011635&lt;/a&gt;.&lt;/p&gt;'><sup>31</sup></a></span> analogous to Fourier analysis, regardless of how the sound was produced.</p>
 </div>
 <div id="inharmonic-standing-waves-and-noise" class="section level2" number="3.3">
 <h2>
@@ -346,7 +347,7 @@ Cymbals similarly have inharmonic frequency relationships but <a href="http://ac
 </tbody>
 </table></div>
 <p>Harmonics are defined as integer multiples of the fundamental frequency, and the frequency relationships in Table <a href="harmonic-and-inharmonic-sounds.html#tab:mode-freq">3.1</a> are clearly not integers.
-Note also that they are much more closely packed together than integers: there are 10 modes with a frequency ratio below 4, whereas in a harmonic series we’d only expect four standing waves in that space.
+Note also that they are much more closely packed together than integers: there are 10 modes with a frequency ratio below 4, whereas in a harmonic series we'd only expect four standing waves in that space.
 Because the frequency relationships are inharmonic, we can only call the standing wave frequencies of such instruments partials - they are not harmonics.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;They are not overtones either. An overtone is a harmonic above the fundamental.&lt;/p&gt;"><sup>33</sup></a></p>
 <p>Because the partials of percussion instruments are dense, their relationships inharmonic, and the fundamental weak, percussion instruments are commonly approximated in electronic music using some form of noise.
 Noise is a random mixture of frequencies, so by definition it does not have harmonic relationships or a fundamental, and the respective frequencies are very close together.
@@ -354,10 +355,10 @@ For percussion instruments that have more pitch to them, one can add a simple wa
 <p>Various types of noise have been defined with different acoustic properties.
 The noise types have <a href="https://en.wikipedia.org/wiki/Colors_of_noise">color names</a> that may be helpful for remembering which is which, though in some cases the color names seem a bit arbitrary.
 The first and most commonly though of noise is white noise.
-You can see this kind of noise on an old television set (the “snow” on channel with no broadcast).
+You can see this kind of noise on an old television set (the "snow" on channel with no broadcast).
 White noise has equal energy across its frequency spectrum.
 Since we perceive each doubling of frequency as an octave increase in pitch, this means that high frequency sounds are more prominent in white noise.
-All other colors of noise are based on white noise but change the distribution of energy in the frequency spectrum in some way, i.e. increase the amplitude of some frequencies and decrease the amplitude of others, as shown in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:noise-types">3.6</a>.</p>
+All other colors of noise are based on white noise but change the distribution of energy in the frequency spectrum in some way, i.e. increase the amplitude of some frequencies and decrease the amplitude of others, as shown in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:noise-types">3.6</a>.</p>
 
 <!-- NOTE: must manually copy constituent images to docs/images -->
 <div class="figure">
@@ -365,7 +366,7 @@ All other colors of noise are based on white noise but change the distribution o
 <iframe src="https://olney.ai/ct-modular-book/images/noise-table.html" width="100%" height="510px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 3.6: Frequency spectrum and <a href="https://olney.ai/ct-modular-book/images/noise-table.html">sound</a> of various “colors” of noise.
+Figure 3.6: Frequency spectrum and <a href="https://olney.ai/ct-modular-book/images/noise-table.html">sound</a> of various "colors" of noise.
 </p>
 </div>
 <p>Pink noise balances energy across each octave to <em>roughly</em> approximate human perception by reducing energy (i.e., amplitude) as frequency increases.
@@ -388,14 +389,14 @@ That reversed sound had the exact same frequencies and distribution of energy as
 How sounds unfold over time is sometimes referred to as <a href="https://academic.udayton.edu/PhillipMagnuson/soundpatterns/dynamics/">dynamics</a> in music and <a href="https://en.wikipedia.org/wiki/Envelope_(waves)">envelopes</a> in physics.
 Our focus is on the sound of a single instrument over time, so is aligned with timbral dynamics and envelopes.</p>
 <p>The basic concept of an envelope is that the amplitude of a sound changes over time.
-Ideally we’d model this change in sound with a complex curve that goes from zero, up for a time, and then back down to zero for each instrument.
-Such curves would be fairly complicated for different instruments and would clearly vary with how hard the instrument was played, e.g. how hard a string was plucked or a drum hit.
+Ideally we'd model this change in sound with a complex curve that goes from zero, up for a time, and then back down to zero for each instrument.
+Such curves would be fairly complicated for different instruments and would clearly vary with how hard the instrument was played, e.g. how hard a string was plucked or a drum hit.
 To simplify matters, early developers of electronic music settled on envelopes with discrete stages: attack, decay, sustain, release (ADSR).
 All of the stages except sustain are based on time, as shown in Figure <a href="harmonic-and-inharmonic-sounds.html#fig:adsr-envelope">3.7</a>.
-Attack is the time it takes for an instrument’s sound to reach peak amplitude, decay is the time it takes to decrease from peak amplitude to the next stage or zero, and release is the time it takes to decrease from sustain to zero.
+Attack is the time it takes for an instrument's sound to reach peak amplitude, decay is the time it takes to decrease from peak amplitude to the next stage or zero, and release is the time it takes to decrease from sustain to zero.
 None of these set amplitude levels - they only determine how fast amplitude levels are reached (max, sustain, and zero, respectively).
 Sustain, on the other hand, is an amplitude level rather than a time.
-The duration of sustain is as long as the stage is held, e.g. a finger on a key.
+The duration of sustain is as long as the stage is held, e.g. a finger on a key.
 In this way, and ADSR envelope is a simple, yet fairly flexible model of a physical envelope.</p>
 
 <div class="figure">
@@ -438,7 +439,177 @@ Figure 3.8: <a href="https://olney.ai/ct-modular-book/images/adsr-sound-table.ht
 
 
 
-  <div class="chapter-nav">
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><div class="chapter-nav">
 <div class="prev"><a href="physics-and-perception-of-sound.html"><span class="header-section-number">2</span> Physics and Perception of Sound</a></div>
 <div class="next"><a href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -466,7 +637,7 @@ Figure 3.8: <a href="https://olney.ai/ct-modular-book/images/adsr-sound-table.ht
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

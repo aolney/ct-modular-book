@@ -45,6 +45,7 @@
     }
   </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -101,7 +102,7 @@
 <p>This chapter focuses on sound design for synthesizing a specific sound, a kick drum, as well as the problem solving that accompanies that process.
 The goal is to outline and emphasize the thinking process rather than presenting a recipe for a kick drum sound.
 By understanding the thinking process, you should be able to apply it to new sounds that you want to synthesize in the future.</p>
-<p>Before proceeding, a quick disclaimer on the term “sound design” and the narrow usage of that term here.
+<p>Before proceeding, a quick disclaimer on the term "sound design" and the narrow usage of that term here.
 <a href="https://en.wikipedia.org/wiki/Sound_design">Sound design</a> is a widely-used term that has deep roots in the film and theatre industries.
 It encompasses all aspects of creating sound, including performance and editing.
 Even in the music production industry, sound design includes editing, mixing, and processing recorded sound.
@@ -110,7 +111,7 @@ Herein sound design refers to only the creation of sounds and effects using modu
 <h2>
 <span class="header-section-number">8.1</span> Problem solving for sound synthesis<a class="anchor" aria-label="anchor" href="#problem-solving-for-sound-synthesis"><i class="fas fa-link"></i></a>
 </h2>
-<p>Let’s revisit and expand upon the problem solving approach introduced in Chapters <a href="introduction.html#introduction">1</a> and <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a>.
+<p>Let's revisit and expand upon the problem solving approach introduced in Chapters <a href="introduction.html#introduction">1</a> and <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a>.
 The general problem solving stages are:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Polya, &lt;em&gt;How to Solve It&lt;/em&gt;.&lt;/p&gt;"><sup>67</sup></a></span></p>
 <ul>
 <li>Understand the problem</li>
@@ -118,7 +119,7 @@ The general problem solving stages are:<span class="citation"><a class="footnote
 <li>Implement the plan</li>
 <li>Evaluate the solution</li>
 </ul>
-<p>The make/implement a plan stages of problem solving involves building a model by connecting modules together with patch cables, as we’ve covered in the last few chapters.
+<p>The make/implement a plan stages of problem solving involves building a model by connecting modules together with patch cables, as we've covered in the last few chapters.
 While reasonable at first glance, the above problem solving approach is much more useful if it is expanded and elaborated in the context of sound design.
 Below is my interpretation of general problem solving<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Polya.&lt;/p&gt;"><sup>68</sup></a></span> and computational thinking principles<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Papert, &lt;em&gt;Mindstorms&lt;/em&gt;.&lt;/p&gt;"><sup>69</sup></a></span> <span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Nicole D. Anderson, &lt;span&gt;“A Call for Computational Thinking in Undergraduate Psychology,”&lt;/span&gt; &lt;em&gt;Psychology Learning &amp;amp; Teaching&lt;/em&gt; 15, no. 3 (2016): 226–34, &lt;a href="https://doi.org/10.1177/1475725716659252" role="doc-biblioref"&gt;https://doi.org/10.1177/1475725716659252&lt;/a&gt;.&lt;/p&gt;'><sup>70</sup></a></span> as they fit into these stages.</p>
 <div id="understand-the-problem" class="section level3" number="8.1.1">
@@ -130,7 +131,7 @@ It may be a natural, physically produced sound, a sound of unknown origin from a
 The key questions are then:</p>
 <ul>
 <li>What is the sound? What are its defining characteristics? How does it differ from other sounds?</li>
-<li>How is the sound made in real life? Do you understand the principles and mechanism for how the sound is created? If it doesn’t exist in real life, how could it be made if it did?</li>
+<li>How is the sound made in real life? Do you understand the principles and mechanism for how the sound is created? If it doesn't exist in real life, how could it be made if it did?</li>
 <li>Is all the information needed to make the sound available? If it is not available, how could you get the information you need?</li>
 </ul>
 </div>
@@ -139,7 +140,7 @@ The key questions are then:</p>
 <span class="header-section-number">8.1.2</span> Devise a plan<a class="anchor" aria-label="anchor" href="#devise-a-plan"><i class="fas fa-link"></i></a>
 </h3>
 <p>This stage is the most complex because you must think about your thinking<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Thinking about your thinking is often called metacognition.&lt;/p&gt;"><sup>71</sup></a>.
-It’s best to try to stay flexible and evaluate multiple alternatives so you can pick the most promising one.
+It's best to try to stay flexible and evaluate multiple alternatives so you can pick the most promising one.
 This will prevent you from wasting effort on suboptimal strategies.</p>
 <p>There are many ways to solve a problem, and often a combination of approaches is required.
 Approaches in the list below require different levels of information and expertise.</p>
@@ -147,9 +148,9 @@ Approaches in the list below require different levels of information and experti
 <li>
 <strong>Guess and check</strong> is the simplest strategy, but if the guesses are uninformed, it is the same as blind search. Given the number of ways modules can be combined, there are too many possibilities for a blind search to be efficient. However, informed guesses can be efficient, and thoughtful exploration can lead to brand new ideas.</li>
 <li>
-<strong>Looking at related problems</strong> is sometimes called reasoning by analogy. The idea is to find a known solution to a similar problem and then adapt the solution to the current problem. To do that, you need to identify what parts of the solution should carry over and what parts shouldn’t (also known as abstraction and generalization).</li>
+<strong>Looking at related problems</strong> is sometimes called reasoning by analogy. The idea is to find a known solution to a similar problem and then adapt the solution to the current problem. To do that, you need to identify what parts of the solution should carry over and what parts shouldn't (also known as abstraction and generalization).</li>
 <li>
-<strong>Decomposing the problem</strong> is a very powerful strategy that is easily combined with other strategies. The key idea is to divide a complex problem into smaller problems that are easier to solve. Because there’s often more than one way to decompose a problem, it can help to think deeply about different decompositions. For example, related problems might suggest decompositions, and a particular decomposition might create smaller problems you already know how to solve.</li>
+<strong>Decomposing the problem</strong> is a very powerful strategy that is easily combined with other strategies. The key idea is to divide a complex problem into smaller problems that are easier to solve. Because there's often more than one way to decompose a problem, it can help to think deeply about different decompositions. For example, related problems might suggest decompositions, and a particular decomposition might create smaller problems you already know how to solve.</li>
 <li>
 <strong>Using a model of how sound is made in real life</strong> can help identify modules that correspond to that model. It can also help with deciding how to decompose a problem and identifying related problems.</li>
 <li>
@@ -160,20 +161,20 @@ Approaches in the list below require different levels of information and experti
 <h3>
 <span class="header-section-number">8.1.3</span> Carry out the plan (and replanning)<a class="anchor" aria-label="anchor" href="#carry-out-the-plan-and-replanning"><i class="fas fa-link"></i></a>
 </h3>
-<p>This stage involves both model building and keeping track of what’s working and what isn’t.
-Model building has been well elaborated in the last few chapters, but it’s worth reminding that sometimes the model idea is correct but parameters, i.e. knob positions, aren’t quite right.
-Additionally, sometimes the module type may be correct, but the specific choice in module isn’t quite right for the effect to be achieved.
-For example, in a previous patch we looked at a flanger module that has an internal LFO that can’t be completely disabled, so if your patch idea required flanging without an LFO controling the offset, this would be a suboptimal choice.
-So it’s important as you carry out the plan that you consider how issues like these might trick you into thinking that your solution isn’t good when it actually is but just needs a little tweaking.</p>
-<p>Keeping track of what working and what isn’t can get rather involved for any amount of extended problem solving.
+<p>This stage involves both model building and keeping track of what's working and what isn't.
+Model building has been well elaborated in the last few chapters, but it's worth reminding that sometimes the model idea is correct but parameters, i.e. knob positions, aren't quite right.
+Additionally, sometimes the module type may be correct, but the specific choice in module isn't quite right for the effect to be achieved.
+For example, in a previous patch we looked at a flanger module that has an internal LFO that can't be completely disabled, so if your patch idea required flanging without an LFO controling the offset, this would be a suboptimal choice.
+So it's important as you carry out the plan that you consider how issues like these might trick you into thinking that your solution isn't good when it actually is but just needs a little tweaking.</p>
+<p>Keeping track of what working and what isn't can get rather involved for any amount of extended problem solving.
 Here are some strategies to help with managing alternative solutions to a sound design problem.</p>
 <ul>
 <li>
-<strong>Having evaluation criteria</strong> is absolutely essential because otherwise, you won’t know if you succeeded. You also won’t be able to say whether one solution is better than another. The simplest criteria might be a single scale, e.g. 1-10, whereas better criteria can have scales for the defining characteristics of the sound.</li>
+<strong>Having evaluation criteria</strong> is absolutely essential because otherwise, you won't know if you succeeded. You also won't be able to say whether one solution is better than another. The simplest criteria might be a single scale, e.g. 1-10, whereas better criteria can have scales for the defining characteristics of the sound.</li>
 <li>
 <strong>Keeping notes</strong> like a list can help keep track of what has been done and prevent repeating solutions. If each solution is documented with its evaluation, it makes it easier to identify common solution elements that seem to be beneficial or not.</li>
 <li>
-<strong>Eliminating possibilities</strong> can help you avoid unpromising directions. If every approach with a certain element hasn’t worked well, then you might consider avoiding those elements in future attempts.</li>
+<strong>Eliminating possibilities</strong> can help you avoid unpromising directions. If every approach with a certain element hasn't worked well, then you might consider avoiding those elements in future attempts.</li>
 <li>
 <strong>Using symmetry</strong> can similarly help you understand what elements are exchangeable in a solution and might help generate new approaches. For example, you might have an approximate solution but realize that a module or two could be substituted with something that has a similar function for a better effect.</li>
 </ul>
@@ -182,9 +183,9 @@ Here are some strategies to help with managing alternative solutions to a sound 
 <h3>
 <span class="header-section-number">8.1.4</span> Evaluate the solution<a class="anchor" aria-label="anchor" href="#evaluate-the-solution"><i class="fas fa-link"></i></a>
 </h3>
-<p>Because this is a design problem, there’s never a single absolute solution.
-It’s best to consider solutions relative to each other in terms of evaluation criteria.
-Additionally, if resources are limited, it makes sense to consider solutions in terms of efficient use of resources, i.e. does one solution use fewer modules than another.
+<p>Because this is a design problem, there's never a single absolute solution.
+It's best to consider solutions relative to each other in terms of evaluation criteria.
+Additionally, if resources are limited, it makes sense to consider solutions in terms of efficient use of resources, i.e. does one solution use fewer modules than another.
 Regardless of whether the solution is better than one you already generated, its worthwhile pausing to consider what you can learn from this example both in terms of the current problem as well as other potential problems.</p>
 <p>It may be obvious that the stages of problem solving blend into each other and that the process of solving problems is iterative.
 Especially in design problems, there is never an absolute end to the process because there is never a single absolute solution.
@@ -195,7 +196,7 @@ Thus the process iterates until you are either satisfied with your best solution
 <h2>
 <span class="header-section-number">8.2</span> Reviewing previous kick drum patches<a class="anchor" aria-label="anchor" href="#reviewing-previous-kick-drum-patches"><i class="fas fa-link"></i></a>
 </h2>
-<p>Let’s review the kick drum patches from previous chapters to outline the thinking behind them and consider how they could be improved.
+<p>Let's review the kick drum patches from previous chapters to outline the thinking behind them and consider how they could be improved.
 The evaluation criteria for the kick drum sound is that it should be realistic and clean (not muffled).
 This review in some sense reflects the notes you might keep while carrying out your sound design plan.</p>
 <div id="sine-with-envelope" class="section level3" number="8.2.1">
@@ -205,7 +206,7 @@ This review in some sense reflects the notes you might keep while carrying out y
 <p>The first patch was presented in Section <a href="controllers.html#clocks-as-sequencers">5.2.1</a>, and it used a sine wave with an envelope to control its amplitude.</p>
 <p><em>Understanding the problem</em>.
 The only identifying characteristic considered was that kick is a low frequency sound.
-We know an idealized membrane (like a drum head) is inharmonic from Section <a href="harmonic-and-inharmonic-sounds.html#inharmonic-standing-waves-and-noise">3.3</a> so it doesn’t make sense to use a harmonically rich waveform.</p>
+We know an idealized membrane (like a drum head) is inharmonic from Section <a href="harmonic-and-inharmonic-sounds.html#inharmonic-standing-waves-and-noise">3.3</a> so it doesn't make sense to use a harmonically rich waveform.</p>
 <p><em>Devising a plan</em>.
 Looking at related problems of generating sound, we used the fundamental patch of an oscillator through an envelope to control its amplitude to create a single pitched note.
 Our model of the sound in real life considered the vibration of the drum after the head was hit by the mallet.</p>
@@ -231,7 +232,7 @@ Figure 8.1: <a href="https://olney.ai/ct-modular-book/images/clock-kick-bpm-vco-
 <p>The second patch was in Section <a href="generators.html#noise">6.5</a>, and it extended the first by mixing in red noise with an envelope to control its amplitude.</p>
 <p><em>Understanding the problem</em>.
 The new identifying characteristic was the sound of a mallet contact on the membrane in addition to the resonant sound of the drum.
-Intuitively, this would be a bunch of short lived frequencies, i.e. noise.</p>
+Intuitively, this would be a bunch of short lived frequencies, i.e. noise.</p>
 <p><em>Devising a plan</em>.
 This patched used decomposition by breaking down the kick sound into two components and using the existing patch as a solution for one of the components.
 Our model of the sound in real life added the sound when the head was hit by the mallet.</p>
@@ -254,21 +255,21 @@ Figure 8.2: <a href="https://olney.ai/ct-modular-book/images/kick-bpm-noiz-adsr-
 <h2>
 <span class="header-section-number">8.3</span> Alternative approaches<a class="anchor" aria-label="anchor" href="#alternative-approaches"><i class="fas fa-link"></i></a>
 </h2>
-<p>We need strategies to develop alternative approaches if we’re going to improve on these kick drum patches.
+<p>We need strategies to develop alternative approaches if we're going to improve on these kick drum patches.
 The most relevant problem solving stages to consider are understanding the problem and devising a plan.</p>
 <div id="improving-our-understanding-of-the-problem" class="section level3" number="8.3.1">
 <h3>
 <span class="header-section-number">8.3.1</span> Improving our understanding of the problem<a class="anchor" aria-label="anchor" href="#improving-our-understanding-of-the-problem"><i class="fas fa-link"></i></a>
 </h3>
-<p>Let’s return to the understanding the problem stage: can we come up with more defining characteristics of the sound or elaborate on how the sound is made in real life?
-Personally, I can’t come up with anything beyond what’s already been said.
+<p>Let's return to the understanding the problem stage: can we come up with more defining characteristics of the sound or elaborate on how the sound is made in real life?
+Personally, I can't come up with anything beyond what's already been said.
 However, we can turn to the Internet to see what research has been done on the acoustics of kick drums for more ideas.</p>
-<p>One acoustic study found that the frequency of the kick drum isn’t constant as we assumed but rather changes very quickly from a higher pitch to a lower pitch (a drop of about 5 Hz)<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Harvey Fletcher and Irvin G. Bassett, &lt;span&gt;“Some Experiments with the Bass Drum,”&lt;/span&gt; &lt;em&gt;The Journal of the Acoustical Society of America&lt;/em&gt; 64, no. 6 (December 1978): 1570–76, &lt;a href="https://doi.org/10.1121/1.382140" role="doc-biblioref"&gt;https://doi.org/10.1121/1.382140&lt;/a&gt;.&lt;/p&gt;'><sup>72</sup></a></span>.
-The presumed mechanism for this behavior is that the drum head’s tension is very high just after it has been struck, and so it vibrates at a higher frequency until is resumes its initial position.
+<p>One acoustic study found that the frequency of the kick drum isn't constant as we assumed but rather changes very quickly from a higher pitch to a lower pitch (a drop of about 5 Hz)<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Harvey Fletcher and Irvin G. Bassett, &lt;span&gt;“Some Experiments with the Bass Drum,”&lt;/span&gt; &lt;em&gt;The Journal of the Acoustical Society of America&lt;/em&gt; 64, no. 6 (December 1978): 1570–76, &lt;a href="https://doi.org/10.1121/1.382140" role="doc-biblioref"&gt;https://doi.org/10.1121/1.382140&lt;/a&gt;.&lt;/p&gt;'><sup>72</sup></a></span>.
+The presumed mechanism for this behavior is that the drum head's tension is very high just after it has been struck, and so it vibrates at a higher frequency until is resumes its initial position.
 We can operationalize this in modular using an envelope to control the pitch of the sine wave so that it goes high and then decays to the fundamental pitch.
 Similarly we can envelope the pitch of the noise.
-Since our noise module doesn’t have frequency control, we can control the pitch of the noise using a filter on the noise module, and controlling the cutoff of the filter with an envelope.
-This raises another idea: we probably don’t need low frequency noise below the fundamental, so let’s use another filter, a high pass filter, to remove that noise to get a cleaner kick.
+Since our noise module doesn't have frequency control, we can control the pitch of the noise using a filter on the noise module, and controlling the cutoff of the filter with an envelope.
+This raises another idea: we probably don't need low frequency noise below the fundamental, so let's use another filter, a high pass filter, to remove that noise to get a cleaner kick.
 Try patching these improvements into the last kick patch using the button in Figure <a href="designing-a-kick-drum.html#fig:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr">8.3</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -384,7 +385,7 @@ Figure 8.4: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-adsr-vco-
 </h3>
 <p>What more can be done with this patch?
 The problem has been decomposed into generation of a fundamental and a noise burst, each with their own envelopes to control dynamics.
-If we consider related problems, we recently learned two ways of generating a fundamental that doesn’t use a VCO.
+If we consider related problems, we recently learned two ways of generating a fundamental that doesn't use a VCO.
 First, we can ping a resonant filter.
 We saw in Section <a href="modifiers.html#resonance">7.2.4</a> that pinging can give a somewhat natural plucky or percusive sound because the ping acts like a dampened oscillator.
 Second, we can use a waveguide as shown in Section <a href="modifiers.html#waveguides">7.3</a>.
@@ -503,7 +504,7 @@ The cutoff and resonance parameters affect both the initial transient as well as
 Figure 8.6: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-res-filter-lpf-hpf-adsr.png-kick-noiz-res-filter-lpf-hpf-adsr.ogg-local.html">Kick</a> made using a resonant filter mixed with red noise, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 </p>
 </div>
-<p>Let’s see if the waveguide would be any better than the resonant filter, both in terms of sound and our ability to control the sound.
+<p>Let's see if the waveguide would be any better than the resonant filter, both in terms of sound and our ability to control the sound.
 Try patching a waveguide in place of the resonant filter using the button in Figure <a href="designing-a-kick-drum.html#fig:kick-noiz-waveguide-lpf-hpf-adsr">8.7</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -610,15 +611,15 @@ As with the resonant filter, it seems the problem in making this patch work towa
 Figure 8.8: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-waveguide-lpf-hpf-adsr.png-kick-noiz-waveguide-lpf-hpf-adsr.ogg-local.html">Kick</a> made using a waveguide mixed with red noise, with additional envelopes to control of initial frequency and resonance of the filter and band-pass filtering of the noise.
 </p>
 </div>
-<p>Personally my favorite of these patches so far is the resonant filter for the overall realism and quality of sound, but I suspect that in some contexts it would muddy up a mix, i.e. it’s not clean enough for some uses.</p>
+<p>Personally my favorite of these patches so far is the resonant filter for the overall realism and quality of sound, but I suspect that in some contexts it would muddy up a mix, i.e. it's not clean enough for some uses.</p>
 </div>
 <div id="working-backwards" class="section level3" number="8.3.3">
 <h3>
 <span class="header-section-number">8.3.3</span> Working backwards<a class="anchor" aria-label="anchor" href="#working-backwards"><i class="fas fa-link"></i></a>
 </h3>
-<p>So far the approach has been to create “a” kick sound, one that scores highly on realism and cleanliness.
+<p>So far the approach has been to create "a" kick sound, one that scores highly on realism and cleanliness.
 But what if we wanted to synthesize a kick sound based on a recording of a real kick?
-We’d need more information to do this, specifically:</p>
+We'd need more information to do this, specifically:</p>
 <ul>
 <li>A recording of the sound</li>
 <li>A diagram of the wave shape of that sound</li>
@@ -638,7 +639,7 @@ You could reasonably <a href="https://www.computerworld.com/article/2497143/busi
 Figure 8.9: <a href="https://olney.ai/ct-modular-book/images/kick2.png-kick2.ogg-local.html">Kick</a> recording used as the reference sound. Sound © <a href="https://commons.wikimedia.org/wiki/File:Drum_beat.ogg">Mattgirling/CC-BY-SA-3.0</a>.
 </p>
 </div>
-<p>The real kick recording we’ll use is presented in Figure <a href="designing-a-kick-drum.html#fig:kick2">8.9</a>.
+<p>The real kick recording we'll use is presented in Figure <a href="designing-a-kick-drum.html#fig:kick2">8.9</a>.
 A spectrogram of this recording is presented in Figure <a href="designing-a-kick-drum.html#fig:kick-spectrogram">8.10</a>.
 A spectrogram is merely the frequency spectrum of a sound over time.
 Because frequency spectra already have two dimensions and this adds a third dimension (time), the amplitude of each frequency is shown using color instead of an axis.
@@ -754,16 +755,16 @@ Figure 8.12: (ref:kick-spectrum-late)
 <!-- | 147       | 444,744.40   | 6.60           | --><!-- | 179       | 255,182.70   | **8.00**           | --><!-- | 192       | 268,147.50   | 8.60           | --><!-- | 210       | 138,597.30   | 9.40           | --><!-- | 223       | 202,322.60   | **10.00**          | --><!-- | 232       | 193,303.90   | 10.40          | --><!-- | 344       | 153,652.90   | 15.40          | --><!-- | 402       | 146,643.80   | **18.00**          | --><p>Table <a href="designing-a-kick-drum.html#tab:kick-late-peaks">8.2</a> shows the frequency peaks in Figure <a href="designing-a-kick-drum.html#fig:kick-spectrum-late">8.12</a>.
 There are no harmonics of the lowest frequency, and interestingly the loudest frequency, 54 Hz, is not the lowest
 This aligns with our general assumptions about percussion being largely inharmonic.</p>
-<p>Let’s summarize the findings.
+<p>Let's summarize the findings.
 The spectrogram reveals two distinct phases of the sound.
 The first phase, up to 25 ms, blends noise (mostly 0 to 400 Hz) with harmonics.
 The second phase, from 25 ms on, is inharmonic but with clear peaks.</p>
 <p>There are many ways to model the above findings in modular, and we can get as complex as we want.
-However, to keep things simple, let’s stay relatively close to previous patches and techniques that have already been introduced.
-Let’s use three envelopes for three different sound sources: a band-passed noise source, an early harmonic sound, and a late inharmonic sound.
+However, to keep things simple, let's stay relatively close to previous patches and techniques that have already been introduced.
+Let's use three envelopes for three different sound sources: a band-passed noise source, an early harmonic sound, and a late inharmonic sound.
 For the non-noise sources, we can use separate oscillators for the partials (additive synthesis).
 All partials for a source will run through a mixer to produce the composite sound for that source, then all sources will run through a final stage mixer.
-Because there’s clearly some room sound in the recording, run the final mixer output throug a reverb to create a sense of space.
+Because there's clearly some room sound in the recording, run the final mixer output throug a reverb to create a sense of space.
 Try patching this drum kick using the button in Figure <a href="designing-a-kick-drum.html#fig:kick-noiz-osc-banks-lpf-hpf-triple-adsr">8.13</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -884,11 +885,11 @@ Figure 8.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for a kick 
 </p>
 </div>
 <p>A version of this patch with my specific settings is shown in Figure <a href="designing-a-kick-drum.html#fig:osc-banks-envelope-noise-kick-freq-decay">8.14</a> along with a recording of the sound.
-It’s not as close to the reference sound as I would have hoped, as it both sounds pitched higher in that initial harmonic sound and thinner in terms of noise frequencies.
+It's not as close to the reference sound as I would have hoped, as it both sounds pitched higher in that initial harmonic sound and thinner in terms of noise frequencies.
 I suspect that there are extensive inharmonic partials that are characterizing the body of the sound.
 Nevertheless, the sound is quite realistic (10) and quite clean (8) especially since the reverb can be controlled independently.
-It’s perhaps not fair to compare this sound to the previous kick sounds because it is so different and would likely be used in different contexts.
-Matching it to the previous kick sounds (rather than the reference recording) would likely involve a tighter decay on the harmonic sound and a drop in frequencies across the sine banks, which are currently pegged around 55 Hz vs. the 40 Hz of the previous kicks.</p>
+It's perhaps not fair to compare this sound to the previous kick sounds because it is so different and would likely be used in different contexts.
+Matching it to the previous kick sounds (rather than the reference recording) would likely involve a tighter decay on the harmonic sound and a drop in frequencies across the sine banks, which are currently pegged around 55 Hz vs. the 40 Hz of the previous kicks.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:osc-banks-envelope-noise-kick-freq-decay"></span>
@@ -903,7 +904,177 @@ Figure 8.14: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-osc-bank
 </div>
 </div>
 
-  <div class="chapter-nav">
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><div class="chapter-nav">
 <div class="prev"><a href="modifiers.html"><span class="header-section-number">7</span> Modifiers</a></div>
 <div class="next"><a href="eighties-lead-chiptune.html"><span class="header-section-number">9</span> Eighties Lead &amp; Chiptune</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -948,7 +1119,7 @@ Figure 8.14: <a href="https://olney.ai/ct-modular-book/images/kick-noiz-osc-bank
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

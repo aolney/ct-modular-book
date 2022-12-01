@@ -24,7 +24,7 @@ Listen to the theme in Figure \@ref(fig:stranger-things-theme) to see if you can
 (ref:stranger-things-theme) [YouTube video](https://youtu.be/-RcPZdihrp4) of the *Stranger Things* theme song. Image [© Netflix](https://www.youtube.com/c/strangerthings).
 
 <div class="figure">
-<img src="downloadFigs4latex/stranger-things-theme.jpg" alt="(ref:stranger-things-theme)"  />
+<iframe src="https://www.youtube.com/embed/-RcPZdihrp4?start=0" width="672" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:stranger-things-theme)(ref:stranger-things-theme)</p>
 </div>
 
@@ -85,12 +85,109 @@ Because the current spectrum analyzers available in Rack are too noisy to closel
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setst_square40_square82Iframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#st_square40_square82">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="st_square40_square82" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="st_square40_square82Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="st_square40_square82Label">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
+&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
+&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
+&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
+&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/st-square40-square82.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add two VCOs, QuadVCA/Mixer, Scope, Host audio, and Sassy Scope&lt;/li&gt;
+&lt;li&gt;Tune VCO 1 to 40 Hz and VCO 2 to 82 Hz&lt;/li&gt;
+&lt;li&gt;Connect VCO 1 square out to QuadVCA/Mixer input 1 and VCO 2 square out to QuadVCA/Mixer input 2&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA/Mixer mix out to Scope in 1, connect Scope out 1 to Host audio L and Sassy input 1&lt;/li&gt;
+&lt;li&gt;Adjust the Scope time to see a single wave or two; use TRG button to sync the scope&lt;/li&gt;
+&lt;li&gt;Adjust Sassy to Freq, channel 1 level down to 1/32, resolution to 1000ms, and FFT to 8x. Note it is challenging to get the relative amplitudes of the spectrum using this or other settings with Sassy.&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Adjust the tuning of VCO 1 to 41 Hz and note the waveshape stabilizes on the scope. This shows the effect of the original detuning. Now change it back.&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/st-square40-square82.png'&gt;">Solution</button>
+        <button type="button" onclick="setst_square40_square82Iframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="st_square40_square82-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setst_square40_square82Iframe(url){
+  var st_square40_square82Iframe = document.getElementById("st_square40_square82-iframe");
+  st_square40_square82Iframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:st-square40-square82)" width="100%" />
-<p class="caption">(\#fig:st-square40-square82)(ref:st-square40-square82)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:st-square40-square82)(ref:st-square40-square82)</p></div>
 
 Figure \@ref(fig:stranger-things-two-squares-and-saw-square-mixed-to-match-sample7) shows the frequency spectrum of the two square waves and the saw plus square wave model. 
 In both cases, the first three harmonics approximately match the target spectrum in Figure \@ref(fig:stranger-things-theme-frequency-audacity-7-top-4096), but they diverge on the 4th harmonic.
@@ -110,12 +207,93 @@ Try adding PWM to the 82 Hz square wave in both models to match the target spect
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setst_square40_square82at36pwmIframe('https://cardinal.olney.ai?patchurl=st-square40-square82.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#st_square40_square82at36pwm">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="st_square40_square82at36pwm" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="st_square40_square82at36pwmLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="st_square40_square82at36pwmLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Alternate between adjusting the PWM and adjusting the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%, and the PWM is 36%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Alternate between adjusting the PWM and adjusting the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%, and the PWM is 36%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/st-square40-square82at36pwm.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Alternate between adjusting the PWM and adjusting the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 60% and 100%, and the PWM is 36%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Alternate between adjusting the PWM and adjusting the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 100% and 100%, and the PWM is 36%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;h4&gt;Solution for two square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/st-square40-square82at36pwm.png'&gt;">Solution</button>
+        <button type="button" onclick="setst_square40_square82at36pwmIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="st_square40_square82at36pwm-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setst_square40_square82at36pwmIframe(url){
+  var st_square40_square82at36pwmIframe = document.getElementById("st_square40_square82at36pwm-iframe");
+  st_square40_square82at36pwmIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:st-square40-square82at36pwm)" width="100%" />
-<p class="caption">(\#fig:st-square40-square82at36pwm)(ref:st-square40-square82at36pwm)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:st-square40-square82at36pwm)(ref:st-square40-square82at36pwm)</p></div>
 
 Figure \@ref(fig:stranger-things-square40-square82at36pwm-mixed-to-match-sample7) shows the effect of PWM on the 82 Hz square wave.
 In both cases, the 4th harmonic got boosted but not enough to match the target spectrum in Figure \@ref(fig:stranger-things-theme-frequency-audacity-7-top-4096).
@@ -135,12 +313,95 @@ Try adding an additional square VCO at 164 Hz square wave in both models to matc
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setst_square40_square82at36pwm_square164Iframe('https://cardinal.olney.ai?patchurl=st-square40-square82at36pwm.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#st_square40_square82at36pwm_square164">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="st_square40_square82at36pwm_square164" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="st_square40_square82at36pwm_square164Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="st_square40_square82at36pwm_square164Label">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add another VCO to the right of the last VCO, set its frequncy to 164, and connect its square out to QuadVCA/Mixer input 3&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 34%, 100%, and 56%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately the same&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;h4&gt;Solution for square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/st-square40-square82at36pwm-square164.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add another VCO to the right of the last VCO, set its frequncy to 164, and connect its square out to QuadVCA/Mixer input 3&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately 34%, 100%, and 56%&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;After changing VCO 1 to saw, try the following and note the differences in the sound, scope waveshape, and spectrum&lt;ul&gt;
+&lt;li&gt;Adjust the mix levels for the two oscillators to best match the target spectrum&lt;/li&gt;
+&lt;li&gt;Capture audio in Audacity and compute the spectrum. The mix ratios to match the target spectrum are approximately the same&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;h4&gt;Solution for square waves only&lt;/h4&gt;&lt;img class='rack-image' src='images/patch-solutions/st-square40-square82at36pwm-square164.png'&gt;">Solution</button>
+        <button type="button" onclick="setst_square40_square82at36pwm_square164Iframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="st_square40_square82at36pwm_square164-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setst_square40_square82at36pwm_square164Iframe(url){
+  var st_square40_square82at36pwm_square164Iframe = document.getElementById("st_square40_square82at36pwm_square164-iframe");
+  st_square40_square82at36pwm_square164Iframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:st-square40-square82at36pwm-square164)" width="100%" />
-<p class="caption">(\#fig:st-square40-square82at36pwm-square164)(ref:st-square40-square82at36pwm-square164)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:st-square40-square82at36pwm-square164)(ref:st-square40-square82at36pwm-square164)</p></div>
 
 
 Figure \@ref(fig:stranger-things-square40-square82at36pwm-square164-mixed-to-match-sample7) shows the effect of the new 164 Hz square wave.
@@ -173,12 +434,103 @@ The arpeggio plays up and down over a broken C major 7th chord: low C, E, G, B, 
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setst_seq_arp_no_modulated_dynamicsIframe('https://cardinal.olney.ai?patchurl=st-square40-square82at36pwm-square164.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#st_seq_arp_no_modulated_dynamics">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="st_seq_arp_no_modulated_dynamics" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="st_seq_arp_no_modulated_dynamicsLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="st_seq_arp_no_modulated_dynamicsLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add BPM Clock and ADDR-SEQ to the top left row, connect ADDR-SEQ out to V/Oct of all three oscillators&lt;/li&gt;
+&lt;li&gt;Connect Clock 16ths out to ADDR-SEQ clock in and connect Clock Beat to Scope ext trig&lt;/li&gt;
+&lt;li&gt;Add Reftone and Volt meter; connect Reftone V/Oct to Volt Meter input 1&lt;/li&gt;
+&lt;li&gt;The ADDR-SEQ knobs control the notes for each step, and you can select the current note using the select knob. Turn this knob to select each step and tune the following way&lt;ul&gt;
+&lt;li&gt;Use the Reftone pitch and octave knobs to get the voltage for the notes you need: low C, E, G, B, C, B, G, and E &lt;/li&gt;
+&lt;li&gt;Select the appropriate ADDR-SEQ step using the select knob&lt;/li&gt;
+&lt;li&gt;Move the knob until the voltage matches your target; you can also right click and type the voltage in&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Add ADSR between last VCO and Mixer, connect Clock 16th out to ADSR gate and then connect ADSR out to first three mixer gain inputs&lt;/li&gt;
+&lt;li&gt;Run the clock and adjust the BPM to match the target song&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/reftone-voltmeter-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/st-seq-arp-no-modulated-dynamics.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add BPM Clock and ADDR-SEQ to the top left row, connect ADDR-SEQ out to V/Oct of all three oscillators&lt;/li&gt;
+&lt;li&gt;Connect Clock 16ths out to ADDR-SEQ clock in and connect Clock Beat to Scope ext trig&lt;/li&gt;
+&lt;li&gt;Add Reftone and Volt meter; connect Reftone V/Oct to Volt Meter input 1&lt;/li&gt;
+&lt;li&gt;The ADDR-SEQ knobs control the notes for each step, and you can select the current note using the select knob. Turn this knob to select each step and tune the following way&lt;ul&gt;
+&lt;li&gt;Use the Reftone pitch and octave knobs to get the voltage for the notes you need: low C, E, G, B, C, B, G, and E &lt;/li&gt;
+&lt;li&gt;Select the appropriate ADDR-SEQ step using the select knob&lt;/li&gt;
+&lt;li&gt;Move the knob until the voltage matches your target; you can also right click and type the voltage in&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Add ADSR between last VCO and Mixer, connect Clock 16th out to ADSR gate and then connect ADSR out to first three mixer gain inputs&lt;/li&gt;
+&lt;li&gt;Run the clock and adjust the BPM to match the target song&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/reftone-voltmeter-solo.png'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/st-seq-arp-no-modulated-dynamics.png'&gt;">Solution</button>
+        <button type="button" onclick="setst_seq_arp_no_modulated_dynamicsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="st_seq_arp_no_modulated_dynamics-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setst_seq_arp_no_modulated_dynamicsIframe(url){
+  var st_seq_arp_no_modulated_dynamicsIframe = document.getElementById("st_seq_arp_no_modulated_dynamics-iframe");
+  st_seq_arp_no_modulated_dynamicsIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:st-seq-arp-no-modulated-dynamics)" width="100%" />
-<p class="caption">(\#fig:st-seq-arp-no-modulated-dynamics)(ref:st-seq-arp-no-modulated-dynamics)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:st-seq-arp-no-modulated-dynamics)(ref:st-seq-arp-no-modulated-dynamics)</p></div>
 
 Now we can add dynamics to the patch as previously discussed.
 Try adding a VCF and an LFO to control both the VCF and the ADSR  using the button in Figure \@ref(fig:st-seq-arp-plus-dynamics).
@@ -189,12 +541,105 @@ Deciding the VCF and ADSR's setpoints and just how much the LFO will affect them
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setst_seq_arp_plus_dynamicsIframe('https://cardinal.olney.ai?patchurl=st-seq-arp-no-modulated-dynamics.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#st_seq_arp_plus_dynamics">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="st_seq_arp_plus_dynamics" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="st_seq_arp_plus_dynamicsLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="st_seq_arp_plus_dynamicsLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add LFO and VCF to the left of Sassy on the lower row&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to VCF in and Sassy input 1, VCF LPF out to Scope 2 in, and Scope 2 out to Host audio L&lt;/li&gt;
+&lt;li&gt;Connect LFO out (pick a wave) to VCF cutoff in&lt;/li&gt;
+&lt;li&gt;Try to iteratively adjust the following and note the change in sound, scope, and spectrum&lt;ul&gt;
+&lt;li&gt;Change the VCF cutoff to either the floor of the dull/bright cycle or the average (and depending on your choice, change the offset button on the LFO)&lt;/li&gt;
+&lt;li&gt;Change the cutoff attenuator to adjust the depth of the change coming from the LFO&lt;/li&gt;
+&lt;li&gt;Change the shape of the LFO to match the sound - does it spend more time at the extremes (sine) or move evenly between them (triangle) or something else?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Once you have the VCF adjusted, connect the LFO to the ADSR parameter inputs (attack, decay, etc)&lt;/li&gt;
+&lt;li&gt;Try to iteratively adjust the following and note the change in sound, scope, and spectrum&lt;ul&gt;
+&lt;li&gt;Change the ADSR parameters to either the floor of the dull/bright cycle or the average (mirror your previous choice)&lt;/li&gt;
+&lt;li&gt;Change the parameter attenuators to adjust the depth of the change coming from the LFO, remembering this can be in the positive or negative direction&lt;/li&gt;
+&lt;li&gt;Reconsider the shape of the LFO - does the current shape work, or is a different shape needed?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/st-seq-arp-plus-dynamics.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add LFO and VCF to the left of Sassy on the lower row&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 to VCF in and Sassy input 1, VCF LPF out to Scope 2 in, and Scope 2 out to Host audio L&lt;/li&gt;
+&lt;li&gt;Connect LFO out (pick a wave) to VCF cutoff in&lt;/li&gt;
+&lt;li&gt;Try to iteratively adjust the following and note the change in sound, scope, and spectrum&lt;ul&gt;
+&lt;li&gt;Change the VCF cutoff to either the floor of the dull/bright cycle or the average (and depending on your choice, change the offset button on the LFO)&lt;/li&gt;
+&lt;li&gt;Change the cutoff attenuator to adjust the depth of the change coming from the LFO&lt;/li&gt;
+&lt;li&gt;Change the shape of the LFO to match the sound - does it spend more time at the extremes (sine) or move evenly between them (triangle) or something else?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Once you have the VCF adjusted, connect the LFO to the ADSR parameter inputs (attack, decay, etc)&lt;/li&gt;
+&lt;li&gt;Try to iteratively adjust the following and note the change in sound, scope, and spectrum&lt;ul&gt;
+&lt;li&gt;Change the ADSR parameters to either the floor of the dull/bright cycle or the average (mirror your previous choice)&lt;/li&gt;
+&lt;li&gt;Change the parameter attenuators to adjust the depth of the change coming from the LFO, remembering this can be in the positive or negative direction&lt;/li&gt;
+&lt;li&gt;Reconsider the shape of the LFO - does the current shape work, or is a different shape needed?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/st-seq-arp-plus-dynamics.png'&gt;">Solution</button>
+        <button type="button" onclick="setst_seq_arp_plus_dynamicsIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="st_seq_arp_plus_dynamics-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setst_seq_arp_plus_dynamicsIframe(url){
+  var st_seq_arp_plus_dynamicsIframe = document.getElementById("st_seq_arp_plus_dynamics-iframe");
+  st_seq_arp_plus_dynamicsIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:st-seq-arp-plus-dynamics)" width="100%" />
-<p class="caption">(\#fig:st-seq-arp-plus-dynamics)(ref:st-seq-arp-plus-dynamics)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:st-seq-arp-plus-dynamics)(ref:st-seq-arp-plus-dynamics)</p></div>
 
 Altogether the solution seems fairly reasonable, though since the waveshapes were based on a sample of the the spectrum in a particular part of the overall cycle, it could be that the lowest square wave should be a saw in order to sound correct as the filter cutoff cycles up and down.
 Other possibilities in our current design space include a slight detuning between square waves that changes over time or PWM that changes over time.
@@ -210,7 +655,7 @@ If you are not familiar with chiptune, check out the video in Figure \@ref(fig:c
 (ref:chiptune-video) [YouTube video](https://youtu.be/NfxArPJpN5I) of a chiptune groove.  Image [© Noise Engineering](https://www.youtube.com/c/NoiseEngineering).
 
 <div class="figure">
-<img src="downloadFigs4latex/chiptune-video.jpg" alt="(ref:chiptune-video)"  />
+<iframe src="https://www.youtube.com/embed/NfxArPJpN5I?start=0" width="672" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:chiptune-video)(ref:chiptune-video)</p>
 </div>
 
@@ -237,12 +682,93 @@ Try patching up this arpgeggio from scratch using the button in Figure \@ref(fig
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setchiptune_single_arpIframe('https://cardinal.olney.ai?patchurl=empty.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#chiptune_single_arp">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="chiptune_single_arp" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="chiptune_single_arpLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="chiptune_single_arpLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Reftone, Volt meter, BPM Clock, ADDR-SEQ, VCO, QuadVCA/Mixer, Scope, and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Clock 16ths out to ADDR-SEQ clock in&lt;/li&gt;
+&lt;li&gt;Connect ADDR-SEQ out to V/Oct of the VCO &lt;/li&gt;
+&lt;li&gt;Connect VCO square out to QuadVCA/Mixer input 1&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA/Mixer mix output to Scope input 1 and Scope out to Host audio L&lt;/li&gt;
+&lt;li&gt;Connect Reftone V/Oct to Volt Meter input 1&lt;/li&gt;
+&lt;li&gt;Selecting the first three steps of ADDR-SEQ in turn, use the Reftone pitch and octave knobs to get the voltage for the notes you need, A, B, and E, and set the corresponding step voltage. Make sure the sequencer is set for 3 steps only&lt;/li&gt;
+&lt;li&gt;Try runnning the clock at different BPMs; a target BPM around 225 is suggested&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/chiptune-single-arp.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add Reftone, Volt meter, BPM Clock, ADDR-SEQ, VCO, QuadVCA/Mixer, Scope, and Host audio&lt;/li&gt;
+&lt;li&gt;Connect Clock 16ths out to ADDR-SEQ clock in&lt;/li&gt;
+&lt;li&gt;Connect ADDR-SEQ out to V/Oct of the VCO &lt;/li&gt;
+&lt;li&gt;Connect VCO square out to QuadVCA/Mixer input 1&lt;/li&gt;
+&lt;li&gt;Connect QuadVCA/Mixer mix output to Scope input 1 and Scope out to Host audio L&lt;/li&gt;
+&lt;li&gt;Connect Reftone V/Oct to Volt Meter input 1&lt;/li&gt;
+&lt;li&gt;Selecting the first three steps of ADDR-SEQ in turn, use the Reftone pitch and octave knobs to get the voltage for the notes you need, A, B, and E, and set the corresponding step voltage. Make sure the sequencer is set for 3 steps only&lt;/li&gt;
+&lt;li&gt;Try runnning the clock at different BPMs; a target BPM around 225 is suggested&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/chiptune-single-arp.png'&gt;">Solution</button>
+        <button type="button" onclick="setchiptune_single_arpIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="chiptune_single_arp-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setchiptune_single_arpIframe(url){
+  var chiptune_single_arpIframe = document.getElementById("chiptune_single_arp-iframe");
+  chiptune_single_arpIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:chiptune-single-arp)" width="100%" />
-<p class="caption">(\#fig:chiptune-single-arp)(ref:chiptune-single-arp)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:chiptune-single-arp)(ref:chiptune-single-arp)</p></div>
 
 ### LFO PWM
 
@@ -254,12 +780,95 @@ Try patching up the LFO into a PWM and ADSR using the button in Figure \@ref(fig
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setchiptune_single_arp_pwmIframe('https://cardinal.olney.ai?patchurl=chiptune-single-arp.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#chiptune_single_arp_pwm">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="chiptune_single_arp_pwm" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="chiptune_single_arp_pwmLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="chiptune_single_arp_pwmLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add an LFO to the left of the VCO, and add an ADSR to the right of the VCO&lt;/li&gt;
+&lt;li&gt;Connect LFO triangle out to VCO PWM&lt;/li&gt;
+&lt;li&gt;Connect Clock 16ths to ADSR gate &lt;/li&gt;
+&lt;li&gt;Connect ADSR out to QuadVCA/Mixer CV input 1&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Adjust the PWM width manually, deciding if you want a unipolar or bipolar LFO offset&lt;/li&gt;
+&lt;li&gt;Adjust the LFO rate and the PWM attenuator knob to change the speed and depth of the modulation&lt;/li&gt;
+&lt;li&gt;Manually adjust the ADSR parameters to taste&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/chiptune-single-arp-pwm.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add an LFO to the left of the VCO, and add an ADSR to the right of the VCO&lt;/li&gt;
+&lt;li&gt;Connect LFO triangle out to VCO PWM&lt;/li&gt;
+&lt;li&gt;Connect Clock 16ths to ADSR gate &lt;/li&gt;
+&lt;li&gt;Connect ADSR out to QuadVCA/Mixer CV input 1&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scope waveshape&lt;ul&gt;
+&lt;li&gt;Adjust the PWM width manually, deciding if you want a unipolar or bipolar LFO offset&lt;/li&gt;
+&lt;li&gt;Adjust the LFO rate and the PWM attenuator knob to change the speed and depth of the modulation&lt;/li&gt;
+&lt;li&gt;Manually adjust the ADSR parameters to taste&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/chiptune-single-arp-pwm.png'&gt;">Solution</button>
+        <button type="button" onclick="setchiptune_single_arp_pwmIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="chiptune_single_arp_pwm-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setchiptune_single_arp_pwmIframe(url){
+  var chiptune_single_arp_pwmIframe = document.getElementById("chiptune_single_arp_pwm-iframe");
+  chiptune_single_arp_pwmIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:chiptune-single-arp-pwm)" width="100%" />
-<p class="caption">(\#fig:chiptune-single-arp-pwm)(ref:chiptune-single-arp-pwm)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:chiptune-single-arp-pwm)(ref:chiptune-single-arp-pwm)</p></div>
 
 ### Secondary sequencer for transposition
 
@@ -278,7 +887,7 @@ Try patching up the transposing sequencer and mixer using the button in Figure \
 (ref:two-sequencers-mixed) [YouTube video](https://youtu.be/BlHnw4rgUEc) of a slow-motion arpeggio (left) voltage mixed with the output of another sequencer (middle) to produce a transposed arpgeggio that changes with each bar (right).
 
 <div class="figure">
-<img src="downloadFigs4latex/two-sequencers-mixed.jpg" alt="(ref:two-sequencers-mixed)"  />
+<iframe src="https://www.youtube.com/embed/BlHnw4rgUEc?start=0" width="672" height="400px" data-external="1"></iframe>
 <p class="caption">(\#fig:two-sequencers-mixed)(ref:two-sequencers-mixed)</p>
 </div>
 
@@ -286,12 +895,89 @@ Try patching up the transposing sequencer and mixer using the button in Figure \
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setchiptune_single_arp_pwm_transposeIframe('https://cardinal.olney.ai?patchurl=chiptune-single-arp-pwm.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#chiptune_single_arp_pwm_transpose">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="chiptune_single_arp_pwm_transpose" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="chiptune_single_arp_pwm_transposeLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="chiptune_single_arp_pwm_transposeLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add a second ADDR-SEQ to the right of the existing one, and add mixer to the right of the new ADDR-SEQ&lt;/li&gt;
+&lt;li&gt;Connect Clock Bar to the new ADDR-SEQ clock in&lt;/li&gt;
+&lt;li&gt;Connect the outs of the two ADDR-SEQ to the new QuadVCA/Mixer inputs 1 and 2&lt;/li&gt;
+&lt;li&gt;Connect  QuadVCA/Mixer out to VCO V/Oct&lt;/li&gt;
+&lt;li&gt;Selecting each of the eight ADDR-SEQ steps in turn, use the Reftone pitch and octave knobs to get the voltage for the notes you need, e.g. G#, D#, C#, C, G#, D#, E, and C - note most of these are just the negative of the original arpeggio voltages except C which is zero and E.  Make sure the sequencer is set for all 8 steps&lt;/li&gt;
+&lt;li&gt;Try different clock settings and different beat divisions for both sequencers&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/chiptune-single-arp-pwm-transpose.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add a second ADDR-SEQ to the right of the existing one, and add mixer to the right of the new ADDR-SEQ&lt;/li&gt;
+&lt;li&gt;Connect Clock Bar to the new ADDR-SEQ clock in&lt;/li&gt;
+&lt;li&gt;Connect the outs of the two ADDR-SEQ to the new QuadVCA/Mixer inputs 1 and 2&lt;/li&gt;
+&lt;li&gt;Connect  QuadVCA/Mixer out to VCO V/Oct&lt;/li&gt;
+&lt;li&gt;Selecting each of the eight ADDR-SEQ steps in turn, use the Reftone pitch and octave knobs to get the voltage for the notes you need, e.g. G#, D#, C#, C, G#, D#, E, and C - note most of these are just the negative of the original arpeggio voltages except C which is zero and E.  Make sure the sequencer is set for all 8 steps&lt;/li&gt;
+&lt;li&gt;Try different clock settings and different beat divisions for both sequencers&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/chiptune-single-arp-pwm-transpose.png'&gt;">Solution</button>
+        <button type="button" onclick="setchiptune_single_arp_pwm_transposeIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="chiptune_single_arp_pwm_transpose-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setchiptune_single_arp_pwm_transposeIframe(url){
+  var chiptune_single_arp_pwm_transposeIframe = document.getElementById("chiptune_single_arp_pwm_transpose-iframe");
+  chiptune_single_arp_pwm_transposeIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:chiptune-single-arp-pwm-transpose)" width="100%" />
-<p class="caption">(\#fig:chiptune-single-arp-pwm-transpose)(ref:chiptune-single-arp-pwm-transpose)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:chiptune-single-arp-pwm-transpose)(ref:chiptune-single-arp-pwm-transpose)</p></div>
 
 ### Hats and kick
 
@@ -305,11 +991,90 @@ Try patching up hats and kick with their own sequencers using the button in Figu
 
 <!-- MODAL HTML BLOCK -->
 
+```{=html}
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setchiptune_single_arp_pwm_transpose_hats_kickIframe('https://cardinal.olney.ai?patchurl=chiptune-single-arp-pwm-transpose.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#chiptune_single_arp_pwm_transpose_hats_kick">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="chiptune_single_arp_pwm_transpose_hats_kick" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="chiptune_single_arp_pwm_transpose_hats_kickLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="chiptune_single_arp_pwm_transpose_hats_kickLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add a TRG, Noiz, and ADSR on the bottom row&lt;/li&gt;
+&lt;li&gt;Connect Clock 8ths to TRG clock in&lt;/li&gt;
+&lt;li&gt;Connect TRG gate out to ADSR gate in&lt;/li&gt;
+&lt;li&gt;Connect Noiz blue out to the main QuadVCA/Mixer input 2 and ADSR out to the CV control of that same mixer channel&lt;/li&gt;
+&lt;li&gt;Adjust the TRG steps down to 8 and select steps for the hats and adjust the ADSR envelope to suit&lt;/li&gt;
+&lt;li&gt;Repeat these steps but use a VCO sine out instead of Noiz&lt;/li&gt;
+&lt;li&gt;Adjust the main mix out levels and rhythms to match chiptune as best you can&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/chiptune-single-arp-pwm-transpose-hats-kick.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Add a TRG, Noiz, and ADSR on the bottom row&lt;/li&gt;
+&lt;li&gt;Connect Clock 8ths to TRG clock in&lt;/li&gt;
+&lt;li&gt;Connect TRG gate out to ADSR gate in&lt;/li&gt;
+&lt;li&gt;Connect Noiz blue out to the main QuadVCA/Mixer input 2 and ADSR out to the CV control of that same mixer channel&lt;/li&gt;
+&lt;li&gt;Adjust the TRG steps down to 8 and select steps for the hats and adjust the ADSR envelope to suit&lt;/li&gt;
+&lt;li&gt;Repeat these steps but use a VCO sine out instead of Noiz&lt;/li&gt;
+&lt;li&gt;Adjust the main mix out levels and rhythms to match chiptune as best you can&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/chiptune-single-arp-pwm-transpose-hats-kick.png'&gt;">Solution</button>
+        <button type="button" onclick="setchiptune_single_arp_pwm_transpose_hats_kickIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="chiptune_single_arp_pwm_transpose_hats_kick-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setchiptune_single_arp_pwm_transpose_hats_kickIframe(url){
+  var chiptune_single_arp_pwm_transpose_hats_kickIframe = document.getElementById("chiptune_single_arp_pwm_transpose_hats_kick-iframe");
+  chiptune_single_arp_pwm_transpose_hats_kickIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
+```
 
 <!-- CAPTION BLOCK -->
-<div class="figure">
-<img src="images/launch-virtual-modular-button.png" alt="(ref:chiptune-single-arp-pwm-transpose-hats-kick)" width="100%" />
-<p class="caption">(\#fig:chiptune-single-arp-pwm-transpose-hats-kick)(ref:chiptune-single-arp-pwm-transpose-hats-kick)</p>
-</div>
+<div class="figure" style="margin-top: 0px;padding-top: 0px;"><p class="caption">(\#fig:chiptune-single-arp-pwm-transpose-hats-kick)(ref:chiptune-single-arp-pwm-transpose-hats-kick)</p></div>
 
 

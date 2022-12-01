@@ -1,8 +1,10 @@
-book_filename: "ct-modular-book"
-new_session: true
-before_chapter_script: _common.R
-delete_merged_file: true
+book_filename: ct-modular-book
+new_session: yes
+before_chapter_script:
+- _common.R
+- R/webex.R
+delete_merged_file: yes
 language:
   ui:
-    chapter_name: "Chapter "
-output_dir: "docs"
+    chapter_name: 'Chapter '
+output_dir: docs

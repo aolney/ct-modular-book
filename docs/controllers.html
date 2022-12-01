@@ -45,6 +45,7 @@
     }
   </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -113,7 +114,7 @@ This means that, once started, they continue to produce control signals without 
 <!-- - sequencing drums off a clock using clock divisions -->
 <p>Clocks in modular synthesis typically perform two functions.
 The first function is synchronization.
-Just like group of musicians may use a common reference to stay on the beat, e.g. drums, different modules can use a common clock to stay in time with each other.
+Just like group of musicians may use a common reference to stay on the beat, e.g. drums, different modules can use a common clock to stay in time with each other.
 A modular clock is similar in several respects to a metronome, which is a musical aid for keeping time.
 Metronomes like the one shown in Figure <a href="controllers.html#fig:metronome">5.1</a> create a regular click or pulse that is adjustable to a given beats per minute (BPM).
 For reference, most current music ranges from 80-160 BPM.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://blog.musiio.com/2021/08/19/which-musical-tempos-are-people-streaming-the-most/" class="uri"&gt;https://blog.musiio.com/2021/08/19/which-musical-tempos-are-people-streaming-the-most/&lt;/a&gt;&lt;/p&gt;'><sup>45</sup></a>
@@ -141,14 +142,14 @@ Since clocks are not involved in recording per se, they typically have start, st
 A reset signal is analogous to a rewind in the sense that all receiving modules will start at their initial states rather than where they left off.
 Resets are a useful tool in both composition and recording.
 Each of the transport controls is likely to have its own button for manual control, plus an output jack to send the control signal to downstream modules.</p>
-<p>As with all things modular, it’s important to realize that although there are specialized clock modules, anything that produces a trigger/gate pulse can be used as a clock.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Some modules will accept non-rectangular signals as a clock signal as long as the voltage exceeds some internal threshold.&lt;/p&gt;"><sup>48</sup></a>
+<p>As with all things modular, it's important to realize that although there are specialized clock modules, anything that produces a trigger/gate pulse can be used as a clock.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Some modules will accept non-rectangular signals as a clock signal as long as the voltage exceeds some internal threshold.&lt;/p&gt;"><sup>48</sup></a>
 Since clocks are sources of triggers, clocks can also be used for non-clock purposes.</p>
 <div id="clock-under-a-scope" class="section level3" number="5.1.1">
 <h3>
 <span class="header-section-number">5.1.1</span> Clock under a scope<a class="anchor" aria-label="anchor" href="#clock-under-a-scope"><i class="fas fa-link"></i></a>
 </h3>
-<p>To get a better sense of what’s going on, let’s take a look at clock output on a scope.
-Try connecting a scope to a clock’s main output and bar output using the button in Figure <a href="controllers.html#fig:bar-beat-bpm-scope">5.2</a>.
+<p>To get a better sense of what's going on, let's take a look at clock output on a scope.
+Try connecting a scope to a clock's main output and bar output using the button in Figure <a href="controllers.html#fig:bar-beat-bpm-scope">5.2</a>.
 You should see regular pulses off the main output and a different color bar output overlaid every 4th beat using the default time signature.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -342,7 +343,7 @@ Each pulse of the clock will advance the sequencer by one step.
 Any given step will have one or more control signals pre-stored.
 On each step, these control signals will be sent to the corresponding output jacks.
 When a sequencer reaches the last available step, it will loop back to the first step.
-Sequencers typically have a switch to lower the number of available steps from the hardware maximum, e.g. from eight steps to seven.
+Sequencers typically have a switch to lower the number of available steps from the hardware maximum, e.g. from eight steps to seven.
 The steps for a given control signal are respectively referred to as a <em>channel</em>.</p>
 <!-- Sequencers are more general than clocks in both the variety of control signals they support as well as the timings of those signals. -->
 <p>In analogue hardware, sequencers supporting only one control signal tend to be very compact and require external clock inputs.
@@ -355,8 +356,8 @@ As previously discussed, these control signals naturally correspond to initiatin
 <span class="header-section-number">5.2.1</span> Clocks as sequencers<a class="anchor" aria-label="anchor" href="#clocks-as-sequencers"><i class="fas fa-link"></i></a>
 </h3>
 <p>You could consider a clock as a kind of sequencer that produces triggers on a single channel.
-Let’s look at this by making a bass drum patch driven by a clock, which will form the basis of other patches in this section.
-You should refer back to Section <a href="basic-modeling-concepts.html#controlling-note-dynamics-volume-during-note">4.4.5</a> if you don’t recall some of the modules involved.
+Let's look at this by making a bass drum patch driven by a clock, which will form the basis of other patches in this section.
+You should refer back to Section <a href="basic-modeling-concepts.html#controlling-note-dynamics-volume-during-note">4.4.5</a> if you don't recall some of the modules involved.
 This <em>very</em> basic kick patch uses a sine wave from the VCO and controls the amplitude of the sine wave with a fast attack, medium decay envelope.
 Try making as much of the patch as possible using the button in
 Figure <a href="controllers.html#fig:clock-kick-bpm-vco-adsr-vca-scope-out">5.4</a> before referring to the instructions.</p>
@@ -470,10 +471,10 @@ Ultimately any module that produces the signals we want can be used as a sequenc
 <span class="header-section-number">5.2.2</span> Trigger sequencers<a class="anchor" aria-label="anchor" href="#trigger-sequencers"><i class="fas fa-link"></i></a>
 </h3>
 <p>The main difference between a clock and a trigger sequencer is the precise control over the timing of the triggers.
-Let’s look at a simple trigger-based sequencer to extend the previous kick patch.
+Let's look at a simple trigger-based sequencer to extend the previous kick patch.
 Try adding the TRG module between the Clock and VCO using the button in
 Figure <a href="controllers.html#fig:trg-kick-bpm-trg-vco-adsr-vca-scope-out">5.5</a>.
-Once you have it set up, activate a pattern of steps that isn’t strictly regular, e.g. some beats immediately after each other and some spaced apart.
+Once you have it set up, activate a pattern of steps that isn't strictly regular, e.g. some beats immediately after each other and some spaced apart.
 Each activated step will issue a gate.
 Control of irregular timings is where trigger sequencers really shine compared to sequencing off a clock.</p>
 
@@ -572,11 +573,11 @@ Figure 5.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for a trigge
 <p>Control voltage sequencers replay voltage for each step.
 Typically the voltage is constant for the duration of the step, which is useful for sending V/Oct signals to play notes.
 <!-- When sequencing multiple instruments, you have a choice between using a single sequencer that can handle everything or multiple separate sequencers. -->
-To keep things simple and to build on the previous patch, let’s create a saw-based synth voice whose pitch is controlled by a separate control voltage sequencer.
+To keep things simple and to build on the previous patch, let's create a saw-based synth voice whose pitch is controlled by a separate control voltage sequencer.
 Try duplicating the VCO, ADSR, and VCA modules from the last patch and controlling the VCO with the ADDR-SEQ module by using the button in
 Figure <a href="controllers.html#fig:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out">5.6</a>.
 Each sequencer step has a voltage controlled by a knob, so turning these knobs sets the note pitch for each step.
-Because the volumes of these two instruments, or voices, is so different, you’ll need to run each into a mixer module rather than directly into the host audio.</p>
+Because the volumes of these two instruments, or voices, is so different, you'll need to run each into a mixer module rather than directly into the host audio.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -689,7 +690,7 @@ Figure 5.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for a trigge
 <!-- Let's consider each of these in turn. -->
 <p>A limitation with the ADDR-SEQ module is that it always plays a note and never pauses, or <a href="https://en.wikipedia.org/wiki/Rest_(music)">rests</a>.
 One option would be to adjust the pitch on a step so it is outside the range of human hearing.
-While this option is simple and effective, it’s possible that the sound will interfere with other sound waves in ways that become audible.
+While this option is simple and effective, it's possible that the sound will interfere with other sound waves in ways that become audible.
 Another option is to replace the clock signal into the ADDR-SEQ module with the output of the trigger sequencer.
 Since the trigger sequencer has steps with no trigger, this means that no clock would be sent to ADDR-SEQ on these steps.
 The effect of using the trigger sequencer as a clock depends, however, on how the VCO envelope is gated, either with the clock or with trigger sequencer.
@@ -895,9 +896,9 @@ This limitation can be somewhat addressed by using variable length release on re
 A longer release would lengthen the duration of the sound, but for any instrument that has a sustain, the volume would not be correct using this method.
 The fundamental problem is that the gate into the ADSR is a fixed width which results in a fixed length note.
 What is needed is to change the clock signal into a gate where the length of the gate matches the length of the desired note.
-Ideally we’d use a separate control voltage sequencer to set the gate lengths for us, but in the interest of keeping things relatively simple, let’s control gate length manually.
+Ideally we'd use a separate control voltage sequencer to set the gate lengths for us, but in the interest of keeping things relatively simple, let's control gate length manually.
 Try to add a trigger to gate module that takes the clock and sends out a gate to the saw envelope using the button in Figure <a href="controllers.html#fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out">5.8</a>.
-As you move the gate length knob, you’ll hear that the note lengths change correspondingly.</p>
+As you move the gate length knob, you'll hear that the note lengths change correspondingly.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -1013,7 +1014,177 @@ Figure 5.9: The SEQ3 sequencer module from VCVRack. The trigger sequence channel
 </div>
 </div>
 
-  <div class="chapter-nav">
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><div class="chapter-nav">
 <div class="prev"><a href="basic-modeling-concepts.html"><span class="header-section-number">4</span> Basic Modeling Concepts</a></div>
 <div class="next"><a href="generators.html"><span class="header-section-number">6</span> Generators</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -1051,7 +1222,7 @@ Figure 5.9: The SEQ3 sequencer module from VCVRack. The trigger sequence channel
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -45,6 +45,7 @@
     }
   </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -115,12 +116,12 @@ The 303 was widely considered as difficult to use, which together with a $1300 p
 Figure 13.1: A Roland TB-303. Image <a href="https://commons.wikimedia.org/wiki/File:Roland_TB-303_Panel.jpg">public domain</a>.
 </p>
 </div>
-<p>The 303’s failure in the marketplace, however, meant that it was cheaply available in the secondhand market.
+<p>The 303's failure in the marketplace, however, meant that it was cheaply available in the secondhand market.
 Dance music artists, most notably in Chicago, began incorporating the 303 into their performances, and the 303 became a signature sound of <a href="https://en.wikipedia.org/wiki/Acid_house">acid house</a>.
 While the 303 was designed for bass guitar sounds, which are a common element of <a href="https://en.wikipedia.org/wiki/Disco">disco</a> dance music, the 303 could also easily (and perhaps more easily) produce sounds that are nothing like a bass guitar or any other instrument from that time.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Squelch, chirp, and scream are common descriptors of the 303 sound.&lt;/p&gt;"><sup>97</sup></a></p>
 <p>The way the 303 was used in acid house may be due to its extremely limited sequencer.
 The 303 sequencer stored pitch and time information separately, and each of these were entered using separate modes.
-As a result, it was not possible to edit the complete sequence in real time, i.e. during performance.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;It is possible to &lt;a href="https://tinyloops.com/tb303/quick_results.html#02"&gt;live-play&lt;/a&gt; the 303 and &lt;a href="https://tinyloops.com/tb303/quick_results.html#07"&gt;switch between tracks&lt;/a&gt;, but this is not the same as editing a running sequence.&lt;/p&gt;'><sup>98</sup></a>
+As a result, it was not possible to edit the complete sequence in real time, i.e. during performance.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;It is possible to &lt;a href="https://tinyloops.com/tb303/quick_results.html#02"&gt;live-play&lt;/a&gt; the 303 and &lt;a href="https://tinyloops.com/tb303/quick_results.html#07"&gt;switch between tracks&lt;/a&gt;, but this is not the same as editing a running sequence.&lt;/p&gt;'><sup>98</sup></a>
 However, it was very easy to change the timbre of an existing sequence using various parameter knobs (mostly across the top in Figure <a href="tb-303.html#fig:303">13.1</a>).
 The combined difficulty of sequencing and the ease of using parameter knobs to sculpt timbres led early acid house pioneers to focus on the later.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/" class="uri"&gt;https://www.dwrl.utexas.edu/2016/11/22/rhetorical-synthesis-the-story-of-the-roland-tb-303/&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>
 Thus repeating sequences with shifting timbres became a defining feature of acid house, as shown by the early example in Figure <a href="tb-303.html#fig:acid-tracks">13.2</a>.</p>
@@ -147,9 +148,9 @@ Recall the problem solving stages are:</p>
 <li>Evaluate the solution</li>
 </ul>
 <p>For the understanding the problem stage, we need to know the defining characteristics of the 303 and what makes it special.
-According to Robin Whittle, developer of the Devil Fish 303 mod, the most important aspects of the 303 sound are its sequencer, filter, filter envelope, and the oscillator to a minor extent.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Most information is on Robin’s &lt;a href="https://www.firstpr.com.au/rwi/dfish/index.html"&gt;main website&lt;/a&gt; including the Devil Fish manual. Additional information is on the &lt;a href="http://www.retrosynth.com/ah/"&gt;Analogue Heaven mailing list&lt;/a&gt;.&lt;/p&gt;'><sup>100</sup></a></p>
-<p>For the making a plan stage, Whittle’s observations suggest a plan based around decomposition, namely that the 303 can be considered as a collection of modules.
-Any 303 function that is generic can be satisfied with generic modules, while the functions contributing to the 303’s distinctive sound can be addressed independently as subproblems.
+According to Robin Whittle, developer of the Devil Fish 303 mod, the most important aspects of the 303 sound are its sequencer, filter, filter envelope, and the oscillator to a minor extent.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Most information is on Robin's &lt;a href=&quot;https://www.firstpr.com.au/rwi/dfish/index.html&quot;&gt;main website&lt;/a&gt; including the Devil Fish manual. Additional information is on the &lt;a href=&quot;http://www.retrosynth.com/ah/&quot;&gt;Analogue Heaven mailing list&lt;/a&gt;.&lt;/p&gt;"><sup>100</sup></a></p>
+<p>For the making a plan stage, Whittle's observations suggest a plan based around decomposition, namely that the 303 can be considered as a collection of modules.
+Any 303 function that is generic can be satisfied with generic modules, while the functions contributing to the 303's distinctive sound can be addressed independently as subproblems.
 Figure <a href="tb-303.html#fig:tb303-annotated">13.3</a> shows how the 303 interface is loosely organized around modular concepts like oscillators, filters, and envelopes, further supporting an overall decomposition strategy for emulating a 303 in modular.</p>
 
 <div class="figure">
@@ -173,7 +174,7 @@ If we were trying to recreate the 303 in a broad sense, then additional evaluati
 <h2>
 <span class="header-section-number">13.3</span> Sequencing<a class="anchor" aria-label="anchor" href="#sequencing"><i class="fas fa-link"></i></a>
 </h2>
-<p>Let’s begin with understanding the sequencing problem.
+<p>Let's begin with understanding the sequencing problem.
 The 303 has a maximum pattern length of 16 steps.
 Because reducing the pattern length is somewhat tedious, many 303 patterns are 16 steps.
 By default, the steps are staccato 16th notes in 4/4 time.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The 303 also has a triplet mode, but that is not generally considered a signature component of the sound.&lt;/p&gt;"><sup>101</sup></a>
@@ -184,13 +185,13 @@ For now, think of the accent as producing a slightly louder note, and a slide as
 According to Whittle, the accent and slide are the two components of the sequencer that are the most important to the overall sound of a 303.</p>
 <p>Figure <a href="tb-303.html#fig:tb303-slide">13.4</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Adapted from &lt;a href="https://www.firstpr.com.au/rwi/dfish/303-slide.html" class="uri"&gt;https://www.firstpr.com.au/rwi/dfish/303-slide.html&lt;/a&gt;.&lt;/p&gt;'><sup>102</sup></a> shows an example 303 clock and gate pattern modified by a slide.
 Each step in the example has a different note and is represented by a clock color.
-Gates for a single 16th note extend less than a full step’s worth of clock pulses, specifically three pulses and the positive portion of the fourth pulse.
+Gates for a single 16th note extend less than a full step's worth of clock pulses, specifically three pulses and the positive portion of the fourth pulse.
 Short gates relative to steps give the 303 its staccato note feel.
 Extended gates, in contrast to regular gates, extend through the step on which they are placed and into the next step.
-In the example’s second row, a slide has been placed on the red note, causing its gate to extend through the blue note’s gate.
+In the example's second row, a slide has been placed on the red note, causing its gate to extend through the blue note's gate.
 Regular gates and extended gates control the envelopes for the filter and volume.
 In addition to these gates, slide gates control the portamento from one note to the next.
-In the example’s third row, the red note begins its slide into the blue note when the blue note starts, and the slide circuit stays on until the purple note.
+In the example's third row, the red note begins its slide into the blue note when the blue note starts, and the slide circuit stays on until the purple note.
 Accents (not shown) are in time with the gates and further affect the filter and volume envelopes.</p>
 
 <div class="figure">
@@ -206,13 +207,13 @@ Figure 13.4: Clock, gate, and slide behavior of a 303 for four notes across four
 <li>Gates to control slide</li>
 <li>Presence of accents</li>
 </ul>
-<p>To make a plan, let’s consider some of our previous sequencing approaches from Chapter <a href="complex-controllers.html#complex-controllers">10</a>.
+<p>To make a plan, let's consider some of our previous sequencing approaches from Chapter <a href="complex-controllers.html#complex-controllers">10</a>.
 First, clocks alone are clearly insufficient because sometimes we need rests.
 We could accomplish rests using clock divisions and logic, but the variable length of notes and rests in the 303 would seem to make that approach very complicated, even if it is possible.
 The two remaining obvious choices are modifying gates and using an LFO as a speed variable clock.
 In the modifying gates approach, we could trigger gates on steps with notes and arbitrarily extend gate lengths for continued notes/slides and rests.
-In the LFO clock approach, an LFO would be synced by a clock, and we’d increase/decrease the speed of the clock to change gate duration.
-Comparing these two approaches with the sequencing needs of the 303, it seems that the speed variable clock has capabilities that aren’t needed here, like adding multiple beats, e.g. subdividing 1/16th notes.
+In the LFO clock approach, an LFO would be synced by a clock, and we'd increase/decrease the speed of the clock to change gate duration.
+Comparing these two approaches with the sequencing needs of the 303, it seems that the speed variable clock has capabilities that aren't needed here, like adding multiple beats, e.g. subdividing 1/16th notes.
 For the goal of emulating 303 sequencing, the modifying gates approach seems like it will accomplish the goals of variable length gates and rests with a minimum of complexity.</p>
 <p>Returning to the list of sequencing elements we need to represent, most of the elements have an on/off flavor except for pitches: note/rest, accents, slides, and extended gates are either present or not.
 This presence/absence flavor suggests that these elements are best represented using trigger sequencers that represent presence/absence of something at each step.
@@ -334,7 +335,7 @@ Figure 13.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for a 303-s
 </p>
 </div>
 <p>At this point, the song should be somewhat recognizable but also recognizably not right.
-The 16th note gates generated by the clock are the right length for the 303’s regular gates, but 9/16 of the steps have slides, and these should be implemented as extended gates and not short gates.
+The 16th note gates generated by the clock are the right length for the 303's regular gates, but 9/16 of the steps have slides, and these should be implemented as extended gates and not short gates.
 Extended gates should happen either when a step has been marked as a slide gate or when it has been marked as an extended gate.
 Additionally, the extended gate should only occur when the step has a note.
 The flavor of these conditions suggest logic should be used to decide when an extended gate should fire.
@@ -444,15 +445,15 @@ Figure 13.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for improvi
 <p>With the patch in Figure <a href="tb-303.html#fig:tb303-seq-extendgate">13.6</a>, the song may sound more correct but flawed in a different way.
 This is because the last patch replaced all gates with extended gates.
 Since a few gates are regular gates, they are currently not being generated at all.
-Ideally, we’d use logic to define the length of the gate to generate and use the same mechanism to generate both regular and extended gates.
+Ideally, we'd use logic to define the length of the gate to generate and use the same mechanism to generate both regular and extended gates.
 Unfortunately, the module being used to generate extended gates does not accept CV to control gate length.
 As a result, we need two sources of gates and to send gates from both sources to the ADSR.
 One option would be to use a sequential switch that accepted the gates from both sources and then selected one to send through using logic.
 This would require several additional modules.
 A simpler approach is to use a mixer to mix extended gates and regular gates from the step/rest sequencer.
-This creates lumpy gates, but envelopes generally only pay attention to the rising and falling edges of a gate, so the lumpiness often won’t matter.
+This creates lumpy gates, but envelopes generally only pay attention to the rising and falling edges of a gate, so the lumpiness often won't matter.
 Try extending the last patch by mixing in regular gates using the button in Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate">13.7</a>.
-We’ll throw in some logic in order to show that the logic doesn’t actually matter in this case.</p>
+We'll throw in some logic in order to show that the logic doesn't actually matter in this case.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -557,9 +558,9 @@ Figure 13.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for extendi
 </div>
 <p>The final element of the sequencer we need to implement are the slide gates.
 Recall that slide gates start on the step after the marked step.
-For example, if step 8 is marked for a slide, step 8 will have its gate extended, but the slide gate which controls the portamento doesn’t start until step 9.
+For example, if step 8 is marked for a slide, step 8 will have its gate extended, but the slide gate which controls the portamento doesn't start until step 9.
 Delayed gates again offer a convenient solution, but again they need to be tuned to the length of a step as well as filtering to glue together overlapping gates.
-Unfortunately, it’s less clear what the actual slide should look like in terms of its shape, which is important to know for slewing the V/Oct during the duration of the gate.
+Unfortunately, it's less clear what the actual slide should look like in terms of its shape, which is important to know for slewing the V/Oct during the duration of the gate.
 The Din Sync reference recordings do not have an example of slide.
 Plotting the frequency spectrum of the song in Audacity is one way to get the frequencies of a window of audio, but extrapolating that to the change of frequencies over time seems so fraught with error that it is better to attempt setting the slew by ear.
 Try extending the last patch with slide gates and tune the V/Oct slew using the button in Figure <a href="tb-303.html#fig:tb303-seq-extendgate-reggate-slidegate">13.8</a>.</p>
@@ -675,13 +676,13 @@ Figure 13.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for extendi
 <p>The waveshapes produced by the 303 are a bit unusual in the reference recordings, as shown in the top row of Figure <a href="tb-303.html#fig:tb303-square-saw-hpf-compare">13.9</a>.
 Curiously, each of these waves is very similar to high pass filtered versions of the other wave, as shown in the bottom two rows of Figure <a href="tb-303.html#fig:tb303-square-saw-hpf-compare">13.9</a>.
 Based on the reference recordings, we may achieve a more accurate sound by high pass filtering the opposing wave.
-That’s not to say that this is how it was done in the hardware but rather that it could be a reasonable strategy for recreating the sound in modular.
-Because the reference recordings are all at a single note, it’s unclear how the filtering could or should track V/Oct.</p>
+That's not to say that this is how it was done in the hardware but rather that it could be a reasonable strategy for recreating the sound in modular.
+Because the reference recordings are all at a single note, it's unclear how the filtering could or should track V/Oct.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:tb303-square-saw-hpf-compare"></span>
-<img src="images/tb303-square-saw-hpf-compare.png" alt="Top row: square (left) and saw (right) waves for a C note from the Din Sync reference recordings. Note neither waveshape matches the canonical form. Middle row: square wave (left) that is high pass filtered (right), creating a shape similar to the reference recording saw wave. Bottom row: saw wave (left) that is high pass filtered (right), creating a shape similar to the reference recording square wave." width="100%"><p class="caption">
-Figure 13.9: Top row: square (left) and saw (right) waves for a C note from the Din Sync reference recordings. Note neither waveshape matches the canonical form. Middle row: square wave (left) that is high pass filtered (right), creating a shape similar to the reference recording saw wave. Bottom row: saw wave (left) that is high pass filtered (right), creating a shape similar to the reference recording square wave.
+<img src="images/tb303-square-saw-hpf-compare.png" alt="Top row: square (left) and saw (right) waves for a C note from the Din Sync 303 reference recordings. Note neither waveshape matches the canonical form. Middle row: square wave (left) that is high pass filtered (right), creating a shape similar to the reference recording saw wave. Bottom row: saw wave (left) that is high pass filtered (right), creating a shape similar to the reference recording square wave." width="100%"><p class="caption">
+Figure 13.9: Top row: square (left) and saw (right) waves for a C note from the Din Sync 303 reference recordings. Note neither waveshape matches the canonical form. Middle row: square wave (left) that is high pass filtered (right), creating a shape similar to the reference recording saw wave. Bottom row: saw wave (left) that is high pass filtered (right), creating a shape similar to the reference recording square wave.
 </p>
 </div>
 <p>Another quirk of the 303 oscillator is that, according to Whittle, the duty cycle of the square wave at high pitches is about 45% but about 71% at the lowest pitches.
@@ -707,7 +708,7 @@ Try extending the last patch with these oscillator modifications using the butto
         <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Stop, reset, and run the sequencers to make sure they are in sync&lt;/li&gt;
-&lt;li&gt;Move the VCO down to the right of the slide gate sectin&lt;/li&gt;
+&lt;li&gt;Move the VCO down to the right of the slide gate section&lt;/li&gt;
 &lt;li&gt;Add two VCFs to the right of the VCO and tune their cutoffs to 82 Hz&lt;/li&gt;
 &lt;li&gt;Add Bog Audio Switch81 and Scope to the right of the two VCFs &lt;/li&gt;
 &lt;li&gt;Connect VCO square and saw outs to the respective ins of the VCFs&lt;/li&gt;
@@ -728,7 +729,7 @@ Try extending the last patch with these oscillator modifications using the butto
         <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
         <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
 &lt;li&gt;Stop, reset, and run the sequencers to make sure they are in sync&lt;/li&gt;
-&lt;li&gt;Move the VCO down to the right of the slide gate sectin&lt;/li&gt;
+&lt;li&gt;Move the VCO down to the right of the slide gate section&lt;/li&gt;
 &lt;li&gt;Add two VCFs to the right of the VCO and tune their cutoffs to 82 Hz&lt;/li&gt;
 &lt;li&gt;Add Bog Audio Switch81 and Scope to the right of the two VCFs &lt;/li&gt;
 &lt;li&gt;Connect VCO square and saw outs to the respective ins of the VCFs&lt;/li&gt;
@@ -797,7 +798,7 @@ Figure 13.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for extend
 <p>The filter on the 303 has been the subject of much debate and speculation.
 Tim Stinchcombe has done <a href="https://www.timstinchcombe.co.uk/index.php?pge=diode">extensive analysis of the filter and its transfer function</a>.
 His results indicate that the filter is a 24 dB, 4-pole filter, and he suggests that perhaps the reason it is commonly described as an 18 dB filter is that it behaves more like an 18 dB filter over much of its audible range.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Perhaps there were legal reasons for Roland to go along with the 18 dB description. The 303 diode ladder filter is seen as similar to the Moog transistor ladder filter, which was protected by patent at the time the 303 was developed.&lt;/p&gt;"><sup>103</sup></a>
-The 303’s filter no doubt plays a significant role in its sound, but in our virtual modular environment we are rather constrained by a lack of filter options.
+The 303's filter no doubt plays a significant role in its sound, but in our virtual modular environment we are rather constrained by a lack of filter options.
 Another diode ladder filter would likely be the best choice, but short of that, a 24 dB transistor ladder filter seems the best alternative.</p>
 <p>The 303 has two envelopes, which Whittle calls the main envelope generator (MEG) and the volume envelope generator (VEG).<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.firstpr.com.au/rwi/dfish/303-unique.html" class="uri"&gt;https://www.firstpr.com.au/rwi/dfish/303-unique.html&lt;/a&gt;&lt;/p&gt;'><sup>104</sup></a>
 Both envelopes are attack-decay with very fast attack.
@@ -912,7 +913,7 @@ On an accented note:</p>
 <li>The filter cutoff is raised</li>
 </ul>
 <p>Whittle <a href="https://www.firstpr.com.au/rwi/dfish/303-unique.html">describes the effect on the filter</a> as an accent sweep circuit that smooths the control voltage driving the filter cutoff.
-The smoothed voltage has a slow decay, so if there are multiple accent notes in a row, the voltage will continue to increase, creating a series of increasing peaks in filter cutoff, as shown in Figure <a href="tb-303.html#fig:accent-sweep">13.12</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Based on &lt;a href="https://www.firstpr.com.au/rwi/dfish/303-unique.html"&gt;Whittle’s diagram.&lt;/a&gt;&lt;/p&gt;'><sup>105</sup></a></p>
+The smoothed voltage has a slow decay, so if there are multiple accent notes in a row, the voltage will continue to increase, creating a series of increasing peaks in filter cutoff, as shown in Figure <a href="tb-303.html#fig:accent-sweep">13.12</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Based on &lt;a href=&quot;https://www.firstpr.com.au/rwi/dfish/303-unique.html&quot;&gt;Whittle's diagram.&lt;/a&gt;&lt;/p&gt;"><sup>105</sup></a></p>
 
 <div class="figure">
 <span style="display:block;" id="fig:accent-sweep"></span>
@@ -922,8 +923,8 @@ Figure 13.12: Conceptual diagram of the effect of the 303 accent sweep circuit o
 </div>
 <p>The accent system can be conceptualized in modular by incorporating a module that does smoothing and by incorporating a module that gives regular envelopes when no accents are received and modified envelopes when accents are received.
 Smoothing can normally be accomplished using a slew limiter.
-Modifying envelopes when accents are received can be accomplished similarly to how we modified gates, i.e. by creating step-length gates when accets are received, and using those gates to decide when to alternate between accented voltages and regular MEG voltages.
-However, there seems to be a point of ambiguity in Whittle’s description on how the smooth voltages is used.
+Modifying envelopes when accents are received can be accomplished similarly to how we modified gates, i.e. by creating step-length gates when accets are received, and using those gates to decide when to alternate between accented voltages and regular MEG voltages.
+However, there seems to be a point of ambiguity in Whittle's description on how the smooth voltages is used.
 It could be that there is a switch controlled by accents that determines whether to use the smoothed voltage or the regular MEG voltage.
 The apparent problem with that is that the smoothed voltage will have a much longer decay than normal, which is the opposite of the behavior the accented envelope is supposed to have.
 For this reason, it seems a better solution is to mix the smoothed voltage with the regular envelope on accented steps.
@@ -1060,16 +1061,186 @@ Figure 13.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for for ex
 <span class="header-section-number">13.7</span> Looking back<a class="anchor" aria-label="anchor" href="#looking-back"><i class="fas fa-link"></i></a>
 </h2>
 <p>Overall this seems like a decent approximation to a 303.
-My biggest reservations are around the accent system, which seems to capture some but not all of Whittle’s descriptions.
+My biggest reservations are around the accent system, which seems to capture some but not all of Whittle's descriptions.
 Improving the accent system would require additional research and probably studying the circuit itself.
 It would also be nice to have a diode ladder filter module rather than a transistor ladder module.
-The transistor ladder seems to a pretty good job at low to medium resonance, but I’m not as convinced at higher resonance.
+The transistor ladder seems to a pretty good job at low to medium resonance, but I'm not as convinced at higher resonance.
 Probably the best way to make continued progress on this patch would be to obtain a real 303 and then make reference recordings for our target song and then use those to better tune parameters and make design decisions.</p>
 
 </div>
 </div>
 
-  <div class="chapter-nav">
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><div class="chapter-nav">
 <div class="prev"><a href="complex-modifiers.html"><span class="header-section-number">12</span> Modulating Modifiers</a></div>
 <div class="next"><a href="krell.html"><span class="header-section-number">14</span> Krell</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -1100,7 +1271,7 @@ Probably the best way to make continued progress on this patch would be to obtai
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

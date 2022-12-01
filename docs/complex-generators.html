@@ -45,6 +45,7 @@
     }
   </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -99,9 +100,9 @@
 <span class="header-section-number">11</span> Modulating Generators<a class="anchor" aria-label="anchor" href="#complex-generators"><i class="fas fa-link"></i></a>
 </h1>
 <p>This chapter extends Chapter <a href="generators.html#generators">6</a> and focuses entirely on audio-rate modulation.
-Audio-rate modulation uses an audio-rate signal, typically an oscillator, to modulate a parameter, most commonly a parameter on another oscillator.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Audio-rate modulation of a filter’s cutoff is another common option but is beyond the scope of this chapter. Try it!&lt;/p&gt;"><sup>82</sup></a>
+Audio-rate modulation uses an audio-rate signal, typically an oscillator, to modulate a parameter, most commonly a parameter on another oscillator.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Audio-rate modulation of a filter's cutoff is another common option but is beyond the scope of this chapter. Try it!&lt;/p&gt;"><sup>82</sup></a>
 Although the basic idea is simple to explain, sounds produced can be complex and require a new idea to understand: the sideband.</p>
-<p>Before proceeding, let’s introduce some terminology.
+<p>Before proceeding, let's introduce some terminology.
 The audio rate signal source will be called the <em>modulator</em>.
 The oscillator receiving the modulation is the <em>carrier</em>.
 The strength of modulation the carrier receives from the modulator will be called the <em>modulation index</em>.
@@ -117,7 +118,7 @@ And when the modulator acts on the phase parameter of the carrier, the result is
 <p>Each of these types of audio-rate modulation creates sidebands, which are new partials in the output.
 Audio-rate modulation therefore is related to additive synthesis in that both involve adding partials to change the timbre of the output sound.
 The main difference is that audio-rate modulation is not strictly additive and can also remove or change some partials in the carrier.
-However, with sufficient control of audio-rate modulation, one can create a wide variety of sounds more efficiently than additive synthesis, as shown by the explosion of inexpensive FM keyboards in the 1980’s, like the Yamaha DX7.</p>
+However, with sufficient control of audio-rate modulation, one can create a wide variety of sounds more efficiently than additive synthesis, as shown by the explosion of inexpensive FM keyboards in the 1980's, like the Yamaha DX7.</p>
 <p>The following sections outline the use of audio-rate modulation in modular sound synthesis according to the parameters of amplitude, frequency, and phase.
 However, the story is somewhat complicated due to the history of synthesis, limitations of analogue hardware, and mathematical relationships between methods.
 There are actually two families of methods around amplitude and frequency that cover all three parameters, as will be explained.</p>
@@ -168,10 +169,10 @@ Even though the carrier frequency is not the fundamental, it is perceived as the
 Note that in the above formulas, any partial that crosses below zero disappears.
 Also, if the modulator frequency goes above the carrier, <span class="math inline">\(M_f &gt; C_f\)</span>, the roles of carrier and modulator are reversed.</p>
 <p>Implementing AM synthesis as described above is relatively simple in our virtual modular set up, but it has some surprises.
-First, if we want pure sine waves, i.e. sine waves with only one harmonic, then we need to use wavetable oscillators, which we’ve briefly mentioned a few times up to this point but never used.
+First, if we want pure sine waves, i.e. sine waves with only one harmonic, then we need to use wavetable oscillators, which we've briefly mentioned a few times up to this point but never used.
 A <a href="https://en.wikipedia.org/wiki/Wavetable_synthesis">wavetable</a> oscillator is a digital oscillator that defines a wave based on one stored cycle of that wave.
 We need wavetable oscillators here to get a perfect sine wave, because the virtual analogue implementations faithfully recreate the imperfections of the original hardware.
-This is also true for real VCAs, which tend to be a bit noisy, so we’ll need to use a specific VCA that we’ve never used before.
+This is also true for real VCAs, which tend to be a bit noisy, so we'll need to use a specific VCA that we've never used before.
 All this effort is only necessary to get a result that matches the previous equations.
 Otherwise you may not care about these small imperfections that give additional character to the sound through the extra sidebands they create.
 Try creating a simple AM patch from scratch using the button in Figure <a href="complex-generators.html#fig:am-example">11.3</a> and look carefully at the sidebands it creates.</p>
@@ -280,7 +281,7 @@ Figure 11.3: <a href="https://cardinal.olney.ai">Virtual modular</a> for amplitu
 </p>
 </div>
 <p>AM synthesis will generally produce inharmonic sidebands unless the modulator and carrier frequencies are chosen to create harmonic relationships.
-Using sine waves for example, if modulator and carrier have the same frequency, then the lower sideband will be zero and the upper sideband will be one octave above the carrier, e.g. 100 and 200 Hz.
+Using sine waves for example, if modulator and carrier have the same frequency, then the lower sideband will be zero and the upper sideband will be one octave above the carrier, e.g. 100 and 200 Hz.
 We can describe such frequency relationships between modulator and carrier in terms of ratios, so if both have the same frequency, the ratio of C:M is 1:1.
 You can easily check that any N:1 ratio is harmonic, for example using 200 Hz as the carrier would result in 100, 200, and 300 Hz harmonics.
 Likewise, N:2 where N is odd will give odd harmonics (100, 300, 500 Hz), and N:2 where N in even will give even harmonics (200, 400, 600 Hz).
@@ -753,17 +754,17 @@ Thus understanding this family requires understanding both the true methods and 
 <span class="header-section-number">11.2.1</span> Frequency modulation<a class="anchor" aria-label="anchor" href="#frequency-modulation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Frequency modulation (FM) is a widespread method for radio transmission, just like AM.
-In the context of modular synthesis, FM is strongly associated with <span class="citation">John M. Chowning<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“The Synthesis of Complex Audio Spectra by Means of Frequency Modulation,”&lt;/span&gt; &lt;em&gt;Journal of the Audio Engineering Society&lt;/em&gt; 21, no. 7 (1973): 526–34, &lt;a href="http://www.aes.org/e-lib/browse.cfm?elib=1954" role="doc-biblioref"&gt;http://www.aes.org/e-lib/browse.cfm?elib=1954&lt;/a&gt;.&lt;/p&gt;'><sup>86</sup></a></span>, whose work in the 1970s <a href="https://en.wikipedia.org/wiki/Frequency_modulation_synthesis">was used in the Yamaha FM synthesizers</a>, notably the DX7.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically Chowning’s FM is phase modulation, as will be discussed later in the chapter.&lt;/p&gt;"><sup>87</sup></a>
+In the context of modular synthesis, FM is strongly associated with <span class="citation">John M. Chowning<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“The Synthesis of Complex Audio Spectra by Means of Frequency Modulation,”&lt;/span&gt; &lt;em&gt;Journal of the Audio Engineering Society&lt;/em&gt; 21, no. 7 (1973): 526–34, &lt;a href="http://www.aes.org/e-lib/browse.cfm?elib=1954" role="doc-biblioref"&gt;http://www.aes.org/e-lib/browse.cfm?elib=1954&lt;/a&gt;.&lt;/p&gt;'><sup>86</sup></a></span>, whose work in the 1970s <a href="https://en.wikipedia.org/wiki/Frequency_modulation_synthesis">was used in the Yamaha FM synthesizers</a>, notably the DX7.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically Chowning's FM is phase modulation, as will be discussed later in the chapter.&lt;/p&gt;"><sup>87</sup></a>
 <!-- Although Chowning's approach arrived decades after FM was used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it. -->
 Historically, FM synthesis methods have only approximated true FM.
 The purpose of this section is thus to explain true FM so that approximations have a common reference point.</p>
 <p>We previously covered the basic idea of FM in Section <a href="generators.html#vibrato">6.3.2</a> to produce vibrato.
 As you recall, we used an LFO at relatively low rates to control a VCA, and the VCA was controlling the V/Oct of our main oscillator.
-In FM we don’t use a VCA but instead an attenuverter/polarizer, i.e. FM crosses zero just like RM.
+In FM we don't use a VCA but instead an attenuverter/polarizer, i.e. FM crosses zero just like RM.
 The attenuverter/polarizer is often integrated into the carrier oscillator with a corresponding FM input.
-The voltage into the carrier’s FM input is added to the voltage into the carrier’s V/Oct input, so when only one input is used, these two inputs are interchangeable.
-When using both, the V/Oct defines the carrier’s frequency, and the FM input defines the variation around that frequency.
-Thus as the modulator’s strength increases,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The strength of the modulation is the amplitude of the modulation, just like the strength of any wave is the amplitude of the wave.&lt;/p&gt;"><sup>88</sup></a> the frequency of the output increases, and as the modulator’s strength decreases, the frequency of the output decreases, as shown in Figure <a href="complex-generators.html#fig:fm-voct-composite">11.11</a>.</p>
+The voltage into the carrier's FM input is added to the voltage into the carrier's V/Oct input, so when only one input is used, these two inputs are interchangeable.
+When using both, the V/Oct defines the carrier's frequency, and the FM input defines the variation around that frequency.
+Thus as the modulator's strength increases,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The strength of the modulation is the amplitude of the modulation, just like the strength of any wave is the amplitude of the wave.&lt;/p&gt;"><sup>88</sup></a> the frequency of the output increases, and as the modulator's strength decreases, the frequency of the output decreases, as shown in Figure <a href="complex-generators.html#fig:fm-voct-composite">11.11</a>.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:fm-voct-composite"></span>
@@ -779,12 +780,12 @@ The FM sideband formula is the same as the AM/RM formula except that for AM/RM, 
 When <span class="math inline">\(n\)</span> is odd, the side band partials below <span class="math inline">\(C_f\)</span> have reversed phase.
 Additionally, partials that cross zero will reflect with a reversal of phase.
 The above is also true when the modulator and carrier are non-sine waves, in which case each pairing of partials between them creates a new sideband pair.
-To avoid confusion around the word “pair,” the following discussion of sidebands will be restricted to sine waves.</p>
+To avoid confusion around the word "pair," the following discussion of sidebands will be restricted to sine waves.</p>
 <p>The FM modulation index is defined as the peak change in output frequency divided by the highest frequency component of the modulator, <span class="math inline">\(\Delta F/M_f\)</span>.
 Changing the modulation index has a dramatic effect on the timbre for several reasons.
 First, the modulation index controls how many sideband partials are audible.
 Although FM produces infinite sidebands, most of the partials have negligible amplitude and are imperceptible.
-According to <a href="https://en.wikipedia.org/wiki/Carson_bandwidth_rule">Carson’s bandwith rule</a>, 98% of the energy in the spectrum is within a bandwidth defined by <span class="math inline">\(2(\Delta F + M_f)\)</span>, so holding <span class="math inline">\(M_f\)</span> constant, the FM bandwidth will increase as the modulation index increases.
+According to <a href="https://en.wikipedia.org/wiki/Carson_bandwidth_rule">Carson's bandwith rule</a>, 98% of the energy in the spectrum is within a bandwidth defined by <span class="math inline">\(2(\Delta F + M_f)\)</span>, so holding <span class="math inline">\(M_f\)</span> constant, the FM bandwidth will increase as the modulation index increases.
 Larger bandwidth affects the timbre of the sound by increasing the audible sideband partials and increasing the opportunities for partials to reflect off zero and interfere with existing partials.
 Second, as the modulation index increases, each sideband pair defined by <span class="math inline">\(n\)</span> changes in amplitude according to its own Bessel function, and once the Bessel function crosses below zero, the sideband pair reverses phase.
 The amplitude changes created by the Bessel functions ripple outward for increasing <span class="math inline">\(n\)</span> as the modulation index increases, as shown in Figure <a href="complex-generators.html#fig:bessel-modulation">11.12</a>.
@@ -813,7 +814,7 @@ Since every sideband partial will be <span class="math inline">\(1 \pm n2\)</spa
 Again the lower sideband will reflect across zero on top of the upper sideband, and the carrier frequency will be the fundamental.</p>
 <p>Properties of C:M ratios can be generalized across integers.
 For example, any N:1 will generate all harmonics starting at the value of 1, though the carrier will only be the fundamental for 1:1.
-Ratio 1:N will skip every nth partial, e.g. for 1:3, partials 3, 9, 27, and so on will be skipped.
+Ratio 1:N will skip every nth partial, e.g. for 1:3, partials 3, 9, 27, and so on will be skipped.
 Ratio N:2 will yield only even partials if N is even and only odd partials if N is odd.
 These examples show how different ratios can create the same result and illustrates the complexity of this topic, even under our current simplifying assumptions.</p>
 <p>If we consider ratios that produce the same result as a family, then we can describe families using a single ratio called <a href="http://www.sfu.ca/%7Etruax/fmtut.html">the normal form ratio</a> by taking <span class="math inline">\(|C-M|\)</span> until the result is either 1:1 or <span class="math inline">\(M \ge 2C\)</span>.
@@ -838,7 +839,7 @@ While the number of modules required to implement advanced FM algorithms in anal
 Figure 11.13: Two operator FM. Image <a href="https://commons.wikimedia.org/wiki/File:2op_FM.svg">© Clusternote/CC-BY-SA-3.0</a>.
 </p>
 </div>
-<p>This section is one of the most technical in the book, and it’s easy to get lost in the details of FM.
+<p>This section is one of the most technical in the book, and it's easy to get lost in the details of FM.
 The most important things to remember about true FM are:</p>
 <ul>
 <li>The FM modulation index changes timbre, becoming more bright with higher index</li>
@@ -851,8 +852,8 @@ The most important things to remember about true FM are:</p>
 <span class="header-section-number">11.2.2</span> Analogue exponential frequency modulation<a class="anchor" aria-label="anchor" href="#analogue-exponential-frequency-modulation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Although frequency modulation has been traced back as far as the 1940s,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Bode, &lt;span&gt;“History of Electronic Sound Modification.”&lt;/span&gt;&lt;/p&gt;"><sup>90</sup></a></span> exponential frequency modulation (EFM) seems most strongly associated with the modular synthesizers after the 1960s when Robert Moog <a href="https://en.wikipedia.org/wiki/Moog_synthesizer">advanced the exponential volt per octave standard</a>.
-In EFM, the output is moved an <strong>equal musical interval</strong> around the carrier’s default value.
-For example, suppose a <span class="math inline">\(\pm1 V\)</span> modulation signal goes into a 400 Hz carrier’s FM input.
+In EFM, the output is moved an <strong>equal musical interval</strong> around the carrier's default value.
+For example, suppose a <span class="math inline">\(\pm1 V\)</span> modulation signal goes into a 400 Hz carrier's FM input.
 Then the first pair of sidebands will be 200 Hz and 800 Hz, or half and double the carrier frequency, respectively.
 Since the output spends more time above 400 Hz than below it, the perceived pitch is shifted above 400 Hz.
 The EFM pitch shift increases as the modulation index increases<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Bernard A. Hutchins Jr., &lt;span&gt;“The Frequency Modulation Spectrum of an Exponential Voltage-Controlled Oscillator,”&lt;/span&gt; &lt;em&gt;Journal of the Audio Engineering Society&lt;/em&gt; 23, no. 3 (1975): 200–206, &lt;a href="http://www.aes.org/e-lib/browse.cfm?elib=2700" role="doc-biblioref"&gt;http://www.aes.org/e-lib/browse.cfm?elib=2700&lt;/a&gt;.&lt;/p&gt;'><sup>91</sup></a></span> and
@@ -861,11 +862,11 @@ Workarounds to the pitch shift problem for EFM include playing with other pitche
 <p>The effect of modulating by an equal musical interval goes beyond pitch shift.
 As the EFM modulation index increases and the sidebands grow, they become increasingly asymmetric, which breaks the normal FM harmonic ratios.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Hutchins.&lt;/p&gt;"><sup>92</sup></a></span>
 Recall that normal FM harmonic ratios are heavily dependent on the property of reflecting off zero.
-In EFM, partials rarely reflect off zero because the change in frequency can never reach zero<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Exponential functions don’t cross zero.&lt;/p&gt;"><sup>93</sup></a> and the overall pitch shift pulls the lower sideband away from zero.
-Thus the partials mostly don’t reflect off zero, and the normal harmonic ratios are no longer valid.
+In EFM, partials rarely reflect off zero because the change in frequency can never reach zero<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Exponential functions don't cross zero.&lt;/p&gt;"><sup>93</sup></a> and the overall pitch shift pulls the lower sideband away from zero.
+Thus the partials mostly don't reflect off zero, and the normal harmonic ratios are no longer valid.
 In practice this means that it is difficult to get a stable output that is strongly harmonic as the modulation index increases, in addition to the pitch shift problem.</p>
 <p>Despite these challenges, EFM has a history in electronic music and has been widely used for percussive and inharmonic sounds.
-Let’s build up some patches to explore EFM, starting with a basic patch to investigate the sidebands and pitch shift.
+Let's build up some patches to explore EFM, starting with a basic patch to investigate the sidebands and pitch shift.
 Try simple EFM with sine waves using the button in Figure <a href="complex-generators.html#fig:efm-example">11.14</a> and note the effect of the modulation index on sidebands, pitch shift, and the harmonicity of the timbre.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -964,7 +965,7 @@ Similarly, changing the waveshape of the modulator from sine to anything else cr
 Recall that a 1:1 ratio means that the carrier is the fundamental of a harmonic series with all harmonics.
 What will happen in EFM if we use a 1:1 ratio?
 Try extending the last patch to add keyboard tracking using the button in Figure <a href="complex-generators.html#fig:efm-keyboard-frequency-tracking">11.15</a>.
-While keyboard tracking isn’t strictly necessary for this demonstration, it makes it more fun and sets up comparisons with other forms of FM.</p>
+While keyboard tracking isn't strictly necessary for this demonstration, it makes it more fun and sets up comparisons with other forms of FM.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -1069,7 +1070,7 @@ Figure 11.15: <a href="https://cardinal.olney.ai">Virtual modular</a> for expone
 </div>
 <p>The patch in Figure <a href="complex-generators.html#fig:efm-keyboard-frequency-tracking">11.15</a> demonstrates workable EFM keyboard tracking for a moderate fixed modulation index, as expected.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;For example, with feidah at .5 I get zero pitch shift across an octave from C4 to C5 but 6 cents of shift over two octaves, which is &lt;a href="https://en.wikipedia.org/wiki/Cent_(music)"&gt;generally perceptible&lt;/a&gt;.&lt;/p&gt;'><sup>94</sup></a>
 However, the patch also demonstrates how EFM, even using a small modulation index, diverges from true FM.
-Not only do we find rogue harmonics below the fundamental, which should not happen with a 1:1 ratio, but we also see the a broad shift in the spectrum as the modulation index is modulated by an LFO, which badly affects EFM’s pitch stability during modulation index changes.
+Not only do we find rogue harmonics below the fundamental, which should not happen with a 1:1 ratio, but we also see the a broad shift in the spectrum as the modulation index is modulated by an LFO, which badly affects EFM's pitch stability during modulation index changes.
 These imperfections of EFM give it an interesting sound, so as previously stated, these problems may not be problems depending on the musical goal.
 Neither staying in tune with other instruments across multiple octaves nor dynamically changing the modulation index are necessary in every situation.</p>
 <p>In addition to its distinctive pitched sound, EFM works quite well in percussive voices.
@@ -1169,26 +1170,26 @@ Figure 11.16: <a href="https://cardinal.olney.ai">Virtual modular</a> for expone
 <h3>
 <span class="header-section-number">11.2.3</span> Analogue linear frequency modulation<a class="anchor" aria-label="anchor" href="#analogue-linear-frequency-modulation"><i class="fas fa-link"></i></a>
 </h3>
-<p>In analogue linear frequency modulation (LFM), the output is moved in <strong>equal frequencies</strong> around the carrier’s default value.
-Thus LFM matches the behavior of true FM previously discussed, e.g. a 100 Hz modulator and 400 Hz carrier will create side bands at 300 Hz and 500 Hz.
+<p>In analogue linear frequency modulation (LFM), the output is moved in <strong>equal frequencies</strong> around the carrier's default value.
+Thus LFM matches the behavior of true FM previously discussed, e.g. a 100 Hz modulator and 400 Hz carrier will create side bands at 300 Hz and 500 Hz.
 Because LFM spends equal time above and below the carrier frequency, pitch shift is not an intrinsic problem as it is in EFM.
 In modular, LFM is implemented invisibly: a module will except V/Oct into an FM jack, but internally that signal will be processed as a linear signal.</p>
-<p>While LFM is a is closer approximation of true FM, it’s still an imperfect approximation that leads to the same types of problems as EFM.
+<p>While LFM is a is closer approximation of true FM, it's still an imperfect approximation that leads to the same types of problems as EFM.
 Recall the basic problem with EFM was asymmetry of the sidebands.
-Because the upper sideband was wider than the lower sideband, and this asymmetry grew with increasing modulation index, EFM’s pitch shifts upward and the harmonic ratios are destroyed.
+Because the upper sideband was wider than the lower sideband, and this asymmetry grew with increasing modulation index, EFM's pitch shifts upward and the harmonic ratios are destroyed.
 In EFM, these problems are intrinsic because EFM moves the output in equal musical intervals rather than equal frequencies.
-Even though LFM doesn’t intrinsically have this asymmetry problem, it has the asymmetry problem in practical use.</p>
+Even though LFM doesn't intrinsically have this asymmetry problem, it has the asymmetry problem in practical use.</p>
 <!-- the asymmetry problem reappears as soon as the LFM bandwidth gets close to zero. -->
 <p>To understand the asymmetry problem for LFM, consider a simple example.
 Suppose a 100 Hz modulator and 400 Hz carrier as before.
 As we increase the strength of the modulation, the peak change in output frequency <span class="math inline">\(\Delta F\)</span> will increase, as will the modulation index, which is defined as <span class="math inline">\(\Delta F/M_f\)</span>.
 When the modulation index is 4, <span class="math inline">\(\Delta F = 400Hz\)</span>, the output ranges from 0 Hz to 800 Hz.
 <!-- LFM becomes asymmetric at this point because  -->
-Because analogue oscillators that implement LFM don’t go below zero but rather stop at zero, FM becomes asymmetric at this point and ranges over more frequencies above the carrier than below it, leading to pitch shift.
+Because analogue oscillators that implement LFM don't go below zero but rather stop at zero, FM becomes asymmetric at this point and ranges over more frequencies above the carrier than below it, leading to pitch shift.
 The pitch shift pulls sidebands away from zero, which destroys harmonic ratios just like EFM.</p>
 <p>Perhaps the best way to contrast EFM and LFM is that in EFM, these are intrinsic problems, whereas for LFM, these problems arise at a relatively higher modulation index.
 In practice, however, we typically want a higher modulation index in order to get interesting timbres, and it is at this point where the differences between EFM and LFM become less clear.
-My experience with LFM is that it has better keyboard tracking when using an equivalent small modulation index with EFM, e.g. half the pitch shift over 4 octaves.
+My experience with LFM is that it has better keyboard tracking when using an equivalent small modulation index with EFM, e.g. half the pitch shift over 4 octaves.
 Other than that, it seems one can consider LFM to be a linearized version of EFM with basically the same characteristics.
 The linear response of LFM means that turning a knob to increase the modulation index will not increase it as quickly as the exponential response of EFM, but under conditions where their modulation indices can be matched, their frequency spectrums are very similar.</p>
 <p>We can investigate these issues again by using a 1:1 ratio and comparing the results to EFM.
@@ -1322,12 +1323,12 @@ Figure 11.17: <a href="https://cardinal.olney.ai">Virtual modular</a> for linear
 <span class="header-section-number">11.2.4</span> Analogue through-zero frequency modulation<a class="anchor" aria-label="anchor" href="#analogue-through-zero-frequency-modulation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Analogue through-zero frequency modulation (TZFM), is perhaps the easiest FM to understand if you understand true FM, because TZFM is true FM!
-Like LFM, TZFM output moves in equal frequencies around the carrier’s default value, but when the modulator drives the carrier’s frequency below zero, TZFM oscillators will go through zero instead of stopping at zero like LFM.
-Going “through zero” is implemented by flipping the waveform, and is perhaps most easily understood as <a href="http://electronotes.netfirms.com/EN206.pdf">running the waveform backwards</a>.
+Like LFM, TZFM output moves in equal frequencies around the carrier's default value, but when the modulator drives the carrier's frequency below zero, TZFM oscillators will go through zero instead of stopping at zero like LFM.
+Going "through zero" is implemented by flipping the waveform, and is perhaps most easily understood as <a href="http://electronotes.netfirms.com/EN206.pdf">running the waveform backwards</a>.
 Again, this is true FM: normal symmetric sidebands, no pitch shifting, and perfect harmonic ratios.</p>
-<p>Let’s take a look at TZFM using a 1:1 ratio and comparing the results to EFM and LFM.
+<p>Let's take a look at TZFM using a 1:1 ratio and comparing the results to EFM and LFM.
 Try extending the LFM keyboard patch using the button in Figure <a href="complex-generators.html#fig:tzfm-keyboard-frequency-tracking">11.18</a>.
-As you can see, there’s no pitch shift and no rogue harmonics.</p>
+As you can see, there's no pitch shift and no rogue harmonics.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -1453,7 +1454,7 @@ Figure 11.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for throug
 <h3>
 <span class="header-section-number">11.2.5</span> Phase modulation<a class="anchor" aria-label="anchor" href="#phase-modulation"><i class="fas fa-link"></i></a>
 </h3>
-<p>Phase modulation (PM) is very similar to frequency modulation - in fact Chowning’s FM used in the DX7 was PM, not FM!
+<p>Phase modulation (PM) is very similar to frequency modulation - in fact Chowning's FM used in the DX7 was PM, not FM!
 Recall that phase and frequency are very closely related.
 Figure <a href="complex-generators.html#fig:wheel-sine-2">11.19</a> shows how the angle on the wheel from 0 to 2<span class="math inline">\(pi\)</span> corresponds to one wavelength of a sine wave.
 We can view frequency like speed: the change in angle over time.
@@ -1467,16 +1468,16 @@ Figure 11.19: <a href="https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_
 </div>
 <p>We can think of PM similarly to TZFM.
 When the modulator is positive, it adds phase to the carrier (moves forward in time along the carrier), and when the modulator changes direction, it subtracts phase from the carrier (moves backward in time along the carrier).
-This makes PM “through zero” and so operate with symmetric sidebands and proper harmonic ratios.</p>
+This makes PM "through zero" and so operate with symmetric sidebands and proper harmonic ratios.</p>
 <p>There are two main differences between PM and true FM.
 First, the modulation index for PM is simply <span class="math inline">\(\Delta \theta\)</span>, where <span class="math inline">\(\theta\)</span> is the peak phase deviation.
 This differs from true FM, where the modulation index also depends on <span class="math inline">\(M_f\)</span>, the highest frequency component of the modulator.
 The other difference with PM is that, relative to FM, it has <a href="https://moinsound.wordpress.com/2011/03/04/frequency-modulation-or-phase-modulation-synthesizer-technologies/">different scaling factors and phase offsets</a>.
-These differences don’t seem to matter for sine wave modulators, but for other signals, the differences get more interesting.
+These differences don't seem to matter for sine wave modulators, but for other signals, the differences get more interesting.
 For example, <a href="https://ccrma.stanford.edu/software/snd/snd/fm.html">FM using a square wave gives the same result as PM on a triangle wave</a>.
-So it isn’t correct to say that PM and FM are identical, though they are very similar.</p>
+So it isn't correct to say that PM and FM are identical, though they are very similar.</p>
 <p>To round off this chapter, try adding PM to the TZFM keyboard patch using the button in Figure <a href="complex-generators.html#fig:pm-keyboard-frequency-tracking">11.20</a>.
-As with TZFM, there’s no pitch shift and no rogue harmonics using a 1:1 ratio, just a slightly different sensitivity of the modulation index to the attenuverter/polarizer.
+As with TZFM, there's no pitch shift and no rogue harmonics using a 1:1 ratio, just a slightly different sensitivity of the modulation index to the attenuverter/polarizer.
 The timbre is identical to TZFM for an equivalent modulation index.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -1594,7 +1595,7 @@ Figure 11.20: <a href="https://cardinal.olney.ai">Virtual modular</a> for phase 
 </div>
 <p>Table <a href="complex-generators.html#tab:frequency-summary">11.2</a> summarizes the important properties of the frequency modulation methods discussed in this section
 If one wants a method that behaves like true FM, TZFM and PM are good choices.
-However, if one wants the character of EFM or LFM, that can’t be denied.</p>
+However, if one wants the character of EFM or LFM, that can't be denied.</p>
 <div class="inline-table"><table style="width:100%;" class="table table-sm">
 <caption>
 <span id="tab:frequency-summary">Table 11.2: </span> Behaviors of frequency modulation methods discussed in this section. Linear FM items are marked with an asterisk when they are true for practical purposes but not always true.</caption>
@@ -1641,7 +1642,177 @@ However, if one wants the character of EFM or LFM, that can’t be denied.</p>
 </div>
 </div>
 
-  <div class="chapter-nav">
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><div class="chapter-nav">
 <div class="prev"><a href="complex-controllers.html"><span class="header-section-number">10</span> Modulating Controllers</a></div>
 <div class="next"><a href="complex-modifiers.html"><span class="header-section-number">12</span> Modulating Modifiers</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -1680,7 +1851,7 @@ However, if one wants the character of EFM or LFM, that can’t be denied.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -45,6 +45,7 @@
     }
   </style>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="include/webex.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -99,16 +100,16 @@
 <span class="header-section-number">12</span> Modulating Modifiers<a class="anchor" aria-label="anchor" href="#complex-modifiers"><i class="fas fa-link"></i></a>
 </h1>
 <p>Modifying incoming audio and control signals was introduced in Chapter <a href="modifiers.html#modifiers">7</a>.
-The present chapter introduces new modules and extends earlier concepts in modifiers around the loose organizing theme of converting between earlier signals, e.g. from gates to envelopes.</p>
+The present chapter introduces new modules and extends earlier concepts in modifiers around the loose organizing theme of converting between earlier signals, e.g. from gates to envelopes.</p>
 <div id="rectification-and-wavefolding" class="section level2" number="12.1">
 <h2>
 <span class="header-section-number">12.1</span> Rectification and wavefolding<a class="anchor" aria-label="anchor" href="#rectification-and-wavefolding"><i class="fas fa-link"></i></a>
 </h2>
 <p>As discussed in Chapter <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a>, signals are either unipolar or bipolar.
-One way to make a bipolar signal unipolar is to add an offset to it, e.g. if a signal ranges from -5 to +5 V, then add 5 V to obtain a 0 to +10 V signal.
+One way to make a bipolar signal unipolar is to add an offset to it, e.g. if a signal ranges from -5 to +5 V, then add 5 V to obtain a 0 to +10 V signal.
 Another more interesting way to convert a bipolar signal to unipolar is to rectify the signal, as shown in Figure <a href="complex-modifiers.html#fig:rectification">12.1</a>.
 Half-wave rectification simply removes the negative part of the signal by stopping the signal at zero, and staying at zero until the signal becomes positive again.
-Full-wave rectification reflects the signal across the x-axis, i.e. takes the absolute value of the signal.
+Full-wave rectification reflects the signal across the x-axis, i.e. takes the absolute value of the signal.
 If you add a fully rectified signal to the original signal, you will get a half rectified signal because the negative portion of the original signal and the reflected portion of the fully rectified signal will cancel out.</p>
 
 <div class="figure">
@@ -130,8 +131,8 @@ Figure 12.2: Wavefolding (green) of a sine wave (purple). The fold parameter mov
 </div>
 <p>Rectification and wavefolding change harmonics and therefore timbre.
 The best way to understand their effect on harmonics is to consider a triangle at full rectification.
-As the bottom part of the triangle is reflected, the resulting wave is still a triangle wave, but at twice the frequency as before, e.g. a 200 Hz wave becomes a 400 Hz wave, and the signal is offset above zero.
-For a triangle wave, wavefolding doesn’t double frequency but instead triples it, e.g. a 200 Hz wave becomes a 600 Hz wave.
+As the bottom part of the triangle is reflected, the resulting wave is still a triangle wave, but at twice the frequency as before, e.g. a 200 Hz wave becomes a 400 Hz wave, and the signal is offset above zero.
+For a triangle wave, wavefolding doesn't double frequency but instead triples it, e.g. a 200 Hz wave becomes a 600 Hz wave.
 Tripling occurs because when a peak reflects, it creates two additional peaks in addition to itself.
 Figure <a href="complex-modifiers.html#fig:triangle-rect-fold">12.3</a> illustrates these two cases.
 The tripling behavior of wavefolding means that it will add all odd harmonics to a sine wave but not add harmonics to the other basic waveshapes, because they already have odd harmonics.
@@ -147,7 +148,7 @@ Figure 12.3: Full wave rectification (left) and wavefolding (right) of a triangl
 During wavefolding, the upper and lower parts of the square wave will move in opposite directions rather than fold as shown in Figures <a href="complex-modifiers.html#fig:wavefold-sine">12.2</a> and <a href="complex-modifiers.html#fig:triangle-rect-fold">12.3</a>.
 As a consequence, there are moments where the two parts of the square wave meet at zero and result in a non-wave, somewhat comparable to amplitude modulation through wave folding.
 Half rectification on a square wave turns it into an identical square wave, but at half amplitude and an offset.
-Full rectification on a square wave turns it into just an offset, i.e. a constant voltage.
+Full rectification on a square wave turns it into just an offset, i.e. a constant voltage.
 Because a constant voltage has zero frequency (0 Hz) it can be removed with a high pass filter - this is a good idea in most audio applications where constant voltages create noise.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;High pass filtering is a good idea when using clocks or clock dividers outputs as square waves for the same reason.&lt;/p&gt;"><sup>95</sup></a></p>
 <p>The effects of rectification and wavefolding on the four basic wave shapes is summarized in Table <a href="complex-generators.html#tab:freq-ratio">11.1</a> with respect to the addition of harmonics, change in frequency, and change in amplitude.
 In all cases, the amplitude of individual harmonics changes, leading to a change in timbre with respect to the original wave.
@@ -195,7 +196,7 @@ For example, a saw wave at full rectification keeps all harmonics, but the stron
 </tr>
 </tbody>
 </table></div>
-<p>Let’s take a look at the change in harmonics resulting from wavefolding and rectification.
+<p>Let's take a look at the change in harmonics resulting from wavefolding and rectification.
 The best way to hear these is to step through with a sequential switch and use an LFO to drive the wavefolding.
 Try creating this patch using the button in Figure <a href="complex-modifiers.html#fig:wavefold-rect-example">12.4</a>.</p>
 
@@ -307,12 +308,12 @@ Figure 12.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for contras
 </p>
 </div>
 <p>Rectification has multiple uses besides changing harmonics.
-One obvious use is making a bipolar control signal unipolar (e.g. to drive a VCA).
+One obvious use is making a bipolar control signal unipolar (e.g. to drive a VCA).
 Another interesting use is to use rectification to perform waveshape surgery and combine the top part of one waveshape with the bottom of another.
 This is relatively simple to do by fully rectifying two waveshapes and inverting one to become the bottom portion of the wave.
-It’s slightly trickier to align the top and bottom portions, but it’s possible to do so using a module that allows specfication of phase offsets.
+It's slightly trickier to align the top and bottom portions, but it's possible to do so using a module that allows specfication of phase offsets.
 Figure <a href="complex-modifiers.html#fig:fraken-rect">12.5</a> shows an example of waveshape surgery using the top portion of a sine wave and the bottom portion of a square wave.
-By blending parts of different waves, you can achieve an intermediate sound, e.g. a slightly more mellow square wave.</p>
+By blending parts of different waves, you can achieve an intermediate sound, e.g. a slightly more mellow square wave.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:fraken-rect"></span>
@@ -321,7 +322,7 @@ Figure 12.5: Upper sine wave and lower square wave portions cut using rectificat
 </p>
 </div>
 <p>Try creating a new waveshape through rectification using the button in Figure <a href="complex-modifiers.html#fig:franken-rect">12.6</a>.
-This method would also allow you to perform operations on just one part of the signal if desired, e.g. waveshaping on just the top half.</p>
+This method would also allow you to perform operations on just one part of the signal if desired, e.g. waveshaping on just the top half.</p>
 
 <!-- TODO replace 8vert with Bogg Audio Offset? -->
 <!-- MODAL HTML BLOCK -->
@@ -433,7 +434,7 @@ Figure 12.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for contras
 <span class="header-section-number">12.2</span> Slew<a class="anchor" aria-label="anchor" href="#slew"><i class="fas fa-link"></i></a>
 </h2>
 <p>Slew slows the rate of change of a signal.
-We’ve seen this before with low pass filters, where the signal being slowed was audio rate.
+We've seen this before with low pass filters, where the signal being slowed was audio rate.
 Slew limiters behaves much the same way as low pass filters but are designed to work with unipolar signals.
 Recall RC circuits from Section <a href="modifiers.html#voltage-controlled-filters">7.2</a> leech out energy from parts of the wave shape and return that energy to other parts, thus smoothing the signal.
 Slew limiters work the same way but typically have parameters to control the rate of slew for both upward and downward transitions.</p>
@@ -636,7 +637,7 @@ Figure 12.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for using a
 When we make sounds in modular, we typically apply an envelope like an ADSR in order to give the sound dynamic loudness.
 We can further use the envelope to control modulation like filter cutoff, so that the spectrum of the sound changes at the same time as its loudness.
 Envelopes can can be used for <a href="https://en.wikipedia.org/wiki/Dynamic_range_compression#Side-chaining">sidechaining</a> effects like ducking, where the envelope on the kick is inverted and used to <em>reduce</em> the volume of other sounds, which gives the music a pulsing quality.</p>
-<p>Sidechaining is relatively simple when an envelope was used to generate the sound, but when the sound isn’t synthesized, like samples or live-recordings of instruments, an envelope follower is needed to generate the envelope that will be used for sidechaining.
+<p>Sidechaining is relatively simple when an envelope was used to generate the sound, but when the sound isn't synthesized, like samples or live-recordings of instruments, an envelope follower is needed to generate the envelope that will be used for sidechaining.
 An envelope follower essentially traces a curve along the peaks of a sound wave to outline an envelope akin to an ADSR.
 Since ADSR envelopes are unipolar, full rectification of the audio takes place first.
 Then slew is used to slow the rapid changes in the sound and generate a smoothish curve.
@@ -752,7 +753,7 @@ Figure 12.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for using f
 We discussed quantization in Section <a href="generators.html#samplers">6.6</a> in the context of bit depth, where the height of a sound wave is approximately measured in order to convert it from analogue to digital.
 In music, quantization is typically used to refer to either beat quantization or note quantization.
 Beat quantization is often relevant when performing live into a sequencer.
-If the sequencer is grid-based, any played beat will be snapped to the grid, i.e. snapped to the beat.
+If the sequencer is grid-based, any played beat will be snapped to the grid, i.e. snapped to the beat.
 In modular, note quantization is the more commonly used, and note quantization maps a voltage range to a particular note.
 Modular quantizers typically allow scales to be selected to determine what notes are available.</p>
 <p>Perhaps the easiest way to understand quantizers is through voltage controlled sequencers.
@@ -763,9 +764,9 @@ Quantizers perform the same function except that the output notes are determined
 <p>Despite this similarity, quantizers are often used after modular sequencers to make them easier to tune.
 If a quantizer is used on the output of a sequencer, adjustment to a sequencer knob will step from one note to the next rather than move through all frequencies in between.
 Also, if the quantizer has scale selection, then it will affect all notes in the sequence simultaneously, which can be very convenient.
-However, it’s important to keep in mind that a quantizer’s voltage for a note, e.g. C4, may not make your oscillator go to the same note.
-To ensure your oscillator’s output matches a quantizer, you must tune your oscillator so they match.
-Try patching up a quantizer both ways using the button in Figure <a href="complex-modifiers.html#fig:cv-sequencer-quantizer-plus-quantizer">12.10</a>: first using a voltage controlled sequencer and then as a modifier on a sequencer’s output.</p>
+However, it's important to keep in mind that a quantizer's voltage for a note, e.g. C4, may not make your oscillator go to the same note.
+To ensure your oscillator's output matches a quantizer, you must tune your oscillator so they match.
+Try patching up a quantizer both ways using the button in Figure <a href="complex-modifiers.html#fig:cv-sequencer-quantizer-plus-quantizer">12.10</a>: first using a voltage controlled sequencer and then as a modifier on a sequencer's output.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -870,7 +871,7 @@ function setcv_sequencer_quantizer_plus_quantizerIframe(url){
 Figure 12.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for implementing a quantizer using a voltage controlled sequencer and using a quantizer module to process the output of a sequencer.
 </p>
 </div>
-<p>The last patch used a sequencer to store notes, but it’s also possible to use a quantizer without a sequencer.
+<p>The last patch used a sequencer to store notes, but it's also possible to use a quantizer without a sequencer.
 Particularly for arpeggios, its easy enough to use LFOs that cycle up and down.
 All that is needed is a sample and hold module to synchronize the pitches to gates, and an attenuator to restrict the range of the LFO to the range of notes desired.
 The relationships between LFO frequency, LFO range, gate/trigger frequency, and gate/trigger synchronization are illustrated in Figure <a href="complex-modifiers.html#fig:sine-quantize-figure">12.11</a>.
@@ -1084,7 +1085,177 @@ Figure 12.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for creati
 
 
 
-  <div class="chapter-nav">
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script><div class="chapter-nav">
 <div class="prev"><a href="complex-generators.html"><span class="header-section-number">11</span> Modulating Generators</a></div>
 <div class="next"><a href="tb-303.html"><span class="header-section-number">13</span> TB-303</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -1111,7 +1282,7 @@ Figure 12.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for creati
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-11-30.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
