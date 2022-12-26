@@ -1,7 +1,7 @@
 --- 
 title: "Computational Thinking through Modular Sound Synthesis"
 author: "Andrew M. Olney"
-date: "2022-12-01"
+date: "2022-12-26"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
@@ -32,5 +32,7 @@ This website is free to use and is licensed under the [Creative Commons Attribut
 
 &copy; [Andrew M. Olney](https://olney.ai/) 2022
 
+This material is based upon work supported by the National Science Foundation under Grants 1918751 and 1934745 and by the Institute of Education Sciences under Grant R305A190448. 
+Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author and do not necessarily reflect the views of the National Science Foundation or the Institute of Education Sciences.
 
 
