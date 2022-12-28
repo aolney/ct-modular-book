@@ -568,3 +568,39 @@ modular_modal(id, starter_file=starter_file, instructions_html=instructions_html
 ```{r sample-lfo-trigger-ouaive, echo=F, out.width="100%", fig.cap="(ref:sample-lfo-trigger-ouaive)"}
 modular_caption(id, starter_file=starter_file, instructions_html=instructions_html,solution_html=solution_html)
 ```
+
+## Check your understanding
+
+1. `r mc_question("Which of the following can create the effect of two interfering oscillators with only one VCO?", list(  answer="pulse width modulation","phase modulation",
+            "frequency modulation",
+            "amplitude modulation"
+            ))`
+2. `r mc_question("Which of the following must be set to for an LFO to work with a VCA?", list(  answer="unipolar LFO output",
+            "unipolar VCA input",
+            "bipolar LFO output",
+            "bipolar VCA  input"
+            ))`
+            
+3. `r mc_question("When a follower VCO with an integer multiple frequency of a leader VCO is synchronized, what is emphasized?", list(  answer="leader harmonics",
+            "leader partials",
+            "follower harmonics",
+            "follower partials"
+            ))`
+            
+4. `r mc_question("What is the term for two near identical notes played simultaneously?", list(  answer="chorus",
+            "chord",
+            "interval",
+            "tetrachord"
+            ))`
+            
+5. `r mc_question("Which of the following cannot be implemented using an LFO?", list(  answer="chorus",
+            "pulse width modulation",
+            "tremolo",
+            "vibrato"
+            ))`
+            
+6. `r mc_question("At what frequency would aliasing be expected with a 16 KHz sampling rate?", list(  answer="8 KHz",
+            "16 KHz",
+            "32 KHz",
+            "4 KHz"
+            ))`

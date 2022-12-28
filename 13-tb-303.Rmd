@@ -447,3 +447,5 @@ Improving the accent system would require additional research and probably study
 It would also be nice to have a diode ladder filter module rather than a transistor ladder module.
 The transistor ladder seems to a pretty good job at low to medium resonance, but I'm not as convinced at higher resonance.
 Probably the best way to make continued progress on this patch would be to obtain a real 303 and then make reference recordings for our target song and then use those to better tune parameters and make design decisions.
+
+`r mcq(c("0", "3.14", answer = "42", "100", "none of the above"))`

@@ -293,3 +293,40 @@ The basic modeling concepts and patches in this chapter provide a high level ove
 The following chapters will go into the three module categories (controllers, generators, and modifiers) in more detail and similarly provide concrete examples along the way.
 From there we will continue to spiral outward into increasingly complex modules and applications.
 
+## Check your understanding
+
+1. What is the difference between a trigger and a gate?
+- gates can only be used for non-percussion
+- triggers can only be used for percussion
+- width only matters for gates
+- triggers have higher amplitude
+            
+2. What is the standard voltage range of modular audio signals?
+- -5 to +5 V
+- -1.7 to +1.7 V
+- 0 to 5 V
+- 0 to 10 V
+            
+3. What does AC coupling do?
+- remove low frequency signals, noise, and offset bias
+- remove low frequency signals
+- remove offset bias
+- remove noise
+            
+4. What type of signal carries pitch information?
+- V/Oct
+- trigger
+- envelope
+- gate
+
+5. What module interprets pitch information?
+- VCA
+- VCO
+- controller
+- envelope
+            
+6. What module interprets loudness information?
+- controller
+- VCO
+- VCA
+- envelope

@@ -364,3 +364,41 @@ There are a few very practical contexts for phase to keep in mind.
 The first is that sounds waves reflect, so you don't need two speakers to get phase effects as in the examples above.
 We'll discuss how phase and reflection are intrinsic to the sounds of many instruments in the next chapter, but any reflective surface can affect phase, which has implications for acoustics in rooms.
 The second practical context is that you will often want to play multiple notes at the same time, and when you have an electronic instrument, those notes can be triggered very precisely - precisely enough that you have some control over the phase relationships and can use them to shape the sound to your liking.^[Any wave property that lends itself to interference can be used similarly, including frequency and amplitude.]
+
+## Check your understanding
+
+1. `r mc_question("The frequency of the note A one octave above a given A is:", list(  answer="double the frequency",
+            "half the frequency",
+            "the square root of the frequency",
+            "the frequency squared"))`
+            
+2. `r mc_question("What is the standard unit of frequency?", list(  answer="Hertz",
+            "octaves",
+            "semitones",
+            "microtones"))`
+            
+3. `r mc_question("What is the only guaranteed way to achieve phase cancellation?", list(  answer="adding an inverted wave",
+            "adding a perfectly out of phase wave",
+            "subtracting an inverted wave",
+            "subtracting a perfectly out of phase wave"))`
+            
+4. `r mc_question("In Western music, the octave is divided into how many semitones?", list(  answer="12",
+            "8",
+            "4",
+            "16"))`
+
+5. `r mc_question("The perceptual correlate of frequency is:", list(  answer="pitch",
+            "loudness",
+            "timbre"
+            ))`
+            
+6. `r mc_question("The perceptual correlate of amplitude is:", list(  answer="loudness",
+            "pitch",
+            "timbre"
+            ))`
+            
+7. `r mc_question("A doubling of amplitude is an increase of how many dB?", list(  answer="6",
+            "10",
+            "20",
+            "3"
+            ))`

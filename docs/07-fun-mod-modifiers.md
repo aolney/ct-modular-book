@@ -512,3 +512,40 @@ It's best to go back and forth between these settings to see what effect they ha
 <img src="images/launch-virtual-modular-button.png" alt="(ref:karplus-strong-guitar-env-delay-filter)" width="100%" />
 <p class="caption">(\#fig:karplus-strong-guitar-env-delay-filter)(ref:karplus-strong-guitar-env-delay-filter)</p>
 </div>
+
+## Check your understanding
+
+1. Which effect creates a harmonic series?
+- flanger
+- phaser
+- delay
+- chorus
+            
+2. Which of the following is not a reason why the Fourier transform is impractical as a modular filter?
+- ringing artifacts
+- real-time processing
+- diffraction
+            
+3. In a low pass filter, when the signal is decreasing, the energy in the RC circuit is:
+- increasing
+- holding steady
+- decreasing
+- remaining the same
+
+3. What is the phase shift at the cuttoff point in a low pass filter?
+- 90 degrees
+- 180 degrees
+- -90 degrees
+- -45 degrees
+
+4. How much is the signal attenuated at the cuttoff point in a low pass filter?
+- 3 dB
+- 0 dB
+- 18 dB
+- 6 dB
+            
+5. Filter resonance is caused by
+- feedback
+- self-oscillation
+- poles
+- phase shift

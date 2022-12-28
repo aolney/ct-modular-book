@@ -34,7 +34,7 @@ A clock division divides the clock frequency by an integer to get a new, lower f
 For example, if our clock is 120 BPM, then it is producing triggers at 2 Hz.
 A clock division of 2 would therefore produce triggers at 1 Hz, or 60 BPM.
 Clock divisions of 2, 4, and 8 are relatively common.
-Each of these specialized signals requires its own jack, so typically only a few such divisions are available on a clock module.
+Each of these specialized signals often has its own jack, so typically only a few such divisions are available on a clock module.
 
 Clock divisions can be used to implement [time signatures](https://en.wikipedia.org/wiki/Time_signature) that track how many beats occur in a measure (also known as a bar).
 A common time signature in popular music is ${}^{4}_{4}$, which indicates there are four quarter notes per measure, in contrast to ${}^{3}_{4}$, which indicates there are three quarter notes per measure.
@@ -238,10 +238,11 @@ As you move the gate length knob, you'll hear that the note lengths change corre
 
 <!-- TODO: add envelopes on sequence steps example? -->
 
-## Summing up
+## Moving forward 
+<!-- Summing up -->
 
-Clocks and sequencers are canonical modules for creating control signals in a modular system. 
-Unlike manual controller like a keyboard, both clocks and sequencers are semi-automated: once they are set up, they will continue to generate control signals without additional human intervention.
+<!-- Clocks and sequencers are canonical modules for creating control signals in a modular system.  -->
+<!-- Unlike manual controller like a keyboard, both clocks and sequencers are semi-automated: once they are set up, they will continue to generate control signals without additional human intervention. -->
 <!-- Sequencing can get complex rather quickly, and there has been a tremendous amount of innovation around the problem of sequencing, leading to a variety of different approaches. -->
 The patches in this chapter explored more traditional analogue sequencing using separate modules.
 Larger analogue sequencer modules with multiple channels and features can often be viewed as composites of these smaller modules, as shown in Figure \@ref(fig:seq3-annotated).
@@ -257,3 +258,22 @@ Future chapters will explore additional controllers and control techniques.
 <p class="caption">(\#fig:seq3-annotated)(ref:seq3-annotated)</p>
 </div>
 
+## Check your understanding
+
+1. Which of the following is not a main function of a clock?
+- synchronization
+- transport
+- time signatures
+            
+2. What basic waveshape best matches a clock signal?
+- square
+- triangle
+- sine
+- saw
+            
+3. Can a control voltage sequencer be used to create triggers?
+- No, control voltage and triggers are fundamentally different
+- No, because the control voltage can be negative
+- Yes, but only on every other step to reset the trigger
+- Yes, on every step because the voltage drops to zero anyways
+            

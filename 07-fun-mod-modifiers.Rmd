@@ -700,3 +700,34 @@ modular_modal("karplus-strong-guitar-env-delay-filter", starter_file="lfo-lfp-ou
 ```{r karplus-strong-guitar-env-delay-filter, echo=F, out.width="100%", fig.cap="(ref:karplus-strong-guitar-env-delay-filter)"}
 modular_caption()
 ```
+
+## Check your understanding
+
+1. `r mc_question("Which effect creates a harmonic series?", list(  answer="flanger",
+            "chorus",
+            "phaser",
+            "delay"))`
+            
+2. `r mc_question("Which of the following is not a reason why the Fourier transform is impractical as a modular filter?", list(  answer="diffraction",
+            "real-time processing",
+            "ringing artifacts"))`
+            
+3. `r mc_question("In a low pass filter, when the signal is decreasing, the energy in the RC circuit is:", list(  answer="decreasing",
+            "holding steady",
+            "increasing",
+            "remaining the same"))`
+
+3. `r mc_question("What is the phase shift at the cuttoff point in a low pass filter?", list(  answer="-45 degrees",
+            "-90 degrees",
+            "90 degrees",
+            "180 degrees"))`
+
+4. `r mc_question("How much is the signal attenuated at the cuttoff point in a low pass filter?", list(  answer="3 dB",
+            "6 dB",
+            "0 dB",
+            "18 dB"))`
+            
+5. `r mc_question("Filter resonance is caused by", list(  answer="feedback",
+            "self-oscillation",
+            "phase shift",
+            "poles"))`

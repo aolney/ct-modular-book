@@ -372,3 +372,45 @@ There are a few very practical contexts for phase to keep in mind.
 The first is that sounds waves reflect, so you don't need two speakers to get phase effects as in the examples above.
 We'll discuss how phase and reflection are intrinsic to the sounds of many instruments in the next chapter, but any reflective surface can affect phase, which has implications for acoustics in rooms.
 The second practical context is that you will often want to play multiple notes at the same time, and when you have an electronic instrument, those notes can be triggered very precisely - precisely enough that you have some control over the phase relationships and can use them to shape the sound to your liking.^[Any wave property that lends itself to interference can be used similarly, including frequency and amplitude.]
+
+## Check your understanding
+
+1. The frequency of the note A one octave above a given A is:
+- the square root of the frequency
+- half the frequency
+- double the frequency
+- the frequency squared
+            
+2. What is the standard unit of frequency?
+- Hertz
+- octaves
+- semitones
+- microtones
+            
+3. What is the only guaranteed way to achieve phase cancellation?
+- subtracting a perfectly out of phase wave
+- subtracting an inverted wave
+- adding an inverted wave
+- adding a perfectly out of phase wave
+            
+4. In Western music, the octave is divided into how many semitones?
+- 16
+- 8
+- 12
+- 4
+
+5. The perceptual correlate of frequency is:
+- pitch
+- loudness
+- timbre
+            
+6. The perceptual correlate of amplitude is:
+- loudness
+- timbre
+- pitch
+            
+7. A doubling of amplitude is an increase of how many dB?
+- 3
+- 10
+- 6
+- 20

@@ -342,6 +342,42 @@ This effect can be created by using an envelope on a filter, a technique we will
 knitr::include_url("https://olney.ai/ct-modular-book/images/adsr-sound-table.html", height = "150px")
 ```
 
+## Check your understanding
+
+1. `r mc_question("How many waves are needed to form a standing wave?", list(  answer="2",
+            "1",
+            "4",
+            "3"))`
+            
+2. `r mc_question("The key ingredient for standing waves is:", list(  answer="constructive interference",
+            "destructive interference",
+            "matched frequency",
+            "matched amplitude"))`
+
+3. `r mc_question("What relationship do harmonics have to the fundamental frequency?", list(  answer="harmonics are integer multiples of the fundamental frequency",
+            "harmonics are any multiple of the fundamental frequency",
+            "harmonics are integer divisors of the fundamental frequency",
+            "harmonics are any divisor of the fundamental frequency"))`
+            
+4. `r mc_question("What are the relative strengths of frequencies emitted by a resonator called?", list(  answer="formants",
+            "nodes",
+            "Q",
+            "frequency spectrum"))`
+            
+5. `r mc_question("What is the only basic waveshape that has both even and odd harmonics?", list(  answer="saw",
+            "square",
+            "sine",
+            "triangle"))`  
+            
+6. `r mc_question("Compared to string instruments, percussion instruments have partials that are:", list(  answer="inharmonic and dense",
+            "inharmonic and sparse",
+            "harmonic and dense",
+            "harmonic and sparse"))`  
+            
+7. `r mc_question("What ADSR stage's length is not determined by time?", list(  answer="sustain",
+            "attack",
+            "release",
+            "decay"))`  
 <!-- Tonal sounds	 -->
 <!-- 	Common waves, harmonics, spectrum -->
 <!-- 	Fourier series -->

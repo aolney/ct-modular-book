@@ -397,3 +397,29 @@ modular_modal("sh-quantizer-generative", starter_file="lfo-quantizer-arpeggio.vc
 modular_caption()
 ```
 
+## Check your understanding
+
+1. `r mc_question("For which kind of modulation is rectification useful?", list(  answer="amplitude modulation",
+            "ring modulation",
+            "frequency modulation",
+            "phase modulation"))`
+            
+2. `r mc_question("Which basic waveshape becomes offset voltage under full rectification?", list(  answer="square",
+            "sine",
+            "saw",
+            "triangle"))`
+            
+3. `r mc_question("Slew slows the rate of change of a signal like what kind of filter?", list(  answer="low pass",
+            "high pass",
+            "band pass",
+            "all pass"))`
+            
+4. `r mc_question("Which of the following can't be done with slew?", list(  answer="quantization",
+            "converting gates to envelopes",
+            "creating an envelope follower",
+            "portamento"))`
+            
+5. `r mc_question("When creating an arpeggio with a quantizer and an LFO, what other module is essential?", list(  answer="sample and hold",
+            "comparator",
+            "slew",
+            "sequencer"))`

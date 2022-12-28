@@ -218,11 +218,13 @@ frequency-and-pitch
 amplitude-and-loudness
 waveshape-and-timbre
 phase-and-interference
+check-your-understanding
 harmonic-and-inharmonic-sounds
 phase-reflections-standing-waves-and-harmonics
 resonators-formants-and-frequency-spectrum
 inharmonic-standing-waves-and-noise
 dynamics-and-envelopes
+check-your-understanding-1
 basic-modeling-concepts
 modules-are-the-model-elements
 signals-are-how-the-model-elements-interact
@@ -234,6 +236,7 @@ controlling-pitch
 controlling-note-duration-onoff-volume
 controlling-note-dynamics-volume-during-note
 moving-forward-1
+check-your-understanding-2
 controllers
 clocks
 clock-under-a-scope
@@ -244,7 +247,8 @@ trigger-sequencers
 control-voltage-sequencers
 sequencing-rests
 sequencing-note-duration
-summing-up
+moving-forward-2
+check-your-understanding-3
 generators
 chords
 chorus-oscillators
@@ -255,6 +259,7 @@ tremolo
 synchronization
 noise
 samplers
+check-your-understanding-4
 modifiers
 effects
 delays
@@ -268,6 +273,7 @@ filters-change-frequency-and-phase
 combining-filters
 resonance
 waveguides
+check-your-understanding-5
 designing-a-kick-drum
 problem-solving-for-sound-synthesis
 understand-the-problem
@@ -295,8 +301,9 @@ modifying-gates
 making-gates-with-logic
 addingremoving-gates-with-probability
 speed-variable-clocks-using-lfos
-euclidean-rhythm
+euclidean-rhythms
 sequential-switches
+check-your-understanding-6
 complex-generators
 modulating-amplitude
 amplitude-modulation
@@ -307,10 +314,12 @@ analogue-exponential-frequency-modulation
 analogue-linear-frequency-modulation
 analogue-through-zero-frequency-modulation
 phase-modulation
+check-your-understanding-7
 complex-modifiers
 rectification-and-wavefolding
 slew
 quantizers
+check-your-understanding-8
 tb-303
 history
 problem-solving-approach

@@ -297,6 +297,49 @@ This effect can be created by using an envelope on a filter, a technique we will
 <p class="caption">(\#fig:adsr-sound-table)(ref:adsr-sound-table)</p>
 </div>
 
+## Check your understanding
+
+1. How many waves are needed to form a standing wave?
+- 2
+- 4
+- 3
+- 1
+            
+2. The key ingredient for standing waves is:
+- constructive interference
+- matched frequency
+- destructive interference
+- matched amplitude
+
+3. What relationship do harmonics have to the fundamental frequency?
+- harmonics are any multiple of the fundamental frequency
+- harmonics are integer multiples of the fundamental frequency
+- harmonics are integer divisors of the fundamental frequency
+- harmonics are any divisor of the fundamental frequency
+            
+4. What are the relative strengths of frequencies emitted by a resonator called?
+- frequency spectrum
+- nodes
+- formants
+- Q
+            
+5. What is the only basic waveshape that has both even and odd harmonics?
+- triangle
+- saw
+- sine
+- square  
+            
+6. Compared to string instruments, percussion instruments have partials that are:
+- harmonic and sparse
+- inharmonic and dense
+- harmonic and dense
+- inharmonic and sparse  
+            
+7. What ADSR stage's length is not determined by time?
+- sustain
+- release
+- decay
+- attack  
 <!-- Tonal sounds	 -->
 <!-- 	Common waves, harmonics, spectrum -->
 <!-- 	Fourier series -->

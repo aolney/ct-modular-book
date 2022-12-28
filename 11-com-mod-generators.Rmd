@@ -738,6 +738,31 @@ Table: (\#tab:frequency-summary) Behaviors of frequency modulation methods discu
 | C:M ratios          | broken     | broken | perfect         | perfect          |
 | Pitch shift         | yes            | yes*        | no              | no               |
 
+
+## Check your understanding
+
+1. `r mc_question("When a signal's amplitude is modulated, the result is:", list(  answer="amplitude modulation",
+            "frequency modulation",
+            "phase modulation"))`
+            
+2. `r mc_question("When a signal's phase is modulated, the result is:", list(              "amplitude modulation",
+            "frequency modulation",
+            "frequency hopping",
+            answer="phase modulation"))`
+            
+3. `r mc_question("What type of frequency modulation moves the output signal an equal musical interval around the carrier's default value?", list(              "PM",
+            "linear FM",
+            "through-zero linear FM",
+            answer="exponential FM"))`
+            
+4. `r mc_question("What causes pitch shift in frequency modulation?", list(              "digital modulation",
+            "analogue modulation",
+            "symmetric modulation",
+            answer="asymmetric modulation"))`
+            
+5. `r mc_question("Which of the following does not behave like true FM?", list(                          "thru-zero FM",
+            "PM",
+            answer="linear FM"))`
 <!-- **template** -->
 
 <!-- - How are sideband frequency and amplitude calculated -->

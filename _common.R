@@ -10,6 +10,18 @@ knitr::opts_chunk$set(
 library(stringr)
 library(magick)
 library(RCurl)
+library(webexercises)
+
+mc_question <- function(stem,option_list) {
+  #                                                                                                 "Digital signal processing")
+  options_randomized = unlist(sample(option_list))
+  if (knitr::is_html_output(excludes = "epub")) {
+    return( str_c( stem, " ", mcq(options_randomized) ) )
+  } else {
+    return( str_c( stem, "\n", knitr::asis_output(str_c("- ",unname(options_randomized)) %>% str_flatten(collapse="\n"))))
+  }
+  
+}
 embed_youtube <- function(youtube_id,start_time=0,end_time=NULL) {
   if (knitr::is_html_output(excludes = "epub")) {
     url <- str_c("https://www.youtube.com/embed/", youtube_id, "?start=",start_time)
