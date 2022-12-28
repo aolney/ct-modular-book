@@ -261,19 +261,19 @@ Future chapters will explore additional controllers and control techniques.
 ## Check your understanding
 
 1. Which of the following is not a main function of a clock?
-- synchronization
-- transport
 - time signatures
+- transport
+- synchronization
             
 2. What basic waveshape best matches a clock signal?
-- square
+- saw
 - triangle
 - sine
-- saw
+- square
             
 3. Can a control voltage sequencer be used to create triggers?
-- No, control voltage and triggers are fundamentally different
 - No, because the control voltage can be negative
-- Yes, but only on every other step to reset the trigger
+- No, control voltage and triggers are fundamentally different
 - Yes, on every step because the voltage drops to zero anyways
+- Yes, but only on every other step to reset the trigger
             
