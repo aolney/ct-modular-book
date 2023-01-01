@@ -1,14 +1,13 @@
 # Modifiers
 
-Modifiers modify incoming signals that may be either audio or some kind of control signal.
-Generators create audible sound.
+Modifiers modify incoming signals that may be either audio or control signals.
 Chapter \@ref(basic-modeling-concepts) introduced voltage controlled amplifiers (VCAs) that modify the amplitude of incoming signals, which can be either audio or control voltage.
 That chapter also introduced envelopes that modify control voltage, and we have routinely used envelopes to control VCAs in order to model the dynamics of various instruments.
 
 This chapter expands upon audio modifiers specifically and focuses on two foundational categories of modifiers, effects and voltage controlled filters.
 Effects can substantially enrich the sounds you create both in terms of thickness of sound and sense of acoustic space, and voltage controlled filters create some of the most defining sounds in electronic music.
 
-## Effects
+## Time-based effects
 
 There are perhaps an infinite number of possible audio effects.
 This section focuses on time-based effects, as the ideas behind these are complementary to the following discussion of voltage controlled filters.
@@ -26,7 +25,7 @@ Figure \@ref(fig:wheel-sine) shows an abstract rendering of this example, highli
 </div>
 
 The discussion of simultaneously-sounding oscillators in Chapter \@ref(generators) emphasized phase relationships between the oscillators as well as slight tuning differences between the oscillators, both of which can give a fuller sound.
-Phase captures everything about the relationship between continuous tones because the amount one signal has been offset relative to another can always be reduced to between 0 and 360 degrees (or $2pi$).^[If the offset is more than 360 degrees, it simply wraps around to a value equivalent to a value between 0 and 360 degrees, e.g. 370 degrees is the same as 10 degrees.]
+Phase captures everything about the relationship between *continuous* tones because the amount one signal has been offset relative to another can always be reduced to between 0 and 360 degrees (or $2pi$).^[If the offset is more than 360 degrees, it simply wraps around to a value equivalent to a value between 0 and 360 degrees, e.g. 370 degrees is the same as 10 degrees.]
 However, music does not consist of continuous tones.
 
 When we begin to consider music more broadly, it makes sense to think of phase and offset distance being decoupled depending on how much time has passed.
@@ -511,6 +510,58 @@ It's best to go back and forth between these settings to see what effect they ha
 <div class="figure">
 <img src="images/launch-virtual-modular-button.png" alt="(ref:karplus-strong-guitar-env-delay-filter)" width="100%" />
 <p class="caption">(\#fig:karplus-strong-guitar-env-delay-filter)(ref:karplus-strong-guitar-env-delay-filter)</p>
+</div>
+
+## Bitcrushing
+
+The bitcrushing effect is only somewhat related to time, but it is worth mentioning here not only because it is a popular effect but also because it directly connects to Section \@ref(samplers) in the last chapter.
+Recall from that section that digital audio data is represented by two parameters that each represent a kind of resolution.
+
+Bit depth is the resolution of the height of wave, i.e. amplitude.
+The more bits are used the specify the height of the wave, the greater the range of loudness in our digital audio (often called [dynamic range](https://en.wikipedia.org/wiki/Dynamic_range)).
+For example, 8-bit depth encodes 256 possible values ($2^8=256$), and 16-bit depth encodes about 65 thousand values ($2^{16}=65,536$).
+Remember our perception of loudness is logarithmic, so we are more sensitive to changes in loudness when amplitude is small than when amplitude is large.
+As a result, low bit depth particularly reduces dynamic range for quieter sounds, such that two sounds of different loudness will get represented with the same value - this is called [quantization noise](https://en.wikipedia.org/wiki/Quantization_(signal_processing)#Noise).
+An example of quantization noise is shown in Figure \@ref(fig:bitcrush-scope-fft).
+The stair-step pattern is atypical for analogue to digital conversion where interpolation is used, but it illustrates quantization and is typical of bit crushing effects.
+Quantization noise depends on the signal, and this dependence on the signal makes quantization noise an effect rather than random noise.
+However, quantization noise is still noise, so at very low bit depths, it might be hard for the ear to distinguish between quantization noise and random noise.
+Older digital instruments and video games had lower bit depth, so using bit depth reduction as an effect can help recreate those sounds on modern instruments.
+
+(ref:bitcrush-scope-fft) The effect of bit depth reduction (left) and sample rate reduction (right). Bit depth reduction is most easily observed as a stair-step quantization error. Sample rate reduction is most easily observed as the introduction of alias frequencies (green) for an input signal, here a sine wave (pink). Note that these effects in bit crushing differ from those in normal analogue to digital conversion, which uses additional techniques and processing to avoid such artifacts.
+
+<div class="figure">
+<img src="images/bitcrush-scope-fft.png" alt="(ref:bitcrush-scope-fft)" width="100%" />
+<p class="caption">(\#fig:bitcrush-scope-fft)(ref:bitcrush-scope-fft)</p>
+</div>
+
+
+Sample rate is resolution of the frequency of the wave; sample rate is the frequency at which the height of the wave is sampled.
+As discussed in Section \@ref(samplers), the sample rate must be twice the highest frequency component of the signal to be accurately reconstructed, otherwise a doppleganger of that component, or alias, will appear.
+One important tool in preventing aliasing is low-pass filtering, which only lets through those frequency components that are below the highest allowed frequency.
+Because filters have a slope, some padding is needed on the sample rate in practical applications, which explains why we use a sampling rate of 44.1 kHz when the upper limit of human hearing is around 20 kHz.
+But what does an alias look like and sound like?
+Simply stated, an alias was supposed to be a higher frequency but was represented as a lower frequency due to the Nyquist limit.
+Specifically, the aliases reflect off the sampling rate.
+For example, given a sampling rate of 16 kHz, a 17 kHz frequency (16 kHz + 1 kHz) would show up as an alias at 16 kHz (16 kHz - 1 kHz).
+Aliases therefore begin in the upper frequencies and can create inharmonic, metallic sounds, since the reflections of frequencies off the sampling rate are not guaranteed to be harmonically related to the original sounds.^[We will cover these ideas in more detail in Chapter \@ref(complex-generators).]
+An example of aliasing on a sine wave is shown in Figure \@ref(fig:bitcrush-scope-fft).
+
+
+Let's take a look at a bitcrusher module.
+The main controls are the bit depth and the sample rate.
+In this module, only the bit depth can be voltage-controlled. 
+Try patching up a bitcrusher into a single voice keyboard patch using the button in Figure \@ref(fig:bitcrush).
+
+(ref:bitcrush) [Virtual modular](https://cardinal.olney.ai) for a bitcrusher effect.
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:bitcrush)" width="100%" />
+<p class="caption">(\#fig:bitcrush)(ref:bitcrush)</p>
 </div>
 
 ## Check your understanding

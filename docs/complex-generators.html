@@ -100,7 +100,7 @@
 <span class="header-section-number">11</span> Modulating Generators<a class="anchor" aria-label="anchor" href="#complex-generators"><i class="fas fa-link"></i></a>
 </h1>
 <p>This chapter extends Chapter <a href="generators.html#generators">6</a> and focuses entirely on audio-rate modulation.
-Audio-rate modulation uses an audio-rate signal, typically an oscillator, to modulate a parameter, most commonly a parameter on another oscillator.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Audio-rate modulation of a filter's cutoff is another common option but is beyond the scope of this chapter. Try it!&lt;/p&gt;"><sup>82</sup></a>
+Audio-rate modulation uses an audio-rate signal, typically an oscillator, to modulate a parameter, most commonly a parameter on another oscillator.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Audio-rate modulation of a filter's cutoff is another common option but is beyond the scope of this chapter. Try it!&lt;/p&gt;"><sup>83</sup></a>
 Although the basic idea is simple to explain, sounds produced can be complex and require a new idea to understand: the sideband.</p>
 <p>Before proceeding, let's introduce some terminology.
 The audio rate signal source will be called the <em>modulator</em>.
@@ -139,8 +139,8 @@ As you recall, we used an LFO at relatively low rates to control a VCA, and the 
 AM works exactly the same way as this but at audio rates (&gt;20 Hz).
 At audio rates, we can hear sidebands, and the nature of the sound changes from an oscillation in loudness to a new timbre.</p>
 <p>The VCA is key to understanding AM.
-Recall that the VCA is a level control that lets through a certain amount of signal, typically 0-100%.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Most VCAs are attenuators and so only reduce signal. Some VCAs include amplifiers that allow the gain on the signal to go above 100%&lt;/p&gt;"><sup>83</sup></a>.
-If you stop to think about this mathematically, it means that the VCA is multiplying the signal by a control value.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The control value itself at any moment is determined by the output of the modulator and thus it is the two signals that are being multiplied together, but for simplicity of exposition fixed point values are emphasized.&lt;/p&gt;"><sup>84</sup></a>
+Recall that the VCA is a level control that lets through a certain amount of signal, typically 0-100%.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Most VCAs are attenuators and so only reduce signal. Some VCAs include amplifiers that allow the gain on the signal to go above 100%&lt;/p&gt;"><sup>84</sup></a>.
+If you stop to think about this mathematically, it means that the VCA is multiplying the signal by a control value.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The control value itself at any moment is determined by the output of the modulator and thus it is the two signals that are being multiplied together, but for simplicity of exposition fixed point values are emphasized.&lt;/p&gt;"><sup>85</sup></a>
 For example, if the VCA control value is 50%, then it is multiplying the incoming signal amplitude by .5.
 AM stops producing sound when the control value crosses below zero because VCAs are defined to operate in the 0-100% range, i.e., with unipolar control values only.
 So when the control value crosses below zero, the VCA output simply stays at zero until the control value becomes positive again.
@@ -154,7 +154,7 @@ Figure 11.1: An example of amplitude modulation using sine waves for modulator a
 </div>
 <p>Side bands for AM are simplest for sine waves.
 If both modulator and carrier are sine waves, the spectrum of the output will include a partial at the carrier frequency <span class="math inline">\(C_f\)</span> and two partials offset by the modulator frequency <span class="math inline">\(M_f\)</span>, specifically <span class="math inline">\(C_f - M_f\)</span> and <span class="math inline">\(C_f + M_f\)</span>.
-The sidebands have less strength than the carrier, and the strength of the sidebands is determined by the modulation index, which for AM is defined as the peak change in output amplitude divided by the amplitude of the carrier, <span class="math inline">\(\Delta A/C_a\)</span>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;When the modulation index is at maximum, each sideband is half of the strength of the carrier.&lt;/p&gt;"><sup>85</sup></a>
+The sidebands have less strength than the carrier, and the strength of the sidebands is determined by the modulation index, which for AM is defined as the peak change in output amplitude divided by the amplitude of the carrier, <span class="math inline">\(\Delta A/C_a\)</span>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;When the modulation index is at maximum, each sideband is half of the strength of the carrier.&lt;/p&gt;"><sup>86</sup></a>
 An example of peak change is given in Figure <a href="complex-generators.html#fig:am-modulation-index">11.2</a>.</p>
 
 <div class="figure">
@@ -754,7 +754,7 @@ Thus understanding this family requires understanding both the true methods and 
 <span class="header-section-number">11.2.1</span> Frequency modulation<a class="anchor" aria-label="anchor" href="#frequency-modulation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Frequency modulation (FM) is a widespread method for radio transmission, just like AM.
-In the context of modular synthesis, FM is strongly associated with <span class="citation">John M. Chowning<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“The Synthesis of Complex Audio Spectra by Means of Frequency Modulation,”&lt;/span&gt; &lt;em&gt;Journal of the Audio Engineering Society&lt;/em&gt; 21, no. 7 (1973): 526–34, &lt;a href="http://www.aes.org/e-lib/browse.cfm?elib=1954" role="doc-biblioref"&gt;http://www.aes.org/e-lib/browse.cfm?elib=1954&lt;/a&gt;.&lt;/p&gt;'><sup>86</sup></a></span>, whose work in the 1970s <a href="https://en.wikipedia.org/wiki/Frequency_modulation_synthesis">was used in the Yamaha FM synthesizers</a>, notably the DX7.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically Chowning's FM is phase modulation, as will be discussed later in the chapter.&lt;/p&gt;"><sup>87</sup></a>
+In the context of modular synthesis, FM is strongly associated with <span class="citation">John M. Chowning<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“The Synthesis of Complex Audio Spectra by Means of Frequency Modulation,”&lt;/span&gt; &lt;em&gt;Journal of the Audio Engineering Society&lt;/em&gt; 21, no. 7 (1973): 526–34, &lt;a href="http://www.aes.org/e-lib/browse.cfm?elib=1954" role="doc-biblioref"&gt;http://www.aes.org/e-lib/browse.cfm?elib=1954&lt;/a&gt;.&lt;/p&gt;'><sup>87</sup></a></span>, whose work in the 1970s <a href="https://en.wikipedia.org/wiki/Frequency_modulation_synthesis">was used in the Yamaha FM synthesizers</a>, notably the DX7.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically Chowning's FM is phase modulation, as will be discussed later in the chapter.&lt;/p&gt;"><sup>88</sup></a>
 <!-- Although Chowning's approach arrived decades after FM was used in modular synthesis, it sets the standard for all other forms of FM, which can largely be viewed as approximations of it. -->
 Historically, FM synthesis methods have only approximated true FM.
 The purpose of this section is thus to explain true FM so that approximations have a common reference point.</p>
@@ -764,7 +764,7 @@ In FM we don't use a VCA but instead an attenuverter/polarizer, i.e. FM crosses 
 The attenuverter/polarizer is often integrated into the carrier oscillator with a corresponding FM input.
 The voltage into the carrier's FM input is added to the voltage into the carrier's V/Oct input, so when only one input is used, these two inputs are interchangeable.
 When using both, the V/Oct defines the carrier's frequency, and the FM input defines the variation around that frequency.
-Thus as the modulator's strength increases,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The strength of the modulation is the amplitude of the modulation, just like the strength of any wave is the amplitude of the wave.&lt;/p&gt;"><sup>88</sup></a> the frequency of the output increases, and as the modulator's strength decreases, the frequency of the output decreases, as shown in Figure <a href="complex-generators.html#fig:fm-voct-composite">11.11</a>.</p>
+Thus as the modulator's strength increases,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The strength of the modulation is the amplitude of the modulation, just like the strength of any wave is the amplitude of the wave.&lt;/p&gt;"><sup>89</sup></a> the frequency of the output increases, and as the modulator's strength decreases, the frequency of the output decreases, as shown in Figure <a href="complex-generators.html#fig:fm-voct-composite">11.11</a>.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:fm-voct-composite"></span>
@@ -822,7 +822,7 @@ For example, any N:1 will reduce to 1:1 in normal form because we repeatedly sub
 An important use of normal form ratios is to tell if a ratio is harmonic or not.
 Any harmonic ratio will have a normal form of 1:N, and any other normal form ratio will be inharmonic.
 For example, 2:7 is in normal form because <span class="math inline">\(M \ge 2C\)</span>, but it is not 1:N, so it is inharmonic.
-An extended table of interesting ratios has been developed by <span class="citation">Barry Truax<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Organizational Techniques for c:m Ratios in Frequency Modulation,”&lt;/span&gt; &lt;em&gt;Computer Music Journal&lt;/em&gt; 1, no. 4 (1977): 39–45, &lt;a href="http://www.jstor.org/stable/40731299" role="doc-biblioref"&gt;http://www.jstor.org/stable/40731299&lt;/a&gt;.&lt;/p&gt;'><sup>89</sup></a></span>.</p>
+An extended table of interesting ratios has been developed by <span class="citation">Barry Truax<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Organizational Techniques for c:m Ratios in Frequency Modulation,”&lt;/span&gt; &lt;em&gt;Computer Music Journal&lt;/em&gt; 1, no. 4 (1977): 39–45, &lt;a href="http://www.jstor.org/stable/40731299" role="doc-biblioref"&gt;http://www.jstor.org/stable/40731299&lt;/a&gt;.&lt;/p&gt;'><sup>90</sup></a></span>.</p>
 <p>Keyboard tracking with FM requires no additional effort relative to AM/RM.
 Even though the modulation index, <span class="math inline">\(\Delta F/M_f\)</span>, depends on the frequency of the modulator, if we send the same V/Oct to modulator and carrier, the numerator and denominator of the modulation index will change by the same amount so the modulation index overall will not change.
 Thus timbre will remain constant across the keyboard using the same approach to keyboard tracking as AM/RM.</p>
@@ -851,18 +851,18 @@ The most important things to remember about true FM are:</p>
 <h3>
 <span class="header-section-number">11.2.2</span> Analogue exponential frequency modulation<a class="anchor" aria-label="anchor" href="#analogue-exponential-frequency-modulation"><i class="fas fa-link"></i></a>
 </h3>
-<p>Although frequency modulation has been traced back as far as the 1940s,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Bode, &lt;span&gt;“History of Electronic Sound Modification.”&lt;/span&gt;&lt;/p&gt;"><sup>90</sup></a></span> exponential frequency modulation (EFM) seems most strongly associated with the modular synthesizers after the 1960s when Robert Moog <a href="https://en.wikipedia.org/wiki/Moog_synthesizer">advanced the exponential volt per octave standard</a>.
+<p>Although frequency modulation has been traced back as far as the 1940s,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Bode, &lt;span&gt;“History of Electronic Sound Modification.”&lt;/span&gt;&lt;/p&gt;"><sup>91</sup></a></span> exponential frequency modulation (EFM) seems most strongly associated with the modular synthesizers after the 1960s when Robert Moog <a href="https://en.wikipedia.org/wiki/Moog_synthesizer">advanced the exponential volt per octave standard</a>.
 In EFM, the output is moved an <strong>equal musical interval</strong> around the carrier's default value.
 For example, suppose a <span class="math inline">\(\pm1 V\)</span> modulation signal goes into a 400 Hz carrier's FM input.
 Then the first pair of sidebands will be 200 Hz and 800 Hz, or half and double the carrier frequency, respectively.
 Since the output spends more time above 400 Hz than below it, the perceived pitch is shifted above 400 Hz.
-The EFM pitch shift increases as the modulation index increases<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Bernard A. Hutchins Jr., &lt;span&gt;“The Frequency Modulation Spectrum of an Exponential Voltage-Controlled Oscillator,”&lt;/span&gt; &lt;em&gt;Journal of the Audio Engineering Society&lt;/em&gt; 23, no. 3 (1975): 200–206, &lt;a href="http://www.aes.org/e-lib/browse.cfm?elib=2700" role="doc-biblioref"&gt;http://www.aes.org/e-lib/browse.cfm?elib=2700&lt;/a&gt;.&lt;/p&gt;'><sup>91</sup></a></span> and
+The EFM pitch shift increases as the modulation index increases<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Bernard A. Hutchins Jr., &lt;span&gt;“The Frequency Modulation Spectrum of an Exponential Voltage-Controlled Oscillator,”&lt;/span&gt; &lt;em&gt;Journal of the Audio Engineering Society&lt;/em&gt; 23, no. 3 (1975): 200–206, &lt;a href="http://www.aes.org/e-lib/browse.cfm?elib=2700" role="doc-biblioref"&gt;http://www.aes.org/e-lib/browse.cfm?elib=2700&lt;/a&gt;.&lt;/p&gt;'><sup>92</sup></a></span> and
 is very problematic for staying in tune with other instruments.
 Workarounds to the pitch shift problem for EFM include playing with other pitched instruments over a narrow frequency range where the shift is negligible, not playing with other pitched instruments at all, and using EFM for percussion only.</p>
 <p>The effect of modulating by an equal musical interval goes beyond pitch shift.
-As the EFM modulation index increases and the sidebands grow, they become increasingly asymmetric, which breaks the normal FM harmonic ratios.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Hutchins.&lt;/p&gt;"><sup>92</sup></a></span>
+As the EFM modulation index increases and the sidebands grow, they become increasingly asymmetric, which breaks the normal FM harmonic ratios.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Hutchins.&lt;/p&gt;"><sup>93</sup></a></span>
 Recall that normal FM harmonic ratios are heavily dependent on the property of reflecting off zero.
-In EFM, partials rarely reflect off zero because the change in frequency can never reach zero<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Exponential functions don't cross zero.&lt;/p&gt;"><sup>93</sup></a> and the overall pitch shift pulls the lower sideband away from zero.
+In EFM, partials rarely reflect off zero because the change in frequency can never reach zero<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Exponential functions don't cross zero.&lt;/p&gt;"><sup>94</sup></a> and the overall pitch shift pulls the lower sideband away from zero.
 Thus the partials mostly don't reflect off zero, and the normal harmonic ratios are no longer valid.
 In practice this means that it is difficult to get a stable output that is strongly harmonic as the modulation index increases, in addition to the pitch shift problem.</p>
 <p>Despite these challenges, EFM has a history in electronic music and has been widely used for percussive and inharmonic sounds.
@@ -1068,7 +1068,7 @@ function setefm_keyboard_frequency_trackingIframe(url){
 Figure 11.15: <a href="https://cardinal.olney.ai">Virtual modular</a> for exponential frequency modulation with keyboard tracking and exploring a 1:1 ratio.
 </p>
 </div>
-<p>The patch in Figure <a href="complex-generators.html#fig:efm-keyboard-frequency-tracking">11.15</a> demonstrates workable EFM keyboard tracking for a moderate fixed modulation index, as expected.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;For example, with feidah at .5 I get zero pitch shift across an octave from C4 to C5 but 6 cents of shift over two octaves, which is &lt;a href="https://en.wikipedia.org/wiki/Cent_(music)"&gt;generally perceptible&lt;/a&gt;.&lt;/p&gt;'><sup>94</sup></a>
+<p>The patch in Figure <a href="complex-generators.html#fig:efm-keyboard-frequency-tracking">11.15</a> demonstrates workable EFM keyboard tracking for a moderate fixed modulation index, as expected.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;For example, with feidah at .5 I get zero pitch shift across an octave from C4 to C5 but 6 cents of shift over two octaves, which is &lt;a href="https://en.wikipedia.org/wiki/Cent_(music)"&gt;generally perceptible&lt;/a&gt;.&lt;/p&gt;'><sup>95</sup></a>
 However, the patch also demonstrates how EFM, even using a small modulation index, diverges from true FM.
 Not only do we find rogue harmonics below the fundamental, which should not happen with a 1:1 ratio, but we also see the a broad shift in the spectrum as the modulation index is modulated by an LFO, which badly affects EFM's pitch stability during modulation index changes.
 These imperfections of EFM give it an interesting sound, so as previously stated, these problems may not be problems depending on the musical goal.
@@ -1645,28 +1645,28 @@ However, if one wants the character of EFM or LFM, that can't be denied.</p>
 </h2>
 <ol style="list-style-type: decimal">
 <li><p>When a signal's amplitude is modulated, the result is: <select class="webex-select"><option value="blank"></option>
+<option value="">phase modulation</option>
 <option value="">frequency modulation</option>
-<option value="answer">amplitude modulation</option>
-<option value="">phase modulation</option></select></p></li>
+<option value="answer">amplitude modulation</option></select></p></li>
 <li><p>When a signal's phase is modulated, the result is: <select class="webex-select"><option value="blank"></option>
-<option value="">amplitude modulation</option>
-<option value="answer">phase modulation</option>
+<option value="">frequency modulation</option>
 <option value="">frequency hopping</option>
-<option value="">frequency modulation</option></select></p></li>
+<option value="answer">phase modulation</option>
+<option value="">amplitude modulation</option></select></p></li>
 <li><p>What type of frequency modulation moves the output signal an equal musical interval around the carrier's default value? <select class="webex-select"><option value="blank"></option>
-<option value="">through-zero linear FM</option>
 <option value="">linear FM</option>
 <option value="">PM</option>
-<option value="answer">exponential FM</option></select></p></li>
+<option value="answer">exponential FM</option>
+<option value="">through-zero linear FM</option></select></p></li>
 <li><p>What causes pitch shift in frequency modulation? <select class="webex-select"><option value="blank"></option>
+<option value="">digital modulation</option>
 <option value="">symmetric modulation</option>
 <option value="">analogue modulation</option>
-<option value="answer">asymmetric modulation</option>
-<option value="">digital modulation</option></select></p></li>
+<option value="answer">asymmetric modulation</option></select></p></li>
 <li><p>Which of the following does not behave like true FM? <select class="webex-select"><option value="blank"></option>
 <option value="answer">linear FM</option>
-<option value="">thru-zero FM</option>
-<option value="">PM</option></select><!-- **template** --></p></li>
+<option value="">PM</option>
+<option value="">thru-zero FM</option></select><!-- **template** --></p></li>
 </ol>
 <!-- - How are sideband frequency and amplitude calculated --><!-- - How does modulation index affect these --><!-- - What happens to partials that cross zero? --><!-- - How is result perceived --><!-- - How can we make it harmonic --><!-- - Ratios C:M --><!-- - Will harmonics track keyboard or not -->
 </div>
@@ -1882,7 +1882,7 @@ window.onload = function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-28.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2023-01-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

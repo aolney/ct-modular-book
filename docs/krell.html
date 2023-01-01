@@ -106,7 +106,7 @@ An additional challenge with this patch is that Barton uses the Buchla 200e seri
 <h2>
 <span class="header-section-number">14.1</span> History<a class="anchor" aria-label="anchor" href="#history-1"><i class="fas fa-link"></i></a>
 </h2>
-<p>The Krell patch, shown in Figure <a href="krell.html#fig:krell-performance">14.1</a>, was publicly released by <a href="https://toddbarton.com/">Todd Barton</a> in 2012.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Based on the release date of the &lt;a href="https://vimeo.com/48382205"&gt;performance video&lt;/a&gt; and &lt;a href="https://vimeo.com/48466272"&gt;walkthrough video&lt;/a&gt;.&lt;/p&gt;'><sup>106</sup></a>
+<p>The Krell patch, shown in Figure <a href="krell.html#fig:krell-performance">14.1</a>, was publicly released by <a href="https://toddbarton.com/">Todd Barton</a> in 2012.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Based on the release date of the &lt;a href="https://vimeo.com/48382205"&gt;performance video&lt;/a&gt; and &lt;a href="https://vimeo.com/48466272"&gt;walkthrough video&lt;/a&gt;.&lt;/p&gt;'><sup>107</sup></a>
 The name "Krell" is an homage to the 1956 sci-fi film <a href="https://en.wikipedia.org/wiki/Forbidden_Planet"><em>Forbidden Planet</em></a>, which was the first film to use an electronic score.
 In the film, human explorers encounter strange forces on the planet of an ancient extinct alien race, called the Krell.
 The film was scored by <a href="https://en.wikipedia.org/wiki/Bebe_and_Louis_Barron">Bebe and Louis Barron</a> who were early electronic music pioneers inspired by <a href="https://en.wikipedia.org/wiki/Cybernetics">cybernetics</a>, a precusor to artificial intelligence.
@@ -143,7 +143,7 @@ Keeping this cohesion is a primary concern in recreating the sound of this patch
 An Internet search reveals some disagreement about the modules involved in the patch.
 It is generally agreed that there is a main envelope controlling the length of each note, where that envelope's attack and decay are controlled by additional envelopes receiving random modulation.
 However, there are additional modules that seem to be in dispute.
-Some patches exclude a wavefolder on the main voice<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="http://manual-synthesis.info/2017/01/26/krell" class="uri"&gt;http://manual-synthesis.info/2017/01/26/krell&lt;/a&gt;&lt;/p&gt;'><sup>107</sup></a>, others exclude FM<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://modwiggler.com/forum/viewtopic.php?t=159798" class="uri"&gt;https://modwiggler.com/forum/viewtopic.php?t=159798&lt;/a&gt;&lt;/p&gt;'><sup>108</sup></a>, and yet others exclude band pass filtering.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Bjørn and Meyer, &lt;em&gt;Patch &amp;amp; &lt;span&gt;Tweak&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;"><sup>109</sup></a></span>
+Some patches exclude a wavefolder on the main voice<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="http://manual-synthesis.info/2017/01/26/krell" class="uri"&gt;http://manual-synthesis.info/2017/01/26/krell&lt;/a&gt;&lt;/p&gt;'><sup>108</sup></a>, others exclude FM<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://modwiggler.com/forum/viewtopic.php?t=159798" class="uri"&gt;https://modwiggler.com/forum/viewtopic.php?t=159798&lt;/a&gt;&lt;/p&gt;'><sup>109</sup></a>, and yet others exclude band pass filtering.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Bjørn and Meyer, &lt;em&gt;Patch &amp;amp; &lt;span&gt;Tweak&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;"><sup>110</sup></a></span>
 Review of Barton's <a href="https://vimeo.com/48382205">performance video</a> and <a href="https://vimeo.com/48466272">walkthrough video</a> indicate that all of these elements are present in the patch.
 Figure <a href="krell.html#fig:krell-patch-diagram">14.2</a> was created by carefully tracing each of the connections shown in the videos and Todd's comments about the connections.
 Todd's comments are particularly important as some functions, like FM, are internally routed in his Buchla 200e system and so are not marked with a patch cable.</p>
@@ -156,13 +156,13 @@ Figure 14.2: A diagram of the Krell patch illustrating signal flow between modul
 </div>
 <p>One of the major issues with understanding the Krell patch in detail is that the Buchla 200e system is different from Eurorack in several respects.
 First, the modules themselves are idiosyncratic.
-For example, the 291e Triple Morphing Filter combines band pass filtering with sequencing, and the precise functioning of the filter is a matter of ongoing speculation, despite access to Buchla's circuit designs.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://modwiggler.com/forum/viewtopic.php?t=106373" class="uri"&gt;https://modwiggler.com/forum/viewtopic.php?t=106373&lt;/a&gt;&lt;/p&gt;'><sup>110</sup></a>
+For example, the 291e Triple Morphing Filter combines band pass filtering with sequencing, and the precise functioning of the filter is a matter of ongoing speculation, despite access to Buchla's circuit designs.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://modwiggler.com/forum/viewtopic.php?t=106373" class="uri"&gt;https://modwiggler.com/forum/viewtopic.php?t=106373&lt;/a&gt;&lt;/p&gt;'><sup>111</sup></a>
 Thus close matching of the module's behavior is unlikely in some instances, and we'll have to determine what elements are more important than others to match.
 Second, Buchla signals are different from the types of signals used in Eurorack.
 One of the most notable difference is that Buchla separates audio and signals rather than using the same standard for both: audio signals are line level (~1 V) whereas control voltages are 10 V.
 These two signals are handled by different wires, perhaps to prevent sending the wrong type of signal to the wrong jack.
 Another difference is that gate/triggers are not interchangeable as they are in Eurorack.
-Instead, triggers a brief 10 V pulses, and sustains are 5 V<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;At least for the 200 series; see &lt;a href="http://buchlatech.blogspot.com/2008/10/good-thing-about-standards-so-many-to.html"&gt;this blog post for various Buchla conventions&lt;/a&gt;&lt;/p&gt;'><sup>111</sup></a>.
+Instead, triggers a brief 10 V pulses, and sustains are 5 V<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;At least for the 200 series; see &lt;a href="http://buchlatech.blogspot.com/2008/10/good-thing-about-standards-so-many-to.html"&gt;this blog post for various Buchla conventions&lt;/a&gt;&lt;/p&gt;'><sup>112</sup></a>.
 Thus to send a gate that sustains a note, one would send (on the same cable) a signal consisting of a pulse that then drops to 5 V for as long as the sustain would be held.
 These different signal types are color coded on the 200e: CV inputs are black/grey, CV outputs are blue/violet/green, pulse inputs are orange, and pulse outputs are red.
 Knowing these conventions is useful when reviewing a Buchla patch in order to determine whether a module is generating or receiving a signal, in addition to consulting the terse <a href="https://buchla.com/guides/200e_Users_Guide_v1.4.pdf">200e manual</a>.</p>
@@ -179,7 +179,7 @@ Figure 14.3: <a href="https://vimeo.com/48466272">Vimeo video</a> showing an inc
 </p>
 </div>
 <p>For the implementing a plan stage, we need evaluation criteria in order to assess alternate solutions and gauge our progress.
-The best evaluation material seems to be the videos in Figures <a href="krell.html#fig:krell-performance">14.1</a> &amp; <a href="krell.html#fig:krell-walk-through">14.3</a>, though there are additional recordings available from Barton.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;On SoundCloud &lt;a href="https://soundcloud.com/user7621213/krell-muzak-1"&gt;here&lt;/a&gt; and &lt;a href="https://soundcloud.com/user7621213/krell-muzak-2"&gt;here&lt;/a&gt;.&lt;/p&gt;'><sup>112</sup></a></p>
+The best evaluation material seems to be the videos in Figures <a href="krell.html#fig:krell-performance">14.1</a> &amp; <a href="krell.html#fig:krell-walk-through">14.3</a>, though there are additional recordings available from Barton.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;On SoundCloud &lt;a href="https://soundcloud.com/user7621213/krell-muzak-1"&gt;here&lt;/a&gt; and &lt;a href="https://soundcloud.com/user7621213/krell-muzak-2"&gt;here&lt;/a&gt;.&lt;/p&gt;'><sup>113</sup></a></p>
 <p>The evaluation stage will used the above videos to determine success based on what appear to be their major characteristics, i.e. matching of variation in melody, timbre, etc.
 Since the patch is generative, it is impossible to match it exactly, so any evaluation will have a subjective aspect.</p>
 </div>
@@ -435,7 +435,7 @@ As we will see, however, there are also some interesting possibilities for gaini
 <span class="header-section-number">14.5.1</span> Buchla 265<a class="anchor" aria-label="anchor" href="#buchla-265"><i class="fas fa-link"></i></a>
 </h3>
 <p>The 265 preceded the 266 and has functions for FRV and SRV.
-Both functions rely on a "noisy triangle," which may be created by using white noise to FM a triangle oscillator<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;See the &lt;a href="https://doepfer.de/a100_man/a100_patch.htm"&gt;Doepfer manual section of fluctuating random voltages&lt;/a&gt;&lt;/p&gt;'><sup>113</sup></a> or by using a comparator on the noise level and triggering a hard sync on the triangle oscillator.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;See &lt;a href="https://youtu.be/8I2PfWKT_aY?t=827"&gt;Mark Verbos interview&lt;/a&gt; and &lt;a href="https://www.perfectcircuit.com/signal/learning-synthesis-random-2"&gt;Signal article&lt;/a&gt;.&lt;/p&gt;'><sup>114</sup></a>
+Both functions rely on a "noisy triangle," which may be created by using white noise to FM a triangle oscillator<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;See the &lt;a href="https://doepfer.de/a100_man/a100_patch.htm"&gt;Doepfer manual section of fluctuating random voltages&lt;/a&gt;&lt;/p&gt;'><sup>114</sup></a> or by using a comparator on the noise level and triggering a hard sync on the triangle oscillator.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;See &lt;a href="https://youtu.be/8I2PfWKT_aY?t=827"&gt;Mark Verbos interview&lt;/a&gt; and &lt;a href="https://www.perfectcircuit.com/signal/learning-synthesis-random-2"&gt;Signal article&lt;/a&gt;.&lt;/p&gt;'><sup>115</sup></a>
 Since I have no reference for the sync approach, specifically how to set up the comparator, the FM variant of the noisy triangle is preferred.
 Try setting up a noisy triangle using the button in Figure <a href="krell.html#fig:noisy-triangle">14.6</a>.</p>
 
@@ -1396,7 +1396,7 @@ window.onload = function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-28.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2023-01-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

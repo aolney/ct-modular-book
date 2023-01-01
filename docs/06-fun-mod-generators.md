@@ -330,7 +330,7 @@ However, if frequency of the wave is high or the wave otherwise changes suddenly
 Common sample rates are 8 kHz (phone quality), 16 kHz (speech recognition quality), and 44.1 kHz (CD quality). 
 
 Why sample at 44.1 kHz when the upper limit of human hearing is around 20 kHz?
-The 44.1 kHz rate is the [Nyquist rate](https://en.wikipedia.org/wiki/Nyquist_rate) for 22,050 Hz, i.e. the Nyquist rate is **double** that frequency, which is about 2 kHz above the standard human limit.^[The 2 kHz padding allows use of an [anti-aliasing filter](https://en.wikipedia.org/wiki/Anti-aliasing_filter) that prevents higher frequencies from being sampled. We'll cover how filters work in the next chapter.]
+The 44.1 kHz rate is the [Nyquist rate](https://en.wikipedia.org/wiki/Nyquist_rate) for 22,050 Hz, i.e. the Nyquist rate is **double** that frequency, which is about 2 kHz above the standard human limit.^[The 2 kHz padding allows use of an [anti-aliasing filter](https://en.wikipedia.org/wiki/Anti-aliasing_filter) that prevents higher frequencies from being sampled. We'll cover how filters work in the next chapter, but the basic idea here is that filters are imperfect and so need a little padding beyond the Nyquist rate.]
 The reason to sample at twice the highest frequency is pretty simple.
 If we assume all sounds are made of sine waves, as covered in Section \@ref(resonators-formants-and-frequency-spectrum), then we need to be able to define the highest frequency component in our audio as a sine wave.
 If we evenly sample at least two points for a cycle of that sine wave, and we know the maximum possible frequency, then there is only one sine wave that can pass through those points.^[This is analogous to two data points to [solve for two unknowns using linear algebra](https://en.wikipedia.org/wiki/System_of_linear_equations).]
@@ -381,35 +381,35 @@ Because the LFO produces continuous changes in voltage, the playback is continuo
 
 1. Which of the following can create the effect of two interfering oscillators with only one VCO?
 - frequency modulation
-- phase modulation
 - amplitude modulation
 - pulse width modulation
+- phase modulation
 2. Which of the following must be set to for an LFO to work with a VCA?
-- unipolar VCA input
-- bipolar VCA  input
 - unipolar LFO output
 - bipolar LFO output
+- bipolar VCA  input
+- unipolar VCA input
             
 3. When a follower VCO with an integer multiple frequency of a leader VCO is synchronized, what is emphasized?
-- leader harmonics
-- leader partials
 - follower partials
+- leader partials
 - follower harmonics
+- leader harmonics
             
 4. What is the term for two near identical notes played simultaneously?
-- interval
+- chord
 - tetrachord
 - chorus
-- chord
+- interval
             
 5. Which of the following cannot be implemented using an LFO?
-- chorus
-- vibrato
 - pulse width modulation
+- vibrato
 - tremolo
+- chorus
             
 6. At what frequency would aliasing be expected with a 16 KHz sampling rate?
-- 32 KHz
 - 4 KHz
+- 32 KHz
 - 8 KHz
 - 16 KHz

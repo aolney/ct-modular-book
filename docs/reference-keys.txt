@@ -99,6 +99,8 @@ fig:noiz-lpf-out-scope-fft
 fig:lfo-vcf-out-scope-fft
 fig:karplus-strong
 fig:karplus-strong-guitar-env-delay-filter
+fig:bitcrush-scope-fft
+fig:bitcrush
 fig:sine-envelope-kick
 fig:sine-envelope-noise-kick
 fig:kick-noiz-adsr-vco-adsr-lpf-hpf-adsr
@@ -261,7 +263,7 @@ noise
 samplers
 check-your-understanding-4
 modifiers
-effects
+time-based-effects
 delays
 reverb
 chorus-effect
@@ -273,6 +275,7 @@ filters-change-frequency-and-phase
 combining-filters
 resonance
 waveguides
+bitcrushing
 check-your-understanding-5
 designing-a-kick-drum
 problem-solving-for-sound-synthesis

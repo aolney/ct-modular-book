@@ -1133,7 +1133,7 @@ If the distance between the samples is small, a straight line is a good approxim
 However, if frequency of the wave is high or the wave otherwise changes suddenly, those changes may be <em>between</em> samples and not show up in the digital representation at all.
 Common sample rates are 8 kHz (phone quality), 16 kHz (speech recognition quality), and 44.1 kHz (CD quality).</p>
 <p>Why sample at 44.1 kHz when the upper limit of human hearing is around 20 kHz?
-The 44.1 kHz rate is the <a href="https://en.wikipedia.org/wiki/Nyquist_rate">Nyquist rate</a> for 22,050 Hz, i.e. the Nyquist rate is <strong>double</strong> that frequency, which is about 2 kHz above the standard human limit.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The 2 kHz padding allows use of an &lt;a href=&quot;https://en.wikipedia.org/wiki/Anti-aliasing_filter&quot;&gt;anti-aliasing filter&lt;/a&gt; that prevents higher frequencies from being sampled. We'll cover how filters work in the next chapter.&lt;/p&gt;"><sup>56</sup></a>
+The 44.1 kHz rate is the <a href="https://en.wikipedia.org/wiki/Nyquist_rate">Nyquist rate</a> for 22,050 Hz, i.e. the Nyquist rate is <strong>double</strong> that frequency, which is about 2 kHz above the standard human limit.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The 2 kHz padding allows use of an &lt;a href=&quot;https://en.wikipedia.org/wiki/Anti-aliasing_filter&quot;&gt;anti-aliasing filter&lt;/a&gt; that prevents higher frequencies from being sampled. We'll cover how filters work in the next chapter, but the basic idea here is that filters are imperfect and so need a little padding beyond the Nyquist rate.&lt;/p&gt;"><sup>56</sup></a>
 The reason to sample at twice the highest frequency is pretty simple.
 If we assume all sounds are made of sine waves, as covered in Section <a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum">3.2</a>, then we need to be able to define the highest frequency component in our audio as a sine wave.
 If we evenly sample at least two points for a cycle of that sine wave, and we know the maximum possible frequency, then there is only one sine wave that can pass through those points.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;This is analogous to two data points to &lt;a href="https://en.wikipedia.org/wiki/System_of_linear_equations"&gt;solve for two unknowns using linear algebra&lt;/a&gt;.&lt;/p&gt;'><sup>57</sup></a>
@@ -1349,35 +1349,35 @@ Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO con
 </h2>
 <ol style="list-style-type: decimal">
 <li><p>Which of the following can create the effect of two interfering oscillators with only one VCO? <select class="webex-select"><option value="blank"></option>
-<option value="">frequency modulation</option>
-<option value="answer">pulse width modulation</option>
+<option value="">phase modulation</option>
 <option value="">amplitude modulation</option>
-<option value="">phase modulation</option></select></p></li>
+<option value="answer">pulse width modulation</option>
+<option value="">frequency modulation</option></select></p></li>
 <li><p>Which of the following must be set to for an LFO to work with a VCA? <select class="webex-select"><option value="blank"></option>
-<option value="answer">unipolar LFO output</option>
 <option value="">bipolar VCA input</option>
+<option value="">bipolar LFO output</option>
 <option value="">unipolar VCA input</option>
-<option value="">bipolar LFO output</option></select></p></li>
+<option value="answer">unipolar LFO output</option></select></p></li>
 <li><p>When a follower VCO with an integer multiple frequency of a leader VCO is synchronized, what is emphasized? <select class="webex-select"><option value="blank"></option>
 <option value="">follower partials</option>
+<option value="answer">leader harmonics</option>
 <option value="">leader partials</option>
-<option value="">follower harmonics</option>
-<option value="answer">leader harmonics</option></select></p></li>
+<option value="">follower harmonics</option></select></p></li>
 <li><p>What is the term for two near identical notes played simultaneously? <select class="webex-select"><option value="blank"></option>
+<option value="answer">chorus</option>
 <option value="">interval</option>
 <option value="">chord</option>
-<option value="answer">chorus</option>
 <option value="">tetrachord</option></select></p></li>
 <li><p>Which of the following cannot be implemented using an LFO? <select class="webex-select"><option value="blank"></option>
 <option value="">vibrato</option>
 <option value="answer">chorus</option>
-<option value="">tremolo</option>
-<option value="">pulse width modulation</option></select></p></li>
+<option value="">pulse width modulation</option>
+<option value="">tremolo</option></select></p></li>
 <li><p>At what frequency would aliasing be expected with a 16 KHz sampling rate? <select class="webex-select"><option value="blank"></option>
 <option value="">4 KHz</option>
-<option value="answer">8 KHz</option>
+<option value="">32 KHz</option>
 <option value="">16 KHz</option>
-<option value="">32 KHz</option></select></p></li>
+<option value="answer">8 KHz</option></select></p></li>
 </ol>
 </div>
 </div>
@@ -1589,7 +1589,7 @@ window.onload = function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-28.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2023-01-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

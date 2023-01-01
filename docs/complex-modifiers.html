@@ -149,7 +149,7 @@ During wavefolding, the upper and lower parts of the square wave will move in op
 As a consequence, there are moments where the two parts of the square wave meet at zero and result in a non-wave, somewhat comparable to amplitude modulation through wave folding.
 Half rectification on a square wave turns it into an identical square wave, but at half amplitude and an offset.
 Full rectification on a square wave turns it into just an offset, i.e. a constant voltage.
-Because a constant voltage has zero frequency (0 Hz) it can be removed with a high pass filter - this is a good idea in most audio applications where constant voltages create noise.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;High pass filtering is a good idea when using clocks or clock dividers outputs as square waves for the same reason.&lt;/p&gt;"><sup>95</sup></a></p>
+Because a constant voltage has zero frequency (0 Hz) it can be removed with a high pass filter - this is a good idea in most audio applications where constant voltages create noise.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;High pass filtering is a good idea when using clocks or clock dividers outputs as square waves for the same reason.&lt;/p&gt;"><sup>96</sup></a></p>
 <p>The effects of rectification and wavefolding on the four basic wave shapes is summarized in Table <a href="complex-generators.html#tab:freq-ratio">11.1</a> with respect to the addition of harmonics, change in frequency, and change in amplitude.
 In all cases, the amplitude of individual harmonics changes, leading to a change in timbre with respect to the original wave.
 Sometimes these changes can be quite extreme.
@@ -1085,30 +1085,30 @@ Figure 12.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for creati
 </h2>
 <ol style="list-style-type: decimal">
 <li><p>For which kind of modulation is rectification useful? <select class="webex-select"><option value="blank"></option>
-<option value="">ring modulation</option>
+<option value="">phase modulation</option>
 <option value="">frequency modulation</option>
-<option value="answer">amplitude modulation</option>
-<option value="">phase modulation</option></select></p></li>
+<option value="">ring modulation</option>
+<option value="answer">amplitude modulation</option></select></p></li>
 <li><p>Which basic waveshape becomes offset voltage under full rectification? <select class="webex-select"><option value="blank"></option>
-<option value="answer">square</option>
 <option value="">saw</option>
 <option value="">triangle</option>
-<option value="">sine</option></select></p></li>
+<option value="">sine</option>
+<option value="answer">square</option></select></p></li>
 <li><p>Slew slows the rate of change of a signal like what kind of filter? <select class="webex-select"><option value="blank"></option>
-<option value="">high pass</option>
 <option value="">band pass</option>
-<option value="">all pass</option>
-<option value="answer">low pass</option></select></p></li>
+<option value="">high pass</option>
+<option value="answer">low pass</option>
+<option value="">all pass</option></select></p></li>
 <li><p>Which of the following can't be done with slew? <select class="webex-select"><option value="blank"></option>
-<option value="answer">quantization</option>
-<option value="">converting gates to envelopes</option>
 <option value="">creating an envelope follower</option>
+<option value="">converting gates to envelopes</option>
+<option value="answer">quantization</option>
 <option value="">portamento</option></select></p></li>
 <li><p>When creating an arpeggio with a quantizer and an LFO, what other module is essential? <select class="webex-select"><option value="blank"></option>
-<option value="">comparator</option>
-<option value="answer">sample and hold</option>
+<option value="">sequencer</option>
 <option value="">slew</option>
-<option value="">sequencer</option></select></p></li>
+<option value="answer">sample and hold</option>
+<option value="">comparator</option></select></p></li>
 </ol>
 </div>
 </div>
@@ -1314,7 +1314,7 @@ window.onload = function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-28.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2023-01-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

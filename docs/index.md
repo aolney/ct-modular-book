@@ -1,7 +1,7 @@
 --- 
 title: "Computational Thinking through Modular Sound Synthesis"
 author: "Andrew M. Olney"
-date: "2022-12-28"
+date: "2023-01-01"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
@@ -24,7 +24,10 @@ If you're wondering whether this is a book about computational thinking, or a bo
 
 This book is *interactive*, which is why it is an e-book rather than a paper book.^[I've also created [PDF](https://olney.ai/ct-modular-book/ct-modular-book.pdf) and [EPUB](https://olney.ai/ct-modular-book/ct-modular-book.epub) versions; these are best used when you don't have internet because they are **not** interactive. Detailed instructions, solutions, and starter templates only exist for the web version.] Throughout you will encounter examples, simulations, and exercises that run in your browser to demonstrate and reinforce key concepts. Don't skip the interactive activities! 
 
-The recommended browsers are Firefox and Chrome on a non-iOS system. The modular software embedded in the book has a large download (100+ MB), and these browsers will cache the files so you only download them once. iOS browsers won't work at all.^[As long as Safari (WebKit) [doesn't support fixed-width SIMD on web assembly](https://webassembly.org/roadmap/) and [non-WebKit browsers are disallowed](https://developer.apple.com/app-store/review/guidelines/#2.5.6), the embedded modular software won't work on iOS!] **Currently the embedded modular software is not mobile-friendly, so small screens and touch interfaces are not recommended.**
+The recommended browser is Firefox on a non-iOS system. The modular software embedded in the book has a large download (100+ MB), and Firefox will cache the files so you only download them once. Other browsers will make you download them every time, which slows things down. And iOS browsers won't work at all.^[As long as Safari (WebKit) [doesn't support fixed-width SIMD on web assembly](https://webassembly.org/roadmap/) and [non-WebKit browsers are disallowed](https://developer.apple.com/app-store/review/guidelines/#2.5.6), the embedded modular software won't work on iOS!] **Currently the embedded modular software is not mobile-friendly, so small screens and touch interfaces are not recommended.**
+
+<!-- REVERT TO BELOW WHEN CHROME ISSUE IS RESOLVED -->
+<!-- The recommended browsers are Firefox and Chrome on a non-iOS system. The modular software embedded in the book has a large download (100+ MB), and these browsers will cache the files so you only download them once. iOS browsers won't work at all.^[As long as Safari (WebKit) [doesn't support fixed-width SIMD on web assembly](https://webassembly.org/roadmap/) and [non-WebKit browsers are disallowed](https://developer.apple.com/app-store/review/guidelines/#2.5.6), the embedded modular software won't work on iOS!] **Currently the embedded modular software is not mobile-friendly, so small screens and touch interfaces are not recommended.** -->
 
 ![](images/by-nc-nd.png) 
 

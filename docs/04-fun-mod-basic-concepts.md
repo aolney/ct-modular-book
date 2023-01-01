@@ -296,37 +296,37 @@ From there we will continue to spiral outward into increasingly complex modules 
 ## Check your understanding
 
 1. What is the difference between a trigger and a gate?
-- triggers have higher amplitude
 - width only matters for gates
 - triggers can only be used for percussion
 - gates can only be used for non-percussion
+- triggers have higher amplitude
             
 2. What is the standard voltage range of modular audio signals?
+- -5 to +5 V
 - 0 to 5 V
 - 0 to 10 V
 - -1.7 to +1.7 V
-- -5 to +5 V
             
 3. What does AC coupling do?
 - remove noise
 - remove offset bias
-- remove low frequency signals
 - remove low frequency signals, noise, and offset bias
+- remove low frequency signals
             
 4. What type of signal carries pitch information?
-- gate
 - V/Oct
+- gate
 - envelope
 - trigger
 
 5. What module interprets pitch information?
 - controller
-- VCA
-- envelope
 - VCO
+- envelope
+- VCA
             
 6. What module interprets loudness information?
-- VCA
+- envelope
 - controller
 - VCO
-- envelope
+- VCA

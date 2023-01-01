@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 7 Modifiers | Computational Thinking through Modular Sound Synthesis</title>
 <meta name="author" content="Andrew M. Olney">
-<meta name="description" content="Modifiers modify incoming signals that may be either audio or some kind of control signal. Generators create audible sound. Chapter 4 introduced voltage controlled amplifiers (VCAs) that modify...">
+<meta name="description" content="Modifiers modify incoming signals that may be either audio or control signals. Chapter 4 introduced voltage controlled amplifiers (VCAs) that modify the amplitude of incoming signals, which can be...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Chapter 7 Modifiers | Computational Thinking through Modular Sound Synthesis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://olney.ai/ct-modular-book/index.html/modifiers.html">
-<meta property="og:description" content="Modifiers modify incoming signals that may be either audio or some kind of control signal. Generators create audible sound. Chapter 4 introduced voltage controlled amplifiers (VCAs) that modify...">
+<meta property="og:description" content="Modifiers modify incoming signals that may be either audio or control signals. Chapter 4 introduced voltage controlled amplifiers (VCAs) that modify the amplitude of incoming signals, which can be...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 7 Modifiers | Computational Thinking through Modular Sound Synthesis">
-<meta name="twitter:description" content="Modifiers modify incoming signals that may be either audio or some kind of control signal. Generators create audible sound. Chapter 4 introduced voltage controlled amplifiers (VCAs) that modify...">
+<meta name="twitter:description" content="Modifiers modify incoming signals that may be either audio or control signals. Chapter 4 introduced voltage controlled amplifiers (VCAs) that modify the amplitude of incoming signals, which can be...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -99,15 +99,14 @@
 <h1>
 <span class="header-section-number">7</span> Modifiers<a class="anchor" aria-label="anchor" href="#modifiers"><i class="fas fa-link"></i></a>
 </h1>
-<p>Modifiers modify incoming signals that may be either audio or some kind of control signal.
-Generators create audible sound.
+<p>Modifiers modify incoming signals that may be either audio or control signals.
 Chapter <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a> introduced voltage controlled amplifiers (VCAs) that modify the amplitude of incoming signals, which can be either audio or control voltage.
 That chapter also introduced envelopes that modify control voltage, and we have routinely used envelopes to control VCAs in order to model the dynamics of various instruments.</p>
 <p>This chapter expands upon audio modifiers specifically and focuses on two foundational categories of modifiers, effects and voltage controlled filters.
 Effects can substantially enrich the sounds you create both in terms of thickness of sound and sense of acoustic space, and voltage controlled filters create some of the most defining sounds in electronic music.</p>
-<div id="effects" class="section level2" number="7.1">
+<div id="time-based-effects" class="section level2" number="7.1">
 <h2>
-<span class="header-section-number">7.1</span> Effects<a class="anchor" aria-label="anchor" href="#effects"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.1</span> Time-based effects<a class="anchor" aria-label="anchor" href="#time-based-effects"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are perhaps an infinite number of possible audio effects.
 This section focuses on time-based effects, as the ideas behind these are complementary to the following discussion of voltage controlled filters.
@@ -124,7 +123,7 @@ Figure 7.1: <a href="https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_cu
 </p>
 </div>
 <p>The discussion of simultaneously-sounding oscillators in Chapter <a href="generators.html#generators">6</a> emphasized phase relationships between the oscillators as well as slight tuning differences between the oscillators, both of which can give a fuller sound.
-Phase captures everything about the relationship between continuous tones because the amount one signal has been offset relative to another can always be reduced to between 0 and 360 degrees (or <span class="math inline">\(2pi\)</span>).<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;If the offset is more than 360 degrees, it simply wraps around to a value equivalent to a value between 0 and 360 degrees, e.g. 370 degrees is the same as 10 degrees.&lt;/p&gt;"><sup>58</sup></a>
+Phase captures everything about the relationship between <em>continuous</em> tones because the amount one signal has been offset relative to another can always be reduced to between 0 and 360 degrees (or <span class="math inline">\(2pi\)</span>).<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;If the offset is more than 360 degrees, it simply wraps around to a value equivalent to a value between 0 and 360 degrees, e.g. 370 degrees is the same as 10 degrees.&lt;/p&gt;"><sup>58</sup></a>
 However, music does not consist of continuous tones.</p>
 <p>When we begin to consider music more broadly, it makes sense to think of phase and offset distance being decoupled depending on how much time has passed.
 In real music, simultaneous sounds don't repeat forever but rather change over fairly short timescales, e.g. the envelope of a kick drum.
@@ -711,7 +710,7 @@ Try patching up a phaser into a single voice keyboard patch using the button in 
 &lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/phaserfx-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/bitcrusher-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-phaser.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
@@ -731,7 +730,7 @@ Try patching up a phaser into a single voice keyboard patch using the button in 
 &lt;li&gt;You could similarly control the effect using an LFO or other modulator&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class='d-flex flex-row justify-content-around'&gt;
-&lt;img class='rack-image' src='images/solo-modules/phaserfx-solo.png' style='height: 300px; width: auto'&gt;
+&lt;img class='rack-image' src='images/solo-modules/bitcrusher-solo.png' style='height: 300px; width: auto'&gt;
 &lt;/div&gt;
 ">Instructions</button>
         <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/twelvekey-env-phaser.png' style='height: 300px; width: auto'&gt;">Solution</button>
@@ -1652,9 +1651,149 @@ Figure 7.26: <a href="https://cardinal.olney.ai">Virtual modular</a> for applyin
 </p>
 </div>
 </div>
-<div id="check-your-understanding-5" class="section level2" number="7.4">
+<div id="bitcrushing" class="section level2" number="7.4">
 <h2>
-<span class="header-section-number">7.4</span> Check your understanding<a class="anchor" aria-label="anchor" href="#check-your-understanding-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.4</span> Bitcrushing<a class="anchor" aria-label="anchor" href="#bitcrushing"><i class="fas fa-link"></i></a>
+</h2>
+<p>The bitcrushing effect is only somewhat related to time, but it is worth mentioning here not only because it is a popular effect but also because it directly connects to Section <a href="generators.html#samplers">6.6</a> in the last chapter.
+Recall from that section that digital audio data is represented by two parameters that each represent a kind of resolution.</p>
+<p>Bit depth is the resolution of the height of wave, i.e. amplitude.
+The more bits are used the specify the height of the wave, the greater the range of loudness in our digital audio (often called <a href="https://en.wikipedia.org/wiki/Dynamic_range">dynamic range</a>).
+For example, 8-bit depth encodes 256 possible values (<span class="math inline">\(2^8=256\)</span>), and 16-bit depth encodes about 65 thousand values (<span class="math inline">\(2^{16}=65,536\)</span>).
+Remember our perception of loudness is logarithmic, so we are more sensitive to changes in loudness when amplitude is small than when amplitude is large.
+As a result, low bit depth particularly reduces dynamic range for quieter sounds, such that two sounds of different loudness will get represented with the same value - this is called <a href="https://en.wikipedia.org/wiki/Quantization_(signal_processing)#Noise">quantization noise</a>.
+An example of quantization noise is shown in Figure <a href="modifiers.html#fig:bitcrush-scope-fft">7.27</a>.
+The stair-step pattern is atypical for analogue to digital conversion where interpolation is used, but it illustrates quantization and is typical of bit crushing effects.
+Quantization noise depends on the signal, and this dependence on the signal makes quantization noise an effect rather than random noise.
+However, quantization noise is still noise, so at very low bit depths, it might be hard for the ear to distinguish between quantization noise and random noise.
+Older digital instruments and video games had lower bit depth, so using bit depth reduction as an effect can help recreate those sounds on modern instruments.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:bitcrush-scope-fft"></span>
+<img src="images/bitcrush-scope-fft.png" alt="The effect of bit depth reduction (left) and sample rate reduction (right). Bit depth reduction is most easily observed as a stair-step quantization error. Sample rate reduction is most easily observed as the introduction of alias frequencies (green) for an input signal, here a sine wave (pink). Note that these effects in bit crushing differ from those in normal analogue to digital conversion, which uses additional techniques and processing to avoid such artifacts." width="100%"><p class="caption">
+Figure 7.27: The effect of bit depth reduction (left) and sample rate reduction (right). Bit depth reduction is most easily observed as a stair-step quantization error. Sample rate reduction is most easily observed as the introduction of alias frequencies (green) for an input signal, here a sine wave (pink). Note that these effects in bit crushing differ from those in normal analogue to digital conversion, which uses additional techniques and processing to avoid such artifacts.
+</p>
+</div>
+<p>Sample rate is resolution of the frequency of the wave; sample rate is the frequency at which the height of the wave is sampled.
+As discussed in Section <a href="generators.html#samplers">6.6</a>, the sample rate must be twice the highest frequency component of the signal to be accurately reconstructed, otherwise a doppleganger of that component, or alias, will appear.
+One important tool in preventing aliasing is low-pass filtering, which only lets through those frequency components that are below the highest allowed frequency.
+Because filters have a slope, some padding is needed on the sample rate in practical applications, which explains why we use a sampling rate of 44.1 kHz when the upper limit of human hearing is around 20 kHz.
+But what does an alias look like and sound like?
+Simply stated, an alias was supposed to be a higher frequency but was represented as a lower frequency due to the Nyquist limit.
+Specifically, the aliases reflect off the sampling rate.
+For example, given a sampling rate of 16 kHz, a 17 kHz frequency (16 kHz + 1 kHz) would show up as an alias at 16 kHz (16 kHz - 1 kHz).
+Aliases therefore begin in the upper frequencies and can create inharmonic, metallic sounds, since the reflections of frequencies off the sampling rate are not guaranteed to be harmonically related to the original sounds.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;We will cover these ideas in more detail in Chapter &lt;a href="complex-generators.html#complex-generators"&gt;11&lt;/a&gt;.&lt;/p&gt;'><sup>67</sup></a>
+An example of aliasing on a sine wave is shown in Figure <a href="modifiers.html#fig:bitcrush-scope-fft">7.27</a>.</p>
+<p>Let's take a look at a bitcrusher module.
+The main controls are the bit depth and the sample rate.
+In this module, only the bit depth can be voltage-controlled.
+Try patching up a bitcrusher into a single voice keyboard patch using the button in Figure <a href="modifiers.html#fig:bitcrush">7.28</a>.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setbitcrushIframe('https://cardinal.olney.ai?patchurl=key-envelope_12key-vco-env-vca-scope-out.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#bitcrush">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="bitcrush" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bitcrushLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="bitcrushLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Delete the ADSR module. This will make it easier to hear sweeps of the bitcrusher knobs.&lt;/li&gt;
+&lt;li&gt;Add Bitcrusher between the VCA and Scope&lt;/li&gt;
+&lt;li&gt;Add Sassy to the right of Host Audio&lt;/li&gt;
+&lt;li&gt;Connect VCA out to Scope in 1 and Bitcrusher input&lt;/li&gt;
+&lt;li&gt;Connect Bitcrusher out to Scope in 2&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 Sassy in 1&lt;/li&gt;
+&lt;li&gt;Connect Scope out 2 to Host Audio L and Sassy in 2&lt;/li&gt;
+&lt;li&gt;Set Sassy to frequency mode&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes&lt;ul&gt;
+&lt;li&gt;Reduce the bit rate one step at a time (it moves in increments of 1) and then back up. Note the stair steps that emerge introduce higher frequency components to the sound &lt;/li&gt;
+&lt;li&gt;Set to the lowest bit rate, then drag the VCA level down to about half. Note the audio goes silent at this point. This is the quantization error previously discussed &lt;/li&gt;
+&lt;li&gt;Raise the bit rate to its highest setting, then sweep the sample rate down. Note the introduction of higher alias frequencies both in sound and on scope&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/bitcrusher-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/bitcrush.png' style='height: 300px; width: auto'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Delete the ADSR module. This will make it easier to hear sweeps of the bitcrusher knobs.&lt;/li&gt;
+&lt;li&gt;Add Bitcrusher between the VCA and Scope&lt;/li&gt;
+&lt;li&gt;Add Sassy to the right of Host Audio&lt;/li&gt;
+&lt;li&gt;Connect VCA out to Scope in 1 and Bitcrusher input&lt;/li&gt;
+&lt;li&gt;Connect Bitcrusher out to Scope in 2&lt;/li&gt;
+&lt;li&gt;Connect Scope out 1 Sassy in 1&lt;/li&gt;
+&lt;li&gt;Connect Scope out 2 to Host Audio L and Sassy in 2&lt;/li&gt;
+&lt;li&gt;Set Sassy to frequency mode&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes&lt;ul&gt;
+&lt;li&gt;Reduce the bit rate one step at a time (it moves in increments of 1) and then back up. Note the stair steps that emerge introduce higher frequency components to the sound &lt;/li&gt;
+&lt;li&gt;Set to the lowest bit rate, then drag the VCA level down to about half. Note the audio goes silent at this point. This is the quantization error previously discussed &lt;/li&gt;
+&lt;li&gt;Raise the bit rate to its highest setting, then sweep the sample rate down. Note the introduction of higher alias frequencies both in sound and on scope&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/ul&gt;
+&lt;div class='d-flex flex-row justify-content-around'&gt;
+&lt;img class='rack-image' src='images/solo-modules/bitcrusher-solo.png' style='height: 300px; width: auto'&gt;
+&lt;/div&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image' src='images/patch-solutions/bitcrush.png' style='height: 300px; width: auto'&gt;">Solution</button>
+        <button type="button" onclick="setbitcrushIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="bitcrush-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setbitcrushIframe(url){
+  var bitcrushIframe = document.getElementById("bitcrush-iframe");
+  bitcrushIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:bitcrush"></span>
+<p class="caption">
+Figure 7.28: <a href="https://cardinal.olney.ai">Virtual modular</a> for a bitcrusher effect.
+</p>
+</div>
+</div>
+<div id="check-your-understanding-5" class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> Check your understanding<a class="anchor" aria-label="anchor" href="#check-your-understanding-5"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li><p>Which effect creates a harmonic series? <select class="webex-select"><option value="blank"></option>
@@ -1871,7 +2010,7 @@ window.onload = function() {
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#modifiers"><span class="header-section-number">7</span> Modifiers</a></li>
 <li>
-<a class="nav-link" href="#effects"><span class="header-section-number">7.1</span> Effects</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#time-based-effects"><span class="header-section-number">7.1</span> Time-based effects</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#delays"><span class="header-section-number">7.1.1</span> Delays</a></li>
 <li><a class="nav-link" href="#reverb"><span class="header-section-number">7.1.2</span> Reverb</a></li>
 <li><a class="nav-link" href="#chorus-effect"><span class="header-section-number">7.1.3</span> Chorus</a></li>
@@ -1888,7 +2027,8 @@ window.onload = function() {
 </ul>
 </li>
 <li><a class="nav-link" href="#waveguides"><span class="header-section-number">7.3</span> Waveguides</a></li>
-<li><a class="nav-link" href="#check-your-understanding-5"><span class="header-section-number">7.4</span> Check your understanding</a></li>
+<li><a class="nav-link" href="#bitcrushing"><span class="header-section-number">7.4</span> Bitcrushing</a></li>
+<li><a class="nav-link" href="#check-your-understanding-5"><span class="header-section-number">7.5</span> Check your understanding</a></li>
 </ul>
 
       <div class="book-extra">
@@ -1906,7 +2046,7 @@ window.onload = function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2022-12-28.</p>
+    <p>"<strong>Computational Thinking through Modular Sound Synthesis</strong>" was written by Andrew M. Olney. It was last built on 2023-01-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

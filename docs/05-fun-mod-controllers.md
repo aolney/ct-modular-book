@@ -266,14 +266,14 @@ Future chapters will explore additional controllers and control techniques.
 - synchronization
             
 2. What basic waveshape best matches a clock signal?
-- saw
-- triangle
-- sine
 - square
+- saw
+- sine
+- triangle
             
 3. Can a control voltage sequencer be used to create triggers?
-- No, because the control voltage can be negative
-- No, control voltage and triggers are fundamentally different
 - Yes, on every step because the voltage drops to zero anyways
+- No, control voltage and triggers are fundamentally different
+- No, because the control voltage can be negative
 - Yes, but only on every other step to reset the trigger
             
