@@ -1,0 +1,72 @@
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<!-- <div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setmodularIframe('{{ iframe_url }}')" class="btn btn-primary" data-toggle="modal" data-target="#modular">
+    Launch Virtual Modular
+  </button>
+</div> -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modular" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modularLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="modularLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="instructions_html">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="solution_html">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="instructions_html">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover"
+        data-html="true" data-content="solution_html">Solution</button>
+        <button type="button" onclick="setmodularIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="modular-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+
+let instructions_html = params.instructions; 
+let solution_html = params.solution; 
+let starter_file = params.starter;
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setmodularIframe(url){
+  var modularIframe = document.getElementById("modular-iframe");
+  modularIframe.src = url;
+};
+
+setmodularIframe("https://cardinal.olney.ai/?patchurl=" + starter_file);
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script>
+
