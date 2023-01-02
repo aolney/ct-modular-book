@@ -101,9 +101,9 @@
 </h1>
 <p>Modifying incoming audio and control signals was introduced in Chapter <a href="modifiers.html#modifiers">7</a>.
 The present chapter introduces new modules and extends earlier concepts in modifiers around the loose organizing theme of converting between earlier signals, e.g. from gates to envelopes.</p>
-<div id="rectification-and-wavefolding" class="section level2" number="12.1">
+<div id="rectification-wavefolding-and-composition" class="section level2" number="12.1">
 <h2>
-<span class="header-section-number">12.1</span> Rectification and wavefolding<a class="anchor" aria-label="anchor" href="#rectification-and-wavefolding"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.1</span> Rectification, wavefolding, and composition<a class="anchor" aria-label="anchor" href="#rectification-wavefolding-and-composition"><i class="fas fa-link"></i></a>
 </h2>
 <p>As discussed in Chapter <a href="basic-modeling-concepts.html#basic-modeling-concepts">4</a>, signals are either unipolar or bipolar.
 One way to make a bipolar signal unipolar is to add an offset to it, e.g. if a signal ranges from -5 to +5 V, then add 5 V to obtain a 0 to +10 V signal.
@@ -309,10 +309,10 @@ Figure 12.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for contras
 </div>
 <p>Rectification has multiple uses besides changing harmonics.
 One obvious use is making a bipolar control signal unipolar (e.g. to drive a VCA).
-Another interesting use is to use rectification to perform waveshape surgery and combine the top part of one waveshape with the bottom of another.
+Another interesting use is to use rectification to create composite waveshapes by combining the top part of one waveshape with the bottom of another.
 This is relatively simple to do by fully rectifying two waveshapes and inverting one to become the bottom portion of the wave.
 It's slightly trickier to align the top and bottom portions, but it's possible to do so using a module that allows specfication of phase offsets.
-Figure <a href="complex-modifiers.html#fig:fraken-rect">12.5</a> shows an example of waveshape surgery using the top portion of a sine wave and the bottom portion of a square wave.
+Figure <a href="complex-modifiers.html#fig:fraken-rect">12.5</a> shows an example of waveshape composition using the top portion of a sine wave and the bottom portion of a square wave.
 By blending parts of different waves, you can achieve an intermediate sound, e.g. a slightly more mellow square wave.</p>
 
 <div class="figure">
@@ -324,7 +324,6 @@ Figure 12.5: Upper sine wave and lower square wave portions cut using rectificat
 <p>Try creating a new waveshape through rectification using the button in Figure <a href="complex-modifiers.html#fig:franken-rect">12.6</a>.
 This method would also allow you to perform operations on just one part of the signal if desired, e.g. waveshaping on just the top half.</p>
 
-<!-- TODO replace 8vert with Bogg Audio Offset? -->
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
 <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
@@ -428,6 +427,115 @@ function setfranken_rectIframe(url){
 Figure 12.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for contrasting the effect of wavefolding and rectification on the four basic waveshapes.
 </p>
 </div>
+<p>A simpler way to perform waveshape composition is to use analog logic.
+In analog logic, AND is the maximum of two inputs, and OR is the minimum of two inputs.
+Figure <a href="complex-modifiers.html#fig:minmax-compare">12.7</a> shows an example of applying the minimum to the two waveshapes from above.
+The way to understand the operation is to follow the wave from left to right and at each point ask which wave is the lower of the two (i.e. is the minimum).
+Sine is below the square wave for the positive portion of the wave, but in the negative portion of the wave, square is lower.
+Note for this example, sync was still required to maintain the relative position of the two waves to each other, but manipulating phase was not necessary.
+The maximum operation proceeds similarly to the minimum operation, except the maximum of the two waves is output at each point.
+The min/max operations are a simpler way to compose than the rectification approach above, but the tradeoff is that there is somewhat less control over what part of the waveshape is used.</p>
+
+<div class="figure">
+<span style="display:block;" id="fig:minmax-compare"></span>
+<img src="images/minmax-compare.png" alt="Sine and square waves with matched frequency and synchronized (left). The output wave from the minimum operation is high pass filtered to remove the voltage offset (right)." width="100%"><p class="caption">
+Figure 12.7: Sine and square waves with matched frequency and synchronized (left). The output wave from the minimum operation is high pass filtered to remove the voltage offset (right).
+</p>
+</div>
+<p>Explore waveshape composition with min/max operators using the button in Figure <a href="complex-modifiers.html#fig:minmax">12.8</a>.
+As in the previous patch, sync between the waveshapes and high pass filtering are useful for maintaining a consistent result across pitches and removing voltage offsets, respectively.</p>
+
+<!-- MODAL HTML BLOCK -->
+<!-- Button trigger modal -->
+<!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button type="button" style="margin-top: 20px;margin-bottom: 5px" onclick="setminmaxIframe('https://cardinal.olney.ai?patchurl=franken-rect.vcv')" class="btn btn-primary" data-toggle="modal" data-target="#minmax">
+    Launch Virtual Modular
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="minmax" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="minmaxLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <!-- <h5 class="modal-title" id="minmaxLabel">Modal title</h5> -->
+        <!-- To dismiss popovers when other elements are clicked, add this back in and uncomment jquery at end of template
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Delete the second Utilities, Offset, and QuadVCA/Mixer&lt;/li&gt;
+&lt;li&gt;Connect WT VCO out to Utilities logic in A &lt;/li&gt;
+&lt;li&gt;Connect Sine out to Utilities logic in B &lt;/li&gt;
+&lt;li&gt;Connect Utilities min out to filtah&lt;/li&gt;
+&lt;li&gt;Set the phase on Sine to zero (double click to reset it)&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play across the keyboard and note the consistent shape resulting from the sync between oscillators&lt;/li&gt;
+&lt;li&gt;Use the WT VCO position knob to change waveshapes, play the keyboard and check the scopes to see and hear the sound. Because Sine is set to square, which is the most minimum shape, only the top of the waveshape will be affected&lt;/li&gt;
+&lt;li&gt;Switch the Utilities output to max and repeat. Again, square is the most maximum waveshape, only the bottom will change&lt;/li&gt;
+&lt;li&gt;Change the Sine waveshape to sine (right click, waveform submenu). Repeat the above and note that now both top and bottom change. This is the general behavior of min/max - they typically affect the entire waveshape&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="popover" data-trigger="focus" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/minmax.png'&gt;">Solution</button> -->
+        <!-- using a different data-toggle than 'popover' because bookdown seems to have customized popover for footnotes, etc, with a different close click behaviour -->
+        <button type="button" class="btn btn-secondary" title="Instructions" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;ul&gt;
+&lt;li&gt;Delete the second Utilities, Offset, and QuadVCA/Mixer&lt;/li&gt;
+&lt;li&gt;Connect WT VCO out to Utilities logic in A &lt;/li&gt;
+&lt;li&gt;Connect Sine out to Utilities logic in B &lt;/li&gt;
+&lt;li&gt;Connect Utilities min out to filtah&lt;/li&gt;
+&lt;li&gt;Set the phase on Sine to zero (double click to reset it)&lt;/li&gt;
+&lt;li&gt;Try the following and note the differences in the sound and scopes &lt;ul&gt;
+&lt;li&gt;Play across the keyboard and note the consistent shape resulting from the sync between oscillators&lt;/li&gt;
+&lt;li&gt;Use the WT VCO position knob to change waveshapes, play the keyboard and check the scopes to see and hear the sound. Because Sine is set to square, which is the most minimum shape, only the top of the waveshape will be affected&lt;/li&gt;
+&lt;li&gt;Switch the Utilities output to max and repeat. Again, square is the most maximum waveshape, only the bottom will change&lt;/li&gt;
+&lt;li&gt;Change the Sine waveshape to sine (right click, waveform submenu). Repeat the above and note that now both top and bottom change. This is the general behavior of min/max - they typically affect the entire waveshape&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Instructions</button>
+        <button type="button" class="btn btn-secondary" title="Solution" data-toggle="modal-popover" data-placement="bottom" data-custom-class="modal-popover" data-html="true" data-content="&lt;img class='rack-image-6u' src='images/patch-solutions/minmax.png'&gt;">Solution</button>
+        <button type="button" onclick="setminmaxIframe('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- For some reason the button type below will not play along with justify-content-between  -->
+        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <iframe id="minmax-iframe" src="" height="100%" width="100%"></iframe>
+      </div>      
+      <!-- <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+  
+
+<script>
+// Enable popovers for instructions, etc 
+// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//   return new bootstrap.Popover(popoverTriggerEl)
+// });
+$(function () {
+  $('[data-toggle="modal-popover"]').popover()
+})
+
+// Set/reset iframe to prevent it loading when page loads and persisting when modal closed 
+function setminmaxIframe(url){
+  var minmaxIframe = document.getElementById("minmax-iframe");
+  minmaxIframe.src = url;
+};
+
+// This dismisses popovers when anything else is clicked, but users probably want to refer to instructions/solution while clicking on things, so commenting it out for now
+// $('.popover-dismiss').popover({
+//   trigger: 'focus'
+// })
+</script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
+<span style="display:block;" id="fig:minmax"></span>
+<p class="caption">
+Figure 12.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for composing waveshapes using min/max operations.
+</p>
+</div>
 </div>
 <div id="slew" class="section level2" number="12.2">
 <h2>
@@ -441,7 +549,7 @@ Slew limiters work the same way but typically have parameters to control the rat
 <p>Slew limiters have applications in many areas that involve delaying a signal.
 For example, we can make a gate delay by combining a slew limiter with a comparator.
 When a slew limiter receives a gate, its output voltage will slowly rise depending on the rate of slew, until the voltage is high enough that the comparator sends out a high signal.
-Before we look at portamento, try creating a gate delay from a slew limiter and comparator using the button in Figure <a href="complex-modifiers.html#fig:slew-gate-delay">12.7</a>.
+Before we look at portamento, try creating a gate delay from a slew limiter and comparator using the button in Figure <a href="complex-modifiers.html#fig:slew-gate-delay">12.9</a>.
 The second scope in the patch shows another interesting application of slew, which is to convert gates into envelopes.
 If the rise time runs into the fall time, the envelope will only go up and down (attack and decay).
 Shorter rise and fall times will preserve the top of the gate, making an attack-sustain-release envelope, with sustain at max level.</p>
@@ -536,7 +644,7 @@ function setslew_gate_delayIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:slew-gate-delay"></span>
 <p class="caption">
-Figure 12.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for using a slew limiter and comparator to make a gate delay and slew alone to convert a gate to an envelope.
+Figure 12.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for using a slew limiter and comparator to make a gate delay and slew alone to convert a gate to an envelope.
 </p>
 </div>
 <p>Perhaps the most common use of slew is to implement portamento/glissando by smoothing stepped V/Oct control signals to create glides.
@@ -544,7 +652,7 @@ If you consider V/Oct signals to be stepped like gates, then the last patch shou
 A slewed V/Oct signal will have a range of voltages between the steps, and these intermediate voltages will be cause a VCO receiving them to output intermediate pitches.
 Most slew limiters will base the glide time on the distance between notes as well as the rise/fall settings.
 This can be challenging musically, so if a constant glide time is desired, a better option is to use a low-pass filter.
-Try patching up a slew limiter to a VCO to implement portamento using the button in Figure <a href="complex-modifiers.html#fig:slew-portamento">12.8</a>.</p>
+Try patching up a slew limiter to a VCO to implement portamento using the button in Figure <a href="complex-modifiers.html#fig:slew-portamento">12.10</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -630,7 +738,7 @@ function setslew_portamentoIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:slew-portamento"></span>
 <p class="caption">
-Figure 12.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for using a slew limiter to implement portamento.
+Figure 12.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for using a slew limiter to implement portamento.
 </p>
 </div>
 <p>Slew can also be combined with full rectification to make an envelope follower, a very useful tool for processing audio.
@@ -642,7 +750,7 @@ An envelope follower essentially traces a curve along the peaks of a sound wave 
 Since ADSR envelopes are unipolar, full rectification of the audio takes place first.
 Then slew is used to slow the rapid changes in the sound and generate a smoothish curve.
 Some tuning of the envelope follower is typically required to create an envelope with the desired properties.
-Try patching up an envelope follower using full rectification and a slew limiter using the button in Figure <a href="complex-modifiers.html#fig:slew-sidechain-noise">12.9</a>.
+Try patching up an envelope follower using full rectification and a slew limiter using the button in Figure <a href="complex-modifiers.html#fig:slew-sidechain-noise">12.11</a>.
 The audio in the patch comes from lo-fi synthesized speech with no envelope, and the patch demonstrates sidechaining to duck noise based on the followed envelope.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -741,7 +849,7 @@ function setslew_sidechain_noiseIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:slew-sidechain-noise"></span>
 <p class="caption">
-Figure 12.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for using full rectification with a slew limiter to create an envelope follower.
+Figure 12.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for using full rectification with a slew limiter to create an envelope follower.
 </p>
 </div>
 </div>
@@ -766,7 +874,7 @@ If a quantizer is used on the output of a sequencer, adjustment to a sequencer k
 Also, if the quantizer has scale selection, then it will affect all notes in the sequence simultaneously, which can be very convenient.
 However, it's important to keep in mind that a quantizer's voltage for a note, e.g. C4, may not make your oscillator go to the same note.
 To ensure your oscillator's output matches a quantizer, you must tune your oscillator so they match.
-Try patching up a quantizer both ways using the button in Figure <a href="complex-modifiers.html#fig:cv-sequencer-quantizer-plus-quantizer">12.10</a>: first using a voltage controlled sequencer and then as a modifier on a sequencer's output.</p>
+Try patching up a quantizer both ways using the button in Figure <a href="complex-modifiers.html#fig:cv-sequencer-quantizer-plus-quantizer">12.12</a>: first using a voltage controlled sequencer and then as a modifier on a sequencer's output.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -868,24 +976,24 @@ function setcv_sequencer_quantizer_plus_quantizerIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:cv-sequencer-quantizer-plus-quantizer"></span>
 <p class="caption">
-Figure 12.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for implementing a quantizer using a voltage controlled sequencer and using a quantizer module to process the output of a sequencer.
+Figure 12.12: <a href="https://cardinal.olney.ai">Virtual modular</a> for implementing a quantizer using a voltage controlled sequencer and using a quantizer module to process the output of a sequencer.
 </p>
 </div>
 <p>The last patch used a sequencer to store notes, but it's also possible to use a quantizer without a sequencer.
 Particularly for arpeggios, its easy enough to use LFOs that cycle up and down.
 All that is needed is a sample and hold module to synchronize the pitches to gates, and an attenuator to restrict the range of the LFO to the range of notes desired.
-The relationships between LFO frequency, LFO range, gate/trigger frequency, and gate/trigger synchronization are illustrated in Figure <a href="complex-modifiers.html#fig:sine-quantize-figure">12.11</a>.
+The relationships between LFO frequency, LFO range, gate/trigger frequency, and gate/trigger synchronization are illustrated in Figure <a href="complex-modifiers.html#fig:sine-quantize-figure">12.13</a>.
 If sampling occurs at the same frequency as the LFO, then it will always select the same note.
 To get more notes, the sampling needs to occur at a higher frequency.</p>
 
 <div class="figure">
 <span style="display:block;" id="fig:sine-quantize-figure"></span>
 <img src="images/sine-quantize-figure.png" alt="A sine wave LFO (purple) being sampled (green) so the sampled values can be input to a quantizer to create an arpeggio. If the sampling rate matches the LFO frequency, only one repeating note will be sampled (left). The samplng rate must be higher than the LFO rate (right) to increase the number of notes. See text for additional factors that effect what voltages are sampled." width="100%"><p class="caption">
-Figure 12.11: A sine wave LFO (purple) being sampled (green) so the sampled values can be input to a quantizer to create an arpeggio. If the sampling rate matches the LFO frequency, only one repeating note will be sampled (left). The samplng rate must be higher than the LFO rate (right) to increase the number of notes. See text for additional factors that effect what voltages are sampled.
+Figure 12.13: A sine wave LFO (purple) being sampled (green) so the sampled values can be input to a quantizer to create an arpeggio. If the sampling rate matches the LFO frequency, only one repeating note will be sampled (left). The samplng rate must be higher than the LFO rate (right) to increase the number of notes. See text for additional factors that effect what voltages are sampled.
 </p>
 </div>
 <p>If the sample and hold is clocked with another LFO whose frequency is not a multiple of the quantized LFO, then the arpeggio will slowly shift its played notes over a longer period.
-Try patching up an LFO quantizer arpeggio using the button in Figure <a href="complex-modifiers.html#fig:lfo-quantizer-arpeggio">12.12</a>.
+Try patching up an LFO quantizer arpeggio using the button in Figure <a href="complex-modifiers.html#fig:lfo-quantizer-arpeggio">12.14</a>.
 Other ways of creating variations are to change the range of the LFO, the offset of the LFO, the sampling rate, and the sampling phase/synchronization to the LFO.</p>
 
 <!-- MODAL HTML BLOCK -->
@@ -982,12 +1090,12 @@ function setlfo_quantizer_arpeggioIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-quantizer-arpeggio"></span>
 <p class="caption">
-Figure 12.12: <a href="https://cardinal.olney.ai">Virtual modular</a> for creating an arpeggio using an LFO through a quantizer.
+Figure 12.14: <a href="https://cardinal.olney.ai">Virtual modular</a> for creating an arpeggio using an LFO through a quantizer.
 </p>
 </div>
 <p>Another common application for quantizers is in generative patches where probability is used to generate voltages which are then turned into notes.
 We can incorporate probability into the last patch using almost the same modules but connected a different way.
-Try patching up a probability-based generative patch using sample and hold on noise through a quantizer and speed variable clocks for different note lengths using the button in Figure <a href="complex-modifiers.html#fig:sh-quantizer-generative">12.13</a>.</p>
+Try patching up a probability-based generative patch using sample and hold on noise through a quantizer and speed variable clocks for different note lengths using the button in Figure <a href="complex-modifiers.html#fig:sh-quantizer-generative">12.15</a>.</p>
 
 <!-- MODAL HTML BLOCK -->
 <!-- Button trigger modal -->
@@ -1075,7 +1183,7 @@ function setsh_quantizer_generativeIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:sh-quantizer-generative"></span>
 <p class="caption">
-Figure 12.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for creating an generative melody using sample and hold on noise through a quantizer.
+Figure 12.15: <a href="https://cardinal.olney.ai">Virtual modular</a> for creating an generative melody using sample and hold on noise through a quantizer.
 </p>
 </div>
 </div>
@@ -1090,25 +1198,25 @@ Figure 12.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for creati
 <option value="">ring modulation</option>
 <option value="answer">amplitude modulation</option></select></p></li>
 <li><p>Which basic waveshape becomes offset voltage under full rectification? <select class="webex-select"><option value="blank"></option>
+<option value="answer">square</option>
 <option value="">saw</option>
 <option value="">triangle</option>
-<option value="">sine</option>
-<option value="answer">square</option></select></p></li>
+<option value="">sine</option></select></p></li>
 <li><p>Slew slows the rate of change of a signal like what kind of filter? <select class="webex-select"><option value="blank"></option>
 <option value="">band pass</option>
 <option value="">high pass</option>
-<option value="answer">low pass</option>
-<option value="">all pass</option></select></p></li>
+<option value="">all pass</option>
+<option value="answer">low pass</option></select></p></li>
 <li><p>Which of the following can't be done with slew? <select class="webex-select"><option value="blank"></option>
-<option value="">creating an envelope follower</option>
-<option value="">converting gates to envelopes</option>
 <option value="answer">quantization</option>
-<option value="">portamento</option></select></p></li>
+<option value="">creating an envelope follower</option>
+<option value="">portamento</option>
+<option value="">converting gates to envelopes</option></select></p></li>
 <li><p>When creating an arpeggio with a quantizer and an LFO, what other module is essential? <select class="webex-select"><option value="blank"></option>
 <option value="">sequencer</option>
-<option value="">slew</option>
+<option value="">comparator</option>
 <option value="answer">sample and hold</option>
-<option value="">comparator</option></select></p></li>
+<option value="">slew</option></select></p></li>
 </ol>
 </div>
 </div>
@@ -1293,7 +1401,7 @@ window.onload = function() {
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#complex-modifiers"><span class="header-section-number">12</span> Modulating Modifiers</a></li>
-<li><a class="nav-link" href="#rectification-and-wavefolding"><span class="header-section-number">12.1</span> Rectification and wavefolding</a></li>
+<li><a class="nav-link" href="#rectification-wavefolding-and-composition"><span class="header-section-number">12.1</span> Rectification, wavefolding, and composition</a></li>
 <li><a class="nav-link" href="#slew"><span class="header-section-number">12.2</span> Slew</a></li>
 <li><a class="nav-link" href="#quantizers"><span class="header-section-number">12.3</span> Quantizers</a></li>
 <li><a class="nav-link" href="#check-your-understanding-8"><span class="header-section-number">12.4</span> Check your understanding</a></li>

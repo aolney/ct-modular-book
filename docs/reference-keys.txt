@@ -178,6 +178,8 @@ fig:triangle-rect-fold
 fig:wavefold-rect-example
 fig:fraken-rect
 fig:franken-rect
+fig:minmax-compare
+fig:minmax
 fig:slew-gate-delay
 fig:slew-portamento
 fig:slew-sidechain-noise
@@ -319,7 +321,7 @@ analogue-through-zero-frequency-modulation
 phase-modulation
 check-your-understanding-7
 complex-modifiers
-rectification-and-wavefolding
+rectification-wavefolding-and-composition
 slew
 quantizers
 check-your-understanding-8

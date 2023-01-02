@@ -3,7 +3,7 @@
 Modifying incoming audio and control signals was introduced in Chapter \@ref(modifiers).
 The present chapter introduces new modules and extends earlier concepts in modifiers around the loose organizing theme of converting between earlier signals, e.g. from gates to envelopes.
 
-## Rectification and wavefolding
+## Rectification, wavefolding, and composition
 
 As discussed in Chapter \@ref(basic-modeling-concepts), signals are either unipolar or bipolar.
 One way to make a bipolar signal unipolar is to add an offset to it, e.g. if a signal ranges from -5 to +5 V, then add 5 V to obtain a 0 to +10 V signal.
@@ -88,10 +88,10 @@ Try creating this patch using the button in Figure \@ref(fig:wavefold-rect-examp
 
 Rectification has multiple uses besides changing harmonics.
 One obvious use is making a bipolar control signal unipolar (e.g. to drive a VCA).
-Another interesting use is to use rectification to perform waveshape surgery and combine the top part of one waveshape with the bottom of another.
+Another interesting use is to use rectification to create composite waveshapes by combining the top part of one waveshape with the bottom of another.
 This is relatively simple to do by fully rectifying two waveshapes and inverting one to become the bottom portion of the wave.
 It's slightly trickier to align the top and bottom portions, but it's possible to do so using a module that allows specfication of phase offsets.
-Figure \@ref(fig:fraken-rect) shows an example of waveshape surgery using the top portion of a sine wave and the bottom portion of a square wave.
+Figure \@ref(fig:fraken-rect) shows an example of waveshape composition using the top portion of a sine wave and the bottom portion of a square wave.
 By blending parts of different waves, you can achieve an intermediate sound, e.g. a slightly more mellow square wave.
 
 (ref:fraken-rect) Upper sine wave and lower square wave portions cut using rectification and aligned with a phase offset (left). The final wave is high pass filtered to remove the voltage offset (right).
@@ -106,8 +106,6 @@ This method would also allow you to perform operations on just one part of the s
 
 (ref:franken-rect) [Virtual modular](https://cardinal.olney.ai) for contrasting the effect of wavefolding and rectification on the four basic waveshapes. 
 
-<!-- TODO replace 8vert with Bogg Audio Offset? -->
-
 <!-- MODAL HTML BLOCK -->
 
 
@@ -116,6 +114,37 @@ This method would also allow you to perform operations on just one part of the s
 <img src="images/launch-virtual-modular-button.png" alt="(ref:franken-rect)" width="100%" />
 <p class="caption">(\#fig:franken-rect)(ref:franken-rect)</p>
 </div>
+
+A simpler way to perform waveshape composition is to use analog logic.
+In analog logic, AND is the maximum of two inputs, and OR is the minimum of two inputs.
+Figure \@ref(fig:minmax-compare) shows an example of applying the minimum to the two waveshapes from above.
+The way to understand the operation is to follow the wave from left to right and at each point ask which wave is the lower of the two (i.e. is the minimum). 
+Sine is below the square wave for the positive portion of the wave, but in the negative portion of the wave, square is lower.
+Note for this example, sync was still required to maintain the relative position of the two waves to each other, but manipulating phase was not necessary.
+The maximum operation proceeds similarly to the minimum operation, except the maximum of the two waves is output at each point.
+The min/max operations are a simpler way to compose than the rectification approach above, but the tradeoff is that there is somewhat less control over what part of the waveshape is used.
+
+(ref:minmax-compare) Sine and square waves with matched frequency and synchronized (left). The output wave from the minimum operation is high pass filtered to remove the voltage offset (right).
+
+<div class="figure">
+<img src="images/minmax-compare.png" alt="(ref:minmax-compare)" width="100%" />
+<p class="caption">(\#fig:minmax-compare)(ref:minmax-compare)</p>
+</div>
+
+Explore waveshape composition with min/max operators using the button in Figure \@ref(fig:minmax).
+As in the previous patch, sync between the waveshapes and high pass filtering are useful for maintaining a consistent result across pitches and removing voltage offsets, respectively.
+
+(ref:minmax) [Virtual modular](https://cardinal.olney.ai) for composing waveshapes using min/max operations. 
+
+<!-- MODAL HTML BLOCK -->
+
+
+<!-- CAPTION BLOCK -->
+<div class="figure">
+<img src="images/launch-virtual-modular-button.png" alt="(ref:minmax)" width="100%" />
+<p class="caption">(\#fig:minmax)(ref:minmax)</p>
+</div>
+
 
 ## Slew
 
@@ -274,25 +303,25 @@ Try patching up a probability-based generative patch using sample and hold on no
 - frequency modulation
             
 2. Which basic waveshape becomes offset voltage under full rectification?
+- triangle
 - sine
 - saw
-- triangle
 - square
             
 3. Slew slows the rate of change of a signal like what kind of filter?
 - high pass
-- all pass
 - low pass
 - band pass
+- all pass
             
 4. Which of the following can't be done with slew?
-- converting gates to envelopes
 - portamento
 - creating an envelope follower
 - quantization
+- converting gates to envelopes
             
 5. When creating an arpeggio with a quantizer and an LFO, what other module is essential?
-- sequencer
-- sample and hold
-- comparator
 - slew
+- sequencer
+- comparator
+- sample and hold

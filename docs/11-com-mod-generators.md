@@ -562,31 +562,31 @@ Table: (\#tab:frequency-summary) Behaviors of frequency modulation methods discu
 
 1. When a signal's amplitude is modulated, the result is:
 - frequency modulation
-- amplitude modulation
 - phase modulation
+- amplitude modulation
             
 2. When a signal's phase is modulated, the result is:
-- phase modulation
-- amplitude modulation
 - frequency hopping
+- amplitude modulation
+- phase modulation
 - frequency modulation
             
 3. What type of frequency modulation moves the output signal an equal musical interval around the carrier's default value?
+- PM
+- through-zero linear FM
 - linear FM
 - exponential FM
-- through-zero linear FM
-- PM
             
 4. What causes pitch shift in frequency modulation?
-- symmetric modulation
-- asymmetric modulation
 - analogue modulation
+- asymmetric modulation
+- symmetric modulation
 - digital modulation
             
 5. Which of the following does not behave like true FM?
 - linear FM
-- thru-zero FM
 - PM
+- thru-zero FM
 <!-- **template** -->
 
 <!-- - How are sideband frequency and amplitude calculated -->
