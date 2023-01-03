@@ -1,5 +1,5 @@
 name: Correction
-description: Suggest a correction
+description: Propose a correction
 title: "[Correction]: "
 labels: ["correction", "triage"]
 assignees:
@@ -8,12 +8,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to suggest a correction! Please only use this form for corrections like typos, broken links, or factual errors.
+        Thanks for taking the time to propose a correction! Please only use this form for corrections like typos, broken links, or factual errors. Please use other forms for reporting bugs or making suggestions.
   - type: textarea
     id: what-happened
     attributes:
       label: What is the material in question?
-      description: Also tell us, what did you suggest as a correction?
+      description: Also tell us, what did you propose as a correction?
       placeholder: Tell us what you see!
       value: "Whoopsie!"
     validations:

@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report! Please only use this bug report for software-related errors, not for typos, broken links, etc.
+        Thanks for taking the time to fill out this bug report! Please only use this bug report for software-related errors. Please use other forms for proposing corrections (e.g. typos, broken links, etc.) or making suggestions.
   - type: textarea
     id: what-happened
     attributes:
