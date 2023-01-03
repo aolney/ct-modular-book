@@ -148,12 +148,12 @@ It may have already occurred to you that you could create any sound by adding to
 This is exactly what [additive synthesis](https://en.wikipedia.org/wiki/Additive_synthesis) does!
 Running a Fourier analysis to get sine wave partials of a sound and then recombine them to reproduce the sound is very appealing.
 However, even though the idea of additive synthesis has been around a long time, it was not practical with analogue technology because of the many oscillators and precise timings involved.
-<!-- As digital technology improved, sampling and [wavetable synthsis](https://en.wikipedia.org/wiki/Wavetable_synthesis) became more popular than additive synthesis in achieving similar goals. -->
+<!-- As digital technology improved, sampling and [wavetable synthesis](https://en.wikipedia.org/wiki/Wavetable_synthesis) became more popular than additive synthesis in achieving similar goals. -->
 Conceptually, the alternative to additive synthesis is [subtractive synthesis](https://en.wikipedia.org/wiki/Subtractive_synthesis), which has been a very popular approach in analogue synthesis to the present day.
 Subtractive synthesis starts with complex waveforms and then removes harmonics to create the desired sound.
 Harmonics can be removed with relatively simple analogue electronics as we'll discuss in a later chapter.
 
-While the simulation in Figure \@ref(fig:fourier-waves) is useful for understanding how Fourier analysis works, it's difficult to see all of the frequenecy components because they are stacked on top of each other.
+While the simulation in Figure \@ref(fig:fourier-waves) is useful for understanding how Fourier analysis works, it's difficult to see all of the frequency components because they are stacked on top of each other.
 An alternative way of visualizing a Fourier analysis is a frequency spectrogram.
 A frequency spectrogram shows each sine wave based on its frequency and amplitude.
 Figure \@ref(fig:freq-spectrum) shows a frequency spectrogram of the same four waveshapes at 1 Hz with harmonics side by side and amplitudes normalized so all harmonics sum to 1.

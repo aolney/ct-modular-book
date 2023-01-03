@@ -56,7 +56,7 @@ To get a better sense of what's going on, let's take a look at clock output on a
 Try connecting a scope to a clock's main output and bar output using the button in Figure \@ref(fig:bar-beat-bpm-scope).
 You should see regular pulses off the main output and a different color bar output overlaid every 4th beat using the default time signature.
 
-(ref:bar-beat-bpm-scope) [Virtual modular](https://cardinal.olney.ai) for making a clock patch with a scope.
+(ref:bar-beat-bpm-scope) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=empty.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fbar-beat-bpm-scope.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+%e2%80%9cClock%e2%80%9d+and+Scope%3c%2fli%3e%0a%3cli%3eConnect+Clock+BEAT+to+Scope+In+1%3c%2fli%3e%0a%3cli%3eConnect+Clock+BAR+to+Scope+In+2%3c%2fli%3e%0a%3cli%3eSet+Scope+time+and+gain+so+you+can+see+bar+pulses+by+color%3b+at+4%2f4+time+these+should+be+every+4+pulses%3c%2fli%3e%0a%3c%2ful%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fclock-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a) for making a clock patch with a scope.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -77,7 +77,7 @@ Try adding an audio out module after the scope using the button in
 Figure \@ref(fig:clock-sound-bpm-scope-out) to extend the last patch.
 The sixteenth note pulses should show as approximately a square wave, and by moving the BPM up and down, you should hear a change in pitch.
 
-(ref:clock-sound-bpm-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a clock-based drone patch with a scope.
+(ref:clock-sound-bpm-scope-out) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=bar-beat-bpm-scope.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fclock-sound-bpm-scope-out.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+Host+Audio%3c%2fli%3e%0a%3cli%3eRemove+all+patch+cables%3c%2fli%3e%0a%3cli%3eConnect+Clock+16th+to+Scope+In+1%3c%2fli%3e%0a%3cli%3eConnect+Scope+Out+1+to+Host+Audio+L+In%3c%2fli%3e%0a%3cli%3eSet+BPM+to+300%3c%2fli%3e%0a%3cli%3eTry+adjusting%3cul%3e%0a%3cli%3eTime+on+the+scope+so+you+see+a+square+wave+%2850%25+duty+cycle%29%3c%2fli%3e%0a%3cli%3eBPM+on+the+clock+to+create+different+pitches+%28you+may+need+good+headphones%29%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2ful%3e%0a) for making a clock-based drone patch with a scope.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -115,7 +115,7 @@ This *very* basic kick patch uses a sine wave from the VCO and controls the ampl
 Try making as much of the patch as possible using the button in 
 Figure \@ref(fig:clock-kick-bpm-vco-adsr-vca-scope-out) before referring to the instructions.
 
-(ref:clock-kick-bpm-vco-adsr-vca-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a clock-driven kick patch.
+(ref:clock-kick-bpm-vco-adsr-vca-scope-out) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=empty.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fclock-kick-bpm-vco-adsr-vca-scope-out.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+BPM+Clock%3c%2fli%3e%0a%3cli%3eAdd+VCO%3c%2fli%3e%0a%3cli%3eAdd+ADSR%3c%2fli%3e%0a%3cli%3eAdd+VCA%3c%2fli%3e%0a%3cli%3eConnect+VCO+sine+to+VCA+in%3c%2fli%3e%0a%3cli%3eConnect+ADSR+out+to+VCA+CV+in%3c%2fli%3e%0a%3cli%3eConnect+Clock+Beat+to+ADSR+gate%3c%2fli%3e%0a%3cli%3eAdd+Scope+and+Host+audio%3c%2fli%3e%0a%3cli%3eConnect+VCA+out+to+Scope+In+1%3c%2fli%3e%0a%3cli%3eConnect+Scope+Out+1+to+Host+audio+L%3c%2fli%3e%0a%3cli%3eTo+get+a+kick+sound%3cul%3e%0a%3cli%3eChange+VCO+frequency+to+around+40+Hz%3c%2fli%3e%0a%3cli%3eSet+ADSR+attack+to+about+1ms%2c+Decay+to+about+50ms%2c+and+the+rest+to+1.%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a) for making a clock-driven kick patch.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -141,7 +141,7 @@ Once you have it set up, activate a pattern of steps that isn't strictly regular
 Each activated step will issue a gate.
 Control of irregular timings is where trigger sequencers really shine compared to sequencing off a clock.
 
-(ref:trg-kick-bpm-trg-vco-adsr-vca-scope-out) [Virtual modular](https://cardinal.olney.ai) for a trigger-sequenced kick patch.
+(ref:trg-kick-bpm-trg-vco-adsr-vca-scope-out) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=clock-kick-bpm-vco-adsr-vca-scope-out.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2ftrg-kick-bpm-trg-vco-adsr-vca-scope-out.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+TRG+between+Clock+and+VCO%3c%2fli%3e%0a%3cli%3eConnect+Clock+Beat+to+TRG+CLK%3c%2fli%3e%0a%3cli%3eConnect+TRG+Gate+to+ADSR+Gate%3c%2fli%3e%0a%3cli%3eAdjust+TRG%3cul%3e%0a%3cli%3eActivate+steps+by+clicking+on+the+squares%3b+solid+yellow+is+active%3c%2fli%3e%0a%3cli%3eChange+length+to+8+using+LEN+knob%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2ftrg-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a) for a trigger-sequenced kick patch.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -163,7 +163,7 @@ Figure \@ref(fig:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out).
 Each sequencer step has a voltage controlled by a knob, so turning these knobs sets the note pitch for each step.
 Because the volumes of these two instruments, or voices, is so different, you'll need to run each into a mixer module rather than directly into the host audio.
 
-(ref:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) [Virtual modular](https://cardinal.olney.ai) for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave.
+(ref:trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=trg-kick-bpm-trg-vco-adsr-vca-scope-out.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2ftrg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png%27+style%3d%27height%3a+600px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+ADDR-SEQ+to+the+row+below+the+other+modules%3c%2fli%3e%0a%3cli%3eDrag+select+VCO%2c+ADSR%2c+and+VCA%3c%2fli%3e%0a%3cli%3eRight+click+on+one+and+select+Duplicate%3c%2fli%3e%0a%3cli%3eDrag+the+duplicated+modules+down+to+the+same+row+as+ADDR-SEQ%3c%2fli%3e%0a%3cli%3eConnect+Clock+Beat+to+ADDR-SEQ+Clock%3c%2fli%3e%0a%3cli%3eConnect+ADDR-SEQ+Out+to+VCO+V%2fOct%3c%2fli%3e%0a%3cli%3eConnect+VCO+Saw+to+VCA+in%3c%2fli%3e%0a%3cli%3eConnect+Clock+Beat+to+ADSR+Gate%3c%2fli%3e%0a%3cli%3eConnect+ADSR+Out+to+VCA+CV+In%3c%2fli%3e%0a%3cli%3eChange+each+of+the+ADSR+settings+to+9-12+o%26%2339%3bclock%3c%2fli%3e%0a%3cli%3eAdd+QuadVCA%2fMixer%3c%2fli%3e%0a%3cli%3eConnect+each+of+the+VCA+outs+to+QuadVCA+inputs%3c%2fli%3e%0a%3cli%3eConnect+QuadVCA+Out+Mix+to+Host+Audio+L%3c%2fli%3e%0a%3cli%3eTry+starting%2fstopping+the+Clock.+Notice+how+everything+starts+mid-sequence%3f%3c%2fli%3e%0a%3cli%3eConnect+Clock+RST+%28reset%29+out+to+TRG+RST+and+ADDR-SEQ+Reset+in.+Now+you+can+reset+both+sequencers+by+pressing+the+RST+button.%3c%2fli%3e%0a%3c%2ful%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2faddr-seq-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fquadvca-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a) for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -187,7 +187,7 @@ The effect of using the trigger sequencer as a clock depends, however, on how th
 Try this using the button in 
 Figure \@ref(fig:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) to explore the different combinations.
 
-(ref:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) [Virtual modular](https://cardinal.olney.ai) for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave, using the trigger sequence as a clock on the voltage-controlled sequencer.
+(ref:rests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out.vcv&solution=%3ch4%3eSolution+for+Trigger+Clock+and+Trigger+Gate+only%3c%2fh4%3e%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2frests-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png%27+style%3d%27height%3a+600px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eClock+Clock%2c+Clock+Gate%3cul%3e%0a%3cli%3e%3cem%3eAlready+playing+from+the+last+patch%3c%2fem%3e%3c%2fli%3e%0a%3cli%3eListen+to+the+resulting+sound%3cul%3e%0a%3cli%3eIs+every+note+in+your+saw+voice+played%3f%3c%2fli%3e%0a%3cli%3eIf+you+increase+sustain%2frelease+on+the+saw+voice%2c+how+does+it+change+the+sound+of+notes%3f%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eTrigger+Clock%2c+Trigger+Gate%3cul%3e%0a%3cli%3eConnect+TRG+Gate+to+ADDR-SEQ+Clock%3c%2fli%3e%0a%3cli%3eConnect+TRG+Gate+to+ADSR+Gate+%28for+the+saw+voice%29%3c%2fli%3e%0a%3cli%3eListen+to+the+resulting+sound%3cul%3e%0a%3cli%3eIs+every+note+in+your+saw+voice+played%3f%3c%2fli%3e%0a%3cli%3eIf+you+increase+sustain%2frelease+on+the+saw+voice%2c+how+does+it+change+the+sound+of+notes+that+are+not+back+to+back%3f%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eTrigger+Clock%2c+Clock+Gate%3cul%3e%0a%3cli%3eConnect+TRG+Gate+to+ADDR-SEQ+Clock%3c%2fli%3e%0a%3cli%3eConnect+Clock+Beat+to+ADSR+Gate+%28for+the+saw+voice%29%3c%2fli%3e%0a%3cli%3eListen+to+the+resulting+sound%3cul%3e%0a%3cli%3eIs+every+note+in+your+saw+voice+played%3f%3c%2fli%3e%0a%3cli%3eWhen+are+notes+hit+twice%3f%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eClock+Clock%2c+Trigger+Gate%3cul%3e%0a%3cli%3eConnect+Clock+Beat+to+ADDR-SEQ+Clock%3c%2fli%3e%0a%3cli%3eConnect+TRG+Gate+to+ADSR+Gate+%28for+the+saw+voice%29%3c%2fli%3e%0a%3cli%3eListen+to+the+resulting+sound%3cul%3e%0a%3cli%3eIs+every+note+in+your+saw+voice+played%3f%3c%2fli%3e%0a%3cli%3eIf+you+increase+sustain%2frelease+on+the+saw+voice%2c+how+does+it+change+the+sound+of+notes+that+are+not+back+to+back%3f%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a) for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave, using the trigger sequence as a clock on the voltage-controlled sequencer.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -225,7 +225,7 @@ Ideally we'd use a separate control voltage sequencer to set the gate lengths fo
 Try to add a trigger to gate module that takes the clock and sends out a gate to the saw envelope using the button in Figure \@ref(fig:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out).
 As you move the gate length knob, you'll hear that the note lengths change correspondingly.
 
-(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) [Virtual modular](https://cardinal.olney.ai) for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave, using the trigger sequence as a clock on the voltage-controlled sequencer and a trigger to gate module to control note length.
+(ref:rests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=rests-trg-kick-seqaddr-saw-bpm--vco-adsr-vca-mixer-out.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2frests-note-lengths-trg-kick-seqaddr-saw-bpm-vco-adsr-vca-mixer-out.png%27+style%3d%27height%3a+600px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+DGATE+trigger+to+gate+module%3c%2fli%3e%0a%3cli%3eConnect+TRG+Gate+to+DGATE+Trig+in%3c%2fli%3e%0a%3cli%3eConnect+DGATE+Gate+to+saw+ADSR+Gate%3c%2fli%3e%0a%3cli%3eManually+change+DGATE+Gate+length+knob+as+the+sound+plays%3cul%3e%0a%3cli%3eHow+does+the+saw+voice+sound+on+notes+followed+by+rests%3f%3c%2fli%3e%0a%3cli%3eYou+may+need+reduce+your+ASDR+release+to+hear+the+gate+clearly%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fdgate-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a) for a trigger-sequenced kick mixed with a control-voltage sequenced saw wave, using the trigger sequence as a clock on the voltage-controlled sequencer and a trigger to gate module to control note length.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -261,19 +261,19 @@ Future chapters will explore additional controllers and control techniques.
 ## Check your understanding
 
 1. Which of the following is not a main function of a clock?
-- transport
 - synchronization
 - time signatures
+- transport
             
 2. What basic waveshape best matches a clock signal?
+- triangle
 - sine
 - saw
 - square
-- triangle
             
 3. Can a control voltage sequencer be used to create triggers?
-- No, because the control voltage can be negative
-- Yes, but only on every other step to reset the trigger
 - Yes, on every step because the voltage drops to zero anyways
 - No, control voltage and triggers are fundamentally different
+- No, because the control voltage can be negative
+- Yes, but only on every other step to reset the trigger
             

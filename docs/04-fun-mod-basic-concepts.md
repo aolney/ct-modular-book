@@ -45,7 +45,7 @@ Audio signals are a voltage representation of sound.
 Recall that sound is a pressure wave with high and low phases of pressure.
 It's perhaps not surprising that audio signals use corresponding positive and negative voltage to represent a sound wave.
 This kind of voltage is [AC voltage](https://en.wikipedia.org/wiki/Alternating_current#Mathematics_of_AC_voltages). 
-Anytime a signal is bipoloar, i.e. it crosses zero, you can assume the voltage is AC.
+Anytime a signal is bipolar, i.e. it crosses zero, you can assume the voltage is AC.
 
 Control signals represent everything besides audio.
 Unlike audio signals, control signals are unipolar voltage representations, i.e. they don't cross zero, and thus use [DC voltage](https://en.wikipedia.org/wiki/Direct_current#Various_definitions).^[Under this definition, low frequency oscillators are audio signals, not control signals.]
@@ -174,7 +174,7 @@ It's the most basic because it only has one real module, which is a *generator* 
 We'll use an oscillator for the generator and one extra module, an audio interface module, to connect the oscillator output to our speakers.
 For this patch only, I'm going to demonstrate using the video in Figure \@ref(fig:drone-demo) to explain the user interface of the modular software.
 
-(ref:drone-demo) [Youtube video](https://www.youtube.com/watch?v=EfIWUOgHmhM) describing the VCVRack/Cardinal interface and builing a drone patch.
+(ref:drone-demo) [Youtube video](https://www.youtube.com/watch?v=EfIWUOgHmhM) describing the VCVRack/Cardinal interface and building a drone patch.
 
 <div class="figure">
 <img src="downloadFigs4latex/drone-demo.jpg" alt="(ref:drone-demo)"  />
@@ -185,7 +185,7 @@ After you watch the demonstration, try to make the patch yourself using the butt
 When you press the button, you'll see an interface that also includes `Instructions`, `Solution`, and `Close` buttons.
 These are self-explanatory, but in particular the `Close` button will return you to the book.
 
-(ref:drone-vco-out) [Virtual modular](https://cardinal.olney.ai) for making a drone patch.
+(ref:drone-vco-out) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=empty.vcv&solution=See+the+video+demonstration+in+the+book+%28open+video+in+separate+tab+as+needed&instructions=%3cul%3e%0a%3cli%3eUse+the+video+demonstration+as+a+guide+%28open+video+in+separate+tab+as+needed%29%3c%2fli%3e%0a%3cli%3eFor+each+wave+output%3cul%3e%0a%3cli%3eConnect+just+it+to+the+audio+inputs%3c%2fli%3e%0a%3cli%3eSweep+the+frequency+knob%3c%2fli%3e%0a%3cli%3eSweep+the+volume+knob%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a) for making a drone patch.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -211,7 +211,7 @@ So whatever you patch into them is copied exactly on their output jacks.
 This makes it easy to put a scope in between other modules without changing the resulting sound.
 Try adding a scope between the modules in the previous patch using the button in Figure \@ref(fig:drone-vco-scope-out).
 
-(ref:drone-vco-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a drone patch with a scope.
+(ref:drone-vco-scope-out) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=drone_vco-out.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fdrone-scope_vco-scope-out.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+%e2%80%9cScope%e2%80%9d+between+VCO+and+Host+Audio%3c%2fli%3e%0a%3cli%3eConnect+VCO+wave+out+to+Scope+In%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+to+Host+Audio%3c%2fli%3e%0a%3cli%3eFor+each+waveshape+try%3cul%3e%0a%3cli%3eAdjusting+time%3c%2fli%3e%0a%3cli%3eAdjusting+frequency%3c%2fli%3e%0a%3cli%3eAdjusting+gain%3c%2fli%3e%0a%3cli%3eChanging+the+waveshape%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fscope-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a) for making a drone patch with a scope.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -228,13 +228,13 @@ Try adding a scope between the modules in the previous patch using the button in
 You're probably realized why the drone patch has its name - it just produces a constant pitch at a constant volume.
 To make things more interesting, let's control the pitch that goes into the oscillator.
 You'll need a *controller* for this.
-Let's use the "Twelve-Key" (12 key), which has a miniture keyboard built into the module.
+Let's use the "Twelve-Key" (12 key), which has a miniature keyboard built into the module.
 The output of the 12 key that we are interested in is the control voltage (CV) that outputs V/Oct.
 If you connect that output to the V/Oct input of the VCO, the VCO will change its frequency every time a key is pressed.
 This is analogous to precisely and instantly moving the frequency knob on the VCO.
 Try adding the 12 key to the left of the VCO in the previous patch using the button in Figure \@ref(fig:drone-12key-vco-scope-out).
 
-(ref:drone-12key-vco-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a single voice patch with a scope and keyboard control of pitch.
+(ref:drone-12key-vco-scope-out) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=drone-scope_vco-scope-out.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fkey-drone_12key-vco-scope-out.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+%e2%80%9cTwelve-key%e2%80%9d+to+the+left+of+the+VCO%3c%2fli%3e%0a%3cli%3eConnect+12+key+CV+output+to+VCO+V%2fOCT+input%3c%2fli%3e%0a%3cli%3eObserve+what+happens+when+you+click+different+keys+on+12+key%3cul%3e%0a%3cli%3eIn+terms+of+sound%3c%2fli%3e%0a%3cli%3eIn+terms+of+wave+on+scope%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eChange+OCTAVE+on+12+key+and+repeat%3c%2fli%3e%0a%3c%2ful%3e%0a%3cp%3e%3cem%3eIf+you+don%26%2339%3bt+hear+sound%2c+check+if+your+frequency+is+below+20+kHz%3b+your+computer+speakers+may+not+produce+sound+below+100+kHz%3c%2fem%3e%3c%2fp%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2f12key-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a) for making a single voice patch with a scope and keyboard control of pitch.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -255,7 +255,7 @@ That way, each time a key is pressed, two control voltages will be sent out at t
 The VCA will "open" and let the full amplitude of the wave through when the gate voltage is high, and the VCA will "close" and let nothing through when the gate voltage is zero.
 Try adding a VCA between the VCO and Scope modules using the button in Figure \@ref(fig:drone-12key-vco-vca-scope-out).
 
-(ref:drone-12key-vco-vca-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a single voice patch with a scope and keyboard control of pitch and note duration.
+(ref:drone-12key-vco-vca-scope-out) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-drone_12key-vco-scope-out.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fkey-note_12key-vco-vca-scope-out.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+VCA+between+VCO+and+Scope+modules%3c%2fli%3e%0a%3cli%3eConnect+VCO+wave+to+VCA+In%3c%2fli%3e%0a%3cli%3eConnect+12+key+GATE+output+to+VCA+CV+IN%3c%2fli%3e%0a%3cli%3eConnect+VCA+OUT+to+Scope+IN%3c%2fli%3e%0a%3cli%3eWhat+happens+when+you+click+different+keys+on+12+key%3cul%3e%0a%3cli%3eIn+terms+of+sound%3c%2fli%3e%0a%3cli%3eIn+terms+of+wave+on+scope%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eTry+holding+down+key+instead+of+short+pressing+it+and+repeat%3c%2fli%3e%0a%3c%2ful%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fvca-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a) for making a single voice patch with a scope and keyboard control of pitch and note duration.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -276,7 +276,7 @@ Finally, when the trailing edge of the gate is detected (meaning the key has bee
 Remember that an envelope generator doesn't do anything by itself; if we want to control the volume of the signal with the ADSR, we must connect the ADSR to the VCA.
 Try adding an ADSR module between the VCO and VCA modules using the button in Figure \@ref(fig:drone-12key-vco-env-vca-scope-out).
 
-(ref:drone-12key-vco-env-vca-scope-out) [Virtual modular](https://cardinal.olney.ai) for making a single voice patch with a scope and keyboard control of pitch and note duration, and an envelope to control dynamics during the note.
+(ref:drone-12key-vco-env-vca-scope-out) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-note_12key-vco-vca-scope-out.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fkey-envelope_12key-vco-env-vca-scope-out.png%27+style%3d%27height%3a+300px%3b+width%3a+718px%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+ADSR+module+between+VCO+and+VCA+modules%3c%2fli%3e%0a%3cli%3eConnect+12+key+GATE+output+to+ADSR+GATE+input%3c%2fli%3e%0a%3cli%3eConnect+ADSR+OUT+to+VCA+IN%3c%2fli%3e%0a%3cli%3eWhat+happens+when+you+click+different+keys+on+12+key%3cul%3e%0a%3cli%3eIn+terms+of+sound%3c%2fli%3e%0a%3cli%3eIn+terms+of+wave+on+scope%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eChange+the+attack%2c+decay%2c+sustain%2c+release+knobs+and+repeat%3c%2fli%3e%0a%3c%2ful%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fadsr-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a) for making a single voice patch with a scope and keyboard control of pitch and note duration, and an envelope to control dynamics during the note.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -296,37 +296,37 @@ From there we will continue to spiral outward into increasingly complex modules 
 ## Check your understanding
 
 1. What is the difference between a trigger and a gate?
-- gates can only be used for non-percussion
-- width only matters for gates
 - triggers have higher amplitude
+- gates can only be used for non-percussion
 - triggers can only be used for percussion
+- width only matters for gates
             
 2. What is the standard voltage range of modular audio signals?
 - 0 to 5 V
-- 0 to 10 V
 - -5 to +5 V
+- 0 to 10 V
 - -1.7 to +1.7 V
             
 3. What does AC coupling do?
-- remove low frequency signals, noise, and offset bias
-- remove offset bias
-- remove noise
 - remove low frequency signals
+- remove low frequency signals, noise, and offset bias
+- remove noise
+- remove offset bias
             
 4. What type of signal carries pitch information?
+- envelope
+- V/Oct
 - trigger
 - gate
-- V/Oct
-- envelope
 
 5. What module interprets pitch information?
-- VCO
-- envelope
-- controller
 - VCA
+- controller
+- envelope
+- VCO
             
 6. What module interprets loudness information?
-- controller
 - envelope
+- controller
 - VCO
 - VCA

@@ -110,7 +110,7 @@ Figure <a href="basic-modeling-concepts.html#fig:serge-modular-2">4.1</a> shows 
 Figure 4.1: A Serge modular system based on a 1970s design. Each module is labeled at the top edge, e.g. <code>Wave Multiplier</code>, and extends down to the bottom edge in a column. Note that although the modules have the same height, they have different widths. Image <a href="https://commons.wikimedia.org/wiki/File:Serge_Modular,_Norbergfestival_2007.jpg">© mikael altemark/CC-BY-2.0</a>.
 </p>
 </div>
-<p>Here and throughout the book, we will use open source modular software called VCVRack<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“&lt;span&gt;VCV&lt;/span&gt; &lt;span&gt;Rack&lt;/span&gt; - &lt;span&gt;The&lt;/span&gt; &lt;span&gt;Eurorack&lt;/span&gt; Simulator for &lt;span&gt;Windows&lt;/span&gt;/&lt;span&gt;Mac&lt;/span&gt;/&lt;span&gt;Linux&lt;/span&gt;,”&lt;/span&gt; 2022, &lt;a href="https://vcvrack.com/" role="doc-biblioref"&gt;https://vcvrack.com/&lt;/a&gt;.&lt;/p&gt;'><sup>34</sup></a></span> that has been ported to the web.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“&lt;span&gt;DISTRHO&lt;/span&gt; &lt;span&gt;Cardinal&lt;/span&gt;”&lt;/span&gt; (DISTRHO, September 2022), &lt;a href="https://github.com/DISTRHO/Cardinal" role="doc-biblioref"&gt;https://github.com/DISTRHO/Cardinal&lt;/a&gt;.&lt;/p&gt;'><sup>35</sup></a></span>
+<p>Here and throughout the book, we will use open source modular software called VCVRack<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“&lt;span&gt;VCV&lt;/span&gt; &lt;span&gt;Rack&lt;/span&gt; - &lt;span&gt;The&lt;/span&gt; &lt;span&gt;Eurorack&lt;/span&gt; Simulator for &lt;span&gt;Windows&lt;/span&gt;/&lt;span&gt;Mac&lt;/span&gt;/&lt;span&gt;Linux&lt;/span&gt;,”&lt;/span&gt; 2022, &lt;a href="https://vcvrack.com/" role="doc-biblioref"&gt;https://vcvrack.com/&lt;/a&gt;.&lt;/p&gt;'><sup>33</sup></a></span> that has been ported to the web.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“&lt;span&gt;DISTRHO&lt;/span&gt; &lt;span&gt;Cardinal&lt;/span&gt;”&lt;/span&gt; (DISTRHO, September 2022), &lt;a href="https://github.com/DISTRHO/Cardinal" role="doc-biblioref"&gt;https://github.com/DISTRHO/Cardinal&lt;/a&gt;.&lt;/p&gt;'><sup>34</sup></a></span>
 This version is integrated with the the web version of the book so you can read about modular and solve sound design problems within the same environment.
 VCVRack is widely used in practice and has emulations of many hardware modules, so any details you learn about specific modules here could be useful down the road.</p>
 <div id="modules-are-the-model-elements" class="section level2" number="4.1">
@@ -141,9 +141,9 @@ Audio signals are a voltage representation of sound.
 Recall that sound is a pressure wave with high and low phases of pressure.
 It's perhaps not surprising that audio signals use corresponding positive and negative voltage to represent a sound wave.
 This kind of voltage is <a href="https://en.wikipedia.org/wiki/Alternating_current#Mathematics_of_AC_voltages">AC voltage</a>.
-Anytime a signal is bipoloar, i.e. it crosses zero, you can assume the voltage is AC.</p>
+Anytime a signal is bipolar, i.e. it crosses zero, you can assume the voltage is AC.</p>
 <p>Control signals represent everything besides audio.
-Unlike audio signals, control signals are unipolar voltage representations, i.e. they don't cross zero, and thus use <a href="https://en.wikipedia.org/wiki/Direct_current#Various_definitions">DC voltage</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Under this definition, low frequency oscillators are audio signals, not control signals.&lt;/p&gt;"><sup>36</sup></a>
+Unlike audio signals, control signals are unipolar voltage representations, i.e. they don't cross zero, and thus use <a href="https://en.wikipedia.org/wiki/Direct_current#Various_definitions">DC voltage</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Under this definition, low frequency oscillators are audio signals, not control signals.&lt;/p&gt;"><sup>35</sup></a>
 There are two main types of control signals in modular synthesis.
 Both of these can be understood in terms of light switches as shown in Figure <a href="basic-modeling-concepts.html#fig:light-switches">4.2</a>.
 Regular light switches are either on or off.
@@ -205,7 +205,7 @@ Table <a href="basic-modeling-concepts.html#tab:voltage">4.1</a> presents the vo
 <td align="center">-1.7 to +1.7</td>
 </tr>
 <tr class="even">
-<td>Continuous control signal<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Can be inverted&lt;/p&gt;"><sup>37</sup></a>
+<td>Continuous control signal<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Can be inverted&lt;/p&gt;"><sup>36</sup></a>
 </td>
 <td align="center">0 to 10</td>
 <td>Line audio level</td>
@@ -225,7 +225,7 @@ Table <a href="basic-modeling-concepts.html#tab:voltage">4.1</a> presents the vo
 </tr>
 </tbody>
 </table></div>
-<p>Modular signals are transmitted by patch cables.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The Eurorack standard does allow for signals to be &lt;a href="https://doepfer.de/a100_man/a100t_e.htm"&gt;transmitted using a bus on the in-case ribbon cable&lt;/a&gt;, but few modules support this. Likewise there are other bus conventions that are not widely followed like &lt;a href="https://en.wikipedia.org/wiki/I%C2%B2C"&gt;i2c&lt;/a&gt;. Often if two modules are connected behind the panel, one is an expansion module that adds additional connections or capabilities to the other.&lt;/p&gt;'><sup>38</sup></a>
+<p>Modular signals are transmitted by patch cables.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The Eurorack standard does allow for signals to be &lt;a href="https://doepfer.de/a100_man/a100t_e.htm"&gt;transmitted using a bus on the in-case ribbon cable&lt;/a&gt;, but few modules support this. Likewise there are other bus conventions that are not widely followed like &lt;a href="https://en.wikipedia.org/wiki/I%C2%B2C"&gt;i2c&lt;/a&gt;. Often if two modules are connected behind the panel, one is an expansion module that adds additional connections or capabilities to the other.&lt;/p&gt;'><sup>37</sup></a>
 Patch cables are primarily mono but sometimes stereo if a jack supports it.
 These two patch cable types look identical, except at their connectors, as shown in Figure <a href="basic-modeling-concepts.html#fig:ts-trs">4.5</a>.
 Stereo patch cables are TRS (tip-ring-sleeve), whereas mono patch cables are TS (tip-sleeve).</p>
@@ -263,8 +263,8 @@ This signal used to tell oscillators and other generators what pitch they should
 The V/Oct standard was <a href="https://en.wikipedia.org/wiki/CV/gate#CV">pioneered by Moog</a> and is widely used in the Eurorack format.
 Note that V/Oct goes straight from the voltage representation to pitch perception, with no mention of frequency.
 This makes it easy for musicians: since each volt represents an octave, it is easy to play a note one octave above the current note by adding one volt to the current signal.
-Similarly, one semitone above a note corresponds to 1/12 of a volt above the current voltage.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Western music divides the octave into 12 pitches called semitones based on a system called &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament#Twelve-tone_equal_temperament"&gt;twelve-tone equal temperment&lt;/a&gt;.&lt;/p&gt;'><sup>39</sup></a>
-While just about any signal could be used,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Typically unipolar signals are used for V/Oct.&lt;/p&gt;"><sup>40</sup></a> continuous control signals are commonly used in order to access a range of pitches.</p>
+Similarly, one semitone above a note corresponds to 1/12 of a volt above the current voltage.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Western music divides the octave into 12 pitches called semitones based on a system called &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament#Twelve-tone_equal_temperament"&gt;twelve-tone equal temperment&lt;/a&gt;.&lt;/p&gt;'><sup>38</sup></a>
+While just about any signal could be used,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Typically unipolar signals are used for V/Oct.&lt;/p&gt;"><sup>39</sup></a> continuous control signals are commonly used in order to access a range of pitches.</p>
 <p>When signals don't work as expected, it can be hard to figure out why.
 One of the best tools you can use to diagnose problems is an oscilloscope.
 Oscilloscopes display voltages over time, so they are great for displaying modular signals, including rapidly changing signals like audio.
@@ -287,9 +287,9 @@ Figure 4.6: A bench oscilloscope showing a sine wave and offset square wave simu
 As stated, we'll be using a web-ported version of VCVRack, which you can launch using buttons below.
 The port currently has some quirks:</p>
 <ul>
-<li>It will not run on Safari because Safari does not support fixed-width SIMD.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://webassembly.org/roadmap/" class="uri"&gt;https://webassembly.org/roadmap/&lt;/a&gt;&lt;/p&gt;'><sup>41</sup></a> That means it will not run on iOS at all per app store rules.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://developer.apple.com/app-store/review/guidelines/#2.5.6" class="uri"&gt;https://developer.apple.com/app-store/review/guidelines/#2.5.6&lt;/a&gt;&lt;/p&gt;'><sup>42</sup></a> <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/WebKit" class="uri"&gt;https://en.wikipedia.org/wiki/WebKit&lt;/a&gt;&lt;/p&gt;'><sup>43</sup></a>
+<li>It will not run on Safari because Safari does not support fixed-width SIMD.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://webassembly.org/roadmap/" class="uri"&gt;https://webassembly.org/roadmap/&lt;/a&gt;&lt;/p&gt;'><sup>40</sup></a> That means it will not run on iOS at all per app store rules.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://developer.apple.com/app-store/review/guidelines/#2.5.6" class="uri"&gt;https://developer.apple.com/app-store/review/guidelines/#2.5.6&lt;/a&gt;&lt;/p&gt;'><sup>41</sup></a> <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/WebKit" class="uri"&gt;https://en.wikipedia.org/wiki/WebKit&lt;/a&gt;&lt;/p&gt;'><sup>42</sup></a>
 </li>
-<li>It has a large download because it bundles modules. For best performance, you should use Firefox, which currently caches the files better than Chrome.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://github.com/DISTRHO/Cardinal/issues/287#issuecomment-1245929349" class="uri"&gt;https://github.com/DISTRHO/Cardinal/issues/287#issuecomment-1245929349&lt;/a&gt;&lt;/p&gt;'><sup>44</sup></a>
+<li>It has a large download because it bundles modules. For best performance, you should use Firefox, which currently caches the files better than Chrome.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://github.com/DISTRHO/Cardinal/issues/287#issuecomment-1245929349" class="uri"&gt;https://github.com/DISTRHO/Cardinal/issues/287#issuecomment-1245929349&lt;/a&gt;&lt;/p&gt;'><sup>43</sup></a>
 </li>
 </ul>
 <p>In the following sections, we'll start with a patch and incrementally expand it to add more functionality.</p>
@@ -307,7 +307,7 @@ For this patch only, I'm going to demonstrate using the video in Figure <a href=
 <iframe src="https://www.youtube.com/embed/EfIWUOgHmhM?start=2" width="672" height="400px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 4.7: <a href="https://www.youtube.com/watch?v=EfIWUOgHmhM">Youtube video</a> describing the VCVRack/Cardinal interface and builing a drone patch.
+Figure 4.7: <a href="https://www.youtube.com/watch?v=EfIWUOgHmhM">Youtube video</a> describing the VCVRack/Cardinal interface and building a drone patch.
 </p>
 </div>
 <p>After you watch the demonstration, try to make the patch yourself using the button in Figure <a href="basic-modeling-concepts.html#fig:drone-vco-out">4.8</a>.
@@ -394,7 +394,7 @@ function setdrone_vco_outIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:drone-vco-out"></span>
 <p class="caption">
-Figure 4.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a drone patch.
+Figure 4.8: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=empty.vcv&amp;solution=See+the+video+demonstration+in+the+book+%28open+video+in+separate+tab+as+needed&amp;instructions=%3cul%3e%0a%3cli%3eUse+the+video+demonstration+as+a+guide+%28open+video+in+separate+tab+as+needed%29%3c%2fli%3e%0a%3cli%3eFor+each+wave+output%3cul%3e%0a%3cli%3eConnect+just+it+to+the+audio+inputs%3c%2fli%3e%0a%3cli%3eSweep+the+frequency+knob%3c%2fli%3e%0a%3cli%3eSweep+the+volume+knob%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a">Virtual modular</a> for making a drone patch.
 </p>
 </div>
 </div>
@@ -502,7 +502,7 @@ function setdrone_vco_scope_outIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:drone-vco-scope-out"></span>
 <p class="caption">
-Figure 4.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a drone patch with a scope.
+Figure 4.9: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=drone_vco-out.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fdrone-scope_vco-scope-out.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+%e2%80%9cScope%e2%80%9d+between+VCO+and+Host+Audio%3c%2fli%3e%0a%3cli%3eConnect+VCO+wave+out+to+Scope+In%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+to+Host+Audio%3c%2fli%3e%0a%3cli%3eFor+each+waveshape+try%3cul%3e%0a%3cli%3eAdjusting+time%3c%2fli%3e%0a%3cli%3eAdjusting+frequency%3c%2fli%3e%0a%3cli%3eAdjusting+gain%3c%2fli%3e%0a%3cli%3eChanging+the+waveshape%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fscope-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a">Virtual modular</a> for making a drone patch with a scope.
 </p>
 </div>
 </div>
@@ -513,7 +513,7 @@ Figure 4.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a
 <p>You're probably realized why the drone patch has its name - it just produces a constant pitch at a constant volume.
 To make things more interesting, let's control the pitch that goes into the oscillator.
 You'll need a <em>controller</em> for this.
-Let's use the "Twelve-Key" (12 key), which has a miniture keyboard built into the module.
+Let's use the "Twelve-Key" (12 key), which has a miniature keyboard built into the module.
 The output of the 12 key that we are interested in is the control voltage (CV) that outputs V/Oct.
 If you connect that output to the V/Oct input of the VCO, the VCO will change its frequency every time a key is pressed.
 This is analogous to precisely and instantly moving the frequency knob on the VCO.
@@ -605,7 +605,7 @@ function setdrone_12key_vco_scope_outIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:drone-12key-vco-scope-out"></span>
 <p class="caption">
-Figure 4.10: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a single voice patch with a scope and keyboard control of pitch.
+Figure 4.10: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=drone-scope_vco-scope-out.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fkey-drone_12key-vco-scope-out.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+%e2%80%9cTwelve-key%e2%80%9d+to+the+left+of+the+VCO%3c%2fli%3e%0a%3cli%3eConnect+12+key+CV+output+to+VCO+V%2fOCT+input%3c%2fli%3e%0a%3cli%3eObserve+what+happens+when+you+click+different+keys+on+12+key%3cul%3e%0a%3cli%3eIn+terms+of+sound%3c%2fli%3e%0a%3cli%3eIn+terms+of+wave+on+scope%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eChange+OCTAVE+on+12+key+and+repeat%3c%2fli%3e%0a%3c%2ful%3e%0a%3cp%3e%3cem%3eIf+you+don%26%2339%3bt+hear+sound%2c+check+if+your+frequency+is+below+20+kHz%3b+your+computer+speakers+may+not+produce+sound+below+100+kHz%3c%2fem%3e%3c%2fp%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2f12key-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a">Virtual modular</a> for making a single voice patch with a scope and keyboard control of pitch.
 </p>
 </div>
 </div>
@@ -709,7 +709,7 @@ function setdrone_12key_vco_vca_scope_outIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:drone-12key-vco-vca-scope-out"></span>
 <p class="caption">
-Figure 4.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a single voice patch with a scope and keyboard control of pitch and note duration.
+Figure 4.11: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-drone_12key-vco-scope-out.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fkey-note_12key-vco-vca-scope-out.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+VCA+between+VCO+and+Scope+modules%3c%2fli%3e%0a%3cli%3eConnect+VCO+wave+to+VCA+In%3c%2fli%3e%0a%3cli%3eConnect+12+key+GATE+output+to+VCA+CV+IN%3c%2fli%3e%0a%3cli%3eConnect+VCA+OUT+to+Scope+IN%3c%2fli%3e%0a%3cli%3eWhat+happens+when+you+click+different+keys+on+12+key%3cul%3e%0a%3cli%3eIn+terms+of+sound%3c%2fli%3e%0a%3cli%3eIn+terms+of+wave+on+scope%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eTry+holding+down+key+instead+of+short+pressing+it+and+repeat%3c%2fli%3e%0a%3c%2ful%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fvca-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a">Virtual modular</a> for making a single voice patch with a scope and keyboard control of pitch and note duration.
 </p>
 </div>
 </div>
@@ -811,7 +811,7 @@ function setdrone_12key_vco_env_vca_scope_outIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:drone-12key-vco-env-vca-scope-out"></span>
 <p class="caption">
-Figure 4.12: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a single voice patch with a scope and keyboard control of pitch and note duration, and an envelope to control dynamics during the note.
+Figure 4.12: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-note_12key-vco-vca-scope-out.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fkey-envelope_12key-vco-env-vca-scope-out.png%27+style%3d%27height%3a+300px%3b+width%3a+718px%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+ADSR+module+between+VCO+and+VCA+modules%3c%2fli%3e%0a%3cli%3eConnect+12+key+GATE+output+to+ADSR+GATE+input%3c%2fli%3e%0a%3cli%3eConnect+ADSR+OUT+to+VCA+IN%3c%2fli%3e%0a%3cli%3eWhat+happens+when+you+click+different+keys+on+12+key%3cul%3e%0a%3cli%3eIn+terms+of+sound%3c%2fli%3e%0a%3cli%3eIn+terms+of+wave+on+scope%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eChange+the+attack%2c+decay%2c+sustain%2c+release+knobs+and+repeat%3c%2fli%3e%0a%3c%2ful%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fadsr-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a">Virtual modular</a> for making a single voice patch with a scope and keyboard control of pitch and note duration, and an envelope to control dynamics during the note.
 </p>
 </div>
 </div>
@@ -830,35 +830,35 @@ From there we will continue to spiral outward into increasingly complex modules 
 </h2>
 <ol style="list-style-type: decimal">
 <li><p>What is the difference between a trigger and a gate? <select class="webex-select"><option value="blank"></option>
-<option value="">gates can only be used for non-percussion</option>
-<option value="">triggers have higher amplitude</option>
 <option value="answer">width only matters for gates</option>
-<option value="">triggers can only be used for percussion</option></select></p></li>
+<option value="">triggers have higher amplitude</option>
+<option value="">triggers can only be used for percussion</option>
+<option value="">gates can only be used for non-percussion</option></select></p></li>
 <li><p>What is the standard voltage range of modular audio signals? <select class="webex-select"><option value="blank"></option>
-<option value="answer">-5 to +5 V</option>
 <option value="">-1.7 to +1.7 V</option>
-<option value="">0 to 10 V</option>
-<option value="">0 to 5 V</option></select></p></li>
+<option value="">0 to 5 V</option>
+<option value="answer">-5 to +5 V</option>
+<option value="">0 to 10 V</option></select></p></li>
 <li><p>What does AC coupling do? <select class="webex-select"><option value="blank"></option>
-<option value="">remove noise</option>
 <option value="">remove offset bias</option>
-<option value="">remove low frequency signals</option>
-<option value="answer">remove low frequency signals, noise, and offset bias</option></select></p></li>
+<option value="answer">remove low frequency signals, noise, and offset bias</option>
+<option value="">remove noise</option>
+<option value="">remove low frequency signals</option></select></p></li>
 <li><p>What type of signal carries pitch information? <select class="webex-select"><option value="blank"></option>
-<option value="">envelope</option>
 <option value="">gate</option>
 <option value="">trigger</option>
+<option value="">envelope</option>
 <option value="answer">V/Oct</option></select></p></li>
 <li><p>What module interprets pitch information? <select class="webex-select"><option value="blank"></option>
-<option value="">envelope</option>
+<option value="answer">VCO</option>
 <option value="">VCA</option>
 <option value="">controller</option>
-<option value="answer">VCO</option></select></p></li>
+<option value="">envelope</option></select></p></li>
 <li><p>What module interprets loudness information? <select class="webex-select"><option value="blank"></option>
-<option value="">envelope</option>
-<option value="">VCO</option>
+<option value="answer">VCA</option>
 <option value="">controller</option>
-<option value="answer">VCA</option></select></p></li>
+<option value="">envelope</option>
+<option value="">VCO</option></select></p></li>
 </ol>
 </div>
 </div>

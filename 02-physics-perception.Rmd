@@ -13,7 +13,7 @@ A good example of this is [equal loudness contours](https://en.wikipedia.org/wik
 As shown in Figure \@ref(fig:elc), sounds can appear equally loud to humans across frequencies even though the actual sound pressure level (a measure of sound energy) is not constant. 
 In other words, our hearing becomes more sensitive depending on the frequency of the sound.
 
-(ref:elc) An equal loudness contour showing improved sensitivity to frequencies between 500Hz and 4KHz, which approximately matches the range of human speech frequencies. Image [public domain](https://en.wikipedia.org/wiki/Psychoacoustics#/media/File:Perceived_Human_Hearing.svg).
+(ref:elc) An equal loudness contour showing improved sensitivity to frequencies between 500Hz and 4kHz, which approximately matches the range of human speech frequencies. Image [public domain](https://en.wikipedia.org/wiki/Psychoacoustics#/media/File:Perceived_Human_Hearing.svg).
 
 
 ```{r elc, echo=F, out.width="100%", fig.cap="(ref:elc)"}
@@ -103,7 +103,7 @@ The red dots are markers to help you see how much the air is moving as a result 
 As you can see, every red dot is staying in their neighborhood by **moving in opposite directions** as a result of compression and rarefaction cycles.
 If you select the `Both` radio button, you can see the outlines of waves on top of the air molecules.
 Note how each red dot is moving back and forth between a white band and a dark band.
-If you further select the `Graph` checkbox, you will see that the white bands in this simulation correpond to increases in pressure and the black bands correspond to decreases in pressure.
+If you further select the `Graph` checkbox, you will see that the white bands in this simulation correspond to increases in pressure and the black bands correspond to decreases in pressure.
 This type of graph is commonly used to describe waves, so make sure you feel comfortable with it before moving on.
 
 (ref:sim-wave) [Simulation](https://phet.colorado.edu/sims/html/waves-intro/latest/waves-intro_en.html?screens=2) of sound waves. Simulation by [PhET Interactive Simulations](https://phet.colorado.edu/), University of Colorado Boulder, licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
@@ -178,7 +178,7 @@ p1 + p2
 
 You might be wondering if there's point at which pitches are low enough that the notes run together!
 It seems the answer to this is that our ability to hear sound at all gives out before this happens.
-Going back to the 88-key piano keyboard, the two lowest keys (keys 1 & 2; not shown) are about 1.5 Hz appart, but the lowest key^[Also called A0] is 27.5 Hz.
+Going back to the 88-key piano keyboard, the two lowest keys (keys 1 & 2; not shown) are about 1.5 Hz apart, but the lowest key^[Also called A0] is 27.5 Hz.
 Humans generally can only hear frequencies between 20 Hz and 20,000 Hz (20 kHz).
 Below 20 Hz, sounds are felt more than heard (especially if they are loud), and above 20 kHz generally can't be heard at all, though intense sounds at these frequencies can still cause hearing damage.
 

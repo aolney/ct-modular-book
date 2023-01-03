@@ -197,7 +197,7 @@ Table: (\#tab:price) The cost of modular, semi-modular, and computer synthesizer
 
 | Decade | Synthesizer                  | Cost |
 |--------|------------------------------|----------------------|
-| 1960s  | Moog modular synthesiser     | $96,000              |
+| 1960s  | Moog modular synthesizer     | $96,000              |
 | 1970s  | Minimoog semi-modular        | $10,000              |
 | 1980s  | Yamaha DX7                   | $6,000               |
 | 1990s  | Gateway computer with Cubase | $8,000               |

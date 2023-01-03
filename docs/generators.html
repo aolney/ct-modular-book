@@ -116,11 +116,11 @@ Samplers represent the extreme of realism in generators, at least as far as thei
 <p>Section <a href="harmonic-and-inharmonic-sounds.html#phase-reflections-standing-waves-and-harmonics">3.1</a> briefly mentioned the relationship between harmonics and fundamental relationships like octaves and fifths.
 To recap, the second harmonic has double the frequency of the first and so is one octave above the first harmonic.
 We can express this relationship as 2:1, i.e. an octave is twice the frequency of the the fundamental.
-Similarly the third harmonic is a fifth above the second harmonic, so we can express a fifth as 3:2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Whole number ratios require &lt;a href="https://en.wikipedia.org/wiki/Just_intonation"&gt;just intonation&lt;/a&gt;. The twelve tone &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament"&gt;equal temperment&lt;/a&gt; used in Western music is a close approximation, e.g. 3:2 is 1.498 in twelve tone equal temperment.&lt;/p&gt;'><sup>51</sup></a></p>
+Similarly the third harmonic is a fifth above the second harmonic, so we can express a fifth as 3:2.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Whole number ratios require &lt;a href="https://en.wikipedia.org/wiki/Just_intonation"&gt;just intonation&lt;/a&gt;. The twelve tone &lt;a href="https://en.wikipedia.org/wiki/Equal_temperament"&gt;equal temperment&lt;/a&gt; used in Western music is a close approximation, e.g. 3:2 is 1.498 in twelve tone equal temperament.&lt;/p&gt;'><sup>50</sup></a></p>
 <p>Now consider what happens if two notes an octave apart or a fifth apart are played at the same time.
 Clearly some of their harmonics will be the same.
 Thus playing two or more notes this way will add and enhance harmonics beyond that of a single note, creating a richer and fuller sound.
-Of course, notes may be played that are not harmonically related, to a different effect.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The reader may be interested in &lt;a href="https://en.wikipedia.org/wiki/Consonance_and_dissonance"&gt;consonance/dissonance&lt;/a&gt; as discussed in music theory.&lt;/p&gt;'><sup>52</sup></a>
+Of course, notes may be played that are not harmonically related, to a different effect.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The reader may be interested in &lt;a href="https://en.wikipedia.org/wiki/Consonance_and_dissonance"&gt;consonance/dissonance&lt;/a&gt; as discussed in music theory.&lt;/p&gt;'><sup>51</sup></a>
 When two notes are played simultaneously, it is called an <a href="https://en.wikipedia.org/wiki/Interval_(music)">interval</a>, with three notes, a <a href="https://en.wikipedia.org/wiki/Trichord">trichord</a>, with four notes, a <a href="https://en.wikipedia.org/wiki/Tetrachord">tetrachord</a>, etc.
 Many harmonically related notes can be played simultaneously to good effect.
 For example, the <a href="https://en.wikipedia.org/wiki/Deep_Note">THX Deep Note</a> in Figure <a href="generators.html#fig:deep-note">6.1</a> resolves to 11 notes, mostly harmonically related by 3, 4, and 7 semitones (minor/major thirds and fifths).</p>
@@ -138,7 +138,7 @@ At the first stage, we have a V/Oct control signal, so we can create chords by m
 At the final stage, we have an audio signal, so we can create chords by making new audio signals harmonically related to the original signal.
 Let's look at both.</p>
 <p>To create harmonically related control voltage signals, we can use a voltage offset module to create new signals offset from the original signal, i.e. the original voltage plus/minus a harmonically-related voltage.
-It can take a little math to do this if the offset module is labeled in volts<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall 1 V/Oct means a semitone is 1/12 of a volt.&lt;/p&gt;"><sup>53</sup></a>, but if the offset module is labeled in semitones, it is <a href="https://en.wikipedia.org/wiki/Interval_(music)#Main_intervals">fairly straightforward</a>, e.g. a fifth is seven semitones.
+It can take a little math to do this if the offset module is labeled in volts<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall 1 V/Oct means a semitone is 1/12 of a volt.&lt;/p&gt;"><sup>52</sup></a>, but if the offset module is labeled in semitones, it is <a href="https://en.wikipedia.org/wiki/Interval_(music)#Main_intervals">fairly straightforward</a>, e.g. a fifth is seven semitones.
 Additionally we will need multiple oscillators to play a note for each offset voltage.
 We could reasonably do this with separate oscillators, but some chord-oriented modules contain multiple oscillators and take separate V/Oct for each.
 Try making a trichord using a fifth and an octave using the button in Figure <a href="generators.html#fig:voltage-division-chords">6.2</a>.</p>
@@ -245,7 +245,7 @@ function setvoltage_division_chordsIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:voltage-division-chords"></span>
 <p class="caption">
-Figure 6.2: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a chord using signal offsets.
+Figure 6.2: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=empty.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fvoltage-division-chords.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+12-Key+and+Host+audio%3c%2fli%3e%0a%3cli%3eAdd+BST+%28voltage+offset%29+and+D%27Acchord+%28multiple+oscillator%29+%3c%2fli%3e%0a%3cli%3eConnect+12-Key+CV+out+to+BST+bias+1+input%3c%2fli%3e%0a%3cli%3eMake+sure+the+Volts%2fSemi+switch+is+set+to+semi%3c%2fli%3e%0a%3cli%3eSet+BST+bias+1+output+to+%2b0st+%28root+note%29+and+connect+to+D%27Acchord+P1%3c%2fli%3e%0a%3cli%3eSet+BST+bias+2+output+to+%2b7st+%28fifth%29+and+connect+to+D%27Acchord+P2%3c%2fli%3e%0a%3cli%3eSet+BST+bias+3+output+to+%2b12st+%28octave%29+and+connect+to+D%27Acchord+P3%3c%2fli%3e%0a%3cli%3eConnect+D%27Accord+Left%2fRight+to+Host+audio+Left%2fRight%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3eUse+the+ATTN+row+of+knobs+in+D%26%2339%3bAccord+to+remove+all+but+the+root+note%3c%2fli%3e%0a%3cli%3eAdd+each+the+others+back+in+slowly%2c+noting+the+change+in+the+sound%3c%2fli%3e%0a%3cli%3ePlay+the+keyboard+and+note+the+stability+of+the+chord+across+keys+%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fbst-voltage-divider-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fdacchord-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for making a chord using signal offsets.
 </p>
 </div>
 <p>To create harmonically related audio signals, we can use a clock divider as long as the original signal can be interpreted as clock and the clock divider in question can accept audio rates.
@@ -358,7 +358,7 @@ function setclock_division_chordsIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:clock-division-chords"></span>
 <p class="caption">
-Figure 6.3: <a href="https://cardinal.olney.ai">Virtual modular</a> for making a chord using clock divisions.
+Figure 6.3: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=voltage-division-chords.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fclock-division-chords.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eRemove+modules+except+for+12-Key+and+Host+audio%3c%2fli%3e%0a%3cli%3eAdd+VCO%2c+dividah+%28even+clock+divider%29%2c+D1v1de+%28adjustable+clock+divider%29%2c+Scope%2c+and+QuadVCA%2fMixer+%3c%2fli%3e%0a%3cli%3eConnect+12-Key+CV+out+to+VCO+V%2fOct%3c%2fli%3e%0a%3cli%3eConnect+VCO+Sqr+out+to+dividah+Clock+in%2c+D1v1de+in%2c+Scope+in+1%2c+and+QuadVCA+in+1%3c%2fli%3e%0a%3cli%3eConnect+dividah+by+2+out+to+Scope+in+2+and+QuadVCA+in+2%3c%2fli%3e%0a%3cli%3eConnect+D1v1de+out+to+QuadVCA+in+3+and+set+D1v1de+clock+division+to+3%3c%2fli%3e%0a%3cli%3eConnect+QuadVCA+mix+out+to+Host+audio+L%3c%2fli%3e%0a%3cli%3eUse+the+scope+to+confirm+the+divided+signals+are+correctly+aligned+to+the+VCO%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3eUse+the+QuadVCA+sliders+to+mute+all+but+the+root+note%3c%2fli%3e%0a%3cli%3eAdd+each+the+others+back+in+slowly%2c+noting+the+change+in+the+sound%3c%2fli%3e%0a%3cli%3ePlay+the+keyboard+and+note+the+stability+of+the+chord+across+keys+%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fdividah-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fd1v1de-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for making a chord using clock divisions.
 </p>
 </div>
 </div>
@@ -461,7 +461,7 @@ function setdetune_beatIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:detune-beat"></span>
 <p class="caption">
-Figure 6.5: <a href="https://cardinal.olney.ai">Virtual modular</a> for detuning a second oscillator.
+Figure 6.5: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=voltage-division-chords.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fdetune-beat.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eSilence+P3+using+the+ATTN+knob+%3c%2fli%3e%0a%3cli%3eDetune+P2+using+the+Detune+knob%3c%2fli%3e%0a%3cli%3eNote+the+beat+whose+frequency+increases+with+detuning%3c%2fli%3e%0a%3cli%3eAt+what+point+of+detuning+do+you+think+it+sounds+best%3f%3c%2fli%3e%0a">Virtual modular</a> for detuning a second oscillator.
 </p>
 </div>
 </div>
@@ -602,7 +602,7 @@ function setpwm_lfo_vco_scopeIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:pwm-lfo-vco-scope"></span>
 <p class="caption">
-Figure 6.7: <a href="https://cardinal.olney.ai">Virtual modular</a> for implementing pulse width modulation (PWM) using a low frequency oscillator (LFO).
+Figure 6.7: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=empty.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fpwm-lfo-vco-scope.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+LFO%2c+VCO%2c+Scope%2c+and+Host+audio+%3c%2fli%3e%0a%3cli%3eConnect+LFO+triangle+out+to+VCO+PWM%3c%2fli%3e%0a%3cli%3eConnect+VCO+square+out+to++Scope+in+1%3c%2fli%3e%0a%3cli%3eConnect+LFO+triangle+out+to++Scope+in+2%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+to+Host+audio+L%3c%2fli%3e%0a%3cli%3eAdjust+the+scope+to+visualize+the+wave%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+%28richness%2fbeats%29%3cul%3e%0a%3cli%3eIncrease+the+depth+of+the+PWM+by+adjusting+the+PWM+knob+on+the+VCO+%28the+knob+adjusts+an+internal+VCA%29%3c%2fli%3e%0a%3cli%3eTurn+the+LFO+frequency+to+zero+to+hear+the+raw+wave%2c+then+increase+frequency%3c%2fli%3e%0a%3cli%3eTry+different+LFO+waves%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2flfo-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for implementing pulse width modulation (PWM) using a low frequency oscillator (LFO).
 </p>
 </div>
 </div>
@@ -622,7 +622,7 @@ Figure 6.8: <a href="https://www.youtube.com/watch?v=CPPOrQHiP40">Youtube video<
 </p>
 </div>
 <p>LFOs can create vibrato on a VCO by controlling V/Oct.
-Unlike PWM, an additional VCA is needed to control the depth of the vibrato.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically you can use the FM input and attenuator, but there are pedagogical reasons for not using the FM input at the moment, namely that we have not discused FM yet. &lt;/p&gt;"><sup>54</sup></a>
+Unlike PWM, an additional VCA is needed to control the depth of the vibrato.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Technically you can use the FM input and attenuator, but there are pedagogical reasons for not using the FM input at the moment, namely that we have not discussed FM yet. &lt;/p&gt;"><sup>53</sup></a>
 Try to create vibrato with an LFO using the button in Figure <a href="generators.html#fig:vibrato-lfo-vca-vco-scope">6.9</a>.
 With a little adjustment of the parameters, it's possible to match the vibrato of the opera singer just discussed.
 Since no vibrato occurs when the LFO frequency is zero, one can turn the vibrato effect on and off by setting LFO frequency, e.g. through a sequencer.</p>
@@ -713,7 +713,7 @@ function setvibrato_lfo_vca_vco_scopeIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:vibrato-lfo-vca-vco-scope"></span>
 <p class="caption">
-Figure 6.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for implementing vibrato using a low frequency oscillator (LFO).
+Figure 6.9: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=pwm-lfo-vco-scope.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fvibrato-lfo-vca-vco-scope.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+a+QuadVCA%2fMixer+between+the+LFO+and+VCO+%3c%2fli%3e%0a%3cli%3eConnect+LFO+triangle+out+to+QuadVCA+input+1%3c%2fli%3e%0a%3cli%3eConnect+QuadVCA+mix+out+to+VCO+V%2fOct%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+to+Host+audio+L%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3eDecrease+the+depth+of+the+vibrato+by+adjusting+the+QuadVCA+gain+down+towards+zero%3c%2fli%3e%0a%3cli%3eTurn+the+LFO+frequency+to+zero+to+hear+the+raw+wave%2c+then+increase+frequency%3c%2fli%3e%0a%3cli%3eTry+different+LFO+waves%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a">Virtual modular</a> for implementing vibrato using a low frequency oscillator (LFO).
 </p>
 </div>
 </div>
@@ -721,7 +721,7 @@ Figure 6.9: <a href="https://cardinal.olney.ai">Virtual modular</a> for implemen
 <h3>
 <span class="header-section-number">6.3.3</span> Tremolo<a class="anchor" aria-label="anchor" href="#tremolo"><i class="fas fa-link"></i></a>
 </h3>
-<p>In electronic music, tremolo is movement around loudness that can be defined in terms of speed of movement around a center volume and depth of movement, or distance from, that same center volume.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The mnemonic "tremolo&lt;strong&gt;ud&lt;/strong&gt;" might help prevent confusion with vibrato.&lt;/p&gt;'><sup>55</sup></a>
+<p>In electronic music, tremolo is movement around loudness that can be defined in terms of speed of movement around a center volume and depth of movement, or distance from, that same center volume.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The mnemonic "tremolo&lt;strong&gt;ud&lt;/strong&gt;" might help prevent confusion with vibrato.&lt;/p&gt;'><sup>54</sup></a>
 Note that in other forms of music, there are <a href="https://en.wikipedia.org/wiki/Tremolo">different definitions of tremolo</a>.
 Tremolo has been widely used in popular guitar music since the 1960's, and guitar pedals producing tremolo effects as shown in Figure <a href="generators.html#fig:guitar-tremolo">6.10</a> are quite common today.</p>
 
@@ -836,7 +836,7 @@ function settremelo_lfo_vca_vco_scopeIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:tremelo-lfo-vca-vco-scope"></span>
 <p class="caption">
-Figure 6.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for implementing tremolo using a low frequency oscillator (LFO).
+Figure 6.11: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=vibrato-lfo-vca-vco-scope.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2ftremelo-lfo-vca-vco-scope.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eDisconnect+all+cables+but+Scope+out+1+to+Host+audio+L+and+LFO+triangle+out+to+Scope+in+1%3c%2fli%3e%0a%3cli%3eConnect+VCO+square+out+to+QuadVCA+input+1%3c%2fli%3e%0a%3cli%3eConnect+LFO+triangle+out+1+to+QuadVCA+CH+1+gain+CV%3c%2fli%3e%0a%3cli%3eConnect+QuadVCA+mix+out+to+Scope+in+1%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3eDecrease+the+depth+of+the+tremelo+by+adjusting+the+QuadVCA+gain+down+towards+zero%3c%2fli%3e%0a%3cli%3eTurn+the+LFO+frequency+to+zero+to+hear+the+raw+wave%2c+then+increase+frequency%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eNotice+the+LFO+wave+on+the+scope+goes+below+zero+but+there+is+no+effect+on+the+sound%3c%2fli%3e%0a%3cli%3eFix+this+by+changing+the+LFO+OFST+to+unipolar%3c%2fli%3e%0a%3cli%3eNotice+the+volume+goes+to+zero+when+the+LFO+goes+to+zero%3c%2fli%3e%0a%3cli%3eFix+this+by+connecting+VCO+square+out+to+QuadVCA+input+2%3c%2fli%3e%0a%3cli%3eAdjust+the+mix+to+get+the+right+baseline+volume+and+depth+of+modulation%3c%2fli%3e%0a%3c%2ful%3e%0a">Virtual modular</a> for implementing tremolo using a low frequency oscillator (LFO).
 </p>
 </div>
 </div>
@@ -852,7 +852,7 @@ Every oscillator has an internal reset trigger that tells it when to start drawi
 A sync signal overrides this internal trigger, so we can control when the reset happens.</p>
 <p>The most common form of sync is known as hard sync.
 In hard sync, the sync signal removes phase by forcing an immediate reset.
-Typically the sync signal is the wave output of one oscillator (the leader), which is connecte to the sync input of another oscillator (the follower).
+Typically the sync signal is the wave output of one oscillator (the leader), which is connected to the sync input of another oscillator (the follower).
 If the two waves were identical in frequency, hard sync would simply align them in phase; however this is rarely the case.
 When the two waves are different in frequency, one wave is reset and therefore has a sharp edges in its waveshape.
 As discussed in Section <a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum">3.2</a>, sharp edges contribute higher partials
@@ -977,7 +977,7 @@ function sethard_soft_syncIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:hard-soft-sync"></span>
 <p class="caption">
-Figure 6.14: <a href="https://cardinal.olney.ai">Virtual modular</a> for implementing hard and soft sync.
+Figure 6.14: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=tremelo-lfo-vca-vco-scope.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fhard-soft-sync.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eDisconnect+all+cables+and+move+the+QuadVCA+between+the+Scope+and+Host+Audio%3c%2fli%3e%0a%3cli%3eReplace+the+VCO+with+an+LFO.+We%27ll+call+this+the+lead+VCO%3c%2fli%3e%0a%3cli%3eConnect+lead+VCO+sine+out+to+follower+VCO+sync+in+and+Scope+in+1%3c%2fli%3e%0a%3cli%3eConnect+follower+VCO+sine+out+to+Scope+in+2%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+and+2+to+QuadVCA+in+1+and+2%3c%2fli%3e%0a%3cli%3eConnect+QuadVCA+mix+out+to+Host+audio+L%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3eAdjust+the+QuadVCA+gain+to+hear+only+the+follower%2c+then+a+mix+of+both%3c%2fli%3e%0a%3cli%3eTurn+the+leader+frequency+up+and+down%3c%2fli%3e%0a%3cli%3eTurn+the+follower+frequency+up+and+down%3c%2fli%3e%0a%3cli%3eSet+the+follower+frequency+at+an+integer+multiple+of+the+leader%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eTurn+on+soft+sync+using+the+button+next+to+the+input+jack%3c%2fli%3e%0a%3cli%3eTry+the+same+changes+above+with+soft+sync+active%3c%2fli%3e%0a%3c%2ful%3e%0a">Virtual modular</a> for implementing hard and soft sync.
 </p>
 </div>
 </div>
@@ -1108,7 +1108,7 @@ function setkick_bpm_noiz_adsr_vco_adsr_vca_scopeIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:kick-bpm-noiz-adsr-vco-adsr-vca-scope"></span>
 <p class="caption">
-Figure 6.15: <a href="https://cardinal.olney.ai">Virtual modular</a> for adding noise to kick and snare drums.
+Figure 6.15: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=clock-kick-bpm-vco-adsr-vca-scope-out.vcv&amp;solution=%3ch4%3eOnly+kick+drum+shown%3c%2fh4%3e%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fkick-bpm-noiz-adsr-vco-adsr-vca-scope.png%27+style%3d%27height%3a+500px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eReplace+the+VCA+with+QuadVCA%2fMixer%3c%2fli%3e%0a%3cli%3eConnect+VCO+sine+out+to+QuadVCA+in+1%3c%2fli%3e%0a%3cli%3eConnect+ADSR+out+to+QuadVCA+CH+1+gain+in%3c%2fli%3e%0a%3cli%3eConnect+QuadVCA+mix+out+to+Scope+in+1%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+to+Host+audio+L%3c%2fli%3e%0a%3cli%3eAdd+Noiz+module+below+VCO+and+put+new+ADSR+next+to+Noiz%3c%2fli%3e%0a%3cli%3eConnect+Noiz+Red+out+to+QuadVCA+in+2%3c%2fli%3e%0a%3cli%3eConnect+Clock+out+to+noise+ADSR+gate+in%3c%2fli%3e%0a%3cli%3eConnect+noise+ADSR+out+to+QuadVCA+CH+2+gain+in%3c%2fli%3e%0a%3cli%3eAdjust+noise+ADSR+knobs+to+1+%28lowest+setting%29%3c%2fli%3e%0a%3cli%3eAdjust+QuadVCA+ch+1+gain+to+max+and+ch2+gain+to+20%25%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3eAdjust+the+QuadVCA+gain+to+make+the+sine+kick+quiter+and+noise+louder%3c%2fli%3e%0a%3cli%3eAdjust+the+noise+ADSR+to+make+the+noise+slower%2flonger%3c%2fli%3e%0a%3cli%3eTo+make+a+snare%2c+change+the+noise+source+to+blue%3c%2fli%3e%0a%3cli%3eIncrease+the+noise+ADSR+decay+to+25ms%3c%2fli%3e%0a%3cli%3eIncrease+the+VCO+frequency+to+180+Hz%3c%2fli%3e%0a%3cli%3eAdjust+the+QuadVCA+gain+so+drum+and+noise+are+equal%3c%2fli%3e%0a%3cli%3eTry+the+adjustments+suggested+for+the+kick+and+note+changes+in+sound%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fnoiz-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for adding noise to kick and snare drums.
 </p>
 </div>
 </div>
@@ -1133,10 +1133,10 @@ If the distance between the samples is small, a straight line is a good approxim
 However, if frequency of the wave is high or the wave otherwise changes suddenly, those changes may be <em>between</em> samples and not show up in the digital representation at all.
 Common sample rates are 8 kHz (phone quality), 16 kHz (speech recognition quality), and 44.1 kHz (CD quality).</p>
 <p>Why sample at 44.1 kHz when the upper limit of human hearing is around 20 kHz?
-The 44.1 kHz rate is the <a href="https://en.wikipedia.org/wiki/Nyquist_rate">Nyquist rate</a> for 22,050 Hz, i.e. the Nyquist rate is <strong>double</strong> that frequency, which is about 2 kHz above the standard human limit.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The 2 kHz padding allows use of an &lt;a href=&quot;https://en.wikipedia.org/wiki/Anti-aliasing_filter&quot;&gt;anti-aliasing filter&lt;/a&gt; that prevents higher frequencies from being sampled. We'll cover how filters work in the next chapter, but the basic idea here is that filters are imperfect and so need a little padding beyond the Nyquist rate.&lt;/p&gt;"><sup>56</sup></a>
+The 44.1 kHz rate is the <a href="https://en.wikipedia.org/wiki/Nyquist_rate">Nyquist rate</a> for 22,050 Hz, i.e. the Nyquist rate is <strong>double</strong> that frequency, which is about 2 kHz above the standard human limit.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The 2 kHz padding allows use of an &lt;a href=&quot;https://en.wikipedia.org/wiki/Anti-aliasing_filter&quot;&gt;anti-aliasing filter&lt;/a&gt; that prevents higher frequencies from being sampled. We'll cover how filters work in the next chapter, but the basic idea here is that filters are imperfect and so need a little padding beyond the Nyquist rate.&lt;/p&gt;"><sup>55</sup></a>
 The reason to sample at twice the highest frequency is pretty simple.
 If we assume all sounds are made of sine waves, as covered in Section <a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum">3.2</a>, then we need to be able to define the highest frequency component in our audio as a sine wave.
-If we evenly sample at least two points for a cycle of that sine wave, and we know the maximum possible frequency, then there is only one sine wave that can pass through those points.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;This is analogous to two data points to &lt;a href="https://en.wikipedia.org/wiki/System_of_linear_equations"&gt;solve for two unknowns using linear algebra&lt;/a&gt;.&lt;/p&gt;'><sup>57</sup></a>
+If we evenly sample at least two points for a cycle of that sine wave, and we know the maximum possible frequency, then there is only one sine wave that can pass through those points.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;This is analogous to two data points to &lt;a href="https://en.wikipedia.org/wiki/System_of_linear_equations"&gt;solve for two unknowns using linear algebra&lt;/a&gt;.&lt;/p&gt;'><sup>56</sup></a>
 Without that limit, there are an infinite number of alternative sine waves that will pass between the two points, leading to an ambiguity problem called <a href="https://en.wikipedia.org/wiki/Aliasing">aliasing</a> where we don't know what sine wave was sampled.
 A familiar example of aliasing occurs when <a href="https://youtu.be/6XwgbHjRo30?t=8">speed of wheels exceed the sample rate (frame rate) in video/film</a>.</p>
 <p>Bit depth measures the accuracy at which the sample points are measured from 0.
@@ -1242,7 +1242,7 @@ function setsample_12key_ouaiveIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:sample-12key-ouaive"></span>
 <p class="caption">
-Figure 6.17: <a href="https://cardinal.olney.ai">Virtual modular</a> for keyboard control of a sampler's playback position.
+Figure 6.17: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=empty.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fsample-12key-ouaive.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+12+key%2c+OUAIve+sampler%2c+and+Host+audio%3c%2fli%3e%0a%3cli%3eRight+click+sampler%2c+choose+%27Load+sample%27%2c+and+load+the+sample+file%3c%2fli%3e%0a%3cli%3eConnect+12+key+CV+out+to+OUAIve+POS+in%3c%2fli%3e%0a%3cli%3eConnect+12+key+Gate+out+to+OUAIve+Trig+in%3c%2fli%3e%0a%3cli%3ePress+OUAIve+Type+button+until+Trig+is+shown%3c%2fli%3e%0a%3cli%3ePress+OUAIve+Play+button+until+a+single+play+icon+appears%3c%2fli%3e%0a%3cli%3eConnect+OUAIve+outs+to+Host+audio+ins%3c%2fli%3e%0a%3cli%3eTry+playing+different+notes+on+the+keyboard+to+play+the+sample+at+different+locations%3c%2fli%3e%0a%3cli%3eYou+can+interrupt+the+playback+by+pressing+another+key+before+the+sample+finishes%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fouaive-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for keyboard control of a sampler's playback position.
 </p>
 </div>
 <p>We can play, reverse play, and change the playback speed the sample by using an LFO and a gate-style controller.
@@ -1339,7 +1339,7 @@ function setsample_lfo_trigger_ouaiveIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:sample-lfo-trigger-ouaive"></span>
 <p class="caption">
-Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO control of a sampler's playback: forward, reverse, and speed.
+Figure 6.18: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=sample-12key-ouaive.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fsample-lfo-trigger-ouaive.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eDelete+12+key%3b+add+LFO+and+Triggers+MK1%3c%2fli%3e%0a%3cli%3eRight+click+sampler%2c+choose+%27Load+sample%27%2c+and+load+the+sample+file%3c%2fli%3e%0a%3cli%3eConnect+LFO+triangle+out+to+OUAIve+POS+in%3c%2fli%3e%0a%3cli%3eSet+LFO+OFST+to+unipolar%3c%2fli%3e%0a%3cli%3eConnect+Triggers+MK1+out+to+OUAIve+Trig+in%3c%2fli%3e%0a%3cli%3ePress+OUAIve+Type+button+until+Gate+is+shown%3c%2fli%3e%0a%3cli%3ePress+OUAIve+Play+button+until+a+single+play+icon+appears%3c%2fli%3e%0a%3cli%3ePress+the+Triggers+MK1+Latch+button+to+start+playback%3c%2fli%3e%0a%3cli%3eTry+adjusting+the+LFO+frequency+to+change+the+playback+speed%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2ftriggers-mk1-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for LFO control of a sampler's playback: forward, reverse, and speed.
 </p>
 </div>
 </div>
@@ -1349,35 +1349,35 @@ Figure 6.18: <a href="https://cardinal.olney.ai">Virtual modular</a> for LFO con
 </h2>
 <ol style="list-style-type: decimal">
 <li><p>Which of the following can create the effect of two interfering oscillators with only one VCO? <select class="webex-select"><option value="blank"></option>
-<option value="answer">pulse width modulation</option>
-<option value="">amplitude modulation</option>
 <option value="">phase modulation</option>
-<option value="">frequency modulation</option></select></p></li>
+<option value="">amplitude modulation</option>
+<option value="">frequency modulation</option>
+<option value="answer">pulse width modulation</option></select></p></li>
 <li><p>Which of the following must be set to for an LFO to work with a VCA? <select class="webex-select"><option value="blank"></option>
-<option value="">bipolar LFO output</option>
 <option value="">unipolar VCA input</option>
-<option value="">bipolar VCA input</option>
-<option value="answer">unipolar LFO output</option></select></p></li>
+<option value="">bipolar LFO output</option>
+<option value="answer">unipolar LFO output</option>
+<option value="">bipolar VCA input</option></select></p></li>
 <li><p>When a follower VCO with an integer multiple frequency of a leader VCO is synchronized, what is emphasized? <select class="webex-select"><option value="blank"></option>
+<option value="">leader partials</option>
 <option value="answer">leader harmonics</option>
 <option value="">follower partials</option>
-<option value="">follower harmonics</option>
-<option value="">leader partials</option></select></p></li>
+<option value="">follower harmonics</option></select></p></li>
 <li><p>What is the term for two near identical notes played simultaneously? <select class="webex-select"><option value="blank"></option>
+<option value="">interval</option>
 <option value="">tetrachord</option>
 <option value="answer">chorus</option>
-<option value="">interval</option>
 <option value="">chord</option></select></p></li>
 <li><p>Which of the following cannot be implemented using an LFO? <select class="webex-select"><option value="blank"></option>
-<option value="">tremolo</option>
 <option value="">vibrato</option>
 <option value="">pulse width modulation</option>
-<option value="answer">chorus</option></select></p></li>
-<li><p>At what frequency would aliasing be expected with a 16 KHz sampling rate? <select class="webex-select"><option value="blank"></option>
-<option value="">4 KHz</option>
-<option value="">16 KHz</option>
-<option value="answer">8 KHz</option>
-<option value="">32 KHz</option></select></p></li>
+<option value="answer">chorus</option>
+<option value="">tremolo</option></select></p></li>
+<li><p>At what frequency would aliasing be expected with a 16 kHz sampling rate? <select class="webex-select"><option value="blank"></option>
+<option value="">16 kHz</option>
+<option value="answer">8 kHz</option>
+<option value="">32 kHz</option>
+<option value="">4 kHz</option></select></p></li>
 </ol>
 </div>
 </div>

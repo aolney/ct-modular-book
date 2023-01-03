@@ -9,7 +9,7 @@ An additional challenge with this patch is that Barton uses the Buchla 200e seri
 The Krell patch, shown in Figure \@ref(fig:krell-performance), was publicly released  by [Todd Barton](https://toddbarton.com/) in 2012.^[Based on the release date of the [performance video](https://vimeo.com/48382205) and [walkthrough video](https://vimeo.com/48466272).]
 The name "Krell" is an homage to the 1956 sci-fi film [*Forbidden Planet*](https://en.wikipedia.org/wiki/Forbidden_Planet), which was the first film to use an electronic score.
 In the film, human explorers encounter strange forces on the planet of an ancient extinct alien race, called the Krell.
-The film was scored by [Bebe and Louis Barron](https://en.wikipedia.org/wiki/Bebe_and_Louis_Barron) who were early electronic music pioneers inspired by [cybernetics](https://en.wikipedia.org/wiki/Cybernetics), a precusor to artificial intelligence.
+The film was scored by [Bebe and Louis Barron](https://en.wikipedia.org/wiki/Bebe_and_Louis_Barron) who were early electronic music pioneers inspired by [cybernetics](https://en.wikipedia.org/wiki/Cybernetics), a precursor to artificial intelligence.
 Louis Barron created much of his own equipment, including synthesizer circuits used to generate sound, such as ring modulators.
 The sounds were recorded onto tape for mixing, adding effects, and preservation, as the circuits themselves burned out quickly.
 The Barron's work on film sound effects led to their work on *Forbidden Planet*.
@@ -93,14 +93,14 @@ Thus the envelope will repeat forever somewhat like an LFO but have voltage-cont
 The VCA can act as as a low-pass gate, which is a signature part of the Buchla sound.
 A low-pass gate (LPG) combines a VCA and a filter in a single module with a single parameter that affects both the gain of the VCA and the cutoff frequency of the filter.
 As a result, higher frequencies pass through when the VCA is high, and lower frequencies pass through when the VCA is low.
-This combination of pitch shift with volume is useful for percussion intruments, and in previous chapters, the combination was implemented with separate modules.
+This combination of pitch shift with volume is useful for percussion instruments, and in previous chapters, the combination was implemented with separate modules.
 In the walk through video, it's pretty clear that the VCA is in gate mode based on an indicator light, though in the other video the same light is off, and its not clear from the manual what that means.
 It seems relatively safe to assume it is functioning as a gate, though we can compare by adding a low pass filter as well.
 Finally, the filter is potentially quite complicated but seems to be in a simple mode that is allowing lower frequencies (apparently centered at 62 Hz) with a wide band (20% of range, presumably 4000 Hz).
 Try patching up the basic Krell voice using the button in Figure \@ref(fig:krell-osc-env-vca-filter).
 Open up the walk through video in another tab so you can refer to its sound as you complete the patch.
 
-(ref:krell-osc-env-vca-filter) [Virtual modular](https://cardinal.olney.ai) for a basic Krell voice.
+(ref:krell-osc-env-vca-filter) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=empty.vcv&solution=%3cimg+class%3d%27rack-image-6u%27+src%3d%27images%2fpatch-solutions%2fkrell-osc-env-vca-filter.png%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+VCO%2c+VCA%2c+two+VCFs%2c+and+Host+audio+to+the+top+row.+Add+Bogg+Audio+AD+to+the+bottom+row+with+a+Scope%3c%2fli%3e%0a%3cli%3eConnect+the+sine+out+of+the+VCO+to+the+in+of+the+VCA%3c%2fli%3e%0a%3cli%3eConnect+the+out+of+the+VCA+to+the+in+of+the+first+VCF%3c%2fli%3e%0a%3cli%3eConnect+connect+the+LPF+out+of+that+VCF+to+the+in+of+the+2nd+VCF%3c%2fli%3e%0a%3cli%3eConnect+the+HPF+out+of+the+second+VCF+to+Host+audio+L.+The+two+VCFs+together+are+acting+as+a+band+pass+filter%3c%2fli%3e%0a%3cli%3eConnect+the+env+out+of+AD+to+Scope+in+and+to+VCA+in.+Press+LP+on+AD+to+start+it+looping%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+scope+waveshape%3cul%3e%0a%3cli%3eAdjust+AD+attack+and+decay+to+.25+s.+Adjust+the+scope+to+show+the+full+envelope%3c%2fli%3e%0a%3cli%3eAdjust+VCO+frequency+to+200+Hz%3c%2fli%3e%0a%3cli%3eAdjust+left+VCF+cutoff+to+4000+Hz+and+right+VCF+cutoff+to+62+Hz+to+create+the+bandpass%3c%2fli%3e%0a%3cli%3eCompare+the+sound+to+the+reference+recording.+Does+it+sound+the+same%3f%3c%2fli%3e%0a%3cli%3eAdd+filtah+and+control+its+cutoff+with+the+envelope.+Does+it+sound+more+or+less+like+the+reference+with+the+filter+added%3f%3c%2fli%3e%0a%3c%2ful%3e%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fbgaad-solo.png%27%3e%0a%3c%2fdiv%3e%0a) for a basic Krell voice.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -122,7 +122,7 @@ Changing the attack and decay portion of the main envelope with other envelopes 
 Explore this effect by extending the last patch with nested envelopes using the button in Figure \@ref(fig:krell-envA-envD).
 Keep the walk through video open in another tab so you can refer to its sound as you complete the patch.
 
-(ref:krell-envA-envD) [Virtual modular](https://cardinal.olney.ai) for a basic Krell voice with nested envelopes.
+(ref:krell-envA-envD) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=krell-osc-env-vca-filter.vcv&solution=%3cimg+class%3d%27rack-image-9u%27+src%3d%27images%2fpatch-solutions%2fkrell-envA-envD.png%27%3e&instructions=%3cul%3e%0a%3cli%3eDuplicate+the+main+envelope+and+Scope+and+put+the+copy+on+the+row+below%3c%2fli%3e%0a%3cli%3eConnect+the+env+out+of+the+attack+envelope+to+the+attack+of+the+main+envelope.+We%27ll+call+this+the+attack+envelope%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+scope+waveshape%3cul%3e%0a%3cli%3eSlowly+increase+the+attack+and+decay+parameters+of+the+attack+envelope+to+3s%3c%2fli%3e%0a%3cli%3eNotice+the+frequency+of+the+main+envelope+increases+as+the+attack+envelope+decreases.+This+is+comparable+to+frequency+modulation%3c%2fli%3e%0a%3c%2ful%3e%3c%2fli%3e%0a%3cli%3eDuplicate+the+attack+envelope+and+Scope+and+put+the+copy+to+the+right+of+the+attack+envelope%3c%2fli%3e%0a%3cli%3eConnect+the+env+out+of+the+right+envelope+to+the+decay+of+the+main+envelope.+We%27ll+call+this+the+decay+envelope%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+scope+waveshape%3cul%3e%0a%3cli%3eSlowly+increase+the+attack+and+decay+parameters+of+the+decay+envelope+to+3s%3c%2fli%3e%0a%3cli%3eNotice+the+frequency+of+the+main+envelope+increases+as+the+attack+envelope+decreases.+The+effect+is+even+more+extreme+because+the+attack+and+decay+envelopes+are+both+in+sync.+Wait+until+you+have+a+good+feel+for+the+repeating+pattern%3c%2fli%3e%0a%3cli%3eDe-synchronize+the+two+envelopes+by+pressing+on+the+LP+button+of+one+for+a+moment+to+turn+of+looping%2c+then+prese+it+again+to+turn+looping+back+on.+The+repeating+pattern+should+now+be+different.%0a%3c%2ful%3e%3c%2fli%3e%0a%3c%2ful%3e%0a) for a basic Krell voice with nested envelopes.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -159,7 +159,7 @@ Both functions rely on a "noisy triangle," which may be created by using white n
 Since I have no reference for the sync approach, specifically how to set up the comparator, the FM variant of the noisy triangle is preferred. 
 Try setting up a noisy triangle using the button in Figure \@ref(fig:noisy-triangle).
 
-(ref:noisy-triangle) [Virtual modular](https://cardinal.olney.ai) for a noisy triangle.
+(ref:noisy-triangle) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=empty.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fnoisy-triangle.png%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+Noiz%2c+VCO%2c+Scope%2c+and+LFO%3c%2fli%3e%0a%3cli%3eConnect+Noiz+white+out+to+VCO+FM+in%3c%2fli%3e%0a%3cli%3eConnect+VCO+triangle+out+to+Scope+in%3c%2fli%3e%0a%3cli%3eConnect+LFO+square+out+to+Scope+ext+trigger+in%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+scope+waveshape%3cul%3e%0a%3cli%3eSlowly+increase+FM+attenuator+on+the+VCO%3c%2fli%3e%0a%3cli%3eNotice+the+frequency+of+the+triangle+increases+and+that+it+becomes+noisy+in+shape+and+frequency+at+the+same+time%3c%2fli%3e%0a%3c%2ful%3e%3c%2fli%3e%0a%3c%2ful%3e%0a) for a noisy triangle.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -179,7 +179,7 @@ In other words, the random values will tend to go in one direction (on average) 
 This kind of randomness is called a [random walk](https://en.wikipedia.org/wiki/Random_walk), since the next random state (here a voltage) depends on the current random state.
 Try extending the noisy triangle with an FRV using the button in Figure \@ref(fig:noisy-triangle).
 
-(ref:noisy-triangle-frv) [Virtual modular](https://cardinal.olney.ai) for a floating random voltage (FRV) based on a noisy triangle.
+(ref:noisy-triangle-frv) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=noisy-triangle.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fnoisy-triangle-frv.png%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+LFO%2c+holdah%2c+Slew+Limiter%2c+Offset%2c+and+Scope+to+the+right+of+the+noisy+triangle%3c%2fli%3e%0a%3cli%3eConnect+the+noisy+triangle+out+to+holdah+input%3c%2fli%3e%0a%3cli%3eConnect+holdah+output+to+Scope+input+1+and+Slew+in%3c%2fli%3e%0a%3cli%3eConnect+Slew+out+to+Offset+in+and+Offset+out+to+Scope+input+2%3c%2fli%3e%0a%3cli%3eConnect+LFO+square+out+to+holdah+trigger+in.+This+will+clock+the+S%26H%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+scope+waveshape%3cul%3e%0a%3cli%3eSlowly+increase+the+rise%2ffall+times+to+get+a+smoothed+version+of+the+stepped+random+voltage+from+holdah.+If+you+go+too+far%2c+it+will+become+almost+a+line.+You+can+%27tune%27+this+using+Min%2fMax+so+the+smooth+version+has+a+wide+voltage+range+while+still+being+smooth%3c%2fli%3e%0a%3cli%3eOnce+you+have+a+good+smoothing%2c+increase+the+rate+of+the+LFO.+Is+the+smoothing+still+good%3f+The+265+had+a+single+knob+to+control+both+at+once%2c+probably+for+this+reason%3c%2fli%3e%0a%3cli%3eOffset+so+the+signal+is+unipolar+%28we+want+that+for+later+controlling+envelopes%3c%2fli%3e%0a%3c%2ful%3e%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fminmax-solo.png%27%3e%0a%3c%2fdiv%3e%0a) for a floating random voltage (FRV) based on a noisy triangle.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -201,7 +201,7 @@ We can accomplish this effect using two sample & holds.
 The first will sample directly from the noisy triangle, and the second will sample from the crossfader, which is the source of the last output value.
 Try extending the last patch with a SRV using the button in Figure \@ref(fig:noisy-triangle-frv-srv).
 
-(ref:noisy-triangle-frv-srv) [Virtual modular](https://cardinal.olney.ai) for a stored random voltage (SRV) based on a noisy triangle.
+(ref:noisy-triangle-frv-srv) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=noisy-triangle-frv.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fnoisy-triangle-frv-srv.png%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+Triggers+MKIII%2c+holdah%2c+mixah%2c+and+Scope+to+the+right+of+the+FRV%3c%2fli%3e%0a%3cli%3eConnect+the+noisy+triangle+out+to+holdah+top+input%3c%2fli%3e%0a%3cli%3eConnect+holdah+top+output+to+Scope+input+1+and+mixah+input+a%3c%2fli%3e%0a%3cli%3eConnect+mixah+output+holdah+bottom+input+and+to+Scope+input+2%3c%2fli%3e%0a%3cli%3eConnect+holdah+bottom+output+to+mixah+input+b.+Now+the+mixah+is+receiving+the+last+sampled+value+from+the+noisy+triangle+%28holdah+top%29+and+the+last+value+from+mixah+%28holdah+bottom%29+%3c%2fli%3e%0a%3cli%3eConnect+one+of+the+triggers+to+both+holdah+trigger+ins%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+scope%3cul%3e%0a%3cli%3eMove+the+mixah+top+knob+to+the+left+%28counterclockwise%29+and+take+a+few+samples.+You+should+see+two+colored+lines+on+the+slope+because+the+values+are+all+sampled+from+the+noisy+triangle%3c%2fli%3e%0a%3cli%3eMove+the+mixah+top+knob+to+the+middle+and+take+a+few+samples.+You+should+see+two+colored+lines+still+on+the+slope%2c+but+they+should+be+closer+together+%28on+average%29+than+before+because+the+new+values+are+being+averaged+with+the+stored+values%3c%2fli%3e%0a%3cli%3eMove+the+mixah+top+knob+to+the+right+and+take+a+few+samples.+You+should+see+only+one+colored+line+because+the+stored+value+is+always+selected+and+so+never+changes%3c%2fli%3e%0a%3c%2ful%3e%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fmixah-solo.png%27%3e%0a%3c%2fdiv%3e%0a) for a stored random voltage (SRV) based on a noisy triangle.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -225,7 +225,7 @@ Interestingly the patch uses FRVs to control the opposite parameter of the param
 It's clear this reversal affects the sound, so that itself is worth investigating.
 Try extending the last Krell patch with FRVs to control the nested envelopes using the button in Figure \@ref(fig:krell-frvs).
 
-(ref:krell-frvs) [Virtual modular](https://cardinal.olney.ai) for a Krell patch with fluctuating random voltages sections for controlling the nested envelopes.
+(ref:krell-frvs) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=krell-frvs-starter.vcv&solution=%3cimg+class%3d%27rack-image-9u%27+src%3d%27images%2fpatch-solutions%2fkrell-frvs.png%27%3e&instructions=%3cul%3e%0a%3cli%3eNote+the+attack+and+decay+times+of+the+main+envelope+have+been+increased+to+about+2s%3c%2fli%3e%0a%3cli%3eOne+FRV+from+the+previous+patch+is+disconnected+on+the+left+of+the+Krell+patch%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+scope%3cul%3e%0a%3cli%3eConnect+the+FRV+Offset+out+to+the+decay+in+of+the+attack+envelope+%3c%2fli%3e%0a%3cli%3eWatch+the+decay+of+that+envelope.+You+should+see+that+sometimes+it+is+slow+and+other+times+quite+fast+%28a+sharp+drop+down%29.+This+affects+the+frequency+of+this+envelope+over+time+as+well+as+its+current+value%2c+both+of+which+affect+the+main+envelope%3c%2fli%3e%0a%3cli%3eListen+to+the+pattern+in+the+sound+for+a+bit.+How+much+of+an+effect+is+the+FRV+having%3f%3c%2fli%3e%0a%3cli%3eAdjust+the+FRV+LFO+frequency+and+slew.+Can+you+improve+the+effect+on+the+main+envelope+somehow%3f%3c%2fli%3e%0a%3c%2ful%3e%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+scope%3cul%3e%0a%3cli%3eMake+a+copy+of+the+FRV+and+place+the+copy+to+the+right+of+the+main+envelope%3c%2fli%3e%0a%3cli%3eConnect+that+FRV+Offset+out+to+the+attack+in+of+the+decay+envelope+%3c%2fli%3e%0a%3cli%3eWatch+the+attack+of+that+envelope.+You+should+see+that+sometimes+it+is+slow+and+other+times+quite+fast+%28a+sharp+rise+up%2c+like+percussion%29.+This+affects+the+frequency+of+this+envelope+over+time+as+well+as+its+current+value%2c+both+of+which+affect+the+main+envelope%3c%2fli%3e%0a%3cli%3eListen+to+the+pattern+in+the+sound+for+a+bit.+How+much+of+an+effect+is+the+FRV+having%3f%3c%2fli%3e%0a%3cli%3eFor+fun%2c+reverse+the+parameters+the+FRVs+are+controling%2c+i.e.+control+the+decay+of+the+decay+envelope+and+the+attack+of+the+attack+envelope.+What+is+the+difference+to+the+sound%3f%3c%2fli%3e%0a%3c%2ful%3e%3c%2fli%3e%0a%3c%2ful%3e%0a) for a Krell patch with fluctuating random voltages sections for controlling the nested envelopes.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -238,7 +238,7 @@ Try extending the last Krell patch with FRVs to control the nested envelopes usi
 
 This patch illustrates how the FRVs are probably most useful for adding some variation to the synchronization of the attack and decay envelopes.
 In other words, those two envelopes together will generate a pattern that repeats over time, and the repetition is probably noticeable.
-By changing their attack and decay parameters with FRVs, their synchronization is constantly changing by small amounts, which makes the overal pattern less repetitive, though it has cycling slow and fast parts.
+By changing their attack and decay parameters with FRVs, their synchronization is constantly changing by small amounts, which makes the overall pattern less repetitive, though it has cycling slow and fast parts.
 The use of reversing the parameters the FRVs are controlling, e.g. controlling the decay of the attack envelope, doesn't seem to matter in practice.
 Ultimately each of the nested envelopes is controlling a parameter of the main envelope over their whole cycle, which includes attack and decay, so interchangeability makes sense.
 
@@ -255,7 +255,7 @@ The sampling of each new note is triggered by the end-of-cycle trigger from the 
 Depending on how closely we decide to correlate the SRV and FRV, the low pitches could be more likely to be close together than high pitches or vice versa.
 Try extending the last Krell patch with an SRV to control oscillator pitch using the button in Figure \@ref(fig:krell-srv).
 
-(ref:krell-srv) [Virtual modular](https://cardinal.olney.ai) for a Krell patch with a stored random voltage section to control oscillator pitch.
+(ref:krell-srv) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=krell-srv-starter.vcv&solution=%3cimg+class%3d%27rack-image-9u%27+src%3d%27images%2fpatch-solutions%2fkrell-srv.png%27%3e&instructions=%3cul%3e%0a%3cli%3eThe+SRV+from+the+previous+patch+is+disconnected+on+the+top+left+row%3c%2fli%3e%0a%3cli%3eConnect+the+Offset+out+from+the+FRV+below+it+to+mixah+top+input+to+control+the+crossfader%3c%2fli%3e%0a%3cli%3eConnect+the+mixah+output+to+the+V%2fOct+of+the+VCO%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+scope%3cul%3e%0a%3cli%3eConnect+the+SRV+Offset+input+to+the+FRV+noisy+triangle+VCO+out%2c+the+FRV+holdah+out%2c+and+the+FRV+Slew+out.+Each+of+these+is+a+slightly+different+random+voltage+in+terms+of+correlation+between+the+SRV+and+FRV.+Which+of+these+connections+sound+the+most+like+the+reference+sound%3f%3c%2fli%3e%0a%3c%2ful%3e%3c%2fli%3e%0a%3cli%3eThe+Offset+in+the+SRV+is+a+new+addition+to+control+the+spread+of+voltages+received+from+the+FRV.+This+approximates+the+266+skew+parameter%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+scope%3cul%3e%0a%3cli%3eSet+the+Offset+scale+to+1+%28no+change%29.+Is+the+sound+more+or+less+like+the+reference%3f%3c%2fli%3e%0a%3cli%3eConnect+the+FRV+Offset+out+to+the+SRV+Offset+CV+in.+Is+the+sound+more+or+less+like+the+reference%3f%3c%2fli%3e%0a%3c%2ful%3e%3c%2fli%3e%0a%3c%2ful%3e%0a) for a Krell patch with a stored random voltage section to control oscillator pitch.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -272,8 +272,8 @@ In both cases, the effect seems to be a small improvement aesthetically, though 
 
 ## Probabilistic timbre
 
-The final component of the Krell patch is dynamic changes to timbre through filter cutoff modulation, wavefolding, and fm modulation.
-Each of these is rather straightforward and subtle, producing an aggregate effect that is just enough to create the sense of different voices withough being overly aggressive in their sound.
+The final component of the Krell patch is dynamic changes to timbre through filter cutoff modulation, wavefolding, and FM modulation.
+Each of these is rather straightforward and subtle, producing an aggregate effect that is just enough to create the sense of different voices without being overly aggressive in their sound.
 The FM appears to be a fixed modulation of around 3600 Hz, which gives the timbre a bit of a wobble but mostly produces harmonics that are filtered out by the band pass filter.
 The wavefolding also is fairly subtle and uses an independent cycling attack decay envelope rather than being triggered by the main envelope.
 The filter cutoff is modulated by one of the FRVs rather than by the main envelope.
@@ -281,7 +281,7 @@ Presumably these choices to decouple the voice parameters from the main envelope
 Try extending the last Krell patch with these timbral elements using the button in Figure \@ref(fig:krell-filter-fold-fm).
 Open the reference in another tab so you can refer to it while you update the patch.
 
-(ref:krell-filter-fold-fm) [Virtual modular](https://cardinal.olney.ai) for a Krell patch with timbral modulation using FM, wavefolding, and filter cutoff.
+(ref:krell-filter-fold-fm) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=krell-srv.vcv&solution=%3cimg+class%3d%27rack-image-9u%27+src%3d%27images%2fpatch-solutions%2fkrell-filter-fold-fm.png%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+Sine+to+the+left+of+the+VCO%2c+AD+to+the+right+of+VCO%2c+Folding+to+the+right+of+AD%2c+and+a+Scope+to+the+right+of+Folding%3c%2fli%3e%0a%3cli%3eConnect+Sine+out+to+FM+input+of+the+VCO%3c%2fli%3e%0a%3cli%3eConnect+AD+env+out+to+Folding+depth+in%3c%2fli%3e%0a%3cli%3eConnect+VCO+sine+out+to+Folding+in+and+to+Scope+input+1+%3c%2fli%3e%0a%3cli%3eConnect+Folding+out+to+VCA+in+and+to+Scope+input+2%3c%2fli%3e%0a%3cli%3eConnect+the+right+FRV+to+the+first+VCF+cutoff+in.+This+changes+the+bandpass+width%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+scope%3cul%3e%0a%3cli%3eChange+the+FM+attenuator+on+the+VCO+to+match+the+reference%3c%2fli%3e%0a%3cli%3eChange+the+Folding+depth+and+the+attenuator+below+it+to+match+the+reference%3c%2fli%3e%0a%3cli%3eChange+the+VCF+cutoff+attenuator+to+match+the+reference%3c%2fli%3e%0a%3cli%3eChange+main+envelope+attack%2fdecay+times+the+match+the+reference%3c%2fli%3e%0a%3c%2ful%3e%3c%2fli%3e%0a%3c%2ful%3e%0a) for a Krell patch with timbral modulation using FM, wavefolding, and filter cutoff.
 
 <!-- MODAL HTML BLOCK -->
 
@@ -297,7 +297,7 @@ Open the reference in another tab so you can refer to it while you update the pa
 Overall the final patch seems to match the reference pretty well. 
 Because the effect of various randomization choices can take some time to assess, i.e. they play out over long stretches of time, an analytical approach that considered long time scales and average values would likely be needed to get closer.
 For example, we could measure the probability of small/large transitions between notes, the probability of short/long main envelopes, and similar characteristics of the patch.
-While this patch uses many more modules than if a 265 or 266 were available in our vitual modular, it also shows how building approximations with more modules can open up additional possibilities for control.
+While this patch uses many more modules than if a 265 or 266 were available in our virtual modular, it also shows how building approximations with more modules can open up additional possibilities for control.
 Our options for getting values for the SRV is just one example, and additional possibilities are only limited by your imagination.
 
 

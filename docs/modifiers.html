@@ -123,7 +123,7 @@ Figure 7.1: <a href="https://upload.wikimedia.org/wikipedia/commons/0/08/Sine_cu
 </p>
 </div>
 <p>The discussion of simultaneously-sounding oscillators in Chapter <a href="generators.html#generators">6</a> emphasized phase relationships between the oscillators as well as slight tuning differences between the oscillators, both of which can give a fuller sound.
-Phase captures everything about the relationship between <em>continuous</em> tones because the amount one signal has been offset relative to another can always be reduced to between 0 and 360 degrees (or <span class="math inline">\(2pi\)</span>).<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;If the offset is more than 360 degrees, it simply wraps around to a value equivalent to a value between 0 and 360 degrees, e.g. 370 degrees is the same as 10 degrees.&lt;/p&gt;"><sup>58</sup></a>
+Phase captures everything about the relationship between <em>continuous</em> tones because the amount one signal has been offset relative to another can always be reduced to between 0 and 360 degrees (or <span class="math inline">\(2pi\)</span>).<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;If the offset is more than 360 degrees, it simply wraps around to a value equivalent to a value between 0 and 360 degrees, e.g. 370 degrees is the same as 10 degrees.&lt;/p&gt;"><sup>57</sup></a>
 However, music does not consist of continuous tones.</p>
 <p>When we begin to consider music more broadly, it makes sense to think of phase and offset distance being decoupled depending on how much time has passed.
 In real music, simultaneous sounds don't repeat forever but rather change over fairly short timescales, e.g. the envelope of a kick drum.
@@ -262,7 +262,7 @@ function settwelvekey_env_delayIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:twelvekey-env-delay"></span>
 <p class="caption">
-Figure 7.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for a delay effect.
+Figure 7.4: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-envelope_12key-vco-env-vca-scope-out.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2ftwelvekey-env-delay.png%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+Delay+between+Scope+and+Host+audio%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+to+Delay+in%3c%2fli%3e%0a%3cli%3eConnect+Delay+wet+to+Host+Audio+L%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+time+setting+on+the+delay%3c%2fli%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+feedback+setting+on+the+delay%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eChange+Delay+wet+out+to+mix+out+and+then+use+the+mix+knob+to+mix+the+dry%2fwet+sound%3c%2fli%3e%0a%3cli%3eConnect+ADSR+out+to+Delay+Time+in+and+FDBK+in%2c+make+their+attenuator+knobs+slightly+positive%2c+and+press+a+key%3c%2fli%3e%0a%3cli%3eYou+could+similarly+control+the+effect+using+an+LFO+or+other+modulator%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fdelay-solo.png%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for a delay effect.
 </p>
 </div>
 </div>
@@ -271,7 +271,7 @@ Figure 7.4: <a href="https://cardinal.olney.ai">Virtual modular</a> for a delay 
 <span class="header-section-number">7.1.2</span> Reverb<a class="anchor" aria-label="anchor" href="#reverb"><i class="fas fa-link"></i></a>
 </h3>
 <p>A <a href="https://en.wikipedia.org/wiki/Reverb_effect">reverb effect</a> is a delay-time effect with multiple overlapping copies and relatively fast decays.
-Reverb conveys a sense of space, or room that the sound is occuring in, because it emulates the reflections of sound off various surfaces at different distances.
+Reverb conveys a sense of space, or room that the sound is occurring in, because it emulates the reflections of sound off various surfaces at different distances.
 Sound travels at about 1100 feet per second, or a 1.1 feet per millisecond, so each foot of different distance in the reflection should cause an offset of about 1 millisecond relative to other reflections and the original sound.
 One of the earliest ways of creating reverb was to take a recording and play it back in a particular space while simultaneously re-recording it with a microphone in that space.
 The approach effectively "bakes in" the natural reverb of the room onto the recording.
@@ -290,7 +290,7 @@ Figure 7.5: <a href="https://olney.ai/ct-modular-book/images/moonshot-reverb75.p
 </p>
 </div>
 <p>Let's take a look at a reverb module.
-The main controls are the input level, high-pass filtering<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;High-pass filtering will be explained in detail later in the chapter.&lt;/p&gt;"><sup>59</sup></a>, and the wet/dry mix.
+The main controls are the input level, high-pass filtering<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;High-pass filtering will be explained in detail later in the chapter.&lt;/p&gt;"><sup>58</sup></a>, and the wet/dry mix.
 This reverb module uses a combinations of sliders and knobs for parameter settings, but these can again be both manually set and modulated to create interesting sounds.
 Try patching up a reverb into a single voice keyboard patch using the button in Figure <a href="modifiers.html#fig:twelvekey-env-reverb">7.6</a>.</p>
 
@@ -390,7 +390,7 @@ function settwelvekey_env_reverbIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:twelvekey-env-reverb"></span>
 <p class="caption">
-Figure 7.6: <a href="https://cardinal.olney.ai">Virtual modular</a> for a reverb effect.
+Figure 7.6: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-envelope_12key-vco-env-vca-scope-out.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2ftwelvekey-env-reverb.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+Spring+reverb+between+Scope+and+Host+audio%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+to+Spring+reverb+in+1%3c%2fli%3e%0a%3cli%3eConnect+Spring+reverb+wet+to+Host+Audio+L+and+Scope+in+2%3c%2fli%3e%0a%3cli%3eMove+the+left+slider+on+Spring+reverb+up+to+set+the+level+of+the+effect%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+level+setting+on+the+reverb%3c%2fli%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+HPF+%28high+pass+filter%29+setting+on+the+reverb%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eChange+Spring+reverb+wet+out+to+mix+out+and+then+use+the+mix+knob+to+mix+the+dry%2fwet+sound%3c%2fli%3e%0a%3cli%3eConnect+ADSR+out+to+Spring+reverb+CV+in+1+and+press+a+key+%28the+change+is+subtle%3b+see+the+level+difference+on+the+scope%3c%2fli%3e%0a%3cli%3eChange+the+ADSR+to+the+Gate+from+the+12+key%3b+this+will+produce+a+knocking+sound%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fbefaco-spring-reverb-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for a reverb effect.
 </p>
 </div>
 </div>
@@ -512,7 +512,7 @@ function settwelvekey_env_chorusIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:twelvekey-env-chorus"></span>
 <p class="caption">
-Figure 7.8: <a href="https://cardinal.olney.ai">Virtual modular</a> for a chorus effect.
+Figure 7.8: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-envelope_12key-vco-env-vca-scope-out.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2ftwelvekey-env-chorus.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+Chorus+between+Scope+and+Host+audio%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+to+Chours+in+L%3c%2fli%3e%0a%3cli%3eConnect+Chorus+out+L+to+Host+Audio+L+and+Scope+in+2%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+range+setting+on+the+chorus%3c%2fli%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+speed+setting+on+the+chorus%3c%2fli%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+the+dry%2fwet+mix+on+the+chorus%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eConnect+ADSR+out+to+speed+and+range+to+get+some+bird-like+sounds%3c%2fli%3e%0a%3cli%3eYou+could+similarly+control+the+effect+using+an+LFO+or+other+modulator%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2frackwindows-chorus-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for a chorus effect.
 </p>
 </div>
 </div>
@@ -648,7 +648,7 @@ function settwelvekey_env_flangerIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:twelvekey-env-flanger"></span>
 <p class="caption">
-Figure 7.11: <a href="https://cardinal.olney.ai">Virtual modular</a> for a flanger effect.
+Figure 7.11: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-envelope_12key-vco-env-vca-scope-out.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2ftwelvekey-env-flanger.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+Vibrato+between+Scope+and+Host+audio%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+to+Vibrato+in%3c%2fli%3e%0a%3cli%3eConnect+Vibrato+out+to+Host+Audio+L+and+Scope+in+2%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+flange+setting%3c%2fli%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+frequency+setting%3c%2fli%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+width+setting%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eConnect+ADSR+out+to+freq%2c+width%2c+and+flange+to+get+some+bird-like+sounds%3c%2fli%3e%0a%3cli%3eUse+the+attenuator+knobs+below+these+jacks+to+change+the+depth+of+the+modulation+%3c%2fli%3e%0a%3cli%3eYou+could+similarly+control+the+effect+using+an+LFO+or+other+modulator%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fautinn-vibrato-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for a flanger effect.
 </p>
 </div>
 </div>
@@ -774,7 +774,7 @@ function settwelvekey_env_phaserIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:twelvekey-env-phaser"></span>
 <p class="caption">
-Figure 7.13: <a href="https://cardinal.olney.ai">Virtual modular</a> for a phaser effect.
+Figure 7.13: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-envelope_12key-vco-env-vca-scope-out.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2ftwelvekey-env-phaser.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+Phaser+FX+between+Scope+and+Host+audio%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+to+Phaser+in%3c%2fli%3e%0a%3cli%3eConnect+Phaser+out+to+Host+Audio+L+and+Scope+in+2%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+rate+setting%3c%2fli%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+feedback+setting+%28try+holding+down+the+key%29%3c%2fli%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+depth+setting%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eConnect+ADSR+out+to+the+CV+inputs+for+these+knobs%3c%2fli%3e%0a%3cli%3eOnce+connected%2c+these+knobs+act+like+attenuators+and+control+the+depth+of+the+modulation+%3c%2fli%3e%0a%3cli%3eYou+could+similarly+control+the+effect+using+an+LFO+or+other+modulator%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fbitcrusher-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for a phaser effect.
 </p>
 </div>
 </div>
@@ -793,7 +793,7 @@ Filters, if you haven't already guessed, are a primary method for removing harmo
 </h3>
 <p>As discussed in Chapter <a href="harmonic-and-inharmonic-sounds.html#harmonic-and-inharmonic-sounds">3</a>, timbre is intimately connected to waveshape, and removing harmonic content affects both the shape of the wave and its timbre.
 You may assume from our discussion of Fourier analysis that a filter will remove selected harmonics completely.
-If that were the case, we might expect a square wave with all but the first two harmonics filtered to look like Figure <a href="modifiers.html#fig:square-fourier-2-harmonics-2">7.14</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;This figure was created using the simulator in Section &lt;a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum"&gt;3.2&lt;/a&gt; which you can use to further explore these concepts.&lt;/p&gt;'><sup>60</sup></a></p>
+If that were the case, we might expect a square wave with all but the first two harmonics filtered to look like Figure <a href="modifiers.html#fig:square-fourier-2-harmonics-2">7.14</a>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;This figure was created using the simulator in Section &lt;a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum"&gt;3.2&lt;/a&gt; which you can use to further explore these concepts.&lt;/p&gt;'><sup>59</sup></a></p>
 
 <div class="figure">
 <span style="display:block;" id="fig:square-fourier-2-harmonics-2"></span>
@@ -923,7 +923,7 @@ function setnoiz_lfp_out_fftIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:noiz-lfp-out-fft"></span>
 <p class="caption">
-Figure 7.16: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying low- and high-pass filtering on white noise.
+Figure 7.16: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=empty.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fnoiz-lfp-out-fft.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+Noiz%2c+VCF%2c+Host+audio+out%2c+and+Sassy+Scope%3c%2fli%3e%0a%3cli%3eConnect+Noiz+white+out+to+VCF+in+and+Sassy+input+1%3c%2fli%3e%0a%3cli%3eConnect+VCF+LPF+out+to+Host+audio+L+and+Sassy+input+2%3c%2fli%3e%0a%3cli%3eRight+click+the+Sassy+cable+inputs+to+change+the+colors+of+inputs+1%2f2+if+needed%3c%2fli%3e%0a%3cli%3eSet+Sassy+to+Freq+mode+using+button%2c+raise+nearby+slider+to+100ms+%3c%2fli%3e%0a%3cli%3eSassy+shows+the+frequency+spectrum+of+both+the+white+noise+and+filtered+noise%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+spectrum%3cul%3e%0a%3cli%3eChange+the+cutoff+frequency+from+zero+to+far+right%3c%2fli%3e%0a%3cli%3eMouse+over+the+cutoff+knob+to+get+the+cutoff+freq%2c+then+mouse+over+spectrum+to+find+that+freq%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eRepeat+with+the+HPF+out+to+observe+high-pass+filtering%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fsassy-scope-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for applying low- and high-pass filtering on white noise.
 </p>
 </div>
 <p>Let's take another look, this time with a square wave and an oscilloscope, which will let us look at the effect on the wave rather than the frequency spectrum.
@@ -1022,7 +1022,7 @@ function setlfo_lfp_out_scope_fftIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-lfp-out-scope-fft"></span>
 <p class="caption">
-Figure 7.17: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying low- and high-pass filtering on a square wave.
+Figure 7.17: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=noiz-lfp-out-fft.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2flfo-lfp-out-scope-fft.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+an+LFO+to+the+left+of+Noiz+and+Scope+between+Host+Audio+and+Sassy+Scope%3c%2fli%3e%0a%3cli%3eConnect+LFO+square+to+VCF+in%2c+Scope+in+1%2c+and+to+Sassy+input+1%3c%2fli%3e%0a%3cli%3eConnect+VCF+LPF+out+to+Host+audio+L%2c+Scope+i+n2%2c+and+Sassy+input+2%3c%2fli%3e%0a%3cli%3eRight+click+the+Sassy+cable+inputs+to+change+the+colors+of+inputs+1%2f2+if+needed%3c%2fli%3e%0a%3cli%3eSet+LFO+freq+to+around+100+Hz%2c+VCF+cutoff+to+around+400+Hz%2c+Scope+time+to+around+12+ms%2c+and+enable+Scope+TRG+%3c%2fli%3e%0a%3cli%3eThe+Scope+shows+the+square+wave+and+filtered+square+wave%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+spectrum%3cul%3e%0a%3cli%3eChange+the+cutoff+frequency+from+zero+to+far+right%3c%2fli%3e%0a%3cli%3eAt+various+points%2c+the+wave+should+looke+more+like+a+triangle+wave+and+then+a+sine+wave%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eRepeat+with+the+HPF+out+to+observe+high-pass+filtering%3c%2fli%3e%0a%3c%2ful%3e%0a">Virtual modular</a> for applying low- and high-pass filtering on a square wave.
 </p>
 </div>
 </div>
@@ -1033,7 +1033,7 @@ Figure 7.17: <a href="https://cardinal.olney.ai">Virtual modular</a> for applyin
 <p>To understand why VCFs are behaving this way, we need to understand how they work.
 The best way to understand VCFs, which are complex, is in terms of the passive <a href="https://en.wikipedia.org/wiki/RC_circuit">RC circuit</a>.
 When a signal runs through an RC circuit, the circuit leeches out energy from certain parts of the waveshape and returns that energy at other parts, as shown in Figure <a href="modifiers.html#fig:square-lpf-hpf">7.18</a>.
-While a full explanation of how the RC circuit works is out of scope,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;For a good basic explanation of an RC circuit, see &lt;a href="https://youtu.be/3tMGNI--ofU"&gt;this video&lt;/a&gt;.&lt;/p&gt;'><sup>61</sup></a> we can nevertheless describe what it does to explain what a VCF does.
+While a full explanation of how the RC circuit works is out of scope,<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;For a good basic explanation of an RC circuit, see &lt;a href="https://youtu.be/3tMGNI--ofU"&gt;this video&lt;/a&gt;.&lt;/p&gt;'><sup>60</sup></a> we can nevertheless describe what it does to explain what a VCF does.
 The overarching idea is that when an RC circuit leeches energy out of a signal, it slows down or speeds up frequency components of the signal and so phase shifts those components.
 Again, VCFs change more than just frequency spectrum - they also change phase across the frequency spectrum.</p>
 
@@ -1056,7 +1056,7 @@ As the signal increases and stops changing, the RC circuit leeches out energy un
 Once the signal starts decreasing and stops changing, the capacitor releases energy until it runs out.
 Flat signals are speeded up, meaning they are phase shifted positively.
 Speeding them up means removing lower frequencies.
-Using the wind and car analogy, imagine you're driving on the freeway and a wind blows whenever you try to keep a constant speed.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;More precisely, the wind blows from ahead when you start cruising after increasing speed, and the wind blows from behind when you start cruising after reducing speed.&lt;/p&gt;"><sup>62</sup></a>
+Using the wind and car analogy, imagine you're driving on the freeway and a wind blows whenever you try to keep a constant speed.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;More precisely, the wind blows from ahead when you start cruising after increasing speed, and the wind blows from behind when you start cruising after reducing speed.&lt;/p&gt;"><sup>61</sup></a>
 The wind is opposing your ability to maintain constant speed.
 The RC circuit likewise is opposing the signal's constant voltage.</p>
 
@@ -1071,7 +1071,7 @@ The lines labeled "Bode pole" are idealized and the actual behavior of the LPF i
 Let's start with the upper subplot, which shows how the filter reduces the amplitude of the signal across frequencies.
 The cutoff frequency occurs where the line changes from 0 dB to a downward angle.
 As you can see, the actual behavior of the LPF is to reduce frequencies even before this point as shown by the markers below the line to the left of the cutoff point.
-The decrease in amplitude at the cutoff frequency is 3 dB.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall a 6 dB decrease means amplitude is cut in half.&lt;/p&gt;"><sup>63</sup></a>
+The decrease in amplitude at the cutoff frequency is 3 dB.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Recall a 6 dB decrease means amplitude is cut in half.&lt;/p&gt;"><sup>62</sup></a>
 The decrease to the right of the cutoff point is 6 dB for each doubling of frequency, or 6 dB/Oct.
 That means the amplitude of the signal will decrease by half for each additional octave above the cutoff frequency.
 Let's look at the lower subplot, which shows phase shift how the filter changes phase across frequencies.
@@ -1095,7 +1095,7 @@ Instead of being negative because the frequencies have been slowed down, the pha
 </h3>
 <p>In the previous Bode plots, the cutoff frequency marked the location past which the amplitude reduced by 6 dB/Oct.
 This bend in the frequency response of the filter is called a pole, and the RC circuit is therefore an example of a 1-pole filter element.
-To get greater reductions than 6 dB/Oct, multiple 1-pole filter elements can be combined.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;RC circuits cannot be simply combined, but they remain useful for understanding the additive effect of each element.&lt;/p&gt;"><sup>64</sup></a>
+To get greater reductions than 6 dB/Oct, multiple 1-pole filter elements can be combined.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;RC circuits cannot be simply combined, but they remain useful for understanding the additive effect of each element.&lt;/p&gt;"><sup>63</sup></a>
 Each filter element has a distinct pole, so the overall shape of the drop off has bends corresponding to these poles.
 This means that a 4-pole filter would have four distinct regions of drop off rather than the single region we looked at before.
 Each region would contribute both to amplitude attenuation and phase shift at a given frequency.
@@ -1200,10 +1200,10 @@ function setlfo_lpf_hpf_out_scope_fftIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-lpf-hpf-out-scope-fft"></span>
 <p class="caption">
-Figure 7.21: <a href="https://cardinal.olney.ai">Virtual modular</a> for combining LPF and HPF filters to make a band-pass filter and animating it with an LFO.
+Figure 7.21: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=lfo-lfp-out-scope-fft.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2flfo-lpf-hpf-out-scope-fft.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eAdd+another+VCF+to+the+right+of+the+existing+VCF.+The+left+will+be+LPF+and+the+right+HPF%3c%2fli%3e%0a%3cli%3eConnect+LPF+out+to+HPF+in+and+remove+all+other+connections+from+LPF+out%3c%2fli%3e%0a%3cli%3eConnect+HPF+out+to+Host+audio+L%2c+Scope+input+2%2c+and+Sassy+input+2%3c%2fli%3e%0a%3cli%3eYou+may+wish+to+use+a+square+wave+as+Scope+EXT+TRG%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+spectrum%3cul%3e%0a%3cli%3eYour+two+VCFs+should+have+the+same+cutoff+freq+now%3c%2fli%3e%0a%3cli%3eTry+to+change+the+two+cutoffs+to+make+the+peak+higher+without+making+it+wider%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eAdd+an+LFO+to+control+the+cutoff+frequencies+of+both+VCFs%3c%2fli%3e%0a%3cli%3eConnect+that+LFO+triangle+out+to+both+VCF+cutoffs%3c%2fli%3e%0a%3cli%3eChange+the+VCF+cutoffs+attenuators+to+100%25+to+allow+the+full+LFO+signal%3c%2fli%3e%0a%3cli%3eSet+a+low+LFO+frequency+%28%3c+.5%29+and+note+the+changes+in+sound+and+the+spectrum%3c%2fli%3e%0a%3c%2ful%3e%0a">Virtual modular</a> for combining LPF and HPF filters to make a band-pass filter and animating it with an LFO.
 </p>
 </div>
-<p>A notch filter<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A notch filter is sometimes called a band-reject filter.&lt;/p&gt;"><sup>65</sup></a> can be created by combining an LPF and HPF in parallel.
+<p>A notch filter<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A notch filter is sometimes called a band-reject filter.&lt;/p&gt;"><sup>64</sup></a> can be created by combining an LPF and HPF in parallel.
 A notch filter mostly lets through every thing but frequencies within a range.
 Try making a notch filter using two VCFs and a mixer using the button in Figure <a href="modifiers.html#fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft">7.22</a>.
 As before, there are two cutoffs to control to hear the combined filter sweep, so an LFO can be used to control each VCF cutoff frequency.</p>
@@ -1302,7 +1302,7 @@ function setlfo_lfo_lpf_hpf_mixer_out_scope_fftIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-lfo-lpf-hpf-mixer-out-scope-fft"></span>
 <p class="caption">
-Figure 7.22: <a href="https://cardinal.olney.ai">Virtual modular</a> for combining LPF and HPF filters to make a notch filter and animating it with an LFO.
+Figure 7.22: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=lfo-lpf-hpf-out-scope-fft.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2flfo-lfo-lpf-hpf-mixer-out-scope-fft.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eChange+the+VCF+cutoffs+attenuators+to+0%25+to+temporarily+disable+the+LFO+signal+changing+those+cutoffs%3c%2fli%3e%0a%3cli%3eAdd+a+QuadVCA%2fMixer+between+the+last+VCF+and+Host+audio+out%3c%2fli%3e%0a%3cli%3eConnect+audio+rate+LFO+square+out+to+VCF+1+in+and+VCF+2+in%3c%2fli%3e%0a%3cli%3eConnect+VCF+1+LPF+out+to+QuadVCA+input+1+and+remove+all+other+connections+from+LPF+out%3c%2fli%3e%0a%3cli%3eConnect+VCF+2+HPF+out+to++QuadVCA+input+2%3c%2fli%3e%0a%3cli%3eConnect+QuadVCA+mix+out+to+Scope+input+2%2c+and+Sassy+input+2%2c+and+Host+audio+L%3c%2fli%3e%0a%3cli%3eAdjust+the+top+left+sliders+for+Sassy+to+1x%3b+this+will+make+it+easier+to+see+the+notch%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+spectrum%3cul%3e%0a%3cli%3eYour+two+VCFs+should+have+the+same+cutoff+freq+now%3c%2fli%3e%0a%3cli%3eTry+to+change+the+two+cutoffs+to+make+the+notch+low+without+making+it+wide%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eChange+the+VCF+cutoffs+attenuators+to+100%25+to+allow+the+full+LFO+signal%3c%2fli%3e%0a%3cli%3eSet+a+low+LFO+frequency+%28%3c+.5%29+and+note+the+changes+in+sound+and+the+spectrum%3c%2fli%3e%0a%3c%2ful%3e%0a">Virtual modular</a> for combining LPF and HPF filters to make a notch filter and animating it with an LFO.
 </p>
 </div>
 </div>
@@ -1310,7 +1310,7 @@ Figure 7.22: <a href="https://cardinal.olney.ai">Virtual modular</a> for combini
 <h3>
 <span class="header-section-number">7.2.4</span> Resonance<a class="anchor" aria-label="anchor" href="#resonance"><i class="fas fa-link"></i></a>
 </h3>
-<p>Resonant filters have been an important sound in electronic music even before modular synthesizers<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/" class="uri"&gt;https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/&lt;/a&gt;&lt;/p&gt;'><sup>66</sup></a>.
+<p>Resonant filters have been an important sound in electronic music even before modular synthesizers<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/" class="uri"&gt;https://120years.net/wordpress/the-fonosynth-paul-ketoff-paolo-ketoff-julian-strini-gino-marinuzzi-jr-italy-1958/&lt;/a&gt;&lt;/p&gt;'><sup>65</sup></a>.
 We previously discussed resonance in Section <a href="harmonic-and-inharmonic-sounds.html#resonators-formants-and-frequency-spectrum">3.2</a>, but in terms of real instruments.
 <a href="https://en.wikipedia.org/wiki/Electrical_resonance">Electrical resonance</a> is similar and can be understood analogously to waves reflecting off the fixed end of a string to create a standing wave.
 In the case of the filter, feedback from the frequency at the filter cutoff point "reflects" back into the circuit and interferes with the original signal.
@@ -1412,7 +1412,7 @@ function setnoiz_lpf_out_scope_fftIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:noiz-lpf-out-scope-fft"></span>
 <p class="caption">
-Figure 7.23: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying resonant filtering on white noise and a square wave.
+Figure 7.23: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=lfo-lfp-out-scope-fft.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fnoiz-lpf-out-scope-fft.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eConnect+Noiz+white+out+to+VCF+in%2c+Scope+input+1%2c+and+Sassy+input+1%3c%2fli%3e%0a%3cli%3eConnect+VCF+LPF+out+to+Host+audio+L%2c+Scope+input+2%2c+and+Sassy+input+2%3c%2fli%3e%0a%3cli%3eConnect+VCF+LPF+out+to+Scope+EXT+TRG+%28external+trigger%29++%3c%2fli%3e%0a%3cli%3eTurn+the+VCF+resonance+up+until+you+see+a+sine+wave+on+the+scope+and+a+distinct+peak+on+Sassy%3c%2fli%3e%0a%3cli%3eNow+reconnect+everything+using+a+square+wave+as+your+VCF+input+and+EXT+TRG%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+spectrum%3cul%3e%0a%3cli%3eSet+the+resonance+at+20%25+%3c%2fli%3e%0a%3cli%3eChange+the+cutoff+frequency+from+zero+to+far+right%3c%2fli%3e%0a%3cli%3eRepeat+with+the+resonace+at+50%25+and+80%25%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eRepeat+with+the+HPF+out+to+observe+high-pass+filtering%3c%2fli%3e%0a%3c%2ful%3e%0a">Virtual modular</a> for applying resonant filtering on white noise and a square wave.
 </p>
 </div>
 <p>Although filter resonance has clear regions where the filter is self-oscillating or not, there is also an intermediate region where the filter begins to oscillate but the oscillation quickly dies out.
@@ -1515,7 +1515,7 @@ function setlfo_vcf_out_scope_fftIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:lfo-vcf-out-scope-fft"></span>
 <p class="caption">
-Figure 7.24: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying resonant filtering on white noise and a square wave.
+Figure 7.24: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=lfo-lfp-out-scope-fft.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2flfo-vcf-out-scope-fft.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eSet+LFO+freq+to+.2+Hz%3c%2fli%3e%0a%3cli%3eSet+VCF+cutoff+to+280+Hz%3c%2fli%3e%0a%3cli%3eSet+VCF+resonance+to+60%25+%3c%2fli%3e%0a%3cli%3eSet+Scope+time+to+9+o%27clock%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+spectrum%3cul%3e%0a%3cli%3eSlowly+move+resonance+between+40%25+and+63%25%3b+more+resonance+gives+longer+decay+%3c%2fli%3e%0a%3cli%3eWith+a+good+resonance%2c+move+the+cutoff+between+90+Hz+and+1000+Hz%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eRepeat+with+the+HPF+out%3b+you+will+get+an+initial+click+and+a+brighter+sound%3c%2fli%3e%0a%3c%2ful%3e%0a">Virtual modular</a> for applying resonant filtering on white noise and a square wave.
 </p>
 </div>
 </div>
@@ -1647,7 +1647,7 @@ function setkarplus_strong_guitar_env_delay_filterIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:karplus-strong-guitar-env-delay-filter"></span>
 <p class="caption">
-Figure 7.26: <a href="https://cardinal.olney.ai">Virtual modular</a> for applying resonant filtering on white noise and a square wave.
+Figure 7.26: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=lfo-lfp-out-scope-fft.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fkarplus-strong-guitar-env-delay-filter.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eDelete+LFO+and+Noiz%3c%2fli%3e%0a%3cli%3eAdd+BPM+Clock%2c+ADSR%2c+QuadVCA%2fMixer%2c+and+Delay%3c%2fli%3e%0a%3cli%3eConnect+Clock+beat+out+to+ADSR+gate+and+Scope+ext+trigger%3b+press+Scope+TRG+button%3c%2fli%3e%0a%3cli%3eConnect+ADSR+out+to+Mixer+input+1%3c%2fli%3e%0a%3cli%3eConnect+Delay+wet+out+to+VCF+in%2c+VCF+LPF+out+to+Mixer+input+2%2c+and+Mixer+mix+out+to+Delay+in%3c%2fli%3e%0a%3cli%3eNote+that+the+delay+path+starts+at+the+mixer+and+goes+back+to+the+mixer+-+this+is+the+feedback+loop+-+watch+out+because+you+can+create+out+of+control+feedback+quickly%3c%2fli%3e%0a%3cli%3eSet+ADSR+parameters+to+1ms%2f1%25%3c%2fli%3e%0a%3cli%3eSet+Mixer+A+level+to+100%25+and+B+level+on+the+high+end.+The+B+level+controls+the+length+of+the+vibration%3c%2fli%3e%0a%3cli%3eSet+Delay+time+between+7+o%27clock+and+midnight.+This+sets+the+fundamental+pitch%3c%2fli%3e%0a%3cli%3eSet+VCF+cutoff+between+9+o%27clock+and+3+o%27clock.+This+affects+timbre%2c+amplitude%2c+and+slightly+pitch%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+spectrum%3cul%3e%0a%3cli%3eSlowly+change+ADSR+decay%3c%2fli%3e%0a%3cli%3eSlowly+change+Mixer+B+level+%28watch+out+for+feedback!%29%3c%2fli%3e%0a%3cli%3eSlowly+change+Delay+time%3c%2fli%3e%0a%3cli%3eSlowly+change+VCF+cutoff%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3c%2ful%3e%0a">Virtual modular</a> for applying resonant filtering on white noise and a square wave.
 </p>
 </div>
 </div>
@@ -1675,14 +1675,14 @@ Figure 7.27: The effect of bit depth reduction (left) and sample rate reduction 
 </p>
 </div>
 <p>Sample rate is resolution of the frequency of the wave; sample rate is the frequency at which the height of the wave is sampled.
-As discussed in Section <a href="generators.html#samplers">6.6</a>, the sample rate must be twice the highest frequency component of the signal to be accurately reconstructed, otherwise a doppleganger of that component, or alias, will appear.
+As discussed in Section <a href="generators.html#samplers">6.6</a>, the sample rate must be twice the highest frequency component of the signal to be accurately reconstructed, otherwise a doppelganger of that component, or alias, will appear.
 One important tool in preventing aliasing is low-pass filtering, which only lets through those frequency components that are below the highest allowed frequency.
 Because filters have a slope, some padding is needed on the sample rate in practical applications, which explains why we use a sampling rate of 44.1 kHz when the upper limit of human hearing is around 20 kHz.
 But what does an alias look like and sound like?
 Simply stated, an alias was supposed to be a higher frequency but was represented as a lower frequency due to the Nyquist limit.
 Specifically, the aliases reflect off the sampling rate.
 For example, given a sampling rate of 16 kHz, a 17 kHz frequency (16 kHz + 1 kHz) would show up as an alias at 16 kHz (16 kHz - 1 kHz).
-Aliases therefore begin in the upper frequencies and can create inharmonic, metallic sounds, since the reflections of frequencies off the sampling rate are not guaranteed to be harmonically related to the original sounds.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;We will cover these ideas in more detail in Chapter &lt;a href="complex-generators.html#complex-generators"&gt;11&lt;/a&gt;.&lt;/p&gt;'><sup>67</sup></a>
+Aliases therefore begin in the upper frequencies and can create inharmonic, metallic sounds, since the reflections of frequencies off the sampling rate are not guaranteed to be harmonically related to the original sounds.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;We will cover these ideas in more detail in Chapter &lt;a href="complex-generators.html#complex-generators"&gt;11&lt;/a&gt;.&lt;/p&gt;'><sup>66</sup></a>
 An example of aliasing on a sine wave is shown in Figure <a href="modifiers.html#fig:bitcrush-scope-fft">7.27</a>.</p>
 <p>Let's take a look at a bitcrusher module.
 The main controls are the bit depth and the sample rate.
@@ -1787,7 +1787,7 @@ function setbitcrushIframe(url){
 </script><!-- CAPTION BLOCK --><div class="figure" style="margin-top: 0px;padding-top: 0px;">
 <span style="display:block;" id="fig:bitcrush"></span>
 <p class="caption">
-Figure 7.28: <a href="https://cardinal.olney.ai">Virtual modular</a> for a bitcrusher effect.
+Figure 7.28: <a href="https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-envelope_12key-vco-env-vca-scope-out.vcv&amp;solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2fbitcrush.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&amp;instructions=%3cul%3e%0a%3cli%3eDelete+the+ADSR+module.+This+will+make+it+easier+to+hear+sweeps+of+the+bitcrusher+knobs.%3c%2fli%3e%0a%3cli%3eAdd+Bitcrusher+between+the+VCA+and+Scope%3c%2fli%3e%0a%3cli%3eAdd+Sassy+to+the+right+of+Host+Audio%3c%2fli%3e%0a%3cli%3eConnect+VCA+out+to+Scope+in+1+and+Bitcrusher+input%3c%2fli%3e%0a%3cli%3eConnect+Bitcrusher+out+to+Scope+in+2%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+Sassy+in+1%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+2+to+Host+Audio+L+and+Sassy+in+2%3c%2fli%3e%0a%3cli%3eSet+Sassy+to+frequency+mode%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound+and+scopes%3cul%3e%0a%3cli%3eReduce+the+bit+rate+one+step+at+a+time+%28it+moves+in+increments+of+1%29+and+then+back+up.+Note+the+stair+steps+that+emerge+introduce+higher+frequency+components+to+the+sound+%3c%2fli%3e%0a%3cli%3eSet+to+the+lowest+bit+rate%2c+then+drag+the+VCA+level+down+to+about+half.+Note+the+audio+goes+silent+at+this+point.+This+is+the+quantization+error+previously+discussed+%3c%2fli%3e%0a%3cli%3eRaise+the+bit+rate+to+its+highest+setting%2c+then+sweep+the+sample+rate+down.+Note+the+introduction+of+higher+alias+frequencies+both+in+sound+and+on+scope%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fbitcrusher-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a">Virtual modular</a> for a bitcrusher effect.
 </p>
 </div>
 </div>
@@ -1810,12 +1810,12 @@ Figure 7.28: <a href="https://cardinal.olney.ai">Virtual modular</a> for a bitcr
 <option value="">holding steady</option>
 <option value="">remaining the same</option>
 <option value="">increasing</option></select></p></li>
-<li><p>What is the phase shift at the cuttoff point in a low pass filter? <select class="webex-select"><option value="blank"></option>
+<li><p>What is the phase shift at the cutoff point in a low pass filter? <select class="webex-select"><option value="blank"></option>
 <option value="answer">-45 degrees</option>
 <option value="">-90 degrees</option>
 <option value="">90 degrees</option>
 <option value="">180 degrees</option></select></p></li>
-<li><p>How much is the signal attenuated at the cuttoff point in a low pass filter? <select class="webex-select"><option value="blank"></option>
+<li><p>How much is the signal attenuated at the cutoff point in a low pass filter? <select class="webex-select"><option value="blank"></option>
 <option value="answer">3 dB</option>
 <option value="">6 dB</option>
 <option value="">18 dB</option>
