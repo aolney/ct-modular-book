@@ -298,30 +298,30 @@ Try patching up a probability-based generative patch using sample and hold on no
 
 1. For which kind of modulation is rectification useful?
 - ring modulation
+- amplitude modulation
 - frequency modulation
 - phase modulation
-- amplitude modulation
             
 2. Which basic waveshape becomes offset voltage under full rectification?
-- triangle
-- square
 - sine
+- square
 - saw
+- triangle
             
 3. Slew slows the rate of change of a signal like what kind of filter?
 - high pass
 - all pass
-- low pass
 - band pass
+- low pass
             
 4. Which of the following can't be done with slew?
-- portamento
-- quantization
-- converting gates to envelopes
 - creating an envelope follower
+- quantization
+- portamento
+- converting gates to envelopes
             
 5. When creating an arpeggio with a quantizer and an LFO, what other module is essential?
-- sequencer
-- slew
-- sample and hold
 - comparator
+- slew
+- sequencer
+- sample and hold

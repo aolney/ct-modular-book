@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Modwiggler Community Support
+    url: https://www.modwiggler.com
+    about: Please ask and answer questions here related to modular synthesis.
+  - name: VCVRack Community Support
+    url: https://community.vcvrack.com
+    about: Please ask and answer questions here related to VCVRack.
+  - name: Cardinal Community Support
+    url: #cardinal IRC room in irc.libera.chat server.
+    about: Please ask and answer questions here related to Cardinal that don't apply to VCVRack.

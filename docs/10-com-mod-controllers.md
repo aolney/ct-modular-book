@@ -412,19 +412,19 @@ Since each of the techniques discussed in this chapter has its strengths and wea
 - speed variable clocks
 
 2. Which of the following is not a problem for sequencing using clock divisions alone?
+- rests
 - rolls
 - regular beats
 - offbeats
-- rests
             
 3. How many Boolean logic operators are there?
 - 4
-- 2
 - 3
+- 2
 - 5
             
 4. Which of the following is not a parameter of Euclidean rhythms?
-- beats
-- probability
 - positions
 - rotation
+- beats
+- probability

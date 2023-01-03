@@ -1,0 +1,20 @@
+name: Suggestion
+description: Make a suggestion
+title: "[Suggestion]: "
+labels: ["suggestion", "triage"]
+assignees:
+  - aolney
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to make a suggestion! Please only use this form for suggestions on new topics/alternate ways of presenting current topics. Please use other forms for reporting bugs and proposing corrections.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What is your suggestion?
+      description: Also tell us, how do you see it relating to existing topics?
+      placeholder: Tell us what your idea!
+      value: "Genius!"
+    validations:
+      required: true

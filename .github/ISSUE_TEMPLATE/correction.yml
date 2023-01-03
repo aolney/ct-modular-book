@@ -1,0 +1,20 @@
+name: Correction
+description: Suggest a correction
+title: "[Correction]: "
+labels: ["correction", "triage"]
+assignees:
+  - aolney
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a correction! Please only use this form for corrections like typos, broken links, or factual errors.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What is the material in question?
+      description: Also tell us, what did you suggest as a correction?
+      placeholder: Tell us what you see!
+      value: "Whoopsie!"
+    validations:
+      required: true
