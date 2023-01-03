@@ -185,7 +185,7 @@ These are self-explanatory, but in particular the `Close` button will return you
 
 <!-- MODAL HTML BLOCK -->
 ```{r echo=F, out.width="100%"}
-modular_modal("drone-vco-out",instructions_html="<ul>
+modular_modal("drone-vco-out",starter_file="empty.vcv",instructions_html="<ul>
 <li>Use the video demonstration as a guide (open video in separate tab as needed)</li>
 <li>For each wave output<ul>
 <li>Connect just it to the audio inputs</li>

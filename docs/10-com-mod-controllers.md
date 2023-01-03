@@ -406,25 +406,25 @@ Since each of the techniques discussed in this chapter has its strengths and wea
 ## Check your understanding
 
 1. Which of the following is suitable for combining sequences into larger patterns?
-- speed variable clocks
-- logic gates
-- Euclidean rhythms
 - sequential switches
+- Euclidean rhythms
+- logic gates
+- speed variable clocks
 
 2. Which of the following is not a problem for sequencing using clock divisions alone?
-- regular beats
-- offbeats
 - rolls
+- offbeats
+- regular beats
 - rests
             
 3. How many Boolean logic operators are there?
 - 3
+- 2
 - 4
 - 5
-- 2
             
 4. Which of the following is not a parameter of Euclidean rhythms?
-- rotation
 - positions
-- beats
+- rotation
 - probability
+- beats
