@@ -6,6 +6,7 @@ bookdown::bs4_book:
     primary: '#096B72'
   repo: https://github.com/aolney/ct-modular-book
   includes:
+    in_header: google_analytics.html
     after_body: include/webex.js
   md_extensions: -smart
 bookdown::pdf_book:

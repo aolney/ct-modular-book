@@ -1,7 +1,7 @@
 --- 
 title: "Computational Thinking through Modular Sound Synthesis"
 author: "Andrew M. Olney"
-date: "2023-01-03"
+date: "2023-01-06"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:

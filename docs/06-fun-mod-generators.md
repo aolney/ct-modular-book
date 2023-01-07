@@ -380,36 +380,36 @@ Because the LFO produces continuous changes in voltage, the playback is continuo
 ## Check your understanding
 
 1. Which of the following can create the effect of two interfering oscillators with only one VCO?
-- phase modulation
-- pulse width modulation
-- amplitude modulation
 - frequency modulation
+- pulse width modulation
+- phase modulation
+- amplitude modulation
 2. Which of the following must be set to for an LFO to work with a VCA?
-- unipolar VCA input
-- unipolar LFO output
 - bipolar LFO output
+- unipolar VCA input
 - bipolar VCA  input
+- unipolar LFO output
             
 3. When a follower VCO with an integer multiple frequency of a leader VCO is synchronized, what is emphasized?
 - follower partials
-- follower harmonics
-- leader partials
 - leader harmonics
+- leader partials
+- follower harmonics
             
 4. What is the term for two near identical notes played simultaneously?
-- interval
-- chord
-- chorus
 - tetrachord
+- chord
+- interval
+- chorus
             
 5. Which of the following cannot be implemented using an LFO?
-- pulse width modulation
 - chorus
 - tremolo
+- pulse width modulation
 - vibrato
             
 6. At what frequency would aliasing be expected with a 16 kHz sampling rate?
 - 8 kHz
-- 16 kHz
 - 4 kHz
+- 16 kHz
 - 32 kHz
