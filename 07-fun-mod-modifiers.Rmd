@@ -30,7 +30,7 @@ However, music does not consist of continuous tones.
 When we begin to consider music more broadly, it makes sense to think of phase and offset distance being decoupled depending on how much time has passed.
 In real music, simultaneous sounds don't repeat forever but rather change over fairly short timescales, e.g. the envelope of a kick drum.
 For brief moments of time, phase relationships capture most everything, but for longer offset distances, the amount of time that has passed is more relevant than phase relationships.
-For this reason, time-based effects for short periods of time are often described in terms of phase, and longer-period effects are described in terms to time.
+For this reason, time-based effects for short periods of time are often described in terms of phase, and longer-period effects are described in terms of time.
 Figure \@ref(fig:moon-phase-time) illustrates this idea with 6 seconds of natural sound (upper) compared to .03 seconds of that same sound (lower).
 While the longer stretch is clearly not repeating, the shorter stretch is approximately repeating and could be usefully characterized in terms of phase.
 
@@ -48,7 +48,7 @@ We'll begin with effects operating on the longest time scales and move progressi
 
 A [delay effect](https://en.wikipedia.org/wiki/Delay_(audio_effect)) copies some portion of of the signal and then replays it, typically mixed in with the original signal.
 The ratio of original signal to processed signal is commonly referred to as dry/wet, where dry is the original signal and wet is the processed signal.
-Common parameters of delays include the length of the delayed and the number of times it repeats.
+Common parameters of delays include the length of the delay and the number of times it repeats.
 Often a decay parameter is applied so that the delayed copy gets attenuated with each repetition.
 Some delays can play back multiple copies at once, which blurs the boundary between a delay effect and reverb.
 An example delay effect is shown in Figure \@ref(fig:moonshot-delay2s). 
@@ -119,7 +119,7 @@ Note that this recording was taken in a stadium that already had significant nat
 
 Let's take a look at a reverb module.
 The main controls are the input level, high-pass filtering^[High-pass filtering will be explained in detail later in the chapter.], and the wet/dry mix.
-This reverb module uses a combinations of sliders and knobs for parameter settings, but these can again be both manually set and modulated to create interesting sounds.
+This reverb module uses a combination of sliders and knobs for parameter settings, but these can again be both manually set and modulated to create interesting sounds.
 Try patching up a reverb into a single voice keyboard patch using the button in Figure \@ref(fig:twelvekey-env-reverb).
 
 (ref:twelvekey-env-reverb) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-envelope_12key-vco-env-vca-scope-out.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2ftwelvekey-env-reverb.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+Spring+reverb+between+Scope+and+Host+audio%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+to+Spring+reverb+in+1%3c%2fli%3e%0a%3cli%3eConnect+Spring+reverb+wet+to+Host+Audio+L+and+Scope+in+2%3c%2fli%3e%0a%3cli%3eMove+the+left+slider+on+Spring+reverb+up+to+set+the+level+of+the+effect%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+level+setting+on+the+reverb%3c%2fli%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+HPF+%28high+pass+filter%29+setting+on+the+reverb%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eChange+Spring+reverb+wet+out+to+mix+out+and+then+use+the+mix+knob+to+mix+the+dry%2fwet+sound%3c%2fli%3e%0a%3cli%3eConnect+ADSR+out+to+Spring+reverb+CV+in+1+and+press+a+key+%28the+change+is+subtle%3b+see+the+level+difference+on+the+scope%3c%2fli%3e%0a%3cli%3eChange+the+ADSR+to+the+Gate+from+the+12+key%3b+this+will+produce+a+knocking+sound%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fbefaco-spring-reverb-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a) for a reverb effect.
@@ -291,6 +291,7 @@ Try patching up a phaser into a single voice keyboard patch using the button in 
 (ref:twelvekey-env-phaser) [Virtual modular](https://olney.ai/ct-modular-book/modular-for-pdf.html?starter=key-envelope_12key-vco-env-vca-scope-out.vcv&solution=%3cimg+class%3d%27rack-image%27+src%3d%27images%2fpatch-solutions%2ftwelvekey-env-phaser.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e&instructions=%3cul%3e%0a%3cli%3eAdd+Phaser+FX+between+Scope+and+Host+audio%3c%2fli%3e%0a%3cli%3eConnect+Scope+out+1+to+Phaser+in%3c%2fli%3e%0a%3cli%3eConnect+Phaser+out+to+Host+Audio+L+and+Scope+in+2%3c%2fli%3e%0a%3cli%3eTry+the+following+and+note+the+differences+in+the+sound%3cul%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+rate+setting%3c%2fli%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+feedback+setting+%28try+holding+down+the+key%29%3c%2fli%3e%0a%3cli%3ePeriodically+pressing+the+12+key%2c+change+the+depth+setting%3c%2fli%3e%0a%3c%2ful%3e%0a%3c%2fli%3e%0a%3cli%3eConnect+ADSR+out+to+the+CV+inputs+for+these+knobs%3c%2fli%3e%0a%3cli%3eOnce+connected%2c+these+knobs+act+like+attenuators+and+control+the+depth+of+the+modulation+%3c%2fli%3e%0a%3cli%3eYou+could+similarly+control+the+effect+using+an+LFO+or+other+modulator%3c%2fli%3e%0a%3c%2ful%3e%0a%3cdiv+class%3d%27d-flex+flex-row+justify-content-around%27%3e%0a%3cimg+class%3d%27rack-image%27+src%3d%27images%2fsolo-modules%2fbitcrusher-solo.png%27+style%3d%27height%3a+300px%3b+width%3a+auto%27%3e%0a%3c%2fdiv%3e%0a) for a phaser effect.
 
 <!-- MODAL HTML BLOCK -->
+<!-- Include image of phaser fx in the div rather than bitcrusher? -->
 ```{r echo=F, out.width="100%"}
 modular_modal("twelvekey-env-phaser", starter_file="key-envelope_12key-vco-env-vca-scope-out.vcv", instructions_html="<ul>
 <li>Add Phaser FX between Scope and Host audio</li>
@@ -394,7 +395,7 @@ modular_caption()
 ```
 
 Let's take another look, this time with a square wave and an oscilloscope, which will let us look at the effect on the wave rather than the frequency spectrum.
-Of course the disadvantage of white noise is that you can't usefully look at the effect 
+Of course the disadvantage of white noise is that you can't usefully look at the effect. 
 Try modifying your patch to use an audio rate LFO and an oscilloscope using the button in Figure \@ref(fig:lfo-lfp-out-scope-fft).
 As you can see, LPF creates curious shapes that occasionally approximate shapes we recognize, like triangle and sine waves (though with reduced amplitude).
 HPF creates perhaps even more curious shapes that quickly turn into increasingly sharp pulses.
